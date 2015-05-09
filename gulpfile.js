@@ -17,11 +17,12 @@ var sDest = 'resources/assets/stylus';
 
 var cDest = 'resources/assets/coffee';
 
-gulp.task('default', ['stylus', 'coffee'], function(){
+// gulp.task('default', ['stylus', 'coffee'], function(){
+gulp.task('default', ['stylus'], function(){
 
 	gulp.watch(sDest + '/**/*', ['stylus']);
 
-	gulp.watch(cDest + '/**/*', ['coffee']);
+	// gulp.watch(cDest + '/**/*', ['coffee']);
 
 });
 
@@ -42,7 +43,7 @@ gulp.task('stylus', function(){
 				.pipe(stylus())
 				.on('error', showError)
 				.pipe(notify('Compiled : Stylus'))
-				.pipe(minify())
+				// .pipe(minify())
 				.pipe(rename('style.css'))
 				.pipe(gulp.dest('public/css'));
 });
@@ -52,12 +53,12 @@ gulp.task('stylus', function(){
 |--------------------------------------------------------------------------
 */
 
-gulp.task('coffee', function(){
-	return gulp.src(cDest + '/index.coffee')
-				.pipe(coffee())
-				.on('error', showError)
-				.pipe(notify('Compiled : Coffee'))
-				.pipe(uglify())
-				.pipe(rename('script.js'))
-				.pipe(gulp.dest('public/js'));
-});
+// gulp.task('coffee', function(){
+// 	return gulp.src(cDest + '/index.coffee')
+// 				.pipe(coffee())
+// 				.on('error', showError)
+// 				.pipe(notify('Compiled : Coffee'))
+// 				.pipe(uglify())
+// 				.pipe(rename('script.js'))
+// 				.pipe(gulp.dest('public/js'));
+// });

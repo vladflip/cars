@@ -11,5 +11,16 @@
     "gulp-stylus": "^2.0.1",
     "gulp-uglify": "^1.2.0",
     "jquery": "^2.1.4"
+  },
+  "browserify": {
+    "transform": [
+      "browserify-shim"
+    ]
+  },
+  "browser": {
+    "jquery": "./node_modules/jquery/dist/jquery.min.js"
+  },
+  "browserify-shim": {
+    
   }
 }

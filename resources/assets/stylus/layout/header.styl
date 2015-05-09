@@ -1,0 +1,42 @@
+.h_c
+	height 100px
+	// ------ all align mixin ------
+	display flex
+	align-items center
+	justify-content space-between
+	// -----------------------------
+	
+.h_logo
+	background url(../img/logo.jpg) center no-repeat
+	width 178px
+	height 62px
+	
+.h_title
+	color $color
+	font-family $font
+	font-weight 300
+	font-size 14px
+	
+.h_buttons
+	cursor pointer
+
+	display flex
+	
+	div
+		display flex
+		justify-content center
+		text-align center
+		flex-direction column
+		
+		font-family $font
+		font-weight 300
+		font-size 17px
+
+		width 150px
+		height 50px
+		margin 0 10px
+		border 4px solid transparent
+		transition border .2s linear
+		
+		&:hover
+			border 4px solid #333

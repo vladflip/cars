@@ -1,0 +1,85 @@
+hr {
+  border-top: 1px solid #f0f0f0;
+  border-right: 0;
+  border-bottom: 0;
+  border-left: 0;
+  margin: 0;
+}
+body {
+  margin: 0;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+  height: 100%;
+  width: 100%;
+  display: inline-block;
+}
+.container {
+  height: 100%;
+  width: auto;
+  max-width: 1140px;
+  float: none;
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+  padding-left: 0;
+  padding-right: 0;
+}
+.h_c {
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.h_logo {
+  background: url("../img/logo.jpg") center no-repeat;
+  width: 178px;
+  height: 62px;
+}
+.h_title {
+  color: #2d2d2d;
+  font-family: Roboto, sans-serif;
+  font-weight: 300;
+  font-size: 14px;
+}
+.h_buttons {
+  cursor: pointer;
+  display: flex;
+}
+.h_buttons div {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  flex-direction: column;
+  font-family: Roboto, sans-serif;
+  font-weight: 300;
+  font-size: 17px;
+  width: 150px;
+  height: 50px;
+  margin: 0 10px;
+  border: 4px solid transparent;
+  transition: border 0.2s linear;
+}
+.h_buttons div:hover {
+  border: 4px solid #333;
+}
+.menu {
+  height: 60px;
+}
+.m_c {
+  display: flex;
+}
+.m_c div {
+  height: 100%;
+  font-family: Roboto, sans-serif;
+  font-weight: 300;
+  color: #2d2d2d;
+  padding: 0 15px;
+}
+.m_c div a {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+}
