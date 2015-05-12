@@ -17,6 +17,77 @@ a {
   width: 100%;
   display: inline-block;
 }
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.clear-fix {
+  *zoom: 1;
+}
+.clear-fix:before,
+.clear-fix:after {
+  content: '';
+  display: table;
+}
+.clear-fix:after {
+  clear: both;
+}
+.footer {
+  height: 290px;
+  background-color: #2d2d2d;
+}
+.footer .f_left {
+  float: left;
+}
+.footer .f_left ul {
+  float: left;
+  margin: 35px 70px 0 0;
+}
+.footer .f_left ul li:first-child {
+  color: #e0e0e0;
+  font-size: 14px;
+  margin-top: 0;
+}
+.footer .f_left ul li {
+  color: #6a6a6a;
+  font-size: 13px;
+  margin-top: 15px;
+}
+.footer .f_left h5 {
+  color: #6a6a6a;
+  font-weight: 300;
+  margin-top: 50px;
+}
+.footer .f_right {
+  float: right;
+  width: 215px;
+}
+.footer .f_right h5 {
+  margin: 35px 0 0 0;
+  color: #e0e0e0;
+  font-weight: 300;
+}
+.footer .f_right .f_reg-button {
+  color: #e0e0e0;
+  margin-top: 40px;
+  font-size: 14px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+  border: 2px solid #e0e0e0;
+  border-radius: 2px;
+  width: 200px;
+  height: 55px;
+}
+.footer .f_right .f_logo {
+  background: url("../img/footer_logo.jpg") center no-repeat;
+  height: 100px;
+  margin-top: 15px;
+}
 .container {
   height: 100%;
   width: auto;

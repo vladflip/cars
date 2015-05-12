@@ -16,5 +16,8 @@
 
 	@yield('body')
 
+	
+	@include('inc.footer')
+
 </body>
 </html>
