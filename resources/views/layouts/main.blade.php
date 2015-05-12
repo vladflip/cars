@@ -14,5 +14,7 @@
 
 	@include('inc.menu')
 
+	@yield('body')
+
 </body>
 </html>
