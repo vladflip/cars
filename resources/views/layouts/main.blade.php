@@ -13,6 +13,7 @@
 	<hr>
 
 	@include('inc.menu')
+	
 
 	@yield('body')
 

@@ -107,7 +107,7 @@ ol {
 }
 .h_logo {
   background: url("../img/logo.jpg") center no-repeat;
-  width: 178px;
+  width: 165px;
   height: 62px;
 }
 .h_title {
@@ -163,14 +163,14 @@ ol {
   background-color: #f3f3f3;
 }
 .wide-image {
-  background: url("../img/background.jpg") center -120px no-repeat;
-  height: 410px;
+  background: url("../img/background.jpg") center -164px no-repeat;
+  height: 390px;
   width: 100%;
   position: absolute;
 }
 .c_c {
   position: relative;
-  margin-top: 130px;
+  margin-top: 125px;
   *zoom: 1;
 }
 .c_c:before,
@@ -184,50 +184,218 @@ ol {
 .c_left {
   margin-right: 10px;
   float: left;
-  width: 260px;
+  width: 870px;
   background-color: #fff;
-  border-radius: 2px;
+  border-radius: 10px;
   color: #2d2d2d;
 }
-.c_left h3 {
-  margin: 25px 0 0 25px;
+.c_left .c_top {
+  position: relative;
+  margin-top: 25px;
+}
+.c_left .c_top h3 {
+  margin: 0 0 0 35px;
+  word-spacing: 2px;
   width: 185px;
   font-size: 18px;
 }
-.c_left .c_menu {
-  list-style: none;
-  font-size: 13px;
-  margin: 20px 0 0 25px;
-  padding: 0;
-}
-.c_left .c_menu li {
-  margin-bottom: 15px;
-}
-.c_left .c_menu li:last-child {
-  margin-bottom: 0;
-}
-.c_add-organization {
-  font-size: 14px;
+.c_left .c_top .c_add-organization {
+  position: absolute;
+  top: 15px;
+  right: 40px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+  font-size: 12px;
   width: 170px;
   height: 40px;
-  margin: 35px auto;
   cursor: pointer;
-  border: 4px solid #f3a96d;
+  border: 4px solid #f0f0f0;
+}
+.c_left .c_top .c_toogler {
+  margin: 20px 0 0 35px;
+  display: flex;
+}
+.c_left .c_top .c_toogler div {
+  font-size: 14px;
+  background-color: #f0f0f0;
+  margin-right: 1px;
+  width: 90px;
+  cursor: pointer;
+  height: 35px;
   display: flex;
   flex-direction: column;
   text-align: center;
   justify-content: center;
 }
-.c_middle {
-  margin-right: 10px;
+.c_left .c_top .c_toogler div.active {
+  background-color: #fdf6d1;
+}
+.c_left .c_parts-header {
+  margin: 35px 0 0 0;
+  display: flex;
+}
+.c_left .c_parts-header h3 {
+  display: inline-block;
+  margin: 5px 0 0 15px;
+  font-size: 17px;
+}
+.c_left .c_parts-header hr {
+  margin: 17px 0 0 75px;
+  width: 643px;
+}
+.c_left .c_row-img {
+  background: url("../img/row.jpg") center no-repeat;
+  width: 70px;
+  height: 30px;
+}
+.c_left .c_categories {
+  margin: 10px 0 0 70px;
+  height: 160px;
+  display: flex;
+  flex-flow: column wrap;
+  width: 440px;
+}
+.c_left .c_categories li {
   float: left;
-  width: 600px;
-  background-color: #fff;
-  border-radius: 5px;
+  font-size: 12px;
+  margin-bottom: 5px;
+}
+.c_left .c_categories li span {
+  padding: 9px 15px;
+  display: inline-block;
+  cursor: pointer;
+}
+.c_left .c_categories li span.active,
+.c_left .c_categories li span:hover {
+  background-color: #fdf6d1;
+}
+.c_left .c_make-header {
+  display: flex;
+}
+.c_left .c_make-header h3 {
+  display: inline-block;
+  margin: 5px 0 0 15px;
+  font-size: 17px;
+}
+.c_left .c_make-header hr {
+  margin: 17px 0 0 75px;
+  width: 501px;
+}
+.c_left .c_makes {
+  margin: 20px 0 0 70px;
+  height: 250px;
+  display: flex;
+  flex-flow: column wrap;
+}
+.c_left .c_makes li {
+  float: left;
+  font-size: 13px;
+  margin-bottom: 5px;
+}
+.c_left .c_makes li span {
+  padding: 9px 15px;
+  display: inline-block;
+  cursor: pointer;
+}
+.c_left .c_makes li span.active,
+.c_left .c_makes li span:hover {
+  background-color: #fdf6d1;
+}
+.c_left .c_show-orgs {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+  font-size: 12px;
+  width: 170px;
+  height: 40px;
+  cursor: pointer;
+  border: 4px solid #f3df6d;
+  margin: auto;
+}
+.c_left .c_show-more-orgs {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+  font-size: 12px;
+  width: 170px;
+  height: 40px;
+  cursor: pointer;
+  border: 4px solid #f0f0f0;
+  margin: 20px auto;
+}
+.c_left .founded-orgs {
+  margin: 35px 0 0 0;
+  padding: 0 0 10px 35px;
+}
+.c_left .founded-orgs h2 {
+  margin: 20px 0 0 0;
+  font-size: 21px;
+  font-weight: 400;
+}
+.c_left .founded-orgs ul {
+  margin: 40px 0 0 0;
+}
+.c_left .founded-orgs ul li {
+  width: 390px;
+  height: 102px;
+  float: left;
+  padding: 10px;
+  cursor: pointer;
+}
+.c_left .founded-orgs ul li:hover {
+  background-color: #faf7e9;
+}
+.c_left .founded-orgs ul li .f-o_logo {
+  background: url("../img/com_logo.jpg") center no-repeat;
+  width: 100px;
+  height: 100px;
+  border: 1px solid #f0f0f0;
+  float: left;
+}
+.c_left .founded-orgs ul li .org-text {
+  height: 100px;
+  padding-left: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.c_left .founded-orgs ul li .org-text h3,
+.c_left .founded-orgs ul li .org-text h5 {
+  margin: 0;
+}
+.c_left .founded-orgs ul li .org-text h3 {
+  font-weight: 400;
+  font-size: 17px;
+}
+.c_left .founded-orgs ul li .org-text h5:first-of-type {
+  margin: 10px 0;
+  font-size: 12px;
+  font-weight: 300;
+}
+.c_left .founded-orgs ul li .org-text h5:last-of-type {
+  color: #ccc;
+  font-weight: 300;
+  font-size: 12px;
 }
 .c_right {
   float: right;
   width: 260px;
   background-color: #f3df6d;
   border-radius: 2px;
+}
+.c_menu {
+  list-style: none;
+  font-size: 13px;
+  margin: 20px 0 0 25px;
+  padding: 0;
+}
+.c_menu li {
+  margin-bottom: 15px;
+}
+.c_menu li:last-child {
+  margin-bottom: 0;
 }
