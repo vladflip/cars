@@ -176,6 +176,34 @@
 
 			<div class="c_right">
 				
+				<div class="c_search">
+					
+					<h3>Найти</h3>
+
+					<div class="c_toogler">
+						<div class="c_t_parts">
+							Запчасти
+						</div>
+						<div class="c_t_services">
+							Услуги
+						</div>
+					</div>
+
+					<p>
+						Отправьте запрос, на который ответят специалисты
+						профильных организаций
+					</p>
+
+				</div>
+
+				<div class="c_feedback">
+					<h3>Нам важно мнение</h3>
+					<p>
+						Вы можете поделиться своим мнением с другими участниками клуба
+					</p>
+					<div class="c_left-feedback">Написать отзыв</div>
+				</div>
+
 			</div>
 
 		</div>
