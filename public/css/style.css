@@ -151,6 +151,10 @@ ol {
 .m_c div:first-child {
   margin-left: 0;
 }
+.m_c div:hover,
+.m_c div.active {
+  color: #aaa;
+}
 .m_c div a {
   display: flex;
   flex-direction: column;

@@ -11,6 +11,10 @@
 |
 */
 
-Route::get('/', function(){
+get('/', ['as' => 'home', function(){
+	return view('pages.home');
+}]);
+
+get('/catalog', ['as' => 'catalog', function(){
 	return view('pages.catalog');
-});
+}]);
