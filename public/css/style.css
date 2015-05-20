@@ -113,7 +113,8 @@ ol {
 .h_title {
   color: #2d2d2d;
   font-weight: 300;
-  font-size: 14px;
+  font-size: 12px;
+  word-spacing: 2px;
 }
 .h_buttons {
   cursor: pointer;
@@ -125,15 +126,14 @@ ol {
   text-align: center;
   flex-direction: column;
   font-weight: 300;
-  font-size: 17px;
+  font-size: 15px;
   width: 150px;
   height: 50px;
   margin: 0 10px;
   border: 4px solid transparent;
-  transition: border 0.2s linear;
 }
 .h_buttons div:hover {
-  border: 4px solid #333;
+  border: 4px solid #f0f0f0;
 }
 .menu {
   height: 60px;
@@ -388,20 +388,19 @@ ol {
 }
 .c_search {
   background-color: #f3df6d;
-  padding: 20px 35px;
+  padding: 15px 40px 30px;
 }
 .c_search h3 {
-  font-size: 16px;
-  margin-left: 5px;
+  font-size: 17px;
 }
 .c_search p {
-  margin: 25px 0 0 5px;
+  margin: 25px 0 0 0;
   text-align: center;
   line-height: 25px;
   font-size: 12px;
 }
 .c_search .c_toogler {
-  margin: 10px 0 0 5px;
+  margin: 10px 0 0 0;
   display: flex;
 }
 .c_search .c_toogler div {
@@ -417,7 +416,7 @@ ol {
   justify-content: center;
 }
 .c_feedback {
-  margin: 20px 0 0 0;
+  margin: 10px 0 0 0;
   background-color: #fff;
   padding: 20px 40px;
   display: flex;
