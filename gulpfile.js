@@ -4,7 +4,8 @@ var gulp = require('gulp'),
 	rename = require('gulp-rename'),
 	stylus = require('gulp-stylus'),
 	uglify = require('gulp-uglify'),
-	coffee = require('gulp-coffeeify');
+	coffee = require('gulp-coffeeify'),
+	prefix = require('gulp-autoprefixer');
 
 /*
 |--------------------------------------------------------------------------
@@ -43,6 +44,9 @@ gulp.task('stylus', function(){
 				.pipe(stylus())
 				.on('error', showError)
 				.pipe(notify('Compiled : Stylus'))
+				.pipe(prefix({
+					browsers: ['last 2 versions']
+				}))
 				// .pipe(minify())
 				.pipe(rename('style.css'))
 				.pipe(gulp.dest('public/css'));

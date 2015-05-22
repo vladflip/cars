@@ -28,7 +28,7 @@
 				</div>
 
 				<div class="c_parts-header">
-					<div class="c_row-img"></div>
+					<div class="row-image"></div>
 					<h3>Рубрики</h3>
 					<hr>
 				</div>
@@ -44,7 +44,7 @@
 				</ul>
 
 				<div class="c_make-header">
-					<div class="c_row-img"></div>
+					<div class="row-image"></div>
 					<h3>Выберите производителя</h3>
 					<hr>
 				</div>
@@ -176,15 +176,15 @@
 
 			<div class="c_right">
 				
-				<div class="c_search">
+				<div class="search-side-bar">
 					
 					<h3>Найти</h3>
 
-					<div class="c_toogler">
-						<div class="c_t_parts">
+					<div class="s-s_toogler">
+						<div class="s_t_parts">
 							Запчасти
 						</div>
-						<div class="c_t_services">
+						<div class="s_t_services">
 							Услуги
 						</div>
 					</div>
