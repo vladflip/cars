@@ -18,3 +18,7 @@ get('/', ['as' => 'home', function(){
 get('/catalog', ['as' => 'catalog', function(){
 	return view('pages.catalog');
 }]);
+
+get('/profile', ['as' => 'profile', function(){
+	return view('pages.profile');
+}]);
