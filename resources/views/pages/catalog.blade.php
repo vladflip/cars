@@ -27,21 +27,23 @@
 					</div>
 				</div>
 
-				<div class="c_parts-header">
-					<div class="row-image"></div>
-					<h3>Рубрики</h3>
-					<hr>
+				<div class="parts-block">
+					<div class="p-b_header">
+						<div class="row-image"></div>
+						<h3>Рубрики</h3>
+						<hr>
+					</div>
+					
+					<ul class="p-b_categories">
+						<li><span>Магазины запчастей</span></li>
+						<li><span class="active">Разборки (б/у)</span></li>
+						<li><span class="active">Технические центры</span></li>
+						<li><span>Автосервисы</span></li>
+						<li><span>Мойки грузовые</span></li>
+						<li><span>Установка оборудования</span></li>
+						<li><span class="active">Шины и диски</span></li>
+					</ul>
 				</div>
-
-				<ul class="c_categories">
-					<li><span>Магазины запчастей</span></li>
-					<li><span class="active">Разборки (б/у)</span></li>
-					<li><span class="active">Технические центры</span></li>
-					<li><span>Автосервисы</span></li>
-					<li><span>Мойки грузовые</span></li>
-					<li><span>Установка оборудования</span></li>
-					<li><span class="active">Шины и диски</span></li>
-				</ul>
 
 				<div class="c_make-header">
 					<div class="row-image"></div>

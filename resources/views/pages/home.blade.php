@@ -67,6 +67,24 @@
 
 				</div>
 
+				<div class="parts-block">
+					<div class="p-b_header">
+						<div class="row-image"></div>
+						<h3>Рубрики</h3>
+						<hr>
+					</div>
+					
+					<ul class="p-b_categories">
+						<li><span>Магазины запчастей</span></li>
+						<li><span class="active">Разборки (б/у)</span></li>
+						<li><span class="active">Технические центры</span></li>
+						<li><span>Автосервисы</span></li>
+						<li><span>Мойки грузовые</span></li>
+						<li><span>Установка оборудования</span></li>
+						<li><span class="active">Шины и диски</span></li>
+					</ul>
+				</div>
+
 				<div class="m_makes">
 					
 					<div class="m_m_header">
@@ -117,7 +135,7 @@
 					<h3>Найти</h3>
 
 					<div class="s-s_toogler">
-						<div class="s_t_parts">
+						<div class="s_t_parts active">
 							Запчасти
 						</div>
 						<div class="s_t_services">
@@ -125,10 +143,34 @@
 						</div>
 					</div>
 
-					<p>
-						Отправьте запрос, на который ответят специалисты
-						профильных организаций
-					</p>
+					<h4>Тип</h4>
+					<select name="" id="">
+						<option value="">Грузовики</option>
+						<option value="">Автобусы</option>
+						<option value="">Малый коммерческий транспорт</option>
+						<option value="">Прицепы</option>
+					</select>
+
+					<h4>Производитель</h4>
+					<select name="" id="">
+						<option value="">Audi</option>
+					</select>
+
+					<h4>Модель</h4>
+					<select name="" id="">
+						<option value="">TT</option>
+					</select>
+
+					<h4>Год выпуска</h4>
+					<input type="text">
+
+					<input type="checkbox"> <label for="">Новая</label>
+					<input type="checkbox"> <label for="">б/у</label>
+
+					<h4>Дополнительно</h4>
+					<input type="text" class="s-s_more" value="VIN и т.п">
+
+					<div class="s-s_send">Отправить запрос</div>
 
 				</div>
 
