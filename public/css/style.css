@@ -754,12 +754,24 @@ h3 {
   width: 130px;
   height: 100px;
   display: inline-block;
+  cursor: pointer;
 }
 .main-content .m_middle .m_type ul li div {
-  background: url("../img/car.jpg") center no-repeat;
   width: 120px;
   margin: auto;
   height: 70px;
+}
+.main-content .m_middle .m_type ul li:first-child div {
+  background: url("../img/icon1.jpg") center no-repeat;
+}
+.main-content .m_middle .m_type ul li:nth-child(2) div {
+  background: url("../img/car.jpg") center no-repeat;
+}
+.main-content .m_middle .m_type ul li:nth-child(3) div {
+  background: url("../img/icon2.jpg") center no-repeat;
+}
+.main-content .m_middle .m_type ul li:last-child div {
+  background: url("../img/icon3.jpg") center no-repeat;
 }
 .main-content .m_middle .m_type ul li span {
   font-size: 12px;

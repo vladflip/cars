@@ -72,12 +72,21 @@
 					width 130px
 					height 100px
 					display inline-block
+					cursor pointer
 					
 					div
-						background url(../img/car.jpg) center no-repeat
 						width 120px
 						margin auto
 						height 70px
+
+					&:first-child div
+						background url(../img/icon1.jpg) center no-repeat
+					&:nth-child(2) div
+						background url(../img/car.jpg) center no-repeat
+					&:nth-child(3) div
+						background url(../img/icon2.jpg) center no-repeat
+					&:last-child div
+						background url(../img/icon3.jpg) center no-repeat
 						
 					span
 						font-size 12px
