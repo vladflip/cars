@@ -58,6 +58,7 @@ body {
   margin: 0;
   font-family: Roboto, sans-serif;
   font-weight: 300;
+  background-color: #f3f3f3;
 }
 a {
   color: inherit;
@@ -86,6 +87,12 @@ h3 {
 }
 .clear-fix:after {
   clear: both;
+}
+.left {
+  float: left;
+}
+.right {
+  float: right;
 }
 .footer {
   height: 400px;
@@ -157,6 +164,9 @@ h3 {
   margin-left: auto;
   padding-left: 0;
   padding-right: 0;
+}
+.header {
+  background-color: #fff;
 }
 .h_c {
   height: 100px;
@@ -246,6 +256,7 @@ h3 {
 }
 .menu {
   height: 60px;
+  background-color: #fff;
 }
 .m_c {
   display: -webkit-flex;
@@ -301,7 +312,7 @@ h3 {
   float: left;
   width: 870px;
   background-color: #fff;
-  border-radius: 10px;
+  border-radius: 2px;
   color: #2d2d2d;
 }
 .c_left .c_top {
@@ -636,7 +647,7 @@ h3 {
   float: left;
   width: 600px;
   background-color: #fff;
-  border-radius: 5px;
+  border-radius: 2px;
 }
 .main-content .m_middle>h3 {
   margin: 25px 0 0 35px;
