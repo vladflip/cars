@@ -408,7 +408,7 @@ h3 {
 }
 .menu {
   height: 60px;
-  background-color: #fff;
+  background-color: #2d2d2d;
 }
 .menu .container {
   display: -webkit-flex;
@@ -419,7 +419,7 @@ h3 {
   height: 100%;
   font-weight: 300;
   font-size: 15px;
-  color: #2d2d2d;
+  color: #fff;
   margin: 0 25px;
 }
 .menu_btn:first-child {
@@ -427,7 +427,7 @@ h3 {
 }
 .menu_btn:hover,
 .menu_btn.active {
-  color: #aaa;
+  color: #999;
 }
 .menu_btn a {
   display: -webkit-flex;

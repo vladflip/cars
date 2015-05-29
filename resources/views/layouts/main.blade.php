@@ -10,7 +10,6 @@
 	
 	@include('inc.header')
 
-	<hr>
 
 	@include('inc.menu')
 	

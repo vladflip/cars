@@ -5,9 +5,9 @@
 		<div class="menu_btn {{ Request::is('/') ? 'active' : '' }}">
 			<a href="{{ route('home') }}">Главная</a>
 		</div>
-		<div class="menu_btn {{ Request::is('about') ? 'active' : '' }}">
+		{{-- <div class="menu_btn {{ Request::is('about') ? 'active' : '' }}">
 			<a href="#">О клубе</a>
-		</div>
+		</div> --}}
 		<div class="menu_btn {{ Request::is('catalog') ? 'active' : '' }}">
 			<a href="{{ route('catalog') }}">Каталог</a>
 		</div>
