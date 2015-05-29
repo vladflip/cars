@@ -198,13 +198,7 @@
 
 				</div>
 
-				<div class="c_feedback">
-					<h3>Нам важно мнение</h3>
-					<p>
-						Вы можете поделиться своим мнением с другими участниками клуба
-					</p>
-					<div class="c_left-feedback">Написать отзыв</div>
-				</div>
+				@include('inc.feedback')
 
 			</div>
 

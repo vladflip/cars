@@ -1,31 +1,32 @@
 .header
 	background-color white
 
-.h_c
-	height 100px
-	// ------ all align mixin ------
-	display flex
-	align-items center
-	justify-content space-between
-	// -----------------------------
+	.container
+		height 100px
+		// ------ all align mixin ------
+		display flex
+		align-items center
+		justify-content space-between
+		// -----------------------------
 	
-.h_logo
-	background url(../img/logo.jpg) center no-repeat
-	width 165px
-	height 62px
+	&_logo
+		background url(../img/logo.jpg) center no-repeat
+		width 165px
+		height 62px
 	
-.h_title
-	color $color
-	font-weight 300
-	font-size 12px
-	word-spacing 2px
+	&_title
+		color $color
+		font-weight 300
+		font-size 12px
+		word-spacing 2px
 	
-.h_buttons
-	cursor pointer
+	&_buttons
+		cursor pointer
 
-	display flex
-	
-	div
+		display flex
+		
+	&_signup,
+	&_signin
 		display flex
 		justify-content center
 		text-align center
@@ -42,7 +43,7 @@
 		&:hover
 			border 4px solid $grey
 			
-.h_profile
+.profile
 	display flex
 	align-items center
 	align-content space-between
@@ -51,7 +52,7 @@
 		font-weight 700
 		font-size 12px
 	
-	.h_p_names
+	&_names
 		margin 0 20px
 		
 		h5
@@ -63,7 +64,7 @@
 			font-size 12px
 			margin-top 5px
 			
-	.h_p_ava
+	&_ava
 		width 40px
 		height 40px
 		border-radius 50%

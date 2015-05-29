@@ -2,7 +2,7 @@
 	
 	<div class="container">
 		
-		<div class="f_left">
+		<div class="left">
 			
 			<ul>
 				<li>Информация</li>
@@ -35,17 +35,17 @@
 
 		</div>
 
-		<div class="f_right">
+		<div class="right">
 			
 			<h5>
 				Зарегистрируйся и найди любые запчасти бесплатно
 			</h5>
 
-			<div class="f_reg-button">
+			<div class="footer_reg-button">
 				Регистрация
 			</div>
 
-			<div class="f_logo">
+			<div class="footer_logo">
 				
 			</div>
 
