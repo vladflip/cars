@@ -11,37 +11,61 @@
 	
 	&_logo
 		background url(../img/logo.jpg) center no-repeat
-		width 165px
-		height 62px
+		background-size 100%
+		width 225px
+		height 40px
 	
 	&_title
 		color $color
 		font-weight 300
-		font-size 12px
+		font-size 13px
 		word-spacing 2px
+		margin-top 10px
 	
-	&_buttons
-		cursor pointer
-
+	&_inputs
 		display flex
+		position relative
 		
-	&_signup,
-	&_signin
+	&_login,
+	&_pass
 		display flex
 		justify-content center
 		text-align center
 		flex-direction column
 		
 		font-weight 300
-		font-size 15px
+		font-size 12px
 
 		width 150px
-		height 50px
-		margin 0 10px
-		border 4px solid transparent
+		padding 8px
+		border 2px solid $grey
+		text-align left
+		outline none
 		
-		&:hover
-			border 4px solid $grey
+		+placeholder()
+			color $color
+		
+	&_login
+		margin-right 10px
+	&_pass
+		padding-right 30px
+		width 130px
+		
+	&_submit-arrow
+		background url(../img/sign-in-arrow.jpg) no-repeat
+		width 26px
+		height 26px
+		position absolute
+		right 4px
+		top 4px
+		cursor pointer
+			
+	&_register
+		text-align right
+		font-size 13px
+		cursor pointer
+		color $color
+		margin-top 10px
 			
 .profile
 	display flex
