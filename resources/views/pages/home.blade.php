@@ -2,35 +2,15 @@
 
 @section('body')
 
-	<div class="main-content">
+	<div class="home-content">
 
 		<div class="wide-image"></div>
 		
 		<div class="container">
 			
-			<div class="m_left">
+			<div class="home-content_left">
 				
-				<div class="m_catalog">
-					
-					<h3>Каталог Организаций</h3>
-
-					<ul class="m_menu">
-						
-						<li>Магазины запчастей</li>
-						<li>Разборки (б/у)</li>
-						<li>Тех. центры</li>
-						<li>Автосервисы</li>
-						<li>Мойки грузовые</li>
-						<li>Установка оборудования</li>
-						<li>Шины и диски</li>
-
-					</ul>
-
-					<div class="m_add-org">
-						Добавить организацию
-					</div>
-
-				</div>
+				@include('inc.org-catalog')
 
 			</div>
 
