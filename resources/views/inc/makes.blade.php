@@ -5,6 +5,8 @@
 		<hr>
 	</div>
 
+	<div class="makes_count">45 компанйи</div>
+
 	<ul>
 		<li><span>Lexus</span></li>
 		<li><span>Honda</span></li>
@@ -31,9 +33,5 @@
 		<li><span>Chevrolet</span></li>
 		<li><span>Dodge</span></li>
 	</ul>
-
-	<div class="makes_show">
-		Показать
-	</div>
 
 </div>

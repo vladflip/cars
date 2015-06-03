@@ -1,3 +1,102 @@
+.makes_count,
+.parts_count,
+.type_count {
+  background-color: #f0f0f0;
+  width: 120px;
+  cursor: pointer;
+  position: absolute;
+  right: 0;
+  top: 20px;
+  height: 35px;
+  font-size: 12px;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  text-align: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.found {
+  margin: 35px 0 0 0;
+}
+.found h3 {
+  margin: 25px 0 0 35px;
+  font-size: 18px;
+  word-spacing: 2px;
+}
+.found ul {
+  margin: 20px 0 0 0;
+  padding: 0 35px;
+}
+.found ul li {
+  height: 102px;
+  padding: 15px;
+  cursor: pointer;
+}
+.found ul li:hover {
+  background-color: #faf7e9;
+}
+.found_logo {
+  background: url("../img/com_logo.jpg") center no-repeat;
+  width: 100px;
+  height: 100px;
+  border: 1px solid #f0f0f0;
+  border-radius: 2px;
+  float: left;
+}
+.found_text {
+  height: 100px;
+  padding-left: 20px;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.found_text h3,
+.found_text h5 {
+  margin: 0;
+}
+.found_text h3 {
+  font-weight: 400;
+  font-size: 17px;
+}
+.found_text h5:first-of-type {
+  margin: 10px 0;
+  font-size: 12px;
+  font-weight: 300;
+}
+.found_text h5:last-of-type {
+  color: #ccc;
+  font-weight: 300;
+  font-size: 12px;
+}
+.found_more {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  text-align: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-size: 12px;
+  width: 170px;
+  height: 40px;
+  cursor: pointer;
+  border: 4px solid #f0f0f0;
+  margin: 20px auto;
+}
 .wide-image {
   background: url("../img/background.jpg") center -164px no-repeat;
   height: 615px;
@@ -21,7 +120,26 @@
   height: 30px;
   border-right-width: 30px;
 }
+.show-orgs {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  text-align: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-size: 12px;
+  width: 170px;
+  height: 40px;
+  cursor: pointer;
+  border: 4px solid #f3df6d;
+  margin: 0 auto 25px;
+}
 .makes {
+  position: relative;
   margin: 25px 0 0 0;
 }
 .makes_header {
@@ -58,24 +176,6 @@
 .makes ul li span.active,
 .makes ul li span:hover {
   background-color: #fdf6d1;
-}
-.makes_show {
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: column;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  text-align: center;
-  -webkit-justify-content: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  font-size: 12px;
-  width: 170px;
-  height: 40px;
-  cursor: pointer;
-  border: 4px solid #f3df6d;
-  margin: 0 auto 25px;
 }
 .org-catalog {
   border-radius: 2px;
@@ -118,6 +218,9 @@
   cursor: pointer;
   border: 4px solid #f3df6d;
   margin: 40px auto 0;
+}
+.parts {
+  position: relative;
 }
 .parts_header {
   margin: 35px 0 0 0;
@@ -281,26 +384,6 @@ div.search-side-bar .toogler_active {
   -webkit-flex-grow: 1;
       -ms-flex-positive: 1;
           flex-grow: 1;
-}
-.type_count {
-  background-color: #f0f0f0;
-  width: 120px;
-  cursor: pointer;
-  position: absolute;
-  right: 0;
-  top: 20px;
-  height: 35px;
-  font-size: 12px;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: column;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  text-align: center;
-  -webkit-justify-content: center;
-      -ms-flex-pack: center;
-          justify-content: center;
 }
 .type ul {
   text-align: center;
@@ -714,84 +797,6 @@ h3 {
   height: 40px;
   cursor: pointer;
   border: 4px solid #f0f0f0;
-}
-.c_left .c_show-more-orgs {
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: column;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  text-align: center;
-  -webkit-justify-content: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  font-size: 12px;
-  width: 170px;
-  height: 40px;
-  cursor: pointer;
-  border: 4px solid #f0f0f0;
-  margin: 20px auto;
-}
-.c_left .founded-orgs {
-  margin: 35px 0 0 0;
-  padding: 0 0 10px 35px;
-}
-.c_left .founded-orgs h2 {
-  margin: 20px 0 0 0;
-  font-size: 21px;
-  font-weight: 400;
-}
-.c_left .founded-orgs ul {
-  margin: 40px 0 0 0;
-}
-.c_left .founded-orgs ul li {
-  width: 390px;
-  height: 102px;
-  float: left;
-  padding: 10px;
-  cursor: pointer;
-}
-.c_left .founded-orgs ul li:hover {
-  background-color: #faf7e9;
-}
-.c_left .founded-orgs ul li .f-o_logo {
-  background: url("../img/com_logo.jpg") center no-repeat;
-  width: 100px;
-  height: 100px;
-  border: 1px solid #f0f0f0;
-  float: left;
-}
-.c_left .founded-orgs ul li .org-text {
-  height: 100px;
-  padding-left: 20px;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: column;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-justify-content: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-}
-.c_left .founded-orgs ul li .org-text h3,
-.c_left .founded-orgs ul li .org-text h5 {
-  margin: 0;
-}
-.c_left .founded-orgs ul li .org-text h3 {
-  font-weight: 400;
-  font-size: 17px;
-}
-.c_left .founded-orgs ul li .org-text h5:first-of-type {
-  margin: 10px 0;
-  font-size: 12px;
-  font-weight: 300;
-}
-.c_left .founded-orgs ul li .org-text h5:last-of-type {
-  color: #ccc;
-  font-weight: 300;
-  font-size: 12px;
 }
 .c_right {
   float: right;

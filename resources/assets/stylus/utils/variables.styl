@@ -14,6 +14,14 @@ center-text()
 	text-align center
 	justify-content center
 	
+button(color)
+	center-text()
+	font-size 12px
+	width 170px
+	height 40px
+	cursor pointer
+	border 4px solid color
+	
 placeholder()
 	&::-webkit-input-placeholder 
 		{block}
@@ -26,3 +34,14 @@ placeholder()
 		
 block-border()
 	border 1px solid #efefef
+	
+$count
+	background-color $grey
+	width 120px
+	cursor pointer
+	position absolute
+	right 0
+	top 20px
+	height 35px
+	font-size 12px
+	center-text()
