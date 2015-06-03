@@ -1,0 +1,52 @@
+.type
+	position relative
+			
+	&_header
+		margin 45px 0 0 0
+		display flex
+		
+		hr
+			margin 17px 0 0 35px
+			flex-grow 1
+			
+	&_count
+		background-color $grey
+		width 120px
+		cursor pointer
+		position absolute
+		right 0
+		top 20px
+		height 35px
+		font-size 12px
+		center-text()
+		
+	ul
+		text-align center
+		width 510px
+		margin 15px 0 0 60px
+		display flex
+		justify-content space-between
+		
+		li
+			width 130px
+			height 100px
+			display inline-block
+			cursor pointer
+			
+			div
+				width 120px
+				margin auto
+				height 70px
+
+			&:first-child div
+				background url(../img/icon1.jpg) center no-repeat
+			&:nth-child(2) div
+				background url(../img/car.jpg) center no-repeat
+			&:nth-child(3) div
+				background url(../img/icon2.jpg) center no-repeat
+			&:last-child div
+				background url(../img/icon3.jpg) center no-repeat
+				
+			span
+				font-size 12px
+				display block

@@ -1,6 +1,5 @@
 .home-content
 	padding-top 1px
-	background-color #f3f3f3
 	
 	.container
 		position relative
@@ -11,100 +10,29 @@
 		margin-right 10px
 		width 260px
 				
-	// middle
-				
-	.m_middle
+	&_middle
 		margin-right 10px
 		float left
-		width 600px
+		width 598px
 		background-color white
 		border-radius 2px
+		block-border()
+		position relative
 		
 		&>h3
 			margin 25px 0 0 35px
 			
-		.m_type
+		.toogler
+			position absolute
+			top 20px
+			right 20px
 			
-			.m_t_header
-				margin 45px 0 0 0
-				display flex
+			div
+				background-color $grey
 				
-				h3
-					display inline-block
-					margin 5px 0 0 15px
-					font-size 17px
-				hr
-					width 368px
-					margin 17px 0 0 25px
-					
-			ul
-				text-align center
-				width 510px
-				margin 15px 0 0 60px
-				display flex
-				justify-content space-between
-				
-				li
-					width 130px
-					height 100px
-					display inline-block
-					cursor pointer
-					
-					div
-						width 120px
-						margin auto
-						height 70px
-
-					&:first-child div
-						background url(../img/icon1.jpg) center no-repeat
-					&:nth-child(2) div
-						background url(../img/car.jpg) center no-repeat
-					&:nth-child(3) div
-						background url(../img/icon2.jpg) center no-repeat
-					&:last-child div
-						background url(../img/icon3.jpg) center no-repeat
-						
-					span
-						font-size 12px
-						display block
-						
-	.m_makes
-		margin 25px 0 0 0
-		
-		.m_m_header
-			display flex
+			div&_active
+				background-color $orange
 			
-			h3
-				display inline-block
-				margin 5px 0 0 15px
-				font-size 17px
-			hr
-				margin 17px 0 0 25px
-				width 279px
-				
-		ul
-			margin 20px 0 0 70px
-			height 250px
-			display flex
-			flex-flow column wrap
-			
-			li
-				float left
-				font-size 13px
-				margin-bottom 5px
-				
-				span
-					padding 9px 15px
-					display inline-block
-					cursor pointer
-					
-					&.active, &:hover
-						background-color $orange
-						
-		.m_show-orgs
-			button($yellow)
-			margin 0 auto 25px
-			
-.m_right
-	float right
-	width 260px
+	&_right
+		float right
+		width 260px

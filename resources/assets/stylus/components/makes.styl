@@ -1,0 +1,32 @@
+.makes
+	margin 25px 0 0 0
+	
+	&_header
+		display flex
+		
+		hr
+			margin 17px 0 0 35px
+			flex-grow 1
+			
+	ul
+		margin 20px 0 0 70px
+		height 250px
+		display flex
+		flex-flow column wrap
+		
+		li
+			float left
+			font-size 13px
+			margin-bottom 5px
+			
+			span
+				padding 9px 15px
+				display inline-block
+				cursor pointer
+				
+				&.active, &:hover
+					background-color $orange
+					
+	&_show
+		button($yellow)
+		margin 0 auto 25px

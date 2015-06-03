@@ -11,88 +11,20 @@
 			<div class="c_left">
 				
 				<div class="c_top">
+					
 					<h3>Каталог Организаций</h3>
 					
 					<div class="c_add-organization">
 						Добавить организацию
 					</div>
 					
-					<div class="c_toogler">
-						<div class="c_t_parts active">
-							Запчасти
-						</div>
-						<div class="c_t_services">
-							Услуги
-						</div>
-					</div>
+					@include('inc.toogler')
+
 				</div>
 
-				<div class="parts-block">
-					<div class="p-b_header">
-						<div class="row-image"></div>
-						<h3>Рубрики</h3>
-						<hr>
-					</div>
-					
-					<ul class="p-b_categories">
-						<li><span>Магазины запчастей</span></li>
-						<li><span class="active">Разборки (б/у)</span></li>
-						<li><span class="active">Технические центры</span></li>
-						<li><span>Автосервисы</span></li>
-						<li><span>Мойки грузовые</span></li>
-						<li><span>Установка оборудования</span></li>
-						<li><span class="active">Шины и диски</span></li>
-					</ul>
-				</div>
+				@include('inc.type')
 
-				<div class="c_make-header">
-					<div class="row-image"></div>
-					<h3>Выберите производителя</h3>
-					<hr>
-				</div>
-
-				<ul class="c_makes">
-					<li><span>Lexus</span></li>
-					<li><span>Honda</span></li>
-					<li><span class="active">Jeep</span></li>
-					<li><span>Audi</span></li>
-					<li><span>Jaguar</span></li>
-					<li><span>Daewoo</span></li>
-					<li><span>Porsche</span></li>
-					<li><span>Ford</span></li>
-					<li><span>Bentley</span></li>
-					<li><span>Subaru</span></li>
-					<li><span>Chevrolet</span></li>
-					<li><span>Dodge</span></li>
-					<li><span>Lexus</span></li>
-					<li><span>Honda</span></li>
-					<li><span>Jeep</span></li>
-					<li><span>Audi</span></li>
-					<li><span>Jaguar</span></li>
-					<li><span>Daewoo</span></li>
-					<li><span>Porsche</span></li>
-					<li><span>Ford</span></li>
-					<li><span>Bentley</span></li>
-					<li><span>Subaru</span></li>
-					<li><span>Chevrolet</span></li>
-					<li><span>Dodge</span></li>
-					<li><span>Lexus</span></li>
-					<li><span>Honda</span></li>
-					<li><span>Jeep</span></li>
-					<li><span>Audi</span></li>
-					<li><span>Jaguar</span></li>
-					<li><span>Daewoo</span></li>
-					<li><span>Porsche</span></li>
-					<li><span>Ford</span></li>
-					<li><span>Bentley</span></li>
-					<li><span>Subaru</span></li>
-					<li><span>Chevrolet</span></li>
-					<li><span>Dodge</span></li>
-				</ul>
-
-				<div class="c_show-orgs">
-					Показать
-				</div>
+				@include('inc.makes')
 
 				<div class="founded-orgs">
 
