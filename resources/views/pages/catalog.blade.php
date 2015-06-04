@@ -24,6 +24,10 @@
 
 				@include('inc.makes')
 
+				<div class="show-orgs">
+					Показать
+				</div>
+
 				@include('inc.found')
 
 			</div>
