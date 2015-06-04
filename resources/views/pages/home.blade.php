@@ -2,19 +2,19 @@
 
 @section('body')
 
-	<div class="home-content">
+	<div class="home">
 
 		<div class="wide-image"></div>
 		
 		<div class="container">
 			
-			<div class="home-content_left">
+			<div class="home_left">
 				
 				@include('inc.org-catalog')
 
 			</div>
 
-			<div class="home-content_middle">
+			<div class="home_middle">
 				
 				<h3>Поиск организации</h3>
 
@@ -32,7 +32,7 @@
 
 			</div>
 
-			<div class="home-content_right">
+			<div class="home_right">
 				
 				@include('inc.search')
 

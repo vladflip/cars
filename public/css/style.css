@@ -22,7 +22,7 @@
 }
 .found h3,
 .catalog_type,
-.home-content_middle>h3 {
+.home_middle>h3 {
   margin: 25px 0 0 35px;
 }
 .found {
@@ -746,19 +746,19 @@ h3 {
   width: 260px;
   border-radius: 2px;
 }
-.home-content {
+.home {
   padding-top: 1px;
 }
-.home-content .container {
+.home .container {
   position: relative;
   margin-top: 25px;
 }
-.home-content_left {
+.home_left {
   float: left;
   margin-right: 10px;
   width: 260px;
 }
-.home-content_middle {
+.home_middle {
   margin-right: 10px;
   float: left;
   width: 598px;
@@ -767,7 +767,7 @@ h3 {
   border: 1px solid #efefef;
   position: relative;
 }
-.home-content_right {
+.home_right {
   float: right;
   width: 260px;
 }
