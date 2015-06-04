@@ -2,49 +2,75 @@
 
 @section('body')
 
-	<div class="profile-content">
+	<div class="profile">
 		
 		<div class="container">
 			
-			<div class="p_left">
-				
-				<div class="p_info-header">
+			<div class="profile_left">
+
+				<div class="profile-info">
+
+					<div class="profile-info_header">
 					
-					<h3>Моя компания</h3>
+						<div class="profile-info_toogler">
 
-					<h4>Мой профиль</h4>
-
-					<div class="p_settings">
-						Настройки
-					</div>
-
-				</div>
-
-				<div class="p_info">
-					
-					<div class="left">
-						
-						<img src="img/com_logo.jpg" alt="">
-
-					</div>
-
-					<div class="right">
-						
-						<h3>ООО Трансавтосервис</h3>
-
-						<div>Москва, Россия</div>
-
-						<div>8 (967) 176-66-77</div>
-
-
-						<ul class="p_tags">
+							<div class="profile-info_toogler--active">
+								Моя компания
+							</div>
 							
-							<li>Автобусы</li>
-							<li>Грузовики</li>
-							<li>BMW</li>
-							<li>Шиномонтаж</li>
+							<div>
+								Мой профиль
+							</div>
 
-						</ul>
+						</div>
+
+						<div class="profile_settings">
+							<span class="profile_settings-icon"></span>
+							Настройки
+						</div>
+
+					</div>
+					
+					<div class="profile-info_body">
+
+						<div class="profile-info_left">
+							
+							<div class="profile-info_logo">
+								<img src="img/com_logo.jpg" alt="">
+							</div>
+						
+						</div>
+						
+						<div class="profile-info_right">
+							
+							<h3 class="profile-info_name">
+								ООО Трансавтосервис
+								<span class="profile-info_pen"></span>
+							</h3>
+						
+							<div class="profile-info_address">
+								Москва, Россия
+							</div>
+						
+							<div class="profile-info_phone">
+								8 (967) 176-66-77
+							</div>
+
+							<div class="profile-info_about">
+								Мы предоставляем нашим клиентам запчасти по самым низким ценам от любых производителей.
+							</div>
+						
+						
+							<ul class="profile-info_tags">
+								
+								<li>Автобусы</li>
+								<li>Грузовики</li>
+								<li>BMW</li>
+								<li>Шиномонтаж</li>
+						
+							</ul>
+						
+						</div>
 
 					</div>
 
@@ -95,6 +121,14 @@
 					</ul>
 
 				</div>
+
+			</div>
+
+			<div class="profile_right">
+				
+				@include('inc.search')
+
+				@include('inc.feedback')
 
 			</div>
 
