@@ -167,15 +167,13 @@
   float: left;
   font-size: 13px;
   margin-bottom: 5px;
+  padding: 9px 15px;
 }
 .makes ul li span {
-  padding: 9px 15px;
+  color: #4e61eb;
+  text-decoration: underline;
   display: inline-block;
   cursor: pointer;
-}
-.makes ul li span.active,
-.makes ul li span:hover {
-  background-color: #fdf6d1;
 }
 .org-catalog {
   border-radius: 2px;
