@@ -483,6 +483,7 @@ h3 {
   -webkit-align-items: center;
       -ms-flex-align: center;
           align-items: center;
+  border: 1px solid #efefef;
 }
 .feedback_h3 {
   font-size: 16px;
@@ -773,7 +774,7 @@ h3 {
   background-color: #fff;
   border: 1px solid #efefef;
 }
-.c_right {
+.catalog_right {
   float: right;
   width: 260px;
   border-radius: 2px;

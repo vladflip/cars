@@ -1,54 +1,28 @@
-.catalog-content
+.catalog
 	position relative
 	overflow hidden
 	
-.c_c
-	position relative
-	margin-top 25px
-	cf()
-
-// ----------------------------------
-// left block
-// ----------------------------------
-
-.c_left
-	margin-right 10px
-	float left
-	width 868px
-	background-color white
-	border-radius 2px
-	block-border()
-	
-	color $color
-	
-	.c_top
+	.container
 		position relative
 		margin-top 25px
+		cf()
+
+	&_left
+		margin-right 10px
+		float left
+		width 260px
 		
-		h3
-			margin 0 0 0 35px
-			width 185px
+	&_type
+		@extends $header
 		
-		.c_add-organization
-			position absolute
-			top 15px
-			right 40px
-			button($grey)	
+	&_middle
+		margin-right 10px
+		float left
+		width 598px
+		background-color white
+		block-border()
 
-// ----------------------------------
-// / left block
-// ----------------------------------
-	
-
-// ----------------------------------
-// right block
-// ----------------------------------
-
-.c_right
-	float right
-	width 260px
-	border-radius 2px	
-	
-// ----------------------------------
-// / right block
-// ----------------------------------
+	&_right
+		float right
+		width 260px
+		border-radius 2px	
