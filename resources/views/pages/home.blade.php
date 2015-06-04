@@ -18,8 +18,6 @@
 				
 				<h3>Поиск организации</h3>
 
-				@include('inc.toogler')
-
 				@include('inc.type')
 
 				@include('inc.parts')

@@ -221,9 +221,9 @@
 }
 .parts {
   position: relative;
+  margin: 25px 0 0 0;
 }
 .parts_header {
-  margin: 35px 0 0 0;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
@@ -339,42 +339,11 @@
   margin: 0 15px 0 0;
   top: -5px;
 }
-.search-side-bar .toogler {
-  margin: 10px 0 0 10px;
-}
-.search-side-bar .toogler div {
-  background-color: #fced9a;
-}
-div.search-side-bar .toogler_active {
-  background-color: #fff;
-}
-.toogler {
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-}
-.toogler div {
-  font-size: 14px;
-  margin-right: 1px;
-  width: 90px;
-  cursor: pointer;
-  height: 35px;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: column;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  text-align: center;
-  -webkit-justify-content: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-}
 .type {
   position: relative;
+  margin: 35px 0 0 0;
 }
 .type_header {
-  margin: 45px 0 0 0;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
@@ -799,17 +768,6 @@ h3 {
   border-radius: 2px;
   border: 1px solid #efefef;
   position: relative;
-}
-.home-content_middle .toogler {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-}
-.home-content_middle .toogler div {
-  background-color: #f0f0f0;
-}
-div.home-content_middle .toogler_active {
-  background-color: #fdf6d1;
 }
 .home-content_right {
   float: right;

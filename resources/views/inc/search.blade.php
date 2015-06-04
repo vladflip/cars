@@ -2,8 +2,6 @@
 					
 	<h3>Найти</h3>
 
-	@include('inc.toogler')
-
 	<h4>Тип</h4>
 	<select name="" id="">
 		<option value="">Грузовики</option>
