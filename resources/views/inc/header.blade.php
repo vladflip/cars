@@ -14,16 +14,16 @@
 
 			@if(Request::is('profile'))
 			
-				<div class="profile">
+				<div class="user-info">
 					
 					<span>x</span>
 			
-					<div class="profile_names">
+					<div class="user-info_names">
 						<h5>Павел Калачов</h5>
 						<h5>Ренестранском</h5>
 					</div>
 			
-					<div class="profile_ava">
+					<div class="user-info_ava">
 						<img src="img/ava.jpg" alt="">
 					</div>
 			
