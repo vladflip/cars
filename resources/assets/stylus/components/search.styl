@@ -1,65 +1,21 @@
-.search-side-bar
+.search
 	background-color $yellow
-	padding 15px 30px 30px
+	padding 20px 40px
 	border-radius 2px
+	display flex
+	flex-direction column
+	align-items center
 	
 	h3
-		font-size 17px
-		margin-left 10px
+		font-size 16px
+		margin 10px 0
 		
 	p
-		margin 25px 0 0 0
+		margin 0
 		text-align center
 		line-height 25px
 		font-size 12px
-	
-	h4
-		margin 25px 0 5px 0
-		font-weight 300
-		font-size 14px
 		
-	select
-		background-color $yellow
-		font-size 13px
-		color #988c47
-		border 1px solid white
-		width 100%
-		padding 13px
-		outline none
-		cursor pointer
-		
-		option
-			border 1px solid white
-			height 30px
-			
-	input
-		background-color white
-		padding 13px
-		border 2px solid white
-		outline none
-		color $yellow
-		
-	.s-s_more
-		background-color $yellow
-		border 1px solid white
-		color #988c47
-		
-	.s-s_send
+	&_button
 		button(white)
-		margin 20px auto 0
-		
-	input[type="checkbox"]
-		margin 15px 10px 0 0
-		background-color $yellow
-		padding 10px
-		border 1px solid white
-		-webkit-appearance none
-		-moz-appearance none
-		appearance none
-		cursor pointer
-		
-		& + label
-			font-size 13px
-			position relative
-			margin 0 15px 0 0
-			top -5px
+		margin 10px 0
