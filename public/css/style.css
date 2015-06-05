@@ -724,7 +724,12 @@ h3 {
   width: 260px;
   border-radius: 2px;
 }
+.feed {
+  position: relative;
+  overflow: hidden;
+}
 .feed .container {
+  position: relative;
   margin-top: 25px;
   *zoom: 1;
 }
@@ -738,6 +743,7 @@ h3 {
 }
 .feed_left {
   margin-right: 10px;
+  background-color: #fff;
   float: left;
   width: 868px;
   border: 1px solid #efefef;
@@ -817,6 +823,7 @@ h3 {
   margin-right: 10px;
   float: left;
   width: 868px;
+  background-color: #fff;
   border: 1px solid #efefef;
   border-radius: 2px;
 }

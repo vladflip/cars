@@ -3,6 +3,8 @@
 @section('body')
 	
 	<div class="feed">
+
+		<div class="wide-image"></div>
 		
 		<div class="container">
 			
