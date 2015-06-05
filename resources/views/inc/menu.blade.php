@@ -12,7 +12,7 @@
 			<a href="{{ route('catalog') }}">Каталог</a>
 		</div>
 		<div class="menu_btn {{ Request::is('feedback') ? 'active' : '' }}">
-			<a href="#">Отзывы</a>
+			<a href="{{ route('feedback') }}">Отзывы</a>
 		</div>
 		<div class="menu_btn {{ Request::is('contacts') ? 'active' : '' }}">
 			<a href="#">Контакты</a>
