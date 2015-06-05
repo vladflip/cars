@@ -22,3 +22,7 @@ get('/catalog', ['as' => 'catalog', function(){
 get('/profile', ['as' => 'profile', function(){
 	return view('pages.profile');
 }]);
+
+get('/feedback', ['as' => 'feedback', function(){
+	return view('pages.feed');
+}]);

@@ -22,6 +22,7 @@
 }
 .found h3,
 .catalog_type,
+.feed_header,
 .home_middle>h3 {
   margin: 25px 0 0 35px;
 }
@@ -722,6 +723,29 @@ h3 {
   float: right;
   width: 260px;
   border-radius: 2px;
+}
+.feed .container {
+  margin-top: 25px;
+  *zoom: 1;
+}
+.feed .container:before,
+.feed .container:after {
+  content: '';
+  display: table;
+}
+.feed .container:after {
+  clear: both;
+}
+.feed_left {
+  margin-right: 10px;
+  float: left;
+  width: 868px;
+  border: 1px solid #efefef;
+  border-radius: 2px;
+}
+.feed_right {
+  float: right;
+  width: 260px;
 }
 .home {
   padding-top: 1px;
