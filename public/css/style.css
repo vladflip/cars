@@ -201,7 +201,7 @@ h3 {
           flex-grow: 1;
 }
 .makes ul {
-  margin: 20px 0 0 70px;
+  margin: 30px 0 0 70px;
   height: 250px;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -221,6 +221,18 @@ h3 {
   text-decoration: underline;
   display: inline-block;
   cursor: pointer;
+}
+.makes--live ul li {
+  padding: 0;
+}
+.makes--live ul li span {
+  padding: 9px 15px;
+  text-decoration: none;
+  color: #2d2d2d;
+}
+.makes--live ul li span:active,
+.makes--live ul li span:hover {
+  background-color: #fdf6d1;
 }
 .org-catalog {
   border-radius: 2px;
@@ -653,6 +665,7 @@ h3 {
   height: 100%;
   font-weight: 300;
   font-size: 15px;
+  letter-spacing: 0.4px;
   color: #fff;
   margin: 0 25px;
 }
@@ -886,6 +899,10 @@ h3 {
   height: 45px;
   border-radius: 50%;
   overflow: hidden;
+  border: 1px solid #f0f0f0;
+}
+.requests_logo img {
+  height: 60px;
 }
 .requests_name {
   font-size: 16px;

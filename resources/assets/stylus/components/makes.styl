@@ -13,7 +13,7 @@
 		@extends $count
 			
 	ul
-		margin 20px 0 0 70px
+		margin 30px 0 0 70px
 		height 250px
 		display flex
 		flex-flow column wrap
@@ -29,3 +29,14 @@
 				text-decoration underline
 				display inline-block
 				cursor pointer
+	
+	&--live
+		ul
+			li
+				padding 0
+				span
+					padding 9px 15px
+					text-decoration none
+					color $color
+					&:active, &:hover
+						background-color $orange

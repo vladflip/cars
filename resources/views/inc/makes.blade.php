@@ -1,4 +1,4 @@
-<div class="makes">
+<div class="makes {{ isset($live) ? 'makes--live' : '' }}">
 					
 	<div class="makes_header">
 		<div class="row-image">Выберите производителя</div>

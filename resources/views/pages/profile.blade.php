@@ -130,7 +130,7 @@
 									<div class="sent-requests_logo-name">
 										
 										<div class="requests_logo">
-											<img src="img/ava.jpg" alt="">
+											<img src="img/com_logo.jpg" alt="">
 										</div>
 
 										<div class="requests_name">
