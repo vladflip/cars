@@ -736,6 +736,29 @@ h3 {
   float: right;
   width: 260px;
 }
+.profile-info_company,
+.profile-info_profile,
+.requests_received,
+.requests_sent {
+  color: #f3df6d;
+  cursor: pointer;
+  font-size: 14px;
+  display: inline-block;
+}
+.profile-info_company:first-child,
+.profile-info_profile:first-child,
+.requests_received:first-child,
+.requests_sent:first-child {
+  margin-right: 40px;
+}
+.profile-info_toogler--active,
+.requests_toogler--active {
+  font-size: 20px;
+  font-weight: 400;
+  word-spacing: 2px;
+  color: #000;
+  cursor: auto;
+}
 .profile {
   position: relative;
   overflow: hidden;
@@ -795,21 +818,6 @@ h3 {
 .profile-info_toogler {
   float: left;
 }
-.profile-info_toogler div {
-  color: #f3df6d;
-  cursor: pointer;
-  font-size: 14px;
-  display: inline-block;
-}
-.profile-info_toogler div:first-child {
-  margin-right: 40px;
-}
-div.profile-info_toogler--active {
-  font-size: 20px;
-  font-weight: 400;
-  word-spacing: 2px;
-  color: #000;
-}
 .profile-info_body {
   margin-top: 20px;
   display: -webkit-flex;
@@ -868,4 +876,134 @@ div.profile-info_toogler--active {
   background-color: #f6f6f6;
   padding: 8px;
   border-radius: 2px;
+}
+.requests {
+  margin-top: 25px;
+  padding: 0 35px;
+}
+.requests_logo {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.requests_name {
+  font-size: 16px;
+  font-weight: 400;
+  margin-left: 10px;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  text-align: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.requests_body {
+  padding: 15px;
+  border-radius: 2px;
+  font-size: 14px;
+  letter-spacing: 0.4px;
+}
+.sent-requests_body,
+.sent-requests_answer-body {
+  padding: 15px;
+  border-radius: 2px;
+  font-size: 14px;
+  letter-spacing: 0.4px;
+  position: relative;
+}
+.sent-requests_body--yellow,
+.sent-requests_answer-body--yellow {
+  background-color: #fdf6d1;
+}
+.sent-requests_body--yellow:before,
+.sent-requests_answer-body--yellow:before {
+  border-right: 9px solid #fdf6d1;
+}
+.sent-requests_body--yellow:before,
+.sent-requests_answer-body--yellow:before,
+.sent-requests_body--grey:before,
+.sent-requests_answer-body--grey:before {
+  content: '';
+  border-top: 9px solid transparent;
+  border-bottom: 9px solid transparent;
+  position: absolute;
+  left: -9px;
+  top: 45%;
+}
+.sent-requests_body--grey,
+.sent-requests_answer-body--grey {
+  background-color: #f0f0f0;
+}
+.sent-requests_body--grey:before,
+.sent-requests_answer-body--grey:before {
+  border-right: 9px solid #f0f0f0;
+}
+.sent-requests_logo-name {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.sent-requests_time,
+.sent-requests_answ-time {
+  color: #ccc;
+  font-size: 12px;
+  width: 80px;
+  -webkit-align-self: center;
+      -ms-flex-item-align: center;
+          align-self: center;
+}
+.sent-requests {
+  margin-top: 35px;
+}
+.sent-requests_item {
+  margin-bottom: 15px;
+}
+.sent-requests_request {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-align-items: flex-start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+.sent-requests_logo-name {
+  width: 300px;
+}
+.sent-requests_body {
+  width: 350px;
+}
+.sent-requests_time {
+  text-align: center;
+}
+.sent-requests_answer {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-top: 15px;
+}
+.sent-requests_answer-info {
+  width: 250px;
+}
+.sent-requests_answer-contacts {
+  font-size: 12px;
+  line-height: 17px;
+  color: #ccc;
+  margin-top: 7px;
+}
+.sent-requests_answer-body {
+  width: 463px;
 }

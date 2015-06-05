@@ -14,11 +14,11 @@
 					
 						<div class="profile-info_toogler">
 
-							<div class="profile-info_toogler--active">
+							<div class="profile-info_company profile-info_toogler--active">
 								Моя компания
 							</div>
 							
-							<div>
+							<div class="profile-info_profile">
 								Мой профиль
 							</div>
 
@@ -76,49 +76,85 @@
 
 				</div>
 
-				<div class="p_requests">
+				<div class="requests">
 					
-					<div class="p_request-header">
+					<div class="request_header">
 						
-						<h3>Входящие запросы</h3>
+						<div class="requests_toogler">
 
-						<h4>Исходящие (+2)</h4>
+							<div class="requests_received requests_toogler--active">Исходящие запросы</div>
+							
+							<div class="requests_sent">Входящие (+2)</div>
+
+						</div>
 
 					</div>
 
-					<ul class="p_request-list">
-						
-						<li>
-							<div class="left">
-								<div class="left"><img src="" alt=""></div>
-								<div class="right">
-									<h4>BMW - A2831</h4>
-									<span>12 апреля 2015</span>
-								</div>
-							</div>
-							<div class="left">
-								<div class="p_request">
-									Нужно сегодня
-								</div>
-							</div>
-							<div class="clear-fix"></div>
-						</li>
-						<li>
-							<div class="left">
-								<div class="left"><img src="" alt=""></div>
-								<div class="right">
-									<h4>Dodge - CR1234855</h4>
-									<span></span>
-								</div>
-							</div>
-							<div class="left">
-								<div class="p_request">
-									Нужно сегодня
-								</div>
-							</div>
-						</li>
+					<div class="sent-requests">
 
-					</ul>
+						<div class="sent-requests_item">
+							
+							<div class="sent-requests_request">
+								
+								<div class="sent-requests_logo-name">
+
+									<div class="requests_logo">
+										<img src="img/ava.jpg" alt="">
+									</div>
+
+									<div class="requests_name">
+										Павел Калачев
+									</div>
+
+								</div>
+
+								<div class="sent-requests_body sent-requests_body--yellow">
+									Lorem ipsum dolor sit amet, consectetur adipisicing.
+									Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veniam eum ipsum aspernatur facere aliquid eius vitae ipsam rerum porro debitis.
+								</div>
+
+								<div class="sent-requests_time">
+									20 мая 2015
+								</div>
+
+							</div>
+
+							<div class="sent-requests_answer">
+								
+								<div class="sent-requests_answ-time">
+									20 мая
+								</div>
+
+								<div class="sent-requests_answer-info">
+									
+									<div class="sent-requests_logo-name">
+										
+										<div class="requests_logo">
+											<img src="img/ava.jpg" alt="">
+										</div>
+
+										<div class="requests_name">
+											ООО Трансавтосервис
+										</div>
+
+									</div>
+
+									<div class="sent-requests_answer-contacts">
+										г. Москва, ул. Улица д21 <br>
+										843 089 98 4, 34 98432 7893
+									</div>
+
+								</div>
+
+								<div class="sent-requests_answer-body sent-requests_body--grey">
+									Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore est esse nesciunt optio illo tempora sapiente aspernatur recusandae. Totam, iste.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore harum porro doloribus provident, deleniti ducimus minus, repellendus.
+								</div>
+
+							</div>
+
+						</div>
+
+					</div>
 
 				</div>
 

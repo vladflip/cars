@@ -1,3 +1,20 @@
+$toogler--default
+	color $yellow
+	cursor pointer
+	font-size 14px
+	display inline-block
+	
+	&:first-child
+		margin-right 40px
+
+$toogler--active
+	font-size 20px
+	font-weight 400
+	word-spacing 2px
+	color black
+	cursor auto
+	
+
 .profile
 	position relative
 	overflow hidden
@@ -40,20 +57,12 @@
 	&_toogler
 		float left
 		
-		div
-			color $yellow
-			cursor pointer
-			font-size 14px
-			display inline-block
-			
-			&:first-child
-				margin-right 40px
+		&--active
+			@extends $toogler--active
 		
-		div&--active
-			font-size 20px
-			font-weight 400
-			word-spacing 2px
-			color black
+	&_company,
+	&_profile
+		@extends $toogler--default
 			
 	&_body
 		margin-top 20px
@@ -108,4 +117,119 @@
 			background-color #f6f6f6
 			padding 8px
 			border-radius 2px
+			
+.requests
+	margin-top 25px
+	padding 0 35px
 	
+	&_toogler
+		&--active
+			@extends $toogler--active
+	
+	&_received,
+	&_sent
+		@extends $toogler--default
+		
+	&_logo
+		width 45px
+		height 45px
+		border-radius 50%
+		overflow hidden
+		
+	&_name
+		font-size 16px
+		font-weight 400
+		margin-left 10px
+		center-text()
+		
+	&_body
+		padding 15px
+		border-radius 2px
+		font-size 14px
+		letter-spacing .4px
+		
+			
+$request_body
+	padding 15px
+	border-radius 2px
+	font-size 14px
+	letter-spacing .4px
+	position relative
+	
+	&--yellow
+		background-color $orange
+		&:before
+			border-right 9px solid $orange
+		
+	&--yellow,
+	&--grey
+		&:before
+			content ''
+			border-top 9px solid transparent
+			border-bottom 9px solid transparent
+			position absolute
+			left -9px
+			top 45%
+		
+	&--grey
+		background-color $grey
+		&:before
+			border-right 9px solid $grey
+
+$request_logo-name
+	display flex
+	align-items center
+	
+$request_time
+	color #ccc
+	font-size 12px
+	width 80px
+	align-self center
+		
+.sent-requests
+	margin-top 35px
+	
+	&_item
+		margin-bottom 15px
+	
+	&_request
+		display flex
+		justify-content space-between
+		align-items flex-start
+			
+	&_logo-name
+		@extends $request_logo-name
+		width 300px
+		
+	&_body
+		@extends $request_body
+		width 350px
+		
+	&_time
+		@extends $request_time
+		text-align center
+		
+	// -----
+	// answer
+	// -----
+	
+	&_answer
+		display flex
+		justify-content space-between
+		margin-top 15px
+		
+	&_answ-time
+		@extends $request_time
+		
+	&_answer-info
+		width 250px
+			
+	&_answer-contacts
+		font-size 12px
+		line-height 17px
+		color #ccc
+		margin-top 7px
+		
+	&_answer-body
+		@extends $request_body
+		width 463px
