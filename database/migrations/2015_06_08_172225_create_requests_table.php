@@ -12,7 +12,7 @@ class CreateOrdersTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('orders', function(Blueprint $t)
+		Schema::create('requests', function(Blueprint $t)
 		{
 			$t->increments('id');
 

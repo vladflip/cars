@@ -16,12 +16,12 @@ class CreateResponsesTable extends Migration {
 		{
 			$t->increments('id');
 
-			$t->integer('order_id')->unsigned();
+			$t->integer('request_id')->unsigned();
 			$t->integer('company_id')->unsigned();
 
 			$t->text('text');
 
-			$t->foreign('feedback_id')->references('id')->on('feedback')
+			$t->foreign('request_id')->references('id')->on('requests')
 											->onDelete('cascade')
 											->onUpdate('no action');
 
