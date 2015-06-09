@@ -21,12 +21,19 @@
 				{!! Breadcrumbs::render('catalog', $bread) !!}
 
 				<h3 class="catalog_type">
-					{{ $bread ? $bread['spec']->title : 'Каталог' }}
+					@if(isset($bread['spec']))
+
+						{{$bread['spec']->title }}
+
+					@else
+
+						{{ 'Каталог' }}
+						
+					@endif
+
 				</h3>
 
-				@include('inc.type')
-
-				@include('inc.makes')
+				@include('inc.found')
 
 			</div>
 

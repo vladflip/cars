@@ -13,7 +13,7 @@ class ComposerServiceProvider extends ServiceProvider {
 	public function boot()
 	{
 		// Using class based composers...
-		// View::composer('specs', 'App\Http\ViewComposers\SpecsComposer');
+		View::composer('specs', 'App\Http\ViewComposers\SpecsComposer');
 
 		View::composer('inc.specs', function($v) {
 
@@ -24,7 +24,7 @@ class ComposerServiceProvider extends ServiceProvider {
 			else
 				$current = false;
 
-			$specs = \App\Spec::all();
+			$specs = \App\Spec::select('name', 'title')->get();
 
 			$v->with('specs', $specs)->with('current', $current);
 

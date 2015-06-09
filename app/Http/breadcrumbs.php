@@ -3,21 +3,41 @@
 // Home
 Breadcrumbs::register('home', function($breadcrumbs)
 {
-    $breadcrumbs->push('Главная', route('home'));
+	$breadcrumbs->push('Главная', route('home'));
 });
 
-// Home > About
-Breadcrumbs::register('catalog', function($breadcrumbs)
+// Home > Catalog
+Breadcrumbs::register('catalog', function($breadcrumbs, $c)
 {
-    $breadcrumbs->parent('home');
-    $breadcrumbs->push('Каталог', route('catalog'));
+	$breadcrumbs->parent('home');
+
+	$breadcrumbs->push('Каталог', route('catalog'));
+
+	if($c) {
+
+		if(isset($c['allmake'])){
+			$breadcrumbs->push($c['allmake']->title, route('allmake', $c['allmake']->name));
+		}
+
+		if(isset($c['spec'])){
+
+			$breadcrumbs->push($c['spec']->title, route('specs', $c['spec']->name));
+
+			if(isset($c['make'])) {
+				$breadcrumbs->push($c['make']->title, route('make', $c['make']->name));
+			}
+
+		}
+
+	}
+
 });
 
-// Home > Blog
-// Breadcrumbs::register('p', function($breadcrumbs)
+// Home > Catalog > Specs
+// Breadcrumbs::register('specs', function($breadcrumbs,)
 // {
 //     $breadcrumbs->parent('home');
-//     $breadcrumbs->push('Blog', route('blog'));
+//     $breadcrumbs->push('Specs', route('specs', ));
 // });
 
 // // Home > Blog > [Category]

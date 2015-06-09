@@ -9,7 +9,26 @@
 	<ul>
 		@foreach($makes as $make)
 
-			<li><span>{{ $make->name }}</span></li>
+			<li>
+				<span>
+					@if(isset($live))
+
+						{{ $make->title }}
+
+					@elseif(isset($allmake))
+						
+						<a href="{{ route('allmake', $make->name) }}">{{ $make->title }}</a>
+
+					@else
+
+						<a href="{{ route('make', ['spec' => $current, 'make' => $make->name]) }}">
+							{{ $make->title }}
+						</a>
+
+					@endif
+
+				</span>
+			</li>
 
 		@endforeach
 	</ul>

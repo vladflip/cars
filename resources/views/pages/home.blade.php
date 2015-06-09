@@ -30,7 +30,7 @@
 					Показать
 				</div>
 
-				@include('inc.found')
+				{{-- @include('inc.found') --}}
 
 			</div>
 

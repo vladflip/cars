@@ -166,7 +166,7 @@ class MakeCarModelSeeder extends Seeder {
 
 					$m = App\Make::create([
 						'title' => $value,
-						'name' => urlencode(strtolower($value))
+						'name' => urlencode(strtolower($value)),
 						'icon' => $f->imageUrl(),
 						'desc' => $f->paragraph(2)
 					]);

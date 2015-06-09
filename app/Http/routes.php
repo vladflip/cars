@@ -11,9 +11,7 @@
 |
 */
 
-get('/', ['as' => 'home', function(){
-	return view('pages.home');
-}]);
+get('/', ['as' => 'home', 'uses' => 'HomeController@index']);
 
 Route::group(['prefix' => 'catalog'], function(){
 
@@ -22,10 +20,21 @@ Route::group(['prefix' => 'catalog'], function(){
 		'uses' => 'CatalogController@index'
 	]);
 
-	get('{name}', [
+	get('/make/{allmake}', [
+		'as' => 'allmake',
+		'uses' => 'CatalogController@allmake'
+	])->where(['allmake' => '[a-z+]+']);
+
+	get('{spec}', [
 		'as' => 'specs',
 		'uses' => 'CatalogController@specs'
-	])->where('name', '[a-z]+');
+	])->where('spec', '[a-z]+');
+
+	get('{spec}/{make}', [
+		'as' => 'make',
+		'uses' => 'CatalogController@companies'
+	])->where(['spec' => '[a-z]+', 'make' => '[a-z+]+']);
+
 
 });
 
