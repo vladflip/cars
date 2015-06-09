@@ -10,7 +10,7 @@
 
 			<div class="catalog_left">
 				
-				@include('inc.org-catalog')
+				@include('inc.specs')
 
 			</div>
 			

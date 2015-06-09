@@ -1,8 +1,8 @@
-<div class="org-catalog">
+<div class="specs">
 					
-	<h3 class="org-catalog_header">Каталог Организаций</h3>
+	<h3 class="specs_header">Каталог Организаций</h3>
 
-	<ul class="org-catalog_menu">
+	<ul class="specs_menu">
 		
 		<li>Магазины запчастей</li>
 		<li>Разборки (б/у)</li>
@@ -14,7 +14,7 @@
 
 	</ul>
 
-	<div class="org-catalog_add">
+	<div class="specs_add">
 		Добавить организацию
 	</div>
 
