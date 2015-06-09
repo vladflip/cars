@@ -17,9 +17,29 @@ class ComposerServiceProvider extends ServiceProvider {
 
 		View::composer('inc.specs', function($v) {
 
+			$data = $v->getData();
+
+			if(isset($data['current']))
+				$current = $data['current'];
+			else
+				$current = false;
+
 			$specs = \App\Spec::all();
 
-			$v->with('specs', $specs);
+			$v->with('specs', $specs)->with('current', $current);
+
+		});
+
+		View::composer('inc.menu', function($v) {
+
+			$path = \Request::path();
+
+			$catalog = '';
+
+			if(strpos($path, 'catalog') >= 0)
+				$catalog = 'active';
+
+			$v->with('catalog', $catalog);
 
 		});
 	}
