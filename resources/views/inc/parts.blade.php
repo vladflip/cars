@@ -1,9 +1,6 @@
 <div class="parts">
 
-	<div class="parts_header">
-		<div class="row-image">Рубрики</div>
-		<hr>
-	</div>
+	@include('parts.media-header', ['title' => 'Рубрики'])
 
 	<div class="parts_count">34 компании</div>
 	

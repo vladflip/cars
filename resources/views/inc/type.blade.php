@@ -1,9 +1,6 @@
 <div class="type">
 					
-	<div class="type_header">
-		<div class="row-image">Выберите тип</div>
-		<hr>
-	</div>
+	@include('parts.media-header', ['title' => 'Выберите тип'])
 
 	<div class="type_count">597 компаний</div>
 

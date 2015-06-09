@@ -12,13 +12,13 @@
 
 				<h3 class="feed_header">Отзывы</h3>
 				
-				@include('inc.makes', ['header' => 'Автобусы', 'count' => 1])
+				@include('inc.makes', ['title' => 'Автобусы', 'count' => 1])
 
-				@include('inc.makes', ['header' => 'Грузовики', 'count' => 2])
+				@include('inc.makes', ['title' => 'Грузовики', 'count' => 2])
 
-				@include('inc.makes', ['header' => 'Малый транспорт', 'count' => 2])
+				@include('inc.makes', ['title' => 'Малый транспорт', 'count' => 2])
 
-				@include('inc.makes', ['header' => 'Прицепы', 'count' => 1])
+				@include('inc.makes', ['title' => 'Прицепы', 'count' => 1])
 
 			</div>
 
