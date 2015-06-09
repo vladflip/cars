@@ -73,6 +73,19 @@ h3 {
 .right {
   float: right;
 }
+.breadcrumb {
+  margin: 15px 0 0 35px;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: 14px;
+}
+.breadcrumb_separator {
+  margin: 0 5px;
+}
+.breadcrumb--parent {
+  color: #f3df6d;
+}
 .found {
   margin: 35px 0 0 0;
 }
@@ -754,7 +767,7 @@ h3 {
   width: 260px;
 }
 .home {
-  padding-top: 1px;
+  overflow: hidden;
 }
 .home .container {
   position: relative;

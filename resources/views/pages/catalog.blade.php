@@ -18,6 +18,8 @@
 				
 				{{-- bread crumps --}}
 
+				{!! Breadcrumbs::render('catalog') !!}
+
 				<h3 class="catalog_type">Разборки (б/у)</h3>
 
 				@include('inc.type')
