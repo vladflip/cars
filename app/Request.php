@@ -15,7 +15,7 @@ class Request extends Model {
 	}
 
 	public function model() {
-		return $this->belongsTo('App\Model', 'model_id');
+		return $this->belongsTo('App\CarModel', 'model_id');
 	}
 
 	public function user() {

@@ -21,7 +21,7 @@ class Make extends Model {
 	}
 
 	public function models() {
-		return $this->hasMany('App\Model', 'make_id');
+		return $this->hasMany('App\CarModel', 'make_id');
 	}
 
 	public function feedbacks() {
