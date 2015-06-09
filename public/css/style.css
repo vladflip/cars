@@ -201,23 +201,27 @@ h3 {
 }
 .makes {
   position: relative;
-  margin: 25px 0 0 0;
+  margin: 30px 0 0 0;
 }
 .makes ul {
-  margin: 30px 0 0 70px;
-  height: 250px;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-flow: column wrap;
-      -ms-flex-flow: column wrap;
-          flex-flow: column wrap;
+  margin-left: 70px;
+  padding: 30px 0;
+  *zoom: 1;
+}
+.makes ul:before,
+.makes ul:after {
+  content: '';
+  display: table;
+}
+.makes ul:after {
+  clear: both;
 }
 .makes ul li {
   float: left;
   font-size: 13px;
+  width: 125px;
   margin-bottom: 5px;
-  padding: 9px 15px;
+  padding: 9px 0px;
 }
 .makes ul li span {
   color: #4e61eb;
