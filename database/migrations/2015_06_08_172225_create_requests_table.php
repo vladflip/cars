@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateOrdersTable extends Migration {
+class CreateRequestsTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -16,10 +16,10 @@ class CreateOrdersTable extends Migration {
 		{
 			$t->increments('id');
 
-			$t->integer('user_id');
-			$t->integer('type_id');
-			$t->integer('make_id');
-			$t->integer('model_id');
+			$t->integer('user_id')->unsigned();
+			$t->integer('type_id')->unsigned();
+			$t->integer('make_id')->unsigned();
+			$t->integer('model_id')->unsigned();
 
 			$t->tinyInteger('opened');
 			$t->tinyInteger('new');
@@ -55,7 +55,7 @@ class CreateOrdersTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('orders');
+		Schema::drop('requests');
 	}
 
 }

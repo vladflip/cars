@@ -16,10 +16,10 @@ class CreateFeedbackTable extends Migration {
 		{
 			$t->increments('id');
 
-			$t->integer('type_id');
-			$t->integer('make_id');
-			$t->integer('model_id');
-			$t->integer('user_id');
+			$t->integer('type_id')->unsigned();
+			$t->integer('make_id')->unsigned();
+			$t->integer('model_id')->unsigned();
+			$t->integer('user_id')->unsigned();
 
 			$t->string('header');
 			$t->text('content');
