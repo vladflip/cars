@@ -4,13 +4,11 @@
 
 	<ul class="specs_menu">
 		
-		<li>Магазины запчастей</li>
-		<li>Разборки (б/у)</li>
-		<li>Тех. центры</li>
-		<li>Автосервисы</li>
-		<li>Мойки грузовые</li>
-		<li>Установка оборудования</li>
-		<li>Шины и диски</li>
+		@foreach($specs as $spec)
+			
+			<li>{{ $spec->name }}</li>
+
+		@endforeach
 
 	</ul>
 
