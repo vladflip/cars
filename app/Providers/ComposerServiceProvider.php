@@ -24,7 +24,11 @@ class ComposerServiceProvider extends ServiceProvider {
 			else
 				$current = false;
 
+			var_dump($current);
+
 			$specs = \App\Spec::select('name', 'title')->get();
+
+			// current is only for pages where no specs active
 
 			$v->with('specs', $specs)->with('current', $current);
 

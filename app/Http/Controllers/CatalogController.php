@@ -53,7 +53,7 @@ class CatalogController extends Controller {
 		$bread = ['spec' => $spec, 'make' => $make];
 
 		return view('pages.make-catalog')
-			->with('current', $spec)
+			->with('current', $spec->name)
 			->with('bread', $bread);
 
 	}
