@@ -6,6 +6,8 @@ class Photo extends Model {
 
 	protected $table = 'photos';
 
+	public $timestamps = false;
+
 	public function feedback() {
 		return $this->belongsTo('App\Feedback', 'feedback_id');
 	}
