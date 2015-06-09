@@ -17,6 +17,7 @@ class CreateSpecsTable extends Migration {
 			$t->increments('id');
 
 			$t->string('name');
+			$t->string('title');
 			$t->string('icon');
 			$t->string('desc');
 

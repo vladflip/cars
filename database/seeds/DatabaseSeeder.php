@@ -78,10 +78,16 @@ class SpecSeeder extends Seeder {
 			'Шины и диски'
 		];
 
+		$arr2 = [
+			'shops', 'oldparts', 'tech', 'services',
+			'washes', 'partsetup', 'wheels'
+		];
+
 		for($i=0; $i < count($arr); $i++){
 
 			App\Spec::create([
-				'name' => $arr[$i],
+				'title' => $arr[$i],
+				'name' => $arr2[$i],
 				'icon' => $f->imageUrl(),
 				'desc' => $f->paragraph(2)
 			]);
