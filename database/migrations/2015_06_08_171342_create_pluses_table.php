@@ -16,6 +16,12 @@ class CreatePlusesTable extends Migration {
 		{
 			$t->increments('id');
 			$t->string('text');
+
+			$t->integer('feedback_id')->unsigned();
+
+			$t->foreign('feedback_id')->references('id')->on('feedback')
+											->onDelete('cascade')
+											->onUpdate('no action');
 		});
 	}
 
