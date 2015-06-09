@@ -34,10 +34,12 @@ class ComposerServiceProvider extends ServiceProvider {
 
 			$path = \Request::path();
 
-			$catalog = '';
+			$catalog = 'active';
 
-			if(strpos($path, 'catalog') >= 0)
-				$catalog = 'active';
+			$pos = strpos($path, 'catalog');
+
+			if($pos === false)
+				$catalog = '';
 
 			$v->with('catalog', $catalog);
 
