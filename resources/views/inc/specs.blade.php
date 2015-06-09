@@ -6,7 +6,20 @@
 		
 		@foreach($specs as $spec)
 			
-			<li>{{ $spec->name }}</li>
+			@if($current)
+
+				<li class="{{ $current == $spec->name ? 'specs_active' : '' }}">
+
+			@else
+
+				<li>
+
+			@endif
+
+					<a href="{{ route('specs', $spec->name) }}">
+						{{ $spec->title }}
+					</a>
+				</li>
 
 		@endforeach
 

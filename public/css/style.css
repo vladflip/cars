@@ -354,6 +354,9 @@ h3 {
 .specs_menu li:last-child {
   margin-bottom: 0;
 }
+.specs_active {
+  color: #ccc;
+}
 .specs_add {
   display: -webkit-flex;
   display: -ms-flexbox;

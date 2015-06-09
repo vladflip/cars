@@ -15,9 +15,19 @@ get('/', ['as' => 'home', function(){
 	return view('pages.home');
 }]);
 
-get('/catalog', ['as' => 'catalog', function(){
-	return view('pages.catalog');
-}]);
+Route::group(['prefix' => 'catalog'], function(){
+
+	get('/', [
+		'as' => 'catalog', 
+		'uses' => 'CatalogController@index'
+	]);
+
+	get('{name}', [
+		'as' => 'specs',
+		'uses' => 'CatalogController@specs'
+	])->where('name', '[a-z]+');
+
+});
 
 get('/profile', ['as' => 'profile', function(){
 	return view('pages.profile');
