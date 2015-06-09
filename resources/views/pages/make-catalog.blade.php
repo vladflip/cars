@@ -23,7 +23,11 @@
 				<h3 class="catalog_type">
 					@if(isset($bread['spec']))
 
-						{{$bread['spec']->title }}
+						{{ $bread['spec']->title }}
+
+					@elseif(isset($allmake))
+						
+						{{ $bread['allmake']->title }}
 
 					@else
 

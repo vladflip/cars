@@ -48,7 +48,7 @@ class UserSeeder extends Seeder {
 
 		$f = FF::get();
 
-		for($i=0; $i < 10; $i++){
+		for($i=0; $i < 30; $i++){
 
 			App\User::create([
 					'email' => $f->email,
@@ -188,9 +188,11 @@ class CompanySeeder extends Seeder {
 
 	public function run() {
 
+		Model::unguard();
+
 		$f = FF::get();
 
-		for($i=0; $i < 10; $i++){
+		for($i=0; $i < 30; $i++){
 
 			$c = App\Company::create([
 				'user_id' => $i+1,

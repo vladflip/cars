@@ -23,7 +23,7 @@ Route::group(['prefix' => 'catalog'], function(){
 	get('/make/{allmake}', [
 		'as' => 'allmake',
 		'uses' => 'CatalogController@allmake'
-	])->where(['allmake' => '[a-z+]+']);
+	])->where(['allmake' => '[a-z+-]+']);
 
 	get('{spec}', [
 		'as' => 'specs',
@@ -33,7 +33,7 @@ Route::group(['prefix' => 'catalog'], function(){
 	get('{spec}/{make}', [
 		'as' => 'make',
 		'uses' => 'CatalogController@companies'
-	])->where(['spec' => '[a-z]+', 'make' => '[a-z+]+']);
+	])->where(['spec' => '[a-z]+', 'make' => '[a-z+-]+']);
 
 
 });

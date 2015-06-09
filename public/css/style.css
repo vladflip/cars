@@ -225,9 +225,11 @@ h3 {
 }
 .makes ul li span {
   color: #4e61eb;
-  text-decoration: underline;
   display: inline-block;
   cursor: pointer;
+}
+.makes ul li span a {
+  text-decoration: underline;
 }
 .makes--live ul li {
   padding: 0;

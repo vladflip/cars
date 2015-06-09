@@ -68,7 +68,8 @@ class CatalogController extends Controller {
 		$bread = ['allmake' => $make];
 
 		return view('pages.make-catalog')
-			->with('bread', $bread);
+			->with('bread', $bread)
+			->with('allmake', true);
 
 	}
 
