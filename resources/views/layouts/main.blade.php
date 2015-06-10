@@ -19,5 +19,19 @@
 	
 	@include('inc.footer')
 
+	<div class="popup" id="popup"></div>
+
+	<script>
+		var s = document.getElementById('search');
+		var pop = document.getElementById('popup');
+
+		s.onclick = function(){
+			pop.style.display = 'block';
+		}
+		pop.onclick = function(){
+			pop.style.display = 'none';
+		}
+	</script>
+
 </body>
 </html>
