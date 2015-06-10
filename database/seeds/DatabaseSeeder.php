@@ -109,10 +109,16 @@ class TypeSeeder extends Seeder {
 			'Малый коммерческий траспорт', 'Прицепы'
 		];
 
+		$arr2 = [
+			'trucks', 'buses',
+			'small', 'trailers'
+		];
+
 		for($i=0; $i < count($arr); $i++){
 
 			App\Type::create([
-				'name' => $arr[$i],
+				'name' => $arr2[$i],
+				'title' => $arr[$i],
 				'icon' => $f->imageUrl(),
 				'desc' => $f->paragraph(2)
 			]);
