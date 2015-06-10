@@ -153,7 +153,8 @@ class MakeCarModelSeeder extends Seeder {
 								continue;
 
 							$m = App\CarModel::create([
-								'name' => $v2,
+								'name' => urlencode(strtolower($v2)),
+								'title' => $v2,
 								'icon' => $f->imageUrl(),
 								'desc' => $f->paragraph(2),
 								'make_id' => $id
@@ -224,17 +225,20 @@ class FeedbackSeeder extends Seeder {
 
 		$f = FF::get();
 
-		for($i=0; $i < 10; $i++){
+		for($i=0; $i < 30; $i++){
+
+			$id = $this->getModel($i+1);
 
 			$feed = App\Feedback::create([
 
 				'header' => $f->sentence(rand(3, 8)),
 				'content' => $f->paragraph(5),
+				'logo' => 'http://lorempixel.com/65/65/transport',
 
 				'user_id' => $i+1,
 				'type_id' => rand(1, 4),
 				'make_id' => $i+1,
-				'model_id' => $i+1
+				'model_id' => $id
 			]);
 
 			$feed->likes()->attach($i+1);
@@ -242,6 +246,14 @@ class FeedbackSeeder extends Seeder {
 			$feed->dislikes()->attach($i+1);
 
 		}
+
+	}
+
+	public function getModel($id) {
+
+		$m = \App\Make::with('models')->find($id);
+
+		return rand($m->models[0]->id, count($m->models) + $m->models[0]->id - 1);
 
 	}
 
@@ -317,11 +329,11 @@ class PhotoSeeder extends Seeder {
 
 		$f = FF::get();
 
-		for($i=0; $i < 10; $i++){
+		for($i=0; $i < 30; $i++){
 
 			App\Photo::create([
 
-				'src' => $f->imageUrl(),
+				'src' => 'http://lorempixel.com/400/200/transport',
 				'feedback_id' => $i+1
 
 			]);

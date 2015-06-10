@@ -23,6 +23,7 @@ class CreateFeedbackTable extends Migration {
 
 			$t->string('header');
 			$t->text('content');
+			$t->string('logo');
 
 			$t->foreign('type_id')->references('id')->on('types')
 											->onDelete('cascade')

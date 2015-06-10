@@ -39,7 +39,12 @@ Route::group(['prefix' => 'catalog'], function(){
 });
 
 get('/profile', ['as' => 'profile', function(){
-	return view('pages.profile');
+
+	$f = \App\Feedback::find(1);
+
+	var_dump($f->created_at);
+
+	// return view('pages.profile');
 }]);
 
 Route::group(['prefix' => 'feedback'], function(){
