@@ -42,6 +42,19 @@ get('/profile', ['as' => 'profile', function(){
 	return view('pages.profile');
 }]);
 
-get('/feedback', ['as' => 'feedback', function(){
-	return view('pages.feed');
-}]);
+Route::group(['prefix' => 'feedback'], function(){
+
+	get('/', [
+		'as' => 'feedback', 
+		'uses' => 'FeedbackController@index'
+	]);
+
+	get('{type}/{make}', [
+
+		'as' => 'feedback-make',
+		'uses' => 'FeedbackController@make'
+
+	])->where(['type' => '[a-z]+', 'make' => '[a-z+-]+']);
+
+});
+

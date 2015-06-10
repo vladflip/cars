@@ -3,7 +3,9 @@
 	margin 30px 0 0 0
 	
 	&_count
-		@extends $count
+		color $color
+		text-decoration none
+		margin-left 5px
 			
 	ul
 		margin-left 70px
@@ -17,11 +19,11 @@
 			margin-bottom 5px
 			padding 9px 0px
 			
-			span
+			&>span
 				color #4e61eb
-				display inline-block
 				cursor pointer
 				a	
+					display inline
 					text-decoration underline
 	
 	&--live
