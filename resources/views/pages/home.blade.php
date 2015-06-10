@@ -30,13 +30,15 @@
 					Показать
 				</div>
 
-				{{-- @include('inc.found') --}}
+				@include('inc.found')
 
 			</div>
 
 			<div class="home_right">
 				
 				@include('inc.search')
+
+				@include('inc.feedback')
 
 			</div>
 
