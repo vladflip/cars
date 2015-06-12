@@ -79,4 +79,23 @@ class FeedbackController extends Controller {
 
 	}
 
+	public function mention($id) {
+
+		$m = \App\Feedback::select('id')->find($id);
+
+		if(!$m)
+			abort(404);
+
+		$mention = \App\Feedback::with('user')
+			->with('likes')
+			->with('dislikes')
+			->with('comments')
+			->find($id);
+
+		return view('pages.mention')
+			->with('mention', $mention);
+
+
+	}
+
 }

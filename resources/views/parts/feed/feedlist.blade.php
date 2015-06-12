@@ -4,10 +4,11 @@
 
 		<div class="feedlist_item">
 		
-			<div class="feedlist_info">
+			<div class="mention_info">
 				
 				<div class="feedlist_header">
-					<a href="">{{ $feed->header }}</a>
+					<a href="{{ route('mention', $feed->id) }}">
+						{{ $feed->header }}</a>
 				</div>
 
 				<div class="feedlist_excerpt">
@@ -17,15 +18,15 @@
 					}}
 				</div>
 
-				<div class="feedlist_date-user">
-					<div class="feedlist_date">
+				<div class="mention_date-user">
+					<div class="mention_date">
 						{{ 
 							$feed->created_at->day . '.' . 
 							$feed->created_at->month . '.'.
 							$feed->created_at->year
 						}}
 					</div>
-					<div class="feedlist_user">
+					<div class="mention_user">
 						<a href="">
 							{{ $feed->user->name }}
 						</a>
@@ -34,12 +35,12 @@
 
 			</div>
 
-			<div class="feedlist_votes">
-				<div class="feedlist_likes">
+			<div class="mention_votes">
+				<div class="mention_likes">
 					<span>{{ count($feed->likes) }}</span>
 					<img src="{{ URL::to('/') }}/img/like.png" alt="">
 				</div>
-				<div class="feedlist_dislikes">
+				<div class="mention_dislikes">
 					<span>{{ count($feed->dislikes) }}</span>
 					<img src="{{ URL::to('/') }}/img/dislike.png" alt="">
 				</div>

@@ -1,0 +1,103 @@
+.mention
+	padding 25px 35px
+	
+	&_head
+		display flex
+		justify-content space-between
+		margin-bottom 15px
+	
+	&_header
+		width 520px
+		margin 0
+		font-weight 400
+	
+	&_date-user
+		display flex
+		
+	&_date
+		color #ccc
+		font-size 14px
+		margin-right 10px
+		
+	&_user
+		color $blue
+		font-size 14px
+
+	&_votes
+		display flex
+	
+	&_likes,
+	&_dislikes
+		font-size 18px
+		font-weight 400
+		display flex
+		align-items center
+		
+		&--active
+			padding 8px 15px
+			cursor pointer
+		
+		span
+			margin-right 7px
+	
+	&_likes
+		color #cbe887
+		margin-right 25px
+		
+		&--active
+			background-color #f6fae9
+			margin-right 5px
+		
+	&_dislikes
+		color #dbdbdb
+		
+		&--active
+			background-color #f4f4f4
+		
+	&_content
+		margin-top 15px
+		
+	&_rate
+		display flex
+		align-items center
+		
+		&>span
+			font-size 14px
+			margin-right 20px
+			
+	&_pluses-minuses
+		display flex
+		justify-content space-between
+		
+	&_pluses,
+	&_minuses
+		padding 15px 15px
+		border-width 2px
+		border-style solid
+		width 360px
+		
+		h4
+			margin 0 0 10px 0
+			font-weight 400
+			
+	&_pluses
+		border-color #cbe887
+		
+		h4
+			color #cbe887
+			
+	&_minuses
+		border-color #dbdbdb
+		
+		h4
+			color #dbdbdb
+			
+	&_minus,
+	&_plus
+		font-size 13px
+		
+	&_minus-sign
+		color #dbdbdb
+		
+	&_plus-sign
+		color #cbe887

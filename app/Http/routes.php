@@ -52,9 +52,18 @@ get('/profile', ['as' => 'profile', function(){
 Route::group(['prefix' => 'feedback'], function(){
 
 	get('/', [
+
 		'as' => 'feedback', 
 		'uses' => 'FeedbackController@index'
+
 	]);
+
+	get('/id{id}', [
+
+		'as' => 'mention',
+		'uses' => 'FeedbackController@mention'
+
+	])->where('id', '[0-9]+');
 
 	get('{type}/{make}', [
 
@@ -64,9 +73,11 @@ Route::group(['prefix' => 'feedback'], function(){
 	])->where(['type' => '[a-z]+', 'make' => '[a-z+-]+']);
 
 	get('{type}/{make}/{model}', [
+
 		'as' => 'feedback-model',
 		'uses' => 'FeedbackController@model'
-	])->where(['type' => '[a-z]+', 'make' => '[a-z+-]+']);;
+
+	])->where(['type' => '[a-z]+', 'make' => '[a-z+-]+']);
 
 });
 
