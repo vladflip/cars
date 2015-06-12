@@ -792,9 +792,31 @@ h3 {
   border: 1px solid #efefef;
   border-radius: 2px;
 }
+.feed_left .makes {
+  margin: 0;
+}
 .feed_right {
   float: right;
   width: 260px;
+}
+.feed-sort {
+  margin: 0 0 10px 35px;
+  width: 235px;
+  font-size: 14px;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+.feed-sort_item {
+  color: #ccc;
+}
+.feed-sort--active {
+  color: #4e61eb;
+  text-decoration: underline;
+  cursor: pointer;
 }
 .home {
   overflow: hidden;

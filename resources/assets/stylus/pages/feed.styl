@@ -14,10 +14,30 @@
 		width 868px
 		block-border()
 		
+		.makes
+			margin 0
+		
 	&_right
 		float right
 		width 260px
 		
 	&_header
 		@extends $header
+		
+		
+	&-sort
+		margin 0 0 10px 35px
+		width 235px
+		font-size 14px
+		display flex
+		justify-content space-between
+		
+		&_item
+			color #ccc
+		
+		&--active
+			color $blue
+			text-decoration underline
+			cursor pointer
+			
 		

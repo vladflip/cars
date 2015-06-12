@@ -16,10 +16,6 @@
 						<a href="">
 							{{ $model->title }}</a>
 		
-						<span class="makes_count" title="Количество отзывов">
-							{{ count($model->feedbacks) }}
-						</span>
-		
 					</span>
 				</li>
 		
@@ -27,6 +23,12 @@
 			
 		</ul>
 
+	</div>
+
+	<div class="feed-sort">
+		<span class="feed-sort_item">Сортировать по:</span>
+		<div class="feed-sort_date">Дате</div>
+		<div class="feed-sort_benefit feed-sort--active">Полезности</div>
 	</div>
 
 	<hr>
