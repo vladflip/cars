@@ -4,7 +4,7 @@
 
 	<h3 class="feed_header">Отзывы {{ $make->title }}</h3>
 		
-	<div class="makes">
+	<div class="makes makes--feed">
 
 		<ul>	
 		
@@ -13,7 +13,10 @@
 				<li>
 					<span>
 		
-						<a href="">
+						<a href="{{ route('feedback-model', 
+						['type'=>$type->name, 
+						'make' => $make->name, 
+						'model' => $model->name]) }}">
 							{{ $model->title }}</a>
 		
 					</span>

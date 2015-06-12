@@ -181,6 +181,9 @@ h3 {
   position: relative;
   margin: 30px 0 0 0;
 }
+.makes--feed {
+  margin: 0;
+}
 .makes ul {
   margin-left: 70px;
   padding: 30px 0;
@@ -792,9 +795,6 @@ h3 {
   border: 1px solid #efefef;
   border-radius: 2px;
 }
-.feed_left .makes {
-  margin: 0;
-}
 .feed_right {
   float: right;
   width: 260px;
@@ -809,6 +809,9 @@ h3 {
   -webkit-justify-content: space-between;
       -ms-flex-pack: justify;
           justify-content: space-between;
+}
+.feed-sort--model {
+  margin: 30px 0 30px 35px;
 }
 .feed-sort_item {
   color: #ccc;

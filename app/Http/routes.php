@@ -42,7 +42,9 @@ get('/profile', ['as' => 'profile', function(){
 
 	$f = \App\Feedback::find(1);
 
-	var_dump($f->created_at);
+	$t = \App\Type::find(1);
+
+	var_dump(compact('t'));
 
 	// return view('pages.profile');
 }]);
@@ -60,6 +62,11 @@ Route::group(['prefix' => 'feedback'], function(){
 		'uses' => 'FeedbackController@make'
 
 	])->where(['type' => '[a-z]+', 'make' => '[a-z+-]+']);
+
+	get('{type}/{make}/{model}', [
+		'as' => 'feedback-model',
+		'uses' => 'FeedbackController@model'
+	])->where(['type' => '[a-z]+', 'make' => '[a-z+-]+']);;
 
 });
 
