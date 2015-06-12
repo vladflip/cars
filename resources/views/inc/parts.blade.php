@@ -1,8 +1,6 @@
 <div class="parts">
 
 	@include('parts.media-header', ['title' => 'Рубрики'])
-
-	<div class="parts_count">34 компании</div>
 	
 	<ul class="parts_categories">
 		<li><span>Магазины запчастей</span></li>

@@ -12,10 +12,6 @@
 						['type' => $type->name, 'make' => $make->name]) }}">
 						{{ $make->title }}</a>
 
-					<span class="makes_count" title="Количество отзывов">
-						{{ count($make->feedbacks) }}
-					</span>
-
 				</span>
 			</li>
 

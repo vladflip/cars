@@ -2,8 +2,6 @@
 					
 	@include('parts.media-header', ['title' => 'Выберите тип'])
 
-	<div class="type_count">597 компаний</div>
-
 	<ul>
 		<li>
 			<div></div>

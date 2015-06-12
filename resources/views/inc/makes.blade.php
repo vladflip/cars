@@ -4,8 +4,6 @@
 		'title' => isset($title) ? $title : 'Выберите производителя'
 	])
 
-	{{-- <div class="makes_count">45 компанйи</div> --}}
-
 	<ul>
 		@foreach($makes as $make)
 
