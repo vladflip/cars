@@ -13,7 +13,7 @@ class ComposerServiceProvider extends ServiceProvider {
 	public function boot()
 	{
 		// Using class based composers...
-		View::composer('specs', 'App\Http\ViewComposers\SpecsComposer');
+		// View::composer('specs', 'App\Http\ViewComposers\SpecsComposer');
 
 		View::composer('inc.specs', function($v) {
 
@@ -26,7 +26,7 @@ class ComposerServiceProvider extends ServiceProvider {
 
 			$specs = \App\Spec::select('name', 'title')->get();
 
-			// current is only for pages where no specs active
+			// current is only for pages where no specs active, passes false
 
 			$v->with('specs', $specs)->with('current', $current);
 
@@ -38,12 +38,20 @@ class ComposerServiceProvider extends ServiceProvider {
 
 			$catalog = 'active';
 
-			$pos = strpos($path, 'catalog');
+			$c = strpos($path, 'catalog');
 
-			if($pos === false)
+			if($c === false)
 				$catalog = '';
 
-			$v->with('catalog', $catalog);
+			$feedback = 'active';
+
+			$f = strpos($path, 'feedback');
+
+			if($f === false)
+				$feedback = '';
+
+			$v->with('catalog', $catalog)
+				->with('feedback', $feedback);
 
 		});
 	}
