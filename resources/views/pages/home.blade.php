@@ -15,8 +15,6 @@
 			</div>
 
 			<div class="home_middle">
-
-				{!! Breadcrumbs::render('home') !!}
 				
 				<h3>Поиск организации</h3>
 

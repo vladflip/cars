@@ -2,6 +2,8 @@
 
 @section('content')
 
+	{!! Breadcrumbs::render('feed', $bread) !!}
+
 	<div class="mention">
 		
 		<div class="mention_head">

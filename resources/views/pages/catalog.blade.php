@@ -15,8 +15,6 @@
 			</div>
 			
 			<div class="catalog_middle">
-				
-				{{-- bread crumps --}}
 
 				{!! Breadcrumbs::render('catalog', $bread) !!}
 

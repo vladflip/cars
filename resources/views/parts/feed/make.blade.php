@@ -2,6 +2,8 @@
 
 @section('content')
 
+	{!! Breadcrumbs::render('feed', $bread) !!}
+
 	<h3 class="feed_header">Отзывы {{ $make->title }}</h3>
 		
 	<div class="makes makes--feed">

@@ -44,7 +44,7 @@ get('/profile', ['as' => 'profile', function(){
 
 	$t = \App\Type::find(1);
 
-	var_dump(compact('t'));
+	var_dump($f->model);
 
 	// return view('pages.profile');
 }]);
