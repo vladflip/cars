@@ -272,12 +272,16 @@ h3 {
   border-radius: 2px;
   position: relative;
 }
-.popup--search {
+.popup_content {
+  margin: auto;
+}
+.popup--search,
+.popup--reg {
   width: 450px;
 }
-.popup--search .popup_content {
+.popup--search .popup_content,
+.popup--reg .popup_content {
   width: 300px;
-  margin: auto;
 }
 .popup_header {
   margin: 0;

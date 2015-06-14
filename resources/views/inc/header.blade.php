@@ -41,7 +41,11 @@
 			
 				</div>
 
-				<div class="header_register">Регистрация</div>
+				<div id="register" href="#reg-popup" class="header_register">
+					Регистрация
+				</div>
+
+				@include('parts.reg-popup')
 			
 			@endif
 

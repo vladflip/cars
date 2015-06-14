@@ -9,7 +9,15 @@ require('./popups/index');
 },{"./base":1,"./popups/index":3}],3:[function(require,module,exports){
 require('./search');
 
-},{"./search":4}],4:[function(require,module,exports){
+require('./reg');
+
+},{"./reg":4,"./search":5}],4:[function(require,module,exports){
+$('#register').magnificPopup({
+  type: 'inline',
+  closeBtnInside: true
+});
+
+},{}],5:[function(require,module,exports){
 var SelectView, make, model, type,
   extend = function(child, parent) { for (var key in parent) { if (hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; },
   hasProp = {}.hasOwnProperty;
