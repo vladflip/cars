@@ -81,3 +81,10 @@ Route::group(['prefix' => 'feedback'], function(){
 
 });
 
+Route::group(['prefix' => 'api', 'middleware' => 'api'], function(){
+
+	get('get-makes', 'APIController@makes');
+
+	get('get-models', 'APIController@models');
+
+});

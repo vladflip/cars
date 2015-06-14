@@ -39,23 +39,39 @@ SelectView = (function(superClass) {
       this.options.c.reset();
     }
     if (this.options.c) {
-      this.options.c.store();
+      return this.options.c.store(this.$el.val());
     }
-    return this.render();
   };
 
   SelectView.prototype.reset = function() {
     this.$el.find('option:not(:first)').remove();
-    this.$el.selectBox('refresh')();
+    this.$el.selectBox('refresh');
     if (this.options.c) {
       return this.options.c.reset();
     }
   };
 
-  SelectView.prototype.render = function() {};
+  SelectView.prototype.render = function() {
+    var html, options, temp;
+    temp = Handlebars.compile($('#search-template').html());
+    options = temp(this.options.json);
+    html = $.parseHTML(options);
+    this.$el.find('option:first').after(html);
+    return this.$el.selectBox('refresh');
+  };
 
-  SelectView.prototype.store = function() {
-    return this.collection = new Backbone.Collection;
+  SelectView.prototype.store = function(id) {
+    var self;
+    self = this;
+    return $.ajax(this.options.url, {
+      data: {
+        id: id
+      }
+    }).done(function(d) {
+      self.options.json = d;
+      console.log(d);
+      return self.render();
+    });
   };
 
   return SelectView;
@@ -63,12 +79,14 @@ SelectView = (function(superClass) {
 })(Backbone.View);
 
 model = new SelectView({
-  el: '#search-model'
+  el: '#search-model',
+  url: 'api/get-models'
 });
 
 make = new SelectView({
   el: '#search-make',
-  c: model
+  c: model,
+  url: 'api/get-makes'
 });
 
 type = new SelectView({

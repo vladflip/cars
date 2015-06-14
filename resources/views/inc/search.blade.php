@@ -90,5 +90,7 @@
 		</div>
 
 	</div>
+
+	@include('parts.search-template')
 	
 </div>

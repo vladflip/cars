@@ -13,34 +13,50 @@ class SelectView extends Backbone.View
 
 	selected: ->
 		do @options.c.reset if @options.c
-		do @options.c.store if @options.c
-		do @render
+		@options.c.store @$el.val() if @options.c
 
 	reset: ->
 		# remove native options
 		@$el.find('option:not(:first)').remove()
 
 		# refresh selectbox
-		do @$el.selectBox 'refresh'
+		@$el.selectBox 'refresh'
 
 		# reset on children
 		do @options.c.reset if @options.c
 		
 	render: ->
-		# compile handlebars view
-		# render select element with options
+		temp = Handlebars.compile $('#search-template').html()
 
-	store: ->
-		# get by ajax options and store in option
-		@collection = new Backbone.Collection
+		options = temp @options.json
+
+		html = $.parseHTML(options)
+
+		@$el.find('option:first').after(html)
+
+		@$el.selectBox 'refresh'
+
+	store: (id) ->
+		self = @
+		$.ajax @options.url,
+			data:
+				id: id
+		.done (d) ->
+			self.options.json = d
+
+			console.log d
+
+			do self.render
 
 
 model = new SelectView 
 	el: '#search-model'
+	url: 'api/get-models'
 
 make = new SelectView 
 	el: '#search-make'
 	c: model
+	url: 'api/get-makes'
 
 type = new SelectView 
 	el: '#search-type'
