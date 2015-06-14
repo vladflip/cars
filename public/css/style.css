@@ -266,24 +266,34 @@ h3 {
   background-color: #fdf6d1;
 }
 .popup {
-  padding: 20px;
+  padding: 30px;
   background-color: #fff;
   margin: auto;
-  width: 500px;
   border-radius: 2px;
   position: relative;
 }
+.popup--search {
+  width: 450px;
+}
+.popup--search .popup_content {
+  width: 300px;
+  margin: auto;
+}
 .popup_header {
   margin: 0;
+  text-align: center;
 }
 .popup_checks {
   margin: 20px 0;
+}
+.popup_checks .popup_label {
+  margin: 0 10px 0 0;
 }
 .popup_check {
   width: 15px;
   height: 15px;
   outline: none;
-  margin-right: 10px;
+  margin-right: 15px;
 }
 .popup_check:checked:after {
   background: #fff url("../img/tip.png") no-repeat center;
@@ -305,6 +315,7 @@ h3 {
   -webkit-flex-direction: column;
       -ms-flex-direction: column;
           flex-direction: column;
+  margin-top: 20px;
 }
 .popup_select {
   padding: 15px 10px;
@@ -338,6 +349,55 @@ h3 {
 }
 .popup_label {
   font-size: 13px;
+  margin-bottom: 5px;
+  -webkit-align-self: flex-start;
+      -ms-flex-item-align: start;
+          align-self: flex-start;
+}
+.popup_input {
+  background-color: #fff;
+  border: 1px solid #e4e4e4;
+  width: 275px;
+  color: #2d2d2d;
+  padding: 15px 10px;
+  font-size: 13px;
+  display: block;
+  outline: none;
+}
+.popup_textarea {
+  background-color: #fff;
+  border: 1px solid #e4e4e4;
+  width: 275px;
+  color: #2d2d2d;
+  padding: 15px 10px;
+  font-size: 13px;
+  display: block;
+  outline: none;
+  resize: none;
+}
+.popup_button {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  text-align: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-size: 12px;
+  width: 170px;
+  height: 40px;
+  cursor: pointer;
+  border: 4px solid #f3df6d;
+  margin: 30px auto 0;
+}
+.selectBox-disabled {
+  color: #ccc;
+}
+.selectBox-disabled a:hover {
+  background-color: #fff;
 }
 .search {
   background-color: #f3df6d;

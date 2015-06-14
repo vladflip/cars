@@ -9,7 +9,7 @@
 
 </div>
 
-<div id="search-popup" class="mfp-hide popup">
+<div id="search-popup" class="mfp-hide popup popup--search">
 
 	<div class="popup_content">
 
@@ -26,8 +26,9 @@
 		</div>
 
 		<div class="popup_field">
-			<label class="popup_label">Тип авто</label>
-			<select name="" id="select-type" class="popup_select">
+			<select id="search-type" class="popup_select">
+
+				<option class="popup_option" selected disabled>Тип авто</option>
 			
 				@foreach($types as $type)
 			
@@ -41,12 +42,15 @@
 		</div>
 
 		<div class="popup_field">
-			<label class="popup_label">Производитель</label>
-			<select name="" id="select-make" class="popup_select">
+			<select id="search-make" class="popup_select">
+
+				<option class="popup_option" selected disabled>Производитель</option>
 			
 				@foreach($makes as $make)
 			
-					
+					<option value="{{ $make->id }}" class="popup_option">
+						{{ $make->title }}
+					</option>
 			
 				@endforeach
 			
@@ -54,12 +58,15 @@
 		</div>
 
 		<div class="popup_field">
-			<label class="popup_label">Уточните модель</label>
-			<select name="" id="select-model">
+			<select id="search-model" class="popup_select">
+
+				<option class="popup_option" selected disabled>Уточните модель</option>
 			
 				@foreach($models as $model)
 			
-					<option value="{{ $model->id }}">{{ $model->title }}</option>
+					<option value="{{ $model->id }}" class="popup_option">
+						{{ $model->title }}
+					</option>
 			
 				@endforeach
 			
@@ -68,12 +75,18 @@
 
 		<div class="popup_field">
 			<label class="popup_label">Год выпуска</label>
-			<input type="text">
+			<input type="text" id="search-year" class="popup_input">
 		</div>
 
 		<div class="popup_field">
 			<label class="popup_label">Дополнительная информация</label>
-			<textarea name="" id="" cols="30" rows="10"></textarea>
+			<textarea 
+			id="search-more" cols="30" rows="7" placeholder="VIN, кузов, пожелания" 
+			class="popup_textarea"></textarea>
+		</div>
+
+		<div class="popup_button">
+			Запросить
 		</div>
 
 	</div>

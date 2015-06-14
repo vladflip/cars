@@ -1,22 +1,32 @@
 .popup
-	padding 20px
+	padding 30px
 	background-color white
 	margin auto
-	width 500px
 	border-radius 2px
 	position relative
 	
+	&--search
+		width 450px
+	
+	&--search &_content
+		width 300px
+		margin auto
+	
 	&_header
 		margin 0
+		text-align center
 		
 	&_checks
 		margin 20px 0
+		
+	&_checks &_label
+		margin 0 10px 0 0
 	
 	&_check
 		width 15px
 		height 15px
 		outline none
-		margin-right 10px
+		margin-right 15px
 		
 		&:checked:after
 			background white url(../img/tip.png) no-repeat center
@@ -34,6 +44,7 @@
 	&_field
 		display flex
 		flex-direction column
+		margin-top 20px
 			
 	&_select
 		padding 15px 10px
@@ -68,3 +79,37 @@
 		
 	&_label
 		font-size 13px
+		margin-bottom 5px
+		align-self flex-start
+		
+	&_input
+		background-color white
+		border 1px solid #e4e4e4
+		width 275px
+		color $color
+		padding 15px 10px
+		font-size 13px
+		display block
+		outline none
+	
+	&_textarea
+		background-color white
+		border 1px solid #e4e4e4
+		width 275px
+		color $color
+		padding 15px 10px
+		font-size 13px
+		display block
+		outline none
+		resize none
+		
+	&_button
+		button($yellow)
+		margin 30px auto 0
+
+.selectBox-disabled
+	color #ccc
+	
+	a
+		&:hover
+			background-color white

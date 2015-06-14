@@ -4,19 +4,27 @@ $('#search').magnificPopup
 	closeBtnInside: true
 
 
-$ '#select-type'
+$ '#search-type'
 
 .selectBox()
 
-$ '#select-make'
+$ '#search-make'
 
 .selectBox()
 
-$ '#select-type'
+$ '#search-model'
+
+.selectBox()
+
+autosize $ '#search-more'
+
+
+
+$ '#search-type'
 .change ->
 	console.log this.value
 
-$ '#select-make'
+$ '#search-make'
 
 .change ->
 	console.log this.value

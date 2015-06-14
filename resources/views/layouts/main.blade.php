@@ -22,6 +22,7 @@
 
 	<script src="{{ URL::to('/') }}/js/vendor/jquery.js"></script>
 	<script src="{{ URL::to('/') }}/js/vendor/jquery-ui.js"></script>
+	<script src="{{ URL::to('/') }}/js/vendor/autosize.min.js"></script>
 	<script src="{{ URL::to('/') }}/js/vendor/selectbox.js"></script>
 	<script src="{{ URL::to('/') }}/js/vendor/underscore.js"></script>
 	<script src="{{ URL::to('/') }}/js/vendor/backbone.js"></script>

@@ -15,15 +15,19 @@ $('#search').magnificPopup({
   closeBtnInside: true
 });
 
-$('#select-type').selectBox();
+$('#search-type').selectBox();
 
-$('#select-make').selectBox();
+$('#search-make').selectBox();
 
-$('#select-type').change(function() {
+$('#search-model').selectBox();
+
+autosize($('#search-more'));
+
+$('#search-type').change(function() {
   return console.log(this.value);
 });
 
-$('#select-make').change(function() {
+$('#search-make').change(function() {
   return console.log(this.value);
 });
 
