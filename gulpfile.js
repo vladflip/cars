@@ -21,9 +21,9 @@ var cDest = 'resources/assets/coffee';
 // gulp.task('default', ['stylus', 'coffee'], function(){
 gulp.task('default', ['stylus'], function(){
 
-	gulp.watch(sDest + '/**/*', ['stylus']);
+	// gulp.watch(sDest + '/**/*', ['stylus']);
 
-	// gulp.watch(cDest + '/**/*', ['coffee']);
+	gulp.watch(cDest + '/**/*', ['coffee']);
 
 });
 

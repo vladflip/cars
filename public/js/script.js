@@ -10,25 +10,72 @@ require('./popups/index');
 require('./search');
 
 },{"./search":4}],4:[function(require,module,exports){
+var SelectView, make, model, type,
+  extend = function(child, parent) { for (var key in parent) { if (hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; },
+  hasProp = {}.hasOwnProperty;
+
 $('#search').magnificPopup({
   type: 'inline',
   closeBtnInside: true
 });
 
-$('#search-type').selectBox();
+SelectView = (function(superClass) {
+  extend(SelectView, superClass);
 
-$('#search-make').selectBox();
+  function SelectView() {
+    return SelectView.__super__.constructor.apply(this, arguments);
+  }
 
-$('#search-model').selectBox();
+  SelectView.prototype.initialize = function() {
+    return this.$el.selectBox();
+  };
+
+  SelectView.prototype.events = {
+    'change': 'selected'
+  };
+
+  SelectView.prototype.selected = function() {
+    if (this.options.c) {
+      this.options.c.reset();
+    }
+    if (this.options.c) {
+      this.options.c.store();
+    }
+    return this.render();
+  };
+
+  SelectView.prototype.reset = function() {
+    this.$el.find('option:not(:first)').remove();
+    this.$el.selectBox('refresh')();
+    if (this.options.c) {
+      return this.options.c.reset();
+    }
+  };
+
+  SelectView.prototype.render = function() {};
+
+  SelectView.prototype.store = function() {
+    return this.collection = new Backbone.Collection;
+  };
+
+  return SelectView;
+
+})(Backbone.View);
+
+model = new SelectView({
+  el: '#search-model'
+});
+
+make = new SelectView({
+  el: '#search-make',
+  c: model
+});
+
+type = new SelectView({
+  el: '#search-type',
+  c: make
+});
 
 autosize($('#search-more'));
-
-$('#search-type').change(function() {
-  return console.log(this.value);
-});
-
-$('#search-make').change(function() {
-  return console.log(this.value);
-});
 
 },{}]},{},[2]);
