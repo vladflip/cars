@@ -265,6 +265,80 @@ h3 {
 .parts_categories li span:hover {
   background-color: #fdf6d1;
 }
+.popup {
+  padding: 20px;
+  background-color: #fff;
+  margin: auto;
+  width: 500px;
+  border-radius: 2px;
+  position: relative;
+}
+.popup_header {
+  margin: 0;
+}
+.popup_checks {
+  margin: 20px 0;
+}
+.popup_check {
+  width: 15px;
+  height: 15px;
+  outline: none;
+  margin-right: 10px;
+}
+.popup_check:checked:after {
+  background: #fff url("../img/tip.png") no-repeat center;
+}
+.popup_check:after {
+  content: '';
+  cursor: pointer;
+  outline: none;
+  width: 20px;
+  height: 20px;
+  background-color: #fff;
+  display: block;
+  border: 1px solid #e4e4e4;
+}
+.popup_field {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+.popup_select {
+  padding: 15px 10px;
+  cursor: pointer;
+  font-size: 13px;
+  display: block;
+  outline: none;
+  width: 275px;
+  border: 1px solid #e4e4e4;
+  background: #fff url("../img/selectbox-arrow.png") no-repeat 95% center;
+}
+.popup_select-selectBox-dropdown-menu {
+  z-index: 99999;
+  position: absolute;
+  top: 0;
+  border: 1px solid #e4e4e4;
+  max-height: 300px;
+  overflow-y: auto;
+}
+.popup_option a {
+  background-color: #fff;
+  padding: 15px 10px;
+  cursor: pointer;
+  font-size: 13px;
+  display: block;
+  outline: none;
+  width: auto;
+}
+.popup_option a:hover {
+  background-color: #eee;
+}
+.popup_label {
+  font-size: 13px;
+}
 .search {
   background-color: #f3df6d;
   padding: 20px 40px;

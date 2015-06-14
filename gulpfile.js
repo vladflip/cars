@@ -57,12 +57,12 @@ gulp.task('stylus', function(){
 |--------------------------------------------------------------------------
 */
 
-// gulp.task('coffee', function(){
-// 	return gulp.src(cDest + '/index.coffee')
-// 				.pipe(coffee())
-// 				.on('error', showError)
-// 				.pipe(notify('Compiled : Coffee'))
-// 				.pipe(uglify())
-// 				.pipe(rename('script.js'))
-// 				.pipe(gulp.dest('public/js'));
-// });
+gulp.task('coffee', function(){
+	return gulp.src(cDest + '/index.coffee')
+				.pipe(coffee())
+				.on('error', showError)
+				.pipe(notify('Compiled : Coffee'))
+				// .pipe(uglify())
+				.pipe(rename('script.js'))
+				.pipe(gulp.dest('public/js'));
+});

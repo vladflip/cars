@@ -1,0 +1,70 @@
+.popup
+	padding 20px
+	background-color white
+	margin auto
+	width 500px
+	border-radius 2px
+	position relative
+	
+	&_header
+		margin 0
+		
+	&_checks
+		margin 20px 0
+	
+	&_check
+		width 15px
+		height 15px
+		outline none
+		margin-right 10px
+		
+		&:checked:after
+			background white url(../img/tip.png) no-repeat center
+		
+		&:after
+			content ''
+			cursor pointer
+			outline none
+			width 20px
+			height 20px
+			background-color white
+			display block
+			border 1px solid #e4e4e4
+			
+	&_field
+		display flex
+		flex-direction column
+			
+	&_select
+		padding 15px 10px
+		cursor pointer
+		font-size 13px
+		display block
+		outline none
+		width 275px
+		border 1px solid #e4e4e4
+		
+		background white url(../img/selectbox-arrow.png) no-repeat 95% center
+		
+		&-selectBox-dropdown-menu
+			z-index 99999
+			position absolute
+			top 0
+			border 1px solid #e4e4e4
+			max-height 300px
+			overflow-y auto
+	
+	&_option
+		a
+			background-color white
+			padding 15px 10px
+			cursor pointer
+			font-size 13px
+			display block
+			outline none
+			width auto
+			&:hover
+				background-color #eee
+		
+	&_label
+		font-size 13px
