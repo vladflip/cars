@@ -45,7 +45,7 @@
 					Регистрация
 				</div>
 
-				@include('parts.reg-popup')
+				@include('popup.reg')
 			
 			@endif
 
