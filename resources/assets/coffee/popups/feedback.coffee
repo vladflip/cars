@@ -70,6 +70,13 @@ class ImagesView extends Backbone.View
 			view = new ImageView model: image
 			@options.plus.before view.el
 
+	get: ->
+		r = []
+		@collection.each (image) ->
+			r.push image.toJSON()
+
+		r
+
 
 imageCollection = new ImageCollection
 
@@ -112,6 +119,7 @@ class AddPhotos
 new AddPhotos '#feedback-input', '#feedback-plus'
 
 autosize $ '#feedback-textarea'
+
 
 
 
@@ -183,6 +191,12 @@ class List extends Backbone.View
 
 			@$el.children('div:first').after(v.el)
 
+	get: ->
+		r = []
+		@collection.each (item) ->
+			r.push item.toJSON()
+
+		r
 
 
 pluses = new List
@@ -196,3 +210,16 @@ minuses = new List
 	el: '#feedback-minuses'
 	class: 'feedback_minus'
 	collection: new ListCollection
+
+$('#add-feedback').click ->
+	concs = 
+		pluses: pluses.get()
+		minuses: minuses.get()
+		images: imagesView.get()
+		type: type.get()
+		make: make.get()
+		model: model.get()
+		header: $('#feedback-header').val()
+		text: $('#feedback-textarea').val()
+
+	console.log concs

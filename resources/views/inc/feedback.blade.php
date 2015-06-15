@@ -69,7 +69,7 @@
 
 		<div class="popup_field">
 			<label class="popup_label">Заголовок</label>
-			<input type="text" class="popup_input popup_input--header">
+			<input id="feedback-header" type="text" class="popup_input popup_input--header">
 		</div>
 
 		<div class="popup_field">
@@ -113,7 +113,7 @@
 
 		</div>
 
-		<div class="popup_button">
+		<div id="add-feedback" class="popup_button">
 			Добавить отзыв
 		</div>
 

@@ -66,6 +66,10 @@ SelectView = (function(superClass) {
     });
   };
 
+  SelectView.prototype.get = function() {
+    return this.$el.val();
+  };
+
   return SelectView;
 
 })(Backbone.View);
@@ -206,6 +210,15 @@ ImagesView = (function(superClass) {
         return _this.options.plus.before(view.el);
       };
     })(this));
+  };
+
+  ImagesView.prototype.get = function() {
+    var r;
+    r = [];
+    this.collection.each(function(image) {
+      return r.push(image.toJSON());
+    });
+    return r;
   };
 
   return ImagesView;
@@ -388,6 +401,15 @@ List = (function(superClass) {
     })(this));
   };
 
+  List.prototype.get = function() {
+    var r;
+    r = [];
+    this.collection.each(function(item) {
+      return r.push(item.toJSON());
+    });
+    return r;
+  };
+
   return List;
 
 })(Backbone.View);
@@ -404,6 +426,21 @@ minuses = new List({
   el: '#feedback-minuses',
   "class": 'feedback_minus',
   collection: new ListCollection
+});
+
+$('#add-feedback').click(function() {
+  var concs;
+  concs = {
+    pluses: pluses.get(),
+    minuses: minuses.get(),
+    images: imagesView.get(),
+    type: type.get(),
+    make: make.get(),
+    model: model.get(),
+    header: $('#feedback-header').val(),
+    text: $('#feedback-textarea').val()
+  };
+  return console.log(concs);
 });
 
 },{"./SelectView":3}],5:[function(require,module,exports){

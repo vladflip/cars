@@ -43,4 +43,7 @@ class SelectView extends Backbone.View
 
 			do self.render
 
+	get: ->
+		@$el.val()
+
 module.exports = SelectView
