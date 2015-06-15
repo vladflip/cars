@@ -55,19 +55,11 @@ class ComposerServiceProvider extends ServiceProvider {
 
 		});
 
-		View::composer('inc.search', function($v) {
+		View::composer(['inc.search', 'inc.feedback'], function($v) {
 
 			$types = \App\Type::select('id', 'title')->get();
 
 			$v->with('types', $types);
-
-			$makes = \App\Make::select('id', 'title')->get();
-
-			$v->with('makes', $makes);
-
-			$models = \App\CarModel::select('id', 'title')->get();
-
-			$v->with('models', $models);
 
 		});
 	}

@@ -46,14 +46,6 @@
 
 				<option class="popup_option" selected disabled>Производитель</option>
 			
-				@foreach($makes as $make)
-			
-					<option value="{{ $make->id }}" class="popup_option">
-						{{ $make->title }}
-					</option>
-			
-				@endforeach
-			
 			</select>
 		</div>
 
@@ -61,14 +53,6 @@
 			<select id="search-model" class="popup_select">
 
 				<option class="popup_option" selected disabled>Уточните модель</option>
-			
-				@foreach($models as $model)
-			
-					<option value="{{ $model->id }}" class="popup_option">
-						{{ $model->title }}
-					</option>
-			
-				@endforeach
 			
 			</select>
 		</div>
@@ -91,6 +75,6 @@
 
 	</div>
 
-	@include('parts.search-template')
+	@include('parts.options-template')
 	
 </div>

@@ -17,6 +17,46 @@
 		line-height 25px
 		font-size 12px
 		
-	&_left
+	&_button
 		margin 10px 0
 		button($yellow)
+		
+	&_photos
+		cf()
+		
+	&_add-photo
+		height 70px
+		width 100px
+		border 1px solid #e4e4e4
+		cursor pointer
+		background url(../img/plus.png) no-repeat center
+		float left
+		
+	&_input-file
+		display none
+		
+	&_photo-img
+		border 1px solid #e4e4e4	
+		height 70px
+		width 100px
+		text-align center
+		img
+			max-height 70px
+			max-width 100px
+		
+	&_photo
+		height 85px
+		width 100px
+		float left
+		margin-right 13px
+		margin-bottom 5px
+		
+		&:nth-child(7n+7)
+			margin-right 0
+		
+	&_redx
+		width 10px
+		height 10px
+		cursor pointer
+		margin auto
+		background url(../img/redx.png) no-repeat center
