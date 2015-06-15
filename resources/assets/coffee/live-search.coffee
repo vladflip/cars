@@ -42,7 +42,18 @@ class List extends Backbone.View
 				el: $(@)
 
 
+
 types = new List
 	el: '#type-list',
 	collection: new ListCollection,
 	class: 'type_item--active'
+
+specs = new List
+	el: '#parts-list',
+	collection: new ListCollection,
+	class: 'parts--active'
+
+makes = new List
+	el: '#makes-list',
+	collection: new ListCollection,
+	class: 'makes--active'

@@ -221,8 +221,10 @@ h3 {
   text-decoration: none;
   color: #2d2d2d;
 }
-.makes--live ul li span:active,
 .makes--live ul li span:hover {
+  background-color: #fdf6d1;
+}
+.makes--active span {
   background-color: #fdf6d1;
 }
 .media-header {
@@ -243,26 +245,27 @@ h3 {
 .parts_categories {
   margin: 10px 0 0 70px;
   height: 160px;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-flow: column wrap;
-      -ms-flex-flow: column wrap;
-          flex-flow: column wrap;
   width: 440px;
 }
 .parts_categories li {
   float: left;
   font-size: 12px;
+  width: 200px;
   margin-bottom: 5px;
 }
 .parts_categories li span {
   padding: 9px 15px;
   display: inline-block;
   cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }
-.parts_categories li span.active,
 .parts_categories li span:hover {
+  background-color: #fdf6d1;
+}
+.parts--active span {
   background-color: #fdf6d1;
 }
 .popup {

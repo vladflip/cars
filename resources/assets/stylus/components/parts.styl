@@ -5,19 +5,23 @@
 	&_categories
 		margin 10px 0 0 70px
 		height 160px
-		display flex
-		flex-flow column wrap
 		width 440px
 		
 		li
 			float left
 			font-size 12px
+			width 200px
 			margin-bottom 5px
 			
 			span
 				padding 9px 15px
 				display inline-block
 				cursor pointer
+				user-select none
 				
-				&.active, &:hover
+				&:hover
 					background-color $orange
+					
+	&--active
+		span
+			background-color $orange

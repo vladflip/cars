@@ -9,7 +9,7 @@ require('./popups/index');
 require('./live-search');
 
 },{"./base":1,"./live-search":3,"./popups/index":6}],3:[function(require,module,exports){
-var List, ListCollection, ListModel, ListView, types,
+var List, ListCollection, ListModel, ListView, makes, specs, types,
   extend = function(child, parent) { for (var key in parent) { if (hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; },
   hasProp = {}.hasOwnProperty;
 
@@ -112,6 +112,18 @@ types = new List({
   el: '#type-list',
   collection: new ListCollection,
   "class": 'type_item--active'
+});
+
+specs = new List({
+  el: '#parts-list',
+  collection: new ListCollection,
+  "class": 'parts--active'
+});
+
+makes = new List({
+  el: '#makes-list',
+  collection: new ListCollection,
+  "class": 'makes--active'
 });
 
 },{}],4:[function(require,module,exports){

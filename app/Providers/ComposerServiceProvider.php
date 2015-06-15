@@ -62,6 +62,14 @@ class ComposerServiceProvider extends ServiceProvider {
 			$v->with('types', $types);
 
 		});
+
+		View::composer('inc.parts', function($v) {
+
+			$specs = \App\Spec::select('id', 'title')->get();
+
+			$v->with('specs', $specs);
+
+		});
 	}
 
 	public function register()

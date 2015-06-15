@@ -22,7 +22,7 @@
 
 				@include('inc.parts')
 
-				@include('inc.makes', ['live' => true])
+				@include('inc.live-makes')
 
 				<div class="show-orgs">
 					Показать
