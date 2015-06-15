@@ -67,6 +67,68 @@
 
 		</div>
 
+		<div class="popup_field">
+			<label class="popup_label">Заголовок</label>
+			<input type="text" class="popup_input popup_input--header">
+		</div>
+
+		<div class="popup_field">
+			<label class="popup_label">Отзыв</label>
+			<textarea 
+			name="" id="" cols="30" rows="10" 
+			class="popup_textarea popup_textarea--feedback"></textarea>
+		</div>
+
+		<h4 class="popup_header--small">Выводы</h4>
+
+		<div class="feedback_conclusions">
+
+			<div class="feedback_pluses">
+				
+				<div>
+					
+					<span class="popup_label">Плюсы</span>
+
+					<span class="feedback_plus-sign">+</span>
+
+				</div>
+
+				<div class="feedback_plus">
+
+					<input type="text" class="popup_input">
+
+					<div class="feedback_redx"></div>
+					
+				</div>
+			
+			</div>
+
+			<div class="feedback_minuses">
+				
+				<div>
+					
+					<span class="popup_label">Минусы</span>
+
+					<span class="feedback_plus-sign">+</span>
+
+				</div>
+
+				<div class="feedback_minus">
+
+					<input type="text" class="popup_input">
+
+					<div class="feedback_redx"></div>
+
+				</div>
+
+			</div>
+
+		</div>
+
+		<div class="popup_button">
+			Добавить отзыв
+		</div>
+
 	</div>
 
 	@include('parts.photos-template')

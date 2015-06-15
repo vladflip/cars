@@ -24,6 +24,9 @@
 	&_photos
 		cf()
 		
+	&_add-photos
+		margin-top 20px
+		
 	&_add-photo
 		height 70px
 		width 100px
@@ -60,3 +63,32 @@
 		cursor pointer
 		margin auto
 		background url(../img/redx.png) no-repeat center
+		
+	&_conclusions
+		display flex
+		justify-content space-between
+		
+	&_plus,
+	&_minus
+		position relative
+		
+		input
+			padding-right 20px
+
+	&_plus &_redx,
+	&_minus &_redx
+		position absolute
+		right 10px
+		top 40%
+		
+	&_plus-sign
+		padding 5px
+		width 25px
+		position relative
+		top -5px
+		left 10px
+		cursor pointer
+		text-align center
+		background-color $yellow
+		border-radius 2px
+		display inline-block

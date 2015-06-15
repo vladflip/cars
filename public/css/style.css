@@ -293,6 +293,10 @@ h3 {
   margin: 0;
   text-align: center;
 }
+.popup_header--small {
+  font-weight: 400;
+  font-size: 15px;
+}
 .popup_checks {
   margin: 20px 0;
 }
@@ -385,6 +389,10 @@ h3 {
   display: block;
   outline: none;
 }
+.popup_input--header {
+  display: block;
+  width: auto;
+}
 .popup_textarea {
   background-color: #fff;
   border: 1px solid #e4e4e4;
@@ -395,6 +403,10 @@ h3 {
   display: block;
   outline: none;
   resize: none;
+}
+.popup_textarea--feedback {
+  display: block;
+  width: auto;
 }
 .popup_button {
   display: -webkit-flex;
@@ -604,6 +616,9 @@ h3 {
 .feedback_photos:after {
   clear: both;
 }
+.feedback_add-photos {
+  margin-top: 20px;
+}
 .feedback_add-photo {
   height: 70px;
   width: 100px;
@@ -641,6 +656,40 @@ h3 {
   cursor: pointer;
   margin: auto;
   background: url("../img/redx.png") no-repeat center;
+}
+.feedback_conclusions {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+.feedback_plus,
+.feedback_minus {
+  position: relative;
+}
+.feedback_plus input,
+.feedback_minus input {
+  padding-right: 20px;
+}
+.feedback_plus .feedback_redx,
+.feedback_minus .feedback_redx {
+  position: absolute;
+  right: 10px;
+  top: 40%;
+}
+.feedback_plus-sign {
+  padding: 5px;
+  width: 25px;
+  position: relative;
+  top: -5px;
+  left: 10px;
+  cursor: pointer;
+  text-align: center;
+  background-color: #f3df6d;
+  border-radius: 2px;
+  display: inline-block;
 }
 .feedlist_header {
   font-size: 16px;
