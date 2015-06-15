@@ -55,8 +55,6 @@ class ImageView extends Backbone.View
 class ImagesView extends Backbone.View
 
 	initialize: ->
-		console.log @collection
-
 		@collection.on('add', @added)
 
 	added: (m) =>
@@ -112,3 +110,89 @@ class AddPhotos
 
 
 new AddPhotos '#feedback-input', '#feedback-plus'
+
+autosize $ '#feedback-textarea'
+
+
+
+class ListModel extends Backbone.Model
+	defaults:
+		text: ''
+
+class ListCollection extends Backbone.Collection
+	model: ListModel
+
+class ListView extends Backbone.View
+
+	template: Handlebars.compile $('#plus-minus-template').html()
+
+	initialize: ->
+		self = @
+
+		do @render
+
+		@model.on('clean', @clean)
+
+		@$el.find('.feedback_redx').click =>
+			do @destroy
+
+		@$el.children('input').keyup ->
+			self.model.set('text', $(@).val())
+
+	render: ->
+		@$el.html @template text : @model.get 'text'
+
+	destroy: ->
+		do @model.destroy
+		do @clean
+
+	clean: =>
+		do @$el.remove
+
+class List extends Backbone.View
+
+	initialize: ->
+		@options.add.on('click', @add)
+
+		@collection.add new ListModel
+
+		do @addFirst
+
+	add: =>
+		@collection.add new ListModel
+
+		do @clean
+		do @render
+
+	clean: ->
+		@collection.each (item) ->
+			item.trigger('clean')
+
+	addFirst: ->
+		v = new ListView 
+			model: @collection.at(0)
+			className : @options.class
+
+		@$el.children('div:first').after(v.el)
+
+	render: ->
+		@collection.each (item) =>
+			v = new ListView 
+				model: item
+				className : @options.class
+
+			@$el.children('div:first').after(v.el)
+
+
+
+pluses = new List
+	add: $('#feedback-add-plus')
+	el: '#feedback-pluses'
+	class: 'feedback_plus'
+	collection: new ListCollection
+
+minuses = new List
+	add: $('#feedback-add-minus')
+	el: '#feedback-minuses'
+	class: 'feedback_minus'
+	collection: new ListCollection

@@ -75,7 +75,7 @@
 		<div class="popup_field">
 			<label class="popup_label">Отзыв</label>
 			<textarea 
-			name="" id="" cols="30" rows="10" 
+			name="" id="feedback-textarea" cols="30" rows="10" 
 			class="popup_textarea popup_textarea--feedback"></textarea>
 		</div>
 
@@ -83,41 +83,29 @@
 
 		<div class="feedback_conclusions">
 
-			<div class="feedback_pluses">
+			<div id="feedback-pluses" class="feedback_pluses">
 				
 				<div>
 					
 					<span class="popup_label">Плюсы</span>
 
-					<span class="feedback_plus-sign">+</span>
+					<span id="feedback-add-plus" class="feedback_plus-sign">
+						+
+					</span>
 
-				</div>
-
-				<div class="feedback_plus">
-
-					<input type="text" class="popup_input">
-
-					<div class="feedback_redx"></div>
-					
 				</div>
 			
 			</div>
 
-			<div class="feedback_minuses">
+			<div id="feedback-minuses" class="feedback_minuses">
 				
 				<div>
 					
 					<span class="popup_label">Минусы</span>
 
-					<span class="feedback_plus-sign">+</span>
-
-				</div>
-
-				<div class="feedback_minus">
-
-					<input type="text" class="popup_input">
-
-					<div class="feedback_redx"></div>
+					<span id="feedback-add-minus" class="feedback_plus-sign">
+						+
+					</span>
 
 				</div>
 
@@ -132,5 +120,7 @@
 	</div>
 
 	@include('parts.photos-template')
+
+	@include('parts.plus-minus-template')
 
 </div>

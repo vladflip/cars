@@ -668,6 +668,7 @@ h3 {
 .feedback_plus,
 .feedback_minus {
   position: relative;
+  margin-top: 10px;
 }
 .feedback_plus input,
 .feedback_minus input {

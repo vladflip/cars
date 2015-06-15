@@ -73,7 +73,7 @@ SelectView = (function(superClass) {
 module.exports = SelectView;
 
 },{}],4:[function(require,module,exports){
-var AddPhotos, Image, ImageCollection, ImageView, ImagesView, SelectView, imageCollection, imagesView, make, model, type,
+var AddPhotos, Image, ImageCollection, ImageView, ImagesView, List, ListCollection, ListModel, ListView, SelectView, imageCollection, imagesView, make, minuses, model, pluses, type,
   extend = function(child, parent) { for (var key in parent) { if (hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; },
   hasProp = {}.hasOwnProperty,
   bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };
@@ -180,7 +180,6 @@ ImagesView = (function(superClass) {
   }
 
   ImagesView.prototype.initialize = function() {
-    console.log(this.collection);
     return this.collection.on('add', this.added);
   };
 
@@ -266,6 +265,146 @@ AddPhotos = (function() {
 })();
 
 new AddPhotos('#feedback-input', '#feedback-plus');
+
+autosize($('#feedback-textarea'));
+
+ListModel = (function(superClass) {
+  extend(ListModel, superClass);
+
+  function ListModel() {
+    return ListModel.__super__.constructor.apply(this, arguments);
+  }
+
+  ListModel.prototype.defaults = {
+    text: ''
+  };
+
+  return ListModel;
+
+})(Backbone.Model);
+
+ListCollection = (function(superClass) {
+  extend(ListCollection, superClass);
+
+  function ListCollection() {
+    return ListCollection.__super__.constructor.apply(this, arguments);
+  }
+
+  ListCollection.prototype.model = ListModel;
+
+  return ListCollection;
+
+})(Backbone.Collection);
+
+ListView = (function(superClass) {
+  extend(ListView, superClass);
+
+  function ListView() {
+    this.clean = bind(this.clean, this);
+    return ListView.__super__.constructor.apply(this, arguments);
+  }
+
+  ListView.prototype.template = Handlebars.compile($('#plus-minus-template').html());
+
+  ListView.prototype.initialize = function() {
+    var self;
+    self = this;
+    this.render();
+    this.model.on('clean', this.clean);
+    this.$el.find('.feedback_redx').click((function(_this) {
+      return function() {
+        return _this.destroy();
+      };
+    })(this));
+    return this.$el.children('input').keyup(function() {
+      return self.model.set('text', $(this).val());
+    });
+  };
+
+  ListView.prototype.render = function() {
+    return this.$el.html(this.template({
+      text: this.model.get('text')
+    }));
+  };
+
+  ListView.prototype.destroy = function() {
+    this.model.destroy();
+    return this.clean();
+  };
+
+  ListView.prototype.clean = function() {
+    return this.$el.remove();
+  };
+
+  return ListView;
+
+})(Backbone.View);
+
+List = (function(superClass) {
+  extend(List, superClass);
+
+  function List() {
+    this.add = bind(this.add, this);
+    return List.__super__.constructor.apply(this, arguments);
+  }
+
+  List.prototype.initialize = function() {
+    this.options.add.on('click', this.add);
+    this.collection.add(new ListModel);
+    return this.addFirst();
+  };
+
+  List.prototype.add = function() {
+    this.collection.add(new ListModel);
+    this.clean();
+    return this.render();
+  };
+
+  List.prototype.clean = function() {
+    return this.collection.each(function(item) {
+      return item.trigger('clean');
+    });
+  };
+
+  List.prototype.addFirst = function() {
+    var v;
+    v = new ListView({
+      model: this.collection.at(0),
+      className: this.options["class"]
+    });
+    return this.$el.children('div:first').after(v.el);
+  };
+
+  List.prototype.render = function() {
+    return this.collection.each((function(_this) {
+      return function(item) {
+        var v;
+        v = new ListView({
+          model: item,
+          className: _this.options["class"]
+        });
+        return _this.$el.children('div:first').after(v.el);
+      };
+    })(this));
+  };
+
+  return List;
+
+})(Backbone.View);
+
+pluses = new List({
+  add: $('#feedback-add-plus'),
+  el: '#feedback-pluses',
+  "class": 'feedback_plus',
+  collection: new ListCollection
+});
+
+minuses = new List({
+  add: $('#feedback-add-minus'),
+  el: '#feedback-minuses',
+  "class": 'feedback_minus',
+  collection: new ListCollection
+});
 
 },{"./SelectView":3}],5:[function(require,module,exports){
 require('./search');
