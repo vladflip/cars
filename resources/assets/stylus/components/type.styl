@@ -9,26 +9,32 @@
 		display flex
 		justify-content space-between
 		
-		li
-			width 130px
-			height 100px
-			display inline-block
-			cursor pointer
+	&_item
+		width 130px
+		height 100px
+		display inline-block
+		cursor pointer
+		
+		&--active span
+			color $yellow
+		
+		div
+			width 120px
+			margin auto
+			height 70px
+			display flex
+			justify-content center
+			align-items center
 			
-			div
-				width 120px
-				margin auto
-				height 70px
-
-			&:first-child div
-				background url(../img/icon1.jpg) center no-repeat
-			&:nth-child(2) div
-				background url(../img/car.jpg) center no-repeat
-			&:nth-child(3) div
-				background url(../img/icon2.jpg) center no-repeat
-			&:last-child div
-				background url(../img/icon3.jpg) center no-repeat
+		span
+			font-size 12px
+			display block
+	
+	&_item--active &_img--active
+		display block
+		
+	&_item--active &_img--disactive
+		display none
 				
-			span
-				font-size 12px
-				display block
+	&_img--active
+		display none

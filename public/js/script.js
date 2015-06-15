@@ -6,7 +6,115 @@ require('./base');
 
 require('./popups/index');
 
-},{"./base":1,"./popups/index":5}],3:[function(require,module,exports){
+require('./live-search');
+
+},{"./base":1,"./live-search":3,"./popups/index":6}],3:[function(require,module,exports){
+var List, ListCollection, ListModel, ListView, types,
+  extend = function(child, parent) { for (var key in parent) { if (hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; },
+  hasProp = {}.hasOwnProperty;
+
+ListModel = (function(superClass) {
+  extend(ListModel, superClass);
+
+  function ListModel() {
+    return ListModel.__super__.constructor.apply(this, arguments);
+  }
+
+  ListModel.prototype.defaults = {
+    id: 0
+  };
+
+  return ListModel;
+
+})(Backbone.Model);
+
+ListCollection = (function(superClass) {
+  extend(ListCollection, superClass);
+
+  function ListCollection() {
+    return ListCollection.__super__.constructor.apply(this, arguments);
+  }
+
+  ListCollection.prototype.model = ListModel;
+
+  return ListCollection;
+
+})(Backbone.Collection);
+
+ListView = (function(superClass) {
+  extend(ListView, superClass);
+
+  function ListView() {
+    return ListView.__super__.constructor.apply(this, arguments);
+  }
+
+  ListView.prototype.initialize = function() {
+    return this["class"] = this.options["class"];
+  };
+
+  ListView.prototype.state = false;
+
+  ListView.prototype.events = {
+    'click': 'changeState'
+  };
+
+  ListView.prototype.changeState = function() {
+    if (!this.state) {
+      return this.active();
+    } else {
+      return this.deactivate();
+    }
+  };
+
+  ListView.prototype.active = function() {
+    this.$el.addClass(this["class"]);
+    return this.state = true;
+  };
+
+  ListView.prototype.deactivate = function() {
+    this.$el.removeClass(this["class"]);
+    return this.state = false;
+  };
+
+  return ListView;
+
+})(Backbone.View);
+
+List = (function(superClass) {
+  extend(List, superClass);
+
+  function List() {
+    return List.__super__.constructor.apply(this, arguments);
+  }
+
+  List.prototype.initialize = function() {
+    var self;
+    self = this;
+    return this.$el.children('li').each(function(i) {
+      var id, v;
+      id = $(this).data('id');
+      self.collection.add(new ListModel({
+        id: id
+      }));
+      return v = new ListView({
+        model: self.collection.at(i),
+        "class": self.options["class"],
+        el: $(this)
+      });
+    });
+  };
+
+  return List;
+
+})(Backbone.View);
+
+types = new List({
+  el: '#type-list',
+  collection: new ListCollection,
+  "class": 'type_item--active'
+});
+
+},{}],4:[function(require,module,exports){
 var SelectView,
   extend = function(child, parent) { for (var key in parent) { if (hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; },
   hasProp = {}.hasOwnProperty;
@@ -76,7 +184,7 @@ SelectView = (function(superClass) {
 
 module.exports = SelectView;
 
-},{}],4:[function(require,module,exports){
+},{}],5:[function(require,module,exports){
 var AddPhotos, Image, ImageCollection, ImageView, ImagesView, List, ListCollection, ListModel, ListView, SelectView, imageCollection, imagesView, make, minuses, model, pluses, type,
   extend = function(child, parent) { for (var key in parent) { if (hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; },
   hasProp = {}.hasOwnProperty,
@@ -443,20 +551,20 @@ $('#add-feedback').click(function() {
   return console.log(concs);
 });
 
-},{"./SelectView":3}],5:[function(require,module,exports){
+},{"./SelectView":4}],6:[function(require,module,exports){
 require('./search');
 
 require('./reg');
 
 require('./feedback');
 
-},{"./feedback":4,"./reg":6,"./search":7}],6:[function(require,module,exports){
+},{"./feedback":5,"./reg":7,"./search":8}],7:[function(require,module,exports){
 $('#register').magnificPopup({
   type: 'inline',
   closeBtnInside: true
 });
 
-},{}],7:[function(require,module,exports){
+},{}],8:[function(require,module,exports){
 var SelectView, make, model, type;
 
 SelectView = require('./SelectView');
@@ -484,4 +592,4 @@ type = new SelectView({
 
 autosize($('#search-more'));
 
-},{"./SelectView":3}]},{},[2]);
+},{"./SelectView":4}]},{},[2]);

@@ -102,6 +102,8 @@ class TypeSeeder extends Seeder {
 
 	public function run() {
 
+		Model::unguard();
+
 		$f = FF::get();
 
 		$arr = [
@@ -116,10 +118,13 @@ class TypeSeeder extends Seeder {
 
 		for($i=0; $i < count($arr); $i++){
 
+			$im = $i+1;
+
 			App\Type::create([
 				'name' => $arr2[$i],
 				'title' => $arr[$i],
-				'icon' => $f->imageUrl(),
+				'icon' => "img/icon{$im}.jpg",
+				'icon_active' => "img/icon{$im}-active.jpg",
 				'desc' => $f->paragraph(2)
 			]);
 

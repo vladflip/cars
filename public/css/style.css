@@ -534,32 +534,41 @@ h3 {
       -ms-flex-pack: justify;
           justify-content: space-between;
 }
-.type ul li {
+.type_item {
   width: 130px;
   height: 100px;
   display: inline-block;
   cursor: pointer;
 }
-.type ul li div {
+.type_item--active span {
+  color: #f3df6d;
+}
+.type_item div {
   width: 120px;
   margin: auto;
   height: 70px;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
-.type ul li:first-child div {
-  background: url("../img/icon1.jpg") center no-repeat;
-}
-.type ul li:nth-child(2) div {
-  background: url("../img/car.jpg") center no-repeat;
-}
-.type ul li:nth-child(3) div {
-  background: url("../img/icon2.jpg") center no-repeat;
-}
-.type ul li:last-child div {
-  background: url("../img/icon3.jpg") center no-repeat;
-}
-.type ul li span {
+.type_item span {
   font-size: 12px;
   display: block;
+}
+.type_item--active .type_img--active {
+  display: block;
+}
+.type_item--active .type_img--disactive {
+  display: none;
+}
+.type_img--active {
+  display: none;
 }
 .feedback {
   margin: 10px 0 0 0;
