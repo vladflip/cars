@@ -187,8 +187,6 @@ class MakeCarModelSeeder extends Seeder {
 
 					$m->types()->attach(2);
 
-					$m->types()->attach(rand(3, 4));
-
 				}
 
 			}
@@ -223,10 +221,6 @@ class CompanySeeder extends Seeder {
 			$c->makes()->attach($i+1);
 
 			$c->makes()->attach($i+2);
-
-			$c->makes()->attach($i+4);
-
-			$c->makes()->attach($i+10);
 
 		}
 
