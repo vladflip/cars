@@ -138,6 +138,8 @@ SelectView = (function(superClass) {
     return SelectView.__super__.constructor.apply(this, arguments);
   }
 
+  SelectView.prototype.home = $('body').data('home');
+
   SelectView.prototype.initialize = function() {
     return this.$el.selectBox();
   };
@@ -175,7 +177,7 @@ SelectView = (function(superClass) {
   SelectView.prototype.store = function(id) {
     var self;
     self = this;
-    return $.ajax(this.options.url, {
+    return $.ajax(this.home + "/" + this.options.url, {
       data: {
         id: id
       }

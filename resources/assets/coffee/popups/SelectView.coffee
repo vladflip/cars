@@ -1,5 +1,7 @@
 class SelectView extends Backbone.View
 
+	home: $('body').data('home')
+
 	initialize: ->
 		do @$el.selectBox
 
@@ -33,7 +35,7 @@ class SelectView extends Backbone.View
 
 	store: (id) ->
 		self = @
-		$.ajax @options.url,
+		$.ajax "#{@home}/#{@options.url}",
 			data:
 				id: id
 		.done (d) ->
