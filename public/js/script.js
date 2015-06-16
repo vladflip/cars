@@ -9,9 +9,33 @@ require('./popups/index');
 require('./live-search');
 
 },{"./base":1,"./live-search":3,"./popups/index":6}],3:[function(require,module,exports){
-var List, ListCollection, ListModel, ListView, makes, specs, types,
+var ConcreteView, List, ListCollection, ListModel, ListView, MakeCollection, MakeList, MakeView, SpecList, SpecView, TypeList, TypeView, makes, specs, types,
   extend = function(child, parent) { for (var key in parent) { if (hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; },
-  hasProp = {}.hasOwnProperty;
+  hasProp = {}.hasOwnProperty,
+  bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };
+
+Array.prototype.have = function(i) {
+  if (this.indexOf(i) === -1) {
+    return false;
+  } else {
+    return true;
+  }
+};
+
+Array.prototype.remove = function(i) {
+  return this.splice(this.indexOf(i), 1);
+};
+
+Array.prototype["in"] = function(i) {
+  var j, len, make;
+  for (j = 0, len = this.length; j < len; j++) {
+    make = this[j];
+    if (make.id === i) {
+      return true;
+    }
+  }
+  return false;
+};
 
 ListModel = (function(superClass) {
   extend(ListModel, superClass);
@@ -21,7 +45,8 @@ ListModel = (function(superClass) {
   }
 
   ListModel.prototype.defaults = {
-    id: 0
+    id: 0,
+    title: ''
   };
 
   return ListModel;
@@ -48,11 +73,14 @@ ListView = (function(superClass) {
     return ListView.__super__.constructor.apply(this, arguments);
   }
 
-  ListView.prototype.initialize = function() {
-    return this["class"] = this.options["class"];
-  };
+  ListView.prototype.home = $('body').data('home');
 
-  ListView.prototype.state = false;
+  ListView.prototype.url = 'api/live-makes';
+
+  ListView.prototype.initialize = function() {
+    this["class"] = this.options["class"];
+    return this.state = false;
+  };
 
   ListView.prototype.events = {
     'click': 'changeState'
@@ -60,13 +88,13 @@ ListView = (function(superClass) {
 
   ListView.prototype.changeState = function() {
     if (!this.state) {
-      return this.active();
+      return this.activate();
     } else {
       return this.deactivate();
     }
   };
 
-  ListView.prototype.active = function() {
+  ListView.prototype.activate = function() {
     this.$el.addClass(this["class"]);
     return this.state = true;
   };
@@ -91,16 +119,23 @@ List = (function(superClass) {
     var self;
     self = this;
     return this.$el.children('li').each(function(i) {
-      var id, v;
+      var id, title;
       id = $(this).data('id');
+      title = $(this).children('span').html();
       self.collection.add(new ListModel({
-        id: id
+        id: id,
+        title: title.trim()
       }));
-      return v = new ListView({
-        model: self.collection.at(i),
-        "class": self.options["class"],
-        el: $(this)
-      });
+      return self.createViews(i, this);
+    });
+  };
+
+  List.prototype.createViews = function(i, li) {
+    var v;
+    return v = new ListView({
+      model: this.collection.at(i),
+      "class": this.options["class"],
+      el: $(li)
     });
   };
 
@@ -108,22 +143,344 @@ List = (function(superClass) {
 
 })(Backbone.View);
 
-types = new List({
-  el: '#type-list',
-  collection: new ListCollection,
-  "class": 'type_item--active'
+ConcreteView = (function(superClass) {
+  extend(ConcreteView, superClass);
+
+  function ConcreteView() {
+    return ConcreteView.__super__.constructor.apply(this, arguments);
+  }
+
+  ConcreteView.prototype.get = function(o, f) {
+    var id, self;
+    self = this;
+    id = o.id;
+    return $.ajax(this.home + "/" + this.url, {
+      data: o
+    }).done(function(d) {
+      self.makes.push({
+        id: id,
+        makes: d
+      });
+      if (f) {
+        return f();
+      }
+    });
+  };
+
+  ConcreteView.prototype.activate = function() {
+    var id, self;
+    self = this;
+    ConcreteView.__super__.activate.apply(this, arguments);
+    id = this.model.get('id');
+    this.selected.push(id);
+    if (this.makes["in"](id)) {
+      return this.pass();
+    } else {
+      return this.get({
+        name: this.options.name,
+        id: id
+      }, function() {
+        return self.pass();
+      });
+    }
+  };
+
+  ConcreteView.prototype.deactivate = function() {
+    var id;
+    ConcreteView.__super__.deactivate.apply(this, arguments);
+    id = this.model.get('id');
+    this.selected.remove(id);
+    return this.pass();
+  };
+
+  ConcreteView.prototype.pass = function() {
+    var inner, j, l, len, len1, make, makes, ref, ref1;
+    makes = [];
+    ref = this.makes;
+    for (j = 0, len = ref.length; j < len; j++) {
+      make = ref[j];
+      if (this.selected.have(make.id)) {
+        ref1 = make.makes;
+        for (l = 0, len1 = ref1.length; l < len1; l++) {
+          inner = ref1[l];
+          makes.push(inner);
+        }
+      }
+    }
+    return this.options.c.cache(makes, this.options.name);
+  };
+
+  ConcreteView.prototype.remove = function(id) {
+    var j, len, make, ref, results;
+    ref = this.makes;
+    results = [];
+    for (j = 0, len = ref.length; j < len; j++) {
+      make = ref[j];
+      if (make.id === id) {
+        results.push(this.options.c.remove(make.makes));
+      } else {
+        results.push(void 0);
+      }
+    }
+    return results;
+  };
+
+  return ConcreteView;
+
+})(ListView);
+
+TypeView = (function(superClass) {
+  extend(TypeView, superClass);
+
+  function TypeView() {
+    return TypeView.__super__.constructor.apply(this, arguments);
+  }
+
+  TypeView.prototype.selected = [];
+
+  TypeView.prototype.makes = [];
+
+  return TypeView;
+
+})(ConcreteView);
+
+SpecView = (function(superClass) {
+  extend(SpecView, superClass);
+
+  function SpecView() {
+    return SpecView.__super__.constructor.apply(this, arguments);
+  }
+
+  SpecView.prototype.selected = [];
+
+  SpecView.prototype.makes = [];
+
+  return SpecView;
+
+})(ConcreteView);
+
+TypeList = (function(superClass) {
+  extend(TypeList, superClass);
+
+  function TypeList() {
+    return TypeList.__super__.constructor.apply(this, arguments);
+  }
+
+  TypeList.prototype.createViews = function(i, li) {
+    var v;
+    return v = new TypeView({
+      model: this.collection.at(i),
+      "class": this.options["class"],
+      el: $(li),
+      c: this.options.c,
+      name: 'type'
+    });
+  };
+
+  return TypeList;
+
+})(List);
+
+SpecList = (function(superClass) {
+  extend(SpecList, superClass);
+
+  function SpecList() {
+    return SpecList.__super__.constructor.apply(this, arguments);
+  }
+
+  SpecList.prototype.createViews = function(i, li) {
+    var v;
+    return v = new SpecView({
+      model: this.collection.at(i),
+      "class": this.options["class"],
+      el: $(li),
+      c: this.options.c,
+      name: 'spec'
+    });
+  };
+
+  return SpecList;
+
+})(List);
+
+MakeCollection = (function(superClass) {
+  extend(MakeCollection, superClass);
+
+  function MakeCollection() {
+    return MakeCollection.__super__.constructor.apply(this, arguments);
+  }
+
+  MakeCollection.prototype.comparator = function(model) {
+    return model.get('title');
+  };
+
+  return MakeCollection;
+
+})(ListCollection);
+
+MakeView = (function(superClass) {
+  extend(MakeView, superClass);
+
+  function MakeView() {
+    this.clean = bind(this.clean, this);
+    return MakeView.__super__.constructor.apply(this, arguments);
+  }
+
+  MakeView.prototype.tagName = 'li';
+
+  MakeView.prototype.initialize = function() {
+    this.el.dataset.id = this.model.get('id');
+    return this.model.on('destroy', this.clean);
+  };
+
+  MakeView.prototype.clean = function() {
+    return this.remove();
+  };
+
+  MakeView.prototype.template = Handlebars.compile($('#makes-template').html());
+
+  MakeView.prototype.render = function() {
+    this.$el.html(this.template({
+      title: this.model.get('title')
+    }));
+    return this;
+  };
+
+  return MakeView;
+
+})(Backbone.View);
+
+MakeList = (function(superClass) {
+  extend(MakeList, superClass);
+
+  function MakeList() {
+    return MakeList.__super__.constructor.apply(this, arguments);
+  }
+
+  MakeList.prototype.initialize = function() {
+    MakeList.__super__.initialize.apply(this, arguments);
+    this.all = true;
+    this.makes = {};
+    this.defaultCollection = [];
+    return this.collection.each((function(_this) {
+      return function(make) {
+        return _this.defaultCollection.push(new ListModel({
+          id: make.get('id'),
+          title: make.get('title')
+        }));
+      };
+    })(this));
+  };
+
+  MakeList.prototype.add = function() {
+    var col, k, makes, ref, uploadDefaultCollection;
+    if (this.all) {
+      this.resetCollection();
+      this.all = false;
+    }
+    this.clean();
+    uploadDefaultCollection = 0;
+    makes = [];
+    ref = this.makes;
+    for (k in ref) {
+      col = ref[k];
+      col.each((function(_this) {
+        return function(make) {
+          return makes.push(make);
+        };
+      })(this));
+    }
+    this.collection.set(makes);
+    if (this.collection.length === 0) {
+      this.collection.add(this.defaultCollection);
+    }
+    return this.render();
+  };
+
+  MakeList.prototype.cache = function(makes, name) {
+    var j, len, make;
+    this.makes[name] = new MakeCollection;
+    for (j = 0, len = makes.length; j < len; j++) {
+      make = makes[j];
+      this.makes[name].add(new ListModel({
+        id: make.id,
+        title: make.title
+      }));
+    }
+    return this.add();
+  };
+
+  MakeList.prototype.clean = function() {
+    return this.collection.each(function(make) {
+      return make.trigger('destroy');
+    });
+  };
+
+  MakeList.prototype.resetCollection = function() {
+    this.collection.each(function(make) {
+      return make.trigger('destroy');
+    });
+    return this.collection.reset();
+  };
+
+  MakeList.prototype.remove = function(makes) {
+    var j, len, m, make;
+    m = [];
+    for (j = 0, len = makes.length; j < len; j++) {
+      make = makes[j];
+      m.push(new ListModel({
+        id: make.id,
+        title: make.title
+      }));
+    }
+    this.clean();
+    this.collection.remove(m);
+    return this.render();
+  };
+
+  MakeList.prototype.render = function() {
+    return this.collection.each((function(_this) {
+      return function(make) {
+        var v;
+        v = new MakeView({
+          model: make
+        });
+        return _this.$el.append(v.render().el);
+      };
+    })(this));
+  };
+
+  MakeList.prototype.createViews = function(i, li) {
+    var v;
+    return v = new MakeView({
+      model: this.collection.at(i),
+      "class": this.options["class"],
+      el: $(li)
+    });
+  };
+
+  return MakeList;
+
+})(List);
+
+makes = new MakeList({
+  el: '#makes-list',
+  collection: new MakeCollection,
+  "class": 'makes--active'
 });
 
-specs = new List({
+specs = new SpecList({
   el: '#parts-list',
   collection: new ListCollection,
-  "class": 'parts--active'
+  "class": 'parts--active',
+  c: makes
 });
 
-makes = new List({
-  el: '#makes-list',
+types = new TypeList({
+  el: '#type-list',
   collection: new ListCollection,
-  "class": 'makes--active'
+  "class": 'type_item--active',
+  c: makes
 });
 
 },{}],4:[function(require,module,exports){
@@ -213,13 +570,13 @@ $('#feedback').magnificPopup({
 
 model = new SelectView({
   el: '#feedback-model',
-  url: 'api/get-models'
+  url: 'api/get-models-by-make'
 });
 
 make = new SelectView({
   el: '#feedback-make',
   c: model,
-  url: 'api/get-makes'
+  url: 'api/get-makes-by-type'
 });
 
 type = new SelectView({
@@ -590,13 +947,13 @@ $('#search').magnificPopup({
 
 model = new SelectView({
   el: '#search-model',
-  url: 'api/get-models'
+  url: 'api/get-models-by-make'
 });
 
 make = new SelectView({
   el: '#search-make',
   c: model,
-  url: 'api/get-makes'
+  url: 'api/get-makes-by-type'
 });
 
 type = new SelectView({

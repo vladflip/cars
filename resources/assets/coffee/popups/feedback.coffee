@@ -7,12 +7,12 @@ $('#feedback').magnificPopup
 
 model = new SelectView 
 	el: '#feedback-model'
-	url: 'api/get-models'
+	url: 'api/get-models-by-make'
 
 make = new SelectView 
 	el: '#feedback-make'
 	c: model
-	url: 'api/get-makes'
+	url: 'api/get-makes-by-type'
 
 type = new SelectView 
 	el: '#feedback-type'

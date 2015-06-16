@@ -542,6 +542,10 @@ h3 {
   height: 100px;
   display: inline-block;
   cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }
 .type_item--active span {
   color: #f3df6d;

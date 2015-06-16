@@ -85,6 +85,10 @@ Route::group(['prefix' => 'api', 'middleware' => 'api'], function(){
 
 	get('get-makes', 'APIController@makes');
 
-	get('get-models', 'APIController@models');
+	get('get-makes-by-type', 'APIController@makes_by_type');
+
+	get('get-models-by-make', 'APIController@models_by_make');
+
+	get('live-makes', 'APIController@live_makes');
 
 });

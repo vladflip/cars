@@ -14,4 +14,6 @@
 		@endforeach
 	</ul>
 
+	@include('parts.makes-template')
+
 </div>
