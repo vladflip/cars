@@ -1,3 +1,3 @@
 require './base'
 require './popups/index'
-require './live-search'
+require './main-live-search'

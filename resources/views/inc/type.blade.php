@@ -2,7 +2,7 @@
 					
 	@include('parts.media-header', ['title' => 'Выберите тип'])
 
-	<ul id="type-list">
+	<ul id="{{ $id }}">
 
 		@foreach($types as $type)
 

@@ -40,13 +40,8 @@ Route::group(['prefix' => 'catalog'], function(){
 
 get('/profile', ['as' => 'profile', function(){
 
-	$f = \App\Feedback::find(1);
+	return view('pages.profile');
 
-	$t = \App\Type::find(1);
-
-	var_dump($f->model);
-
-	// return view('pages.profile');
 }]);
 
 Route::group(['prefix' => 'feedback'], function(){
@@ -90,5 +85,7 @@ Route::group(['prefix' => 'api', 'middleware' => 'api'], function(){
 	get('get-models-by-make', 'APIController@models_by_make');
 
 	get('live-makes', 'APIController@live_makes');
+
+	get('get-companies-by-makes', 'APIController@companies_by_makes');
 
 });

@@ -1,14 +1,3 @@
-Array.prototype.have = (i) ->
-	if @indexOf(i) is -1 then return false else true
-
-Array.prototype.remove = (i) ->
-	@splice(@indexOf(i), 1)
-
-Array.prototype.in = (i) ->
-	for make in @
-		if make.id is i then return true
-	false
-
 class ListModel extends Backbone.Model
 	defaults:
 		id: 0
@@ -65,221 +54,224 @@ class List extends Backbone.View
 			class: @.options.class
 			el: $(li)
 
-class ConcreteView extends ListView
+# class ConcreteView extends ListView
 
-	get: (o, f) ->
-		# download makes and store to makes array
-		self = @
-		id = o.id
+	# get: (o, f) ->
+	# 	# download makes and store to makes array
+	# 	self = @
+	# 	id = o.id
 
-		$.ajax "#{@home}/#{@url}",
-			data: o
-		.done (d) ->
-			self.makes.push
-				id : id
-				makes : d
-			if f then do f
+	# 	$.ajax "#{@home}/#{@url}",
+	# 		data: o
+	# 	.done (d) ->
+	# 		self.makes.push
+	# 			id : id
+	# 			makes : d
+	# 		if f then do f
 
-	activate: ->
-		self = @
+# 	activate: ->
+# 		self = @
 
-		super
+# 		super
 
-		id = @model.get 'id'
+# 		id = @model.get 'id'
 
-		@selected.push id
+# 		@selected.push id
 
-		if @makes.in id
-			do @pass
-		else
-			@get
-				name: @options.name
-				id: id
-				, ->
-					do self.pass
-
-
-	deactivate: ->
-		super
-
-		id = @model.get 'id'
-
-		@selected.remove id
-
-		do @pass
-
-	pass: ->
-		# get all makes that selected and add in collection
-		# держать все мейки в коллекции и внутри одного модуля
-		# добавлять и убирать с коллекции, не будет лишних
-		# может быть ремув не удалять а брать все оставшиеся и давать
-		makes = []
-		for make in @makes
-			if @selected.have make.id
-				for inner in make.makes
-					makes.push inner
-		@options.c.cache makes, @options.name
-
-	remove: (id) ->
-		for make in @makes
-			if make.id == id
-				@options.c.remove make.makes
+# 		if @makes.in id
+# 			do @pass
+# 		else
+# 			@get
+# 				name: @options.name
+# 				id: id
+# 				, ->
+# 					do self.pass
 
 
-class TypeView extends ConcreteView
+# 	deactivate: ->
+# 		super
 
-	selected: []
+# 		id = @model.get 'id'
 
-	makes: []
+# 		@selected.remove id
 
-class SpecView extends ConcreteView
+# 		do @pass
 
-	selected: []
+# 	pass: ->
+# 		# get all makes that selected and add in collection
+# 		# держать все мейки в коллекции и внутри одного модуля
+# 		# добавлять и убирать с коллекции, не будет лишних
+# 		# может быть ремув не удалять а брать все оставшиеся и давать
+# 		makes = []
+# 		for make in @makes
+# 			if @selected.have make.id
+# 				for inner in make.makes
+# 					makes.push inner
+# 		@options.c.cache makes, @options.name
 
-	makes: []
-
-
-class TypeList extends List
-
-	createViews: (i, li) ->
-		v = new TypeView 
-			model: @.collection.at(i)
-			class: @.options.class
-			el: $(li)
-			c: @options.c
-			name: 'type'
-
-class SpecList extends List
-
-	createViews: (i, li) ->
-		v = new SpecView 
-			model: @.collection.at(i)
-			class: @.options.class
-			el: $(li)
-			c: @options.c
-			name: 'spec'
-
-class MakeCollection extends ListCollection
-
-	comparator: (model) ->
-		model.get 'title'
-
-class MakeView extends Backbone.View
-
-	tagName: 'li'
-
-	initialize: ->
-		@el.dataset.id = @model.get 'id'
-
-		@model.on('destroy', @clean)
-
-	clean: =>
-		do @remove
+# 	remove: (id) ->
+# 		for make in @makes
+# 			if make.id == id
+# 				@options.c.remove make.makes
 
 
-	template: Handlebars.compile $('#makes-template').html()
+# class TypeView extends ConcreteView
 
-	render: ->
-		@$el.html @template
-			title: @model.get 'title'
-		this
+# 	selected: []
+
+# 	makes: []
 
 
-class MakeList extends List
+# class TypeList extends List
 
-	initialize:->
-		super
+# 	createViews: (i, li) ->
+# 		v = new TypeView 
+# 			model: @.collection.at(i)
+# 			class: @.options.class
+# 			el: $(li)
+# 			c: @options.c
+# 			name: 'type'
 
-		@all = true
+# class MakeCollection extends ListCollection
 
-		@makes = {}
+# 	comparator: (model) ->
+# 		model.get 'title'
 
-		@defaultCollection = []
+# class MakeView extends Backbone.View
 
-		@collection.each (make) =>
-			@defaultCollection.push new ListModel
-				id: make.get 'id'
-				title: make.get 'title'
-			
+# 	tagName: 'li'
 
-	add: ->
-		if @all
-			do @resetCollection
-			@all = false
+# 	events:
+# 		'click': 'changeState'
 
-		do @clean
+# 	changeState: ->
+# 		unless @state then do @activate else do @deactivate
 
-		uploadDefaultCollection = 0
+# 	activate: ->
+# 		@$el.addClass @class
+# 		@state = true
 
-		makes = []
+# 		global.ids.push @model.get 'id'
 
-		for k, col of @makes
-			col.each (make) =>
-				makes.push make
+# 	deactivate: ->
+# 		@$el.removeClass @class
+# 		@state = false
+
+# 		global.ids.remove @model.get 'id'
+
+# 	initialize: ->
+# 		@el.dataset.id = @model.get 'id'
+
+# 		@model.on('destroy', @clean)
+
+# 		@state = false
+
+# 		@class = 'makes--active'
+
+# 	clean: =>
+# 		do @remove
+
+
+# 	template: Handlebars.compile $('#makes-template').html()
+
+# 	render: ->
+# 		@$el.html @template
+# 			title: @model.get 'title'
+# 		this
+
+
+# class MakeList extends List
+
+# 	initialize:->
+# 		super
+
+# 		@all = true
+
+# 		@makes = {}
+
+# 		@defaultCollection = []
+
+# 		@collection.each (make) =>
+# 			@defaultCollection.push new ListModel
+# 				id: make.get 'id'
+# 				title: make.get 'title'
+
+# 	add: ->
+# 		if @all
+# 			do @resetCollection
+# 			@all = false
+
+# 		do @clean
+
+# 		uploadDefaultCollection = 0
+
+# 		@ids = []
+
+# 		makes = []
+
+# 		for k, col of @makes
+# 			col.each (make) =>
+# 				makes.push make
 		
-		@collection.set makes
+# 		@collection.set makes
 
-		if @collection.length is 0
-			@collection.add @defaultCollection
+# 		if @collection.length is 0
+# 			@collection.add @defaultCollection
 
-		do @render
+# 		do @render
 
-	cache: (makes, name) ->
-		@makes[name] = new MakeCollection
-		for make in makes
-			@makes[name].add new ListModel
-				id: make.id
-				title: make.title
+# 	cache: (makes, name) ->
+# 		@makes[name] = new MakeCollection
+# 		for make in makes
+# 			@makes[name].add new ListModel
+# 				id: make.id
+# 				title: make.title
 
-		do @add
-
-
-	clean: ->
-		@collection.each (make) ->
-			make.trigger 'destroy'
-
-	resetCollection: ->
-		@collection.each (make) ->
-			make.trigger 'destroy'
-		do @collection.reset
-
-	remove:(makes) ->
-		m = []
-		for make in makes
-			m.push new ListModel
-				id: make.id
-				title: make.title
-		do @clean
-		@collection.remove m
-		do @render
+# 		do @add
 
 
-	render: ->
-		# утечка памяти
-		@collection.each (make) =>
-			v =	new MakeView
-				model: make
-			@$el.append(v.render().el)
+# 	clean: ->
+# 		@collection.each (make) ->
+# 			make.trigger 'destroy'
 
-	createViews: (i, li) ->
-		v = new MakeView 
-			model: @collection.at(i)
-			class: @options.class
-			el: $(li)
+# 	resetCollection: ->
+# 		@collection.each (make) ->
+# 			make.trigger 'destroy'
+# 		do @collection.reset
 
-makes = new MakeList
-	el: '#makes-list',
-	collection: new MakeCollection,
-	class: 'makes--active'
+# 	# remove:(makes) ->
+# 	# 	m = []
+# 	# 	for make in makes
+# 	# 		m.push new ListModel
+# 	# 			id: make.id
+# 	# 			title: make.title
+# 	# 	do @clean
+# 	# 	console.log 'remove'
+# 	# 	@collection.remove m
+# 	# 	do @render
 
-specs = new SpecList
-	el: '#parts-list',
-	collection: new ListCollection,
-	class: 'parts--active',
-	c: makes
 
-types = new TypeList
-	el: '#type-list',
-	collection: new ListCollection,
-	class: 'type_item--active'
-	c: makes
+# 	render: ->
+# 		# утечка памяти
+# 		@collection.each (make) =>
+# 			v =	new MakeView
+# 				model: make
+# 			@$el.append(v.render().el)
+
+# 	createViews: (i, li) ->
+# 		v = new MakeView 
+# 			model: @collection.at(i)
+# 			class: @options.class
+# 			el: $(li)
+
+# module.exports = 
+# 	List: List
+# 	ListView: ListView
+# 	ListCollection: ListCollection
+# 	ListModel: ListModel
+# 	ConcreteView: ConcreteView
+# 	MakeList: MakeList
+# 	MakeView: MakeView
+# 	MakeCollection: MakeCollection
+# 	TypeList: TypeList
+# 	ids: global.ids

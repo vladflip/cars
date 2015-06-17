@@ -1,12 +1,10 @@
-# $.widget 'custom.popupselect', $.ui.selectmenu, 
+Array.prototype.have = (i) ->
+	if @indexOf(i) is -1 then return false else true
 
-# 	_renderItem : (ul, item) ->
-# 		li = $ '<li>', text : item.label
+Array.prototype.remove = (i) ->
+	@splice(@indexOf(i), 1)
 
-# 		$ '<span>',
-# 			'class' : 'fuck'
-# 		.appendTo li
-
-# 		if item.disabled then li.addClass 'ui-state-disabled'
-
-# 		li.appendTo ul
+Array.prototype.in = (i) ->
+	for a in @
+		if a.id is i then return true
+	false

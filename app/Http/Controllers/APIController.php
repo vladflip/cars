@@ -33,36 +33,48 @@ class APIController extends Controller {
 
 	public function live_makes() {
 
-		$name = \Input::get('name');
+		$typeId = \Input::get('type');
 
-		$id = \Input::get('id');
+		$specIds = \Input::get('specs');
 
-		if(!is_numeric($id))
-			return 'fuck';
+		$type = \App\Make::select('id')
+			->whereHas('types', function($q) use($typeId){
+				$q->where('type_id', '=', $typeId);
+			})
+			->get();
 
-		if($name == 'type') {
+		$def = array();
 
-			$m = \App\Make::select('id', 'title')
-				->whereHas('types', function($q) use($id){
-					$q->where('type_id', '=', $id);
-				})
-				->get();
+		foreach($type as $k => $v) {
 
-			return $m;
+			$def[] = $v->id;
 
 		}
-		elseif($name == 'spec'){
 
-			$m = \App\Make::select('id', 'title')
-				->whereHas('companies', function($q) use($id){
-					$q->where('spec_id', '=', $id);
-				})
-				->get();
+		$specs = \App\Make::select('id')
+			->whereHas('companies', function($q) use($specIds){
+				$q->whereIn('spec_id', $specIds);
+			})
+			->get();
 
-			return $m;
+		foreach($specs as $k => $v) {
+
+			$def[] = $v->id;
+
 		}
 
-		abort(404);
+
+		$makes = array_unique($def, SORT_NUMERIC);
+
+		return $makes;
+
+	}
+
+	public function companies_by_makes() {
+
+		$ids = \Input::get('ids');
+
+		
 
 	}
 

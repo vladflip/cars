@@ -18,17 +18,19 @@
 				
 				<h3>Поиск организации</h3>
 
-				@include('inc.type')
+				@include('inc.type', ['id' => 'main-type-list'])
 
 				@include('inc.parts')
 
-				@include('inc.live-makes')
+				@include('inc.main-makes')
 
-				<div class="show-orgs">
+				<div id="show-orgs" class="show-orgs">
 					Показать
 				</div>
 
 				@include('inc.found')
+
+				@include('parts.found-template')
 
 			</div>
 

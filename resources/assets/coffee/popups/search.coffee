@@ -1,4 +1,4 @@
-SelectView = require './SelectView'
+SelectView = require '../inc/SelectView'
 
 $('#search').magnificPopup
 

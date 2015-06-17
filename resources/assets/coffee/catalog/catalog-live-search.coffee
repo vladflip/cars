@@ -1,0 +1,2 @@
+require '../live-search'
+
