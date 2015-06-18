@@ -169,6 +169,7 @@ class MakeList extends Backbone.View
 			self.updateCollection ids
 
 	updateCollection: (ids) ->
+		console.log ids
 		if ids.length is 0
 			console.log 'yes'
 		else
@@ -186,7 +187,7 @@ specs = new SpecList
 
 types = new TypeList
 	el: '#main-type-list'
-	
+
 makes = new MakeList
 	el: '#main-makes-list'
 	dep: 

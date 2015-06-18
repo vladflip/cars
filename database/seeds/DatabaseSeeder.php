@@ -183,9 +183,9 @@ class MakeCarModelSeeder extends Seeder {
 						'desc' => $f->paragraph(2)
 					]);
 
-					$m->types()->attach(1);
+					$m->types()->attach(rand(1, 2));
 
-					$m->types()->attach(2);
+					$m->types()->attach(rand(3, 4));
 
 				}
 

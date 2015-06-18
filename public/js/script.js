@@ -518,6 +518,7 @@ MakeList = (function(superClass) {
   };
 
   MakeList.prototype.updateCollection = function(ids) {
+    console.log(ids);
     if (ids.length === 0) {
       return console.log('yes');
     } else {

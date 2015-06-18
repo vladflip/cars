@@ -64,7 +64,7 @@ class APIController extends Controller {
 		}
 
 
-		$makes = array_unique($def, SORT_NUMERIC);
+		$makes = array_values(array_unique($def, SORT_NUMERIC));
 
 		return $makes;
 
