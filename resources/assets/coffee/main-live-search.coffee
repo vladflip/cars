@@ -183,7 +183,7 @@ class MakeList extends Backbone.View
 
 	show: ->
 		@makesElement.show()
-		@button.show()
+		@button.css('display', 'flex')
 
 	updateCollection: (ids) ->
 		if ids.length is 0

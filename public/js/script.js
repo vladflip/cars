@@ -544,7 +544,7 @@ MakeList = (function(superClass) {
 
   MakeList.prototype.show = function() {
     this.makesElement.show();
-    return this.button.show();
+    return this.button.css('display', 'flex');
   };
 
   MakeList.prototype.updateCollection = function(ids) {
