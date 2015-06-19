@@ -612,8 +612,8 @@ CompanyView = (function(superClass) {
   };
 
   CompanyView.prototype.showPopup = function() {
-    var src;
-    src = this.template({
+    var m, src;
+    src = $.parseHTML(this.template({
       logo: this.model.get('logo'),
       name: this.model.get('name'),
       description: this.model.get('description'),
@@ -621,8 +621,8 @@ CompanyView = (function(superClass) {
       phone: this.model.get('phone'),
       excerpt: this.model.get('description').excerpt(),
       tags: this.model.get('tags')
-    });
-    return $.magnificPopup.open({
+    }));
+    return m = $.magnificPopup.open({
       items: {
         src: src,
         type: 'inline',

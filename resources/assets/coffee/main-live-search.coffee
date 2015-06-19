@@ -230,7 +230,7 @@ class CompanyView extends Backbone.View
 		@more.on 'click', @showPopup
 
 	showPopup: =>
-		src = @template
+		src = $.parseHTML @template
 			logo: @model.get 'logo'
 			name: @model.get 'name'
 			description: @model.get 'description'
@@ -239,7 +239,7 @@ class CompanyView extends Backbone.View
 			excerpt: @model.get('description').excerpt()
 			tags: @model.get 'tags'
 
-		$.magnificPopup.open
+		m = $.magnificPopup.open
 			items:
 				src: src
 				type: 'inline'

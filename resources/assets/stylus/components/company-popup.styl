@@ -1,6 +1,38 @@
 .company-popup
-	padding 30px
+	padding 15px 30px 30px 30px
 	background-color white
 	margin auto
 	border-radius 2px
 	position relative
+	width 650px
+	
+	&_spec
+		margin 0
+
+	&_spec,
+	&_desc
+		font-weight 400
+		font-size 16px
+		
+	&_tags
+		margin-top 5px
+		display flex
+		
+	&_tag
+		font-size 12px
+		padding 8px
+		background-color $grey
+		margin-right 5px
+		color $color
+		border-radius 2px
+		
+	&_desc
+		margin 10px 0 5px 0
+		
+	&_description
+		margin 0
+		font-size 14px
+		
+	&_close
+		button($yellow)
+		margin 30px auto 0

@@ -1,6 +1,6 @@
 <script id="company-template" type="text/x-handlebars-template">
 
-	<div className="company-popup">
+	<div class="company-popup">
 
 		<div class="company-preview">
 			<div class="company-preview_logo"
@@ -27,6 +27,8 @@
 		<p class="company-popup_description">
 			{{description}}
 		</p>
+
+		<div class="company-popup_close">Закрыть</div>
 
 	</div>
 
