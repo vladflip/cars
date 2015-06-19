@@ -648,6 +648,9 @@ CompanyList = (function(superClass) {
       this.options.makes.trigger('error');
       return;
     }
+    $('html, body').animate({
+      scrollTop: this.$el.offset().top
+    }, 500);
     return this.render();
   };
 

@@ -248,7 +248,10 @@ class CompanyList extends Backbone.View
 		if @ids.length is 0
 			@options.makes.trigger 'error'
 			return
-		
+		$('html, body').animate
+	        scrollTop: @$el.offset().top
+	    , 500
+
 		do @render
 
 	render: ->
