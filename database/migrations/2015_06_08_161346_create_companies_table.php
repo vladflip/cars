@@ -22,6 +22,7 @@ class CreateCompaniesTable extends Migration {
 
 			$t->string('name');
 			$t->string('phone', 45);
+			$t->string('logo');
 			$t->string('address');
 			$t->text('description');
 

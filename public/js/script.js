@@ -22,6 +22,12 @@ Array.prototype["in"] = function(i) {
   return false;
 };
 
+String.prototype.excerpt = function() {
+  var i;
+  i = this.indexOf('.');
+  return this.slice(0, i + 1);
+};
+
 },{}],2:[function(require,module,exports){
 var SelectView,
   extend = function(child, parent) { for (var key in parent) { if (hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; },
@@ -241,7 +247,7 @@ require('./popups/index');
 require('./main-live-search');
 
 },{"./base":1,"./main-live-search":5,"./popups/index":7}],5:[function(require,module,exports){
-var MakeCollection, MakeList, MakeModel, MakeView, SpecCollection, SpecList, SpecModel, SpecView, TypeList, makes, specs, types,
+var CompanyCollection, CompanyList, CompanyModel, CompanyView, MakeCollection, MakeList, MakeModel, MakeView, SpecCollection, SpecList, SpecModel, SpecView, TypeList, companies, makes, specs, types,
   extend = function(child, parent) { for (var key in parent) { if (hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; },
   hasProp = {}.hasOwnProperty,
   bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };
@@ -375,7 +381,8 @@ MakeModel = (function(superClass) {
 
   MakeModel.prototype.defaults = {
     id: 0,
-    title: ''
+    title: '',
+    active: false
   };
 
   return MakeModel;
@@ -399,6 +406,7 @@ MakeView = (function(superClass) {
   extend(MakeView, superClass);
 
   function MakeView() {
+    this.changeState = bind(this.changeState, this);
     this.show = bind(this.show, this);
     this.hide = bind(this.hide, this);
     return MakeView.__super__.constructor.apply(this, arguments);
@@ -423,7 +431,7 @@ MakeView = (function(superClass) {
   };
 
   MakeView.prototype.changeState = function() {
-    if (!this.state) {
+    if (!this.model.get('active')) {
       return this.activate();
     } else {
       return this.deactivate();
@@ -432,12 +440,12 @@ MakeView = (function(superClass) {
 
   MakeView.prototype.activate = function() {
     this.$el.addClass(this["class"]);
-    return this.state = true;
+    return this.model.set('active', true);
   };
 
   MakeView.prototype.deactivate = function() {
     this.$el.removeClass(this["class"]);
-    return this.state = false;
+    return this.model.set('active', false);
   };
 
   return MakeView;
@@ -448,8 +456,10 @@ MakeList = (function(superClass) {
   extend(MakeList, superClass);
 
   function MakeList() {
+    this.updateIds = bind(this.updateIds, this);
     this.typeChanged = bind(this.typeChanged, this);
     this.specsChanged = bind(this.specsChanged, this);
+    this.error = bind(this.error, this);
     return MakeList.__super__.constructor.apply(this, arguments);
   }
 
@@ -461,11 +471,19 @@ MakeList = (function(superClass) {
 
   MakeList.prototype.specIds = [];
 
+  MakeList.prototype.ids = [];
+
   MakeList.prototype.initialize = function() {
+    this.on('error', this.error);
     this.dep = this.options.dep;
     this.collection = new MakeCollection;
+    this.collection.on('change', this.updateIds);
     this.setDependencies();
     return this.fillCollection();
+  };
+
+  MakeList.prototype.error = function() {
+    return console.log('please chose make');
   };
 
   MakeList.prototype.fillCollection = function() {
@@ -494,14 +512,12 @@ MakeList = (function(superClass) {
 
   MakeList.prototype.specsChanged = function(ids) {
     this.specIds = ids;
-    this.getMakes();
-    return console.log("specs " + this.specIds);
+    return this.getMakes();
   };
 
   MakeList.prototype.typeChanged = function(id) {
     this.typeId = id;
-    this.getMakes();
-    return console.log("type " + this.typeId);
+    return this.getMakes();
   };
 
   MakeList.prototype.getMakes = function() {
@@ -518,9 +534,10 @@ MakeList = (function(superClass) {
   };
 
   MakeList.prototype.updateCollection = function(ids) {
+    console.log(this.collection);
     console.log(ids);
     if (ids.length === 0) {
-      return console.log('yes');
+      return console.log('empty collection');
     } else {
       return this.collection.each(function(model) {
         if (ids.have(model.get('id'))) {
@@ -532,7 +549,141 @@ MakeList = (function(superClass) {
     }
   };
 
+  MakeList.prototype.updateIds = function(model) {
+    if (model.get('active')) {
+      this.ids.push(model.get('id'));
+    } else {
+      this.ids.remove(model.get('id'));
+    }
+    return this.trigger('changed', this.ids);
+  };
+
   return MakeList;
+
+})(Backbone.View);
+
+CompanyModel = (function(superClass) {
+  extend(CompanyModel, superClass);
+
+  function CompanyModel() {
+    return CompanyModel.__super__.constructor.apply(this, arguments);
+  }
+
+  CompanyModel.prototype.defaults = {
+    address: '',
+    description: '',
+    excerpt: '',
+    logo: '',
+    name: '',
+    phone: ''
+  };
+
+  return CompanyModel;
+
+})(Backbone.Model);
+
+CompanyView = (function(superClass) {
+  extend(CompanyView, superClass);
+
+  function CompanyView() {
+    return CompanyView.__super__.constructor.apply(this, arguments);
+  }
+
+  return CompanyView;
+
+})(Backbone.View);
+
+CompanyCollection = (function(superClass) {
+  extend(CompanyCollection, superClass);
+
+  function CompanyCollection() {
+    return CompanyCollection.__super__.constructor.apply(this, arguments);
+  }
+
+  CompanyCollection.prototype.model = CompanyModel;
+
+  return CompanyCollection;
+
+})(Backbone.Collection);
+
+CompanyList = (function(superClass) {
+  extend(CompanyList, superClass);
+
+  function CompanyList() {
+    this.makesChanged = bind(this.makesChanged, this);
+    this.showMe = bind(this.showMe, this);
+    return CompanyList.__super__.constructor.apply(this, arguments);
+  }
+
+  CompanyList.prototype.url = 'api/get-companies-by-makes';
+
+  CompanyList.prototype.home = $('body').data('home');
+
+  CompanyList.prototype.button = $('#show-found-orgs');
+
+  CompanyList.prototype.template = Handlebars.compile($('#found-template').html());
+
+  CompanyList.prototype.initialize = function() {
+    this.collection = new CompanyCollection;
+    this.ids = [];
+    this.options.makes.on('changed', this.makesChanged);
+    return this.button.on('click', this.showMe);
+  };
+
+  CompanyList.prototype.showMe = function() {
+    if (this.ids.length === 0) {
+      this.options.makes.trigger('error');
+      return;
+    }
+    return this.render();
+  };
+
+  CompanyList.prototype.render = function() {
+    this.$el.html(this.template({
+      companies: this.collection.toJSON()
+    }));
+    return this.$el;
+  };
+
+  CompanyList.prototype.makesChanged = function(ids) {
+    this.ids = ids;
+    return this.get();
+  };
+
+  CompanyList.prototype.get = function() {
+    return $.ajax(this.home + "/" + this.url, {
+      data: {
+        ids: this.ids
+      }
+    }).done((function(_this) {
+      return function(comps) {
+        return _this.updateCollection(comps);
+      };
+    })(this));
+  };
+
+  CompanyList.prototype.updateCollection = function(c) {
+    var comp, j, len, m, results, v;
+    this.collection.reset();
+    results = [];
+    for (j = 0, len = c.length; j < len; j++) {
+      comp = c[j];
+      m = new CompanyModel({
+        address: comp.address,
+        excerpt: comp.description.excerpt(),
+        logo: comp.logo,
+        name: comp.name,
+        phone: comp.phone
+      });
+      v = new CompanyView({
+        model: m
+      });
+      results.push(this.collection.add(m));
+    }
+    return results;
+  };
+
+  return CompanyList;
 
 })(Backbone.View);
 
@@ -550,6 +701,11 @@ makes = new MakeList({
     specs: specs,
     type: types
   }
+});
+
+companies = new CompanyList({
+  makes: makes,
+  el: '#found'
 });
 
 },{"./inc/TypeList":3}],6:[function(require,module,exports){

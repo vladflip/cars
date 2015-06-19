@@ -4,17 +4,26 @@
 
 	<h3>Найденные организации</h3>
 
-	<ul>
+	<div class="company-preview-list">
+
 		{{#each companies}}
-			<li>
-				<div class="found_logo"></div>
-				<div class="found_text">
-					<h3>ООО Трансавтосервис</h3>
-					<h5>Москва, Россия</h5>
-					<h5>Запчасти по самым низким ценам</h5>
+			<div class="company-preview">
+				<div class="company-preview_logo"
+					style="background-image: url({{logo}})"
+				></div>
+				<div class="company-preview_info">
+					<h3>{{name}}</h3>
+					<h5>{{address}}</h5>
+					<h5>{{excerpt}}</h5>
 				</div>
-			</li>
+				<div class="company-preview_more">Подробнее</div>
+			</div>
 		{{/each}}
-	</ul>
+
+	</div>
+
+	<div class="found_more">
+		Показать еще
+	</div>
 
 </script>

@@ -24,11 +24,13 @@
 
 				@include('inc.main-makes')
 
-				<div id="show-orgs" class="show-orgs">
+				<div id="show-found-orgs" class="show-orgs">
 					Показать
 				</div>
 
-				@include('inc.found')
+				{{-- @include('inc.found') --}}
+
+				<div id="found" class="found"></div>
 
 				@include('parts.found-template')
 

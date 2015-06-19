@@ -1,0 +1,56 @@
+.company-preview
+	
+	height 102px
+	padding 15px
+	position relative
+	
+	// &:hover
+	// 	background-color #faf7e9
+		
+	&_more
+		color $blue
+		font-size 12px
+		cursor pointer
+		padding 10px
+		position absolute
+		top 15px
+		right 0px
+		&:hover
+			background-color #faf7e9
+	
+	&-list
+		margin 20px 0 0 0
+		padding 0 35px
+		
+	&_logo
+		background-position center
+		background-repeat no-repeat
+		width 100px
+		height 100px
+		border 1px solid $grey
+		border-radius 2px
+		float left
+			
+	&_info
+		height 100px
+		padding-left 20px
+		display flex
+		flex-direction column
+		justify-content center
+		
+		h3, h5
+			margin 0
+		
+		h3
+			font-weight 400
+			font-size 17px
+			
+		h5:first-of-type
+			margin 10px 0
+			font-size 12px
+			font-weight 300
+			
+		h5:last-of-type
+			color #ccc
+			font-weight 300
+			font-size 12px

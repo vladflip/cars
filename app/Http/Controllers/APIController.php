@@ -74,7 +74,14 @@ class APIController extends Controller {
 
 		$ids = \Input::get('ids');
 
-		
+		$c = \App\Company::select('name', 'phone', 'logo', 'address', 'description')
+		->take(5)
+		->whereHas('makes', function($q) use($ids){
+			$q->whereIn('make_id', $ids);
+		})
+		->get();
+
+		return $c;
 
 	}
 

@@ -69,6 +69,7 @@ class MakeModel extends Backbone.Model
 	defaults:
 		id: 0
 		title: ''
+		active: false
 
 class MakeCollection extends Backbone.Collection
 	model: MakeModel
@@ -91,16 +92,18 @@ class MakeView extends Backbone.View
 	events: 
 		'click' : 'changeState'
 
-	changeState: ->
-		unless @state then do @activate else do @deactivate
+	changeState: =>
+		unless @model.get('active') then do @activate else do @deactivate
 
 	activate: ->
 		@$el.addClass @class
-		@state = true
+
+		@model.set 'active', true
 
 	deactivate: ->
 		@$el.removeClass @class
-		@state = false
+
+		@model.set 'active', false
 
 class MakeList extends Backbone.View
 
@@ -112,17 +115,27 @@ class MakeList extends Backbone.View
 
 	specIds: []
 
+	ids: []
+
 	initialize: ->
+
+		@on 'error', @error
 
 		# dependencies to listen for changes of ids
 		@dep = @options.dep
 
 		@collection = new MakeCollection
 
+		@collection.on 'change', @updateIds
+
 		do @setDependencies
 
 		# fill collection from html
 		do @fillCollection
+
+	# when no makes chosed
+	error: =>
+		console.log 'please chose make'
 
 	fillCollection: ->
 		@$el.children('li').each (i, li) =>
@@ -143,20 +156,12 @@ class MakeList extends Backbone.View
 	specsChanged: (ids) =>
 		@specIds = ids
 
-		# if ids.length is 0 then return
-
 		do @getMakes
-
-		console.log "specs #{@specIds}"
 
 	typeChanged: (id) =>
 		@typeId = id
 
 		do @getMakes
-
-		# if id is 0 then return
-
-		console.log "type #{@typeId}"
 
 	getMakes: ->
 		self = @
@@ -169,17 +174,105 @@ class MakeList extends Backbone.View
 			self.updateCollection ids
 
 	updateCollection: (ids) ->
+		console.log @collection
 		console.log ids
 		if ids.length is 0
-			console.log 'yes'
+			console.log 'empty collection'
 		else
 
 			@collection.each (model) ->
 
-				if ids.have(model.get 'id')
+				if ids.have model.get 'id'
 					model.trigger 'show'
 				else
 					model.trigger 'hide'
+
+	# update make ids for companies module
+	updateIds: (model) =>
+		if model.get('active')
+			@ids.push model.get 'id'
+		else
+			@ids.remove model.get 'id'
+
+		@trigger 'changed', @ids
+
+
+
+class CompanyModel extends Backbone.Model
+	defaults:
+		address: ''
+		description: ''
+		excerpt: ''
+		logo: ''
+		name: ''
+		phone: ''
+
+class CompanyView extends Backbone.View
+
+
+class CompanyCollection extends Backbone.Collection
+	model: CompanyModel
+
+class CompanyList extends Backbone.View
+
+	url: 'api/get-companies-by-makes'
+
+	home: $('body').data 'home'
+
+	button: $('#show-found-orgs')
+
+	template: Handlebars.compile $('#found-template').html()
+
+	initialize: ->
+
+		@collection = new CompanyCollection
+
+		@ids = []
+
+		@options.makes.on 'changed', @makesChanged
+
+		@button.on 'click', @showMe
+
+	showMe: =>
+		if @ids.length is 0
+			@options.makes.trigger 'error'
+			return
+		
+		do @render
+
+	render: ->
+		@$el.html @template 
+			companies: @collection.toJSON()
+
+		@$el
+
+	makesChanged: (ids) =>
+		@ids = ids
+
+		do @get
+
+	get: ->
+		$.ajax "#{@home}/#{@url}",
+			data: 
+				ids: @ids
+		.done (comps) =>
+			@updateCollection comps
+
+	updateCollection: (c) ->
+		do @collection.reset
+
+		for comp in c
+			m = new CompanyModel
+					address: comp.address
+					excerpt: comp.description.excerpt()
+					logo: comp.logo
+					name: comp.name
+					phone: comp.phone
+
+			v = new CompanyView
+				model: m
+
+			@collection.add m
 
 
 specs = new SpecList
@@ -193,3 +286,7 @@ makes = new MakeList
 	dep: 
 		specs: specs
 		type: types
+
+companies = new CompanyList
+	makes: makes
+	el: '#found'

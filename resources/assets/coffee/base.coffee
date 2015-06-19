@@ -8,3 +8,7 @@ Array.prototype.in = (i) ->
 	for a in @
 		if a.id is i then return true
 	false
+
+String.prototype.excerpt = ->
+	i = @.indexOf '.'
+	@slice 0, i+1

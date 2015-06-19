@@ -64,30 +64,37 @@ h3 {
 .breadcrumb--parent {
   color: #f3df6d;
 }
-.found {
-  margin: 35px 0 0 0;
+.company-preview {
+  height: 102px;
+  padding: 15px;
+  position: relative;
 }
-.found ul {
+.company-preview_more {
+  color: #4e61eb;
+  font-size: 12px;
+  cursor: pointer;
+  padding: 10px;
+  position: absolute;
+  top: 15px;
+  right: 0px;
+}
+.company-preview_more:hover {
+  background-color: #faf7e9;
+}
+.company-preview-list {
   margin: 20px 0 0 0;
   padding: 0 35px;
 }
-.found ul li {
-  height: 102px;
-  padding: 15px;
-  cursor: pointer;
-}
-.found ul li:hover {
-  background-color: #faf7e9;
-}
-.found_logo {
-  background: url("../img/com_logo.jpg") center no-repeat;
+.company-preview_logo {
+  background-position: center;
+  background-repeat: no-repeat;
   width: 100px;
   height: 100px;
   border: 1px solid #f0f0f0;
   border-radius: 2px;
   float: left;
 }
-.found_text {
+.company-preview_info {
   height: 100px;
   padding-left: 20px;
   display: -webkit-flex;
@@ -100,23 +107,26 @@ h3 {
       -ms-flex-pack: center;
           justify-content: center;
 }
-.found_text h3,
-.found_text h5 {
+.company-preview_info h3,
+.company-preview_info h5 {
   margin: 0;
 }
-.found_text h3 {
+.company-preview_info h3 {
   font-weight: 400;
   font-size: 17px;
 }
-.found_text h5:first-of-type {
+.company-preview_info h5:first-of-type {
   margin: 10px 0;
   font-size: 12px;
   font-weight: 300;
 }
-.found_text h5:last-of-type {
+.company-preview_info h5:last-of-type {
   color: #ccc;
   font-weight: 300;
   font-size: 12px;
+}
+.found {
+  margin: 35px 0 0 0;
 }
 .found_more {
   display: -webkit-flex;
@@ -134,6 +144,10 @@ h3 {
   height: 40px;
   cursor: pointer;
   border: 4px solid #f0f0f0;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
   margin: 20px auto;
 }
 .wide-image {
@@ -175,6 +189,10 @@ h3 {
   height: 40px;
   cursor: pointer;
   border: 4px solid #f3df6d;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
   margin: 0 auto 25px;
 }
 .makes {
@@ -427,6 +445,10 @@ h3 {
   height: 40px;
   cursor: pointer;
   border: 4px solid #f3df6d;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
   margin: 30px auto 0;
 }
 .selectBox-disabled {
@@ -475,6 +497,10 @@ h3 {
   height: 40px;
   cursor: pointer;
   border: 4px solid #fff;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
   margin: 10px 0;
 }
 .specs {
@@ -520,6 +546,10 @@ h3 {
   height: 40px;
   cursor: pointer;
   border: 4px solid #f3df6d;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
   margin: 40px auto 0;
 }
 .type {
@@ -620,6 +650,10 @@ h3 {
   height: 40px;
   cursor: pointer;
   border: 4px solid #f3df6d;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }
 .feedback_photos {
   *zoom: 1;
