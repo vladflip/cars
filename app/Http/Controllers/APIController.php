@@ -74,14 +74,47 @@ class APIController extends Controller {
 
 		$ids = \Input::get('ids');
 
-		$c = \App\Company::select('name', 'phone', 'logo', 'address', 'description')
+		$c = \App\Company::with('type')
+		->with('spec')
+		->with(['makes' => function($q){
+			$q->select('title');
+		}])
 		->take(5)
 		->whereHas('makes', function($q) use($ids){
 			$q->whereIn('make_id', $ids);
 		})
 		->get();
 
-		return $c;
+		$companies = array();
+
+		foreach($c as $key => $val){
+
+			$arr = array();
+
+			$t = array();
+
+			$arr['name'] = $val->name;
+			$arr['description'] = $val->description;
+			$arr['phone'] = $val->phone;
+			$arr['logo'] = $val->logo;
+			$arr['address'] = $val->address;
+
+			$t[] = $val->spec->title;
+			$t[] = $val->type->title;
+
+			foreach($val->makes as $k => $v){
+
+				$t[] = $v->title;
+
+			}
+
+			$arr['tags'] = $t;
+
+			$companies[] = $arr;
+
+		}
+
+		return json_encode($companies);
 
 	}
 

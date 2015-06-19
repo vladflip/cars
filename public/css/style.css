@@ -64,6 +64,13 @@ h3 {
 .breadcrumb--parent {
   color: #f3df6d;
 }
+.company-popup {
+  padding: 30px;
+  background-color: #fff;
+  margin: auto;
+  border-radius: 2px;
+  position: relative;
+}
 .company-preview {
   height: 102px;
   padding: 15px;

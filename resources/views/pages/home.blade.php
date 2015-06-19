@@ -34,6 +34,8 @@
 
 				@include('parts.found-template')
 
+				@include('parts.company-template')
+
 			</div>
 
 			<div class="home_right">

@@ -588,7 +588,8 @@ CompanyModel = (function(superClass) {
     excerpt: '',
     logo: '',
     name: '',
-    phone: ''
+    phone: '',
+    tags: ''
   };
 
   return CompanyModel;
@@ -599,8 +600,36 @@ CompanyView = (function(superClass) {
   extend(CompanyView, superClass);
 
   function CompanyView() {
+    this.showPopup = bind(this.showPopup, this);
     return CompanyView.__super__.constructor.apply(this, arguments);
   }
+
+  CompanyView.prototype.template = Handlebars.compile($('#company-template').html());
+
+  CompanyView.prototype.initialize = function() {
+    this.more = this.$el.children('.company-preview_more');
+    return this.more.on('click', this.showPopup);
+  };
+
+  CompanyView.prototype.showPopup = function() {
+    var src;
+    src = this.template({
+      logo: this.model.get('logo'),
+      name: this.model.get('name'),
+      description: this.model.get('description'),
+      address: this.model.get('address'),
+      phone: this.model.get('phone'),
+      excerpt: this.model.get('description').excerpt(),
+      tags: this.model.get('tags')
+    });
+    return $.magnificPopup.open({
+      items: {
+        src: src,
+        type: 'inline',
+        closeBtnInside: true
+      }
+    });
+  };
 
   return CompanyView;
 
@@ -658,6 +687,15 @@ CompanyList = (function(superClass) {
     this.$el.html(this.template({
       companies: this.collection.toJSON()
     }));
+    this.$el.find('.company-preview').each((function(_this) {
+      return function(i, el) {
+        var v;
+        return v = new CompanyView({
+          model: _this.collection.at(i),
+          el: el
+        });
+      };
+    })(this));
     return this.$el;
   };
 
@@ -673,26 +711,25 @@ CompanyList = (function(superClass) {
       }
     }).done((function(_this) {
       return function(comps) {
-        return _this.updateCollection(comps);
+        return _this.updateCollection(JSON.parse(comps));
       };
     })(this));
   };
 
   CompanyList.prototype.updateCollection = function(c) {
-    var comp, j, len, m, results, v;
+    var comp, j, len, m, results;
     this.collection.reset();
     results = [];
     for (j = 0, len = c.length; j < len; j++) {
       comp = c[j];
       m = new CompanyModel({
         address: comp.address,
+        description: comp.description,
         excerpt: comp.description.excerpt(),
         logo: comp.logo,
         name: comp.name,
-        phone: comp.phone
-      });
-      v = new CompanyView({
-        model: m
+        phone: comp.phone,
+        tags: comp.tags
       });
       results.push(this.collection.add(m));
     }

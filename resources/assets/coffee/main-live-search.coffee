@@ -217,8 +217,33 @@ class CompanyModel extends Backbone.Model
 		logo: ''
 		name: ''
 		phone: ''
+		tags: ''
 
 class CompanyView extends Backbone.View
+
+	template: Handlebars.compile $('#company-template').html()
+
+	initialize: ->
+
+		@more = @$el.children('.company-preview_more')
+
+		@more.on 'click', @showPopup
+
+	showPopup: =>
+		src = @template
+			logo: @model.get 'logo'
+			name: @model.get 'name'
+			description: @model.get 'description'
+			address: @model.get 'address'
+			phone: @model.get 'phone'
+			excerpt: @model.get('description').excerpt()
+			tags: @model.get 'tags'
+
+		$.magnificPopup.open
+			items:
+				src: src
+				type: 'inline'
+				closeBtnInside: true
 
 
 class CompanyCollection extends Backbone.Collection
@@ -258,6 +283,11 @@ class CompanyList extends Backbone.View
 		@$el.html @template 
 			companies: @collection.toJSON()
 
+		@$el.find('.company-preview').each (i, el) =>
+			v = new CompanyView
+				model: @collection.at i
+				el: el
+
 		@$el
 
 	makesChanged: (ids) =>
@@ -270,7 +300,7 @@ class CompanyList extends Backbone.View
 			data: 
 				ids: @ids
 		.done (comps) =>
-			@updateCollection comps
+			@updateCollection JSON.parse comps
 
 	updateCollection: (c) ->
 		do @collection.reset
@@ -278,13 +308,12 @@ class CompanyList extends Backbone.View
 		for comp in c
 			m = new CompanyModel
 					address: comp.address
+					description: comp.description
 					excerpt: comp.description.excerpt()
 					logo: comp.logo
 					name: comp.name
 					phone: comp.phone
-
-			v = new CompanyView
-				model: m
+					tags: comp.tags
 
 			@collection.add m
 
