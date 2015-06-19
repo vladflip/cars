@@ -473,6 +473,10 @@ MakeList = (function(superClass) {
 
   MakeList.prototype.ids = [];
 
+  MakeList.prototype.button = $('#show-found-orgs');
+
+  MakeList.prototype.makesElement = $('.makes.makes--live');
+
   MakeList.prototype.initialize = function() {
     this.on('error', this.error);
     this.dep = this.options.dep;
@@ -533,12 +537,21 @@ MakeList = (function(superClass) {
     });
   };
 
+  MakeList.prototype.hide = function() {
+    this.makesElement.hide();
+    return this.button.hide();
+  };
+
+  MakeList.prototype.show = function() {
+    this.makesElement.show();
+    return this.button.show();
+  };
+
   MakeList.prototype.updateCollection = function(ids) {
-    console.log(this.collection);
-    console.log(ids);
     if (ids.length === 0) {
-      return console.log('empty collection');
+      return this.hide();
     } else {
+      this.show();
       return this.collection.each(function(model) {
         if (ids.have(model.get('id'))) {
           return model.trigger('show');

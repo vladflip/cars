@@ -117,6 +117,10 @@ class MakeList extends Backbone.View
 
 	ids: []
 
+	button: $('#show-found-orgs')
+
+	makesElement: $('.makes.makes--live')
+
 	initialize: ->
 
 		@on 'error', @error
@@ -173,12 +177,19 @@ class MakeList extends Backbone.View
 		.done (ids) ->
 			self.updateCollection ids
 
+	hide: ->
+		@makesElement.hide()
+		@button.hide()
+
+	show: ->
+		@makesElement.show()
+		@button.show()
+
 	updateCollection: (ids) ->
-		console.log @collection
-		console.log ids
 		if ids.length is 0
-			console.log 'empty collection'
+			do @hide
 		else
+			do @show
 
 			@collection.each (model) ->
 

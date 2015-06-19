@@ -194,6 +194,7 @@ h3 {
       -ms-user-select: none;
           user-select: none;
   margin: 0 auto 25px;
+  display: none;
 }
 .makes {
   position: relative;
@@ -230,6 +231,9 @@ h3 {
 .makes ul li>span a {
   display: inline;
   text-decoration: underline;
+}
+.makes--live {
+  display: none;
 }
 .makes--live ul li {
   padding: 0;
