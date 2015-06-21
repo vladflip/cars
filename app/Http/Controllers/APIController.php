@@ -37,36 +37,19 @@ class APIController extends Controller {
 
 		$specIds = \Input::get('specs');
 
-		$type = \App\Make::select('id')
-			->whereHas('types', function($q) use($typeId){
+		$makes = \App\Make::select('id')
+			->whereHas('companies', function($q) use ($typeId, $specIds){
 				$q->where('type_id', '=', $typeId);
-			})
-			->get();
-
-		$def = array();
-
-		foreach($type as $k => $v) {
-
-			$def[] = $v->id;
-
-		}
-
-		$specs = \App\Make::select('id')
-			->whereHas('companies', function($q) use($specIds){
 				$q->whereIn('spec_id', $specIds);
 			})
 			->get();
+		$ids = array();
 
-		foreach($specs as $k => $v) {
-
-			$def[] = $v->id;
-
+		foreach ($makes as $k => $v) {
+			$ids[] = $v->id;
 		}
 
-
-		$makes = array_values(array_unique($def, SORT_NUMERIC));
-
-		return $makes;
+		return $ids;
 
 	}
 

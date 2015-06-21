@@ -27,9 +27,6 @@ class TypeView extends Backbone.View
 		else
 			do @activate
 
-	fuck: ->
-		console.log 'fuck'
-
 	activate: =>
 		@model.trigger('activate', @model)
 

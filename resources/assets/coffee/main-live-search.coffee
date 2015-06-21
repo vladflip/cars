@@ -14,6 +14,8 @@ class SpecView extends Backbone.View
 
 		@class = 'parts--active'
 
+		@model.on 'deactivate', @deactivate
+
 	events:
 		'click' : 'changeState'
 
@@ -26,9 +28,13 @@ class SpecView extends Backbone.View
 		@model.trigger('pass')
 
 	activate: =>
-		@$el.addClass @class
+		if @options.list.active
+			@$el.addClass @class
 
-		@model.set 'active', true
+			@model.set 'active', true
+		else
+			@options.list.trigger 'error'
+
 
 	deactivate: =>
 		@$el.removeClass @class
@@ -39,11 +45,37 @@ class SpecList extends Backbone.View
 
 	initialize: ->
 
+		@ids = 
+			type: 0
+			specs: []
+
+		@active = false
+
 		@collection = new SpecCollection
 
 		@collection.on 'pass', @pass
 
+		@on 'error', @error
+
+		@options.types.on 'changed', @fromTypes
+
 		do @fillCollection
+
+	error: =>
+		console.log 'choose type'
+
+	fromTypes: (id) =>
+		if id
+			@active = true 
+			@ids.type = id
+			if @ids.specs.length isnt 0
+				@trigger 'changed', @ids
+		else
+			@active = false
+			@trigger 'changed', 0
+			@ids.specs = []
+			@collection.each (model) =>
+				model.trigger 'deactivate'
 
 	pass: =>
 		ids = []
@@ -51,13 +83,15 @@ class SpecList extends Backbone.View
 		for model in models
 			ids.push model.get 'id'
 
-		@trigger 'changed', ids
+		@ids.specs = ids
+
+		@trigger 'changed', @ids
 
 	fillCollection: ->
 		@$el.children('li').each (i, li) =>
 			id = $(li).data('id')
 			m = new SpecModel id: id
-			v = new SpecView model: m, el: li
+			v = new SpecView model: m, el: li, list: @
 			@collection.add m
 
 
@@ -111,28 +145,24 @@ class MakeList extends Backbone.View
 
 	home: $('body').data 'home'
 
-	typeId: 0
-
-	specIds: []
-
 	ids: []
 
 	button: $('#show-found-orgs')
 
 	makesElement: $('.makes.makes--live')
 
+	empty: $('.makes_empty')
+
 	initialize: ->
 
 		@on 'error', @error
 
-		# dependencies to listen for changes of ids
-		@dep = @options.dep
+		# dependency to listen for changes of ids
+		@options.specs.on 'changed', @changed
 
 		@collection = new MakeCollection
 
 		@collection.on 'change', @updateIds
-
-		do @setDependencies
 
 		# fill collection from html
 		do @fillCollection
@@ -151,31 +181,31 @@ class MakeList extends Backbone.View
 
 			@collection.add m
 
-	# listen for changes
-	setDependencies: ->
-		@dep.specs.on 'changed', @specsChanged
+	changed: (ids) =>
+		if ids is 0 or ids.specs.length is 0
+			do @hide
+			@trigger 'hideComps'
+			return
 
-		@dep.type.on 'changed', @typeChanged
+		@getMakes ids
 
-	specsChanged: (ids) =>
-		@specIds = ids
-
-		do @getMakes
-
-	typeChanged: (id) =>
-		@typeId = id
-
-		do @getMakes
-
-	getMakes: ->
+	getMakes: (ids) ->
+		console.log ids, 'selected'
 		self = @
 
 		$.ajax "#{@home}/#{@url}",
-			data: 
-				type: @typeId
-				specs: @specIds
-		.done (ids) ->
-			self.updateCollection ids
+			data: ids
+		.done (rids) =>
+			if rids.length is 0 
+				do @empty.show 
+				do @button.hide
+
+				@trigger 'hideComps'
+			else 
+				do @empty.hide
+				@button.css 'display', 'flex'
+			
+			self.updateCollection rids
 
 	hide: ->
 		@makesElement.hide()
@@ -183,20 +213,17 @@ class MakeList extends Backbone.View
 
 	show: ->
 		@makesElement.show()
-		@button.css('display', 'flex')
 
 	updateCollection: (ids) ->
-		if ids.length is 0
-			do @hide
-		else
-			do @show
+		console.log ids, 'received'
+		do @show
 
-			@collection.each (model) ->
+		@collection.each (model) ->
 
-				if ids.have model.get 'id'
-					model.trigger 'show'
-				else
-					model.trigger 'hide'
+			if ids.have model.get 'id'
+				model.trigger 'show'
+			else
+				model.trigger 'hide'
 
 	# update make ids for companies module
 	updateIds: (model) =>
@@ -269,10 +296,16 @@ class CompanyList extends Backbone.View
 
 		@button.on 'click', @showMe
 
+		@options.makes.on 'hideComps', @hideMe
+
+	hideMe: =>
+		@$el.html ''
+
 	showMe: =>
 		if @ids.length is 0
 			@options.makes.trigger 'error'
 			return
+
 		$('html, body').animate
 	        scrollTop: @$el.offset().top
 	    , 500
@@ -318,18 +351,18 @@ class CompanyList extends Backbone.View
 			@collection.add m
 
 
-specs = new SpecList
-	el: '#parts-list'
 
 types = new TypeList
 	el: '#main-type-list'
 
+specs = new SpecList
+	el: '#parts-list'
+	types: types
+
 makes = new MakeList
 	el: '#main-makes-list'
-	dep: 
-		specs: specs
-		type: types
+	specs: specs
 
 companies = new CompanyList
-	makes: makes
 	el: '#found'
+	makes: makes

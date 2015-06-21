@@ -308,6 +308,13 @@ h3 {
 .makes--active span {
   background-color: #fdf6d1;
 }
+.makes_empty {
+  position: absolute;
+  top: 60px;
+  font-size: 14px;
+  left: 84px;
+  display: none;
+}
 .media-header {
   display: -webkit-flex;
   display: -ms-flexbox;
