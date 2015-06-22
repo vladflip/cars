@@ -503,6 +503,8 @@ MakeList = (function(superClass) {
 
   MakeList.prototype.ids = [];
 
+  MakeList.prototype.parentIds = {};
+
   MakeList.prototype.button = $('#show-found-orgs');
 
   MakeList.prototype.makesElement = $('.makes.makes--live');
@@ -541,6 +543,7 @@ MakeList = (function(superClass) {
   };
 
   MakeList.prototype.changed = function(ids) {
+    this.parentIds = ids;
     if (ids === 0 || ids.specs.length === 0) {
       this.hide();
       this.trigger('hideComps');
@@ -597,7 +600,8 @@ MakeList = (function(superClass) {
     } else {
       this.ids.remove(model.get('id'));
     }
-    return this.trigger('changed', this.ids);
+    this.parentIds.makes = this.ids;
+    return this.trigger('changed', this.parentIds);
   };
 
   return MakeList;
@@ -681,6 +685,8 @@ CompanyList = (function(superClass) {
   extend(CompanyList, superClass);
 
   function CompanyList() {
+    this.updateCollection = bind(this.updateCollection, this);
+    this.getMore = bind(this.getMore, this);
     this.makesChanged = bind(this.makesChanged, this);
     this.showMe = bind(this.showMe, this);
     this.hideMe = bind(this.hideMe, this);
@@ -696,6 +702,7 @@ CompanyList = (function(superClass) {
   CompanyList.prototype.template = Handlebars.compile($('#found-template').html());
 
   CompanyList.prototype.initialize = function() {
+    this.toSkip = 0;
     this.active = false;
     this.collection = new CompanyCollection;
     this.ids = [];
@@ -733,12 +740,18 @@ CompanyList = (function(superClass) {
         });
       };
     })(this));
-    return this.$el;
+    this.showMore = this.$el.find('.found_more');
+    if (!this.more) {
+      return this.showMore.hide();
+    } else {
+      return this.showMore.click(this.getMore);
+    }
   };
 
   CompanyList.prototype.makesChanged = function(ids) {
     this.ids = ids;
     this.hideMe();
+    this.toSkip = 0;
     this.active = false;
     return this.get();
   };
@@ -746,7 +759,54 @@ CompanyList = (function(superClass) {
   CompanyList.prototype.get = function() {
     return $.ajax(this.home + "/" + this.url, {
       data: {
-        ids: this.ids
+        type: this.ids.type,
+        makes: this.ids.makes,
+        specs: this.ids.specs,
+        skip: this.toSkip
+      }
+    }).done((function(_this) {
+      return function(comps) {
+        _this.fillCollection(JSON.parse(comps));
+        return console.log(JSON.parse(comps).length);
+      };
+    })(this));
+  };
+
+  CompanyList.prototype.fillCollection = function(c) {
+    var comp, i, j, len, m;
+    this.collection.reset();
+    for (i = j = 0, len = c.length; j < len; i = ++j) {
+      comp = c[i];
+      if (i < 5) {
+        m = new CompanyModel({
+          address: comp.address,
+          description: comp.description,
+          excerpt: comp.description.excerpt(),
+          logo: comp.logo,
+          name: comp.name,
+          phone: comp.phone,
+          tags: comp.tags
+        });
+        this.collection.add(m);
+      } else {
+        console.log(comp);
+        this.more = true;
+      }
+    }
+    if (this.active) {
+      return this.render();
+    }
+  };
+
+  CompanyList.prototype.getMore = function() {
+    this.toSkip += 5;
+    this.more = false;
+    return $.ajax(this.home + "/" + this.url, {
+      data: {
+        type: this.ids.type,
+        makes: this.ids.makes,
+        specs: this.ids.specs,
+        skip: this.toSkip
       }
     }).done((function(_this) {
       return function(comps) {
@@ -756,24 +816,26 @@ CompanyList = (function(superClass) {
   };
 
   CompanyList.prototype.updateCollection = function(c) {
-    var comp, j, len, m;
-    this.collection.reset();
-    for (j = 0, len = c.length; j < len; j++) {
-      comp = c[j];
-      m = new CompanyModel({
-        address: comp.address,
-        description: comp.description,
-        excerpt: comp.description.excerpt(),
-        logo: comp.logo,
-        name: comp.name,
-        phone: comp.phone,
-        tags: comp.tags
-      });
-      this.collection.add(m);
+    var comp, i, j, len, m;
+    for (i = j = 0, len = c.length; j < len; i = ++j) {
+      comp = c[i];
+      if (i < 5) {
+        m = new CompanyModel({
+          address: comp.address,
+          description: comp.description,
+          excerpt: comp.description.excerpt(),
+          logo: comp.logo,
+          name: comp.name,
+          phone: comp.phone,
+          tags: comp.tags
+        });
+        this.collection.add(m);
+      } else {
+        console.log(comp);
+        this.more = true;
+      }
     }
-    if (this.active) {
-      return this.render();
-    }
+    return this.render();
   };
 
   return CompanyList;

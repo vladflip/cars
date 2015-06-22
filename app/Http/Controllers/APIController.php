@@ -55,18 +55,27 @@ class APIController extends Controller {
 
 	public function companies_by_makes() {
 
-		$ids = \Input::get('ids');
+		$type = \Input::get('type');
 
-		$c = \App\Company::with('type')
-		->with('spec')
-		->with(['makes' => function($q){
-			$q->select('title');
-		}])
-		->take(5)
-		->whereHas('makes', function($q) use($ids){
-			$q->whereIn('make_id', $ids);
-		})
-		->get();
+		$skip = \Input::get('skip');
+
+		$makes = \Input::get('makes');
+
+		$specs = \Input::get('specs');
+
+		$c = \App\Company::where('type_id', '=', $type)
+			->whereIn('spec_id', $specs)
+			->whereHas('makes', function($q) use($makes){
+				$q->whereIn('make_id', $makes);
+			})
+			->with('type')
+			->with('spec')
+			->with(['makes' => function($q){
+				$q->select('title');
+			}])
+			->skip($skip)
+			->take(6)
+			->get();
 
 		$companies = array();
 

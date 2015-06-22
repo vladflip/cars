@@ -147,6 +147,8 @@ class MakeList extends Backbone.View
 
 	ids: []
 
+	parentIds: {}
+
 	button: $('#show-found-orgs')
 
 	makesElement: $('.makes.makes--live')
@@ -182,6 +184,7 @@ class MakeList extends Backbone.View
 			@collection.add m
 
 	changed: (ids) =>
+		@parentIds = ids
 		if ids is 0 or ids.specs.length is 0
 			do @hide
 			@trigger 'hideComps'
@@ -232,8 +235,9 @@ class MakeList extends Backbone.View
 		else
 			@ids.remove model.get 'id'
 
-		@trigger 'changed', @ids
+		@parentIds.makes = @ids
 
+		@trigger 'changed', @parentIds
 
 
 class CompanyModel extends Backbone.Model
@@ -288,6 +292,8 @@ class CompanyList extends Backbone.View
 
 	initialize: ->
 
+		@toSkip = 0
+
 		@active = false
 
 		@collection = new CompanyCollection
@@ -324,12 +330,19 @@ class CompanyList extends Backbone.View
 				model: @collection.at i
 				el: el
 
-		@$el
+		@showMore = @$el.find('.found_more')
+
+		unless @more then @showMore.hide()
+		else
+			@showMore.click @getMore
 
 	makesChanged: (ids) =>
+
 		@ids = ids
 
 		do @hideMe
+
+		@toSkip = 0
 
 		@active = false
 
@@ -338,26 +351,67 @@ class CompanyList extends Backbone.View
 	get: ->
 		$.ajax "#{@home}/#{@url}",
 			data: 
-				ids: @ids
+				type: @ids.type
+				makes: @ids.makes
+				specs: @ids.specs
+				skip: @toSkip
+
+		.done (comps) =>
+			@fillCollection JSON.parse comps
+			console.log JSON.parse(comps).length
+
+	fillCollection: (c) ->
+		do @collection.reset
+
+		for comp, i in c
+			if i < 5
+				m = new CompanyModel
+						address: comp.address
+						description: comp.description
+						excerpt: comp.description.excerpt()
+						logo: comp.logo
+						name: comp.name
+						phone: comp.phone
+						tags: comp.tags
+
+				@collection.add m
+			else
+				console.log comp
+				@more = true
+
+		if @active then do @render
+
+	getMore: =>
+		@toSkip += 5
+		@more = false
+
+		$.ajax "#{@home}/#{@url}",
+			data: 
+				type: @ids.type
+				makes: @ids.makes
+				specs: @ids.specs
+				skip: @toSkip
 		.done (comps) =>
 			@updateCollection JSON.parse comps
 
-	updateCollection: (c) ->
-		do @collection.reset
+	updateCollection: (c) =>
+		for comp, i in c
+			if i < 5
+				m = new CompanyModel
+						address: comp.address
+						description: comp.description
+						excerpt: comp.description.excerpt()
+						logo: comp.logo
+						name: comp.name
+						phone: comp.phone
+						tags: comp.tags
 
-		for comp in c
-			m = new CompanyModel
-					address: comp.address
-					description: comp.description
-					excerpt: comp.description.excerpt()
-					logo: comp.logo
-					name: comp.name
-					phone: comp.phone
-					tags: comp.tags
+				@collection.add m
+			else
+				console.log comp
+				@more = true
 
-			@collection.add m
-
-		if @active then do @render
+		do @render
 
 
 
