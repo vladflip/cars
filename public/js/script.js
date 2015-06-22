@@ -696,6 +696,7 @@ CompanyList = (function(superClass) {
   CompanyList.prototype.template = Handlebars.compile($('#found-template').html());
 
   CompanyList.prototype.initialize = function() {
+    this.active = false;
     this.collection = new CompanyCollection;
     this.ids = [];
     this.options.makes.on('changed', this.makesChanged);
@@ -708,6 +709,7 @@ CompanyList = (function(superClass) {
   };
 
   CompanyList.prototype.showMe = function() {
+    this.active = true;
     if (this.ids.length === 0) {
       this.options.makes.trigger('error');
       return;
@@ -736,6 +738,8 @@ CompanyList = (function(superClass) {
 
   CompanyList.prototype.makesChanged = function(ids) {
     this.ids = ids;
+    this.hideMe();
+    this.active = false;
     return this.get();
   };
 
@@ -752,9 +756,8 @@ CompanyList = (function(superClass) {
   };
 
   CompanyList.prototype.updateCollection = function(c) {
-    var comp, j, len, m, results;
+    var comp, j, len, m;
     this.collection.reset();
-    results = [];
     for (j = 0, len = c.length; j < len; j++) {
       comp = c[j];
       m = new CompanyModel({
@@ -766,9 +769,11 @@ CompanyList = (function(superClass) {
         phone: comp.phone,
         tags: comp.tags
       });
-      results.push(this.collection.add(m));
+      this.collection.add(m);
     }
-    return results;
+    if (this.active) {
+      return this.render();
+    }
   };
 
   return CompanyList;

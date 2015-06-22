@@ -288,6 +288,8 @@ class CompanyList extends Backbone.View
 
 	initialize: ->
 
+		@active = false
+
 		@collection = new CompanyCollection
 
 		@ids = []
@@ -302,6 +304,7 @@ class CompanyList extends Backbone.View
 		@$el.html ''
 
 	showMe: =>
+		@active = true
 		if @ids.length is 0
 			@options.makes.trigger 'error'
 			return
@@ -310,7 +313,7 @@ class CompanyList extends Backbone.View
 	        scrollTop: @$el.offset().top
 	    , 500
 
-		do @render
+	    do @render
 
 	render: ->
 		@$el.html @template 
@@ -325,6 +328,10 @@ class CompanyList extends Backbone.View
 
 	makesChanged: (ids) =>
 		@ids = ids
+
+		do @hideMe
+
+		@active = false
 
 		do @get
 
@@ -349,6 +356,8 @@ class CompanyList extends Backbone.View
 					tags: comp.tags
 
 			@collection.add m
+
+		if @active then do @render
 
 
 
