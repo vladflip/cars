@@ -39,7 +39,7 @@ class ImageView extends Backbone.View
 
 		do @render
 
-		@$el.find('.feedback_redx:first').click ->
+		@$el.find('.popup_redx:first').click ->
 			do self.destroy
 
 	clean: =>
@@ -141,7 +141,7 @@ class ListView extends Backbone.View
 
 		@model.on('clean', @clean)
 
-		@$el.find('.feedback_redx').click =>
+		@$el.find('.popup_redx').click =>
 			do @destroy
 
 		@$el.children('input').keyup ->

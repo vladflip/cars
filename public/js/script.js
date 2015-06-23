@@ -1406,7 +1406,7 @@ ImageView = (function(superClass) {
     self = this;
     this.model.on('clean', this.clean);
     this.render();
-    return this.$el.find('.feedback_redx:first').click(function() {
+    return this.$el.find('.popup_redx:first').click(function() {
       return self.destroy();
     });
   };
@@ -1579,7 +1579,7 @@ ListView = (function(superClass) {
     self = this;
     this.render();
     this.model.on('clean', this.clean);
-    this.$el.find('.feedback_redx').click((function(_this) {
+    this.$el.find('.popup_redx').click((function(_this) {
       return function() {
         return _this.destroy();
       };

@@ -400,6 +400,10 @@ ul.create-company_select-selectBox-dropdown-menu {
   left: -25px;
   margin: 0;
 }
+.popup_redx--simple {
+  position: static;
+  display: block;
+}
 .popup_plus-sign {
   padding: 5px;
   width: 25px;

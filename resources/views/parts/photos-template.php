@@ -2,5 +2,5 @@
 	<div class="feedback_photo-img">
 		<img src={{src}} alt="">
 	</div>
-	<div class="popup_redx"></div>
+	<div class="popup_redx popup_redx--simple"></div>
 </script>
