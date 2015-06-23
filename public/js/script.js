@@ -176,6 +176,7 @@ MakeList = (function(superClass) {
   };
 
   MakeList.prototype.reset = function() {
+    this.empty.hide();
     return this.collection.each(function(model) {
       return model.trigger('show');
     });

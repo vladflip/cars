@@ -87,6 +87,7 @@ class MakeList extends Backbone.View
 
 	# show all
 	reset: ->
+		do @empty.hide
 		@collection.each (model) ->
 			model.trigger 'show'
 
