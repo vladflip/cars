@@ -242,7 +242,7 @@ require('./popups/index');
 
 require('./main-live-search');
 
-},{"./base":1,"./main-live-search":5,"./popups/index":7}],5:[function(require,module,exports){
+},{"./base":1,"./main-live-search":5,"./popups/index":8}],5:[function(require,module,exports){
 var CompanyCollection, CompanyList, CompanyModel, CompanyView, MakeCollection, MakeList, MakeModel, MakeView, SpecCollection, SpecList, SpecModel, SpecView, TypeList, companies, makes, specs, types,
   extend = function(child, parent) { for (var key in parent) { if (hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; },
   hasProp = {}.hasOwnProperty,
@@ -862,6 +862,225 @@ companies = new CompanyList({
 });
 
 },{"./inc/TypeList":3}],6:[function(require,module,exports){
+var AddLogo, MakeView, MakesList, SelectType, SelectView, makes, specs, types,
+  bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; },
+  extend = function(child, parent) { for (var key in parent) { if (hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; },
+  hasProp = {}.hasOwnProperty;
+
+SelectView = require('../inc/SelectView');
+
+$('#create-company-button').magnificPopup({
+  type: 'inline',
+  closeBtnInside: true
+});
+
+specs = $('#create-company-spec');
+
+specs.selectBox();
+
+autosize($('#create-company-about'));
+
+AddLogo = (function() {
+  function AddLogo(btn, input, container) {
+    this.check = bind(this.check, this);
+    var self;
+    self = this;
+    this.btn = $(btn);
+    this.input = $(input);
+    this.container = $(container);
+    this.input.change(function() {
+      return self.check(this.files);
+    });
+    this.btn.click(function() {
+      return self.input.click();
+    });
+  }
+
+  AddLogo.prototype.check = function(files) {
+    var file;
+    file = files[0];
+    if (file.type.search('image') === -1) {
+      return this.error();
+    } else {
+      return this.read(file);
+    }
+  };
+
+  AddLogo.prototype.error = function() {
+    return alert('это не картинка');
+  };
+
+  AddLogo.prototype.append = function(src) {
+    var img;
+    this.container.html('');
+    img = new Image;
+    img.src = src;
+    console.log(img);
+    return this.container.html(img);
+  };
+
+  AddLogo.prototype.read = function(file) {
+    var r, src;
+    src = '';
+    r = new FileReader;
+    r.onloadend = (function(_this) {
+      return function() {
+        src = r.result;
+        return _this.append(src);
+      };
+    })(this);
+    return r.readAsDataURL(file);
+  };
+
+  return AddLogo;
+
+})();
+
+new AddLogo('#create-company-logo-btn', '#create-company-logo', '#create-company-logo-html');
+
+SelectType = (function(superClass) {
+  extend(SelectType, superClass);
+
+  function SelectType() {
+    return SelectType.__super__.constructor.apply(this, arguments);
+  }
+
+  SelectType.prototype.initialize = function() {
+    var self;
+    self = this;
+    this.$el.selectBox();
+    return this.$el.change(function() {
+      return self.trigger('changed', $(this).val());
+    });
+  };
+
+  return SelectType;
+
+})(Backbone.View);
+
+MakeView = (function(superClass) {
+  extend(MakeView, superClass);
+
+  function MakeView() {
+    return MakeView.__super__.constructor.apply(this, arguments);
+  }
+
+  MakeView.prototype.template = Handlebars.compile($('#create-company-make-template').html());
+
+  MakeView.prototype.className = 'create-company_make';
+
+  MakeView.prototype.render = function(makes) {
+    this.$el.html(this.template({
+      makes: makes
+    }));
+    this.$el.children('.popup_redx').click((function(_this) {
+      return function() {
+        _this.remove();
+        return _this.trigger('remove', _this);
+      };
+    })(this));
+    return this.$el;
+  };
+
+  return MakeView;
+
+})(Backbone.View);
+
+MakesList = (function(superClass) {
+  extend(MakesList, superClass);
+
+  function MakesList() {
+    this.removed = bind(this.removed, this);
+    this.add = bind(this.add, this);
+    this.get = bind(this.get, this);
+    return MakesList.__super__.constructor.apply(this, arguments);
+  }
+
+  MakesList.prototype.home = $('body').data('home');
+
+  MakesList.prototype.url = 'api/get-makes-by-type';
+
+  MakesList.prototype.makes = [];
+
+  MakesList.prototype.template = Handlebars.compile($('#create-company-make-template').html());
+
+  MakesList.prototype.collection = [];
+
+  MakesList.prototype.container = $('.create-company_added');
+
+  MakesList.prototype.initialize = function() {
+    this.options.types.on('changed', this.get);
+    this.first = this.$el.children('.create-company_make');
+    this.first.children('select').selectBox();
+    this.plus = this.$el.parent().find('.popup_plus-sign');
+    return this.plus.click(this.add);
+  };
+
+  MakesList.prototype.update = function() {
+    this.collection = [];
+    this.container.html('');
+    return this.updateFirst();
+  };
+
+  MakesList.prototype.updateFirst = function() {
+    this.first.html(this.template({
+      makes: this.makes
+    }));
+    return this.first.children('select').selectBox();
+  };
+
+  MakesList.prototype.get = function(id) {
+    return $.ajax(this.home + "/" + this.url, {
+      data: {
+        id: id
+      }
+    }).done((function(_this) {
+      return function(d) {
+        _this.makes = d;
+        return _this.update();
+      };
+    })(this));
+  };
+
+  MakesList.prototype.add = function() {
+    var v;
+    v = new MakeView;
+    this.collection.push(v);
+    v.on('remove', this.removed);
+    return this.render();
+  };
+
+  MakesList.prototype.removed = function(v) {
+    return this.collection.remove(v);
+  };
+
+  MakesList.prototype.render = function() {
+    var el, i, len, make, ref, results;
+    ref = this.collection;
+    results = [];
+    for (i = 0, len = ref.length; i < len; i++) {
+      make = ref[i];
+      el = make.render(this.makes);
+      this.container.append(el);
+      results.push(el.children('select').selectBox());
+    }
+    return results;
+  };
+
+  return MakesList;
+
+})(Backbone.View);
+
+types = new SelectType({
+  el: '#create-company-type'
+});
+
+makes = new MakesList({
+  el: '#create-company-makes-list',
+  types: types
+});
+
+},{"../inc/SelectView":2}],7:[function(require,module,exports){
 var AddPhotos, Image, ImageCollection, ImageView, ImagesView, List, ListCollection, ListModel, ListView, SelectView, imageCollection, imagesView, make, minuses, model, pluses, type,
   extend = function(child, parent) { for (var key in parent) { if (hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; },
   hasProp = {}.hasOwnProperty,
@@ -1049,7 +1268,7 @@ AddPhotos = (function() {
   AddPhotos.prototype.read = function(file) {
     var r, src;
     src = '';
-    r = new FileReader();
+    r = new FileReader;
     r.onloadend = function() {
       return imageCollection.add(new Image({
         src: r.result
@@ -1228,20 +1447,22 @@ $('#add-feedback').click(function() {
   return console.log(concs);
 });
 
-},{"../inc/SelectView":2}],7:[function(require,module,exports){
+},{"../inc/SelectView":2}],8:[function(require,module,exports){
 require('./search');
 
 require('./reg');
 
 require('./feedback');
 
-},{"./feedback":6,"./reg":8,"./search":9}],8:[function(require,module,exports){
+require('./create-company');
+
+},{"./create-company":6,"./feedback":7,"./reg":9,"./search":10}],9:[function(require,module,exports){
 $('#register').magnificPopup({
   type: 'inline',
   closeBtnInside: true
 });
 
-},{}],9:[function(require,module,exports){
+},{}],10:[function(require,module,exports){
 var SelectView, make, model, type;
 
 SelectView = require('../inc/SelectView');

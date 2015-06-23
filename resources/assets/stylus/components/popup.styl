@@ -1,3 +1,6 @@
+#create-company-logo
+	display none
+	
 .popup
 	padding 30px
 	background-color white
@@ -5,8 +8,68 @@
 	border-radius 2px
 	position relative
 	
+
+	&_redx
+		width 10px
+		position absolute
+		top 19px
+		right 10px
+		height 10px
+		cursor pointer
+		margin auto
+		background url(../img/redx.png) no-repeat center
+		user-select none
+		
+		&--left
+			left -25px
+			margin 0
+	
+	&_plus-sign
+		padding 5px
+		width 25px
+		position relative
+		top -5px
+		left 10px
+		cursor pointer
+		text-align center
+		background-color $yellow
+		border-radius 2px
+		display inline-block
+		user-select none
+		
+		&--flex
+			position static
+			margin-left 15px
+	
 	&_content
 		margin auto
+		
+		&--create-company
+			display flex
+			justify-content space-between
+			padding-bottom 50px
+	
+	&_comp-logo
+		height 160px
+		margin-top 10px
+		text-align center
+		
+		img
+			max-height 160px
+			max-width 297px
+			
+	&_pick-file
+		margin-left 20px
+		font-size 13px
+		border-radius 2px
+		background-color $yellow
+		padding 10px
+		cursor pointer
+		color $color
+		
+	&_header-field
+		display flex
+		align-items center
 	
 	&--search,
 	&--reg
@@ -20,6 +83,9 @@
 	&--feedback
 		width 780px
 		
+	&--create-company
+		width 660px
+		
 	&--feedback &_header
 		text-align left
 		
@@ -32,6 +98,9 @@
 		&--small
 			font-weight 400
 			font-size 15px
+			
+		&--left
+			text-align left
 		
 	&_checks
 		margin 20px 0
@@ -67,6 +136,12 @@
 			display flex
 			flex-direction row
 			justify-content space-between
+		
+		&--types
+			margin-top 79px
+			
+			.popup_label
+				margin-bottom 9px
 			
 	&_select
 		padding 15px 10px
@@ -102,7 +177,6 @@
 	&_label
 		font-size 13px
 		margin-bottom 5px
-		align-self flex-start
 		
 	&_input
 		background-color white

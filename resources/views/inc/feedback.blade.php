@@ -89,7 +89,7 @@
 					
 					<span class="popup_label">Плюсы</span>
 
-					<span id="feedback-add-plus" class="feedback_plus-sign">
+					<span id="feedback-add-plus" class="popup_plus-sign">
 						+
 					</span>
 
@@ -103,7 +103,7 @@
 					
 					<span class="popup_label">Минусы</span>
 
-					<span id="feedback-add-minus" class="feedback_plus-sign">
+					<span id="feedback-add-minus" class="popup_plus-sign">
 						+
 					</span>
 

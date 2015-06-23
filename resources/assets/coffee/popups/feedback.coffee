@@ -108,7 +108,7 @@ class AddPhotos
 
 	read: (file) ->
 		src = ''
-		r = new FileReader()
+		r = new FileReader
 
 		r.onloadend = ->
 			imageCollection.add new Image src : r.result

@@ -24,11 +24,14 @@ class ComposerServiceProvider extends ServiceProvider {
 			else
 				$current = false;
 
-			$specs = \App\Spec::select('name', 'title')->get();
+			$specs = \App\Spec::select('id', 'name', 'title')->get();
+
+			$types = \App\Type::select('id', 'title')->get();
 
 			// current is only for pages where no specs active, passes false
 
-			$v->with('specs', $specs)->with('current', $current);
+			$v->with('specs', $specs)->with('current', $current)
+				->with('types', $types);
 
 		});
 
