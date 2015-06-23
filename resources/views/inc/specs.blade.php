@@ -1,4 +1,4 @@
-<div class="specs">
+<div class="specs sticky">
 					
 	<h3 class="specs_header">Каталог Организаций</h3>
 

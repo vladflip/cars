@@ -1159,6 +1159,9 @@ ul.create-company_select-selectBox-dropdown-menu {
   position: relative;
   margin-top: 25px;
   *zoom: 1;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
 }
 .catalog .container:before,
 .catalog .container:after {
@@ -1170,19 +1173,16 @@ ul.create-company_select-selectBox-dropdown-menu {
 }
 .catalog_left {
   margin-right: 10px;
-  float: left;
   width: 260px;
 }
 .catalog_middle {
   margin-right: 10px;
-  float: left;
   width: 598px;
   background-color: #fff;
   border: 1px solid #efefef;
   border-radius: 2px;
 }
 .catalog_right {
-  float: right;
   width: 260px;
   border-radius: 2px;
 }
@@ -1194,6 +1194,9 @@ ul.create-company_select-selectBox-dropdown-menu {
   position: relative;
   margin-top: 25px;
   *zoom: 1;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
 }
 .feed .container:before,
 .feed .container:after {
@@ -1206,13 +1209,11 @@ ul.create-company_select-selectBox-dropdown-menu {
 .feed_left {
   margin-right: 10px;
   background-color: #fff;
-  float: left;
   width: 868px;
   border: 1px solid #efefef;
   border-radius: 2px;
 }
 .feed_right {
-  float: right;
   width: 260px;
 }
 .feed-sort {
@@ -1243,15 +1244,16 @@ ul.create-company_select-selectBox-dropdown-menu {
 .home .container {
   position: relative;
   margin-top: 25px;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
 }
 .home_left {
-  float: left;
   margin-right: 10px;
   width: 260px;
 }
 .home_middle {
   margin-right: 10px;
-  float: left;
   width: 598px;
   background-color: #fff;
   border-radius: 2px;
@@ -1260,7 +1262,6 @@ ul.create-company_select-selectBox-dropdown-menu {
   position: relative;
 }
 .home_right {
-  float: right;
   width: 260px;
 }
 .mention {

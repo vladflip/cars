@@ -25,6 +25,7 @@
 
 		<script src="{{ URL::to('/') }}/js/vendor/jquery.js"></script>
 		<script src="{{ URL::to('/') }}/js/vendor/jquery-ui.js"></script>
+		<script src="{{ URL::to('/') }}/js/vendor/sticky.js"></script>
 		<script src="{{ URL::to('/') }}/js/vendor/handlebars.js"></script>
 		<script src="{{ URL::to('/') }}/js/vendor/autosize.min.js"></script>
 		<script src="{{ URL::to('/') }}/js/vendor/selectbox.js"></script>

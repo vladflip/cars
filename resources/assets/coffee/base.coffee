@@ -12,3 +12,6 @@ Array.prototype.in = (i) ->
 String.prototype.excerpt = ->
 	i = @.indexOf '.'
 	@slice 0, i+1
+
+$('.sticky').stick_in_parent
+	offset_top: 25
