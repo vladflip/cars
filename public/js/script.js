@@ -29,6 +29,241 @@ String.prototype.excerpt = function() {
 };
 
 },{}],2:[function(require,module,exports){
+var MainMakes, MakeCollection, MakeList, MakeModel, MakeView, SpecMakes, TypeList, makes, specmakes, types,
+  extend = function(child, parent) { for (var key in parent) { if (hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; },
+  hasProp = {}.hasOwnProperty,
+  bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };
+
+TypeList = require('../inc/TypeList');
+
+MakeModel = (function(superClass) {
+  extend(MakeModel, superClass);
+
+  function MakeModel() {
+    return MakeModel.__super__.constructor.apply(this, arguments);
+  }
+
+  MakeModel.prototype.defaults = {
+    id: 0
+  };
+
+  return MakeModel;
+
+})(Backbone.Model);
+
+MakeCollection = (function(superClass) {
+  extend(MakeCollection, superClass);
+
+  function MakeCollection() {
+    return MakeCollection.__super__.constructor.apply(this, arguments);
+  }
+
+  MakeCollection.prototype.model = MakeModel;
+
+  MakeCollection.prototype.active = true;
+
+  return MakeCollection;
+
+})(Backbone.Collection);
+
+MakeView = (function(superClass) {
+  extend(MakeView, superClass);
+
+  function MakeView() {
+    this.show = bind(this.show, this);
+    this.hide = bind(this.hide, this);
+    return MakeView.__super__.constructor.apply(this, arguments);
+  }
+
+  MakeView.prototype.initialize = function() {
+    this.model.on('hide', this.hide);
+    return this.model.on('show', this.show);
+  };
+
+  MakeView.prototype.hide = function() {
+    return this.$el.css('display', 'none');
+  };
+
+  MakeView.prototype.show = function() {
+    return this.$el.css('display', 'block');
+  };
+
+  return MakeView;
+
+})(Backbone.View);
+
+MakeList = (function(superClass) {
+  extend(MakeList, superClass);
+
+  function MakeList() {
+    this.showIfActive = bind(this.showIfActive, this);
+    this.changed = bind(this.changed, this);
+    return MakeList.__super__.constructor.apply(this, arguments);
+  }
+
+  MakeList.prototype.home = $('body').data('home');
+
+  MakeList.prototype.active = 0;
+
+  MakeList.prototype.empty = $('.makes_empty');
+
+  MakeList.prototype.initialize = function() {
+    var i, j, len, li, ref, results, self;
+    if (this.$el.length === 0) {
+      return;
+    }
+    self = this;
+    this.deps = {};
+    this.collection = new MakeCollection;
+    this.options.types.on('changed', this.changed);
+    this.fillCollection();
+    ref = this.options.types.$el.children();
+    results = [];
+    for (i = j = 0, len = ref.length; j < len; i = ++j) {
+      li = ref[i];
+      i = i + 1;
+      results.push((function(i) {
+        return setTimeout(function() {
+          return self.get(i);
+        }, 1000);
+      })(i));
+    }
+    return results;
+  };
+
+  MakeList.prototype.fillCollection = function() {
+    return this.$el.children('li').each((function(_this) {
+      return function(i, li) {
+        var m, v;
+        m = new MakeModel({
+          id: $(li).data('id')
+        });
+        _this.collection.add(m);
+        return v = new MakeView({
+          model: m,
+          el: li
+        });
+      };
+    })(this));
+  };
+
+  MakeList.prototype.changed = function(id) {
+    if (id === 0) {
+      this.reset();
+      return this.active = 0;
+    } else if (this.deps[id] === void 0) {
+      return this.active = id;
+    } else {
+      return this.updateCollection(id);
+    }
+  };
+
+  MakeList.prototype.updateCollection = function(id) {
+    if (this.deps[id].length === 0) {
+      this.empty.show();
+    } else {
+      this.empty.hide();
+    }
+    return this.collection.each((function(_this) {
+      return function(model) {
+        if (_this.deps[id].have(model.get('id'))) {
+          return model.trigger('show');
+        } else {
+          return model.trigger('hide');
+        }
+      };
+    })(this));
+  };
+
+  MakeList.prototype.reset = function() {
+    return this.collection.each(function(model) {
+      return model.trigger('show');
+    });
+  };
+
+  MakeList.prototype.showIfActive = function(id) {
+    if (this.active !== 0 && this.active === id) {
+      return this.changed(this.active);
+    }
+  };
+
+  return MakeList;
+
+})(Backbone.View);
+
+MainMakes = (function(superClass) {
+  extend(MainMakes, superClass);
+
+  function MainMakes() {
+    return MainMakes.__super__.constructor.apply(this, arguments);
+  }
+
+  MainMakes.prototype.url = 'api/get-makes-by-type';
+
+  MainMakes.prototype.get = function(i) {
+    return $.ajax(this.home + "/" + this.url, {
+      data: {
+        id: i
+      }
+    }).done((function(_this) {
+      return function(makes) {
+        var j, len, make;
+        _this.deps[i] = [];
+        for (j = 0, len = makes.length; j < len; j++) {
+          make = makes[j];
+          _this.deps[i].push(make.id);
+        }
+        return _this.showIfActive(i);
+      };
+    })(this));
+  };
+
+  return MainMakes;
+
+})(MakeList);
+
+SpecMakes = (function(superClass) {
+  extend(SpecMakes, superClass);
+
+  function SpecMakes() {
+    return SpecMakes.__super__.constructor.apply(this, arguments);
+  }
+
+  SpecMakes.prototype.url = 'api/live-makes';
+
+  SpecMakes.prototype.get = function(i) {
+    return $.ajax(this.home + "/" + this.url, {
+      data: {
+        type: i,
+        specs: [this.$el.data('current')]
+      }
+    }).done((function(_this) {
+      return function(ids) {
+        _this.deps[i] = ids;
+        return _this.showIfActive(i);
+      };
+    })(this));
+  };
+
+  return SpecMakes;
+
+})(MakeList);
+
+types = new TypeList({
+  el: '#catalog-types'
+});
+
+makes = new MainMakes({
+  el: '#catalog-makes',
+  types: types
+});
+
+specmakes = new SpecMakes({
+  el: '#catalog-specmakes',
+  types: types
+});
+
+},{"../inc/TypeList":4}],3:[function(require,module,exports){
 var SelectView,
   extend = function(child, parent) { for (var key in parent) { if (hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; },
   hasProp = {}.hasOwnProperty;
@@ -100,7 +335,7 @@ SelectView = (function(superClass) {
 
 module.exports = SelectView;
 
-},{}],3:[function(require,module,exports){
+},{}],4:[function(require,module,exports){
 var TypeList, TypeModel, TypeView, TypesCollection,
   extend = function(child, parent) { for (var key in parent) { if (hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; },
   hasProp = {}.hasOwnProperty,
@@ -235,14 +470,16 @@ TypeList = (function(superClass) {
 
 module.exports = TypeList;
 
-},{}],4:[function(require,module,exports){
+},{}],5:[function(require,module,exports){
 require('./base');
 
 require('./popups/index');
 
 require('./main-live-search');
 
-},{"./base":1,"./main-live-search":5,"./popups/index":8}],5:[function(require,module,exports){
+require('./catalog/catalog-live');
+
+},{"./base":1,"./catalog/catalog-live":2,"./main-live-search":6,"./popups/index":9}],6:[function(require,module,exports){
 var CompanyCollection, CompanyList, CompanyModel, CompanyView, MakeCollection, MakeList, MakeModel, MakeView, SpecCollection, SpecList, SpecModel, SpecView, TypeList, companies, makes, specs, types,
   extend = function(child, parent) { for (var key in parent) { if (hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; },
   hasProp = {}.hasOwnProperty,
@@ -633,11 +870,10 @@ CompanyView = (function(superClass) {
   extend(CompanyView, superClass);
 
   function CompanyView() {
-    this.showPopup = bind(this.showPopup, this);
     return CompanyView.__super__.constructor.apply(this, arguments);
   }
 
-  CompanyView.prototype.template = Handlebars.compile($('#company-template').html());
+  CompanyView.prototype.template = $('#company-template').get(0) ? Handlebars.compile($('#company-template').html()) : void 0;
 
   CompanyView.prototype.popup = $('#company-main-popup');
 
@@ -672,27 +908,6 @@ CompanyView = (function(superClass) {
         })(this)
       }
     });
-  };
-
-  CompanyView.prototype.showPopup = function() {
-    var src;
-    src = $.parseHTML(this.template({
-      logo: this.model.get('logo'),
-      name: this.model.get('name'),
-      description: this.model.get('description'),
-      address: this.model.get('address'),
-      phone: this.model.get('phone'),
-      excerpt: this.model.get('description').excerpt(),
-      tags: this.model.get('tags')
-    }));
-    this.popup.html(src);
-    return this.popup.magnificPopup({
-      closeBtnInside: true,
-      type: 'inline',
-      items: {
-        src: '#company-main-popup'
-      }
-    }).magnificPopup('open');
   };
 
   return CompanyView;
@@ -730,7 +945,7 @@ CompanyList = (function(superClass) {
 
   CompanyList.prototype.button = $('#show-found-orgs');
 
-  CompanyList.prototype.template = Handlebars.compile($('#found-template').html());
+  CompanyList.prototype.template = $('#found-template').get(0) ? Handlebars.compile($('#found-template').html()) : void 0;
 
   CompanyList.prototype.initialize = function() {
     this.toSkip = 0;
@@ -892,7 +1107,7 @@ companies = new CompanyList({
   makes: makes
 });
 
-},{"./inc/TypeList":3}],6:[function(require,module,exports){
+},{"./inc/TypeList":4}],7:[function(require,module,exports){
 var AddLogo, MakeView, MakesList, SelectType, SelectView, makes, specs, types,
   bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; },
   extend = function(child, parent) { for (var key in parent) { if (hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; },
@@ -1111,7 +1326,7 @@ makes = new MakesList({
   types: types
 });
 
-},{"../inc/SelectView":2}],7:[function(require,module,exports){
+},{"../inc/SelectView":3}],8:[function(require,module,exports){
 var AddPhotos, Image, ImageCollection, ImageView, ImagesView, List, ListCollection, ListModel, ListView, SelectView, imageCollection, imagesView, make, minuses, model, pluses, type,
   extend = function(child, parent) { for (var key in parent) { if (hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; },
   hasProp = {}.hasOwnProperty,
@@ -1478,7 +1693,7 @@ $('#add-feedback').click(function() {
   return console.log(concs);
 });
 
-},{"../inc/SelectView":2}],8:[function(require,module,exports){
+},{"../inc/SelectView":3}],9:[function(require,module,exports){
 require('./search');
 
 require('./reg');
@@ -1487,13 +1702,13 @@ require('./feedback');
 
 require('./create-company');
 
-},{"./create-company":6,"./feedback":7,"./reg":9,"./search":10}],9:[function(require,module,exports){
+},{"./create-company":7,"./feedback":8,"./reg":10,"./search":11}],10:[function(require,module,exports){
 $('#register').magnificPopup({
   type: 'inline',
   closeBtnInside: true
 });
 
-},{}],10:[function(require,module,exports){
+},{}],11:[function(require,module,exports){
 var SelectView, make, model, type;
 
 SelectView = require('../inc/SelectView');
@@ -1521,4 +1736,4 @@ type = new SelectView({
 
 autosize($('#search-more'));
 
-},{"../inc/SelectView":2}]},{},[4]);
+},{"../inc/SelectView":3}]},{},[5]);

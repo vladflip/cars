@@ -20,10 +20,10 @@ Route::group(['prefix' => 'catalog'], function(){
 		'uses' => 'CatalogController@index'
 	]);
 
-	get('/make/{allmake}', [
-		'as' => 'allmake',
-		'uses' => 'CatalogController@allmake'
-	])->where(['allmake' => '[a-z+-]+']);
+	get('/make/{allmakes}', [
+		'as' => 'allmakes',
+		'uses' => 'CatalogController@allmakes'
+	])->where(['allmakes' => '[a-z+-]+']);
 
 	get('{spec}', [
 		'as' => 'specs',

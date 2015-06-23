@@ -22,9 +22,13 @@
 					{{ $bread ? $bread['spec']->title : 'Каталог' }}
 				</h3>
 
-				@include('inc.type', ['id' => 'catalog-type-list'])
+				@include('inc.type', ['id' => 'catalog-types'])
 
-				@include('inc.makes')
+				@if(isset($allmakes))
+					@include('inc.makes', ['id' => 'catalog-makes'])
+				@else
+					@include('inc.makes', ['id' => 'catalog-specmakes'])
+				@endif
 
 			</div>
 

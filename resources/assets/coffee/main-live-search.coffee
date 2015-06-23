@@ -252,7 +252,7 @@ class CompanyModel extends Backbone.Model
 
 class CompanyView extends Backbone.View
 
-	template: Handlebars.compile $('#company-template').html()
+	template: if $('#company-template').get 0 then Handlebars.compile $('#company-template').html()
 
 	popup: $ '#company-main-popup'
 
@@ -281,25 +281,6 @@ class CompanyView extends Backbone.View
 				close: =>
 					@popup.html ''
 
-	showPopup: =>
-		src = $.parseHTML @template
-			logo: @model.get 'logo'
-			name: @model.get 'name'
-			description: @model.get 'description'
-			address: @model.get 'address'
-			phone: @model.get 'phone'
-			excerpt: @model.get('description').excerpt()
-			tags: @model.get 'tags'
-
-		@popup.html src
-
-		@popup.magnificPopup
-			closeBtnInside: true
-			type: 'inline'
-			items:
-				src: '#company-main-popup'
-		.magnificPopup 'open'
-
 
 
 class CompanyCollection extends Backbone.Collection
@@ -313,7 +294,7 @@ class CompanyList extends Backbone.View
 
 	button: $('#show-found-orgs')
 
-	template: Handlebars.compile $('#found-template').html()
+	template: if $('#found-template').get 0 then Handlebars.compile $('#found-template').html()
 
 	initialize: ->
 

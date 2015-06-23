@@ -8,7 +8,7 @@ class CatalogController extends Controller {
 
 		return view('pages.catalog')
 			->with('makes', $makes)
-			->with('allmake', true)
+			->with('allmakes', true)
 			->with('bread', false);
 
 	}
@@ -33,6 +33,7 @@ class CatalogController extends Controller {
 
 		return view('pages.catalog')
 			->with('current', $name)
+			->with('current_id', $spec->id)
 			->with('makes', $makes)
 			->with('bread', $bread);
 
@@ -58,18 +59,18 @@ class CatalogController extends Controller {
 
 	}
 
-	public function allmake($make) {
+	public function allmakes($make) {
 
 		$make = \App\Make::whereName($make)->first();
 
 		if(!$make)
 			abort(404);
 
-		$bread = ['allmake' => $make];
+		$bread = ['allmakes' => $make];
 
 		return view('pages.make-catalog')
 			->with('bread', $bread)
-			->with('allmake', true);
+			->with('allmakes', true);
 
 	}
 

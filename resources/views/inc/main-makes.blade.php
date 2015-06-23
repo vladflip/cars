@@ -14,7 +14,7 @@
 		@endforeach
 	</ul>
 
-	<div class="makes_empty">По данному запросу компаний не найдено</div>
+	<div class="makes_empty">По данному запросу организаций не найдено</div>
 
 	@include('parts.makes-template')
 

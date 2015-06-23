@@ -1,58 +1,58 @@
-class ListModel extends Backbone.Model
-	defaults:
-		id: 0
-		title: ''
+# class ListModel extends Backbone.Model
+# 	defaults:
+# 		id: 0
+# 		title: ''
 
-class ListCollection extends Backbone.Collection
+# class ListCollection extends Backbone.Collection
 
-	model: ListModel
+# 	model: ListModel
 
-class ListView extends Backbone.View
+# class ListView extends Backbone.View
 
-	home: $('body').data 'home'
+# 	home: $('body').data 'home'
 
-	url: 'api/live-makes'
+# 	url: 'api/live-makes'
 
-	initialize: -> 
-		@class = @options.class
+# 	initialize: -> 
+# 		@class = @options.class
 
-		@state = false
+# 		@state = false
 
-	events: 
-		'click' : 'changeState'
+# 	events: 
+# 		'click' : 'changeState'
 
-	changeState: ->
-		unless @state then do @activate else do @deactivate
+# 	changeState: ->
+# 		unless @state then do @activate else do @deactivate
 
-	activate: ->
-		@$el.addClass @class
-		@state = true
+# 	activate: ->
+# 		@$el.addClass @class
+# 		@state = true
 
-	deactivate: ->
-		@$el.removeClass @class
-		@state = false
+# 	deactivate: ->
+# 		@$el.removeClass @class
+# 		@state = false
 
-class List extends Backbone.View
+# class List extends Backbone.View
 
-	initialize: ->
-		self = @
+# 	initialize: ->
+# 		self = @
 
-		@$el.children('li').each (i) ->
-			id = $(@).data('id')
+# 		@$el.children('li').each (i) ->
+# 			id = $(@).data('id')
 
-			title = $(@).children('span').html()
+# 			title = $(@).children('span').html()
 
-			self.collection.add new ListModel 
-				id: id
-				title: title.trim()
+# 			self.collection.add new ListModel 
+# 				id: id
+# 				title: title.trim()
 
-			self.createViews i, @
+# 			self.createViews i, @
 
-	createViews: (i, li) ->
-		v = new ListView 
-			model: @.collection.at(i)
-			class: @.options.class
-			el: $(li)
+# 	createViews: (i, li) ->
+# 		v = new ListView 
+# 			model: @.collection.at(i)
+# 			class: @.options.class
+# 			el: $(li)
 
 # class ConcreteView extends ListView
 

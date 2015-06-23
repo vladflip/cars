@@ -25,9 +25,9 @@
 
 						{{ $bread['spec']->title }}
 
-					@elseif(isset($allmake))
+					@elseif(isset($allmakes))
 						
-						{{ $bread['allmake']->title }}
+						{{ $bread['allmakes']->title }}
 
 					@else
 
