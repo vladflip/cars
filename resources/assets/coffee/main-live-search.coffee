@@ -269,7 +269,7 @@ class CompanyView extends Backbone.View
 			excerpt: @model.get('description').excerpt()
 			tags: @model.get 'tags'
 
-		@more.magnificPopup
+		@$el.magnificPopup
 			type: 'inline'
 			closeBtnInside: true
 			items:
@@ -278,6 +278,10 @@ class CompanyView extends Backbone.View
 			callbacks:
 				open: =>
 					@popup.append src
+
+					@popup.find('.company-popup_close').click =>
+						$.magnificPopup.instance.close()
+
 				close: =>
 					@popup.html ''
 

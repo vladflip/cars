@@ -894,7 +894,7 @@ CompanyView = (function(superClass) {
       excerpt: this.model.get('description').excerpt(),
       tags: this.model.get('tags')
     }));
-    return this.more.magnificPopup({
+    return this.$el.magnificPopup({
       type: 'inline',
       closeBtnInside: true,
       items: {
@@ -903,7 +903,10 @@ CompanyView = (function(superClass) {
       callbacks: {
         open: (function(_this) {
           return function() {
-            return _this.popup.append(src);
+            _this.popup.append(src);
+            return _this.popup.find('.company-popup_close').click(function() {
+              return $.magnificPopup.instance.close();
+            });
           };
         })(this),
         close: (function(_this) {

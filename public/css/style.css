@@ -72,6 +72,10 @@ h3 {
   position: relative;
   width: 650px;
 }
+.company-popup .company-preview:hover {
+  background-color: transparent;
+  cursor: auto;
+}
 .company-popup_spec {
   margin: 0;
 }
@@ -127,6 +131,10 @@ h3 {
   height: 102px;
   padding: 15px;
   position: relative;
+  cursor: pointer;
+}
+.company-preview:hover {
+  background-color: #faf7e9;
 }
 .company-preview_more {
   color: #4e61eb;
@@ -134,11 +142,8 @@ h3 {
   cursor: pointer;
   padding: 10px;
   position: absolute;
-  top: 15px;
-  right: 0px;
-}
-.company-preview_more:hover {
-  background-color: #faf7e9;
+  top: 5px;
+  right: 15px;
 }
 .company-preview-list {
   margin: 20px 0 0 0;
