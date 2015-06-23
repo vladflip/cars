@@ -254,11 +254,32 @@ class CompanyView extends Backbone.View
 
 	template: Handlebars.compile $('#company-template').html()
 
+	popup: $ '#company-main-popup'
+
 	initialize: ->
 
 		@more = @$el.children('.company-preview_more')
 
-		@more.on 'click', @showPopup
+		src = $.parseHTML @template
+			logo: @model.get 'logo'
+			name: @model.get 'name'
+			description: @model.get 'description'
+			address: @model.get 'address'
+			phone: @model.get 'phone'
+			excerpt: @model.get('description').excerpt()
+			tags: @model.get 'tags'
+
+		@more.magnificPopup
+			type: 'inline'
+			closeBtnInside: true
+			items:
+				src: '#company-main-popup'
+
+			callbacks:
+				open: =>
+					@popup.append src
+				close: =>
+					@popup.html ''
 
 	showPopup: =>
 		src = $.parseHTML @template
@@ -270,11 +291,15 @@ class CompanyView extends Backbone.View
 			excerpt: @model.get('description').excerpt()
 			tags: @model.get 'tags'
 
-		m = $.magnificPopup.open
+		@popup.html src
+
+		@popup.magnificPopup
+			closeBtnInside: true
+			type: 'inline'
 			items:
-				src: src
-				type: 'inline'
-				closeBtnInside: true
+				src: '#company-main-popup'
+		.magnificPopup 'open'
+
 
 
 class CompanyCollection extends Backbone.Collection

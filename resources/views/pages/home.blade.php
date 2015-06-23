@@ -36,6 +36,8 @@
 
 				@include('parts.company-template')
 
+				<div class="company-popup mfp-hide" id="company-main-popup"></div>
+
 			</div>
 
 			<div class="home_right">

@@ -639,13 +639,11 @@ CompanyView = (function(superClass) {
 
   CompanyView.prototype.template = Handlebars.compile($('#company-template').html());
 
-  CompanyView.prototype.initialize = function() {
-    this.more = this.$el.children('.company-preview_more');
-    return this.more.on('click', this.showPopup);
-  };
+  CompanyView.prototype.popup = $('#company-main-popup');
 
-  CompanyView.prototype.showPopup = function() {
-    var m, src;
+  CompanyView.prototype.initialize = function() {
+    var src;
+    this.more = this.$el.children('.company-preview_more');
     src = $.parseHTML(this.template({
       logo: this.model.get('logo'),
       name: this.model.get('name'),
@@ -655,13 +653,46 @@ CompanyView = (function(superClass) {
       excerpt: this.model.get('description').excerpt(),
       tags: this.model.get('tags')
     }));
-    return m = $.magnificPopup.open({
+    return this.more.magnificPopup({
+      type: 'inline',
+      closeBtnInside: true,
       items: {
-        src: src,
-        type: 'inline',
-        closeBtnInside: true
+        src: '#company-main-popup'
+      },
+      callbacks: {
+        open: (function(_this) {
+          return function() {
+            return _this.popup.append(src);
+          };
+        })(this),
+        close: (function(_this) {
+          return function() {
+            return _this.popup.html('');
+          };
+        })(this)
       }
     });
+  };
+
+  CompanyView.prototype.showPopup = function() {
+    var src;
+    src = $.parseHTML(this.template({
+      logo: this.model.get('logo'),
+      name: this.model.get('name'),
+      description: this.model.get('description'),
+      address: this.model.get('address'),
+      phone: this.model.get('phone'),
+      excerpt: this.model.get('description').excerpt(),
+      tags: this.model.get('tags')
+    }));
+    this.popup.html(src);
+    return this.popup.magnificPopup({
+      closeBtnInside: true,
+      type: 'inline',
+      items: {
+        src: '#company-main-popup'
+      }
+    }).magnificPopup('open');
   };
 
   return CompanyView;
