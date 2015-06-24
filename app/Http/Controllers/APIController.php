@@ -53,7 +53,7 @@ class APIController extends Controller {
 
 	}
 
-	public function companies_by_makes() {
+	public function companies_by_makes_and_specs() {
 
 		$type = \Input::get('type');
 
@@ -107,6 +107,57 @@ class APIController extends Controller {
 		}
 
 		return json_encode($companies);
+
+	}
+
+	public function companies_by_make() {
+
+		$skip = \Input::get('skip');
+
+		$make = \Input::get('make');
+
+		$c = \App\Company::whereHas('makes', function($q) use($make){
+				$q->where('make_id', '=', $make);
+			})
+			->with('type')
+			->with('spec')
+			->with(['makes' => function($q){
+				$q->select('title');
+			}])
+			->skip($skip)
+			->take(6)
+			->get();
+
+		$companies = array();
+
+		foreach($c as $key => $val){
+
+			$arr = array();
+
+			$t = array();
+
+			$arr['name'] = $val->name;
+			$arr['description'] = $val->description;
+			$arr['phone'] = $val->phone;
+			$arr['logo'] = $val->logo;
+			$arr['address'] = $val->address;
+
+			$t[] = $val->spec->title;
+			$t[] = $val->type->title;
+
+			foreach($val->makes as $k => $v){
+
+				$t[] = $v->title;
+
+			}
+
+			$arr['tags'] = $t;
+
+			$companies[] = $arr;
+
+		}
+
+		return $companies;
 
 	}
 

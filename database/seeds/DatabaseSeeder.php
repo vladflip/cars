@@ -202,6 +202,8 @@ class CompanySeeder extends Seeder {
 
 	public function run() {
 
+		Model::unguard();
+
 		$f = FF::get();
 
 		for($i=0; $i < 30; $i++){
@@ -220,6 +222,18 @@ class CompanySeeder extends Seeder {
 			$c->makes()->attach($i+1);
 
 			$c->makes()->attach($i+2);
+
+			$c->makes()->attach($i+3);
+
+			$c->makes()->attach($i+4);
+
+			$c->makes()->attach($i+5);
+
+			$c->makes()->attach($i+6);
+
+			$c->makes()->attach($i+7);
+
+			$c->makes()->attach($i+8);
 
 		}
 

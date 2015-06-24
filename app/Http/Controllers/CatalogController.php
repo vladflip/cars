@@ -94,6 +94,8 @@ class CatalogController extends Controller {
 
 		return view('pages.make-catalog')
 			->with('current', $spec->name)
+			->with('spec_id', $spec->id)
+			->with('make_id', $make->id)
 			->with('bread', $bread)
 			->with('companies', $companies);
 
@@ -145,6 +147,7 @@ class CatalogController extends Controller {
 
 		return view('pages.make-catalog')
 			->with('bread', $bread)
+			->with('make_id', $make->id)
 			->with('allmakes', true)
 			->with('companies', $companies);
 

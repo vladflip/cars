@@ -86,6 +86,8 @@ Route::group(['prefix' => 'api', 'middleware' => 'api'], function(){
 
 	get('live-makes', 'APIController@live_makes');
 
-	get('get-companies-by-makes', 'APIController@companies_by_makes');
+	get('get-companies-by-makes-and-specs', 'APIController@companies_by_makes_and_specs');
+
+	get('get-companies-by-make', 'APIController@companies_by_make');
 
 });

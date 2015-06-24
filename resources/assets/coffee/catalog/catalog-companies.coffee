@@ -1,12 +1,12 @@
 class CompanyModel extends Backbone.Model
 	defaults:
-			address: ''
-			description: ''
-			excerpt: ''
-			logo: ''
-			name: ''
-			phone: ''
-			tags: []
+		address: ''
+		description: ''
+		excerpt: ''
+		logo: ''
+		name: ''
+		phone: ''
+		tags: []
 
 
 class CompanyCollection extends Backbone.Collection
@@ -15,15 +15,17 @@ class CompanyCollection extends Backbone.Collection
 
 class CompanyView extends Backbone.View
 
+	className: 'company-preview'
+
 	popup: $ '#company-main-popup'
 
-	template: if $('#company-template').get 0 then Handlebars.compile $('#company-template').html()
+	popupTemplate: if $('#company-template').get 0 then Handlebars.compile $('#company-template').html()
+
+	template: if $('#company-preview-template').get 0 then Handlebars.compile $('#company-preview-template').html()
 
 	initialize: ->
 
-		do @fillModel
-
-		src = $.parseHTML @template
+		src = $.parseHTML @popupTemplate
 			logo: @model.get 'logo'
 			name: @model.get 'name'
 			description: @model.get 'description'
@@ -46,6 +48,15 @@ class CompanyView extends Backbone.View
 
 				close: =>
 					@popup.html ''
+
+	render: =>
+		@$el.html @template
+			logo: @model.get 'logo'
+			address: @model.get 'address'
+			excerpt: @model.get 'excerpt'
+			name: @model.get 'name'
+
+		@$el
 
 
 	fillModel: ->
@@ -73,11 +84,31 @@ class CompanyView extends Backbone.View
 
 class CompanyList extends Backbone.View
 
+	home: $('body').data 'home'
+
+	data:
+		specs: []
+		make: 0
+		skip: 5
+
+	showMoreBtn: $('#show-more-found-companies')
+
 	initialize: ->
+
+		@data.make = @$el.data 'make'
+
+		@url = 'api/get-companies-by-make'
+
+		if @$el.data 'spec'
+			@data.specs.push @$el.data 'spec'
+			@url = 'api/get-companies-by-makes-and-specs'
 
 		@collection = new CompanyCollection
 		
 		do @fillCollection
+
+		if @showMoreBtn
+			@showMoreBtn.click @showMore
 
 	fillCollection: ->
 		@$el.children('.company-preview').each (i, el) =>
@@ -85,7 +116,44 @@ class CompanyList extends Backbone.View
 			v = new CompanyView
 				model: m
 				el: el
+			v.fillModel()
 			@collection.add m
+
+	showMore: =>
+		do @get
+
+	get: ->
+		$.ajax "#{@home}/#{@url}",
+			data: @data
+		.done (comps) =>
+			@updateCollection comps
+
+	updateCollection: (comps) =>
+		if comps.length <= 5 then @showMoreBtn.hide()
+
+		for comp, i in comps
+			if i < 5
+				m = new CompanyModel
+						address: comp.address
+						description: comp.description
+						excerpt: comp.description.excerpt()
+						logo: "url(#{comp.logo})"
+						name: comp.name
+						phone: comp.phone
+						tags: comp.tags
+
+				@collection.add m
+
+		do @render
+
+	render: ->
+		@$el.html ''
+		@collection.each (model) =>
+			v = new CompanyView
+				model: model
+			@$el.append v.render()
+
+
 
 companies = new CompanyList
 	el: '#catalog-companies'

@@ -35,7 +35,8 @@ $('.sticky').stick_in_parent({
 },{}],2:[function(require,module,exports){
 var CompanyCollection, CompanyList, CompanyModel, CompanyView, companies,
   extend = function(child, parent) { for (var key in parent) { if (hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; },
-  hasProp = {}.hasOwnProperty;
+  hasProp = {}.hasOwnProperty,
+  bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };
 
 CompanyModel = (function(superClass) {
   extend(CompanyModel, superClass);
@@ -75,17 +76,21 @@ CompanyView = (function(superClass) {
   extend(CompanyView, superClass);
 
   function CompanyView() {
+    this.render = bind(this.render, this);
     return CompanyView.__super__.constructor.apply(this, arguments);
   }
 
+  CompanyView.prototype.className = 'company-preview';
+
   CompanyView.prototype.popup = $('#company-main-popup');
 
-  CompanyView.prototype.template = $('#company-template').get(0) ? Handlebars.compile($('#company-template').html()) : void 0;
+  CompanyView.prototype.popupTemplate = $('#company-template').get(0) ? Handlebars.compile($('#company-template').html()) : void 0;
+
+  CompanyView.prototype.template = $('#company-preview-template').get(0) ? Handlebars.compile($('#company-preview-template').html()) : void 0;
 
   CompanyView.prototype.initialize = function() {
     var src;
-    this.fillModel();
-    src = $.parseHTML(this.template({
+    src = $.parseHTML(this.popupTemplate({
       logo: this.model.get('logo'),
       name: this.model.get('name'),
       description: this.model.get('description'),
@@ -117,6 +122,16 @@ CompanyView = (function(superClass) {
     });
   };
 
+  CompanyView.prototype.render = function() {
+    this.$el.html(this.template({
+      logo: this.model.get('logo'),
+      address: this.model.get('address'),
+      excerpt: this.model.get('excerpt'),
+      name: this.model.get('name')
+    }));
+    return this.$el;
+  };
+
   CompanyView.prototype.fillModel = function() {
     var tags;
     this.model.set('logo', this.$el.children('.company-preview_logo').css('background-image'));
@@ -140,12 +155,33 @@ CompanyList = (function(superClass) {
   extend(CompanyList, superClass);
 
   function CompanyList() {
+    this.updateCollection = bind(this.updateCollection, this);
+    this.showMore = bind(this.showMore, this);
     return CompanyList.__super__.constructor.apply(this, arguments);
   }
 
+  CompanyList.prototype.home = $('body').data('home');
+
+  CompanyList.prototype.data = {
+    specs: [],
+    make: 0,
+    skip: 5
+  };
+
+  CompanyList.prototype.showMoreBtn = $('#show-more-found-companies');
+
   CompanyList.prototype.initialize = function() {
+    this.data.make = this.$el.data('make');
+    this.url = 'api/get-companies-by-make';
+    if (this.$el.data('spec')) {
+      this.data.specs.push(this.$el.data('spec'));
+      this.url = 'api/get-companies-by-makes-and-specs';
+    }
     this.collection = new CompanyCollection;
-    return this.fillCollection();
+    this.fillCollection();
+    if (this.showMoreBtn) {
+      return this.showMoreBtn.click(this.showMore);
+    }
   };
 
   CompanyList.prototype.fillCollection = function() {
@@ -157,7 +193,58 @@ CompanyList = (function(superClass) {
           model: m,
           el: el
         });
+        v.fillModel();
         return _this.collection.add(m);
+      };
+    })(this));
+  };
+
+  CompanyList.prototype.showMore = function() {
+    return this.get();
+  };
+
+  CompanyList.prototype.get = function() {
+    return $.ajax(this.home + "/" + this.url, {
+      data: this.data
+    }).done((function(_this) {
+      return function(comps) {
+        return _this.updateCollection(comps);
+      };
+    })(this));
+  };
+
+  CompanyList.prototype.updateCollection = function(comps) {
+    var comp, i, j, len, m;
+    if (comps.length <= 5) {
+      this.showMoreBtn.hide();
+    }
+    for (i = j = 0, len = comps.length; j < len; i = ++j) {
+      comp = comps[i];
+      if (i < 5) {
+        m = new CompanyModel({
+          address: comp.address,
+          description: comp.description,
+          excerpt: comp.description.excerpt(),
+          logo: "url(" + comp.logo + ")",
+          name: comp.name,
+          phone: comp.phone,
+          tags: comp.tags
+        });
+        this.collection.add(m);
+      }
+    }
+    return this.render();
+  };
+
+  CompanyList.prototype.render = function() {
+    this.$el.html('');
+    return this.collection.each((function(_this) {
+      return function(model) {
+        var v;
+        v = new CompanyView({
+          model: model
+        });
+        return _this.$el.append(v.render());
       };
     })(this));
   };
@@ -1085,7 +1172,7 @@ CompanyList = (function(superClass) {
     return CompanyList.__super__.constructor.apply(this, arguments);
   }
 
-  CompanyList.prototype.url = 'api/get-companies-by-makes';
+  CompanyList.prototype.url = 'api/get-companies-by-makes-and-specs';
 
   CompanyList.prototype.home = $('body').data('home');
 

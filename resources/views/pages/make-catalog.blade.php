@@ -43,6 +43,8 @@
 
 				@include('parts.company-template')
 
+				@include('parts.company-preview-template')
+
 			</div>
 
 			<div class="catalog_right">

@@ -289,7 +289,7 @@ class CompanyCollection extends Backbone.Collection
 
 class CompanyList extends Backbone.View
 
-	url: 'api/get-companies-by-makes'
+	url: 'api/get-companies-by-makes-and-specs'
 
 	home: $('body').data 'home'
 
