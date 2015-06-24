@@ -102,8 +102,6 @@ class TypeSeeder extends Seeder {
 
 	public function run() {
 
-		Model::unguard();
-
 		$f = FF::get();
 
 		$arr = [
