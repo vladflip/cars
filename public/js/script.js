@@ -33,6 +33,144 @@ $('.sticky').stick_in_parent({
 });
 
 },{}],2:[function(require,module,exports){
+var CompanyCollection, CompanyList, CompanyModel, CompanyView, companies,
+  extend = function(child, parent) { for (var key in parent) { if (hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; },
+  hasProp = {}.hasOwnProperty;
+
+CompanyModel = (function(superClass) {
+  extend(CompanyModel, superClass);
+
+  function CompanyModel() {
+    return CompanyModel.__super__.constructor.apply(this, arguments);
+  }
+
+  CompanyModel.prototype.defaults = {
+    address: '',
+    description: '',
+    excerpt: '',
+    logo: '',
+    name: '',
+    phone: '',
+    tags: []
+  };
+
+  return CompanyModel;
+
+})(Backbone.Model);
+
+CompanyCollection = (function(superClass) {
+  extend(CompanyCollection, superClass);
+
+  function CompanyCollection() {
+    return CompanyCollection.__super__.constructor.apply(this, arguments);
+  }
+
+  CompanyCollection.prototype.model = CompanyModel;
+
+  return CompanyCollection;
+
+})(Backbone.Collection);
+
+CompanyView = (function(superClass) {
+  extend(CompanyView, superClass);
+
+  function CompanyView() {
+    return CompanyView.__super__.constructor.apply(this, arguments);
+  }
+
+  CompanyView.prototype.popup = $('#company-main-popup');
+
+  CompanyView.prototype.template = $('#company-template').get(0) ? Handlebars.compile($('#company-template').html()) : void 0;
+
+  CompanyView.prototype.initialize = function() {
+    var src;
+    this.fillModel();
+    src = $.parseHTML(this.template({
+      logo: this.model.get('logo'),
+      name: this.model.get('name'),
+      description: this.model.get('description'),
+      address: this.model.get('address'),
+      phone: this.model.get('phone'),
+      tags: this.model.get('tags')
+    }));
+    return this.$el.magnificPopup({
+      type: 'inline',
+      closeBtnInside: true,
+      items: {
+        src: '#company-main-popup'
+      },
+      callbacks: {
+        open: (function(_this) {
+          return function() {
+            _this.popup.append(src);
+            return _this.popup.find('.company-popup_close').click(function() {
+              return $.magnificPopup.instance.close();
+            });
+          };
+        })(this),
+        close: (function(_this) {
+          return function() {
+            return _this.popup.html('');
+          };
+        })(this)
+      }
+    });
+  };
+
+  CompanyView.prototype.fillModel = function() {
+    var tags;
+    this.model.set('logo', this.$el.children('.company-preview_logo').css('background-image'));
+    this.model.set('address', this.$el.find('.company-preview_address').html());
+    this.model.set('name', this.$el.find('.company-preview_name').html());
+    this.model.set('excerpt', this.$el.find('.company-preview_excerpt').html());
+    this.model.set('phone', this.$el.children('.company-preview_data').data('phone'));
+    this.model.set('description', this.$el.children('.company-preview_data').data('description'));
+    tags = [];
+    this.$el.children('.company-preview_data').children('div').each(function(i, el) {
+      return tags.push($(el).data('tag'));
+    });
+    return this.model.set('tags', tags);
+  };
+
+  return CompanyView;
+
+})(Backbone.View);
+
+CompanyList = (function(superClass) {
+  extend(CompanyList, superClass);
+
+  function CompanyList() {
+    return CompanyList.__super__.constructor.apply(this, arguments);
+  }
+
+  CompanyList.prototype.initialize = function() {
+    this.collection = new CompanyCollection;
+    return this.fillCollection();
+  };
+
+  CompanyList.prototype.fillCollection = function() {
+    return this.$el.children('.company-preview').each((function(_this) {
+      return function(i, el) {
+        var m, v;
+        m = new CompanyModel;
+        v = new CompanyView({
+          model: m,
+          el: el
+        });
+        return _this.collection.add(m);
+      };
+    })(this));
+  };
+
+  return CompanyList;
+
+})(Backbone.View);
+
+companies = new CompanyList({
+  el: '#catalog-companies'
+});
+
+},{}],3:[function(require,module,exports){
 var MainMakes, MakeCollection, MakeList, MakeModel, MakeView, SpecMakes, TypeList, makes, specmakes, types,
   extend = function(child, parent) { for (var key in parent) { if (hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; },
   hasProp = {}.hasOwnProperty,
@@ -268,7 +406,7 @@ specmakes = new SpecMakes({
   types: types
 });
 
-},{"../inc/TypeList":4}],3:[function(require,module,exports){
+},{"../inc/TypeList":5}],4:[function(require,module,exports){
 var SelectView,
   extend = function(child, parent) { for (var key in parent) { if (hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; },
   hasProp = {}.hasOwnProperty;
@@ -340,7 +478,7 @@ SelectView = (function(superClass) {
 
 module.exports = SelectView;
 
-},{}],4:[function(require,module,exports){
+},{}],5:[function(require,module,exports){
 var TypeList, TypeModel, TypeView, TypesCollection,
   extend = function(child, parent) { for (var key in parent) { if (hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; },
   hasProp = {}.hasOwnProperty,
@@ -475,7 +613,7 @@ TypeList = (function(superClass) {
 
 module.exports = TypeList;
 
-},{}],5:[function(require,module,exports){
+},{}],6:[function(require,module,exports){
 require('./base');
 
 require('./popups/index');
@@ -484,7 +622,9 @@ require('./main-live-search');
 
 require('./catalog/catalog-live');
 
-},{"./base":1,"./catalog/catalog-live":2,"./main-live-search":6,"./popups/index":9}],6:[function(require,module,exports){
+require('./catalog/catalog-companies');
+
+},{"./base":1,"./catalog/catalog-companies":2,"./catalog/catalog-live":3,"./main-live-search":7,"./popups/index":10}],7:[function(require,module,exports){
 var CompanyCollection, CompanyList, CompanyModel, CompanyView, MakeCollection, MakeList, MakeModel, MakeView, SpecCollection, SpecList, SpecModel, SpecView, TypeList, companies, makes, specs, types,
   extend = function(child, parent) { for (var key in parent) { if (hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; },
   hasProp = {}.hasOwnProperty,
@@ -884,14 +1024,12 @@ CompanyView = (function(superClass) {
 
   CompanyView.prototype.initialize = function() {
     var src;
-    this.more = this.$el.children('.company-preview_more');
     src = $.parseHTML(this.template({
       logo: this.model.get('logo'),
       name: this.model.get('name'),
       description: this.model.get('description'),
       address: this.model.get('address'),
       phone: this.model.get('phone'),
-      excerpt: this.model.get('description').excerpt(),
       tags: this.model.get('tags')
     }));
     return this.$el.magnificPopup({
@@ -1036,7 +1174,7 @@ CompanyList = (function(superClass) {
           address: comp.address,
           description: comp.description,
           excerpt: comp.description.excerpt(),
-          logo: comp.logo,
+          logo: "url(" + comp.logo + ")",
           name: comp.name,
           phone: comp.phone,
           tags: comp.tags
@@ -1115,7 +1253,7 @@ companies = new CompanyList({
   makes: makes
 });
 
-},{"./inc/TypeList":4}],7:[function(require,module,exports){
+},{"./inc/TypeList":5}],8:[function(require,module,exports){
 var AddLogo, MakeView, MakesList, SelectType, SelectView, makes, specs, types,
   bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; },
   extend = function(child, parent) { for (var key in parent) { if (hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; },
@@ -1334,7 +1472,7 @@ makes = new MakesList({
   types: types
 });
 
-},{"../inc/SelectView":3}],8:[function(require,module,exports){
+},{"../inc/SelectView":4}],9:[function(require,module,exports){
 var AddPhotos, Image, ImageCollection, ImageView, ImagesView, List, ListCollection, ListModel, ListView, SelectView, imageCollection, imagesView, make, minuses, model, pluses, type,
   extend = function(child, parent) { for (var key in parent) { if (hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; },
   hasProp = {}.hasOwnProperty,
@@ -1701,7 +1839,7 @@ $('#add-feedback').click(function() {
   return console.log(concs);
 });
 
-},{"../inc/SelectView":3}],9:[function(require,module,exports){
+},{"../inc/SelectView":4}],10:[function(require,module,exports){
 require('./search');
 
 require('./reg');
@@ -1710,13 +1848,13 @@ require('./feedback');
 
 require('./create-company');
 
-},{"./create-company":7,"./feedback":8,"./reg":10,"./search":11}],10:[function(require,module,exports){
+},{"./create-company":8,"./feedback":9,"./reg":11,"./search":12}],11:[function(require,module,exports){
 $('#register').magnificPopup({
   type: 'inline',
   closeBtnInside: true
 });
 
-},{}],11:[function(require,module,exports){
+},{}],12:[function(require,module,exports){
 var SelectView, make, model, type;
 
 SelectView = require('../inc/SelectView');
@@ -1744,4 +1882,4 @@ type = new SelectView({
 
 autosize($('#search-more'));
 
-},{"../inc/SelectView":3}]},{},[5]);
+},{"../inc/SelectView":4}]},{},[6]);

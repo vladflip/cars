@@ -258,15 +258,12 @@ class CompanyView extends Backbone.View
 
 	initialize: ->
 
-		@more = @$el.children('.company-preview_more')
-
 		src = $.parseHTML @template
 			logo: @model.get 'logo'
 			name: @model.get 'name'
 			description: @model.get 'description'
 			address: @model.get 'address'
 			phone: @model.get 'phone'
-			excerpt: @model.get('description').excerpt()
 			tags: @model.get 'tags'
 
 		@$el.magnificPopup
@@ -379,7 +376,7 @@ class CompanyList extends Backbone.View
 						address: comp.address
 						description: comp.description
 						excerpt: comp.description.excerpt()
-						logo: comp.logo
+						logo: "url(#{comp.logo})"
 						name: comp.name
 						phone: comp.phone
 						tags: comp.tags

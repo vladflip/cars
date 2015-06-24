@@ -2,12 +2,12 @@
 
 	<div class="company-preview">
 		<div class="company-preview_logo"
-			style="background-image: url({{logo}})"
+			style="background-image: {{logo}}"
 		></div>
 		<div class="company-preview_info">
 			<h3>{{name}}</h3>
 			<h5>{{address}}</h5>
-			<h5>{{excerpt}}</h5>
+			<h5>{{phone}}</h5>
 		</div>
 	</div>
 

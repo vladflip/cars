@@ -9,7 +9,7 @@
 		{{#each companies}}
 			<div class="company-preview">
 				<div class="company-preview_logo"
-					style="background-image: url({{logo}})"
+					style="background-image: {{logo}}"
 				></div>
 				<div class="company-preview_info">
 					<h3>{{name}}</h3>

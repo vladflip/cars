@@ -4,7 +4,8 @@ class CatalogController extends Controller {
 
 	public function index() {
 
-		$makes = \App\Make::all();
+		$makes = \App\Make::has('companies')
+		->get();
 
 		return view('pages.catalog')
 			->with('makes', $makes)
@@ -51,11 +52,50 @@ class CatalogController extends Controller {
 		if(!$make)
 			abort(404);
 
+		$c = \App\Company::whereHas('makes', function($q) use($make){
+			$q->where('make_id', '=', $make->id);
+		})
+		->whereHas('spec', function($q) use($spec)	{
+			$q->where('spec_id', $spec->id);
+		})
+		->take(6)
+		->get();
+
+		$companies = array();
+
+		foreach($c as $key => $val){
+
+			$arr = array();
+
+			$t = array();
+
+			$arr['name'] = $val->name;
+			$arr['description'] = $val->description;
+			$arr['phone'] = $val->phone;
+			$arr['logo'] = $val->logo;
+			$arr['address'] = $val->address;
+
+			$t[] = $val->spec->title;
+			$t[] = $val->type->title;
+
+			foreach($val->makes as $k => $v){
+
+				$t[] = $v->title;
+
+			}
+
+			$arr['tags'] = $t;
+
+			$companies[] = $arr;
+
+		}
+
 		$bread = ['spec' => $spec, 'make' => $make];
 
 		return view('pages.make-catalog')
 			->with('current', $spec->name)
-			->with('bread', $bread);
+			->with('bread', $bread)
+			->with('companies', $companies);
 
 	}
 
@@ -66,11 +106,47 @@ class CatalogController extends Controller {
 		if(!$make)
 			abort(404);
 
+		$c = \App\Company::whereHas('makes', function($q) use($make){
+			$q->where('make_id', '=', $make->id);
+		})
+		->take(6)
+		->get();
+
+		$companies = array();
+
+		foreach($c as $key => $val){
+
+			$arr = array();
+
+			$t = array();
+
+			$arr['name'] = $val->name;
+			$arr['description'] = $val->description;
+			$arr['phone'] = $val->phone;
+			$arr['logo'] = $val->logo;
+			$arr['address'] = $val->address;
+
+			$t[] = $val->spec->title;
+			$t[] = $val->type->title;
+
+			foreach($val->makes as $k => $v){
+
+				$t[] = $v->title;
+
+			}
+
+			$arr['tags'] = $t;
+
+			$companies[] = $arr;
+
+		}
+
 		$bread = ['allmakes' => $make];
 
 		return view('pages.make-catalog')
 			->with('bread', $bread)
-			->with('allmakes', true);
+			->with('allmakes', true)
+			->with('companies', $companies);
 
 	}
 

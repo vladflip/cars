@@ -38,6 +38,10 @@
 				</h3>
 
 				@include('inc.found')
+				
+				<div class="company-popup mfp-hide" id="company-main-popup"></div>
+
+				@include('parts.company-template')
 
 			</div>
 
