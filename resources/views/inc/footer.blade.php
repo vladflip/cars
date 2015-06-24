@@ -41,7 +41,7 @@
 				Зарегистрируйся и найди любые запчасти бесплатно
 			</h5>
 
-			<div class="footer_reg-button">
+			<div id="footer-register" href="#reg-popup" class="footer_reg-button">
 				Регистрация
 			</div>
 

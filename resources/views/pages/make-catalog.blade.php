@@ -47,9 +47,11 @@
 
 			<div class="catalog_right">
 				
-				@include('inc.search')
-
-				@include('inc.feedback')
+				<div class="sticky">
+					@include('inc.search')
+					
+					@include('inc.feedback')
+				</div>
 
 			</div>
 

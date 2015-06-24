@@ -1854,6 +1854,11 @@ $('#register').magnificPopup({
   closeBtnInside: true
 });
 
+$('#footer-register').magnificPopup({
+  type: 'inline',
+  closeBtnInside: true
+});
+
 },{}],12:[function(require,module,exports){
 var SelectView, make, model, type;
 
