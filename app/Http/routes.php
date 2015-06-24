@@ -90,4 +90,6 @@ Route::group(['prefix' => 'api', 'middleware' => 'api'], function(){
 
 	get('get-companies-by-make', 'APIController@companies_by_make');
 
+	get('get-companies-by-make-and-spec', 'APIController@companies_by_make_and_spec');
+
 });

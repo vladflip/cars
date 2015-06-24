@@ -60,24 +60,7 @@ class CompanyView extends Backbone.View
 
 
 	fillModel: ->
-		@model.set 'logo', @$el.children('.company-preview_logo').css('background-image')
-
-		@model.set 'address', @$el.find('.company-preview_address').html()
-
-		@model.set 'name', @$el.find('.company-preview_name').html()
-
-		@model.set 'excerpt', @$el.find('.company-preview_excerpt').html()
-
-		@model.set 'phone', @$el.children('.company-preview_data').data 'phone'
-
-		@model.set 'description', @$el.children('.company-preview_data').data 'description'
-
-		tags = []
-
-		@$el.children('.company-preview_data').children('div').each (i, el) ->
-			tags.push $(el).data 'tag'
-
-		@model.set 'tags', tags
+		
 
 
 
@@ -87,7 +70,7 @@ class CompanyList extends Backbone.View
 	home: $('body').data 'home'
 
 	data:
-		specs: []
+		spec: 0
 		make: 0
 		skip: 5
 
@@ -100,8 +83,8 @@ class CompanyList extends Backbone.View
 		@url = 'api/get-companies-by-make'
 
 		if @$el.data 'spec'
-			@data.specs.push @$el.data 'spec'
-			@url = 'api/get-companies-by-makes-and-specs'
+			@data.spec = @$el.data 'spec'
+			@url = 'api/get-companies-by-make-and-spec'
 
 		@collection = new CompanyCollection
 		
@@ -111,8 +94,29 @@ class CompanyList extends Backbone.View
 			@showMoreBtn.click @showMore
 
 	fillCollection: ->
+
 		@$el.children('.company-preview').each (i, el) =>
+
+			tags = []
+
+			$(el).children('.company-preview_data').children('div').each (i, el) ->
+					tags.push $(el).data 'tag'
+
 			m = new CompanyModel
+				logo: $(el).children('.company-preview_logo').css('background-image')
+
+				address: $(el).find('.company-preview_address').html()
+
+				name: $(el).find('.company-preview_name').html()
+
+				excerpt: $(el).find('.company-preview_excerpt').html()
+
+				phone: $(el).children('.company-preview_data').data 'phone'
+
+				description: $(el).children('.company-preview_data').data 'description'
+
+				tags: tags
+
 			v = new CompanyView
 				model: m
 				el: el
@@ -127,8 +131,10 @@ class CompanyList extends Backbone.View
 			data: @data
 		.done (comps) =>
 			@updateCollection comps
+			@skip += 5
 
 	updateCollection: (comps) =>
+		console.log comps
 		if comps.length <= 5 then @showMoreBtn.hide()
 
 		for comp, i in comps

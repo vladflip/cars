@@ -86,17 +86,25 @@ h3 {
 }
 .company-popup_tags {
   margin-top: 5px;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
+  *zoom: 1;
+}
+.company-popup_tags:before,
+.company-popup_tags:after {
+  content: '';
+  display: table;
+}
+.company-popup_tags:after {
+  clear: both;
 }
 .company-popup_tag {
   font-size: 12px;
   padding: 8px;
   background-color: #f0f0f0;
   margin-right: 5px;
+  margin-bottom: 5px;
   color: #2d2d2d;
   border-radius: 2px;
+  float: left;
 }
 .company-popup_desc {
   margin: 10px 0 5px 0;
