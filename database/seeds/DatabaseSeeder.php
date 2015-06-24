@@ -202,8 +202,6 @@ class CompanySeeder extends Seeder {
 
 	public function run() {
 
-		Model::unguard();
-
 		$f = FF::get();
 
 		for($i=0; $i < 30; $i++){
@@ -214,7 +212,7 @@ class CompanySeeder extends Seeder {
 				'description' => $f->paragraph(5),
 				'phone' => $f->phoneNumber,
 				'address' => $f->address,
-				'spec_id' => 1,
+				'spec_id' => rand(1, 7),
 				'type_id' => rand(1, 4),
 				'logo' => 'http://lorempixel.com/100/100/business/'
 			]);
