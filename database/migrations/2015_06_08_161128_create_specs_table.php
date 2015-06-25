@@ -19,7 +19,6 @@ class CreateSpecsTable extends Migration {
 			$t->string('name');
 			$t->string('title');
 			$t->string('icon');
-			$t->string('desc');
 
 			$t->timestamps();
 		});

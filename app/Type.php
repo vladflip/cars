@@ -6,14 +6,16 @@ class Type extends Model {
 
 	protected $table = 'types';
 
+	protected $fillable = ['name', 'icon', 'title', 'icon_active'];
+
 	public function companies() {
 		return $this->hasMany('App\Company', 'type_id');
 	}
 
-	public function makes() {
+	public function models() {
 		return $this->belongsToMany(
-				'App\Make', 'type_makes', 
-				'type_id', 'make_id'
+				'App\CarModel', 'types_models', 
+				'type_id', 'model_id'
 			);
 	}
 

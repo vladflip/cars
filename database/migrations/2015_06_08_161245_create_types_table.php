@@ -20,7 +20,6 @@ class CreateTypesTable extends Migration {
 			$t->string('title');
 			$t->string('icon');
 			$t->string('icon_active');
-			$t->string('desc');
 
 			$t->timestamps();
 		});

@@ -1,7141 +1,10984 @@
-<?php
-
-return array (
-  0 => 
+<?php 
+ return array (
+  'trucks' => 
   array (
-    'value' => 'ACURA',
-    'title' => 'Acura',
-    'models' => 
+    0 => 
     array (
-      0 => 
-      array (
-        'value' => 'CL_MODELS',
-        'title' => 'CL Models (4)',
+      'name' => 'amur',
+      'title' => 'АМУР',
+      'soviet' => true,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => '5313',
+          'title' => '5313',
+        ),
       ),
-      1 => 
-      array (
-        'value' => '2.2CL',
-        'title' => ' - 2.2CL',
+    ),
+    1 => 
+    array (
+      'name' => 'zil',
+      'title' => 'ЗИЛ',
+      'soviet' => true,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => '130',
+          'title' => '130',
+        ),
+        1 => 
+        array (
+          'name' => '131',
+          'title' => '131',
+        ),
+        2 => 
+        array (
+          'name' => '133',
+          'title' => '133',
+        ),
+        3 => 
+        array (
+          'name' => '157',
+          'title' => '157',
+        ),
+        4 => 
+        array (
+          'name' => '2502',
+          'title' => '2502',
+        ),
+        5 => 
+        array (
+          'name' => '279511',
+          'title' => '279511',
+        ),
+        6 => 
+        array (
+          'name' => '431410',
+          'title' => '4314',
+        ),
+        7 => 
+        array (
+          'name' => '431510',
+          'title' => '4315',
+        ),
+        8 => 
+        array (
+          'name' => '4316',
+          'title' => '4316',
+        ),
+        9 => 
+        array (
+          'name' => '431810',
+          'title' => '4318',
+        ),
+        10 => 
+        array (
+          'name' => '4329',
+          'title' => '4329',
+        ),
+        11 => 
+        array (
+          'name' => '4331',
+          'title' => '4331',
+        ),
+        12 => 
+        array (
+          'name' => '4332',
+          'title' => '4332',
+        ),
+        13 => 
+        array (
+          'name' => '4333',
+          'title' => '4333',
+        ),
+        14 => 
+        array (
+          'name' => '4334',
+          'title' => '4334',
+        ),
+        15 => 
+        array (
+          'name' => '4336',
+          'title' => '4336',
+        ),
+        16 => 
+        array (
+          'name' => '4341',
+          'title' => '4341',
+        ),
+        17 => 
+        array (
+          'name' => '4421',
+          'title' => '4421',
+        ),
+        18 => 
+        array (
+          'name' => '4502-mmz',
+          'title' => '4502 ММЗ',
+        ),
+        19 => 
+        array (
+          'name' => '4505',
+          'title' => '4505',
+        ),
+        20 => 
+        array (
+          'name' => '45065',
+          'title' => '45065',
+        ),
+        21 => 
+        array (
+          'name' => '45085',
+          'title' => '4508',
+        ),
+        22 => 
+        array (
+          'name' => '4514',
+          'title' => '4514',
+        ),
+        23 => 
+        array (
+          'name' => '4520',
+          'title' => '4520',
+        ),
+        24 => 
+        array (
+          'name' => '47410',
+          'title' => '4741',
+        ),
+        25 => 
+        array (
+          'name' => '474110',
+          'title' => '474110',
+        ),
+        26 => 
+        array (
+          'name' => '47441',
+          'title' => '47441',
+        ),
+        27 => 
+        array (
+          'name' => '478112',
+          'title' => '478112',
+        ),
+        28 => 
+        array (
+          'name' => '4945',
+          'title' => '4945',
+        ),
+        29 => 
+        array (
+          'name' => '497442-',
+          'title' => '497442',
+        ),
+        30 => 
+        array (
+          'name' => '5301',
+          'title' => '5301',
+        ),
+        31 => 
+        array (
+          'name' => '5302',
+          'title' => '5302',
+        ),
+        32 => 
+        array (
+          'name' => '5343',
+          'title' => '5343',
+        ),
+        33 => 
+        array (
+          'name' => '54236',
+          'title' => '54236',
+        ),
+        34 => 
+        array (
+          'name' => '550-mmz',
+          'title' => '550 ММЗ',
+        ),
+        35 => 
+        array (
+          'name' => '554',
+          'title' => '554',
+        ),
+        36 => 
+        array (
+          'name' => '9503',
+          'title' => '9503',
+        ),
+        37 => 
+        array (
+          'name' => 'atst',
+          'title' => 'АЦТ',
+        ),
+        38 => 
+        array (
+          'name' => 'ko520',
+          'title' => 'КО520',
+        ),
+        39 => 
+        array (
+          'name' => 'saaz-4546',
+          'title' => 'СААЗ 4546',
+        ),
       ),
-      2 => 
-      array (
-        'value' => '2.3CL',
-        'title' => ' - 2.3CL',
+    ),
+    2 => 
+    array (
+      'name' => 'mzkt',
+      'title' => 'МЗКТ',
+      'soviet' => true,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => '6515',
+          'title' => '6515',
+        ),
+        1 => 
+        array (
+          'name' => '65151',
+          'title' => '65151',
+        ),
+        2 => 
+        array (
+          'name' => '65158',
+          'title' => '65158',
+        ),
+        3 => 
+        array (
+          'name' => '7909',
+          'title' => '7909',
+        ),
       ),
-      3 => 
-      array (
-        'value' => '3.0CL',
-        'title' => ' - 3.0CL',
+    ),
+    3 => 
+    array (
+      'name' => 'belaz',
+      'title' => 'БЕЛАЗ',
+      'soviet' => true,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => '7547',
+          'title' => '7547',
+        ),
       ),
-      4 => 
-      array (
-        'value' => '3.2CL',
-        'title' => ' - 3.2CL',
+    ),
+    4 => 
+    array (
+      'name' => 'kamaz',
+      'title' => 'КамАЗ',
+      'soviet' => true,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => '3532',
+          'title' => '3532',
+        ),
+        1 => 
+        array (
+          'name' => '4208',
+          'title' => '4208',
+        ),
+        2 => 
+        array (
+          'name' => '4211',
+          'title' => '4211',
+        ),
+        3 => 
+        array (
+          'name' => '4308',
+          'title' => '4308',
+        ),
+        4 => 
+        array (
+          'name' => '4310',
+          'title' => '4310',
+        ),
+        5 => 
+        array (
+          'name' => '4311',
+          'title' => '4311',
+        ),
+        6 => 
+        array (
+          'name' => '43118',
+          'title' => '43118',
+        ),
+        7 => 
+        array (
+          'name' => '4325',
+          'title' => '4325',
+        ),
+        8 => 
+        array (
+          'name' => '4326',
+          'title' => '4326',
+        ),
+        9 => 
+        array (
+          'name' => '4514',
+          'title' => '4514',
+        ),
+        10 => 
+        array (
+          'name' => '4528',
+          'title' => '4528',
+        ),
+        11 => 
+        array (
+          'name' => '4741',
+          'title' => '4741',
+        ),
+        12 => 
+        array (
+          'name' => '4911',
+          'title' => '4911',
+        ),
+        13 => 
+        array (
+          'name' => '5305',
+          'title' => '5305',
+        ),
+        14 => 
+        array (
+          'name' => '5308',
+          'title' => '5308',
+        ),
+        15 => 
+        array (
+          'name' => '5320',
+          'title' => '5320',
+        ),
+        16 => 
+        array (
+          'name' => '5321',
+          'title' => '5321',
+        ),
+        17 => 
+        array (
+          'name' => '5322',
+          'title' => '5322',
+        ),
+        18 => 
+        array (
+          'name' => '5360',
+          'title' => '5360',
+        ),
+        19 => 
+        array (
+          'name' => '5410',
+          'title' => '5410',
+        ),
+        20 => 
+        array (
+          'name' => '5510',
+          'title' => '5510',
+        ),
+        21 => 
+        array (
+          'name' => '5511',
+          'title' => '5511',
+        ),
+        22 => 
+        array (
+          'name' => '5633',
+          'title' => '5633',
+        ),
+        23 => 
+        array (
+          'name' => '6319',
+          'title' => '6319',
+        ),
+        24 => 
+        array (
+          'name' => '6350',
+          'title' => '6350',
+        ),
+        25 => 
+        array (
+          'name' => '6511',
+          'title' => '6511',
+        ),
+        26 => 
+        array (
+          'name' => '6520',
+          'title' => '6520',
+        ),
+        27 => 
+        array (
+          'name' => '6522',
+          'title' => '6522',
+        ),
+        28 => 
+        array (
+          'name' => '65222',
+          'title' => '65222',
+        ),
+        29 => 
+        array (
+          'name' => '6540',
+          'title' => '6540',
+        ),
+        30 => 
+        array (
+          'name' => '6606',
+          'title' => '6606',
+        ),
+        31 => 
+        array (
+          'name' => '6890',
+          'title' => '6890',
+        ),
+        32 => 
+        array (
+          'name' => 'abs',
+          'title' => 'АБС',
+        ),
+        33 => 
+        array (
+          'name' => 'atz',
+          'title' => 'АТЗ',
+        ),
+        34 => 
+        array (
+          'name' => 'ats',
+          'title' => 'АЦ',
+        ),
       ),
-      5 => 
+    ),
+    5 => 
+    array (
+      'name' => 'nefaz',
+      'title' => 'НефАЗ',
+      'soviet' => true,
+      'models' => 
       array (
-        'value' => 'ILX',
-        'title' => 'ILX',
       ),
-      6 => 
-      array (
-        'value' => 'INTEG',
-        'title' => 'Integra',
+    ),
+    6 => 
+    array (
+      'name' => 'gaz',
+      'title' => 'ГАЗ',
+      'soviet' => true,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => '2252',
+          'title' => '2252',
+        ),
+        1 => 
+        array (
+          'name' => '2308',
+          'title' => '2308',
+        ),
+        2 => 
+        array (
+          'name' => '2707',
+          'title' => '2707',
+        ),
+        3 => 
+        array (
+          'name' => '2747',
+          'title' => '2747',
+        ),
+        4 => 
+        array (
+          'name' => '2757',
+          'title' => '2757',
+        ),
+        5 => 
+        array (
+          'name' => '2766',
+          'title' => '2766',
+        ),
+        6 => 
+        array (
+          'name' => '2775',
+          'title' => '2775',
+        ),
+        7 => 
+        array (
+          'name' => '2784',
+          'title' => '2784',
+        ),
+        8 => 
+        array (
+          'name' => '2785',
+          'title' => '2785',
+        ),
+        9 => 
+        array (
+          'name' => '2790',
+          'title' => '2790',
+        ),
+        10 => 
+        array (
+          'name' => '2796',
+          'title' => '2796',
+        ),
+        11 => 
+        array (
+          'name' => '3221',
+          'title' => '3221',
+        ),
+        12 => 
+        array (
+          'name' => '3306',
+          'title' => '3306',
+        ),
+        13 => 
+        array (
+          'name' => '3307',
+          'title' => '3307',
+        ),
+        14 => 
+        array (
+          'name' => '3308',
+          'title' => '3308',
+        ),
+        15 => 
+        array (
+          'name' => '3309',
+          'title' => '3309',
+        ),
+        16 => 
+        array (
+          'name' => '3310',
+          'title' => '3310',
+        ),
+        17 => 
+        array (
+          'name' => '3325',
+          'title' => '3325',
+        ),
+        18 => 
+        array (
+          'name' => '3507',
+          'title' => '3507',
+        ),
+        19 => 
+        array (
+          'name' => '3705',
+          'title' => '3705',
+        ),
+        20 => 
+        array (
+          'name' => '3717',
+          'title' => '3717',
+        ),
+        21 => 
+        array (
+          'name' => '3768',
+          'title' => '3768',
+        ),
+        22 => 
+        array (
+          'name' => '3777',
+          'title' => '3777',
+        ),
+        23 => 
+        array (
+          'name' => '3786',
+          'title' => '3786',
+        ),
+        24 => 
+        array (
+          'name' => '4301',
+          'title' => '4301',
+        ),
+        25 => 
+        array (
+          'name' => '473200',
+          'title' => '473200',
+        ),
+        26 => 
+        array (
+          'name' => '4741',
+          'title' => '4741',
+        ),
+        27 => 
+        array (
+          'name' => '51',
+          'title' => '51',
+        ),
+        28 => 
+        array (
+          'name' => '52',
+          'title' => '52',
+        ),
+        29 => 
+        array (
+          'name' => '5201',
+          'title' => '5201',
+        ),
+        30 => 
+        array (
+          'name' => '5204',
+          'title' => '5204',
+        ),
+        31 => 
+        array (
+          'name' => '53',
+          'title' => '53',
+        ),
+        32 => 
+        array (
+          'name' => '63',
+          'title' => '63',
+        ),
+        33 => 
+        array (
+          'name' => '66',
+          'title' => '66',
+        ),
+        34 => 
+        array (
+          'name' => 'atz',
+          'title' => 'Автотопливозаправщик',
+        ),
+        35 => 
+        array (
+          'name' => 'valday',
+          'title' => 'Валдай',
+        ),
+        36 => 
+        array (
+          'name' => 'gazon-next',
+          'title' => 'ГАЗон Next',
+        ),
       ),
-      7 => 
-      array (
-        'value' => 'LEGEND',
-        'title' => 'Legend',
+    ),
+    7 => 
+    array (
+      'name' => 'kraz',
+      'title' => 'КРАЗ',
+      'soviet' => true,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => '250',
+          'title' => '250',
+        ),
+        1 => 
+        array (
+          'name' => '255',
+          'title' => '255',
+        ),
+        2 => 
+        array (
+          'name' => '256',
+          'title' => '256',
+        ),
+        3 => 
+        array (
+          'name' => '260',
+          'title' => '260',
+        ),
+        4 => 
+        array (
+          'name' => '6437',
+          'title' => '6437',
+        ),
+        5 => 
+        array (
+          'name' => '6503',
+          'title' => '6503',
+        ),
+        6 => 
+        array (
+          'name' => '6505',
+          'title' => '6505',
+        ),
+        7 => 
+        array (
+          'name' => '6510',
+          'title' => '6510',
+        ),
+        8 => 
+        array (
+          'name' => '7133',
+          'title' => '7133',
+        ),
       ),
-      8 => 
-      array (
-        'value' => 'MDX',
-        'title' => 'MDX',
+    ),
+    8 => 
+    array (
+      'name' => 'tonar',
+      'title' => 'Тонар',
+      'soviet' => true,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => '6528',
+          'title' => '6528',
+        ),
       ),
-      9 => 
-      array (
-        'value' => 'NSX',
-        'title' => 'NSX',
+    ),
+    9 => 
+    array (
+      'name' => 'gaz-saz',
+      'title' => 'ГАЗ-САЗ',
+      'soviet' => true,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => '3507',
+          'title' => '3507',
+        ),
+        1 => 
+        array (
+          'name' => '4509',
+          'title' => '4509',
+        ),
       ),
-      10 => 
-      array (
-        'value' => 'RDX',
-        'title' => 'RDX',
+    ),
+    10 => 
+    array (
+      'name' => 'maz',
+      'title' => 'МАЗ',
+      'soviet' => true,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => '200',
+          'title' => '200',
+        ),
+        1 => 
+        array (
+          'name' => '236',
+          'title' => '236',
+        ),
+        2 => 
+        array (
+          'name' => '238',
+          'title' => '238',
+        ),
+        3 => 
+        array (
+          'name' => '3844',
+          'title' => '3844',
+        ),
+        4 => 
+        array (
+          'name' => '4370',
+          'title' => '4370',
+        ),
+        5 => 
+        array (
+          'name' => '4371',
+          'title' => '4371',
+        ),
+        6 => 
+        array (
+          'name' => '452831',
+          'title' => '452831',
+        ),
+        7 => 
+        array (
+          'name' => '4570',
+          'title' => '4570',
+        ),
+        8 => 
+        array (
+          'name' => '4744',
+          'title' => '4744',
+        ),
+        9 => 
+        array (
+          'name' => '47820',
+          'title' => '47820',
+        ),
+        10 => 
+        array (
+          'name' => '500',
+          'title' => '500',
+        ),
+        11 => 
+        array (
+          'name' => '509',
+          'title' => '509',
+        ),
+        12 => 
+        array (
+          'name' => '5334',
+          'title' => '5334',
+        ),
+        13 => 
+        array (
+          'name' => '5336',
+          'title' => '5336',
+        ),
+        14 => 
+        array (
+          'name' => '53360',
+          'title' => '53360',
+        ),
+        15 => 
+        array (
+          'name' => '5337',
+          'title' => '5337',
+        ),
+        16 => 
+        array (
+          'name' => '5340',
+          'title' => '5340',
+        ),
+        17 => 
+        array (
+          'name' => '5434',
+          'title' => '5434',
+        ),
+        18 => 
+        array (
+          'name' => '5440',
+          'title' => '5440',
+        ),
+        19 => 
+        array (
+          'name' => '5516',
+          'title' => '5516',
+        ),
+        20 => 
+        array (
+          'name' => '5549',
+          'title' => '5549',
+        ),
+        21 => 
+        array (
+          'name' => '5550',
+          'title' => '5550',
+        ),
+        22 => 
+        array (
+          'name' => '5551',
+          'title' => '5551',
+        ),
+        23 => 
+        array (
+          'name' => '5659',
+          'title' => '5659',
+        ),
+        24 => 
+        array (
+          'name' => '5743',
+          'title' => '5743',
+        ),
+        25 => 
+        array (
+          'name' => '6303',
+          'title' => '6303',
+        ),
+        26 => 
+        array (
+          'name' => '63030',
+          'title' => '63030',
+        ),
+        27 => 
+        array (
+          'name' => '6310',
+          'title' => '6310',
+        ),
+        28 => 
+        array (
+          'name' => '6312',
+          'title' => '6312',
+        ),
+        29 => 
+        array (
+          'name' => '6317',
+          'title' => '6317',
+        ),
+        30 => 
+        array (
+          'name' => '63170',
+          'title' => '63170',
+        ),
+        31 => 
+        array (
+          'name' => '64170',
+          'title' => '64170',
+        ),
+        32 => 
+        array (
+          'name' => '6501',
+          'title' => '6501',
+        ),
+        33 => 
+        array (
+          'name' => '6511',
+          'title' => '6511',
+        ),
+        34 => 
+        array (
+          'name' => '6515',
+          'title' => '6515',
+        ),
+        35 => 
+        array (
+          'name' => '6516',
+          'title' => '6516',
+        ),
+        36 => 
+        array (
+          'name' => '6517',
+          'title' => '6517',
+        ),
+        37 => 
+        array (
+          'name' => 'euro-3-_6x4-2008-g__',
+          'title' => 'Euro-3 (6x4 2008 г.)',
+        ),
+        38 => 
+        array (
+          'name' => 'kupava',
+          'title' => 'Купава',
+        ),
+        39 => 
+        array (
+          'name' => 'samosvali-euro-3',
+          'title' => 'Самосвалы Euro-3',
+        ),
+        40 => 
+        array (
+          'name' => 'srednetonajnie-euro-3',
+          'title' => 'Среднетонажные Euro-3',
+        ),
       ),
-      11 => 
-      array (
-        'value' => 'RL_MODELS',
-        'title' => 'RL Models (2)',
+    ),
+    11 => 
+    array (
+      'name' => 'uaz',
+      'title' => 'УАЗ',
+      'soviet' => true,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => '3909',
+          'title' => '3909',
+        ),
+        1 => 
+        array (
+          'name' => '39094',
+          'title' => '39094',
+        ),
       ),
-      12 => 
-      array (
-        'value' => '3.5RL',
-        'title' => ' - 3.5 RL',
+    ),
+    12 => 
+    array (
+      'name' => 'graz',
+      'title' => 'Граз',
+      'soviet' => true,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'avtocisterna-toplivozapravochnaya-',
+          'title' => 'Автоцистерны топливозаправочные',
+        ),
       ),
-      13 => 
-      array (
-        'value' => 'RL',
-        'title' => ' - RL',
+    ),
+    13 => 
+    array (
+      'name' => 'maz-man',
+      'title' => 'МАЗ-МАН',
+      'soviet' => true,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => '533668',
+          'title' => '533668',
+        ),
       ),
-      14 => 
-      array (
-        'value' => 'RSX',
-        'title' => 'RSX',
+    ),
+    14 => 
+    array (
+      'name' => 'ural',
+      'title' => 'Урал',
+      'soviet' => true,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => '3255',
+          'title' => '3255',
+        ),
+        1 => 
+        array (
+          'name' => '375',
+          'title' => '375',
+        ),
+        2 => 
+        array (
+          'name' => '4211',
+          'title' => '4211',
+        ),
+        3 => 
+        array (
+          'name' => '4320',
+          'title' => '4320',
+        ),
+        4 => 
+        array (
+          'name' => '5323',
+          'title' => '5323',
+        ),
+        5 => 
+        array (
+          'name' => '5557',
+          'title' => '5557',
+        ),
+        6 => 
+        array (
+          'name' => '583100',
+          'title' => '583100',
+        ),
+        7 => 
+        array (
+          'name' => '583109',
+          'title' => '583109',
+        ),
+        8 => 
+        array (
+          'name' => '583111',
+          'title' => '583111',
+        ),
+        9 => 
+        array (
+          'name' => '6368',
+          'title' => '6368',
+        ),
+        10 => 
+        array (
+          'name' => '65514',
+          'title' => '65514',
+        ),
+        11 => 
+        array (
+          'name' => 'atsp',
+          'title' => 'АЦП',
+        ),
+        12 => 
+        array (
+          'name' => 'ppua',
+          'title' => 'ППУА',
+        ),
       ),
-      15 => 
-      array (
-        'value' => 'SLX',
-        'title' => 'SLX',
+    ),
+    15 => 
+    array (
+      'name' => 'astra',
+      'title' => 'ASTRA',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'hd9-serie',
+          'title' => 'HD9 Serie',
+        ),
       ),
-      16 => 
-      array (
-        'value' => 'TL_MODELS',
-        'title' => 'TL Models (3)',
+    ),
+    16 => 
+    array (
+      'name' => 'international',
+      'title' => 'International',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => '4300',
+          'title' => '4300',
+        ),
+        1 => 
+        array (
+          'name' => '4700',
+          'title' => '4700',
+        ),
+        2 => 
+        array (
+          'name' => '7600',
+          'title' => '7600',
+        ),
+        3 => 
+        array (
+          'name' => '9200',
+          'title' => '9200',
+        ),
+        4 => 
+        array (
+          'name' => '9400',
+          'title' => '9400',
+        ),
+        5 => 
+        array (
+          'name' => '9800',
+          'title' => '9800',
+        ),
       ),
-      17 => 
-      array (
-        'value' => '2.5TL',
-        'title' => ' - 2.5TL',
+    ),
+    17 => 
+    array (
+      'name' => 'peugeot',
+      'title' => 'Peugeot',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'boxer',
+          'title' => 'Boxer',
+        ),
+        1 => 
+        array (
+          'name' => 'partner',
+          'title' => 'Partner',
+        ),
       ),
-      18 => 
-      array (
-        'value' => '3.2TL',
-        'title' => ' - 3.2TL',
+    ),
+    18 => 
+    array (
+      'name' => 'autosan',
+      'title' => 'Autosan',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'a10-12t',
+          'title' => 'A10-12T',
+        ),
       ),
-      19 => 
-      array (
-        'value' => 'TL',
-        'title' => ' - TL',
+    ),
+    19 => 
+    array (
+      'name' => 'isuzu',
+      'title' => 'Isuzu',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'cyz51k',
+          'title' => 'CYZ51K',
+        ),
+        1 => 
+        array (
+          'name' => 'cyz51q',
+          'title' => 'CYZ51Q',
+        ),
+        2 => 
+        array (
+          'name' => 'elf',
+          'title' => 'Elf',
+        ),
+        3 => 
+        array (
+          'name' => 'fargo',
+          'title' => 'Fargo',
+        ),
+        4 => 
+        array (
+          'name' => 'forward',
+          'title' => 'Forward',
+        ),
+        5 => 
+        array (
+          'name' => 'fvr',
+          'title' => 'FVR',
+        ),
+        6 => 
+        array (
+          'name' => 'giga',
+          'title' => 'Giga',
+        ),
+        7 => 
+        array (
+          'name' => 'n-series',
+          'title' => 'N-Series',
+        ),
+        8 => 
+        array (
+          'name' => 'nkr55',
+          'title' => 'NKR55',
+        ),
+        9 => 
+        array (
+          'name' => 'samosvali',
+          'title' => 'Самосвалы',
+        ),
       ),
-      20 => 
-      array (
-        'value' => 'TSX',
-        'title' => 'TSX',
+    ),
+    20 => 
+    array (
+      'name' => 'renault',
+      'title' => 'Renault',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'kerax',
+          'title' => 'Kerax',
+        ),
+        1 => 
+        array (
+          'name' => 'magnum',
+          'title' => 'Magnum',
+        ),
+        2 => 
+        array (
+          'name' => 'major',
+          'title' => 'Major',
+        ),
+        3 => 
+        array (
+          'name' => 'mascott',
+          'title' => 'Mascott',
+        ),
+        4 => 
+        array (
+          'name' => 'master',
+          'title' => 'Master',
+        ),
+        5 => 
+        array (
+          'name' => 'midliner',
+          'title' => 'Midliner',
+        ),
+        6 => 
+        array (
+          'name' => 'midlum',
+          'title' => 'Midlum',
+        ),
+        7 => 
+        array (
+          'name' => 'premium',
+          'title' => 'Premium',
+        ),
       ),
-      21 => 
-      array (
-        'value' => 'VIGOR',
-        'title' => 'Vigor',
+    ),
+    21 => 
+    array (
+      'name' => 'avia',
+      'title' => 'Avia',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => '21',
+          'title' => 'A21',
+        ),
+        1 => 
+        array (
+          'name' => '31',
+          'title' => 'A31',
+        ),
+        2 => 
+        array (
+          'name' => 'd---series',
+          'title' => 'D - Series',
+        ),
       ),
-      22 => 
-      array (
-        'value' => 'ZDX',
-        'title' => 'ZDX',
+    ),
+    22 => 
+    array (
+      'name' => 'iveco',
+      'title' => 'IVECO',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'daily',
+          'title' => 'Daily',
+        ),
+        1 => 
+        array (
+          'name' => 'euro-tech',
+          'title' => 'Euro Tech',
+        ),
+        2 => 
+        array (
+          'name' => 'eurocargo',
+          'title' => 'EuroCargo',
+        ),
+        3 => 
+        array (
+          'name' => 'eurostar',
+          'title' => 'EuroStar',
+        ),
+        4 => 
+        array (
+          'name' => 'eurotrakker',
+          'title' => 'EuroTrakker',
+        ),
+        5 => 
+        array (
+          'name' => 'stralis',
+          'title' => 'Stralis',
+        ),
+        6 => 
+        array (
+          'name' => 'trakker',
+          'title' => 'Trakker',
+        ),
+        7 => 
+        array (
+          'name' => 'turbostar',
+          'title' => 'TurboStar',
+        ),
+        8 => 
+        array (
+          'name' => 'zeta',
+          'title' => 'Zeta',
+        ),
       ),
-      23 => 
-      array (
-        'value' => 'ACUOTH',
-        'title' => 'Other Acura Models',
+    ),
+    23 => 
+    array (
+      'name' => 'scania',
+      'title' => 'Scania',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => '112',
+          'title' => '2 - series',
+        ),
+        1 => 
+        array (
+          'name' => '93',
+          'title' => '93',
+        ),
+        2 => 
+        array (
+          'name' => 'g',
+          'title' => 'G',
+        ),
+        3 => 
+        array (
+          'name' => 'm',
+          'title' => 'M',
+        ),
+        4 => 
+        array (
+          'name' => 'p',
+          'title' => 'P',
+        ),
+        5 => 
+        array (
+          'name' => 'r',
+          'title' => 'R',
+        ),
+        6 => 
+        array (
+          'name' => 't',
+          'title' => 'T',
+        ),
       ),
     ),
-  ),
-  1 => 
-  array (
-    'value' => 'ALFA',
-    'title' => 'Alfa Romeo',
-    'models' => 
+    24 => 
     array (
-      0 => 
-      array (
-        'value' => 'ALFA164',
-        'title' => '164',
+      'name' => 'baw',
+      'title' => 'BAW',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'fenix-1044',
+          'title' => 'Fenix',
+        ),
       ),
-      1 => 
-      array (
-        'value' => 'ALFA8C',
-        'title' => '8C Competizione',
+    ),
+    25 => 
+    array (
+      'name' => 'iveco-hongyang',
+      'title' => 'IVECO HongYan',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'hongyan-8x4cq-3304ttg306',
+          'title' => 'Hongyan 8x4CQ 3304TTG306',
+        ),
       ),
-      2 => 
-      array (
-        'value' => 'ALFAGT',
-        'title' => 'GTV-6',
+    ),
+    26 => 
+    array (
+      'name' => 'shaanxi',
+      'title' => 'Shaanxi',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'sx3315',
+          'title' => 'SX3315',
+        ),
       ),
-      3 => 
-      array (
-        'value' => 'MIL',
-        'title' => 'Milano',
+    ),
+    27 => 
+    array (
+      'name' => 'beifan',
+      'title' => 'Beifan',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'nd3250s',
+          'title' => 'ND3250',
+        ),
       ),
-      4 => 
-      array (
-        'value' => 'SPID',
-        'title' => 'Spider',
+    ),
+    28 => 
+    array (
+      'name' => 'iveco-ling-ye',
+      'title' => 'IVECO-Ling Ye',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'nj3250dbw1',
+          'title' => 'NJ3250DBW1',
+        ),
       ),
-      5 => 
-      array (
-        'value' => 'ALFAOTH',
-        'title' => 'Other Alfa Romeo Models',
+    ),
+    29 => 
+    array (
+      'name' => 'shaanxi-man',
+      'title' => 'Shaanxi-MAN',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'sx3254js384',
+          'title' => 'Самосвал',
+        ),
       ),
     ),
-  ),
-  2 => 
-  array (
-    'value' => 'AMC',
-    'title' => 'AMC',
-    'models' => 
+    30 => 
     array (
-      0 => 
-      array (
-        'value' => 'AMCALLIAN',
-        'title' => 'Alliance',
+      'name' => 'bmc',
+      'title' => 'BMC',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'fatih',
+          'title' => 'Fatih',
+        ),
       ),
-      1 => 
-      array (
-        'value' => 'CON',
-        'title' => 'Concord',
+    ),
+    31 => 
+    array (
+      'name' => 'iveco-uralaz',
+      'title' => 'Iveco-АМТ',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => '6539',
+          'title' => '6539',
+        ),
       ),
-      2 => 
-      array (
-        'value' => 'EAGLE',
-        'title' => 'Eagle',
+    ),
+    32 => 
+    array (
+      'name' => 'shacman',
+      'title' => 'Shacman',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'sx1257',
+          'title' => 'SX1257',
+        ),
+        1 => 
+        array (
+          'name' => 'sx',
+          'title' => 'SX3255',
+        ),
+        2 => 
+        array (
+          'name' => 'sx3256',
+          'title' => 'SX3256',
+        ),
+        3 => 
+        array (
+          'name' => 'sx3316',
+          'title' => 'SX3316',
+        ),
       ),
-      3 => 
-      array (
-        'value' => 'AMCENC',
-        'title' => 'Encore',
+    ),
+    33 => 
+    array (
+      'name' => 'camc',
+      'title' => 'CAMC',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'hn3250p34c6m',
+          'title' => 'HN3250P34C6M',
+        ),
+        1 => 
+        array (
+          'name' => 'hn3250p34c6mj',
+          'title' => 'HN3250P34C6MJ',
+        ),
+        2 => 
+        array (
+          'name' => 'hn3310p38c3m',
+          'title' => 'HN3310P38C3M',
+        ),
       ),
-      4 => 
-      array (
-        'value' => 'AMCSPIRIT',
-        'title' => 'Spirit',
+    ),
+    34 => 
+    array (
+      'name' => 'jac',
+      'title' => 'JAC',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'hfc-1045',
+          'title' => 'HFC 1045K',
+        ),
+        1 => 
+        array (
+          'name' => 'hfc-1083k',
+          'title' => 'HFC 1083K',
+        ),
+        2 => 
+        array (
+          'name' => 'hfc-3252',
+          'title' => 'HFC 3252',
+        ),
+        3 => 
+        array (
+          'name' => 'n75',
+          'title' => 'N75',
+        ),
       ),
-      5 => 
-      array (
-        'value' => 'AMCOTH',
-        'title' => 'Other AMC Models',
+    ),
+    35 => 
+    array (
+      'name' => 'silant',
+      'title' => 'Silant',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'shn',
+          'title' => 'ШН',
+        ),
       ),
     ),
-  ),
-  3 => 
-  array (
-    'value' => 'ASTON',
-    'title' => 'Aston Martin',
-    'models' => 
+    36 => 
     array (
-      0 => 
-      array (
-        'value' => 'DB7',
-        'title' => 'DB7',
+      'name' => 'daewoo',
+      'title' => 'Daewoo',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'n8dsf',
+          'title' => 'N8DSF',
+        ),
+        1 => 
+        array (
+          'name' => 'novus',
+          'title' => 'Novus',
+        ),
+        2 => 
+        array (
+          'name' => 'ultra-novus',
+          'title' => 'Ultra Novus',
+        ),
       ),
-      1 => 
-      array (
-        'value' => 'DB9',
-        'title' => 'DB9',
+    ),
+    37 => 
+    array (
+      'name' => 'jmc',
+      'title' => 'JMC',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => '1051',
+          'title' => '1051',
+        ),
       ),
-      2 => 
-      array (
-        'value' => 'DBS',
-        'title' => 'DBS',
+    ),
+    38 => 
+    array (
+      'name' => 'sinotruck',
+      'title' => 'Sinotruck',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'zz5141',
+          'title' => 'ZZ5141',
+        ),
       ),
-      3 => 
-      array (
-        'value' => 'LAGONDA',
-        'title' => 'Lagonda',
+    ),
+    39 => 
+    array (
+      'name' => 'daf',
+      'title' => 'DAF',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => '45',
+          'title' => '45',
+        ),
+        1 => 
+        array (
+          'name' => '75',
+          'title' => '75',
+        ),
+        2 => 
+        array (
+          'name' => '85',
+          'title' => '85',
+        ),
+        3 => 
+        array (
+          'name' => '95',
+          'title' => '95',
+        ),
+        4 => 
+        array (
+          'name' => 'cf-series',
+          'title' => 'CF-series',
+        ),
+        5 => 
+        array (
+          'name' => 'f-1700',
+          'title' => 'F 1700',
+        ),
+        6 => 
+        array (
+          'name' => 'f-1900',
+          'title' => 'F 1900',
+        ),
+        7 => 
+        array (
+          'name' => 'f-2500',
+          'title' => 'F 2500',
+        ),
+        8 => 
+        array (
+          'name' => 'f-2800',
+          'title' => 'F 2800',
+        ),
+        9 => 
+        array (
+          'name' => 'f-3300',
+          'title' => 'F 3300',
+        ),
+        10 => 
+        array (
+          'name' => 'lf-series',
+          'title' => 'LF-series',
+        ),
+        11 => 
+        array (
+          'name' => 'xf105-series',
+          'title' => 'XF105 series',
+        ),
+        12 => 
+        array (
+          'name' => 'xf95-series',
+          'title' => 'XF95 series',
+        ),
       ),
-      4 => 
-      array (
-        'value' => 'RAPIDE',
-        'title' => 'Rapide',
+    ),
+    40 => 
+    array (
+      'name' => 'kenworth',
+      'title' => 'Kenworth',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 't2000',
+          'title' => 'T2000',
+        ),
+        1 => 
+        array (
+          'name' => 't300',
+          'title' => 'T300',
+        ),
+        2 => 
+        array (
+          'name' => 't600',
+          'title' => 'T600',
+        ),
+        3 => 
+        array (
+          'name' => 't800',
+          'title' => 'T800',
+        ),
       ),
-      5 => 
-      array (
-        'value' => 'V12VANT',
-        'title' => 'V12 Vantage',
+    ),
+    41 => 
+    array (
+      'name' => 'sisu',
+      'title' => 'Sisu',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'e14m',
+          'title' => 'E14M',
+        ),
       ),
-      6 => 
-      array (
-        'value' => 'VANTAGE',
-        'title' => 'V8 Vantage',
+    ),
+    42 => 
+    array (
+      'name' => 'dongfeng',
+      'title' => 'DongFeng',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'dfa-1045',
+          'title' => 'DFA',
+        ),
+        1 => 
+        array (
+          'name' => 'dfl-3251a',
+          'title' => 'DFL 3251A',
+        ),
+        2 => 
+        array (
+          'name' => 'dfl-65518',
+          'title' => 'DFL 65518',
+        ),
+        3 => 
+        array (
+          'name' => 'eq1063',
+          'title' => 'EQ1063',
+        ),
+        4 => 
+        array (
+          'name' => 'eq1074',
+          'title' => 'EQ1074',
+        ),
+        5 => 
+        array (
+          'name' => 'eq1242',
+          'title' => 'EQ1242',
+        ),
+        6 => 
+        array (
+          'name' => 'eq3312ge2',
+          'title' => 'EQ3312GE2',
+        ),
       ),
-      7 => 
-      array (
-        'value' => 'VANQUISH',
-        'title' => 'Vanquish',
+    ),
+    43 => 
+    array (
+      'name' => 'kia',
+      'title' => 'Kia',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'k3600',
+          'title' => 'K3600',
+        ),
+        1 => 
+        array (
+          'name' => 'rhino',
+          'title' => 'Rhino',
+        ),
       ),
-      8 => 
-      array (
-        'value' => 'VIRAGE',
-        'title' => 'Virage',
+    ),
+    44 => 
+    array (
+      'name' => 'liaz_cz',
+      'title' => 'Skoda LIAZ',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => '110',
+          'title' => '110',
+        ),
       ),
-      9 => 
-      array (
-        'value' => 'UNAVAILAST',
-        'title' => 'Other Aston Martin Models',
+    ),
+    45 => 
+    array (
+      'name' => 'faw',
+      'title' => 'FAW',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => '1051',
+          'title' => '1051',
+        ),
+        1 => 
+        array (
+          'name' => '1061',
+          'title' => '1061',
+        ),
+        2 => 
+        array (
+          'name' => '1083',
+          'title' => '1083',
+        ),
+        3 => 
+        array (
+          'name' => 'ca',
+          'title' => 'CA',
+        ),
+        4 => 
+        array (
+          'name' => 'ca3250',
+          'title' => 'CA3250',
+        ),
+        5 => 
+        array (
+          'name' => 'ca3252',
+          'title' => 'CA3252',
+        ),
+        6 => 
+        array (
+          'name' => 'samosvali',
+          'title' => 'Самосвалы',
+        ),
       ),
     ),
-  ),
-  4 => 
-  array (
-    'value' => 'AUDI',
-    'title' => 'Audi',
-    'models' => 
+    46 => 
     array (
-      0 => 
-      array (
-        'value' => 'AUDI100',
-        'title' => '100',
+      'name' => 'mack',
+      'title' => 'Mack',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'cs',
+          'title' => 'CS',
+        ),
+        1 => 
+        array (
+          'name' => 'granite',
+          'title' => 'Granite',
+        ),
       ),
-      1 => 
-      array (
-        'value' => 'AUDI200',
-        'title' => '200',
+    ),
+    47 => 
+    array (
+      'name' => 'tata',
+      'title' => 'TATA',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => '407',
+          'title' => '407',
+        ),
+        1 => 
+        array (
+          'name' => '613',
+          'title' => '613',
+        ),
+        2 => 
+        array (
+          'name' => '697',
+          'title' => '697',
+        ),
       ),
-      2 => 
-      array (
-        'value' => '4000',
-        'title' => '4000',
+    ),
+    48 => 
+    array (
+      'name' => 'ford',
+      'title' => 'Ford',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'cargo',
+          'title' => 'Cargo',
+        ),
+        1 => 
+        array (
+          'name' => 'cargo-0811-',
+          'title' => 'Cargo 0811',
+        ),
+        2 => 
+        array (
+          'name' => 'f-series',
+          'title' => 'F-Series Super Duty',
+        ),
       ),
-      3 => 
-      array (
-        'value' => '5000',
-        'title' => '5000',
+    ),
+    49 => 
+    array (
+      'name' => 'man',
+      'title' => 'MAN',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => '10',
+          'title' => '10',
+        ),
+        1 => 
+        array (
+          'name' => '12',
+          'title' => '12',
+        ),
+        2 => 
+        array (
+          'name' => '13',
+          'title' => '13',
+        ),
+        3 => 
+        array (
+          'name' => '14',
+          'title' => '14',
+        ),
+        4 => 
+        array (
+          'name' => '16',
+          'title' => '16',
+        ),
+        5 => 
+        array (
+          'name' => '18',
+          'title' => '18',
+        ),
+        6 => 
+        array (
+          'name' => '19',
+          'title' => '19',
+        ),
+        7 => 
+        array (
+          'name' => '22',
+          'title' => '22',
+        ),
+        8 => 
+        array (
+          'name' => '23',
+          'title' => '23',
+        ),
+        9 => 
+        array (
+          'name' => '24',
+          'title' => '24',
+        ),
+        10 => 
+        array (
+          'name' => '25',
+          'title' => '25',
+        ),
+        11 => 
+        array (
+          'name' => '26',
+          'title' => '26',
+        ),
+        12 => 
+        array (
+          'name' => '33',
+          'title' => '33',
+        ),
+        13 => 
+        array (
+          'name' => '41',
+          'title' => '41',
+        ),
+        14 => 
+        array (
+          'name' => '6',
+          'title' => '6',
+        ),
+        15 => 
+        array (
+          'name' => '8',
+          'title' => '8',
+        ),
+        16 => 
+        array (
+          'name' => '9',
+          'title' => '9',
+        ),
+        17 => 
+        array (
+          'name' => 'f2000',
+          'title' => 'F2000',
+        ),
+        18 => 
+        array (
+          'name' => 'f90',
+          'title' => 'F90',
+        ),
+        19 => 
+        array (
+          'name' => 'l2000',
+          'title' => 'L2000',
+        ),
+        20 => 
+        array (
+          'name' => 'le_160',
+          'title' => 'LE 160',
+        ),
+        21 => 
+        array (
+          'name' => 'le-2000',
+          'title' => 'LE 2000',
+        ),
+        22 => 
+        array (
+          'name' => 'm90',
+          'title' => 'M90',
+        ),
+        23 => 
+        array (
+          'name' => 'tga',
+          'title' => 'TGA',
+        ),
+        24 => 
+        array (
+          'name' => 'tgl',
+          'title' => 'TGL',
+        ),
+        25 => 
+        array (
+          'name' => 'tgm',
+          'title' => 'TGM',
+        ),
+        26 => 
+        array (
+          'name' => 'tgs',
+          'title' => 'TGS',
+        ),
+        27 => 
+        array (
+          'name' => 'tgx',
+          'title' => 'TGX',
+        ),
+        28 => 
+        array (
+          'name' => 'samosvali-tga',
+          'title' => 'Самосвалы TGA',
+        ),
       ),
-      4 => 
-      array (
-        'value' => '80',
-        'title' => '80',
+    ),
+    50 => 
+    array (
+      'name' => 'tatra',
+      'title' => 'Tatra',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'bortovie',
+          'title' => 'ARMAX',
+        ),
+        1 => 
+        array (
+          'name' => 'shassi',
+          'title' => 'JAMAL T 163',
+        ),
+        2 => 
+        array (
+          'name' => 'phoenix',
+          'title' => 'Phoenix',
+        ),
+        3 => 
+        array (
+          'name' => 't-815',
+          'title' => 'T 815',
+        ),
+        4 => 
+        array (
+          'name' => 'samosvali',
+          'title' => 'TERRNo1',
+        ),
       ),
-      5 => 
-      array (
-        'value' => '90',
-        'title' => '90',
+    ),
+    51 => 
+    array (
+      'name' => 'foton',
+      'title' => 'Foton',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'auman',
+          'title' => 'Auman',
+        ),
+        1 => 
+        array (
+          'name' => 'aumark',
+          'title' => 'Aumark',
+        ),
+        2 => 
+        array (
+          'name' => 'ollin',
+          'title' => 'Ollin',
+        ),
       ),
-      6 => 
-      array (
-        'value' => 'A3',
-        'title' => 'A3',
+    ),
+    52 => 
+    array (
+      'name' => 'mazda',
+      'title' => 'Mazda',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'bongo',
+          'title' => 'Bongo',
+        ),
+        1 => 
+        array (
+          'name' => 'titan',
+          'title' => 'Titan',
+        ),
       ),
-      7 => 
-      array (
-        'value' => 'A4',
-        'title' => 'A4',
+    ),
+    53 => 
+    array (
+      'name' => 'terberg',
+      'title' => 'Terberg',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'fm1350-wdg-6x6',
+          'title' => 'FM',
+        ),
       ),
-      8 => 
-      array (
-        'value' => 'A5',
-        'title' => 'A5',
+    ),
+    54 => 
+    array (
+      'name' => 'freightliner',
+      'title' => 'Freightliner',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'century',
+          'title' => 'Century',
+        ),
+        1 => 
+        array (
+          'name' => 'columbia',
+          'title' => 'Columbia',
+        ),
+        2 => 
+        array (
+          'name' => 'fl-series',
+          'title' => 'FL-Series',
+        ),
+        3 => 
+        array (
+          'name' => 'fld120',
+          'title' => 'FLD120',
+        ),
+        4 => 
+        array (
+          'name' => 'm2-series',
+          'title' => 'M2-Series',
+        ),
       ),
-      9 => 
-      array (
-        'value' => 'A6',
-        'title' => 'A6',
+    ),
+    55 => 
+    array (
+      'name' => 'mercedes',
+      'title' => 'Mercedes-Benz',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => '1117',
+          'title' => '1117',
+        ),
+        1 => 
+        array (
+          'name' => '1320',
+          'title' => '1320',
+        ),
+        2 => 
+        array (
+          'name' => '1324',
+          'title' => '1324',
+        ),
+        3 => 
+        array (
+          'name' => '1424',
+          'title' => '1424',
+        ),
+        4 => 
+        array (
+          'name' => '1622',
+          'title' => '1622',
+        ),
+        5 => 
+        array (
+          'name' => '1722',
+          'title' => '1722',
+        ),
+        6 => 
+        array (
+          'name' => '1733',
+          'title' => '1733',
+        ),
+        7 => 
+        array (
+          'name' => '1735',
+          'title' => '1735',
+        ),
+        8 => 
+        array (
+          'name' => '1827',
+          'title' => '1827',
+        ),
+        9 => 
+        array (
+          'name' => '1922',
+          'title' => '1922',
+        ),
+        10 => 
+        array (
+          'name' => '207d',
+          'title' => '207D',
+        ),
+        11 => 
+        array (
+          'name' => '208d',
+          'title' => '208D',
+        ),
+        12 => 
+        array (
+          'name' => '209d',
+          'title' => '209D',
+        ),
+        13 => 
+        array (
+          'name' => '210d',
+          'title' => '210D',
+        ),
+        14 => 
+        array (
+          'name' => '2435',
+          'title' => '2435',
+        ),
+        15 => 
+        array (
+          'name' => '250d',
+          'title' => '250D',
+        ),
+        16 => 
+        array (
+          'name' => '308d',
+          'title' => '308D',
+        ),
+        17 => 
+        array (
+          'name' => '310d',
+          'title' => '310D',
+        ),
+        18 => 
+        array (
+          'name' => '407d',
+          'title' => '407D',
+        ),
+        19 => 
+        array (
+          'name' => '408d',
+          'title' => '408D',
+        ),
+        20 => 
+        array (
+          'name' => '409d',
+          'title' => '409D',
+        ),
+        21 => 
+        array (
+          'name' => '410d',
+          'title' => '410D',
+        ),
+        22 => 
+        array (
+          'name' => '413d',
+          'title' => '413D',
+        ),
+        23 => 
+        array (
+          'name' => '416d',
+          'title' => '416D',
+        ),
+        24 => 
+        array (
+          'name' => '508d',
+          'title' => '508D',
+        ),
+        25 => 
+        array (
+          'name' => '609d',
+          'title' => '609D',
+        ),
+        26 => 
+        array (
+          'name' => '612d',
+          'title' => '612D',
+        ),
+        27 => 
+        array (
+          'name' => '709d',
+          'title' => '709D',
+        ),
+        28 => 
+        array (
+          'name' => '711',
+          'title' => '711D',
+        ),
+        29 => 
+        array (
+          'name' => '809',
+          'title' => '809',
+        ),
+        30 => 
+        array (
+          'name' => '811d',
+          'title' => '811D',
+        ),
+        31 => 
+        array (
+          'name' => '813',
+          'title' => '813',
+        ),
+        32 => 
+        array (
+          'name' => '814',
+          'title' => '814',
+        ),
+        33 => 
+        array (
+          'name' => '817',
+          'title' => '817',
+        ),
+        34 => 
+        array (
+          'name' => '914',
+          'title' => '914',
+        ),
+        35 => 
+        array (
+          'name' => 'actros',
+          'title' => 'Actros',
+        ),
+        36 => 
+        array (
+          'name' => 'atego',
+          'title' => 'Atego',
+        ),
+        37 => 
+        array (
+          'name' => 'axor',
+          'title' => 'Axor',
+        ),
+        38 => 
+        array (
+          'name' => 'unimog',
+          'title' => 'Unimog',
+        ),
+        39 => 
+        array (
+          'name' => 'bortovoy-_4h2_',
+          'title' => 'Бортовой (4х2)',
+        ),
+        40 => 
+        array (
+          'name' => 'bortovoy-_6h2_',
+          'title' => 'Бортовой (6х2)',
+        ),
+        41 => 
+        array (
+          'name' => 'samosval-_6h2_',
+          'title' => 'Самосвал (6х2)',
+        ),
+        42 => 
+        array (
+          'name' => 'samosval-_6h4_',
+          'title' => 'Самосвал (6х4)',
+        ),
+        43 => 
+        array (
+          'name' => 'samosval-_6h6_',
+          'title' => 'Самосвал (6х6)',
+        ),
+        44 => 
+        array (
+          'name' => 'samosval-_8h4_',
+          'title' => 'Самосвал (8х4)',
+        ),
+        45 => 
+        array (
+          'name' => 'furgon-_4h2_',
+          'title' => 'Фургон (4х2)',
+        ),
+        46 => 
+        array (
+          'name' => 'furgon-_6h2_',
+          'title' => 'Фургон (6х2)',
+        ),
+        47 => 
+        array (
+          'name' => 'shassi-_4h2_',
+          'title' => 'Шасси (4х2)',
+        ),
+        48 => 
+        array (
+          'name' => 'shassi-_6h2_',
+          'title' => 'Шасси (6х2)',
+        ),
       ),
-      10 => 
-      array (
-        'value' => 'A7',
-        'title' => 'A7',
+    ),
+    56 => 
+    array (
+      'name' => 'terex',
+      'title' => 'Terex',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'ta',
+          'title' => 'TA',
+        ),
       ),
-      11 => 
-      array (
-        'value' => 'A8',
-        'title' => 'A8',
+    ),
+    57 => 
+    array (
+      'name' => 'hino',
+      'title' => 'Hino',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => '300',
+          'title' => '300',
+        ),
+        1 => 
+        array (
+          'name' => '500',
+          'title' => '500',
+        ),
+        2 => 
+        array (
+          'name' => '700',
+          'title' => '700',
+        ),
+        3 => 
+        array (
+          'name' => 'dutro',
+          'title' => 'Dutro',
+        ),
+        4 => 
+        array (
+          'name' => 'fn',
+          'title' => 'FN',
+        ),
+        5 => 
+        array (
+          'name' => 'fr',
+          'title' => 'FR',
+        ),
+        6 => 
+        array (
+          'name' => 'profia',
+          'title' => 'Profia',
+        ),
+        7 => 
+        array (
+          'name' => 'ranger',
+          'title' => 'Ranger',
+        ),
+        8 => 
+        array (
+          'name' => 'super-dolphin',
+          'title' => 'Super Dolphin',
+        ),
       ),
-      12 => 
-      array (
-        'value' => 'ALLRDQUA',
-        'title' => 'allroad',
+    ),
+    58 => 
+    array (
+      'name' => 'mitsubishi',
+      'title' => 'Mitsubishi',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'canter',
+          'title' => 'Canter',
+        ),
+        1 => 
+        array (
+          'name' => 'fuso',
+          'title' => 'Fuso',
+        ),
       ),
-      13 => 
-      array (
-        'value' => 'AUDICABRI',
-        'title' => 'Cabriolet',
+    ),
+    59 => 
+    array (
+      'name' => 'tiema',
+      'title' => 'Tiema',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'xc3318a',
+          'title' => 'XC3318A',
+        ),
       ),
-      14 => 
-      array (
-        'value' => 'AUDICOUPE',
-        'title' => 'Coupe',
+    ),
+    60 => 
+    array (
+      'name' => 'howo',
+      'title' => 'Howo',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'zz1257n5847c',
+          'title' => 'ZZ1257N5847C',
+        ),
+        1 => 
+        array (
+          'name' => 'zz3167m3811',
+          'title' => 'ZZ3167M3811',
+        ),
+        2 => 
+        array (
+          'name' => 'zz3167m4611',
+          'title' => 'ZZ3167M4611',
+        ),
+        3 => 
+        array (
+          'name' => 'zz3257m2941',
+          'title' => 'ZZ3257M2941',
+        ),
+        4 => 
+        array (
+          'name' => 'zz3257m3241',
+          'title' => 'ZZ3257M3241',
+        ),
+        5 => 
+        array (
+          'name' => 'zz3257m3641',
+          'title' => 'ZZ3257M3641',
+        ),
+        6 => 
+        array (
+          'name' => 'zz3257m3841',
+          'title' => 'ZZ3257M3841',
+        ),
+        7 => 
+        array (
+          'name' => 'zz3257m4641',
+          'title' => 'ZZ3257M4641',
+        ),
+        8 => 
+        array (
+          'name' => 'zz3317m3261w',
+          'title' => 'ZZ3317M3261W',
+        ),
+        9 => 
+        array (
+          'name' => 'zz3317n2861',
+          'title' => 'ZZ3317N2861',
+        ),
+        10 => 
+        array (
+          'name' => 'zz3317n3061',
+          'title' => 'ZZ3317N3061',
+        ),
+        11 => 
+        array (
+          'name' => 'zz3317n3261w',
+          'title' => 'ZZ3317N3261W',
+        ),
+        12 => 
+        array (
+          'name' => 'zz3317n3567w',
+          'title' => 'ZZ3317N3567W',
+        ),
+        13 => 
+        array (
+          'name' => 'zz3317s3261w',
+          'title' => 'ZZ3317S3261W',
+        ),
+        14 => 
+        array (
+          'name' => 'zz3327m3247w',
+          'title' => 'ZZ3327M3247W',
+        ),
+        15 => 
+        array (
+          'name' => 'zz4257s3241',
+          'title' => 'ZZ4257S3241',
+        ),
+        16 => 
+        array (
+          'name' => 'samosvali',
+          'title' => 'Самосвалы',
+        ),
       ),
-      15 => 
-      array (
-        'value' => 'Q3',
-        'title' => 'Q3',
+    ),
+    61 => 
+    array (
+      'name' => 'naveco',
+      'title' => 'Naveco',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'c-300',
+          'title' => 'C-300',
+        ),
       ),
-      16 => 
-      array (
-        'value' => 'Q5',
-        'title' => 'Q5',
+    ),
+    62 => 
+    array (
+      'name' => 'toyota',
+      'title' => 'Toyota',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'hino',
+          'title' => 'Hino',
+        ),
       ),
-      17 => 
-      array (
-        'value' => 'Q7',
-        'title' => 'Q7',
+    ),
+    63 => 
+    array (
+      'name' => 'hyundai',
+      'title' => 'Hyundai',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'hd',
+          'title' => 'HD',
+        ),
+        1 => 
+        array (
+          'name' => 'megatruck',
+          'title' => 'MegaTruck',
+        ),
+        2 => 
+        array (
+          'name' => 'mighty',
+          'title' => 'Mighty',
+        ),
+        3 => 
+        array (
+          'name' => 'new-power-truck',
+          'title' => 'New Power Truck',
+        ),
+        4 => 
+        array (
+          'name' => 'trago',
+          'title' => 'Trago',
+        ),
       ),
-      18 => 
-      array (
-        'value' => 'QUATTR',
-        'title' => 'Quattro',
+    ),
+    64 => 
+    array (
+      'name' => 'nissan',
+      'title' => 'Nissan',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'atlas',
+          'title' => 'Atlas',
+        ),
+        1 => 
+        array (
+          'name' => 'atleon',
+          'title' => 'Atleon',
+        ),
+        2 => 
+        array (
+          'name' => 'cabstar',
+          'title' => 'Cabstar',
+        ),
+        3 => 
+        array (
+          'name' => 'condor',
+          'title' => 'Condor',
+        ),
+        4 => 
+        array (
+          'name' => 'diesel',
+          'title' => 'Diesel',
+        ),
       ),
-      19 => 
-      array (
-        'value' => 'R8',
-        'title' => 'R8',
+    ),
+    65 => 
+    array (
+      'name' => 'volvo',
+      'title' => 'Volvo',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'f',
+          'title' => 'F',
+        ),
+        1 => 
+        array (
+          'name' => 'fe',
+          'title' => 'FE',
+        ),
+        2 => 
+        array (
+          'name' => 'fh12',
+          'title' => 'FH',
+        ),
+        3 => 
+        array (
+          'name' => 'fl',
+          'title' => 'FL',
+        ),
+        4 => 
+        array (
+          'name' => 'fl-612',
+          'title' => 'FL 612',
+        ),
+        5 => 
+        array (
+          'name' => 'fm',
+          'title' => 'FM',
+        ),
+        6 => 
+        array (
+          'name' => 'fmx',
+          'title' => 'FMX',
+        ),
+        7 => 
+        array (
+          'name' => 'fs',
+          'title' => 'FS',
+        ),
+        8 => 
+        array (
+          'name' => 'vhd',
+          'title' => 'VHD',
+        ),
+        9 => 
+        array (
+          'name' => 'vnl',
+          'title' => 'VNL',
+        ),
       ),
-      20 => 
-      array (
-        'value' => 'RS4',
-        'title' => 'RS 4',
+    ),
+    66 => 
+    array (
+      'name' => 'ifa',
+      'title' => 'IFA',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => '50',
+          'title' => 'W 50',
+        ),
       ),
-      21 => 
-      array (
-        'value' => 'RS5',
-        'title' => 'RS 5',
+    ),
+    67 => 
+    array (
+      'name' => 'peterbilt',
+      'title' => 'Peterbilt',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => '330',
+          'title' => '330',
+        ),
+        1 => 
+        array (
+          'name' => '387',
+          'title' => '387',
+        ),
       ),
-      22 => 
-      array (
-        'value' => 'RS6',
-        'title' => 'RS 6',
+    ),
+    68 => 
+    array (
+      'name' => 'yuejin',
+      'title' => 'YueJin',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => '1041',
+          'title' => '1041',
+        ),
+        1 => 
+        array (
+          'name' => '1080',
+          'title' => '1080',
+        ),
       ),
-      23 => 
-      array (
-        'value' => 'S4',
-        'title' => 'S4',
+    ),
+  ),
+  'bus' => 
+  array (
+    0 => 
+    array (
+      'name' => 'baz_',
+      'title' => 'БАЗ_',
+      'soviet' => true,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'a079',
+          'title' => 'А079',
+        ),
       ),
-      24 => 
-      array (
-        'value' => 'S5',
-        'title' => 'S5',
+    ),
+    1 => 
+    array (
+      'name' => 'kavz',
+      'title' => 'КАвЗ',
+      'soviet' => true,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'prigorodniy',
+          'title' => 'Пригородный',
+        ),
+        1 => 
+        array (
+          'name' => 'specialniy',
+          'title' => 'Специальный',
+        ),
       ),
-      25 => 
-      array (
-        'value' => 'S6',
-        'title' => 'S6',
+    ),
+    2 => 
+    array (
+      'name' => 'oz-neman',
+      'title' => 'Неман ОЗ',
+      'soviet' => true,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => '4202',
+          'title' => '4202',
+        ),
+        1 => 
+        array (
+          'name' => '5201',
+          'title' => '5201',
+        ),
       ),
-      26 => 
-      array (
-        'value' => 'S7',
-        'title' => 'S7',
+    ),
+    3 => 
+    array (
+      'name' => 'bogdan',
+      'title' => 'Богдан',
+      'soviet' => true,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'gorodskoy-avtobus',
+          'title' => 'Городской автобус',
+        ),
+        1 => 
+        array (
+          'name' => 'prigorodniy-avtobus',
+          'title' => 'Пригородный автобус',
+        ),
       ),
-      27 => 
-      array (
-        'value' => 'S8',
-        'title' => 'S8',
+    ),
+    4 => 
+    array (
+      'name' => 'kamaz',
+      'title' => 'КамАЗ',
+      'soviet' => true,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => '5299',
+          'title' => '5299',
+        ),
       ),
-      28 => 
-      array (
-        'value' => 'TT',
-        'title' => 'TT',
+    ),
+    5 => 
+    array (
+      'name' => 'nefaz',
+      'title' => 'НефАЗ',
+      'soviet' => true,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'vahtoviy-',
+          'title' => 'Вахтовый',
+        ),
+        1 => 
+        array (
+          'name' => 'gorodskoy',
+          'title' => 'Городской',
+        ),
+        2 => 
+        array (
+          'name' => 'mejdugorodniy',
+          'title' => 'Междугородный',
+        ),
       ),
-      29 => 
-      array (
-        'value' => 'TTRS',
-        'title' => 'TT RS',
+    ),
+    6 => 
+    array (
+      'name' => 'vmz',
+      'title' => 'ВМЗ',
+      'soviet' => true,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => '4252',
+          'title' => '4252 "Олимп"',
+        ),
       ),
-      30 => 
-      array (
-        'value' => 'TTS',
-        'title' => 'TTS',
+    ),
+    7 => 
+    array (
+      'name' => 'laz',
+      'title' => 'ЛАЗ',
+      'soviet' => true,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'layner---10',
+          'title' => 'Лайнер - 10',
+        ),
+        1 => 
+        array (
+          'name' => 'layner---9',
+          'title' => 'Лайнер - 9',
+        ),
       ),
-      31 => 
-      array (
-        'value' => 'V8',
-        'title' => 'V8 Quattro',
+    ),
+    8 => 
+    array (
+      'name' => 'paz',
+      'title' => 'ПАЗ',
+      'soviet' => true,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'gorodskoy',
+          'title' => 'Городской',
+        ),
+        1 => 
+        array (
+          'name' => 'mejdugorodniy',
+          'title' => 'Междугородный',
+        ),
+        2 => 
+        array (
+          'name' => 'prigorodniy',
+          'title' => 'Пригородный',
+        ),
+        3 => 
+        array (
+          'name' => 'specialniy',
+          'title' => 'Специальный',
+        ),
       ),
-      32 => 
-      array (
-        'value' => 'AUDOTH',
-        'title' => 'Other Audi Models',
+    ),
+    9 => 
+    array (
+      'name' => 'volzhanin',
+      'title' => 'Волжанин',
+      'soviet' => true,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'gorodskoy-',
+          'title' => 'Городской',
+        ),
       ),
     ),
-  ),
-  5 => 
-  array (
-    'value' => 'AVANTI',
-    'title' => 'Avanti',
-    'models' => 
+    10 => 
     array (
-      0 => 
-      array (
-        'value' => 'CONVERT',
-        'title' => 'Convertible',
+      'name' => 'liaz',
+      'title' => 'ЛиАЗ',
+      'soviet' => true,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'gorodskoy',
+          'title' => 'Городской',
+        ),
+        1 => 
+        array (
+          'name' => 'prigorodniy',
+          'title' => 'Пригородный',
+        ),
       ),
-      1 => 
-      array (
-        'value' => 'COUPEAVANT',
-        'title' => 'Coupe',
+    ),
+    11 => 
+    array (
+      'name' => 'raf',
+      'title' => 'РАФ',
+      'soviet' => true,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => '22301',
+          'title' => '22301',
+        ),
       ),
-      2 => 
-      array (
-        'value' => 'SEDAN',
-        'title' => 'Sedan',
+    ),
+    12 => 
+    array (
+      'name' => 'gaz',
+      'title' => 'ГАЗ',
+      'soviet' => true,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'bm',
+          'title' => 'ВМ (Вахтовый автобус)',
+        ),
       ),
-      3 => 
-      array (
-        'value' => 'UNAVAILAVA',
-        'title' => 'Other Avanti Models',
+    ),
+    13 => 
+    array (
+      'name' => 'maz',
+      'title' => 'МАЗ',
+      'soviet' => true,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'gorodskoy',
+          'title' => 'Городской',
+        ),
+        1 => 
+        array (
+          'name' => 'prigorodniy',
+          'title' => 'Пригородный',
+        ),
+        2 => 
+        array (
+          'name' => 'turisticheskiy',
+          'title' => 'Туристический',
+        ),
       ),
     ),
-  ),
-  6 => 
-  array (
-    'value' => 'BENTL',
-    'title' => 'Bentley',
-    'models' => 
+    14 => 
     array (
-      0 => 
-      array (
-        'value' => 'ARNAGE',
-        'title' => 'Arnage',
+      'name' => 'roaz',
+      'title' => 'РоАЗ',
+      'soviet' => true,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => '5239',
+          'title' => '5239',
+        ),
       ),
-      1 => 
-      array (
-        'value' => 'AZURE',
-        'title' => 'Azure',
+    ),
+    15 => 
+    array (
+      'name' => 'golaz',
+      'title' => 'ГолАЗ',
+      'soviet' => true,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'mejdugorodniy',
+          'title' => 'Междугородный',
+        ),
       ),
-      2 => 
-      array (
-        'value' => 'BROOKLANDS',
-        'title' => 'Brooklands',
+    ),
+    16 => 
+    array (
+      'name' => 'marz',
+      'title' => 'МАРЗ',
+      'soviet' => true,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'gorodskoy',
+          'title' => 'Городской',
+        ),
+        1 => 
+        array (
+          'name' => 'prigorodniy',
+          'title' => 'Пригородный',
+        ),
       ),
-      3 => 
-      array (
-        'value' => 'BENCONT',
-        'title' => 'Continental',
-      ),
-      4 => 
-      array (
-        'value' => 'CORNICHE',
-        'title' => 'Corniche',
-      ),
-      5 => 
-      array (
-        'value' => 'BENEIGHT',
-        'title' => 'Eight',
-      ),
-      6 => 
-      array (
-        'value' => 'BENMUL',
-        'title' => 'Mulsanne',
-      ),
-      7 => 
-      array (
-        'value' => 'BENTURBO',
-        'title' => 'Turbo R',
-      ),
-      8 => 
-      array (
-        'value' => 'UNAVAILBEN',
-        'title' => 'Other Bentley Models',
-      ),
-    ),
-  ),
-  7 => 
-  array (
-    'value' => 'BMW',
-    'title' => 'BMW',
-    'models' => 
-    array (
-      0 => 
-      array (
-        'value' => '1_SERIES',
-        'title' => '1 Series (3)',
-      ),
-      1 => 
-      array (
-        'value' => '128I',
-        'title' => ' - 128i',
-      ),
-      2 => 
-      array (
-        'value' => '135I',
-        'title' => ' - 135i',
-      ),
-      3 => 
-      array (
-        'value' => '135IS',
-        'title' => ' - 135is',
-      ),
-      4 => 
-      array (
-        'value' => '3_SERIES',
-        'title' => '3 Series (29)',
-      ),
-      5 => 
-      array (
-        'value' => '318I',
-        'title' => ' - 318i',
-      ),
-      6 => 
-      array (
-        'value' => '318IC',
-        'title' => ' - 318iC',
-      ),
-      7 => 
-      array (
-        'value' => '318IS',
-        'title' => ' - 318iS',
-      ),
-      8 => 
-      array (
-        'value' => '318TI',
-        'title' => ' - 318ti',
-      ),
-      9 => 
-      array (
-        'value' => '320I',
-        'title' => ' - 320i',
-      ),
-      10 => 
-      array (
-        'value' => '323CI',
-        'title' => ' - 323ci',
-      ),
-      11 => 
-      array (
-        'value' => '323I',
-        'title' => ' - 323i',
-      ),
-      12 => 
-      array (
-        'value' => '323IS',
-        'title' => ' - 323is',
-      ),
-      13 => 
-      array (
-        'value' => '323IT',
-        'title' => ' - 323iT',
-      ),
-      14 => 
-      array (
-        'value' => '325CI',
-        'title' => ' - 325Ci',
-      ),
-      15 => 
-      array (
-        'value' => '325E',
-        'title' => ' - 325e',
-      ),
-      16 => 
-      array (
-        'value' => '325ES',
-        'title' => ' - 325es',
-      ),
-      17 => 
-      array (
-        'value' => '325I',
-        'title' => ' - 325i',
-      ),
-      18 => 
-      array (
-        'value' => '325IS',
-        'title' => ' - 325is',
-      ),
-      19 => 
-      array (
-        'value' => '325IX',
-        'title' => ' - 325iX',
-      ),
-      20 => 
-      array (
-        'value' => '325XI',
-        'title' => ' - 325xi',
-      ),
-      21 => 
-      array (
-        'value' => '328CI',
-        'title' => ' - 328Ci',
-      ),
-      22 => 
-      array (
-        'value' => '328I',
-        'title' => ' - 328i',
-      ),
-      23 => 
-      array (
-        'value' => '328IS',
-        'title' => ' - 328iS',
-      ),
-      24 => 
-      array (
-        'value' => '328XI',
-        'title' => ' - 328xi',
-      ),
-      25 => 
-      array (
-        'value' => '330CI',
-        'title' => ' - 330Ci',
-      ),
-      26 => 
-      array (
-        'value' => '330I',
-        'title' => ' - 330i',
-      ),
-      27 => 
-      array (
-        'value' => '330XI',
-        'title' => ' - 330xi',
-      ),
-      28 => 
-      array (
-        'value' => '335D',
-        'title' => ' - 335d',
-      ),
-      29 => 
-      array (
-        'value' => '335I',
-        'title' => ' - 335i',
-      ),
-      30 => 
-      array (
-        'value' => '335IS',
-        'title' => ' - 335is',
-      ),
-      31 => 
-      array (
-        'value' => '335XI',
-        'title' => ' - 335xi',
-      ),
-      32 => 
-      array (
-        'value' => 'ACTIVE3',
-        'title' => ' - ActiveHybrid 3',
-      ),
-      33 => 
-      array (
-        'value' => 'BMW325',
-        'title' => ' - 325',
-      ),
-      34 => 
-      array (
-        'value' => '5_SERIES',
-        'title' => '5 Series (19)',
-      ),
-      35 => 
-      array (
-        'value' => '524TD',
-        'title' => ' - 524td',
-      ),
-      36 => 
-      array (
-        'value' => '525I',
-        'title' => ' - 525i',
-      ),
-      37 => 
-      array (
-        'value' => '525XI',
-        'title' => ' - 525xi',
-      ),
-      38 => 
-      array (
-        'value' => '528E',
-        'title' => ' - 528e',
-      ),
-      39 => 
-      array (
-        'value' => '528I',
-        'title' => ' - 528i',
-      ),
-      40 => 
-      array (
-        'value' => '528IT',
-        'title' => ' - 528iT',
-      ),
-      41 => 
-      array (
-        'value' => '528XI',
-        'title' => ' - 528xi',
-      ),
-      42 => 
-      array (
-        'value' => '530I',
-        'title' => ' - 530i',
-      ),
-      43 => 
-      array (
-        'value' => '530IT',
-        'title' => ' - 530iT',
-      ),
-      44 => 
-      array (
-        'value' => '530XI',
-        'title' => ' - 530xi',
-      ),
-      45 => 
-      array (
-        'value' => '533I',
-        'title' => ' - 533i',
-      ),
-      46 => 
-      array (
-        'value' => '535I',
-        'title' => ' - 535i',
-      ),
-      47 => 
-      array (
-        'value' => '535IGT',
-        'title' => ' - 535i Gran Turismo',
-      ),
-      48 => 
-      array (
-        'value' => '535XI',
-        'title' => ' - 535xi',
-      ),
-      49 => 
-      array (
-        'value' => '540I',
-        'title' => ' - 540i',
-      ),
-      50 => 
-      array (
-        'value' => '545I',
-        'title' => ' - 545i',
-      ),
-      51 => 
-      array (
-        'value' => '550I',
-        'title' => ' - 550i',
-      ),
-      52 => 
-      array (
-        'value' => '550IGT',
-        'title' => ' - 550i Gran Turismo',
-      ),
-      53 => 
-      array (
-        'value' => 'ACTIVE5',
-        'title' => ' - ActiveHybrid 5',
-      ),
-      54 => 
-      array (
-        'value' => '6_SERIES',
-        'title' => '6 Series (8)',
-      ),
-      55 => 
-      array (
-        'value' => '633CSI',
-        'title' => ' - 633CSi',
-      ),
-      56 => 
-      array (
-        'value' => '635CSI',
-        'title' => ' - 635CSi',
-      ),
-      57 => 
-      array (
-        'value' => '640I',
-        'title' => ' - 640i',
-      ),
-      58 => 
-      array (
-        'value' => '640IGC',
-        'title' => ' - 640i Gran Coupe',
-      ),
-      59 => 
-      array (
-        'value' => '645CI',
-        'title' => ' - 645Ci',
-      ),
-      60 => 
-      array (
-        'value' => '650I',
-        'title' => ' - 650i',
-      ),
-      61 => 
-      array (
-        'value' => '650IGC',
-        'title' => ' - 650i Gran Coupe',
-      ),
-      62 => 
-      array (
-        'value' => 'L6',
-        'title' => ' - L6',
-      ),
-      63 => 
-      array (
-        'value' => '7_SERIES',
-        'title' => '7 Series (15)',
-      ),
-      64 => 
-      array (
-        'value' => '733I',
-        'title' => ' - 733i',
-      ),
-      65 => 
-      array (
-        'value' => '735I',
-        'title' => ' - 735i',
-      ),
-      66 => 
-      array (
-        'value' => '735IL',
-        'title' => ' - 735iL',
-      ),
-      67 => 
-      array (
-        'value' => '740I',
-        'title' => ' - 740i',
-      ),
-      68 => 
-      array (
-        'value' => '740IL',
-        'title' => ' - 740iL',
-      ),
-      69 => 
-      array (
-        'value' => '740LI',
-        'title' => ' - 740Li',
-      ),
-      70 => 
-      array (
-        'value' => '745I',
-        'title' => ' - 745i',
-      ),
-      71 => 
-      array (
-        'value' => '745LI',
-        'title' => ' - 745Li',
-      ),
-      72 => 
-      array (
-        'value' => '750I',
-        'title' => ' - 750i',
-      ),
-      73 => 
-      array (
-        'value' => '750IL',
-        'title' => ' - 750iL',
-      ),
-      74 => 
-      array (
-        'value' => '750LI',
-        'title' => ' - 750Li',
-      ),
-      75 => 
-      array (
-        'value' => '760I',
-        'title' => ' - 760i',
-      ),
-      76 => 
-      array (
-        'value' => '760LI',
-        'title' => ' - 760Li',
-      ),
-      77 => 
-      array (
-        'value' => 'ACTIVE7',
-        'title' => ' - ActiveHybrid 7',
-      ),
-      78 => 
-      array (
-        'value' => 'ALPINAB7',
-        'title' => ' - Alpina B7',
-      ),
-      79 => 
-      array (
-        'value' => '8_SERIES',
-        'title' => '8 Series (4)',
-      ),
-      80 => 
-      array (
-        'value' => '840CI',
-        'title' => ' - 840Ci',
-      ),
-      81 => 
-      array (
-        'value' => '850CI',
-        'title' => ' - 850Ci',
-      ),
-      82 => 
-      array (
-        'value' => '850CSI',
-        'title' => ' - 850CSi',
-      ),
-      83 => 
-      array (
-        'value' => '850I',
-        'title' => ' - 850i',
-      ),
-      84 => 
-      array (
-        'value' => 'L_SERIES',
-        'title' => 'L Series (1)',
-      ),
-      85 => 
-      array (
-        'value' => 'L7',
-        'title' => ' - L7',
-      ),
-      86 => 
-      array (
-        'value' => 'M_SERIES',
-        'title' => 'M Series (8)',
-      ),
-      87 => 
-      array (
-        'value' => '1SERIESM',
-        'title' => ' - 1 Series M',
-      ),
-      88 => 
-      array (
-        'value' => 'BMWMCOUPE',
-        'title' => ' - M Coupe',
-      ),
-      89 => 
-      array (
-        'value' => 'BMWROAD',
-        'title' => ' - M Roadster',
-      ),
-      90 => 
-      array (
-        'value' => 'M3',
-        'title' => ' - M3',
-      ),
-      91 => 
-      array (
-        'value' => 'M5',
-        'title' => ' - M5',
-      ),
-      92 => 
-      array (
-        'value' => 'M6',
-        'title' => ' - M6',
-      ),
-      93 => 
-      array (
-        'value' => 'X5M',
-        'title' => ' - X5 M',
-      ),
-      94 => 
-      array (
-        'value' => 'X6M',
-        'title' => ' - X6 M',
-      ),
-      95 => 
-      array (
-        'value' => 'X_SERIES',
-        'title' => 'X Series (5)',
-      ),
-      96 => 
-      array (
-        'value' => 'ACTIVEX6',
-        'title' => ' - ActiveHybrid X6',
-      ),
-      97 => 
-      array (
-        'value' => 'X1',
-        'title' => ' - X1',
-      ),
-      98 => 
-      array (
-        'value' => 'X3',
-        'title' => ' - X3',
-      ),
-      99 => 
-      array (
-        'value' => 'X5',
-        'title' => ' - X5',
-      ),
-      100 => 
-      array (
-        'value' => 'X6',
-        'title' => ' - X6',
-      ),
-      101 => 
-      array (
-        'value' => 'Z_SERIES',
-        'title' => 'Z Series (3)',
-      ),
-      102 => 
-      array (
-        'value' => 'Z3',
-        'title' => ' - Z3',
-      ),
-      103 => 
-      array (
-        'value' => 'Z4',
-        'title' => ' - Z4',
-      ),
-      104 => 
-      array (
-        'value' => 'Z8',
-        'title' => ' - Z8',
-      ),
-      105 => 
-      array (
-        'value' => 'BMWOTH',
-        'title' => 'Other BMW Models',
-      ),
-    ),
-  ),
-  8 => 
-  array (
-    'value' => 'BUICK',
-    'title' => 'Buick',
-    'models' => 
-    array (
-      0 => 
-      array (
-        'value' => 'CENT',
-        'title' => 'Century',
-      ),
-      1 => 
-      array (
-        'value' => 'ELEC',
-        'title' => 'Electra',
-      ),
-      2 => 
-      array (
-        'value' => 'ENCLAVE',
-        'title' => 'Enclave',
-      ),
-      3 => 
-      array (
-        'value' => 'BUIENC',
-        'title' => 'Encore',
-      ),
-      4 => 
-      array (
-        'value' => 'LACROSSE',
-        'title' => 'LaCrosse',
-      ),
-      5 => 
-      array (
-        'value' => 'LESA',
-        'title' => 'Le Sabre',
-      ),
-      6 => 
-      array (
-        'value' => 'LUCERNE',
-        'title' => 'Lucerne',
-      ),
-      7 => 
-      array (
-        'value' => 'PARK',
-        'title' => 'Park Avenue',
-      ),
-      8 => 
-      array (
-        'value' => 'RAINIER',
-        'title' => 'Rainier',
-      ),
-      9 => 
-      array (
-        'value' => 'REATTA',
-        'title' => 'Reatta',
-      ),
-      10 => 
-      array (
-        'value' => 'REG',
-        'title' => 'Regal',
-      ),
-      11 => 
-      array (
-        'value' => 'RENDEZVOUS',
-        'title' => 'Rendezvous',
-      ),
-      12 => 
-      array (
-        'value' => 'RIV',
-        'title' => 'Riviera',
-      ),
-      13 => 
-      array (
-        'value' => 'BUICKROAD',
-        'title' => 'Roadmaster',
-      ),
-      14 => 
-      array (
-        'value' => 'SKYH',
-        'title' => 'Skyhawk',
-      ),
-      15 => 
-      array (
-        'value' => 'SKYL',
-        'title' => 'Skylark',
-      ),
-      16 => 
-      array (
-        'value' => 'SOMER',
-        'title' => 'Somerset',
-      ),
-      17 => 
-      array (
-        'value' => 'TERRAZA',
-        'title' => 'Terraza',
-      ),
-      18 => 
-      array (
-        'value' => 'BUVERANO',
-        'title' => 'Verano',
-      ),
-      19 => 
-      array (
-        'value' => 'BUOTH',
-        'title' => 'Other Buick Models',
-      ),
-    ),
-  ),
-  9 => 
-  array (
-    'value' => 'CAD',
-    'title' => 'Cadillac',
-    'models' => 
-    array (
-      0 => 
-      array (
-        'value' => 'ALLANT',
-        'title' => 'Allante',
-      ),
-      1 => 
-      array (
-        'value' => 'ATS',
-        'title' => 'ATS',
-      ),
-      2 => 
-      array (
-        'value' => 'BROUGH',
-        'title' => 'Brougham',
-      ),
-      3 => 
-      array (
-        'value' => 'CATERA',
-        'title' => 'Catera',
-      ),
-      4 => 
-      array (
-        'value' => 'CIMA',
-        'title' => 'Cimarron',
-      ),
-      5 => 
-      array (
-        'value' => 'CTS',
-        'title' => 'CTS',
-      ),
-      6 => 
-      array (
-        'value' => 'DEV',
-        'title' => 'De Ville',
-      ),
-      7 => 
-      array (
-        'value' => 'DTS',
-        'title' => 'DTS',
-      ),
-      8 => 
-      array (
-        'value' => 'ELDO',
-        'title' => 'Eldorado',
-      ),
-      9 => 
-      array (
-        'value' => 'ESCALA',
-        'title' => 'Escalade',
-      ),
-      10 => 
-      array (
-        'value' => 'ESCALAESV',
-        'title' => 'Escalade ESV',
-      ),
-      11 => 
-      array (
-        'value' => 'EXT',
-        'title' => 'Escalade EXT',
-      ),
-      12 => 
-      array (
-        'value' => 'FLEE',
-        'title' => 'Fleetwood',
-      ),
-      13 => 
-      array (
-        'value' => 'SEV',
-        'title' => 'Seville',
-      ),
-      14 => 
-      array (
-        'value' => 'SRX',
-        'title' => 'SRX',
-      ),
-      15 => 
-      array (
-        'value' => 'STS',
-        'title' => 'STS',
-      ),
-      16 => 
-      array (
-        'value' => 'XLR',
-        'title' => 'XLR',
-      ),
-      17 => 
-      array (
-        'value' => 'XTS',
-        'title' => 'XTS',
-      ),
-      18 => 
-      array (
-        'value' => 'CADOTH',
-        'title' => 'Other Cadillac Models',
-      ),
-    ),
-  ),
-  10 => 
-  array (
-    'value' => 'CHEV',
-    'title' => 'Chevrolet',
-    'models' => 
-    array (
-      0 => 
-      array (
-        'value' => 'ASTRO',
-        'title' => 'Astro',
-      ),
-      1 => 
-      array (
-        'value' => 'AVALNCH',
-        'title' => 'Avalanche',
-      ),
-      2 => 
-      array (
-        'value' => 'AVEO',
-        'title' => 'Aveo',
-      ),
-      3 => 
-      array (
-        'value' => 'AVEO5',
-        'title' => 'Aveo5',
-      ),
-      4 => 
-      array (
-        'value' => 'BERETT',
-        'title' => 'Beretta',
-      ),
-      5 => 
-      array (
-        'value' => 'BLAZER',
-        'title' => 'Blazer',
-      ),
-      6 => 
-      array (
-        'value' => 'CAM',
-        'title' => 'Camaro',
-      ),
-      7 => 
-      array (
-        'value' => 'CAP',
-        'title' => 'Caprice',
-      ),
-      8 => 
-      array (
-        'value' => 'CHECAPS',
-        'title' => 'Captiva Sport',
-      ),
-      9 => 
-      array (
-        'value' => 'CAV',
-        'title' => 'Cavalier',
-      ),
-      10 => 
-      array (
-        'value' => 'CELE',
-        'title' => 'Celebrity',
-      ),
-      11 => 
-      array (
-        'value' => 'CHEVETTE',
-        'title' => 'Chevette',
-      ),
-      12 => 
-      array (
-        'value' => 'CITATION',
-        'title' => 'Citation',
-      ),
-      13 => 
-      array (
-        'value' => 'COBALT',
-        'title' => 'Cobalt',
-      ),
-      14 => 
-      array (
-        'value' => 'COLORADO',
-        'title' => 'Colorado',
-      ),
-      15 => 
-      array (
-        'value' => 'CORSI',
-        'title' => 'Corsica',
-      ),
-      16 => 
-      array (
-        'value' => 'CORV',
-        'title' => 'Corvette',
-      ),
-      17 => 
-      array (
-        'value' => 'CRUZE',
-        'title' => 'Cruze',
-      ),
-      18 => 
-      array (
-        'value' => 'ELCAM',
-        'title' => 'El Camino',
-      ),
-      19 => 
-      array (
-        'value' => 'EQUINOX',
-        'title' => 'Equinox',
-      ),
-      20 => 
-      array (
-        'value' => 'G15EXP',
-        'title' => 'Express Van',
-      ),
-      21 => 
-      array (
-        'value' => 'G10',
-        'title' => 'G Van',
-      ),
-      22 => 
-      array (
-        'value' => 'HHR',
-        'title' => 'HHR',
-      ),
-      23 => 
-      array (
-        'value' => 'CHEVIMP',
-        'title' => 'Impala',
-      ),
-      24 => 
-      array (
-        'value' => 'KODC4500',
-        'title' => 'Kodiak C4500',
-      ),
-      25 => 
-      array (
-        'value' => 'LUMINA',
-        'title' => 'Lumina',
-      ),
-      26 => 
-      array (
-        'value' => 'LAPV',
-        'title' => 'Lumina APV',
-      ),
-      27 => 
-      array (
-        'value' => 'LUV',
-        'title' => 'LUV',
-      ),
-      28 => 
-      array (
-        'value' => 'MALI',
-        'title' => 'Malibu',
-      ),
-      29 => 
-      array (
-        'value' => 'CHVMETR',
-        'title' => 'Metro',
-      ),
-      30 => 
-      array (
-        'value' => 'CHEVMONT',
-        'title' => 'Monte Carlo',
-      ),
-      31 => 
-      array (
-        'value' => 'NOVA',
-        'title' => 'Nova',
-      ),
-      32 => 
-      array (
-        'value' => 'CHEVPRIZM',
-        'title' => 'Prizm',
-      ),
-      33 => 
-      array (
-        'value' => 'CHVST',
-        'title' => 'S10 Blazer',
-      ),
-      34 => 
-      array (
-        'value' => 'S10PICKUP',
-        'title' => 'S10 Pickup',
-      ),
-      35 => 
-      array (
-        'value' => 'CHEV150',
-        'title' => 'Silverado and other C/K1500',
-      ),
-      36 => 
-      array (
-        'value' => 'CHEVC25',
-        'title' => 'Silverado and other C/K2500',
-      ),
-      37 => 
-      array (
-        'value' => 'CH3500PU',
-        'title' => 'Silverado and other C/K3500',
-      ),
-      38 => 
-      array (
-        'value' => 'SONIC',
-        'title' => 'Sonic',
-      ),
-      39 => 
-      array (
-        'value' => 'SPARK',
-        'title' => 'Spark',
-      ),
-      40 => 
-      array (
-        'value' => 'CHEVSPEC',
-        'title' => 'Spectrum',
-      ),
-      41 => 
-      array (
-        'value' => 'CHSPRINT',
-        'title' => 'Sprint',
-      ),
-      42 => 
-      array (
-        'value' => 'SSR',
-        'title' => 'SSR',
-      ),
-      43 => 
-      array (
-        'value' => 'CHEVSUB',
-        'title' => 'Suburban',
-      ),
-      44 => 
-      array (
-        'value' => 'TAHOE',
-        'title' => 'Tahoe',
-      ),
-      45 => 
-      array (
-        'value' => 'TRACKE',
-        'title' => 'Tracker',
-      ),
-      46 => 
-      array (
-        'value' => 'TRAILBLZ',
-        'title' => 'TrailBlazer',
-      ),
-      47 => 
-      array (
-        'value' => 'TRAILBZEXT',
-        'title' => 'TrailBlazer EXT',
-      ),
-      48 => 
-      array (
-        'value' => 'TRAVERSE',
-        'title' => 'Traverse',
-      ),
-      49 => 
-      array (
-        'value' => 'UPLANDER',
-        'title' => 'Uplander',
-      ),
-      50 => 
-      array (
-        'value' => 'VENTUR',
-        'title' => 'Venture',
-      ),
-      51 => 
-      array (
-        'value' => 'VOLT',
-        'title' => 'Volt',
-      ),
-      52 => 
-      array (
-        'value' => 'CHEOTH',
-        'title' => 'Other Chevrolet Models',
-      ),
-    ),
-  ),
-  11 => 
-  array (
-    'value' => 'CHRY',
-    'title' => 'Chrysler',
-    'models' => 
-    array (
-      0 => 
-      array (
-        'value' => 'CHRYS200',
-        'title' => '200',
-      ),
-      1 => 
-      array (
-        'value' => '300',
-        'title' => '300',
-      ),
-      2 => 
-      array (
-        'value' => 'CHRY300',
-        'title' => '300M',
-      ),
-      3 => 
-      array (
-        'value' => 'ASPEN',
-        'title' => 'Aspen',
-      ),
-      4 => 
-      array (
-        'value' => 'CARAVAN',
-        'title' => 'Caravan',
-      ),
-      5 => 
-      array (
-        'value' => 'CIRRUS',
-        'title' => 'Cirrus',
-      ),
-      6 => 
-      array (
-        'value' => 'CONC',
-        'title' => 'Concorde',
-      ),
-      7 => 
-      array (
-        'value' => 'CHRYCONQ',
-        'title' => 'Conquest',
-      ),
-      8 => 
-      array (
-        'value' => 'CORDOBA',
-        'title' => 'Cordoba',
-      ),
-      9 => 
-      array (
-        'value' => 'CROSSFIRE',
-        'title' => 'Crossfire',
-      ),
-      10 => 
-      array (
-        'value' => 'ECLASS',
-        'title' => 'E Class',
-      ),
-      11 => 
-      array (
-        'value' => 'FIFTH',
-        'title' => 'Fifth Avenue',
-      ),
-      12 => 
-      array (
-        'value' => 'CHRYGRANDV',
-        'title' => 'Grand Voyager',
-      ),
-      13 => 
-      array (
-        'value' => 'IMPE',
-        'title' => 'Imperial',
-      ),
-      14 => 
-      array (
-        'value' => 'INTREPID',
-        'title' => 'Intrepid',
-      ),
-      15 => 
-      array (
-        'value' => 'CHRYLAS',
-        'title' => 'Laser',
-      ),
-      16 => 
-      array (
-        'value' => 'LEBA',
-        'title' => 'LeBaron',
-      ),
-      17 => 
-      array (
-        'value' => 'LHS',
-        'title' => 'LHS',
-      ),
-      18 => 
-      array (
-        'value' => 'CHRYNEON',
-        'title' => 'Neon',
-      ),
-      19 => 
-      array (
-        'value' => 'NY',
-        'title' => 'New Yorker',
-      ),
-      20 => 
-      array (
-        'value' => 'NEWPORT',
-        'title' => 'Newport',
-      ),
-      21 => 
-      array (
-        'value' => 'PACIFICA',
-        'title' => 'Pacifica',
-      ),
-      22 => 
-      array (
-        'value' => 'CHPROWLE',
-        'title' => 'Prowler',
-      ),
-      23 => 
-      array (
-        'value' => 'PTCRUIS',
-        'title' => 'PT Cruiser',
-      ),
-      24 => 
-      array (
-        'value' => 'CHRYSEB',
-        'title' => 'Sebring',
-      ),
-      25 => 
-      array (
-        'value' => 'CHRYTC',
-        'title' => 'TC by Maserati',
-      ),
-      26 => 
-      array (
-        'value' => 'TANDC',
-        'title' => 'Town & Country',
-      ),
-      27 => 
-      array (
-        'value' => 'VOYAGER',
-        'title' => 'Voyager',
-      ),
-      28 => 
-      array (
-        'value' => 'CHOTH',
-        'title' => 'Other Chrysler Models',
-      ),
-    ),
-  ),
-  12 => 
-  array (
-    'value' => 'DAEW',
-    'title' => 'Daewoo',
-    'models' => 
-    array (
-      0 => 
-      array (
-        'value' => 'LANOS',
-        'title' => 'Lanos',
-      ),
-      1 => 
-      array (
-        'value' => 'LEGANZA',
-        'title' => 'Leganza',
-      ),
-      2 => 
-      array (
-        'value' => 'NUBIRA',
-        'title' => 'Nubira',
-      ),
-      3 => 
-      array (
-        'value' => 'DAEOTH',
-        'title' => 'Other Daewoo Models',
-      ),
-    ),
-  ),
-  13 => 
-  array (
-    'value' => 'DAIHAT',
-    'title' => 'Daihatsu',
-    'models' => 
-    array (
-      0 => 
-      array (
-        'value' => 'CHAR',
-        'title' => 'Charade',
-      ),
-      1 => 
-      array (
-        'value' => 'ROCKY',
-        'title' => 'Rocky',
-      ),
-      2 => 
-      array (
-        'value' => 'DAIHOTH',
-        'title' => 'Other Daihatsu Models',
-      ),
-    ),
-  ),
-  14 => 
-  array (
-    'value' => 'DATSUN',
-    'title' => 'Datsun',
-    'models' => 
-    array (
-      0 => 
-      array (
-        'value' => 'DAT200SX',
-        'title' => '200SX',
-      ),
-      1 => 
-      array (
-        'value' => 'DAT210',
-        'title' => '210',
-      ),
-      2 => 
-      array (
-        'value' => '280Z',
-        'title' => '280ZX',
-      ),
-      3 => 
-      array (
-        'value' => '300ZX',
-        'title' => '300ZX',
-      ),
-      4 => 
-      array (
-        'value' => '310',
-        'title' => '310',
-      ),
-      5 => 
-      array (
-        'value' => '510',
-        'title' => '510',
-      ),
-      6 => 
-      array (
-        'value' => '720',
-        'title' => '720',
-      ),
-      7 => 
-      array (
-        'value' => '810',
-        'title' => '810',
-      ),
-      8 => 
-      array (
-        'value' => 'DATMAX',
-        'title' => 'Maxima',
-      ),
-      9 => 
-      array (
-        'value' => 'DATPU',
-        'title' => 'Pickup',
-      ),
-      10 => 
-      array (
-        'value' => 'PUL',
-        'title' => 'Pulsar',
-      ),
-      11 => 
-      array (
-        'value' => 'DATSENT',
-        'title' => 'Sentra',
-      ),
-      12 => 
-      array (
-        'value' => 'STAN',
-        'title' => 'Stanza',
-      ),
-      13 => 
-      array (
-        'value' => 'DATOTH',
-        'title' => 'Other Datsun Models',
-      ),
-    ),
-  ),
-  15 => 
-  array (
-    'value' => 'DELOREAN',
-    'title' => 'DeLorean',
-    'models' => 
-    array (
-      0 => 
-      array (
-        'value' => 'DMC12',
-        'title' => 'DMC-12',
-      ),
-    ),
-  ),
-  16 => 
-  array (
-    'value' => 'DODGE',
-    'title' => 'Dodge',
-    'models' => 
-    array (
-      0 => 
-      array (
-        'value' => '400',
-        'title' => '400',
-      ),
-      1 => 
-      array (
-        'value' => 'DOD600',
-        'title' => '600',
-      ),
-      2 => 
-      array (
-        'value' => 'ARI',
-        'title' => 'Aries',
-      ),
-      3 => 
-      array (
-        'value' => 'AVENGR',
-        'title' => 'Avenger',
-      ),
-      4 => 
-      array (
-        'value' => 'CALIBER',
-        'title' => 'Caliber',
-      ),
-      5 => 
-      array (
-        'value' => 'DODCARA',
-        'title' => 'Caravan',
-      ),
-      6 => 
-      array (
-        'value' => 'CHALLENGER',
-        'title' => 'Challenger',
-      ),
-      7 => 
-      array (
-        'value' => 'DODCHAR',
-        'title' => 'Charger',
-      ),
-      8 => 
-      array (
-        'value' => 'DODCOLT',
-        'title' => 'Colt',
-      ),
-      9 => 
-      array (
-        'value' => 'DODCONQ',
-        'title' => 'Conquest',
-      ),
-      10 => 
-      array (
-        'value' => 'DODDW',
-        'title' => 'D/W Truck',
-      ),
-      11 => 
-      array (
-        'value' => 'DAKOTA',
-        'title' => 'Dakota',
-      ),
-      12 => 
-      array (
-        'value' => 'DODDART',
-        'title' => 'Dart',
-      ),
-      13 => 
-      array (
-        'value' => 'DAY',
-        'title' => 'Daytona',
-      ),
-      14 => 
-      array (
-        'value' => 'DIPLOMA',
-        'title' => 'Diplomat',
-      ),
-      15 => 
-      array (
-        'value' => 'DURANG',
-        'title' => 'Durango',
-      ),
-      16 => 
-      array (
-        'value' => 'DODDYNA',
-        'title' => 'Dynasty',
-      ),
-      17 => 
-      array (
-        'value' => 'GRANDCARAV',
-        'title' => 'Grand Caravan',
-      ),
-      18 => 
-      array (
-        'value' => 'INTRE',
-        'title' => 'Intrepid',
-      ),
-      19 => 
-      array (
-        'value' => 'JOURNEY',
-        'title' => 'Journey',
-      ),
-      20 => 
-      array (
-        'value' => 'LANCERDODG',
-        'title' => 'Lancer',
-      ),
-      21 => 
-      array (
-        'value' => 'MAGNUM',
-        'title' => 'Magnum',
-      ),
-      22 => 
-      array (
-        'value' => 'MIRADA',
-        'title' => 'Mirada',
-      ),
-      23 => 
-      array (
-        'value' => 'MONACO',
-        'title' => 'Monaco',
-      ),
-      24 => 
-      array (
-        'value' => 'DODNEON',
-        'title' => 'Neon',
-      ),
-      25 => 
-      array (
-        'value' => 'NITRO',
-        'title' => 'Nitro',
-      ),
-      26 => 
-      array (
-        'value' => 'OMNI',
-        'title' => 'Omni',
-      ),
-      27 => 
-      array (
-        'value' => 'RAIDER',
-        'title' => 'Raider',
-      ),
-      28 => 
-      array (
-        'value' => 'RAM1504WD',
-        'title' => 'Ram 1500 Truck',
-      ),
-      29 => 
-      array (
-        'value' => 'RAM25002WD',
-        'title' => 'Ram 2500 Truck',
-      ),
-      30 => 
-      array (
-        'value' => 'RAM3502WD',
-        'title' => 'Ram 3500 Truck',
-      ),
-      31 => 
-      array (
-        'value' => 'RAM4500',
-        'title' => 'Ram 4500 Truck',
-      ),
-      32 => 
-      array (
-        'value' => 'DODD50',
-        'title' => 'Ram 50 Truck',
-      ),
-      33 => 
-      array (
-        'value' => 'CV',
-        'title' => 'RAM C/V',
-      ),
-      34 => 
-      array (
-        'value' => 'RAMSRT10',
-        'title' => 'Ram SRT-10',
-      ),
-      35 => 
-      array (
-        'value' => 'RAMVANV8',
-        'title' => 'Ram Van',
-      ),
-      36 => 
-      array (
-        'value' => 'RAMWAGON',
-        'title' => 'Ram Wagon',
-      ),
-      37 => 
-      array (
-        'value' => 'RAMCGR',
-        'title' => 'Ramcharger',
-      ),
-      38 => 
-      array (
-        'value' => 'RAMPAGE',
-        'title' => 'Rampage',
-      ),
-      39 => 
-      array (
-        'value' => 'DODSHAD',
-        'title' => 'Shadow',
-      ),
-      40 => 
-      array (
-        'value' => 'DODSPIR',
-        'title' => 'Spirit',
-      ),
-      41 => 
-      array (
-        'value' => 'SPRINTER',
-        'title' => 'Sprinter',
-      ),
-      42 => 
-      array (
-        'value' => 'SRT4',
-        'title' => 'SRT-4',
-      ),
-      43 => 
-      array (
-        'value' => 'STREGIS',
-        'title' => 'St. Regis',
-      ),
-      44 => 
-      array (
-        'value' => 'STEAL',
-        'title' => 'Stealth',
-      ),
-      45 => 
-      array (
-        'value' => 'STRATU',
-        'title' => 'Stratus',
-      ),
-      46 => 
-      array (
-        'value' => 'VIPER',
-        'title' => 'Viper',
-      ),
-      47 => 
-      array (
-        'value' => 'DOOTH',
-        'title' => 'Other Dodge Models',
-      ),
-    ),
-  ),
-  17 => 
-  array (
-    'value' => 'EAGLE',
-    'title' => 'Eagle',
-    'models' => 
-    array (
-      0 => 
-      array (
-        'value' => 'EAGLEMED',
-        'title' => 'Medallion',
-      ),
-      1 => 
-      array (
-        'value' => 'EAGLEPREM',
-        'title' => 'Premier',
-      ),
-      2 => 
-      array (
-        'value' => 'SUMMIT',
-        'title' => 'Summit',
-      ),
-      3 => 
-      array (
-        'value' => 'TALON',
-        'title' => 'Talon',
-      ),
-      4 => 
-      array (
-        'value' => 'VISION',
-        'title' => 'Vision',
-      ),
-      5 => 
-      array (
-        'value' => 'EAGOTH',
-        'title' => 'Other Eagle Models',
-      ),
-    ),
-  ),
-  18 => 
-  array (
-    'value' => 'FER',
-    'title' => 'Ferrari',
-    'models' => 
-    array (
-      0 => 
-      array (
-        'value' => '308GTB',
-        'title' => '308 GTB Quattrovalvole',
-      ),
-      1 => 
-      array (
-        'value' => '308TBI',
-        'title' => '308 GTBI',
-      ),
-      2 => 
-      array (
-        'value' => '308GTS',
-        'title' => '308 GTS Quattrovalvole',
-      ),
-      3 => 
-      array (
-        'value' => '308TSI',
-        'title' => '308 GTSI',
-      ),
-      4 => 
-      array (
-        'value' => '328GTB',
-        'title' => '328 GTB',
-      ),
-      5 => 
-      array (
-        'value' => '328GTS',
-        'title' => '328 GTS',
-      ),
-      6 => 
-      array (
-        'value' => '348GTB',
-        'title' => '348 GTB',
-      ),
-      7 => 
-      array (
-        'value' => '348GTS',
-        'title' => '348 GTS',
-      ),
-      8 => 
-      array (
-        'value' => '348SPI',
-        'title' => '348 Spider',
-      ),
-      9 => 
-      array (
-        'value' => '348TB',
-        'title' => '348 TB',
-      ),
-      10 => 
-      array (
-        'value' => '348TS',
-        'title' => '348 TS',
-      ),
-      11 => 
-      array (
-        'value' => '360',
-        'title' => '360',
-      ),
-      12 => 
-      array (
-        'value' => '456GT',
-        'title' => '456 GT',
-      ),
-      13 => 
-      array (
-        'value' => '456MGT',
-        'title' => '456M GT',
-      ),
-      14 => 
-      array (
-        'value' => '458ITALIA',
-        'title' => '458 Italia',
-      ),
-      15 => 
-      array (
-        'value' => '512BBI',
-        'title' => '512 BBi',
-      ),
-      16 => 
-      array (
-        'value' => '512M',
-        'title' => '512M',
-      ),
-      17 => 
-      array (
-        'value' => '512TR',
-        'title' => '512TR',
-      ),
-      18 => 
-      array (
-        'value' => '550M',
-        'title' => '550 Maranello',
-      ),
-      19 => 
-      array (
-        'value' => '575M',
-        'title' => '575M Maranello',
-      ),
-      20 => 
-      array (
-        'value' => '599GTB',
-        'title' => '599 GTB Fiorano',
-      ),
-      21 => 
-      array (
-        'value' => '599GTO',
-        'title' => '599 GTO',
-      ),
-      22 => 
-      array (
-        'value' => '612SCAGLIE',
-        'title' => '612 Scaglietti',
-      ),
-      23 => 
-      array (
-        'value' => 'FERCALIF',
-        'title' => 'California',
-      ),
-      24 => 
-      array (
-        'value' => 'ENZO',
-        'title' => 'Enzo',
-      ),
-      25 => 
-      array (
-        'value' => 'F355',
-        'title' => 'F355',
-      ),
-      26 => 
-      array (
-        'value' => 'F40',
-        'title' => 'F40',
-      ),
-      27 => 
-      array (
-        'value' => 'F430',
-        'title' => 'F430',
-      ),
-      28 => 
-      array (
-        'value' => 'F50',
-        'title' => 'F50',
-      ),
-      29 => 
-      array (
-        'value' => 'FERFF',
-        'title' => 'FF',
-      ),
-      30 => 
-      array (
-        'value' => 'MOND',
-        'title' => 'Mondial',
-      ),
-      31 => 
-      array (
-        'value' => 'TEST',
-        'title' => 'Testarossa',
-      ),
-      32 => 
-      array (
-        'value' => 'UNAVAILFER',
-        'title' => 'Other Ferrari Models',
-      ),
-    ),
-  ),
-  19 => 
-  array (
-    'value' => 'FIAT',
-    'title' => 'FIAT',
-    'models' => 
-    array (
-      0 => 
-      array (
-        'value' => '2000',
-        'title' => '2000 Spider',
-      ),
-      1 => 
-      array (
-        'value' => 'FIAT500',
-        'title' => '500',
-      ),
-      2 => 
-      array (
-        'value' => 'BERTON',
-        'title' => 'Bertone X1/9',
-      ),
-      3 => 
-      array (
-        'value' => 'BRAVA',
-        'title' => 'Brava',
-      ),
-      4 => 
-      array (
-        'value' => 'PININ',
-        'title' => 'Pininfarina Spider',
-      ),
-      5 => 
-      array (
-        'value' => 'STRADA',
-        'title' => 'Strada',
-      ),
-      6 => 
-      array (
-        'value' => 'FIATX19',
-        'title' => 'X1/9',
-      ),
-      7 => 
-      array (
-        'value' => 'UNAVAILFIA',
-        'title' => 'Other Fiat Models',
-      ),
-    ),
-  ),
-  20 => 
-  array (
-    'value' => 'FISK',
-    'title' => 'Fisker',
-    'models' => 
-    array (
-      0 => 
-      array (
-        'value' => 'KARMA',
-        'title' => 'Karma',
-      ),
-    ),
-  ),
-  21 => 
-  array (
-    'value' => 'FORD',
-    'title' => 'Ford',
-    'models' => 
-    array (
-      0 => 
-      array (
-        'value' => 'AERO',
-        'title' => 'Aerostar',
-      ),
-      1 => 
-      array (
-        'value' => 'ASPIRE',
-        'title' => 'Aspire',
-      ),
-      2 => 
-      array (
-        'value' => 'BRON',
-        'title' => 'Bronco',
-      ),
-      3 => 
-      array (
-        'value' => 'B2',
-        'title' => 'Bronco II',
-      ),
-      4 => 
-      array (
-        'value' => 'FOCMAX',
-        'title' => 'C-MAX',
-      ),
-      5 => 
-      array (
-        'value' => 'FORDCLUB',
-        'title' => 'Club Wagon',
-      ),
-      6 => 
-      array (
-        'value' => 'CONTOUR',
-        'title' => 'Contour',
-      ),
-      7 => 
-      array (
-        'value' => 'COURIER',
-        'title' => 'Courier',
-      ),
-      8 => 
-      array (
-        'value' => 'CROWNVIC',
-        'title' => 'Crown Victoria',
-      ),
-      9 => 
-      array (
-        'value' => 'E150ECON',
-        'title' => 'E-150 and Econoline 150',
-      ),
-      10 => 
-      array (
-        'value' => 'E250ECON',
-        'title' => 'E-250 and Econoline 250',
-      ),
-      11 => 
-      array (
-        'value' => 'E350ECON',
-        'title' => 'E-350 and Econoline 350',
-      ),
-      12 => 
-      array (
-        'value' => 'EDGE',
-        'title' => 'Edge',
-      ),
-      13 => 
-      array (
-        'value' => 'ESCAPE',
-        'title' => 'Escape',
-      ),
-      14 => 
-      array (
-        'value' => 'ESCO',
-        'title' => 'Escort',
-      ),
-      15 => 
-      array (
-        'value' => 'EXCURSION',
-        'title' => 'Excursion',
-      ),
-      16 => 
-      array (
-        'value' => 'EXP',
-        'title' => 'EXP',
-      ),
-      17 => 
-      array (
-        'value' => 'EXPEDI',
-        'title' => 'Expedition',
-      ),
-      18 => 
-      array (
-        'value' => 'EXPEDIEL',
-        'title' => 'Expedition EL',
-      ),
-      19 => 
-      array (
-        'value' => 'EXPLOR',
-        'title' => 'Explorer',
-      ),
-      20 => 
-      array (
-        'value' => 'SPORTTRAC',
-        'title' => 'Explorer Sport Trac',
-      ),
-      21 => 
-      array (
-        'value' => 'F100',
-        'title' => 'F100',
-      ),
-      22 => 
-      array (
-        'value' => 'F150PICKUP',
-        'title' => 'F150',
-      ),
-      23 => 
-      array (
-        'value' => 'F250',
-        'title' => 'F250',
-      ),
-      24 => 
-      array (
-        'value' => 'F350',
-        'title' => 'F350',
-      ),
-      25 => 
-      array (
-        'value' => 'F450',
-        'title' => 'F450',
-      ),
-      26 => 
-      array (
-        'value' => 'FAIRM',
-        'title' => 'Fairmont',
-      ),
-      27 => 
-      array (
-        'value' => 'FESTIV',
-        'title' => 'Festiva',
-      ),
-      28 => 
-      array (
-        'value' => 'FIESTA',
-        'title' => 'Fiesta',
-      ),
-      29 => 
-      array (
-        'value' => 'FIVEHUNDRE',
-        'title' => 'Five Hundred',
-      ),
-      30 => 
-      array (
-        'value' => 'FLEX',
-        'title' => 'Flex',
-      ),
-      31 => 
-      array (
-        'value' => 'FOCUS',
-        'title' => 'Focus',
-      ),
-      32 => 
-      array (
-        'value' => 'FREESTAR',
-        'title' => 'Freestar',
-      ),
-      33 => 
-      array (
-        'value' => 'FREESTYLE',
-        'title' => 'Freestyle',
-      ),
-      34 => 
-      array (
-        'value' => 'FUSION',
-        'title' => 'Fusion',
-      ),
-      35 => 
-      array (
-        'value' => 'GRANADA',
-        'title' => 'Granada',
-      ),
-      36 => 
-      array (
-        'value' => 'GT',
-        'title' => 'GT',
-      ),
-      37 => 
-      array (
-        'value' => 'LTD',
-        'title' => 'LTD',
-      ),
-      38 => 
-      array (
-        'value' => 'MUST',
-        'title' => 'Mustang',
-      ),
-      39 => 
-      array (
-        'value' => 'PROBE',
-        'title' => 'Probe',
-      ),
-      40 => 
-      array (
-        'value' => 'RANGER',
-        'title' => 'Ranger',
-      ),
-      41 => 
-      array (
-        'value' => 'TAURUS',
-        'title' => 'Taurus',
-      ),
-      42 => 
-      array (
-        'value' => 'TAURUSX',
-        'title' => 'Taurus X',
-      ),
-      43 => 
-      array (
-        'value' => 'TEMPO',
-        'title' => 'Tempo',
-      ),
-      44 => 
-      array (
-        'value' => 'TBIRD',
-        'title' => 'Thunderbird',
-      ),
-      45 => 
-      array (
-        'value' => 'TRANSCONN',
-        'title' => 'Transit Connect',
-      ),
-      46 => 
-      array (
-        'value' => 'WINDST',
-        'title' => 'Windstar',
-      ),
-      47 => 
-      array (
-        'value' => 'FORDZX2',
-        'title' => 'ZX2 Escort',
-      ),
-      48 => 
-      array (
-        'value' => 'FOOTH',
-        'title' => 'Other Ford Models',
-      ),
-    ),
-  ),
-  22 => 
-  array (
-    'value' => 'FREIGHT',
-    'title' => 'Freightliner',
-    'models' => 
-    array (
-      0 => 
-      array (
-        'value' => 'FRESPRINT',
-        'title' => 'Sprinter',
-      ),
-    ),
-  ),
-  23 => 
-  array (
-    'value' => 'GEO',
-    'title' => 'Geo',
-    'models' => 
-    array (
-      0 => 
-      array (
-        'value' => 'GEOMETRO',
-        'title' => 'Metro',
-      ),
-      1 => 
-      array (
-        'value' => 'GEOPRIZM',
-        'title' => 'Prizm',
-      ),
-      2 => 
-      array (
-        'value' => 'SPECT',
-        'title' => 'Spectrum',
-      ),
-      3 => 
-      array (
-        'value' => 'STORM',
-        'title' => 'Storm',
-      ),
-      4 => 
-      array (
-        'value' => 'GEOTRACK',
-        'title' => 'Tracker',
-      ),
-      5 => 
-      array (
-        'value' => 'GEOOTH',
-        'title' => 'Other Geo Models',
-      ),
-    ),
-  ),
-  24 => 
-  array (
-    'value' => 'GMC',
-    'title' => 'GMC',
-    'models' => 
-    array (
-      0 => 
-      array (
-        'value' => 'ACADIA',
-        'title' => 'Acadia',
-      ),
-      1 => 
-      array (
-        'value' => 'CABALLERO',
-        'title' => 'Caballero',
-      ),
-      2 => 
-      array (
-        'value' => 'CANYON',
-        'title' => 'Canyon',
-      ),
-      3 => 
-      array (
-        'value' => 'ENVOY',
-        'title' => 'Envoy',
-      ),
-      4 => 
-      array (
-        'value' => 'ENVOYXL',
-        'title' => 'Envoy XL',
-      ),
-      5 => 
-      array (
-        'value' => 'ENVOYXUV',
-        'title' => 'Envoy XUV',
-      ),
-      6 => 
-      array (
-        'value' => 'JIM',
-        'title' => 'Jimmy',
-      ),
-      7 => 
-      array (
-        'value' => 'RALLYWAG',
-        'title' => 'Rally Wagon',
-      ),
-      8 => 
-      array (
-        'value' => 'GMCS15',
-        'title' => 'S15 Jimmy',
-      ),
-      9 => 
-      array (
-        'value' => 'S15',
-        'title' => 'S15 Pickup',
-      ),
-      10 => 
-      array (
-        'value' => 'SAFARIGMC',
-        'title' => 'Safari',
-      ),
-      11 => 
-      array (
-        'value' => 'GMCSAVANA',
-        'title' => 'Savana',
-      ),
-      12 => 
-      array (
-        'value' => '15SIPU4WD',
-        'title' => 'Sierra C/K1500',
-      ),
-      13 => 
-      array (
-        'value' => 'GMCC25PU',
-        'title' => 'Sierra C/K2500',
-      ),
-      14 => 
-      array (
-        'value' => 'GMC3500PU',
-        'title' => 'Sierra C/K3500',
-      ),
-      15 => 
-      array (
-        'value' => 'SONOMA',
-        'title' => 'Sonoma',
-      ),
-      16 => 
-      array (
-        'value' => 'SUB',
-        'title' => 'Suburban',
-      ),
-      17 => 
-      array (
-        'value' => 'GMCSYCLON',
-        'title' => 'Syclone',
-      ),
-      18 => 
-      array (
-        'value' => 'TERRAIN',
-        'title' => 'Terrain',
-      ),
-      19 => 
-      array (
-        'value' => 'TOPC4500',
-        'title' => 'TopKick C4500',
-      ),
-      20 => 
-      array (
-        'value' => 'TYPH',
-        'title' => 'Typhoon',
-      ),
-      21 => 
-      array (
-        'value' => 'GMCVANDUR',
-        'title' => 'Vandura',
-      ),
-      22 => 
-      array (
-        'value' => 'YUKON',
-        'title' => 'Yukon',
-      ),
-      23 => 
-      array (
-        'value' => 'YUKONXL',
-        'title' => 'Yukon XL',
-      ),
-      24 => 
-      array (
-        'value' => 'GMCOTH',
-        'title' => 'Other GMC Models',
-      ),
-    ),
-  ),
-  25 => 
-  array (
-    'value' => 'HONDA',
-    'title' => 'Honda',
-    'models' => 
-    array (
-      0 => 
-      array (
-        'value' => 'ACCORD',
-        'title' => 'Accord',
-      ),
-      1 => 
-      array (
-        'value' => 'CIVIC',
-        'title' => 'Civic',
-      ),
-      2 => 
-      array (
-        'value' => 'CRV',
-        'title' => 'CR-V',
-      ),
-      3 => 
-      array (
-        'value' => 'CRZ',
-        'title' => 'CR-Z',
-      ),
-      4 => 
-      array (
-        'value' => 'CRX',
-        'title' => 'CRX',
-      ),
-      5 => 
-      array (
-        'value' => 'CROSSTOUR_MODELS',
-        'title' => 'Crosstour and Accord Crosstour Models (2)',
-      ),
-      6 => 
-      array (
-        'value' => 'CROSSTOUR',
-        'title' => ' - Accord Crosstour',
-      ),
-      7 => 
-      array (
-        'value' => 'HONCROSS',
-        'title' => ' - Crosstour',
-      ),
-      8 => 
-      array (
-        'value' => 'HONDELSOL',
-        'title' => 'Del Sol',
-      ),
-      9 => 
-      array (
-        'value' => 'ELEMENT',
-        'title' => 'Element',
-      ),
-      10 => 
-      array (
-        'value' => 'FIT',
-        'title' => 'Fit',
-      ),
-      11 => 
-      array (
-        'value' => 'INSIGHT',
-        'title' => 'Insight',
-      ),
-      12 => 
-      array (
-        'value' => 'ODYSSEY',
-        'title' => 'Odyssey',
-      ),
-      13 => 
-      array (
-        'value' => 'PASSPO',
-        'title' => 'Passport',
-      ),
-      14 => 
-      array (
-        'value' => 'PILOT',
-        'title' => 'Pilot',
-      ),
-      15 => 
-      array (
-        'value' => 'PRE',
-        'title' => 'Prelude',
-      ),
-      16 => 
-      array (
-        'value' => 'RIDGELINE',
-        'title' => 'Ridgeline',
-      ),
-      17 => 
-      array (
-        'value' => 'S2000',
-        'title' => 'S2000',
-      ),
-      18 => 
-      array (
-        'value' => 'HONOTH',
-        'title' => 'Other Honda Models',
-      ),
-    ),
-  ),
-  26 => 
-  array (
-    'value' => 'AMGEN',
-    'title' => 'HUMMER',
-    'models' => 
-    array (
-      0 => 
-      array (
-        'value' => 'HUMMER',
-        'title' => 'H1',
-      ),
-      1 => 
-      array (
-        'value' => 'H2',
-        'title' => 'H2',
-      ),
-      2 => 
-      array (
-        'value' => 'H3',
-        'title' => 'H3',
-      ),
-      3 => 
-      array (
-        'value' => 'H3T',
-        'title' => 'H3T',
-      ),
-      4 => 
-      array (
-        'value' => 'AMGOTH',
-        'title' => 'Other Hummer Models',
-      ),
-    ),
-  ),
-  27 => 
-  array (
-    'value' => 'HYUND',
-    'title' => 'Hyundai',
-    'models' => 
-    array (
-      0 => 
-      array (
-        'value' => 'ACCENT',
-        'title' => 'Accent',
-      ),
-      1 => 
-      array (
-        'value' => 'AZERA',
-        'title' => 'Azera',
-      ),
-      2 => 
-      array (
-        'value' => 'ELANTR',
-        'title' => 'Elantra',
-      ),
-      3 => 
-      array (
-        'value' => 'HYUELANCPE',
-        'title' => 'Elantra Coupe',
-      ),
-      4 => 
-      array (
-        'value' => 'ELANTOUR',
-        'title' => 'Elantra Touring',
-      ),
-      5 => 
-      array (
-        'value' => 'ENTOURAGE',
-        'title' => 'Entourage',
-      ),
-      6 => 
-      array (
-        'value' => 'EQUUS',
-        'title' => 'Equus',
-      ),
-      7 => 
-      array (
-        'value' => 'HYUEXCEL',
-        'title' => 'Excel',
-      ),
-      8 => 
-      array (
-        'value' => 'GENESIS',
-        'title' => 'Genesis',
-      ),
-      9 => 
-      array (
-        'value' => 'GENESISCPE',
-        'title' => 'Genesis Coupe',
-      ),
-      10 => 
-      array (
-        'value' => 'SANTAFE',
-        'title' => 'Santa Fe',
-      ),
-      11 => 
-      array (
-        'value' => 'SCOUPE',
-        'title' => 'Scoupe',
-      ),
-      12 => 
-      array (
-        'value' => 'SONATA',
-        'title' => 'Sonata',
-      ),
-      13 => 
-      array (
-        'value' => 'TIBURO',
-        'title' => 'Tiburon',
-      ),
-      14 => 
-      array (
-        'value' => 'TUCSON',
-        'title' => 'Tucson',
-      ),
-      15 => 
-      array (
-        'value' => 'VELOSTER',
-        'title' => 'Veloster',
-      ),
-      16 => 
-      array (
-        'value' => 'VERACRUZ',
-        'title' => 'Veracruz',
-      ),
-      17 => 
-      array (
-        'value' => 'XG300',
-        'title' => 'XG300',
-      ),
-      18 => 
-      array (
-        'value' => 'XG350',
-        'title' => 'XG350',
-      ),
-      19 => 
-      array (
-        'value' => 'HYUOTH',
-        'title' => 'Other Hyundai Models',
-      ),
-    ),
-  ),
-  28 => 
-  array (
-    'value' => 'INFIN',
-    'title' => 'Infiniti',
-    'models' => 
-    array (
-      0 => 
-      array (
-        'value' => 'EX_MODELS',
-        'title' => 'EX Models (2)',
-      ),
-      1 => 
-      array (
-        'value' => 'EX35',
-        'title' => ' - EX35',
-      ),
-      2 => 
-      array (
-        'value' => 'EX37',
-        'title' => ' - EX37',
-      ),
-      3 => 
-      array (
-        'value' => 'FX_MODELS',
-        'title' => 'FX Models (4)',
-      ),
-      4 => 
-      array (
-        'value' => 'FX35',
-        'title' => ' - FX35',
-      ),
-      5 => 
-      array (
-        'value' => 'FX37',
-        'title' => ' - FX37',
-      ),
-      6 => 
-      array (
-        'value' => 'FX45',
-        'title' => ' - FX45',
-      ),
-      7 => 
-      array (
-        'value' => 'FX50',
-        'title' => ' - FX50',
-      ),
-      8 => 
-      array (
-        'value' => 'G_MODELS',
-        'title' => 'G Models (4)',
-      ),
-      9 => 
-      array (
-        'value' => 'G20',
-        'title' => ' - G20',
-      ),
-      10 => 
-      array (
-        'value' => 'G25',
-        'title' => ' - G25',
-      ),
-      11 => 
-      array (
-        'value' => 'G35',
-        'title' => ' - G35',
-      ),
-      12 => 
-      array (
-        'value' => 'G37',
-        'title' => ' - G37',
-      ),
-      13 => 
-      array (
-        'value' => 'I_MODELS',
-        'title' => 'I Models (2)',
-      ),
-      14 => 
-      array (
-        'value' => 'I30',
-        'title' => ' - I30',
-      ),
-      15 => 
-      array (
-        'value' => 'I35',
-        'title' => ' - I35',
-      ),
-      16 => 
-      array (
-        'value' => 'J_MODELS',
-        'title' => 'J Models (1)',
-      ),
-      17 => 
-      array (
-        'value' => 'J30',
-        'title' => ' - J30',
-      ),
-      18 => 
-      array (
-        'value' => 'JX_MODELS',
-        'title' => 'JX Models (1)',
-      ),
-      19 => 
-      array (
-        'value' => 'JX35',
-        'title' => ' - JX35',
-      ),
-      20 => 
-      array (
-        'value' => 'M_MODELS',
-        'title' => 'M Models (6)',
-      ),
-      21 => 
-      array (
-        'value' => 'M30',
-        'title' => ' - M30',
-      ),
-      22 => 
-      array (
-        'value' => 'M35',
-        'title' => ' - M35',
-      ),
-      23 => 
-      array (
-        'value' => 'M35HYBRID',
-        'title' => ' - M35h',
-      ),
-      24 => 
-      array (
-        'value' => 'M37',
-        'title' => ' - M37',
-      ),
-      25 => 
-      array (
-        'value' => 'M45',
-        'title' => ' - M45',
-      ),
-      26 => 
-      array (
-        'value' => 'M56',
-        'title' => ' - M56',
-      ),
-      27 => 
-      array (
-        'value' => 'Q_MODELS',
-        'title' => 'Q Models (1)',
-      ),
-      28 => 
-      array (
-        'value' => 'Q45',
-        'title' => ' - Q45',
-      ),
-      29 => 
-      array (
-        'value' => 'QX_MODELS',
-        'title' => 'QX Models (2)',
-      ),
-      30 => 
-      array (
-        'value' => 'QX4',
-        'title' => ' - QX4',
-      ),
-      31 => 
-      array (
-        'value' => 'QX56',
-        'title' => ' - QX56',
-      ),
-      32 => 
-      array (
-        'value' => 'INFOTH',
-        'title' => 'Other Infiniti Models',
-      ),
-    ),
-  ),
-  29 => 
-  array (
-    'value' => 'ISU',
-    'title' => 'Isuzu',
-    'models' => 
-    array (
-      0 => 
-      array (
-        'value' => 'AMIGO',
-        'title' => 'Amigo',
-      ),
-      1 => 
-      array (
-        'value' => 'ASCENDER',
-        'title' => 'Ascender',
-      ),
-      2 => 
-      array (
-        'value' => 'AXIOM',
-        'title' => 'Axiom',
-      ),
-      3 => 
-      array (
-        'value' => 'HOMBRE',
-        'title' => 'Hombre',
-      ),
-      4 => 
-      array (
-        'value' => 'I280',
-        'title' => 'i-280',
-      ),
-      5 => 
-      array (
-        'value' => 'I290',
-        'title' => 'i-290',
-      ),
-      6 => 
-      array (
-        'value' => 'I350',
-        'title' => 'i-350',
-      ),
-      7 => 
-      array (
-        'value' => 'I370',
-        'title' => 'i-370',
-      ),
-      8 => 
-      array (
-        'value' => 'ISUMARK',
-        'title' => 'I-Mark',
-      ),
-      9 => 
-      array (
-        'value' => 'ISUIMP',
-        'title' => 'Impulse',
-      ),
-      10 => 
-      array (
-        'value' => 'OASIS',
-        'title' => 'Oasis',
-      ),
-      11 => 
-      array (
-        'value' => 'ISUPU',
-        'title' => 'Pickup',
-      ),
-      12 => 
-      array (
-        'value' => 'RODEO',
-        'title' => 'Rodeo',
-      ),
-      13 => 
-      array (
-        'value' => 'STYLUS',
-        'title' => 'Stylus',
-      ),
-      14 => 
-      array (
-        'value' => 'TROOP',
-        'title' => 'Trooper',
-      ),
-      15 => 
-      array (
-        'value' => 'TRP2',
-        'title' => 'Trooper II',
-      ),
-      16 => 
-      array (
-        'value' => 'VEHICROSS',
-        'title' => 'VehiCROSS',
-      ),
-      17 => 
-      array (
-        'value' => 'ISUOTH',
-        'title' => 'Other Isuzu Models',
-      ),
-    ),
-  ),
-  30 => 
-  array (
-    'value' => 'JAG',
-    'title' => 'Jaguar',
-    'models' => 
-    array (
-      0 => 
-      array (
-        'value' => 'STYPE',
-        'title' => 'S-Type',
-      ),
-      1 => 
-      array (
-        'value' => 'XTYPE',
-        'title' => 'X-Type',
-      ),
-      2 => 
-      array (
-        'value' => 'XF',
-        'title' => 'XF',
-      ),
-      3 => 
-      array (
-        'value' => 'XJ_SERIES',
-        'title' => 'XJ Series (10)',
-      ),
-      4 => 
-      array (
-        'value' => 'JAGXJ12',
-        'title' => ' - XJ12',
-      ),
-      5 => 
-      array (
-        'value' => 'JAGXJ6',
-        'title' => ' - XJ6',
-      ),
-      6 => 
-      array (
-        'value' => 'JAGXJR',
-        'title' => ' - XJR',
-      ),
-      7 => 
-      array (
-        'value' => 'JAGXJRS',
-        'title' => ' - XJR-S',
-      ),
-      8 => 
-      array (
-        'value' => 'JAGXJS',
-        'title' => ' - XJS',
-      ),
-      9 => 
-      array (
-        'value' => 'VANDEN',
-        'title' => ' - XJ Vanden Plas',
-      ),
-      10 => 
-      array (
-        'value' => 'XJ',
-        'title' => ' - XJ',
-      ),
-      11 => 
-      array (
-        'value' => 'XJ8',
-        'title' => ' - XJ8',
-      ),
-      12 => 
-      array (
-        'value' => 'XJ8L',
-        'title' => ' - XJ8 L',
-      ),
-      13 => 
-      array (
-        'value' => 'XJSPORT',
-        'title' => ' - XJ Sport',
-      ),
-      14 => 
-      array (
-        'value' => 'XK_SERIES',
-        'title' => 'XK Series (3)',
-      ),
-      15 => 
-      array (
-        'value' => 'JAGXK8',
-        'title' => ' - XK8',
-      ),
-      16 => 
-      array (
-        'value' => 'XK',
-        'title' => ' - XK',
-      ),
-      17 => 
-      array (
-        'value' => 'XKR',
-        'title' => ' - XKR',
-      ),
-      18 => 
-      array (
-        'value' => 'JAGOTH',
-        'title' => 'Other Jaguar Models',
-      ),
-    ),
-  ),
-  31 => 
-  array (
-    'value' => 'JEEP',
-    'title' => 'Jeep',
-    'models' => 
-    array (
-      0 => 
-      array (
-        'value' => 'CHER',
-        'title' => 'Cherokee',
-      ),
-      1 => 
-      array (
-        'value' => 'JEEPCJ',
-        'title' => 'CJ',
-      ),
-      2 => 
-      array (
-        'value' => 'COMANC',
-        'title' => 'Comanche',
-      ),
-      3 => 
-      array (
-        'value' => 'COMMANDER',
-        'title' => 'Commander',
-      ),
-      4 => 
-      array (
-        'value' => 'COMPASS',
-        'title' => 'Compass',
-      ),
-      5 => 
-      array (
-        'value' => 'JEEPGRAND',
-        'title' => 'Grand Cherokee',
-      ),
-      6 => 
-      array (
-        'value' => 'GRWAG',
-        'title' => 'Grand Wagoneer',
-      ),
-      7 => 
-      array (
-        'value' => 'LIBERTY',
-        'title' => 'Liberty',
-      ),
-      8 => 
-      array (
-        'value' => 'PATRIOT',
-        'title' => 'Patriot',
-      ),
-      9 => 
-      array (
-        'value' => 'JEEPPU',
-        'title' => 'Pickup',
-      ),
-      10 => 
-      array (
-        'value' => 'SCRAMBLE',
-        'title' => 'Scrambler',
-      ),
-      11 => 
-      array (
-        'value' => 'WAGONE',
-        'title' => 'Wagoneer',
-      ),
-      12 => 
-      array (
-        'value' => 'WRANGLER',
-        'title' => 'Wrangler',
-      ),
-      13 => 
-      array (
-        'value' => 'JEOTH',
-        'title' => 'Other Jeep Models',
-      ),
-    ),
-  ),
-  32 => 
-  array (
-    'value' => 'KIA',
-    'title' => 'Kia',
-    'models' => 
-    array (
-      0 => 
-      array (
-        'value' => 'AMANTI',
-        'title' => 'Amanti',
-      ),
-      1 => 
-      array (
-        'value' => 'BORREGO',
-        'title' => 'Borrego',
-      ),
-      2 => 
-      array (
-        'value' => 'FORTE',
-        'title' => 'Forte',
-      ),
-      3 => 
-      array (
-        'value' => 'FORTEKOUP',
-        'title' => 'Forte Koup',
-      ),
-      4 => 
-      array (
-        'value' => 'OPTIMA',
-        'title' => 'Optima',
-      ),
-      5 => 
-      array (
-        'value' => 'RIO',
-        'title' => 'Rio',
-      ),
-      6 => 
-      array (
-        'value' => 'RIO5',
-        'title' => 'Rio5',
-      ),
-      7 => 
-      array (
-        'value' => 'RONDO',
-        'title' => 'Rondo',
-      ),
-      8 => 
-      array (
-        'value' => 'SEDONA',
-        'title' => 'Sedona',
-      ),
-      9 => 
-      array (
-        'value' => 'SEPHIA',
-        'title' => 'Sephia',
-      ),
-      10 => 
-      array (
-        'value' => 'SORENTO',
-        'title' => 'Sorento',
-      ),
-      11 => 
-      array (
-        'value' => 'SOUL',
-        'title' => 'Soul',
-      ),
-      12 => 
-      array (
-        'value' => 'SPECTRA',
-        'title' => 'Spectra',
-      ),
-      13 => 
-      array (
-        'value' => 'SPECTRA5',
-        'title' => 'Spectra5',
-      ),
-      14 => 
-      array (
-        'value' => 'SPORTA',
-        'title' => 'Sportage',
-      ),
-      15 => 
-      array (
-        'value' => 'KIAOTH',
-        'title' => 'Other Kia Models',
-      ),
-    ),
-  ),
-  33 => 
-  array (
-    'value' => 'LAM',
-    'title' => 'Lamborghini',
-    'models' => 
-    array (
-      0 => 
-      array (
-        'value' => 'AVENT',
-        'title' => 'Aventador',
-      ),
-      1 => 
-      array (
-        'value' => 'COUNT',
-        'title' => 'Countach',
-      ),
-      2 => 
-      array (
-        'value' => 'DIABLO',
-        'title' => 'Diablo',
-      ),
-      3 => 
-      array (
-        'value' => 'GALLARDO',
-        'title' => 'Gallardo',
-      ),
-      4 => 
-      array (
-        'value' => 'JALPA',
-        'title' => 'Jalpa',
-      ),
-      5 => 
-      array (
-        'value' => 'LM002',
-        'title' => 'LM002',
-      ),
-      6 => 
-      array (
-        'value' => 'MURCIELAGO',
-        'title' => 'Murcielago',
-      ),
-      7 => 
-      array (
-        'value' => 'UNAVAILLAM',
-        'title' => 'Other Lamborghini Models',
-      ),
-    ),
-  ),
-  34 => 
-  array (
-    'value' => 'LAN',
-    'title' => 'Lancia',
-    'models' => 
-    array (
-      0 => 
-      array (
-        'value' => 'BETA',
-        'title' => 'Beta',
-      ),
-      1 => 
-      array (
-        'value' => 'ZAGATO',
-        'title' => 'Zagato',
-      ),
-      2 => 
-      array (
-        'value' => 'UNAVAILLAN',
-        'title' => 'Other Lancia Models',
-      ),
-    ),
-  ),
-  35 => 
-  array (
-    'value' => 'ROV',
-    'title' => 'Land Rover',
-    'models' => 
-    array (
-      0 => 
-      array (
-        'value' => 'DEFEND',
-        'title' => 'Defender',
-      ),
-      1 => 
-      array (
-        'value' => 'DISCOV',
-        'title' => 'Discovery',
-      ),
-      2 => 
-      array (
-        'value' => 'FRELNDR',
-        'title' => 'Freelander',
-      ),
-      3 => 
-      array (
-        'value' => 'LR2',
-        'title' => 'LR2',
-      ),
-      4 => 
-      array (
-        'value' => 'LR3',
-        'title' => 'LR3',
-      ),
-      5 => 
-      array (
-        'value' => 'LR4',
-        'title' => 'LR4',
-      ),
-      6 => 
-      array (
-        'value' => 'RANGE',
-        'title' => 'Range Rover',
-      ),
-      7 => 
-      array (
-        'value' => 'EVOQUE',
-        'title' => 'Range Rover Evoque',
-      ),
-      8 => 
-      array (
-        'value' => 'RANGESPORT',
-        'title' => 'Range Rover Sport',
-      ),
-      9 => 
-      array (
-        'value' => 'ROVOTH',
-        'title' => 'Other Land Rover Models',
-      ),
-    ),
-  ),
-  36 => 
-  array (
-    'value' => 'LEXUS',
-    'title' => 'Lexus',
-    'models' => 
-    array (
-      0 => 
-      array (
-        'value' => 'CT_MODELS',
-        'title' => 'CT Models (1)',
-      ),
-      1 => 
-      array (
-        'value' => 'CT200H',
-        'title' => ' - CT 200h',
-      ),
-      2 => 
-      array (
-        'value' => 'ES_MODELS',
-        'title' => 'ES Models (5)',
-      ),
-      3 => 
-      array (
-        'value' => 'ES250',
-        'title' => ' - ES 250',
-      ),
-      4 => 
-      array (
-        'value' => 'ES300',
-        'title' => ' - ES 300',
-      ),
-      5 => 
-      array (
-        'value' => 'ES300H',
-        'title' => ' - ES 300h',
-      ),
-      6 => 
-      array (
-        'value' => 'ES330',
-        'title' => ' - ES 330',
-      ),
-      7 => 
-      array (
-        'value' => 'ES350',
-        'title' => ' - ES 350',
-      ),
-      8 => 
-      array (
-        'value' => 'GS_MODELS',
-        'title' => 'GS Models (6)',
-      ),
-      9 => 
-      array (
-        'value' => 'GS300',
-        'title' => ' - GS 300',
-      ),
-      10 => 
-      array (
-        'value' => 'GS350',
-        'title' => ' - GS 350',
-      ),
-      11 => 
-      array (
-        'value' => 'GS400',
-        'title' => ' - GS 400',
-      ),
-      12 => 
-      array (
-        'value' => 'GS430',
-        'title' => ' - GS 430',
-      ),
-      13 => 
-      array (
-        'value' => 'GS450H',
-        'title' => ' - GS 450h',
-      ),
-      14 => 
-      array (
-        'value' => 'GS460',
-        'title' => ' - GS 460',
-      ),
-      15 => 
-      array (
-        'value' => 'GX_MODELS',
-        'title' => 'GX Models (2)',
-      ),
-      16 => 
-      array (
-        'value' => 'GX460',
-        'title' => ' - GX 460',
-      ),
-      17 => 
-      array (
-        'value' => 'GX470',
-        'title' => ' - GX 470',
-      ),
-      18 => 
-      array (
-        'value' => 'HS_MODELS',
-        'title' => 'HS Models (1)',
-      ),
-      19 => 
-      array (
-        'value' => 'HS250H',
-        'title' => ' - HS 250h',
-      ),
-      20 => 
-      array (
-        'value' => 'IS_MODELS',
-        'title' => 'IS Models (6)',
-      ),
-      21 => 
-      array (
-        'value' => 'IS250',
-        'title' => ' - IS 250',
-      ),
-      22 => 
-      array (
-        'value' => 'IS250C',
-        'title' => ' - IS 250C',
-      ),
-      23 => 
-      array (
-        'value' => 'IS300',
-        'title' => ' - IS 300',
-      ),
-      24 => 
-      array (
-        'value' => 'IS350',
-        'title' => ' - IS 350',
-      ),
-      25 => 
-      array (
-        'value' => 'IS350C',
-        'title' => ' - IS 350C',
-      ),
-      26 => 
-      array (
-        'value' => 'ISF',
-        'title' => ' - IS F',
-      ),
-      27 => 
-      array (
-        'value' => 'LEXLFA',
-        'title' => 'LFA',
-      ),
-      28 => 
-      array (
-        'value' => 'LS_MODELS',
-        'title' => 'LS Models (4)',
-      ),
-      29 => 
-      array (
-        'value' => 'LS400',
-        'title' => ' - LS 400',
-      ),
-      30 => 
-      array (
-        'value' => 'LS430',
-        'title' => ' - LS 430',
-      ),
-      31 => 
-      array (
-        'value' => 'LS460',
-        'title' => ' - LS 460',
-      ),
-      32 => 
-      array (
-        'value' => 'LS600H',
-        'title' => ' - LS 600h',
-      ),
-      33 => 
-      array (
-        'value' => 'LX_MODELS',
-        'title' => 'LX Models (3)',
-      ),
-      34 => 
-      array (
-        'value' => 'LX450',
-        'title' => ' - LX 450',
-      ),
-      35 => 
-      array (
-        'value' => 'LX470',
-        'title' => ' - LX 470',
-      ),
-      36 => 
-      array (
-        'value' => 'LX570',
-        'title' => ' - LX 570',
-      ),
-      37 => 
-      array (
-        'value' => 'RX_MODELS',
-        'title' => 'RX Models (5)',
-      ),
-      38 => 
-      array (
-        'value' => 'RX300',
-        'title' => ' - RX 300',
-      ),
-      39 => 
-      array (
-        'value' => 'RX330',
-        'title' => ' - RX 330',
-      ),
-      40 => 
-      array (
-        'value' => 'RX350',
-        'title' => ' - RX 350',
-      ),
-      41 => 
-      array (
-        'value' => 'RX400H',
-        'title' => ' - RX 400h',
-      ),
-      42 => 
-      array (
-        'value' => 'RX450H',
-        'title' => ' - RX 450h',
-      ),
-      43 => 
-      array (
-        'value' => 'SC_MODELS',
-        'title' => 'SC Models (3)',
-      ),
-      44 => 
-      array (
-        'value' => 'SC300',
-        'title' => ' - SC 300',
-      ),
-      45 => 
-      array (
-        'value' => 'SC400',
-        'title' => ' - SC 400',
-      ),
-      46 => 
-      array (
-        'value' => 'SC430',
-        'title' => ' - SC 430',
-      ),
-      47 => 
-      array (
-        'value' => 'LEXOTH',
-        'title' => 'Other Lexus Models',
-      ),
-    ),
-  ),
-  37 => 
-  array (
-    'value' => 'LINC',
-    'title' => 'Lincoln',
-    'models' => 
-    array (
-      0 => 
-      array (
-        'value' => 'AVIATOR',
-        'title' => 'Aviator',
-      ),
-      1 => 
-      array (
-        'value' => 'BLKWOOD',
-        'title' => 'Blackwood',
-      ),
-      2 => 
-      array (
-        'value' => 'CONT',
-        'title' => 'Continental',
-      ),
-      3 => 
-      array (
-        'value' => 'LSLINCOLN',
-        'title' => 'LS',
-      ),
-      4 => 
-      array (
-        'value' => 'MARKLT',
-        'title' => 'Mark LT',
-      ),
-      5 => 
-      array (
-        'value' => 'MARK6',
-        'title' => 'Mark VI',
-      ),
-      6 => 
-      array (
-        'value' => 'MARK7',
-        'title' => 'Mark VII',
-      ),
-      7 => 
-      array (
-        'value' => 'MARK8',
-        'title' => 'Mark VIII',
-      ),
-      8 => 
-      array (
-        'value' => 'MKS',
-        'title' => 'MKS',
-      ),
-      9 => 
-      array (
-        'value' => 'MKT',
-        'title' => 'MKT',
-      ),
-      10 => 
-      array (
-        'value' => 'MKX',
-        'title' => 'MKX',
-      ),
-      11 => 
-      array (
-        'value' => 'MKZ',
-        'title' => 'MKZ',
-      ),
-      12 => 
-      array (
-        'value' => 'NAVIGA',
-        'title' => 'Navigator',
-      ),
-      13 => 
-      array (
-        'value' => 'NAVIGAL',
-        'title' => 'Navigator L',
-      ),
-      14 => 
-      array (
-        'value' => 'LINCTC',
-        'title' => 'Town Car',
-      ),
-      15 => 
-      array (
-        'value' => 'ZEPHYR',
-        'title' => 'Zephyr',
-      ),
-      16 => 
-      array (
-        'value' => 'LINOTH',
-        'title' => 'Other Lincoln Models',
-      ),
-    ),
-  ),
-  38 => 
-  array (
-    'value' => 'LOTUS',
-    'title' => 'Lotus',
-    'models' => 
-    array (
-      0 => 
-      array (
-        'value' => 'ELAN',
-        'title' => 'Elan',
-      ),
-      1 => 
-      array (
-        'value' => 'LOTELISE',
-        'title' => 'Elise',
-      ),
-      2 => 
-      array (
-        'value' => 'ESPRIT',
-        'title' => 'Esprit',
-      ),
-      3 => 
-      array (
-        'value' => 'EVORA',
-        'title' => 'Evora',
-      ),
-      4 => 
-      array (
-        'value' => 'EXIGE',
-        'title' => 'Exige',
-      ),
-      5 => 
-      array (
-        'value' => 'UNAVAILLOT',
-        'title' => 'Other Lotus Models',
-      ),
-    ),
-  ),
-  39 => 
-  array (
-    'value' => 'MAS',
-    'title' => 'Maserati',
-    'models' => 
-    array (
-      0 => 
-      array (
-        'value' => '430',
-        'title' => '430',
-      ),
-      1 => 
-      array (
-        'value' => 'BITRBO',
-        'title' => 'Biturbo',
-      ),
-      2 => 
-      array (
-        'value' => 'COUPEMAS',
-        'title' => 'Coupe',
-      ),
-      3 => 
-      array (
-        'value' => 'GRANSPORT',
-        'title' => 'GranSport',
-      ),
-      4 => 
-      array (
-        'value' => 'GRANTURISM',
-        'title' => 'GranTurismo',
-      ),
-      5 => 
-      array (
-        'value' => 'QP',
-        'title' => 'Quattroporte',
-      ),
-      6 => 
-      array (
-        'value' => 'SPYDER',
-        'title' => 'Spyder',
-      ),
-      7 => 
-      array (
-        'value' => 'UNAVAILMAS',
-        'title' => 'Other Maserati Models',
-      ),
-    ),
-  ),
-  40 => 
-  array (
-    'value' => 'MAYBACH',
-    'title' => 'Maybach',
-    'models' => 
-    array (
-      0 => 
-      array (
-        'value' => '57MAYBACH',
-        'title' => '57',
-      ),
-      1 => 
-      array (
-        'value' => '62MAYBACH',
-        'title' => '62',
-      ),
-      2 => 
-      array (
-        'value' => 'UNAVAILMAY',
-        'title' => 'Other Maybach Models',
-      ),
-    ),
-  ),
-  41 => 
-  array (
-    'value' => 'MAZDA',
-    'title' => 'Mazda',
-    'models' => 
-    array (
-      0 => 
-      array (
-        'value' => 'MAZDA323',
-        'title' => '323',
-      ),
-      1 => 
-      array (
-        'value' => 'MAZDA626',
-        'title' => '626',
-      ),
-      2 => 
-      array (
-        'value' => '929',
-        'title' => '929',
-      ),
-      3 => 
-      array (
-        'value' => 'B-SERIES',
-        'title' => 'B-Series Pickup',
-      ),
-      4 => 
-      array (
-        'value' => 'CX-5',
-        'title' => 'CX-5',
-      ),
-      5 => 
-      array (
-        'value' => 'CX-7',
-        'title' => 'CX-7',
-      ),
-      6 => 
-      array (
-        'value' => 'CX-9',
-        'title' => 'CX-9',
-      ),
-      7 => 
-      array (
-        'value' => 'GLC',
-        'title' => 'GLC',
-      ),
-      8 => 
-      array (
-        'value' => 'MAZDA2',
-        'title' => 'MAZDA2',
-      ),
-      9 => 
-      array (
-        'value' => 'MAZDA3',
-        'title' => 'MAZDA3',
-      ),
-      10 => 
-      array (
-        'value' => 'MAZDA5',
-        'title' => 'MAZDA5',
-      ),
-      11 => 
-      array (
-        'value' => 'MAZDA6',
-        'title' => 'MAZDA6',
-      ),
-      12 => 
-      array (
-        'value' => 'MAZDASPD3',
-        'title' => 'MAZDASPEED3',
-      ),
-      13 => 
-      array (
-        'value' => 'MAZDASPD6',
-        'title' => 'MAZDASPEED6',
-      ),
-      14 => 
-      array (
-        'value' => 'MIATA',
-        'title' => 'Miata MX5',
-      ),
-      15 => 
-      array (
-        'value' => 'MILL',
-        'title' => 'Millenia',
-      ),
-      16 => 
-      array (
-        'value' => 'MPV',
-        'title' => 'MPV',
-      ),
-      17 => 
-      array (
-        'value' => 'MX3',
-        'title' => 'MX3',
-      ),
-      18 => 
-      array (
-        'value' => 'MX6',
-        'title' => 'MX6',
-      ),
-      19 => 
-      array (
-        'value' => 'NAVAJO',
-        'title' => 'Navajo',
-      ),
-      20 => 
-      array (
-        'value' => 'PROTE',
-        'title' => 'Protege',
-      ),
-      21 => 
-      array (
-        'value' => 'PROTE5',
-        'title' => 'Protege5',
-      ),
-      22 => 
-      array (
-        'value' => 'RX7',
-        'title' => 'RX-7',
-      ),
-      23 => 
-      array (
-        'value' => 'RX8',
-        'title' => 'RX-8',
-      ),
-      24 => 
-      array (
-        'value' => 'TRIBUTE',
-        'title' => 'Tribute',
-      ),
-      25 => 
-      array (
-        'value' => 'MAZOTH',
-        'title' => 'Other Mazda Models',
-      ),
-    ),
-  ),
-  42 => 
-  array (
-    'value' => 'MCLAREN',
-    'title' => 'McLaren',
-    'models' => 
-    array (
-      0 => 
-      array (
-        'value' => 'MP4',
-        'title' => 'MP4-12C',
-      ),
-    ),
-  ),
-  43 => 
-  array (
-    'value' => 'MB',
-    'title' => 'Mercedes-Benz',
-    'models' => 
-    array (
-      0 => 
-      array (
-        'value' => '190_CLASS',
-        'title' => '190 Class (2)',
-      ),
-      1 => 
-      array (
-        'value' => '190D',
-        'title' => ' - 190D',
-      ),
-      2 => 
-      array (
-        'value' => '190E',
-        'title' => ' - 190E',
-      ),
-      3 => 
-      array (
-        'value' => '240_CLASS',
-        'title' => '240 Class (1)',
-      ),
-      4 => 
-      array (
-        'value' => '240D',
-        'title' => ' - 240D',
-      ),
-      5 => 
-      array (
-        'value' => '300_CLASS_E_CLASS',
-        'title' => '300 Class / E Class (6)',
-      ),
-      6 => 
-      array (
-        'value' => '300CD',
-        'title' => ' - 300CD',
-      ),
-      7 => 
-      array (
-        'value' => '300CE',
-        'title' => ' - 300CE',
-      ),
-      8 => 
-      array (
-        'value' => '300D',
-        'title' => ' - 300D',
-      ),
-      9 => 
-      array (
-        'value' => '300E',
-        'title' => ' - 300E',
-      ),
-      10 => 
-      array (
-        'value' => '300TD',
-        'title' => ' - 300TD',
-      ),
-      11 => 
-      array (
-        'value' => '300TE',
-        'title' => ' - 300TE',
-      ),
-      12 => 
-      array (
-        'value' => 'C_CLASS',
-        'title' => 'C Class (13)',
-      ),
-      13 => 
-      array (
-        'value' => 'C220',
-        'title' => ' - C220',
-      ),
-      14 => 
-      array (
-        'value' => 'C230',
-        'title' => ' - C230',
-      ),
-      15 => 
-      array (
-        'value' => 'C240',
-        'title' => ' - C240',
-      ),
-      16 => 
-      array (
-        'value' => 'C250',
-        'title' => ' - C250',
-      ),
-      17 => 
-      array (
-        'value' => 'C280',
-        'title' => ' - C280',
-      ),
-      18 => 
-      array (
-        'value' => 'C300',
-        'title' => ' - C300',
-      ),
-      19 => 
-      array (
-        'value' => 'C320',
-        'title' => ' - C320',
-      ),
-      20 => 
-      array (
-        'value' => 'C32AMG',
-        'title' => ' - C32 AMG',
-      ),
-      21 => 
-      array (
-        'value' => 'C350',
-        'title' => ' - C350',
-      ),
-      22 => 
-      array (
-        'value' => 'C36AMG',
-        'title' => ' - C36 AMG',
-      ),
-      23 => 
-      array (
-        'value' => 'C43AMG',
-        'title' => ' - C43 AMG',
-      ),
-      24 => 
-      array (
-        'value' => 'C55AMG',
-        'title' => ' - C55 AMG',
-      ),
-      25 => 
-      array (
-        'value' => 'C63AMG',
-        'title' => ' - C63 AMG',
-      ),
-      26 => 
-      array (
-        'value' => 'CL_CLASS',
-        'title' => 'CL Class (6)',
-      ),
-      27 => 
-      array (
-        'value' => 'CL500',
-        'title' => ' - CL500',
-      ),
-      28 => 
-      array (
-        'value' => 'CL550',
-        'title' => ' - CL550',
-      ),
-      29 => 
-      array (
-        'value' => 'CL55AMG',
-        'title' => ' - CL55 AMG',
-      ),
-      30 => 
-      array (
-        'value' => 'CL600',
-        'title' => ' - CL600',
-      ),
-      31 => 
-      array (
-        'value' => 'CL63AMG',
-        'title' => ' - CL63 AMG',
-      ),
-      32 => 
-      array (
-        'value' => 'CL65AMG',
-        'title' => ' - CL65 AMG',
-      ),
-      33 => 
-      array (
-        'value' => 'CLK_CLASS',
-        'title' => 'CLK Class (7)',
-      ),
-      34 => 
-      array (
-        'value' => 'CLK320',
-        'title' => ' - CLK320',
-      ),
-      35 => 
-      array (
-        'value' => 'CLK350',
-        'title' => ' - CLK350',
-      ),
-      36 => 
-      array (
-        'value' => 'CLK430',
-        'title' => ' - CLK430',
-      ),
-      37 => 
-      array (
-        'value' => 'CLK500',
-        'title' => ' - CLK500',
-      ),
-      38 => 
-      array (
-        'value' => 'CLK550',
-        'title' => ' - CLK550',
-      ),
-      39 => 
-      array (
-        'value' => 'CLK55AMG',
-        'title' => ' - CLK55 AMG',
-      ),
-      40 => 
-      array (
-        'value' => 'CLK63AMG',
-        'title' => ' - CLK63 AMG',
-      ),
-      41 => 
-      array (
-        'value' => 'CLS_CLASS',
-        'title' => 'CLS Class (4)',
-      ),
-      42 => 
-      array (
-        'value' => 'CLS500',
-        'title' => ' - CLS500',
-      ),
-      43 => 
-      array (
-        'value' => 'CLS550',
-        'title' => ' - CLS550',
-      ),
-      44 => 
-      array (
-        'value' => 'CLS55AMG',
-        'title' => ' - CLS55 AMG',
-      ),
-      45 => 
-      array (
-        'value' => 'CLS63AMG',
-        'title' => ' - CLS63 AMG',
-      ),
-      46 => 
-      array (
-        'value' => 'E_CLASS',
-        'title' => 'E Class (18)',
-      ),
-      47 => 
-      array (
-        'value' => '260E',
-        'title' => ' - 260E',
-      ),
-      48 => 
-      array (
-        'value' => '280CE',
-        'title' => ' - 280CE',
-      ),
-      49 => 
-      array (
-        'value' => '280E',
-        'title' => ' - 280E',
-      ),
-      50 => 
-      array (
-        'value' => '400E',
-        'title' => ' - 400E',
-      ),
-      51 => 
-      array (
-        'value' => '500E',
-        'title' => ' - 500E',
-      ),
-      52 => 
-      array (
-        'value' => 'E300',
-        'title' => ' - E300',
-      ),
-      53 => 
-      array (
-        'value' => 'E320',
-        'title' => ' - E320',
-      ),
-      54 => 
-      array (
-        'value' => 'E320BLUE',
-        'title' => ' - E320 Bluetec',
-      ),
-      55 => 
-      array (
-        'value' => 'E320CDI',
-        'title' => ' - E320 CDI',
-      ),
-      56 => 
-      array (
-        'value' => 'E350',
-        'title' => ' - E350',
-      ),
-      57 => 
-      array (
-        'value' => 'E350BLUE',
-        'title' => ' - E350 Bluetec',
-      ),
-      58 => 
-      array (
-        'value' => 'E400',
-        'title' => ' - E400 Hybrid',
-      ),
-      59 => 
-      array (
-        'value' => 'E420',
-        'title' => ' - E420',
-      ),
-      60 => 
-      array (
-        'value' => 'E430',
-        'title' => ' - E430',
-      ),
-      61 => 
-      array (
-        'value' => 'E500',
-        'title' => ' - E500',
-      ),
-      62 => 
-      array (
-        'value' => 'E550',
-        'title' => ' - E550',
-      ),
-      63 => 
-      array (
-        'value' => 'E55AMG',
-        'title' => ' - E55 AMG',
-      ),
-      64 => 
-      array (
-        'value' => 'E63AMG',
-        'title' => ' - E63 AMG',
-      ),
-      65 => 
-      array (
-        'value' => 'G_CLASS',
-        'title' => 'G Class (4)',
-      ),
-      66 => 
-      array (
-        'value' => 'G500',
-        'title' => ' - G500',
-      ),
-      67 => 
-      array (
-        'value' => 'G550',
-        'title' => ' - G550',
-      ),
-      68 => 
-      array (
-        'value' => 'G55AMG',
-        'title' => ' - G55 AMG',
-      ),
-      69 => 
-      array (
-        'value' => 'G63AMG',
-        'title' => ' - G63 AMG',
-      ),
-      70 => 
-      array (
-        'value' => 'GL_CLASS',
-        'title' => 'GL Class (5)',
-      ),
-      71 => 
-      array (
-        'value' => 'GL320BLUE',
-        'title' => ' - GL320 Bluetec',
-      ),
-      72 => 
-      array (
-        'value' => 'GL320CDI',
-        'title' => ' - GL320 CDI',
-      ),
-      73 => 
-      array (
-        'value' => 'GL350BLUE',
-        'title' => ' - GL350 Bluetec',
-      ),
-      74 => 
-      array (
-        'value' => 'GL450',
-        'title' => ' - GL450',
-      ),
-      75 => 
-      array (
-        'value' => 'GL550',
-        'title' => ' - GL550',
-      ),
-      76 => 
-      array (
-        'value' => 'GLK_CLASS',
-        'title' => 'GLK Class (1)',
-      ),
-      77 => 
-      array (
-        'value' => 'GLK350',
-        'title' => ' - GLK350',
-      ),
-      78 => 
-      array (
-        'value' => 'M_CLASS',
-        'title' => 'M Class (11)',
-      ),
-      79 => 
-      array (
-        'value' => 'ML320',
-        'title' => ' - ML320',
-      ),
-      80 => 
-      array (
-        'value' => 'ML320BLUE',
-        'title' => ' - ML320 Bluetec',
-      ),
-      81 => 
-      array (
-        'value' => 'ML320CDI',
-        'title' => ' - ML320 CDI',
-      ),
-      82 => 
-      array (
-        'value' => 'ML350',
-        'title' => ' - ML350',
-      ),
-      83 => 
-      array (
-        'value' => 'ML350BLUE',
-        'title' => ' - ML350 Bluetec',
-      ),
-      84 => 
-      array (
-        'value' => 'ML430',
-        'title' => ' - ML430',
-      ),
-      85 => 
-      array (
-        'value' => 'ML450HY',
-        'title' => ' - ML450 Hybrid',
-      ),
-      86 => 
-      array (
-        'value' => 'ML500',
-        'title' => ' - ML500',
-      ),
-      87 => 
-      array (
-        'value' => 'ML550',
-        'title' => ' - ML550',
-      ),
-      88 => 
-      array (
-        'value' => 'ML55AMG',
-        'title' => ' - ML55 AMG',
-      ),
-      89 => 
-      array (
-        'value' => 'ML63AMG',
-        'title' => ' - ML63 AMG',
-      ),
-      90 => 
-      array (
-        'value' => 'R_CLASS',
-        'title' => 'R Class (6)',
-      ),
-      91 => 
-      array (
-        'value' => 'R320BLUE',
-        'title' => ' - R320 Bluetec',
-      ),
-      92 => 
-      array (
-        'value' => 'R320CDI',
-        'title' => ' - R320 CDI',
-      ),
-      93 => 
-      array (
-        'value' => 'R350',
-        'title' => ' - R350',
-      ),
-      94 => 
-      array (
-        'value' => 'R350BLUE',
-        'title' => ' - R350 Bluetec',
-      ),
-      95 => 
-      array (
-        'value' => 'R500',
-        'title' => ' - R500',
-      ),
-      96 => 
-      array (
-        'value' => 'R63AMG',
-        'title' => ' - R63 AMG',
-      ),
-      97 => 
-      array (
-        'value' => 'S_CLASS',
-        'title' => 'S Class (30)',
-      ),
-      98 => 
-      array (
-        'value' => '300SD',
-        'title' => ' - 300SD',
-      ),
-      99 => 
-      array (
-        'value' => '300SDL',
-        'title' => ' - 300SDL',
-      ),
-      100 => 
-      array (
-        'value' => '300SE',
-        'title' => ' - 300SE',
-      ),
-      101 => 
-      array (
-        'value' => '300SEL',
-        'title' => ' - 300SEL',
-      ),
-      102 => 
-      array (
-        'value' => '350SD',
-        'title' => ' - 350SD',
-      ),
-      103 => 
-      array (
-        'value' => '350SDL',
-        'title' => ' - 350SDL',
-      ),
-      104 => 
-      array (
-        'value' => '380SE',
-        'title' => ' - 380SE',
-      ),
-      105 => 
-      array (
-        'value' => '380SEC',
-        'title' => ' - 380SEC',
-      ),
-      106 => 
-      array (
-        'value' => '380SEL',
-        'title' => ' - 380SEL',
-      ),
-      107 => 
-      array (
-        'value' => '400SE',
-        'title' => ' - 400SE',
-      ),
-      108 => 
-      array (
-        'value' => '400SEL',
-        'title' => ' - 400SEL',
-      ),
-      109 => 
-      array (
-        'value' => '420SEL',
-        'title' => ' - 420SEL',
-      ),
-      110 => 
-      array (
-        'value' => '500SEC',
-        'title' => ' - 500SEC',
-      ),
-      111 => 
-      array (
-        'value' => '500SEL',
-        'title' => ' - 500SEL',
-      ),
-      112 => 
-      array (
-        'value' => '560SEC',
-        'title' => ' - 560SEC',
-      ),
-      113 => 
-      array (
-        'value' => '560SEL',
-        'title' => ' - 560SEL',
-      ),
-      114 => 
-      array (
-        'value' => '600SEC',
-        'title' => ' - 600SEC',
-      ),
-      115 => 
-      array (
-        'value' => '600SEL',
-        'title' => ' - 600SEL',
-      ),
-      116 => 
-      array (
-        'value' => 'S320',
-        'title' => ' - S320',
-      ),
-      117 => 
-      array (
-        'value' => 'S350',
-        'title' => ' - S350',
-      ),
-      118 => 
-      array (
-        'value' => 'S350BLUE',
-        'title' => ' - S350 Bluetec',
-      ),
-      119 => 
-      array (
-        'value' => 'S400HY',
-        'title' => ' - S400 Hybrid',
-      ),
-      120 => 
-      array (
-        'value' => 'S420',
-        'title' => ' - S420',
-      ),
-      121 => 
-      array (
-        'value' => 'S430',
-        'title' => ' - S430',
-      ),
-      122 => 
-      array (
-        'value' => 'S500',
-        'title' => ' - S500',
-      ),
-      123 => 
-      array (
-        'value' => 'S550',
-        'title' => ' - S550',
-      ),
-      124 => 
-      array (
-        'value' => 'S55AMG',
-        'title' => ' - S55 AMG',
-      ),
-      125 => 
-      array (
-        'value' => 'S600',
-        'title' => ' - S600',
-      ),
-      126 => 
-      array (
-        'value' => 'S63AMG',
-        'title' => ' - S63 AMG',
-      ),
-      127 => 
-      array (
-        'value' => 'S65AMG',
-        'title' => ' - S65 AMG',
-      ),
-      128 => 
-      array (
-        'value' => 'SL_CLASS',
-        'title' => 'SL Class (13)',
-      ),
-      129 => 
-      array (
-        'value' => '300SL',
-        'title' => ' - 300SL',
-      ),
-      130 => 
-      array (
-        'value' => '380SL',
-        'title' => ' - 380SL',
-      ),
-      131 => 
-      array (
-        'value' => '380SLC',
-        'title' => ' - 380SLC',
-      ),
-      132 => 
-      array (
-        'value' => '500SL',
-        'title' => ' - 500SL',
-      ),
-      133 => 
-      array (
-        'value' => '560SL',
-        'title' => ' - 560SL',
-      ),
-      134 => 
-      array (
-        'value' => '600SL',
-        'title' => ' - 600SL',
-      ),
-      135 => 
-      array (
-        'value' => 'SL320',
-        'title' => ' - SL320',
-      ),
-      136 => 
-      array (
-        'value' => 'SL500',
-        'title' => ' - SL500',
-      ),
-      137 => 
-      array (
-        'value' => 'SL550',
-        'title' => ' - SL550',
-      ),
-      138 => 
-      array (
-        'value' => 'SL55AMG',
-        'title' => ' - SL55 AMG',
-      ),
-      139 => 
-      array (
-        'value' => 'SL600',
-        'title' => ' - SL600',
-      ),
-      140 => 
-      array (
-        'value' => 'SL63AMG',
-        'title' => ' - SL63 AMG',
-      ),
-      141 => 
-      array (
-        'value' => 'SL65AMG',
-        'title' => ' - SL65 AMG',
-      ),
-      142 => 
-      array (
-        'value' => 'SLK_CLASS',
-        'title' => 'SLK Class (8)',
+    ),
+    17 => 
+    array (
+      'name' => 'ural',
+      'title' => 'Урал',
+      'soviet' => true,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'gruzopassajirskiy',
+          'title' => 'Грузопассажирский',
+        ),
+        1 => 
+        array (
+          'name' => 'specialniy-',
+          'title' => 'Специальный',
+        ),
       ),
-      143 => 
-      array (
-        'value' => 'SLK230',
-        'title' => ' - SLK230',
+    ),
+    18 => 
+    array (
+      'name' => 'zil',
+      'title' => 'ЗИЛ',
+      'soviet' => true,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => '3250',
+          'title' => '3250',
+        ),
       ),
-      144 => 
-      array (
-        'value' => 'SLK250',
-        'title' => ' - SLK250',
+    ),
+    19 => 
+    array (
+      'name' => 'baw',
+      'title' => 'BAW',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'street',
+          'title' => 'Street',
+        ),
       ),
-      145 => 
-      array (
-        'value' => 'SLK280',
-        'title' => ' - SLK280',
+    ),
+    20 => 
+    array (
+      'name' => 'iveco',
+      'title' => 'IVECO',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'arway',
+          'title' => 'Arway',
+        ),
+        1 => 
+        array (
+          'name' => 'citelis',
+          'title' => 'Citelis',
+        ),
+        2 => 
+        array (
+          'name' => 'crossway',
+          'title' => 'Crossway',
+        ),
+        3 => 
+        array (
+          'name' => 'eurorider',
+          'title' => 'EuroRider',
+        ),
+        4 => 
+        array (
+          'name' => 'evadys',
+          'title' => 'Evadys',
+        ),
+        5 => 
+        array (
+          'name' => 'magelys',
+          'title' => 'Magelys',
+        ),
+        6 => 
+        array (
+          'name' => 'uz-otoyol',
+          'title' => 'Uz-Otoyol',
+        ),
       ),
-      146 => 
-      array (
-        'value' => 'SLK300',
-        'title' => ' - SLK300',
+    ),
+    21 => 
+    array (
+      'name' => 'shenlong',
+      'title' => 'Shen Long',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'turisticheskiy',
+          'title' => 'Туристический',
+        ),
       ),
-      147 => 
-      array (
-        'value' => 'SLK320',
-        'title' => ' - SLK320',
+    ),
+    22 => 
+    array (
+      'name' => 'bova',
+      'title' => 'Bova',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'europa',
+          'title' => 'Europa',
+        ),
+        1 => 
+        array (
+          'name' => 'fhd',
+          'title' => 'FHD',
+        ),
+        2 => 
+        array (
+          'name' => 'fhm',
+          'title' => 'FHM',
+        ),
+        3 => 
+        array (
+          'name' => 'futura',
+          'title' => 'Futura',
+        ),
       ),
-      148 => 
-      array (
-        'value' => 'SLK32AMG',
-        'title' => ' - SLK32 AMG',
+    ),
+    23 => 
+    array (
+      'name' => 'karosa',
+      'title' => 'Karosa',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'b-735',
+          'title' => 'B 735',
+        ),
       ),
-      149 => 
-      array (
-        'value' => 'SLK350',
-        'title' => ' - SLK350',
+    ),
+    24 => 
+    array (
+      'name' => 'ssang-yong',
+      'title' => 'Ssang Yong',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'transstar',
+          'title' => 'Transstar',
+        ),
       ),
-      150 => 
-      array (
-        'value' => 'SLK55AMG',
-        'title' => ' - SLK55 AMG',
+    ),
+    25 => 
+    array (
+      'name' => 'cobus',
+      'title' => 'Cobus',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => '2400',
+          'title' => '2400',
+        ),
       ),
-      151 => 
-      array (
-        'value' => 'SLR_CLASS',
-        'title' => 'SLR Class (1)',
+    ),
+    26 => 
+    array (
+      'name' => 'kia',
+      'title' => 'Kia',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'kosmos',
+          'title' => 'Cosmos',
+        ),
+        1 => 
+        array (
+          'name' => 'granbird',
+          'title' => 'Granbird',
+        ),
       ),
-      152 => 
-      array (
-        'value' => 'SLR',
-        'title' => ' - SLR',
+    ),
+    27 => 
+    array (
+      'name' => 'tam',
+      'title' => 'TAM',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'turisticheskie',
+          'title' => 'Туристические',
+        ),
       ),
-      153 => 
-      array (
-        'value' => 'SLS_CLASS',
-        'title' => 'SLS Class (1)',
+    ),
+    28 => 
+    array (
+      'name' => 'daewoo',
+      'title' => 'Daewoo',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'bh-117',
+          'title' => 'BH-117',
+        ),
+        1 => 
+        array (
+          'name' => 'bh-120',
+          'title' => 'BH-120',
+        ),
+        2 => 
+        array (
+          'name' => 'bm',
+          'title' => 'BM',
+        ),
+        3 => 
+        array (
+          'name' => 'bs-106',
+          'title' => 'BS-106',
+        ),
+        4 => 
+        array (
+          'name' => 'bx-212',
+          'title' => 'BX-212',
+        ),
       ),
-      154 => 
-      array (
-        'value' => 'SLSAMG',
-        'title' => ' - SLS AMG',
+    ),
+    29 => 
+    array (
+      'name' => 'king-long',
+      'title' => 'King Long',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'xmq6121g-city',
+          'title' => 'XMQ6121G City',
+        ),
+        1 => 
+        array (
+          'name' => 'xmq6127',
+          'title' => 'XMQ6127',
+        ),
+        2 => 
+        array (
+          'name' => 'xmq6129',
+          'title' => 'XMQ6129',
+        ),
+        3 => 
+        array (
+          'name' => 'xmq6800',
+          'title' => 'XMQ6800',
+        ),
+        4 => 
+        array (
+          'name' => 'xmq6900',
+          'title' => 'XMQ6900',
+        ),
       ),
-      155 => 
-      array (
-        'value' => 'SPRINTER_CLASS',
-        'title' => 'Sprinter Class (1)',
+    ),
+    30 => 
+    array (
+      'name' => 'temsa',
+      'title' => 'Temsa',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'prestij',
+          'title' => 'Prestij',
+        ),
       ),
-      156 => 
-      array (
-        'value' => 'MBSPRINTER',
-        'title' => ' - Sprinter',
+    ),
+    31 => 
+    array (
+      'name' => 'daf',
+      'title' => 'DAF',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'turisticheskiy',
+          'title' => 'Туристический',
+        ),
       ),
-      157 => 
-      array (
-        'value' => 'MBOTH',
-        'title' => 'Other Mercedes-Benz Models',
+    ),
+    32 => 
+    array (
+      'name' => 'man',
+      'title' => 'MAN',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'nl',
+          'title' => 'NL',
+        ),
+        1 => 
+        array (
+          'name' => 'gorodskoy',
+          'title' => 'Городской',
+        ),
+        2 => 
+        array (
+          'name' => 'mejdugorodniy',
+          'title' => 'Междугородный',
+        ),
+        3 => 
+        array (
+          'name' => 'turisticheskiy',
+          'title' => 'Туристический',
+        ),
       ),
     ),
-  ),
-  44 => 
-  array (
-    'value' => 'MERC',
-    'title' => 'Mercury',
-    'models' => 
+    33 => 
     array (
-      0 => 
-      array (
-        'value' => 'CAPRI',
-        'title' => 'Capri',
+      'name' => 'toyota',
+      'title' => 'Toyota',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'coaster',
+          'title' => 'Coaster',
+        ),
       ),
-      1 => 
-      array (
-        'value' => 'COUGAR',
-        'title' => 'Cougar',
+    ),
+    34 => 
+    array (
+      'name' => 'dongfeng',
+      'title' => 'DongFeng',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => '6600',
+          'title' => '6600',
+        ),
+        1 => 
+        array (
+          'name' => '6720',
+          'title' => '6720',
+        ),
       ),
-      2 => 
-      array (
-        'value' => 'MERCGRAND',
-        'title' => 'Grand Marquis',
+    ),
+    35 => 
+    array (
+      'name' => 'mercedes',
+      'title' => 'Mercedes-Benz',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'gorodskoy',
+          'title' => 'Городской',
+        ),
+        1 => 
+        array (
+          'name' => 'mejdugorodniy',
+          'title' => 'Междугородный',
+        ),
+        2 => 
+        array (
+          'name' => 'prigorodniy',
+          'title' => 'Пригородный',
+        ),
+        3 => 
+        array (
+          'name' => 'specialniy',
+          'title' => 'Специальный',
+        ),
+        4 => 
+        array (
+          'name' => 'turisticheskiy',
+          'title' => 'Туристический',
+        ),
       ),
-      3 => 
-      array (
-        'value' => 'LYNX',
-        'title' => 'Lynx',
+    ),
+    36 => 
+    array (
+      'name' => 'van_hool',
+      'title' => 'Van Hool',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'acron',
+          'title' => 'Acron',
+        ),
+        1 => 
+        array (
+          'name' => 't9---series',
+          'title' => 'T9 - series',
+        ),
       ),
-      4 => 
-      array (
-        'value' => 'MARAUDER',
-        'title' => 'Marauder',
+    ),
+    37 => 
+    array (
+      'name' => 'ford',
+      'title' => 'Ford',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'e450',
+          'title' => 'E450',
+        ),
+        1 => 
+        array (
+          'name' => 'transit-460',
+          'title' => 'Transit 460',
+        ),
       ),
-      5 => 
-      array (
-        'value' => 'MARINER',
-        'title' => 'Mariner',
+    ),
+    38 => 
+    array (
+      'name' => 'mitsubishi',
+      'title' => 'Mitsubishi',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'rosa',
+          'title' => 'Rosa',
+        ),
       ),
-      6 => 
-      array (
-        'value' => 'MARQ',
-        'title' => 'Marquis',
+    ),
+    39 => 
+    array (
+      'name' => 'volkswagen',
+      'title' => 'Volkswagen',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'crafter',
+          'title' => 'Crafter',
+        ),
       ),
-      7 => 
-      array (
-        'value' => 'MILAN',
-        'title' => 'Milan',
+    ),
+    40 => 
+    array (
+      'name' => 'golden-dragon',
+      'title' => 'Golden Dragon',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'xml6102ue',
+          'title' => 'XML6102UE',
+        ),
+        1 => 
+        array (
+          'name' => 'xml6121',
+          'title' => 'XML6121',
+        ),
+        2 => 
+        array (
+          'name' => 'xml6129e',
+          'title' => 'XML6129E',
+        ),
+        3 => 
+        array (
+          'name' => 'xml6145',
+          'title' => 'XML6145',
+        ),
+        4 => 
+        array (
+          'name' => 'xml6720c',
+          'title' => 'XML6720C',
+        ),
+        5 => 
+        array (
+          'name' => 'xml6796e',
+          'title' => 'XML6796E',
+        ),
+        6 => 
+        array (
+          'name' => 'xml6845',
+          'title' => 'XML6845',
+        ),
+        7 => 
+        array (
+          'name' => 'xml6957',
+          'title' => 'XML6957',
+        ),
       ),
-      8 => 
-      array (
-        'value' => 'MONTEGO',
-        'title' => 'Montego',
+    ),
+    41 => 
+    array (
+      'name' => 'mudan',
+      'title' => 'Mudan',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'md6100',
+          'title' => 'MD6100',
+        ),
+        1 => 
+        array (
+          'name' => 'md6122',
+          'title' => 'MD6122',
+        ),
+        2 => 
+        array (
+          'name' => 'md6750',
+          'title' => 'MD6750',
+        ),
       ),
-      9 => 
-      array (
-        'value' => 'MONTEREY',
-        'title' => 'Monterey',
+    ),
+    42 => 
+    array (
+      'name' => 'volvo',
+      'title' => 'Volvo',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'b10',
+          'title' => 'B10',
+        ),
+        1 => 
+        array (
+          'name' => 'chassis',
+          'title' => 'B12',
+        ),
       ),
-      10 => 
-      array (
-        'value' => 'MOUNTA',
-        'title' => 'Mountaineer',
+    ),
+    43 => 
+    array (
+      'name' => 'higer',
+      'title' => 'Higer',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'gorodskoy',
+          'title' => 'Городской',
+        ),
+        1 => 
+        array (
+          'name' => 'prigorodniy-',
+          'title' => 'Пригородный',
+        ),
+        2 => 
+        array (
+          'name' => 'turisticheskiy-',
+          'title' => 'Туристический',
+        ),
       ),
-      11 => 
-      array (
-        'value' => 'MYSTIQ',
-        'title' => 'Mystique',
+    ),
+    44 => 
+    array (
+      'name' => 'neoplan',
+      'title' => 'Neoplan',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'cityliner',
+          'title' => 'Cityliner',
+        ),
+        1 => 
+        array (
+          'name' => 'euroliner',
+          'title' => 'Euroliner',
+        ),
+        2 => 
+        array (
+          'name' => 'jetliner',
+          'title' => 'Jetliner',
+        ),
+        3 => 
+        array (
+          'name' => 'skyliner',
+          'title' => 'Skyliner',
+        ),
+        4 => 
+        array (
+          'name' => 'spaceliner',
+          'title' => 'Spaceliner',
+        ),
+        5 => 
+        array (
+          'name' => 'starliner',
+          'title' => 'Starliner',
+        ),
+        6 => 
+        array (
+          'name' => 'tourliner',
+          'title' => 'Tourliner',
+        ),
+        7 => 
+        array (
+          'name' => 'transliner',
+          'title' => 'Transliner',
+        ),
       ),
-      12 => 
-      array (
-        'value' => 'SABLE',
-        'title' => 'Sable',
+    ),
+    45 => 
+    array (
+      'name' => 'yutong',
+      'title' => 'Yutong',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'zk6118h',
+          'title' => 'ZK6118',
+        ),
+        1 => 
+        array (
+          'name' => 'zk6119ha',
+          'title' => 'ZK6119HA',
+        ),
+        2 => 
+        array (
+          'name' => 'zk6121hq',
+          'title' => 'ZK6121HQ',
+        ),
+        3 => 
+        array (
+          'name' => 'zk6129h',
+          'title' => 'ZK6129H',
+        ),
+        4 => 
+        array (
+          'name' => 'zk6737d',
+          'title' => 'ZK6737D',
+        ),
+        5 => 
+        array (
+          'name' => 'zk6831h',
+          'title' => 'ZK6831H',
+        ),
+        6 => 
+        array (
+          'name' => 'zk6899ha',
+          'title' => 'ZK6899HA',
+        ),
       ),
-      13 => 
-      array (
-        'value' => 'TOPAZ',
-        'title' => 'Topaz',
+    ),
+    46 => 
+    array (
+      'name' => 'hyundai',
+      'title' => 'Hyundai',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'aero-city',
+          'title' => 'Aero City',
+        ),
+        1 => 
+        array (
+          'name' => 'aero-queen-',
+          'title' => 'Aero Queen',
+        ),
+        2 => 
+        array (
+          'name' => 'aero-space',
+          'title' => 'Aero Space',
+        ),
+        3 => 
+        array (
+          'name' => 'aero-town',
+          'title' => 'Aero Town',
+        ),
+        4 => 
+        array (
+          'name' => 'chorus',
+          'title' => 'Chorus',
+        ),
+        5 => 
+        array (
+          'name' => 'county',
+          'title' => 'County',
+        ),
+        6 => 
+        array (
+          'name' => 'real',
+          'title' => 'Real',
+        ),
+        7 => 
+        array (
+          'name' => 'universe',
+          'title' => 'Universe',
+        ),
+        8 => 
+        array (
+          'name' => 'bogdan',
+          'title' => 'Богдан',
+        ),
       ),
-      14 => 
-      array (
-        'value' => 'TRACER',
-        'title' => 'Tracer',
+    ),
+    47 => 
+    array (
+      'name' => 'otokar',
+      'title' => 'Otokar',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'gorodskie',
+          'title' => 'Городские',
+        ),
+        1 => 
+        array (
+          'name' => 'prigorodnie',
+          'title' => 'Пригородные',
+        ),
+        2 => 
+        array (
+          'name' => 'turisticheskie',
+          'title' => 'Туристические',
+        ),
       ),
-      15 => 
-      array (
-        'value' => 'VILLA',
-        'title' => 'Villager',
+    ),
+    48 => 
+    array (
+      'name' => 'zhong-tong',
+      'title' => 'Zhong Tong',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'compass',
+          'title' => 'ComPass',
+        ),
+        1 => 
+        array (
+          'name' => 'lck',
+          'title' => 'LCK',
+        ),
+        2 => 
+        array (
+          'name' => 'sparkling',
+          'title' => 'Sparkling',
+        ),
       ),
-      16 => 
-      array (
-        'value' => 'MERCZEP',
-        'title' => 'Zephyr',
+    ),
+    49 => 
+    array (
+      'name' => 'ikarus',
+      'title' => 'Ikarus',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'gorodskoy',
+          'title' => 'Городской',
+        ),
+        1 => 
+        array (
+          'name' => 'mejdugorodniy',
+          'title' => 'Междугородный',
+        ),
+        2 => 
+        array (
+          'name' => 'turisticheskiy',
+          'title' => 'Туристический',
+        ),
       ),
-      17 => 
-      array (
-        'value' => 'MEOTH',
-        'title' => 'Other Mercury Models',
+    ),
+    50 => 
+    array (
+      'name' => 'scania',
+      'title' => 'Scania',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'irizar',
+          'title' => 'Irizar',
+        ),
+        1 => 
+        array (
+          'name' => 'omni',
+          'title' => 'OMNI',
+        ),
+        2 => 
+        array (
+          'name' => 'prigorodniy',
+          'title' => 'Пригородный',
+        ),
+        3 => 
+        array (
+          'name' => 'turisticheskiy',
+          'title' => 'Туристический',
+        ),
       ),
     ),
-  ),
-  45 => 
-  array (
-    'value' => 'MERKUR',
-    'title' => 'Merkur',
-    'models' => 
+    51 => 
     array (
-      0 => 
-      array (
-        'value' => 'SCORP',
-        'title' => 'Scorpio',
+      'name' => 'zonda',
+      'title' => 'Zonda',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'yck6126hg',
+          'title' => 'YCK6126HG',
+        ),
+        1 => 
+        array (
+          'name' => 'yck6129hg',
+          'title' => 'YCK6129HG',
+        ),
       ),
-      1 => 
-      array (
-        'value' => 'XR4TI',
-        'title' => 'XR4Ti',
+    ),
+    52 => 
+    array (
+      'name' => 'isuzu',
+      'title' => 'Isuzu',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'turkuaz',
+          'title' => 'Turkuaz',
+        ),
       ),
-      2 => 
-      array (
-        'value' => 'MEROTH',
-        'title' => 'Other Merkur Models',
+    ),
+    53 => 
+    array (
+      'name' => 'setra',
+      'title' => 'Setra',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'multi-class',
+          'title' => 'Multi Class',
+        ),
+        1 => 
+        array (
+          'name' => 'multi-class-400',
+          'title' => 'Multi Class 400',
+        ),
+        2 => 
+        array (
+          'name' => 'series-200',
+          'title' => 'Series 200',
+        ),
+        3 => 
+        array (
+          'name' => 'top-class',
+          'title' => 'Top Class',
+        ),
       ),
     ),
   ),
-  46 => 
+  'light_trucks' => 
   array (
-    'value' => 'MINI',
-    'title' => 'MINI',
-    'models' => 
+    0 => 
     array (
-      0 => 
-      array (
-        'value' => 'COOPRCLUB_MODELS',
-        'title' => 'Cooper Clubman Models (2)',
-      ),
-      1 => 
-      array (
-        'value' => 'COOPERCLUB',
-        'title' => ' - Cooper Clubman',
+      'name' => 'vaz',
+      'title' => 'ВАЗ',
+      'soviet' => true,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'largus',
+          'title' => 'Largus',
+        ),
+        1 => 
+        array (
+          'name' => 'bogdan',
+          'title' => 'Богдан',
+        ),
+        2 => 
+        array (
+          'name' => 'pikap',
+          'title' => 'Нива',
+        ),
+        3 => 
+        array (
+          'name' => 'toyma',
+          'title' => 'Тойма',
+        ),
       ),
-      2 => 
-      array (
-        'value' => 'COOPRCLUBS',
-        'title' => ' - Cooper S Clubman',
+    ),
+    1 => 
+    array (
+      'name' => 'izh',
+      'title' => 'ИЖ',
+      'soviet' => true,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => '2715',
+          'title' => '2715',
+        ),
+        1 => 
+        array (
+          'name' => '2717',
+          'title' => '2717',
+        ),
+        2 => 
+        array (
+          'name' => '27175',
+          'title' => '27175',
+        ),
       ),
-      3 => 
-      array (
-        'value' => 'COOPCOUNTRY_MODELS',
-        'title' => 'Cooper Countryman Models (2)',
+    ),
+    2 => 
+    array (
+      'name' => 'raf',
+      'title' => 'РАФ',
+      'soviet' => true,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => '2203',
+          'title' => '2203',
+        ),
       ),
-      4 => 
-      array (
-        'value' => 'COUNTRYMAN',
-        'title' => ' - Cooper Countryman',
+    ),
+    3 => 
+    array (
+      'name' => 'vis',
+      'title' => 'ВИС',
+      'soviet' => true,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => '2345',
+          'title' => '2345',
+        ),
+        1 => 
+        array (
+          'name' => '2346',
+          'title' => '2346',
+        ),
+        2 => 
+        array (
+          'name' => '2347',
+          'title' => '2347',
+        ),
+        3 => 
+        array (
+          'name' => '2349',
+          'title' => '2349',
+        ),
+        4 => 
+        array (
+          'name' => 'lada-samara',
+          'title' => 'LADA SAMARA',
+        ),
+        5 => 
+        array (
+          'name' => 'vaz--2107',
+          'title' => 'ВАЗ- 2107',
+        ),
       ),
-      5 => 
-      array (
-        'value' => 'COUNTRYMNS',
-        'title' => ' - Cooper S Countryman',
+    ),
+    4 => 
+    array (
+      'name' => 'imya',
+      'title' => 'ИМЯ-М',
+      'soviet' => true,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => '3006',
+          'title' => '3006',
+        ),
       ),
-      6 => 
-      array (
-        'value' => 'COOPCOUP_MODELS',
-        'title' => 'Cooper Coupe Models (2)',
+    ),
+    5 => 
+    array (
+      'name' => 'tagaz',
+      'title' => 'ТагАЗ',
+      'soviet' => true,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'hardy',
+          'title' => 'Hardy',
+        ),
+        1 => 
+        array (
+          'name' => 'lc100',
+          'title' => 'LC100 (Master)',
+        ),
+        2 => 
+        array (
+          'name' => 'hyundai-',
+          'title' => 'Porter',
+        ),
       ),
-      7 => 
-      array (
-        'value' => 'MINICOUPE',
-        'title' => ' - Cooper Coupe',
+    ),
+    6 => 
+    array (
+      'name' => 'gaz',
+      'title' => 'ГАЗ',
+      'soviet' => true,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'gazel-bortovie',
+          'title' => 'ГАЗЕЛЬ',
+        ),
+        1 => 
+        array (
+          'name' => 'gazel-next',
+          'title' => 'ГАЗЕЛЬ Next',
+        ),
+        2 => 
+        array (
+          'name' => 'sobol',
+          'title' => 'СОБОЛЬ',
+        ),
+        3 => 
+        array (
+          'name' => 'trofim',
+          'title' => 'Трофим',
+        ),
       ),
-      8 => 
-      array (
-        'value' => 'MINISCOUPE',
-        'title' => ' - Cooper S Coupe',
+    ),
+    7 => 
+    array (
+      'name' => 'moscvich',
+      'title' => 'Москвич (АЗЛК)',
+      'soviet' => true,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => '2335',
+          'title' => '2335',
+        ),
       ),
-      9 => 
-      array (
-        'value' => 'COOPER_MODELS',
-        'title' => 'Cooper Models (2)',
+    ),
+    8 => 
+    array (
+      'name' => 'uaz',
+      'title' => 'УАЗ',
+      'soviet' => true,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => '2206',
+          'title' => '2206',
+        ),
+        1 => 
+        array (
+          'name' => '3215',
+          'title' => '3215',
+        ),
+        2 => 
+        array (
+          'name' => '3303',
+          'title' => '3303',
+        ),
+        3 => 
+        array (
+          'name' => '33962',
+          'title' => '33962',
+        ),
+        4 => 
+        array (
+          'name' => '3741',
+          'title' => '3741',
+        ),
+        5 => 
+        array (
+          'name' => '3909',
+          'title' => '3909',
+        ),
+        6 => 
+        array (
+          'name' => '3962',
+          'title' => '3962',
+        ),
+        7 => 
+        array (
+          'name' => '452',
+          'title' => '452',
+        ),
       ),
-      10 => 
-      array (
-        'value' => 'COOPER',
-        'title' => ' - Cooper',
+    ),
+    9 => 
+    array (
+      'name' => 'zaz',
+      'title' => 'ЗАЗ',
+      'soviet' => true,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'sens',
+          'title' => 'Lanos-фургон',
+        ),
       ),
-      11 => 
-      array (
-        'value' => 'COOPERS',
-        'title' => ' - Cooper S',
+    ),
+    10 => 
+    array (
+      'name' => 'barkas',
+      'title' => 'Barkas',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'b-1000-',
+          'title' => 'B 1000',
+        ),
       ),
-      12 => 
-      array (
-        'value' => 'COOPRROAD_MODELS',
-        'title' => 'Cooper Roadster Models (2)',
+    ),
+    11 => 
+    array (
+      'name' => 'gmc',
+      'title' => 'GMC',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'savana',
+          'title' => 'Savana',
+        ),
       ),
-      13 => 
-      array (
-        'value' => 'COOPERROAD',
-        'title' => ' - Cooper Roadster',
+    ),
+    12 => 
+    array (
+      'name' => 'mitsubishi',
+      'title' => 'Mitsubishi',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'delica',
+          'title' => 'Delica',
+        ),
+        1 => 
+        array (
+          'name' => 'l-200',
+          'title' => 'L-серия',
+        ),
+        2 => 
+        array (
+          'name' => 'rosa',
+          'title' => 'Rosa',
+        ),
       ),
-      14 => 
-      array (
-        'value' => 'COOPERSRD',
-        'title' => ' - Cooper S Roadster',
+    ),
+    13 => 
+    array (
+      'name' => 'baw',
+      'title' => 'BAW',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'fenix',
+          'title' => 'Fenix 1044',
+        ),
+        1 => 
+        array (
+          'name' => 'fenix-1065',
+          'title' => 'Fenix 1065',
+        ),
+        2 => 
+        array (
+          'name' => 'fenix-3346',
+          'title' => 'Fenix 3346',
+        ),
+        3 => 
+        array (
+          'name' => 'tonik',
+          'title' => 'Tonik',
+        ),
       ),
     ),
-  ),
-  47 => 
-  array (
-    'value' => 'MIT',
-    'title' => 'Mitsubishi',
-    'models' => 
+    14 => 
     array (
-      0 => 
-      array (
-        'value' => '3000GT',
-        'title' => '3000GT',
+      'name' => 'honda',
+      'title' => 'Honda',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'acty',
+          'title' => 'Acty',
+        ),
       ),
-      1 => 
-      array (
-        'value' => 'CORD',
-        'title' => 'Cordia',
+    ),
+    15 => 
+    array (
+      'name' => 'nissan',
+      'title' => 'Nissan',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'atlas',
+          'title' => 'Atlas',
+        ),
+        1 => 
+        array (
+          'name' => 'cabstar',
+          'title' => 'Cabstar',
+        ),
+        2 => 
+        array (
+          'name' => 'caravan',
+          'title' => 'Caravan',
+        ),
+        3 => 
+        array (
+          'name' => 'diesel-condor',
+          'title' => 'Diesel Condor',
+        ),
+        4 => 
+        array (
+          'name' => 'interstar',
+          'title' => 'Interstar',
+        ),
+        5 => 
+        array (
+          'name' => 'kubistar',
+          'title' => 'Kubistar',
+        ),
+        6 => 
+        array (
+          'name' => 'nv200',
+          'title' => 'NV200',
+        ),
+        7 => 
+        array (
+          'name' => 'primastar',
+          'title' => 'Primastar',
+        ),
+        8 => 
+        array (
+          'name' => 'trade',
+          'title' => 'Trade',
+        ),
+        9 => 
+        array (
+          'name' => 'urvan-mikroavtobus',
+          'title' => 'Urvan',
+        ),
+        10 => 
+        array (
+          'name' => 'vanette-mikroavtobus',
+          'title' => 'Vanette',
+        ),
       ),
-      2 => 
-      array (
-        'value' => 'DIAMAN',
-        'title' => 'Diamante',
+    ),
+    16 => 
+    array (
+      'name' => 'chevrolet',
+      'title' => 'Chevrolet',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'express-van',
+          'title' => 'Express Van',
+        ),
+        1 => 
+        array (
+          'name' => 'silverado',
+          'title' => 'Silverado',
+        ),
       ),
-      3 => 
-      array (
-        'value' => 'ECLIP',
-        'title' => 'Eclipse',
+    ),
+    17 => 
+    array (
+      'name' => 'hyundai',
+      'title' => 'Hyundai',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'e-mighty',
+          'title' => 'e-Mighty',
+        ),
+        1 => 
+        array (
+          'name' => 'grace',
+          'title' => 'Grace',
+        ),
+        2 => 
+        array (
+          'name' => 'h-1',
+          'title' => 'H-1 Starex',
+        ),
+        3 => 
+        array (
+          'name' => 'h100-furgon',
+          'title' => 'H100',
+        ),
+        4 => 
+        array (
+          'name' => 'h200',
+          'title' => 'H200',
+        ),
+        5 => 
+        array (
+          'name' => 'hd35',
+          'title' => 'HD35',
+        ),
+        6 => 
+        array (
+          'name' => 'porter',
+          'title' => 'Porter',
+        ),
       ),
-      4 => 
-      array (
-        'value' => 'ENDEAVOR',
-        'title' => 'Endeavor',
+    ),
+    18 => 
+    array (
+      'name' => 'opel',
+      'title' => 'Opel',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'combo-furgon',
+          'title' => 'Combo',
+        ),
+        1 => 
+        array (
+          'name' => 'movano',
+          'title' => 'Movano',
+        ),
+        2 => 
+        array (
+          'name' => 'vivaro-',
+          'title' => 'Vivaro',
+        ),
       ),
-      5 => 
-      array (
-        'value' => 'MITEXP',
-        'title' => 'Expo',
+    ),
+    19 => 
+    array (
+      'name' => 'citroen',
+      'title' => 'Citroen',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'berlingo',
+          'title' => 'Berlingo',
+        ),
+        1 => 
+        array (
+          'name' => 'c25',
+          'title' => 'C25',
+        ),
+        2 => 
+        array (
+          'name' => 'jumper',
+          'title' => 'Jumper',
+        ),
+        3 => 
+        array (
+          'name' => 'jumpy',
+          'title' => 'Jumpy',
+        ),
+        4 => 
+        array (
+          'name' => 'nemo',
+          'title' => 'Nemo',
+        ),
       ),
-      6 => 
-      array (
-        'value' => 'GALANT',
-        'title' => 'Galant',
+    ),
+    20 => 
+    array (
+      'name' => 'isuzu',
+      'title' => 'Isuzu',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'midi',
+          'title' => 'Midi',
+        ),
+        1 => 
+        array (
+          'name' => 'nkr',
+          'title' => 'NKR',
+        ),
+        2 => 
+        array (
+          'name' => 'nqr',
+          'title' => 'NQR',
+        ),
+        3 => 
+        array (
+          'name' => 'tf-seriya',
+          'title' => 'TF Серия',
+        ),
       ),
-      7 => 
-      array (
-        'value' => 'MITI',
-        'title' => 'i',
+    ),
+    21 => 
+    array (
+      'name' => 'peugeot',
+      'title' => 'Peugeot',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'boxer',
+          'title' => 'Boxer',
+        ),
+        1 => 
+        array (
+          'name' => 'expert',
+          'title' => 'Expert',
+        ),
+        2 => 
+        array (
+          'name' => 'partner',
+          'title' => 'Partner',
+        ),
       ),
-      8 => 
-      array (
-        'value' => 'LANCERMITS',
-        'title' => 'Lancer',
+    ),
+    22 => 
+    array (
+      'name' => 'daewoo',
+      'title' => 'Daewoo',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'damas',
+          'title' => 'Damas',
+        ),
+        1 => 
+        array (
+          'name' => 'labo',
+          'title' => 'Labo',
+        ),
       ),
-      9 => 
-      array (
-        'value' => 'LANCEREVO',
-        'title' => 'Lancer Evolution',
+    ),
+    23 => 
+    array (
+      'name' => 'iveco',
+      'title' => 'IVECO',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'daily-cab',
+          'title' => 'Daily',
+        ),
       ),
-      10 => 
-      array (
-        'value' => 'MITPU',
-        'title' => 'Mighty Max',
+    ),
+    24 => 
+    array (
+      'name' => 'renault',
+      'title' => 'Renault',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'b-110',
+          'title' => 'B-110',
+        ),
+        1 => 
+        array (
+          'name' => 'kangoo',
+          'title' => 'Kangoo',
+        ),
+        2 => 
+        array (
+          'name' => 'mascott',
+          'title' => 'Mascott',
+        ),
+        3 => 
+        array (
+          'name' => 'master-mikroavtobus',
+          'title' => 'Master',
+        ),
+        4 => 
+        array (
+          'name' => 'maxity',
+          'title' => 'Maxity',
+        ),
+        5 => 
+        array (
+          'name' => 'trafic-mikroavtobus',
+          'title' => 'Trafic',
+        ),
       ),
-      11 => 
-      array (
-        'value' => 'MIRAGE',
-        'title' => 'Mirage',
+    ),
+    25 => 
+    array (
+      'name' => 'daf',
+      'title' => 'DAF',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => '400-serie-furgon',
+          'title' => '400-серия',
+        ),
       ),
-      12 => 
-      array (
-        'value' => 'MONT',
-        'title' => 'Montero',
+    ),
+    26 => 
+    array (
+      'name' => 'jac',
+      'title' => 'JAC',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => '1040',
+          'title' => 'HFC 1040',
+        ),
+        1 => 
+        array (
+          'name' => 'hfc-1061',
+          'title' => 'HFC 1061',
+        ),
       ),
-      13 => 
-      array (
-        'value' => 'MONTSPORT',
-        'title' => 'Montero Sport',
+    ),
+    27 => 
+    array (
+      'name' => 'skoda',
+      'title' => 'Skoda',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'practik',
+          'title' => 'Practik',
+        ),
       ),
-      14 => 
-      array (
-        'value' => 'OUTLANDER',
-        'title' => 'Outlander',
+    ),
+    28 => 
+    array (
+      'name' => 'daihatsu',
+      'title' => 'Daihatsu',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'hijet-mikroavtobus',
+          'title' => 'Hijet',
+        ),
       ),
-      15 => 
-      array (
-        'value' => 'OUTLANDSPT',
-        'title' => 'Outlander Sport',
+    ),
+    29 => 
+    array (
+      'name' => 'jbc',
+      'title' => 'JBC',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'sy1041',
+          'title' => 'SY1041',
+        ),
       ),
-      16 => 
-      array (
-        'value' => 'PRECIS',
-        'title' => 'Precis',
+    ),
+    30 => 
+    array (
+      'name' => 'sokon',
+      'title' => 'Sokon',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'sokon',
+          'title' => 'Sokon',
+        ),
       ),
-      17 => 
-      array (
-        'value' => 'RAIDERMITS',
-        'title' => 'Raider',
+    ),
+    31 => 
+    array (
+      'name' => 'dodge',
+      'title' => 'Dodge',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'ram',
+          'title' => 'RAM',
+        ),
+        1 => 
+        array (
+          'name' => 'sprinter',
+          'title' => 'Sprinter',
+        ),
       ),
-      18 => 
-      array (
-        'value' => 'SIGMA',
-        'title' => 'Sigma',
+    ),
+    32 => 
+    array (
+      'name' => 'jinbei_hiace',
+      'title' => 'Jinbei',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'haise',
+          'title' => 'Haise',
+        ),
       ),
-      19 => 
-      array (
-        'value' => 'MITSTAR',
-        'title' => 'Starion',
+    ),
+    33 => 
+    array (
+      'name' => 'ssang-yong',
+      'title' => 'Ssang Yong',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'istana',
+          'title' => 'Istana',
+        ),
       ),
-      20 => 
-      array (
-        'value' => 'TRED',
-        'title' => 'Tredia',
+    ),
+    34 => 
+    array (
+      'name' => 'dongfeng',
+      'title' => 'DongFeng',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'eq1010',
+          'title' => 'EQ1010',
+        ),
+        1 => 
+        array (
+          'name' => 'eq1020',
+          'title' => 'EQ1020',
+        ),
       ),
-      21 => 
-      array (
-        'value' => 'MITVAN',
-        'title' => 'Van',
+    ),
+    35 => 
+    array (
+      'name' => 'jmc',
+      'title' => 'JMC',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => '1032',
+          'title' => '1032',
+        ),
+        1 => 
+        array (
+          'name' => '1043',
+          'title' => '1043',
+        ),
+        2 => 
+        array (
+          'name' => '1051',
+          'title' => '1051',
+        ),
+        3 => 
+        array (
+          'name' => '1052',
+          'title' => '1052',
+        ),
       ),
-      22 => 
-      array (
-        'value' => 'MITOTH',
-        'title' => 'Other Mitsubishi Models',
+    ),
+    36 => 
+    array (
+      'name' => 'tata',
+      'title' => 'TATA',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'tl',
+          'title' => 'TL',
+        ),
       ),
     ),
-  ),
-  48 => 
-  array (
-    'value' => 'NISSAN',
-    'title' => 'Nissan',
-    'models' => 
+    37 => 
     array (
-      0 => 
-      array (
-        'value' => 'NIS200SX',
-        'title' => '200SX',
+      'name' => 'faw',
+      'title' => 'FAW',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => '1010',
+          'title' => '1010',
+        ),
+        1 => 
+        array (
+          'name' => '1011',
+          'title' => '1011',
+        ),
+        2 => 
+        array (
+          'name' => '1031',
+          'title' => '1031',
+        ),
+        3 => 
+        array (
+          'name' => '1041',
+          'title' => '1041',
+        ),
+        4 => 
+        array (
+          'name' => '1047',
+          'title' => '1047',
+        ),
+        5 => 
+        array (
+          'name' => '1051',
+          'title' => '1051',
+        ),
+        6 => 
+        array (
+          'name' => '1062',
+          'title' => '1062',
+        ),
+        7 => 
+        array (
+          'name' => '6350',
+          'title' => '6350',
+        ),
+        8 => 
+        array (
+          'name' => '6371',
+          'title' => '6371',
+        ),
       ),
-      1 => 
-      array (
-        'value' => '240SX',
-        'title' => '240SX',
+    ),
+    38 => 
+    array (
+      'name' => 'kia',
+      'title' => 'Kia',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'besta-',
+          'title' => 'Besta',
+        ),
+        1 => 
+        array (
+          'name' => 'bongo',
+          'title' => 'Bongo',
+        ),
+        2 => 
+        array (
+          'name' => 'k2500',
+          'title' => 'K-серия',
+        ),
+        3 => 
+        array (
+          'name' => 'pregio',
+          'title' => 'Pregio',
+        ),
       ),
-      2 => 
-      array (
-        'value' => '300ZXTURBO',
-        'title' => '300ZX',
+    ),
+    39 => 
+    array (
+      'name' => 'toyota',
+      'title' => 'Toyota',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'duna',
+          'title' => 'Dyna',
+        ),
+        1 => 
+        array (
+          'name' => 'hiace-bus',
+          'title' => 'Hiace',
+        ),
+        2 => 
+        array (
+          'name' => 'liteace-bus',
+          'title' => 'Lite Ace',
+        ),
+        3 => 
+        array (
+          'name' => 'lite-ace-noah',
+          'title' => 'Lite Ace Noah',
+        ),
+        4 => 
+        array (
+          'name' => 'lite-ace-van',
+          'title' => 'Lite Ace Van',
+        ),
+        5 => 
+        array (
+          'name' => 'town-ace',
+          'title' => 'Town Ace',
+        ),
+        6 => 
+        array (
+          'name' => 'toyo-ace',
+          'title' => 'Toyo Ace',
+        ),
       ),
-      3 => 
-      array (
-        'value' => '350Z',
-        'title' => '350Z',
+    ),
+    40 => 
+    array (
+      'name' => 'fiat',
+      'title' => 'Fiat',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'doblo-cargo',
+          'title' => 'Doblo',
+        ),
+        1 => 
+        array (
+          'name' => 'ducato',
+          'title' => 'Ducato',
+        ),
+        2 => 
+        array (
+          'name' => 'scudo-furgon',
+          'title' => 'Scudo',
+        ),
       ),
-      4 => 
-      array (
-        'value' => '370Z',
-        'title' => '370Z',
+    ),
+    41 => 
+    array (
+      'name' => 'ldv',
+      'title' => 'LDV',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'mikroavtobus',
+          'title' => '400',
+        ),
+        1 => 
+        array (
+          'name' => 'furgon',
+          'title' => 'Maxus',
+        ),
       ),
-      5 => 
-      array (
-        'value' => 'ALTIMA',
-        'title' => 'Altima',
+    ),
+    42 => 
+    array (
+      'name' => 'volkswagen',
+      'title' => 'Volkswagen',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'amarok',
+          'title' => 'Amarok',
+        ),
+        1 => 
+        array (
+          'name' => 'caddy-ii',
+          'title' => 'Caddy',
+        ),
+        2 => 
+        array (
+          'name' => 'caravelle',
+          'title' => 'Caravelle',
+        ),
+        3 => 
+        array (
+          'name' => 'crafter',
+          'title' => 'Crafter',
+        ),
+        4 => 
+        array (
+          'name' => 'lt-28-46-ii',
+          'title' => 'LT',
+        ),
+        5 => 
+        array (
+          'name' => 'multivan-mikroavtobus',
+          'title' => 'Multivan',
+        ),
+        6 => 
+        array (
+          'name' => 'transporter-furgon',
+          'title' => 'Transporter',
+        ),
       ),
-      6 => 
-      array (
-        'value' => 'PATHARMADA',
-        'title' => 'Armada',
+    ),
+    43 => 
+    array (
+      'name' => 'ford',
+      'title' => 'Ford',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'courier',
+          'title' => 'Courier',
+        ),
+        1 => 
+        array (
+          'name' => 'e-series',
+          'title' => 'E-series',
+        ),
+        2 => 
+        array (
+          'name' => 'econoline2',
+          'title' => 'E-серия',
+        ),
+        3 => 
+        array (
+          'name' => 'f-series',
+          'title' => 'F-series',
+        ),
+        4 => 
+        array (
+          'name' => 'f150',
+          'title' => 'F-серия',
+        ),
+        5 => 
+        array (
+          'name' => 'fiesta-courier',
+          'title' => 'Fiesta Courier',
+        ),
+        6 => 
+        array (
+          'name' => 'tourneo',
+          'title' => 'Tourneo',
+        ),
+        7 => 
+        array (
+          'name' => 'tourneo-connect',
+          'title' => 'Tourneo Connect',
+        ),
+        8 => 
+        array (
+          'name' => 'transit-bus',
+          'title' => 'Transit',
+        ),
+        9 => 
+        array (
+          'name' => 'transit-connect',
+          'title' => 'Transit Connect',
+        ),
+        10 => 
+        array (
+          'name' => 'transit-custom',
+          'title' => 'Transit Custom',
+        ),
+        11 => 
+        array (
+          'name' => 'transit-kombi',
+          'title' => 'Transit Kombi',
+        ),
       ),
-      7 => 
-      array (
-        'value' => 'AXXESS',
-        'title' => 'Axxess',
+    ),
+    44 => 
+    array (
+      'name' => 'mazda',
+      'title' => 'Mazda',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'bongo-mikroavtobus',
+          'title' => 'Bongo',
+        ),
+        1 => 
+        array (
+          'name' => 'titan',
+          'title' => 'Titan',
+        ),
       ),
-      8 => 
-      array (
-        'value' => 'CUBE',
-        'title' => 'Cube',
+    ),
+    45 => 
+    array (
+      'name' => 'yuejin',
+      'title' => 'YueJin',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => '1020',
+          'title' => '1020',
+        ),
+        1 => 
+        array (
+          'name' => '1041',
+          'title' => '1041',
+        ),
       ),
-      9 => 
-      array (
-        'value' => 'FRONTI',
-        'title' => 'Frontier',
+    ),
+    46 => 
+    array (
+      'name' => 'foton',
+      'title' => 'Foton',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'alpha',
+          'title' => 'Alpha',
+        ),
+        1 => 
+        array (
+          'name' => 'aumark',
+          'title' => 'Aumark',
+        ),
+        2 => 
+        array (
+          'name' => 'ollin',
+          'title' => 'Ollin',
+        ),
+        3 => 
+        array (
+          'name' => 'view',
+          'title' => 'View',
+        ),
       ),
-      10 => 
-      array (
-        'value' => 'GT-R',
-        'title' => 'GT-R',
+    ),
+    47 => 
+    array (
+      'name' => 'mercedes',
+      'title' => 'Mercedes-Benz',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => '100-mikroavtobus',
+          'title' => '100',
+        ),
+        1 => 
+        array (
+          'name' => 'citan',
+          'title' => 'Citan',
+        ),
+        2 => 
+        array (
+          'name' => 'sprinter--shassi',
+          'title' => 'Sprinter',
+        ),
+        3 => 
+        array (
+          'name' => 't1-_601_',
+          'title' => 'T1',
+        ),
+        4 => 
+        array (
+          'name' => 't2',
+          'title' => 'T2',
+        ),
+        5 => 
+        array (
+          'name' => 'v-klasse',
+          'title' => 'V-класс',
+        ),
+        6 => 
+        array (
+          'name' => 'vario',
+          'title' => 'Vario',
+        ),
+        7 => 
+        array (
+          'name' => 'viano',
+          'title' => 'Viano',
+        ),
+        8 => 
+        array (
+          'name' => 'vito',
+          'title' => 'Vito',
+        ),
       ),
-      11 => 
-      array (
-        'value' => 'JUKE',
-        'title' => 'Juke',
+    ),
+  ),
+  'drags' => 
+  array (
+    0 => 
+    array (
+      'name' => 'avto',
+      'title' => 'Авто',
+      'soviet' => true,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'polupricepi-avtovozi',
+          'title' => 'Полуприцепы-автовозы',
+        ),
       ),
-      12 => 
-      array (
-        'value' => 'LEAF',
-        'title' => 'Leaf',
+    ),
+    1 => 
+    array (
+      'name' => 'kurganpricep',
+      'title' => 'КурганПрицеп',
+      'soviet' => true,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => '8213-vodnik',
+          'title' => '8213 Водник',
+        ),
+        1 => 
+        array (
+          'name' => '8213-krepish',
+          'title' => '8213 Крепыш',
+        ),
+        2 => 
+        array (
+          'name' => '8213-07-tayga',
+          'title' => '8213 Тайга',
+        ),
       ),
-      13 => 
-      array (
-        'value' => 'MAX',
-        'title' => 'Maxima',
+    ),
+    2 => 
+    array (
+      'name' => 'sespel',
+      'title' => 'Сеспель',
+      'soviet' => true,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => '9648',
+          'title' => '9648',
+        ),
+        1 => 
+        array (
+          'name' => 'polupricepi-cisterni',
+          'title' => 'Полуприцепы-цистерны',
+        ),
       ),
-      14 => 
-      array (
-        'value' => 'MURANO',
-        'title' => 'Murano',
+    ),
+    3 => 
+    array (
+      'name' => 'avtomaster',
+      'title' => 'Автомастер',
+      'soviet' => true,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => '8565',
+          'title' => '8565',
+        ),
+        1 => 
+        array (
+          'name' => '9083',
+          'title' => '9083',
+        ),
       ),
-      15 => 
-      array (
-        'value' => 'MURANOCROS',
-        'title' => 'Murano CrossCabriolet',
+    ),
+    4 => 
+    array (
+      'name' => 'kurganskie-pricepi',
+      'title' => 'Курганские прицепы',
+      'soviet' => true,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => '821301',
+          'title' => '821301',
+        ),
+        1 => 
+        array (
+          'name' => '821305',
+          'title' => '821305',
+        ),
+        2 => 
+        array (
+          'name' => '8213a5',
+          'title' => '8213А5',
+        ),
       ),
-      16 => 
-      array (
-        'value' => 'NV',
-        'title' => 'NV',
+    ),
+    5 => 
+    array (
+      'name' => 'szap',
+      'title' => 'СЗАП',
+      'soviet' => true,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => '8305',
+          'title' => '8305',
+        ),
+        1 => 
+        array (
+          'name' => '8306',
+          'title' => '8306',
+        ),
+        2 => 
+        array (
+          'name' => '8352',
+          'title' => '8352',
+        ),
+        3 => 
+        array (
+          'name' => '8357',
+          'title' => '8357',
+        ),
+        4 => 
+        array (
+          'name' => '8527',
+          'title' => '8527',
+        ),
+        5 => 
+        array (
+          'name' => '8543',
+          'title' => '8543',
+        ),
+        6 => 
+        array (
+          'name' => '8551',
+          'title' => '8551',
+        ),
+        7 => 
+        array (
+          'name' => '9327',
+          'title' => '9327',
+        ),
+        8 => 
+        array (
+          'name' => '93271',
+          'title' => '93271',
+        ),
+        9 => 
+        array (
+          'name' => '93272',
+          'title' => '93272',
+        ),
+        10 => 
+        array (
+          'name' => '9328',
+          'title' => '9328',
+        ),
+        11 => 
+        array (
+          'name' => '9517',
+          'title' => '9517',
+        ),
+        12 => 
+        array (
+          'name' => '9905',
+          'title' => '9905',
+        ),
+        13 => 
+        array (
+          'name' => '9915',
+          'title' => '9915',
+        ),
+        14 => 
+        array (
+          'name' => 'bortovie-polupricep',
+          'title' => 'Бортовые полуприцепы',
+        ),
       ),
-      17 => 
-      array (
-        'value' => 'NX',
-        'title' => 'NX',
+    ),
+    6 => 
+    array (
+      'name' => 'avtomash',
+      'title' => 'АвтоМаш',
+      'soviet' => true,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => '816264',
+          'title' => '816264',
+        ),
       ),
-      18 => 
-      array (
-        'value' => 'PATH',
-        'title' => 'Pathfinder',
+    ),
+    7 => 
+    array (
+      'name' => 'law',
+      'title' => 'ЛАВ',
+      'soviet' => true,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => '81012',
+          'title' => '81012',
+        ),
+        1 => 
+        array (
+          'name' => '81013',
+          'title' => '81013',
+        ),
+        2 => 
+        array (
+          'name' => '81021',
+          'title' => '81021',
+        ),
+        3 => 
+        array (
+          'name' => '81025',
+          'title' => '81025',
+        ),
       ),
-      19 => 
-      array (
-        'value' => 'NISPU',
-        'title' => 'Pickup',
+    ),
+    8 => 
+    array (
+      'name' => 'skif',
+      'title' => 'Скиф',
+      'soviet' => true,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => '500',
+          'title' => '500',
+        ),
+        1 => 
+        array (
+          'name' => 'm1',
+          'title' => 'М1',
+        ),
+        2 => 
+        array (
+          'name' => 'm2',
+          'title' => 'М2',
+        ),
       ),
-      20 => 
-      array (
-        'value' => 'PULSAR',
-        'title' => 'Pulsar',
+    ),
+    9 => 
+    array (
+      'name' => 'alexhim',
+      'title' => 'АлексеевкаХиммаш',
+      'soviet' => true,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => '9647',
+          'title' => '9647',
+        ),
+        1 => 
+        array (
+          'name' => 'polupricepi-cisterni',
+          'title' => 'Полуприцепы-цистерны',
+        ),
       ),
-      21 => 
-      array (
-        'value' => 'QUEST',
-        'title' => 'Quest',
+    ),
+    10 => 
+    array (
+      'name' => 'lkz',
+      'title' => 'ЛКЗ',
+      'soviet' => true,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => '8101',
+          'title' => '8101',
+        ),
       ),
-      22 => 
-      array (
-        'value' => 'ROGUE',
-        'title' => 'Rogue',
+    ),
+    11 => 
+    array (
+      'name' => 'smz-sm',
+      'title' => 'СМЗ СМ',
+      'soviet' => true,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'pricepi',
+          'title' => 'Прицепы',
+        ),
       ),
-      23 => 
-      array (
-        'value' => 'SENTRA',
-        'title' => 'Sentra',
+    ),
+    12 => 
+    array (
+      'name' => 'aps',
+      'title' => 'АПС',
+      'soviet' => true,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'bortovie-polupricepi',
+          'title' => 'Бортовые полуприцепы',
+        ),
+        1 => 
+        array (
+          'name' => 'polupricepi-konteynerovozi',
+          'title' => 'Полуприцепы-контейнеровозы',
+        ),
       ),
-      24 => 
-      array (
-        'value' => 'STANZA',
-        'title' => 'Stanza',
+    ),
+    13 => 
+    array (
+      'name' => 'maz',
+      'title' => 'МАЗ',
+      'soviet' => true,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'polupricep---konteynerovoz',
+          'title' => 'Полуприцеп - контейнеровоз',
+        ),
+        1 => 
+        array (
+          'name' => 'polupricep---refrijerator',
+          'title' => 'Полуприцеп - рефрижератор',
+        ),
+        2 => 
+        array (
+          'name' => 'polupricepbortovoy',
+          'title' => 'Полуприцеп бортовой',
+        ),
+        3 => 
+        array (
+          'name' => 'polupricep---furgon',
+          'title' => 'Полуприцеп изотермический',
+        ),
+        4 => 
+        array (
+          'name' => 'polupricep-samosvalniy',
+          'title' => 'Полуприцеп самосвальный',
+        ),
+        5 => 
+        array (
+          'name' => 'polupricep-sortimentovoz',
+          'title' => 'Полуприцеп сортиментовоз',
+        ),
+        6 => 
+        array (
+          'name' => 'polupricep-bortovoy',
+          'title' => 'Полуприцеп тентованный',
+        ),
+        7 => 
+        array (
+          'name' => 'polupricep-tyajelovoz',
+          'title' => 'Полуприцеп тяжеловоз',
+        ),
+        8 => 
+        array (
+          'name' => 'polupricep-cisterna',
+          'title' => 'Полуприцеп-цистерна',
+        ),
+        9 => 
+        array (
+          'name' => 'pricep---rospusk',
+          'title' => 'Прицеп - роспуск',
+        ),
+        10 => 
+        array (
+          'name' => 'pricep---furgon',
+          'title' => 'Прицеп - фургон',
+        ),
+        11 => 
+        array (
+          'name' => 'pricep-bortovoy',
+          'title' => 'Прицеп бортовой',
+        ),
+        12 => 
+        array (
+          'name' => 'pricep-samosvalniy',
+          'title' => 'Прицеп самосвальный',
+        ),
+        13 => 
+        array (
+          'name' => 'pricep-shassi',
+          'title' => 'Прицеп шасси',
+        ),
+        14 => 
+        array (
+          'name' => 'pricep-sortimentovoz',
+          'title' => 'Прицеп-сортиментовоз',
+        ),
       ),
-      25 => 
-      array (
-        'value' => 'TITAN',
-        'title' => 'Titan',
+    ),
+    14 => 
+    array (
+      'name' => 'snm-_stroyneftemash_',
+      'title' => 'СНМ (Стройнефтемаш)',
+      'soviet' => true,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'snmp-25',
+          'title' => 'СНМП-25',
+        ),
       ),
-      26 => 
-      array (
-        'value' => 'NISVAN',
-        'title' => 'Van',
+    ),
+    15 => 
+    array (
+      'name' => 'kanash',
+      'title' => 'АСТ-Канаш',
+      'soviet' => true,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'avtovoz',
+          'title' => 'Автовоз',
+        ),
+        1 => 
+        array (
+          'name' => 'panelevoz',
+          'title' => 'Панелевоз',
+        ),
       ),
-      27 => 
-      array (
-        'value' => 'VERSA',
-        'title' => 'Versa',
+    ),
+    16 => 
+    array (
+      'name' => 'manak-avto',
+      'title' => 'Манак-Авто',
+      'soviet' => true,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'bortovie-polupricepi',
+          'title' => 'Бортовые полуприцепы',
+        ),
+        1 => 
+        array (
+          'name' => 'izotermicheskie-polupricepi',
+          'title' => 'Изотермические полуприцепы',
+        ),
+        2 => 
+        array (
+          'name' => 'konteynerovozi',
+          'title' => 'Контейнеровозы',
+        ),
+        3 => 
+        array (
+          'name' => 'polupricepi-platformi',
+          'title' => 'Полуприцепы-платформы',
+        ),
+        4 => 
+        array (
+          'name' => 'samosvalnie-polupricepi',
+          'title' => 'Самосвальные полуприцепы',
+        ),
+        5 => 
+        array (
+          'name' => 'tentovannie-klapannie',
+          'title' => 'Тентованные клапанные',
+        ),
+        6 => 
+        array (
+          'name' => 'tentovannie-shtornie',
+          'title' => 'Тентованные шторные',
+        ),
       ),
-      28 => 
-      array (
-        'value' => 'XTERRA',
-        'title' => 'Xterra',
+    ),
+    17 => 
+    array (
+      'name' => 'specmashpricep',
+      'title' => 'Спецмашприцеп',
+      'soviet' => true,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => '934620',
+          'title' => '934620',
+        ),
+        1 => 
+        array (
+          'name' => '935903',
+          'title' => '935903',
+        ),
       ),
-      29 => 
-      array (
-        'value' => 'NISSOTH',
-        'title' => 'Other Nissan Models',
+    ),
+    18 => 
+    array (
+      'name' => 'baltspecmash',
+      'title' => 'Балтспецмаш',
+      'soviet' => true,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'polupricep',
+          'title' => 'Полуприцеп',
+        ),
       ),
     ),
-  ),
-  49 => 
-  array (
-    'value' => 'OLDS',
-    'title' => 'Oldsmobile',
-    'models' => 
+    19 => 
     array (
-      0 => 
-      array (
-        'value' => '88',
-        'title' => '88',
+      'name' => 'mzsa',
+      'title' => 'МЗСА',
+      'soviet' => true,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => '817701',
+          'title' => '817701',
+        ),
+        1 => 
+        array (
+          'name' => '817702',
+          'title' => '817702',
+        ),
+        2 => 
+        array (
+          'name' => '817708',
+          'title' => '817708',
+        ),
+        3 => 
+        array (
+          'name' => '81771',
+          'title' => '81771',
+        ),
+        4 => 
+        array (
+          'name' => '817710',
+          'title' => '817710',
+        ),
+        5 => 
+        array (
+          'name' => '817711',
+          'title' => '817711',
+        ),
+        6 => 
+        array (
+          'name' => '817714',
+          'title' => '817714',
+        ),
+        7 => 
+        array (
+          'name' => '817716',
+          'title' => '817716',
+        ),
+        8 => 
+        array (
+          'name' => '817717',
+          'title' => '817717',
+        ),
+        9 => 
+        array (
+          'name' => '817718',
+          'title' => '817718',
+        ),
+        10 => 
+        array (
+          'name' => '81773',
+          'title' => '81773',
+        ),
+        11 => 
+        array (
+          'name' => '817731',
+          'title' => '817731',
+        ),
+        12 => 
+        array (
+          'name' => '817735',
+          'title' => '817735',
+        ),
+        13 => 
+        array (
+          'name' => '821700_002',
+          'title' => '821700',
+        ),
+        14 => 
+        array (
+          'name' => '821710',
+          'title' => '821710',
+        ),
+        15 => 
+        array (
+          'name' => '821711',
+          'title' => '821711',
+        ),
+        16 => 
+        array (
+          'name' => '821712',
+          'title' => '821712',
+        ),
+        17 => 
+        array (
+          'name' => '8322',
+          'title' => '8322',
+        ),
+        18 => 
+        array (
+          'name' => '832264',
+          'title' => '832264',
+        ),
+        19 => 
+        array (
+          'name' => '832310',
+          'title' => '832310',
+        ),
+        20 => 
+        array (
+          'name' => '842123',
+          'title' => '842123',
+        ),
+        21 => 
+        array (
+          'name' => '852111',
+          'title' => '852111',
+        ),
+        22 => 
+        array (
+          'name' => '9314',
+          'title' => '9314',
+        ),
       ),
-      1 => 
-      array (
-        'value' => 'ACHIEV',
-        'title' => 'Achieva',
+    ),
+    20 => 
+    array (
+      'name' => 'specpricep',
+      'title' => 'Спецприцеп',
+      'soviet' => true,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'visokoramnie---h',
+          'title' => 'Высокорамные - H',
+        ),
+        1 => 
+        array (
+          'name' => 'nizkoramnie-polupricepi',
+          'title' => 'Низкорамные полуприцепы - L',
+        ),
+        2 => 
+        array (
+          'name' => 'peredniy-zaezd---d',
+          'title' => 'Передний заезд - D',
+        ),
+        3 => 
+        array (
+          'name' => 'tyajelovoz---m',
+          'title' => 'Тяжеловоз - M',
+        ),
       ),
-      2 => 
-      array (
-        'value' => 'ALERO',
-        'title' => 'Alero',
+    ),
+    21 => 
+    array (
+      'name' => 'belaz',
+      'title' => 'БЕЛАЗ',
+      'soviet' => true,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => '812',
+          'title' => '812',
+        ),
       ),
-      3 => 
-      array (
-        'value' => 'AURORA',
-        'title' => 'Aurora',
+    ),
+    22 => 
+    array (
+      'name' => 'mmz',
+      'title' => 'ММЗ',
+      'soviet' => true,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => '81021',
+          'title' => '81021',
+        ),
+        1 => 
+        array (
+          'name' => '81024',
+          'title' => '81024',
+        ),
+        2 => 
+        array (
+          'name' => '8113',
+          'title' => '8113',
+        ),
       ),
-      4 => 
-      array (
-        'value' => 'BRAV',
-        'title' => 'Bravada',
+    ),
+    23 => 
+    array (
+      'name' => 'stroymash-servis',
+      'title' => 'Строймаш-сервис',
+      'soviet' => true,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => '93231',
+          'title' => '93231',
+        ),
       ),
-      5 => 
-      array (
-        'value' => 'CUCR',
-        'title' => 'Custom Cruiser',
+    ),
+    24 => 
+    array (
+      'name' => 'becema',
+      'title' => 'Бецема',
+      'soviet' => true,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'polupricep',
+          'title' => 'полуприцеп',
+        ),
+        1 => 
+        array (
+          'name' => 'polupricepi-cisternai',
+          'title' => 'полуприцеп-цистерна',
+        ),
+        2 => 
+        array (
+          'name' => 'samosvalniy-pricep',
+          'title' => 'самосвальный прицеп',
+        ),
       ),
-      6 => 
-      array (
-        'value' => 'OLDCUS',
-        'title' => 'Cutlass',
+    ),
+    25 => 
+    array (
+      'name' => 'mordovagromash',
+      'title' => 'МордовАгроМаш',
+      'soviet' => true,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => '8285',
+          'title' => '8285',
+        ),
       ),
-      7 => 
-      array (
-        'value' => 'OLDCALAIS',
-        'title' => 'Cutlass Calais',
+    ),
+    26 => 
+    array (
+      'name' => 'tverstroimash',
+      'title' => 'Тверьстроймаш',
+      'soviet' => true,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => '9939-b4',
+          'title' => '9939 B4',
+        ),
+        1 => 
+        array (
+          'name' => '9939-by',
+          'title' => '9939 BY',
+        ),
+        2 => 
+        array (
+          'name' => '993920',
+          'title' => '993920',
+        ),
+        3 => 
+        array (
+          'name' => '99393t',
+          'title' => '99393Т',
+        ),
+        4 => 
+        array (
+          'name' => '99395e',
+          'title' => '99395Е',
+        ),
       ),
-      8 => 
-      array (
-        'value' => 'CIERA',
-        'title' => 'Cutlass Ciera',
+    ),
+    27 => 
+    array (
+      'name' => 'varz',
+      'title' => 'ВАРЗ',
+      'soviet' => true,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => '3811',
+          'title' => '3811',
+        ),
       ),
-      9 => 
-      array (
-        'value' => 'CSUPR',
-        'title' => 'Cutlass Supreme',
+    ),
+    28 => 
+    array (
+      'name' => 'belarus-_mtz_',
+      'title' => 'МТЗ (Беларусь)',
+      'soviet' => true,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => '2pts-4_5',
+          'title' => '2ПТС-4.5',
+        ),
       ),
-      10 => 
-      array (
-        'value' => 'OLDSFIR',
-        'title' => 'Firenza',
+    ),
+    29 => 
+    array (
+      'name' => 'tonar',
+      'title' => 'Тонар',
+      'soviet' => true,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => '8132',
+          'title' => '8132',
+        ),
+        1 => 
+        array (
+          'name' => '8188',
+          'title' => '8188',
+        ),
+        2 => 
+        array (
+          'name' => '8191',
+          'title' => '8191',
+        ),
+        3 => 
+        array (
+          'name' => '8310',
+          'title' => '8310',
+        ),
+        4 => 
+        array (
+          'name' => '8579',
+          'title' => '8579',
+        ),
+        5 => 
+        array (
+          'name' => '86101',
+          'title' => '86101',
+        ),
+        6 => 
+        array (
+          'name' => '86104',
+          'title' => '86104',
+        ),
+        7 => 
+        array (
+          'name' => '8953',
+          'title' => '8953',
+        ),
+        8 => 
+        array (
+          'name' => '9442',
+          'title' => '9442',
+        ),
+        9 => 
+        array (
+          'name' => '9523',
+          'title' => '9523',
+        ),
+        10 => 
+        array (
+          'name' => '9746',
+          'title' => '9746',
+        ),
+        11 => 
+        array (
+          'name' => 'tonar-8742',
+          'title' => 'Тонар 8742',
+        ),
       ),
-      11 => 
-      array (
-        'value' => 'INTRIG',
-        'title' => 'Intrigue',
+    ),
+    30 => 
+    array (
+      'name' => 'vomz',
+      'title' => 'ВОМЗ',
+      'soviet' => true,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'steelbear',
+          'title' => 'Steelbear',
+        ),
       ),
-      12 => 
-      array (
-        'value' => '98',
-        'title' => 'Ninety-Eight',
+    ),
+    31 => 
+    array (
+      'name' => 'mtm',
+      'title' => 'МТМ',
+      'soviet' => true,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => '9330',
+          'title' => '9330',
+        ),
+        1 => 
+        array (
+          'name' => '938910',
+          'title' => '938910',
+        ),
+        2 => 
+        array (
+          'name' => '9397',
+          'title' => '9397',
+        ),
+        3 => 
+        array (
+          'name' => '9985',
+          'title' => '9985',
+        ),
       ),
-      13 => 
-      array (
-        'value' => 'OMEG',
-        'title' => 'Omega',
+    ),
+    32 => 
+    array (
+      'name' => 'transles',
+      'title' => 'Транслес',
+      'soviet' => true,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'translift',
+          'title' => 'Translift',
+        ),
       ),
-      14 => 
-      array (
-        'value' => 'REGEN',
-        'title' => 'Regency',
+    ),
+    33 => 
+    array (
+      'name' => 'gkb',
+      'title' => 'ГКБ',
+      'soviet' => true,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => '817',
+          'title' => '817',
+        ),
+        1 => 
+        array (
+          'name' => '8350',
+          'title' => '8350',
+        ),
+        2 => 
+        array (
+          'name' => '8527',
+          'title' => '8527',
+        ),
+        3 => 
+        array (
+          'name' => '8551',
+          'title' => '8551',
+        ),
       ),
-      15 => 
-      array (
-        'value' => 'SILHO',
-        'title' => 'Silhouette',
+    ),
+    34 => 
+    array (
+      'name' => 'nevskie-mashini-i-pricepi',
+      'title' => 'Невские машины и прицепы',
+      'soviet' => true,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => '836907',
+          'title' => '836907',
+        ),
       ),
-      16 => 
-      array (
-        'value' => 'TORO',
-        'title' => 'Toronado',
+    ),
+    35 => 
+    array (
+      'name' => 'transmash-_kama_',
+      'title' => 'Трансмаш (КАМА)',
+      'soviet' => true,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'polupricepi',
+          'title' => 'Полуприцепы',
+        ),
       ),
-      17 => 
-      array (
-        'value' => 'OLDOTH',
-        'title' => 'Other Oldsmobile Models',
+    ),
+    36 => 
+    array (
+      'name' => 'graz',
+      'title' => 'Граз',
+      'soviet' => true,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'ppts-96221',
+          'title' => 'ППЦ-96221',
+        ),
+        1 => 
+        array (
+          'name' => 'ppts-96226',
+          'title' => 'ППЦ-96226',
+        ),
+        2 => 
+        array (
+          'name' => 'ppts-96227',
+          'title' => 'ППЦ-96227',
+        ),
+        3 => 
+        array (
+          'name' => 'ppts',
+          'title' => 'ППЦ-96231',
+        ),
+        4 => 
+        array (
+          'name' => 'pptsb-912503',
+          'title' => 'ППЦБ-912503',
+        ),
       ),
     ),
-  ),
-  50 => 
-  array (
-    'value' => 'PEUG',
-    'title' => 'Peugeot',
-    'models' => 
+    37 => 
     array (
-      0 => 
-      array (
-        'value' => '405',
-        'title' => '405',
+      'name' => 'nefaz',
+      'title' => 'НефАЗ',
+      'soviet' => true,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'polupricep-bortovoy',
+          'title' => 'полуприцеп бортовой',
+        ),
+        1 => 
+        array (
+          'name' => 'polupricep-samosvalniy',
+          'title' => 'полуприцеп самосвальный',
+        ),
+        2 => 
+        array (
+          'name' => 'polupricep-cisterna',
+          'title' => 'полуприцеп цистерна',
+        ),
+        3 => 
+        array (
+          'name' => 'pricep-bortovoy',
+          'title' => 'прицеп бортовой',
+        ),
+        4 => 
+        array (
+          'name' => 'pricep-samosvalniy',
+          'title' => 'прицеп самосвальный',
+        ),
+        5 => 
+        array (
+          'name' => 'pricep-cisterna',
+          'title' => 'прицеп цистерна',
+        ),
       ),
-      1 => 
-      array (
-        'value' => '504',
-        'title' => '504',
+    ),
+    38 => 
+    array (
+      'name' => 'treiler',
+      'title' => 'Трейлер',
+      'soviet' => true,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => '8294',
+          'title' => '8294',
+        ),
+        1 => 
+        array (
+          'name' => '82944',
+          'title' => '82944',
+        ),
       ),
-      2 => 
-      array (
-        'value' => '505',
-        'title' => '505',
+    ),
+    39 => 
+    array (
+      'name' => 'dizel-ts',
+      'title' => 'Дизель-ТС',
+      'soviet' => true,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'dizel-ts',
+          'title' => 'Дизель-ТС',
+        ),
       ),
-      3 => 
-      array (
-        'value' => '604',
-        'title' => '604',
+    ),
+    40 => 
+    array (
+      'name' => 'odaz',
+      'title' => 'ОдАЗ',
+      'soviet' => true,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => '9357',
+          'title' => '9357',
+        ),
+        1 => 
+        array (
+          'name' => '9370',
+          'title' => '9370',
+        ),
+        2 => 
+        array (
+          'name' => '97725',
+          'title' => '97725',
+        ),
       ),
-      4 => 
-      array (
-        'value' => 'UNAVAILPEU',
-        'title' => 'Other Peugeot Models',
+    ),
+    41 => 
+    array (
+      'name' => 'uaz',
+      'title' => 'УАЗ',
+      'soviet' => true,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => '8109',
+          'title' => '8109',
+        ),
       ),
     ),
-  ),
-  51 => 
-  array (
-    'value' => 'PLYM',
-    'title' => 'Plymouth',
-    'models' => 
+    42 => 
     array (
-      0 => 
-      array (
-        'value' => 'ACC',
-        'title' => 'Acclaim',
+      'name' => 'drugie',
+      'title' => 'Другие',
+      'soviet' => true,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'neizvestna',
+          'title' => 'Неизвестна',
+        ),
       ),
-      1 => 
-      array (
-        'value' => 'ARROW',
-        'title' => 'Arrow',
+    ),
+    43 => 
+    array (
+      'name' => 'orelstroymash',
+      'title' => 'Орелстроймаш',
+      'soviet' => true,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'opm-2_0',
+          'title' => 'ОПМ-2.0',
+        ),
+        1 => 
+        array (
+          'name' => 'opm-3_5',
+          'title' => 'ОПМ-3.5',
+        ),
       ),
-      2 => 
-      array (
-        'value' => 'BREEZE',
-        'title' => 'Breeze',
+    ),
+    44 => 
+    array (
+      'name' => 'ural-market',
+      'title' => 'Урал-Маркет',
+      'soviet' => true,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => '4456',
+          'title' => '4456',
+        ),
       ),
-      3 => 
-      array (
-        'value' => 'CARAVE',
-        'title' => 'Caravelle',
+    ),
+    45 => 
+    array (
+      'name' => 'evropricep',
+      'title' => 'Европрицеп',
+      'soviet' => true,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => '7119a1',
+          'title' => '7119А1',
+        ),
       ),
-      4 => 
-      array (
-        'value' => 'CHAMP',
-        'title' => 'Champ',
+    ),
+    46 => 
+    array (
+      'name' => 'pmz',
+      'title' => 'ПМЗ',
+      'soviet' => true,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => '8131',
+          'title' => '8131',
+        ),
       ),
-      5 => 
-      array (
-        'value' => 'COLT',
-        'title' => 'Colt',
+    ),
+    47 => 
+    array (
+      'name' => 'uralspecmash',
+      'title' => 'УралСпецМаш',
+      'soviet' => true,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => '904703',
+          'title' => '904703',
+        ),
       ),
-      6 => 
-      array (
-        'value' => 'PLYMCONQ',
-        'title' => 'Conquest',
+    ),
+    48 => 
+    array (
+      'name' => 'gt7',
+      'title' => 'Завод GT7',
+      'soviet' => true,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'ppts',
+          'title' => 'ППЦ',
+        ),
       ),
-      7 => 
-      array (
-        'value' => 'GRANFURY',
-        'title' => 'Gran Fury',
+    ),
+    49 => 
+    array (
+      'name' => 'politrans',
+      'title' => 'Политранс',
+      'soviet' => true,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'tsp-9416',
+          'title' => 'ТСП 9416',
+        ),
+        1 => 
+        array (
+          'name' => 'tsp-9418',
+          'title' => 'ТСП 9418',
+        ),
+        2 => 
+        array (
+          'name' => 'tsp-94183',
+          'title' => 'ТСП 94183',
+        ),
       ),
-      8 => 
-      array (
-        'value' => 'PLYMGRANV',
-        'title' => 'Grand Voyager',
+    ),
+    50 => 
+    array (
+      'name' => 'tsentrtranstehmash',
+      'title' => 'Центртранстехмаш',
+      'soviet' => true,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'pricep-avtovoz',
+          'title' => 'Прицеп-автовоз',
+        ),
       ),
-      9 => 
-      array (
-        'value' => 'HORI',
-        'title' => 'Horizon',
+    ),
+    51 => 
+    array (
+      'name' => 'zid',
+      'title' => 'ЗиД',
+      'soviet' => true,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'enot',
+          'title' => 'Енот',
+        ),
       ),
-      10 => 
-      array (
-        'value' => 'LASER',
-        'title' => 'Laser',
+    ),
+    52 => 
+    array (
+      'name' => 'progress',
+      'title' => 'Прогресс',
+      'soviet' => true,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => '7135',
+          'title' => '7135',
+        ),
       ),
-      11 => 
-      array (
-        'value' => 'NEON',
-        'title' => 'Neon',
+    ),
+    53 => 
+    array (
+      'name' => 'tsp',
+      'title' => 'ЦП',
+      'soviet' => true,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'panelevozi',
+          'title' => 'Панелевозы',
+        ),
       ),
-      12 => 
-      array (
-        'value' => 'PROWLE',
-        'title' => 'Prowler',
+    ),
+    54 => 
+    array (
+      'name' => 'istok',
+      'title' => 'Исток',
+      'soviet' => true,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => '3791',
+          'title' => '3791',
+        ),
+        1 => 
+        array (
+          'name' => '3792',
+          'title' => '3792',
+        ),
+        2 => 
+        array (
+          'name' => '3793',
+          'title' => '3793',
+        ),
+        3 => 
+        array (
+          'name' => '7119',
+          'title' => '7119',
+        ),
+        4 => 
+        array (
+          'name' => 'universal-lyuks',
+          'title' => 'Универсал Люкс',
+        ),
       ),
-      13 => 
-      array (
-        'value' => 'RELI',
-        'title' => 'Reliant',
+    ),
+    55 => 
+    array (
+      'name' => 'promagro-pricep',
+      'title' => 'ПромАгро Прицеп',
+      'soviet' => true,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'pt-2x5kv',
+          'title' => 'ПТ 2x5КВ',
+        ),
       ),
-      14 => 
-      array (
-        'value' => 'SAPPOROPLY',
-        'title' => 'Sapporo',
+    ),
+    56 => 
+    array (
+      'name' => 'tsttm',
+      'title' => 'ЦТТМ',
+      'soviet' => true,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => '8713',
+          'title' => '8713',
+        ),
+        1 => 
+        array (
+          'name' => '87143',
+          'title' => '87143',
+        ),
+        2 => 
+        array (
+          'name' => '972200',
+          'title' => '972200',
+        ),
       ),
-      15 => 
-      array (
-        'value' => 'SCAMP',
-        'title' => 'Scamp',
+    ),
+    57 => 
+    array (
+      'name' => 'kamaz',
+      'title' => 'КамАЗ',
+      'soviet' => true,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'gkb-8350',
+          'title' => 'ГКБ-8350',
+        ),
+        1 => 
+        array (
+          'name' => 'gkb-8352',
+          'title' => 'ГКБ-8352',
+        ),
       ),
-      16 => 
-      array (
-        'value' => 'SUNDAN',
-        'title' => 'Sundance',
+    ),
+    58 => 
+    array (
+      'name' => 'promsvyaz',
+      'title' => 'Промсвязь',
+      'soviet' => true,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'ps-8934',
+          'title' => 'ПС 8934',
+        ),
       ),
-      17 => 
-      array (
-        'value' => 'TRAILDUST',
-        'title' => 'Trailduster',
+    ),
+    59 => 
+    array (
+      'name' => 'chayka-servis',
+      'title' => 'Чайка-Сервис',
+      'soviet' => true,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'avtovozi',
+          'title' => 'Полуприцепы-автовозы',
+        ),
       ),
-      18 => 
-      array (
-        'value' => 'VOYA',
-        'title' => 'Voyager',
+    ),
+    60 => 
+    array (
+      'name' => 'kammz',
+      'title' => 'КамМЗ',
+      'soviet' => true,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'polupricepi-avtovozi',
+          'title' => 'Полуприцепы автовозы',
+        ),
       ),
-      19 => 
-      array (
-        'value' => 'PLYOTH',
-        'title' => 'Other Plymouth Models',
+    ),
+    61 => 
+    array (
+      'name' => 'rosspecpricep',
+      'title' => 'РосСпецПрицеп',
+      'soviet' => true,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => '9462',
+          'title' => '9462',
+        ),
       ),
     ),
-  ),
-  52 => 
-  array (
-    'value' => 'PONT',
-    'title' => 'Pontiac',
-    'models' => 
+    62 => 
     array (
-      0 => 
-      array (
-        'value' => 'T-1000',
-        'title' => '1000',
+      'name' => 'chkpz',
+      'title' => 'ЧКПЗ',
+      'soviet' => true,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => '943300',
+          'title' => '943300',
+        ),
       ),
-      1 => 
-      array (
-        'value' => '6000',
-        'title' => '6000',
+    ),
+    63 => 
+    array (
+      'name' => 'kapri',
+      'title' => 'Капри',
+      'soviet' => true,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'ppts',
+          'title' => 'ППЦ',
+        ),
       ),
-      2 => 
-      array (
-        'value' => 'AZTEK',
-        'title' => 'Aztek',
+    ),
+    64 => 
+    array (
+      'name' => 'rostrak',
+      'title' => 'Рострак',
+      'soviet' => true,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'konteynerovoznie-pricepi',
+          'title' => 'Контейнеровозные прицепы',
+        ),
       ),
-      3 => 
-      array (
-        'value' => 'BON',
-        'title' => 'Bonneville',
+    ),
+    65 => 
+    array (
+      'name' => 'chmzap',
+      'title' => 'ЧМЗАП',
+      'soviet' => true,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'bortovie',
+          'title' => 'Бортовые',
+        ),
+        1 => 
+        array (
+          'name' => 'konteynerovozi',
+          'title' => 'Контейнеровозы',
+        ),
+        2 => 
+        array (
+          'name' => 'nizkoramnie',
+          'title' => 'Низкорамные',
+        ),
+        3 => 
+        array (
+          'name' => 'panelevozi',
+          'title' => 'Панелевозы',
+        ),
+        4 => 
+        array (
+          'name' => 'tsisterni',
+          'title' => 'Цистерны',
+        ),
       ),
-      4 => 
-      array (
-        'value' => 'CATALINA',
-        'title' => 'Catalina',
+    ),
+    66 => 
+    array (
+      'name' => 'kzs',
+      'title' => 'КЗС',
+      'soviet' => true,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => '949730-',
+          'title' => '949730',
+        ),
       ),
-      5 => 
-      array (
-        'value' => 'FIERO',
-        'title' => 'Fiero',
+    ),
+    67 => 
+    array (
+      'name' => 'saz',
+      'title' => 'САЗ',
+      'soviet' => true,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => '8317',
+          'title' => '8317',
+        ),
+        1 => 
+        array (
+          'name' => '9459',
+          'title' => '9459',
+        ),
       ),
-      6 => 
-      array (
-        'value' => 'FBIRD',
-        'title' => 'Firebird',
+    ),
+    68 => 
+    array (
+      'name' => 'shturman-kredo_',
+      'title' => 'Штурман Кредо+',
+      'soviet' => true,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => '83703',
+          'title' => '83703',
+        ),
+        1 => 
+        array (
+          'name' => '85300',
+          'title' => '85300',
+        ),
       ),
-      7 => 
-      array (
-        'value' => 'G3',
-        'title' => 'G3',
+    ),
+    69 => 
+    array (
+      'name' => 'kmz',
+      'title' => 'КМЗ',
+      'soviet' => true,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => '8136',
+          'title' => '8136',
+        ),
+        1 => 
+        array (
+          'name' => '8213',
+          'title' => '8213',
+        ),
+        2 => 
+        array (
+          'name' => '8284-',
+          'title' => '8284',
+        ),
       ),
-      8 => 
-      array (
-        'value' => 'G5',
-        'title' => 'G5',
+    ),
+    70 => 
+    array (
+      'name' => 'sat',
+      'title' => 'САТ',
+      'soviet' => true,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => '118',
+          'title' => '118',
+        ),
+        1 => 
+        array (
+          'name' => '119',
+          'title' => '119',
+        ),
       ),
-      9 => 
-      array (
-        'value' => 'G6',
-        'title' => 'G6',
+    ),
+    71 => 
+    array (
+      'name' => 'ermz',
+      'title' => 'ЭРМЗ',
+      'soviet' => true,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'pricep-cisterni',
+          'title' => 'Прицеп-цистерны',
+        ),
       ),
-      10 => 
-      array (
-        'value' => 'G8',
-        'title' => 'G8',
+    ),
+    72 => 
+    array (
+      'name' => 'kupava',
+      'title' => 'Купава',
+      'soviet' => true,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => '813210',
+          'title' => '813210',
+        ),
+        1 => 
+        array (
+          'name' => '813220',
+          'title' => '813220',
+        ),
+        2 => 
+        array (
+          'name' => '813226',
+          'title' => '813226',
+        ),
+        3 => 
+        array (
+          'name' => '813228',
+          'title' => '813228',
+        ),
+        4 => 
+        array (
+          'name' => '813270',
+          'title' => '813270',
+        ),
+        5 => 
+        array (
+          'name' => '813290',
+          'title' => '813290',
+        ),
+        6 => 
+        array (
+          'name' => '8281',
+          'title' => '8281',
+        ),
+        7 => 
+        array (
+          'name' => 'polupricepi-refrijeratori',
+          'title' => 'Полуприцепы-рефрижераторы',
+        ),
       ),
-      11 => 
-      array (
-        'value' => 'GRNDAM',
-        'title' => 'Grand Am',
+    ),
+    73 => 
+    array (
+      'name' => 'selhozpromles',
+      'title' => 'СельхозПромлес',
+      'soviet' => true,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'polupricepi',
+          'title' => 'Полуприцепы',
+        ),
       ),
-      12 => 
-      array (
-        'value' => 'GP',
-        'title' => 'Grand Prix',
+    ),
+    74 => 
+    array (
+      'name' => 'acerbi',
+      'title' => 'Acerbi',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'polupricep---konteynerovoz',
+          'title' => 'Полуприцеп - контейнеровоз',
+        ),
+        1 => 
+        array (
+          'name' => 'polupricep---cisterna',
+          'title' => 'Полуприцеп - цистерна',
+        ),
       ),
-      13 => 
-      array (
-        'value' => 'GTO',
-        'title' => 'GTO',
+    ),
+    75 => 
+    array (
+      'name' => 'grayadams',
+      'title' => 'Gray&Adams',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'frigo',
+          'title' => 'Frigo',
+        ),
+        1 => 
+        array (
+          'name' => 'ga3fl_7',
+          'title' => 'Ga3fl/7',
+        ),
       ),
-      14 => 
-      array (
-        'value' => 'J2000',
-        'title' => 'J2000',
+    ),
+    76 => 
+    array (
+      'name' => '-obermaier',
+      'title' => 'Obermaier',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'os2',
+          'title' => 'OS2',
+        ),
       ),
-      15 => 
-      array (
-        'value' => 'LEMANS',
-        'title' => 'Le Mans',
+    ),
+    77 => 
+    array (
+      'name' => 'ackermann',
+      'title' => 'Ackermann',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'freuhauf',
+          'title' => 'Freuhauf',
+        ),
+        1 => 
+        array (
+          'name' => 'tandemanhang',
+          'title' => 'Tandemanhang',
+        ),
       ),
-      16 => 
-      array (
-        'value' => 'MONTANA',
-        'title' => 'Montana',
+    ),
+    78 => 
+    array (
+      'name' => 'great-dane',
+      'title' => 'Great Dane',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'termo-king-ii-unit',
+          'title' => 'Termo King II Unit',
+        ),
+        1 => 
+        array (
+          'name' => 'termo-king-sb-iii',
+          'title' => 'Termo King SB III',
+        ),
       ),
-      17 => 
-      array (
-        'value' => 'PARISI',
-        'title' => 'Parisienne',
+    ),
+    79 => 
+    array (
+      'name' => 'ok-kardesler',
+      'title' => 'Ok Kardesler',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'polupricep-tsementovoz',
+          'title' => 'Полуприцеп Цементовоз',
+        ),
       ),
-      18 => 
-      array (
-        'value' => 'PHOENIX',
-        'title' => 'Phoenix',
+    ),
+    80 => 
+    array (
+      'name' => 'actm',
+      'title' => 'ACTM',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'trali-nizkoramnie',
+          'title' => 'Тралы низкорамные',
+        ),
       ),
-      19 => 
-      array (
-        'value' => 'SAFARIPONT',
-        'title' => 'Safari',
+    ),
+    81 => 
+    array (
+      'name' => 'groenewegen',
+      'title' => 'Groenewegen',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'xl',
+          'title' => 'XL',
+        ),
       ),
-      20 => 
-      array (
-        'value' => 'SOLSTICE',
-        'title' => 'Solstice',
+    ),
+    82 => 
+    array (
+      'name' => 'okt-trailer',
+      'title' => 'OKT TRAILER',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'tankeri',
+          'title' => 'Цистерны',
+        ),
       ),
-      21 => 
-      array (
-        'value' => 'SUNBIR',
-        'title' => 'Sunbird',
+    ),
+    83 => 
+    array (
+      'name' => 'adige',
+      'title' => 'Adige',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => '36sva',
+          'title' => '36SVA',
+        ),
       ),
-      22 => 
-      array (
-        'value' => 'SUNFIR',
-        'title' => 'Sunfire',
+    ),
+    84 => 
+    array (
+      'name' => 'grunwald',
+      'title' => 'Grunwald',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'grunwald',
+          'title' => 'Grunwald',
+        ),
+        1 => 
+        array (
+          'name' => 'polupricep-konteynerovoz',
+          'title' => 'Полуприцеп контейнеровоз',
+        ),
+        2 => 
+        array (
+          'name' => 'polupricep-samosvalniy',
+          'title' => 'Полуприцеп самосвальный',
+        ),
+        3 => 
+        array (
+          'name' => 'polupricep-tentovanniy',
+          'title' => 'Полуприцеп тентованный',
+        ),
+        4 => 
+        array (
+          'name' => 'polupricep-tyajelovoz',
+          'title' => 'Полуприцеп тяжеловоз',
+        ),
       ),
-      23 => 
-      array (
-        'value' => 'TORRENT',
-        'title' => 'Torrent',
+    ),
+    85 => 
+    array (
+      'name' => 'omt',
+      'title' => 'OMT',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'polupricepi-cisterni',
+          'title' => 'Полуприцепы-цистерны',
+        ),
       ),
-      24 => 
-      array (
-        'value' => 'TS',
-        'title' => 'Trans Sport',
+    ),
+    86 => 
+    array (
+      'name' => 'adr-trailers',
+      'title' => 'ADR Trailers',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'tsementovozi',
+          'title' => 'Цементовозы',
+        ),
       ),
-      25 => 
-      array (
-        'value' => 'VIBE',
-        'title' => 'Vibe',
+    ),
+    87 => 
+    array (
+      'name' => 'gti',
+      'title' => 'GTI',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'nutzfahrz-9000',
+          'title' => 'Nutzfahrz 9000',
+        ),
       ),
-      26 => 
-      array (
-        'value' => 'PONOTH',
-        'title' => 'Other Pontiac Models',
+    ),
+    88 => 
+    array (
+      'name' => 'overlander',
+      'title' => 'Overlander',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'tpt36es',
+          'title' => 'TPT',
+        ),
       ),
     ),
-  ),
-  53 => 
-  array (
-    'value' => 'POR',
-    'title' => 'Porsche',
-    'models' => 
+    89 => 
     array (
-      0 => 
-      array (
-        'value' => '911',
-        'title' => '911',
+      'name' => 'adria',
+      'title' => 'Adria',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'adora',
+          'title' => 'Adora',
+        ),
+        1 => 
+        array (
+          'name' => 'maxima',
+          'title' => 'Maxima',
+        ),
       ),
-      1 => 
-      array (
-        'value' => '924',
-        'title' => '924',
+    ),
+    90 => 
+    array (
+      'name' => 'gurlesenyil',
+      'title' => 'Gurlesenyil',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'nizkoramniy-tral',
+          'title' => 'Полуприцеп-низкорамный трал',
+        ),
       ),
-      2 => 
-      array (
-        'value' => '928',
-        'title' => '928',
+    ),
+    91 => 
+    array (
+      'name' => 'ozdemir',
+      'title' => 'Ozdemir',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'ozdemir',
+          'title' => 'Ozdemir',
+        ),
       ),
-      3 => 
+    ),
+    92 => 
+    array (
+      'name' => 'alexmotor',
+      'title' => 'AlexMotors',
+      'soviet' => false,
+      'models' => 
       array (
-        'value' => '944',
-        'title' => '944',
       ),
-      4 => 
-      array (
-        'value' => '968',
-        'title' => '968',
+    ),
+    93 => 
+    array (
+      'name' => 'gute-wolf',
+      'title' => 'Gute Wolf',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'gwt',
+          'title' => 'GWT',
+        ),
       ),
-      5 => 
-      array (
-        'value' => 'BOXSTE',
-        'title' => 'Boxster',
+    ),
+    94 => 
+    array (
+      'name' => 'ozgul',
+      'title' => 'Ozgul',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'polupricep-cisterna',
+          'title' => 'OZ',
+        ),
       ),
-      6 => 
-      array (
-        'value' => 'CARRERAGT',
-        'title' => 'Carrera GT',
+    ),
+    95 => 
+    array (
+      'name' => 'ali-riza-usta',
+      'title' => 'Ali Riza Usta',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'polupricep-benzovoz',
+          'title' => 'Полуприцеп Бензовоз',
+        ),
+        1 => 
+        array (
+          'name' => 'polupricep-bitumovoz',
+          'title' => 'Полуприцеп Битумовоз',
+        ),
+        2 => 
+        array (
+          'name' => 'polupricep-samosval',
+          'title' => 'Полуприцеп самосвал',
+        ),
+        3 => 
+        array (
+          'name' => 'polupricep-tsementovoz',
+          'title' => 'Полуприцеп Цементовоз',
+        ),
+        4 => 
+        array (
+          'name' => 'polupricep-cisterna',
+          'title' => 'Полуприцеп цистерна',
+        ),
       ),
-      7 => 
-      array (
-        'value' => 'CAYENNE',
-        'title' => 'Cayenne',
+    ),
+    96 => 
+    array (
+      'name' => 'haller',
+      'title' => 'Haller',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'polupricepi-cisterni',
+          'title' => 'Полуприцепы',
+        ),
       ),
-      8 => 
-      array (
-        'value' => 'CAYMAN',
-        'title' => 'Cayman',
+    ),
+    97 => 
+    array (
+      'name' => 'pacton',
+      'title' => 'Pacton',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 't-3',
+          'title' => 'T3',
+        ),
+        1 => 
+        array (
+          'name' => 't343',
+          'title' => 'T343',
+        ),
+        2 => 
+        array (
+          'name' => 'txd',
+          'title' => 'TXD',
+        ),
+        3 => 
+        array (
+          'name' => 'txl',
+          'title' => 'TXL',
+        ),
+        4 => 
+        array (
+          'name' => 'txz',
+          'title' => 'TXZ',
+        ),
       ),
-      9 => 
-      array (
-        'value' => 'PANAMERA',
-        'title' => 'Panamera',
+    ),
+    98 => 
+    array (
+      'name' => 'alkom',
+      'title' => 'Alkom',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'sm-39',
+          'title' => 'SM 39',
+        ),
       ),
-      10 => 
-      array (
-        'value' => 'POROTH',
-        'title' => 'Other Porsche Models',
+    ),
+    99 => 
+    array (
+      'name' => 'hartung',
+      'title' => 'Hartung',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'polupricepi-tyajelovozi',
+          'title' => 'Полуприцепы-тяжеловозы',
+        ),
       ),
     ),
-  ),
-  54 => 
-  array (
-    'value' => 'RAM',
-    'title' => 'RAM',
-    'models' => 
+    100 => 
     array (
-      0 => 
-      array (
-        'value' => 'RAM1504WD',
-        'title' => '1500',
+      'name' => 'panav',
+      'title' => 'Panav',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'panav',
+          'title' => 'Panav',
+        ),
       ),
-      1 => 
-      array (
-        'value' => 'RAM25002WD',
-        'title' => '2500',
+    ),
+    101 => 
+    array (
+      'name' => 'altin-trailer',
+      'title' => 'Altin Trailer',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'alt',
+          'title' => 'ALT',
+        ),
       ),
-      2 => 
-      array (
-        'value' => 'RAM3502WD',
-        'title' => '3500',
+    ),
+    102 => 
+    array (
+      'name' => 'heil',
+      'title' => 'Heil',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'bt44_3',
+          'title' => 'BT44/3',
+        ),
       ),
-      3 => 
-      array (
-        'value' => 'RAM4500',
-        'title' => '4500',
+    ),
+    103 => 
+    array (
+      'name' => 'placenza',
+      'title' => 'Placenza',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'polupricep',
+          'title' => 'полуприцеп',
+        ),
       ),
     ),
-  ),
-  55 => 
-  array (
-    'value' => 'REN',
-    'title' => 'Renault',
-    'models' => 
+    104 => 
     array (
-      0 => 
-      array (
-        'value' => '18I',
-        'title' => '18i',
+      'name' => 'alur',
+      'title' => 'Alur',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'pioneer',
+          'title' => 'Pioneer',
+        ),
       ),
-      1 => 
-      array (
-        'value' => 'FU',
-        'title' => 'Fuego',
+    ),
+    105 => 
+    array (
+      'name' => 'hendriks',
+      'title' => 'Hendriks',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'tsa',
+          'title' => 'TSA',
+        ),
       ),
-      2 => 
-      array (
-        'value' => 'LECAR',
-        'title' => 'Le Car',
+    ),
+    106 => 
+    array (
+      'name' => 'prestige',
+      'title' => 'Prestige',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => '1500',
+          'title' => '1500',
+        ),
       ),
-      3 => 
-      array (
-        'value' => 'R18',
-        'title' => 'R18',
+    ),
+    107 => 
+    array (
+      'name' => 'anssems',
+      'title' => 'Anssems',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'msx',
+          'title' => 'MSX',
+        ),
       ),
-      4 => 
-      array (
-        'value' => 'RENSPORT',
-        'title' => 'Sportwagon',
+    ),
+    108 => 
+    array (
+      'name' => 'henra',
+      'title' => 'Henra',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'tr20',
+          'title' => 'TR20',
+        ),
       ),
-      5 => 
-      array (
-        'value' => 'UNAVAILREN',
-        'title' => 'Other Renault Models',
+    ),
+    109 => 
+    array (
+      'name' => 'prim-ball',
+      'title' => 'Prim-Ball',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'd-1814',
+          'title' => 'D 1814',
+        ),
       ),
     ),
-  ),
-  56 => 
-  array (
-    'value' => 'RR',
-    'title' => 'Rolls-Royce',
-    'models' => 
+    110 => 
     array (
-      0 => 
-      array (
-        'value' => 'CAMAR',
-        'title' => 'Camargue',
+      'name' => 'art-grup',
+      'title' => 'Art Grup',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'polupricep-cisterna',
+          'title' => 'Полуприцепы',
+        ),
       ),
-      1 => 
-      array (
-        'value' => 'CORN',
-        'title' => 'Corniche',
+    ),
+    111 => 
+    array (
+      'name' => 'hermanns',
+      'title' => 'Hermanns',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => '2c31t',
+          'title' => 'SAL 2C31T',
+        ),
+        1 => 
+        array (
+          'name' => '2c33t',
+          'title' => 'SAL 2C33T',
+        ),
       ),
-      2 => 
-      array (
-        'value' => 'GHOST',
-        'title' => 'Ghost',
+    ),
+    112 => 
+    array (
+      'name' => 'reisch',
+      'title' => 'Reisch',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => '35_24',
+          'title' => '35/24',
+        ),
       ),
-      3 => 
-      array (
-        'value' => 'PARKWARD',
-        'title' => 'Park Ward',
+    ),
+    113 => 
+    array (
+      'name' => 'atlant',
+      'title' => 'Atlant',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'lbh',
+          'title' => 'LBH',
+        ),
+        1 => 
+        array (
+          'name' => 'swh',
+          'title' => 'SWH',
+        ),
       ),
-      4 => 
-      array (
-        'value' => 'PHANT',
-        'title' => 'Phantom',
+    ),
+    114 => 
+    array (
+      'name' => 'hfr',
+      'title' => 'HFR',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'sl240',
+          'title' => 'SL240',
+        ),
       ),
-      5 => 
-      array (
-        'value' => 'DAWN',
-        'title' => 'Silver Dawn',
+    ),
+    115 => 
+    array (
+      'name' => 'renders',
+      'title' => 'Renders',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'euro-700',
+          'title' => 'Euro 700',
+        ),
+        1 => 
+        array (
+          'name' => 'n4ts31',
+          'title' => 'N4TS31',
+        ),
+        2 => 
+        array (
+          'name' => 'roc-12-27-e',
+          'title' => 'ROC 12-27 E',
+        ),
+        3 => 
+        array (
+          'name' => 'rscc-12-27',
+          'title' => 'RSCC 12-27',
+        ),
+        4 => 
+        array (
+          'name' => 'skm',
+          'title' => 'SKM',
+        ),
       ),
-      6 => 
-      array (
-        'value' => 'SILSERAPH',
-        'title' => 'Silver Seraph',
+    ),
+    116 => 
+    array (
+      'name' => 'atm',
+      'title' => 'ATM',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'oka-15_24',
+          'title' => 'OKA 15/24',
+        ),
       ),
-      7 => 
-      array (
-        'value' => 'RRSPIR',
-        'title' => 'Silver Spirit',
+    ),
+    117 => 
+    array (
+      'name' => 'humbaur',
+      'title' => 'Humbaur',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'rexus',
+          'title' => 'Rexus',
+        ),
+        1 => 
+        array (
+          'name' => 'serie-1000',
+          'title' => 'Serie 1000',
+        ),
+        2 => 
+        array (
+          'name' => 'serie-2000',
+          'title' => 'Serie 2000',
+        ),
+        3 => 
+        array (
+          'name' => 'serie-3000',
+          'title' => 'Serie 3000',
+        ),
+        4 => 
+        array (
+          'name' => 'serie-5500',
+          'title' => 'Serie 5500',
+        ),
+        5 => 
+        array (
+          'name' => 'serie-8000',
+          'title' => 'Serie 8000',
+        ),
+        6 => 
+        array (
+          'name' => 'serie-9000',
+          'title' => 'Serie 9000',
+        ),
       ),
-      8 => 
-      array (
-        'value' => 'SPUR',
-        'title' => 'Silver Spur',
+    ),
+    118 => 
+    array (
+      'name' => 'respo',
+      'title' => 'Respo',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'p55l2',
+          'title' => 'P55L2',
+        ),
+        1 => 
+        array (
+          'name' => 'v81t',
+          'title' => 'V81T',
+        ),
       ),
-      9 => 
-      array (
-        'value' => 'UNAVAILRR',
-        'title' => 'Other Rolls-Royce Models',
+    ),
+    119 => 
+    array (
+      'name' => 'atoka',
+      'title' => 'Atoka',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => '35t',
+          'title' => '35T',
+        ),
       ),
     ),
-  ),
-  57 => 
-  array (
-    'value' => 'SAAB',
-    'title' => 'Saab',
-    'models' => 
+    120 => 
     array (
-      0 => 
-      array (
-        'value' => '9-2X',
-        'title' => '9-2X',
+      'name' => 'ifa',
+      'title' => 'IFA',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'bastei-351',
+          'title' => 'Bastei 351',
+        ),
       ),
-      1 => 
-      array (
-        'value' => '9-3',
-        'title' => '9-3',
+    ),
+    121 => 
+    array (
+      'name' => 'rigual',
+      'title' => 'Rigual',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 's3na',
+          'title' => 'S3NA',
+        ),
       ),
-      2 => 
-      array (
-        'value' => '9-4X',
-        'title' => '9-4X',
+    ),
+    122 => 
+    array (
+      'name' => 'aurepa',
+      'title' => 'Aurepa',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'stw',
+          'title' => 'STW',
+        ),
       ),
-      3 => 
-      array (
-        'value' => '9-5',
-        'title' => '9-5',
+    ),
+    123 => 
+    array (
+      'name' => 'indox',
+      'title' => 'Indox',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'tank-3',
+          'title' => 'Tank 3',
+        ),
       ),
-      4 => 
-      array (
-        'value' => '97X',
-        'title' => '9-7X',
+    ),
+    124 => 
+    array (
+      'name' => 'robinson',
+      'title' => 'Robinson',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'rvke',
+          'title' => 'RVKE',
+        ),
       ),
-      5 => 
-      array (
-        'value' => '900',
-        'title' => '900',
+    ),
+    125 => 
+    array (
+      'name' => 'avtos',
+      'title' => 'AvtoS',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'af',
+          'title' => 'AF',
+        ),
       ),
-      6 => 
-      array (
-        'value' => '9000',
-        'title' => '9000',
+    ),
+    126 => 
+    array (
+      'name' => 'ipv',
+      'title' => 'IPV',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => '8747rr',
+          'title' => '8747РР',
+        ),
+        1 => 
+        array (
+          'name' => '9487sn',
+          'title' => '9487SN',
+        ),
+        2 => 
+        array (
+          'name' => '9487st',
+          'title' => '9487ST',
+        ),
+        3 => 
+        array (
+          'name' => '9487xn',
+          'title' => '9487XN',
+        ),
       ),
-      7 => 
-      array (
-        'value' => 'SAOTH',
-        'title' => 'Other Saab Models',
+    ),
+    127 => 
+    array (
+      'name' => 'rofa',
+      'title' => 'Rofa',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'hks',
+          'title' => 'HKS',
+        ),
       ),
     ),
-  ),
-  58 => 
-  array (
-    'value' => 'SATURN',
-    'title' => 'Saturn',
-    'models' => 
+    128 => 
     array (
-      0 => 
-      array (
-        'value' => 'ASTRA',
-        'title' => 'Astra',
+      'name' => 'baryval',
+      'title' => 'Baryval',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'cb_3al-38',
+          'title' => 'CB/3AL-38',
+        ),
       ),
-      1 => 
-      array (
-        'value' => 'AURA',
-        'title' => 'Aura',
+    ),
+    129 => 
+    array (
+      'name' => 'janmil',
+      'title' => 'Janmil',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'polupricep-samosvalniy',
+          'title' => 'Полуприцеп самосвальный',
+        ),
       ),
-      2 => 
-      array (
-        'value' => 'ION',
-        'title' => 'ION',
+    ),
+    130 => 
+    array (
+      'name' => 'rohr',
+      'title' => 'ROHR',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'polupricepi',
+          'title' => 'Полуприцепы',
+        ),
       ),
-      3 => 
-      array (
-        'value' => 'L_SERIES',
-        'title' => 'L Series (3)',
+    ),
+    131 => 
+    array (
+      'name' => 'beckum',
+      'title' => 'Beckum',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'tsisterni',
+          'title' => 'Цистерны',
+        ),
       ),
-      4 => 
-      array (
-        'value' => 'L100',
-        'title' => ' - L100',
+    ),
+    132 => 
+    array (
+      'name' => 'juki',
+      'title' => 'Juki',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'polupricepi-s-bortovoy-platformoy',
+          'title' => 'Полуприцепы',
+        ),
       ),
-      5 => 
-      array (
-        'value' => 'L200',
-        'title' => ' - L200',
+    ),
+    133 => 
+    array (
+      'name' => 'roka',
+      'title' => 'Roka',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'roka',
+          'title' => 'Roka',
+        ),
       ),
-      6 => 
-      array (
-        'value' => 'L300',
-        'title' => ' - L300',
+    ),
+    134 => 
+    array (
+      'name' => 'benalu',
+      'title' => 'Benalu',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'samosvali',
+          'title' => 'Самосвалы',
+        ),
       ),
-      7 => 
-      array (
-        'value' => 'LSSATURN',
-        'title' => 'LS',
+    ),
+    135 => 
+    array (
+      'name' => 'jyki',
+      'title' => 'Jyki',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'pricep--lesovoz',
+          'title' => 'Прицеп- лесовоз',
+        ),
       ),
-      8 => 
-      array (
-        'value' => 'LW_SERIES',
-        'title' => 'LW Series (4)',
+    ),
+    136 => 
+    array (
+      'name' => 'rolfo',
+      'title' => 'Rolfo',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'blizzard',
+          'title' => 'Blizzard',
+        ),
+        1 => 
+        array (
+          'name' => 'classic',
+          'title' => 'Classic',
+        ),
+        2 => 
+        array (
+          'name' => 'formula',
+          'title' => 'Formula',
+        ),
+        3 => 
+        array (
+          'name' => 'polupricepi',
+          'title' => 'Полуприцепы',
+        ),
       ),
-      9 => 
-      array (
-        'value' => 'LW',
-        'title' => ' - LW1',
+    ),
+    137 => 
+    array (
+      'name' => 'bendron-titan-trailers',
+      'title' => 'Bendron Titan Trailers',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'titan-series',
+          'title' => 'Titan Series',
+        ),
       ),
-      10 => 
-      array (
-        'value' => 'LW2',
-        'title' => ' - LW2',
+    ),
+    138 => 
+    array (
+      'name' => 'kaessbohrer',
+      'title' => 'Kaessbohrer',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'k_scx',
+          'title' => 'K.SC',
+        ),
+        1 => 
+        array (
+          'name' => 'k_sl',
+          'title' => 'K.SL',
+        ),
+        2 => 
+        array (
+          'name' => 'k_ss',
+          'title' => 'K.SS',
+        ),
+        3 => 
+        array (
+          'name' => 'k_st',
+          'title' => 'K.ST',
+        ),
+        4 => 
+        array (
+          'name' => 'kaessbohrer',
+          'title' => 'Kaessbohrer',
+        ),
       ),
-      11 => 
-      array (
-        'value' => 'LW200',
-        'title' => ' - LW200',
+    ),
+    139 => 
+    array (
+      'name' => 'rydwan',
+      'title' => 'Rydwan',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'a750',
+          'title' => 'A750',
+        ),
+        1 => 
+        array (
+          'name' => 'euro_b2600_h2',
+          'title' => 'Euro/B2600',
+        ),
       ),
-      12 => 
-      array (
-        'value' => 'LW300',
-        'title' => ' - LW300',
+    ),
+    140 => 
+    array (
+      'name' => 'berger',
+      'title' => 'Berger',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'berger',
+          'title' => 'Berger',
+        ),
       ),
-      13 => 
-      array (
-        'value' => 'OUTLOOK',
-        'title' => 'Outlook',
+    ),
+    141 => 
+    array (
+      'name' => 'kaiser',
+      'title' => 'Kaiser',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'robuste',
+          'title' => 'Robuste',
+        ),
       ),
-      14 => 
-      array (
-        'value' => 'RELAY',
-        'title' => 'Relay',
+    ),
+    142 => 
+    array (
+      'name' => 'sacim',
+      'title' => 'Sacim',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'polupricepi-cisterni',
+          'title' => 'Полуприцепы-цистерны',
+        ),
       ),
-      15 => 
-      array (
-        'value' => 'SC_SERIES',
-        'title' => 'SC Series (2)',
+    ),
+    143 => 
+    array (
+      'name' => 'blumhardt',
+      'title' => 'Blumhardt',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'polupricep-bortovoy',
+          'title' => 'Полуприцеп бортовой',
+        ),
+        1 => 
+        array (
+          'name' => 'polupricep-samosvalniy',
+          'title' => 'Полуприцеп самосвальный',
+        ),
+        2 => 
+        array (
+          'name' => 'polupricep---konteynerovoz',
+          'title' => 'Полуприцеп-контейнеровоз',
+        ),
       ),
-      16 => 
-      array (
-        'value' => 'SC1',
-        'title' => ' - SC1',
+    ),
+    144 => 
+    array (
+      'name' => 'kelberg',
+      'title' => 'Kel-berg',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'kel-berg',
+          'title' => 'Kel-berg',
+        ),
       ),
-      17 => 
-      array (
-        'value' => 'SC2',
-        'title' => ' - SC2',
+    ),
+    145 => 
+    array (
+      'name' => 'samro',
+      'title' => 'Samro',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'sambox',
+          'title' => 'Sambox',
+        ),
+        1 => 
+        array (
+          'name' => 'sr',
+          'title' => 'SR',
+        ),
+        2 => 
+        array (
+          'name' => 'srv',
+          'title' => 'SRV',
+        ),
+        3 => 
+        array (
+          'name' => 'st',
+          'title' => 'ST',
+        ),
       ),
-      18 => 
-      array (
-        'value' => 'SKY',
-        'title' => 'Sky',
+    ),
+    146 => 
+    array (
+      'name' => 'blyss',
+      'title' => 'Blyss',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'blyss',
+          'title' => 'Blyss',
+        ),
       ),
-      19 => 
-      array (
-        'value' => 'SL_SERIES',
-        'title' => 'SL Series (3)',
+    ),
+    147 => 
+    array (
+      'name' => 'kempf',
+      'title' => 'Kempf',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'skm',
+          'title' => 'SKM',
+        ),
       ),
-      20 => 
-      array (
-        'value' => 'SL',
-        'title' => ' - SL',
+    ),
+    148 => 
+    array (
+      'name' => 'saris',
+      'title' => 'Saris',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'clh',
+          'title' => 'CLH',
+        ),
       ),
-      21 => 
-      array (
-        'value' => 'SL1',
-        'title' => ' - SL1',
+    ),
+    149 => 
+    array (
+      'name' => 'bodex',
+      'title' => 'Bodex',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'polupricep-cisterna',
+          'title' => 'Полуприцеп цистерна',
+        ),
+        1 => 
+        array (
+          'name' => 'polupricep-sortimentovoz',
+          'title' => 'Полуприцеп-сортиментовоз',
+        ),
+        2 => 
+        array (
+          'name' => 'wywrotka',
+          'title' => 'Полуприцепы самосвалы',
+        ),
       ),
-      22 => 
-      array (
-        'value' => 'SL2',
-        'title' => ' - SL2',
+    ),
+    150 => 
+    array (
+      'name' => 'kennis',
+      'title' => 'Kennis',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'op-1530',
+          'title' => 'OP-1530',
+        ),
       ),
-      23 => 
-      array (
-        'value' => 'SW_SERIES',
-        'title' => 'SW Series (2)',
+    ),
+    151 => 
+    array (
+      'name' => 'savell',
+      'title' => 'Savell',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'samro',
+          'title' => 'Samro',
+        ),
       ),
-      24 => 
-      array (
-        'value' => 'SW1',
-        'title' => ' - SW1',
+    ),
+    152 => 
+    array (
+      'name' => 'bockmann',
+      'title' => 'Boeckmann',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'duo',
+          'title' => 'Duo',
+        ),
       ),
-      25 => 
-      array (
-        'value' => 'SW2',
-        'title' => ' - SW2',
+    ),
+    153 => 
+    array (
+      'name' => 'king',
+      'title' => 'King',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'gtl',
+          'title' => 'GTL',
+        ),
       ),
-      26 => 
-      array (
-        'value' => 'VUE',
-        'title' => 'Vue',
+    ),
+    154 => 
+    array (
+      'name' => 'saxas',
+      'title' => 'Saxas',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'akd73-11',
+          'title' => 'AKD73-11',
+        ),
       ),
-      27 => 
-      array (
-        'value' => 'SATOTH',
-        'title' => 'Other Saturn Models',
+    ),
+    155 => 
+    array (
+      'name' => 'bolgan',
+      'title' => 'Bolgan',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'bolgan',
+          'title' => 'Bolgan',
+        ),
       ),
     ),
-  ),
-  59 => 
-  array (
-    'value' => 'SCION',
-    'title' => 'Scion',
-    'models' => 
+    156 => 
     array (
-      0 => 
-      array (
-        'value' => 'SCIFRS',
-        'title' => 'FR-S',
+      'name' => 'klaeser',
+      'title' => 'Klaeser',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'tsa30c',
+          'title' => 'TSA30C',
+        ),
       ),
-      1 => 
-      array (
-        'value' => 'IQ',
-        'title' => 'iQ',
+    ),
+    157 => 
+    array (
+      'name' => 'scania',
+      'title' => 'Scania',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'pricep-samosvalniy',
+          'title' => 'Прицеп самосвальный',
+        ),
       ),
-      2 => 
-      array (
-        'value' => 'TC',
-        'title' => 'tC',
+    ),
+    158 => 
+    array (
+      'name' => 'bodum',
+      'title' => 'Bonum',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'polupricep-cisterna',
+          'title' => 'Полуприцеп-цистерна',
+        ),
       ),
-      3 => 
-      array (
-        'value' => 'XA',
-        'title' => 'xA',
+    ),
+    159 => 
+    array (
+      'name' => 'knaus',
+      'title' => 'Knaus',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'suedwind',
+          'title' => 'Suedwind',
+        ),
       ),
-      4 => 
-      array (
-        'value' => 'XB',
-        'title' => 'xB',
+    ),
+    160 => 
+    array (
+      'name' => 'scheuerle',
+      'title' => 'Scheuerle',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'ultralightcombi',
+          'title' => 'UltralightCombi',
+        ),
       ),
-      5 => 
-      array (
-        'value' => 'XD',
-        'title' => 'xD',
+    ),
+    161 => 
+    array (
+      'name' => 'brenderup',
+      'title' => 'Brenderup',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'avtovozi',
+          'title' => 'Автовозы',
+        ),
       ),
     ),
-  ),
-  60 => 
-  array (
-    'value' => 'SMART',
-    'title' => 'smart',
-    'models' => 
+    162 => 
     array (
-      0 => 
-      array (
-        'value' => 'FORTWO',
-        'title' => 'fortwo',
+      'name' => 'kogel',
+      'title' => 'Kogel',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'afhb24',
+          'title' => 'AFHB24',
+        ),
+        1 => 
+        array (
+          'name' => 'awe18',
+          'title' => 'AWE18',
+        ),
+        2 => 
+        array (
+          'name' => 'sn24',
+          'title' => 'SN24',
+        ),
+        3 => 
+        array (
+          'name' => 'sp-24',
+          'title' => 'SP 24',
+        ),
+        4 => 
+        array (
+          'name' => 'spkh27',
+          'title' => 'SPKH27',
+        ),
+        5 => 
+        array (
+          'name' => 'svkt24',
+          'title' => 'SVKT24',
+        ),
+        6 => 
+        array (
+          'name' => 'sw24',
+          'title' => 'SW24',
+        ),
+        7 => 
+        array (
+          'name' => 'zk18',
+          'title' => 'ZK18',
+        ),
       ),
-      1 => 
-      array (
-        'value' => 'SMOTH',
-        'title' => 'Other smart Models',
+    ),
+    163 => 
+    array (
+      'name' => 'schmitz_cargobull',
+      'title' => 'Schmitz Cargobull',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'afpr',
+          'title' => 'AFPR',
+        ),
+        1 => 
+        array (
+          'name' => 'awf-18',
+          'title' => 'AWF 18',
+        ),
+        2 => 
+        array (
+          'name' => 'cfs',
+          'title' => 'CFS',
+        ),
+        3 => 
+        array (
+          'name' => 's01',
+          'title' => 'S01',
+        ),
+        4 => 
+        array (
+          'name' => 'scf',
+          'title' => 'SCF',
+        ),
+        5 => 
+        array (
+          'name' => 'scs',
+          'title' => 'SCS',
+        ),
+        6 => 
+        array (
+          'name' => 'scs-mega',
+          'title' => 'SCS Mega',
+        ),
+        7 => 
+        array (
+          'name' => 'ski',
+          'title' => 'SKI',
+        ),
+        8 => 
+        array (
+          'name' => 'sko',
+          'title' => 'SKO',
+        ),
+        9 => 
+        array (
+          'name' => 'spr',
+          'title' => 'SPR',
+        ),
+        10 => 
+        array (
+          'name' => 'sti',
+          'title' => 'STI',
+        ),
+        11 => 
+        array (
+          'name' => 'sw-24',
+          'title' => 'SW 24',
+        ),
+        12 => 
+        array (
+          'name' => 'zko',
+          'title' => 'ZKO',
+        ),
       ),
     ),
-  ),
-  61 => 
-  array (
-    'value' => 'SRT',
-    'title' => 'SRT',
-    'models' => 
+    164 => 
     array (
-      0 => 
-      array (
-        'value' => 'SRTVIPER',
-        'title' => 'Viper',
+      'name' => 'briab',
+      'title' => 'Briab',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'bortovie-polupricepi',
+          'title' => 'Бортовые полуприцепы',
+        ),
       ),
     ),
-  ),
-  62 => 
-  array (
-    'value' => 'STERL',
-    'title' => 'Sterling',
-    'models' => 
+    165 => 
     array (
-      0 => 
-      array (
-        'value' => '825',
-        'title' => '825',
+      'name' => 'koscian',
+      'title' => 'Koscian',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'polupricepi-cisterni',
+          'title' => 'Полуприцепы-цистерны',
+        ),
       ),
-      1 => 
-      array (
-        'value' => '827',
-        'title' => '827',
+    ),
+    166 => 
+    array (
+      'name' => 'schrader',
+      'title' => 'Schrader',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'polupricepi-cisterni',
+          'title' => 'Полуприцепы-цистерны',
+        ),
       ),
-      2 => 
-      array (
-        'value' => 'UNAVAILSTE',
-        'title' => 'Other Sterling Models',
+    ),
+    167 => 
+    array (
+      'name' => 'brian-james-trailers',
+      'title' => 'Brian James Trailers',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'hi-max',
+          'title' => 'Hi-Max',
+        ),
       ),
     ),
-  ),
-  63 => 
-  array (
-    'value' => 'SUB',
-    'title' => 'Subaru',
-    'models' => 
+    168 => 
     array (
-      0 => 
-      array (
-        'value' => 'BAJA',
-        'title' => 'Baja',
+      'name' => 'kraker',
+      'title' => 'Kraker',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'cf',
+          'title' => 'CF',
+        ),
       ),
-      1 => 
-      array (
-        'value' => 'BRAT',
-        'title' => 'Brat',
+    ),
+    169 => 
+    array (
+      'name' => 'schwarzmuller',
+      'title' => 'Schwarzmuller',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'pa-2_e',
+          'title' => 'PA-2/E',
+        ),
+        1 => 
+        array (
+          'name' => 'schwarzmuller',
+          'title' => 'Schwarzmuller',
+        ),
       ),
-      2 => 
-      array (
-        'value' => 'SUBBRZ',
-        'title' => 'BRZ',
+    ),
+    170 => 
+    array (
+      'name' => 'broshuis',
+      'title' => 'Broshuis',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'polupricep',
+          'title' => 'Полуприцеп',
+        ),
+        1 => 
+        array (
+          'name' => 'polupricep-tral',
+          'title' => 'Полуприцеп-трал',
+        ),
       ),
-      3 => 
-      array (
-        'value' => 'FOREST',
-        'title' => 'Forester',
+    ),
+    171 => 
+    array (
+      'name' => 'kromhout',
+      'title' => 'Kromhout',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => '3apcc-12-27',
+          'title' => '3APCC 12-27',
+        ),
       ),
-      4 => 
-      array (
-        'value' => 'IMPREZ',
-        'title' => 'Impreza',
+    ),
+    172 => 
+    array (
+      'name' => 'schweriner',
+      'title' => 'Schweriner',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'konteynerovozi',
+          'title' => 'CR',
+        ),
+        1 => 
+        array (
+          'name' => 'sf',
+          'title' => 'SF',
+        ),
       ),
-      5 => 
-      array (
-        'value' => 'IMPWRX',
-        'title' => 'Impreza WRX',
+    ),
+    173 => 
+    array (
+      'name' => 'bslt',
+      'title' => 'BSLT',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'stc1a',
+          'title' => 'STC1A',
+        ),
       ),
-      6 => 
-      array (
-        'value' => 'JUSTY',
-        'title' => 'Justy',
+    ),
+    174 => 
+    array (
+      'name' => 'krone',
+      'title' => 'Krone',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'azw',
+          'title' => 'AZW 18',
+        ),
+        1 => 
+        array (
+          'name' => 'box-carrier',
+          'title' => 'Box Carrier',
+        ),
+        2 => 
+        array (
+          'name' => 'box-liner',
+          'title' => 'Box Liner',
+        ),
+        3 => 
+        array (
+          'name' => 'coil-liner',
+          'title' => 'Coil Liner',
+        ),
+        4 => 
+        array (
+          'name' => 'cool-liner',
+          'title' => 'Cool Liner',
+        ),
+        5 => 
+        array (
+          'name' => 'dry-liner',
+          'title' => 'Dry Liner',
+        ),
+        6 => 
+        array (
+          'name' => 'krone',
+          'title' => 'Krone',
+        ),
+        7 => 
+        array (
+          'name' => 'light-liner',
+          'title' => 'Light Liner',
+        ),
+        8 => 
+        array (
+          'name' => 'mega-liner',
+          'title' => 'Mega Liner',
+        ),
+        9 => 
+        array (
+          'name' => 'paper-liner',
+          'title' => 'Paper Liner',
+        ),
+        10 => 
+        array (
+          'name' => 'profi-liner',
+          'title' => 'Profi Liner',
+        ),
+        11 => 
+        array (
+          'name' => 'sd',
+          'title' => 'SD',
+        ),
+        12 => 
+        array (
+          'name' => 'sdc-24',
+          'title' => 'SDC 24',
+        ),
+        13 => 
+        array (
+          'name' => 'sdc-27',
+          'title' => 'SDC 27',
+        ),
+        14 => 
+        array (
+          'name' => 'sdp-27',
+          'title' => 'SDP 27',
+        ),
       ),
-      7 => 
-      array (
-        'value' => 'SUBL',
-        'title' => 'L Series',
+    ),
+    175 => 
+    array (
+      'name' => 'sdc-trailers',
+      'title' => 'SDC Trailers',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'sdc',
+          'title' => 'SDC',
+        ),
       ),
-      8 => 
-      array (
-        'value' => 'LEGACY',
-        'title' => 'Legacy',
+    ),
+    176 => 
+    array (
+      'name' => 'buerstner',
+      'title' => 'Buerstner',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'lux',
+          'title' => 'Lux',
+        ),
       ),
-      9 => 
-      array (
-        'value' => 'LOYALE',
-        'title' => 'Loyale',
+    ),
+    177 => 
+    array (
+      'name' => 'lag',
+      'title' => 'LAG',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'tsa',
+          'title' => 'TSA',
+        ),
+        1 => 
+        array (
+          'name' => 'shtornie-polupricepi',
+          'title' => 'Шторные полуприцепы',
+        ),
       ),
-      10 => 
-      array (
-        'value' => 'SUBOUTBK',
-        'title' => 'Outback',
+    ),
+    178 => 
+    array (
+      'name' => 'sommer',
+      'title' => 'Sommer',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'ak',
+          'title' => 'AK',
+        ),
+        1 => 
+        array (
+          'name' => 'ap36',
+          'title' => 'AP36',
+        ),
+        2 => 
+        array (
+          'name' => 'sg',
+          'title' => 'SG',
+        ),
+        3 => 
+        array (
+          'name' => 'sp',
+          'title' => 'SP',
+        ),
+        4 => 
+        array (
+          'name' => 'sp240',
+          'title' => 'SP240',
+        ),
+        5 => 
+        array (
+          'name' => 'sw',
+          'title' => 'SW',
+        ),
+        6 => 
+        array (
+          'name' => 'tdp18',
+          'title' => 'TDP18',
+        ),
+        7 => 
+        array (
+          'name' => 'zp18',
+          'title' => 'ZP18',
+        ),
+        8 => 
+        array (
+          'name' => 'zw',
+          'title' => 'ZW',
+        ),
       ),
-      11 => 
-      array (
-        'value' => 'SVX',
-        'title' => 'SVX',
+    ),
+    179 => 
+    array (
+      'name' => 'bulthuis',
+      'title' => 'Bulthuis',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'tl',
+          'title' => 'T',
+        ),
       ),
-      12 => 
-      array (
-        'value' => 'B9TRIBECA',
-        'title' => 'Tribeca',
+    ),
+    180 => 
+    array (
+      'name' => 'lamberet',
+      'title' => 'Lamberet',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'lvfs3eir',
+          'title' => 'LVFS3EIR',
+        ),
+        1 => 
+        array (
+          'name' => 'lvfs3f',
+          'title' => 'LVFS3F',
+        ),
+        2 => 
+        array (
+          'name' => 'sr01',
+          'title' => 'SR01',
+        ),
+        3 => 
+        array (
+          'name' => 'tfa',
+          'title' => 'TFA',
+        ),
       ),
-      13 => 
-      array (
-        'value' => 'XT',
-        'title' => 'XT',
+    ),
+    181 => 
+    array (
+      'name' => 'sor_iberica',
+      'title' => 'SOR Iberica',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'polupricep',
+          'title' => 'Полуприцеп',
+        ),
       ),
-      14 => 
-      array (
-        'value' => 'XVCRSSTREK',
-        'title' => 'XV Crosstrek',
+    ),
+    182 => 
+    array (
+      'name' => 'burg',
+      'title' => 'BURG',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'bpd-12-27dl',
+          'title' => 'BPD 12-27DL',
+        ),
+        1 => 
+        array (
+          'name' => 'bpo-12-24z-',
+          'title' => 'BPO 12-24Z',
+        ),
+        2 => 
+        array (
+          'name' => 'bpo-16-27z',
+          'title' => 'BPO 16-27Z',
+        ),
       ),
-      15 => 
-      array (
-        'value' => 'SUBOTH',
-        'title' => 'Other Subaru Models',
+    ),
+    183 => 
+    array (
+      'name' => 'langendorf',
+      'title' => 'Langendorf',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'nizkoramnaya-pltforma',
+          'title' => 'Низкорамная платформа',
+        ),
+        1 => 
+        array (
+          'name' => 'polupricep---samosval',
+          'title' => 'Полуприцеп - самосвал',
+        ),
+        2 => 
+        array (
+          'name' => 'polupricep-bortovoy-s-kmu',
+          'title' => 'Полуприцеп-бортовой с КМУ',
+        ),
+        3 => 
+        array (
+          'name' => 'polupricep-steklovoz',
+          'title' => 'Полуприцеп-стекловоз',
+        ),
       ),
     ),
-  ),
-  64 => 
-  array (
-    'value' => 'SUZUKI',
-    'title' => 'Suzuki',
-    'models' => 
+    184 => 
     array (
-      0 => 
-      array (
-        'value' => 'AERIO',
-        'title' => 'Aerio',
+      'name' => 'spier',
+      'title' => 'Spier',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'spier',
+          'title' => 'Spier',
+        ),
       ),
-      1 => 
-      array (
-        'value' => 'EQUATOR',
-        'title' => 'Equator',
+    ),
+    185 => 
+    array (
+      'name' => 'caldal',
+      'title' => 'Caldal',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'tank-38m3',
+          'title' => 'Tank 38m3',
+        ),
       ),
-      2 => 
-      array (
-        'value' => 'ESTEEM',
-        'title' => 'Esteem',
+    ),
+    186 => 
+    array (
+      'name' => 'latre',
+      'title' => 'Latre',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'op-3at',
+          'title' => 'OP-3AT',
+        ),
       ),
-      3 => 
-      array (
-        'value' => 'FORENZA',
-        'title' => 'Forenza',
+    ),
+    187 => 
+    array (
+      'name' => 'spitzer',
+      'title' => 'Spitzer',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'sf',
+          'title' => 'SF',
+        ),
+        1 => 
+        array (
+          'name' => 'sk',
+          'title' => 'SK',
+        ),
       ),
-      4 => 
-      array (
-        'value' => 'GRANDV',
-        'title' => 'Grand Vitara',
+    ),
+    188 => 
+    array (
+      'name' => 'cardi',
+      'title' => 'Cardi',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'polupricepi-cisterni',
+          'title' => 'Полуприцепы-цистерны',
+        ),
       ),
-      5 => 
-      array (
-        'value' => 'KIZASHI',
-        'title' => 'Kizashi',
+    ),
+    189 => 
+    array (
+      'name' => 'leci-trailer',
+      'title' => 'Leci Trailer',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => '3e20',
+          'title' => '3E20',
+        ),
       ),
-      6 => 
-      array (
-        'value' => 'RENO',
-        'title' => 'Reno',
+    ),
+    190 => 
+    array (
+      'name' => 'stalker',
+      'title' => 'Stalker',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => '829432',
+          'title' => '829432',
+        ),
       ),
-      7 => 
-      array (
-        'value' => 'SAMUR',
-        'title' => 'Samurai',
+    ),
+    191 => 
+    array (
+      'name' => 'carnehl',
+      'title' => 'Carnehl',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'polupricepi-samosvolnie',
+          'title' => 'Полуприцепы самосвальные',
+        ),
       ),
-      8 => 
-      array (
-        'value' => 'SIDE',
-        'title' => 'Sidekick',
+    ),
+    192 => 
+    array (
+      'name' => 'lecinena',
+      'title' => 'Lecinena',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'd0320',
+          'title' => 'D0320',
+        ),
+        1 => 
+        array (
+          'name' => 'srpr---3e',
+          'title' => 'SRPR - 3E',
+        ),
       ),
-      9 => 
-      array (
-        'value' => 'SWIFT',
-        'title' => 'Swift',
+    ),
+    193 => 
+    array (
+      'name' => 'stas',
+      'title' => 'Stas',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'polupricep-samosvalniy',
+          'title' => 'Полуприцеп самосвальный',
+        ),
       ),
-      10 => 
-      array (
-        'value' => 'SX4',
-        'title' => 'SX4',
+    ),
+    194 => 
+    array (
+      'name' => 'carsan',
+      'title' => 'Carsan',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'tsisterni',
+          'title' => 'Цистерны',
+        ),
       ),
-      11 => 
-      array (
-        'value' => 'VERONA',
-        'title' => 'Verona',
+    ),
+    195 => 
+    array (
+      'name' => 'lintrailers',
+      'title' => 'Lintrailers',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'nizkoramnie-trali',
+          'title' => 'Низкорамные тралы',
+        ),
       ),
-      12 => 
-      array (
-        'value' => 'VITARA',
-        'title' => 'Vitara',
+    ),
+    196 => 
+    array (
+      'name' => 'steelbear',
+      'title' => 'Steelbear',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'pk-24n',
+          'title' => 'PK-24N',
+        ),
       ),
-      13 => 
-      array (
-        'value' => 'X90',
-        'title' => 'X-90',
+    ),
+    197 => 
+    array (
+      'name' => 'caselli',
+      'title' => 'Caselli',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'dmd012',
+          'title' => 'DMD012',
+        ),
       ),
-      14 => 
-      array (
-        'value' => 'XL7',
-        'title' => 'XL7',
+    ),
+    198 => 
+    array (
+      'name' => 'lizzard',
+      'title' => 'Lizzard',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => '9467',
+          'title' => '9467',
+        ),
       ),
-      15 => 
-      array (
-        'value' => 'SUZOTH',
-        'title' => 'Other Suzuki Models',
+    ),
+    199 => 
+    array (
+      'name' => 'stokota',
+      'title' => 'Stokota',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'opl-38',
+          'title' => 'OPL-38',
+        ),
+        1 => 
+        array (
+          'name' => 's3n_00-01',
+          'title' => 'S3',
+        ),
+        2 => 
+        array (
+          'name' => 's4',
+          'title' => 'S4',
+        ),
+        3 => 
+        array (
+          'name' => 's6',
+          'title' => 'S6',
+        ),
       ),
     ),
-  ),
-  65 => 
-  array (
-    'value' => 'TESLA',
-    'title' => 'Tesla',
-    'models' => 
+    200 => 
     array (
-      0 => 
-      array (
-        'value' => 'ROADSTER',
-        'title' => 'Roadster',
+      'name' => 'chereau',
+      'title' => 'Chereau',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'csd3',
+          'title' => 'CSD3',
+        ),
+        1 => 
+        array (
+          'name' => 'tst',
+          'title' => 'TST',
+        ),
       ),
     ),
-  ),
-  66 => 
-  array (
-    'value' => 'TOYOTA',
-    'title' => 'Toyota',
-    'models' => 
+    201 => 
     array (
-      0 => 
-      array (
-        'value' => '4RUN',
-        'title' => '4Runner',
+      'name' => 'lohr',
+      'title' => 'Lohr',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'c2h998',
+          'title' => 'C2H998',
+        ),
+        1 => 
+        array (
+          'name' => 'eurolohr-21st',
+          'title' => 'EuroLohr 21ST',
+        ),
+        2 => 
+        array (
+          'name' => 's2m52x',
+          'title' => 'S2M52X',
+        ),
+        3 => 
+        array (
+          'name' => 'ta10',
+          'title' => 'TA10',
+        ),
       ),
-      1 => 
-      array (
-        'value' => 'AVALON',
-        'title' => 'Avalon',
+    ),
+    202 => 
+    array (
+      'name' => 'stoughton',
+      'title' => 'Stoughton',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'ccgn',
+          'title' => 'CCGN',
+        ),
       ),
-      2 => 
-      array (
-        'value' => 'CAMRY',
-        'title' => 'Camry',
+    ),
+    203 => 
+    array (
+      'name' => 'cimc',
+      'title' => 'CIMC',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'polupricep-nizkoramniy-tral',
+          'title' => 'Полуприцеп низкорамный трал',
+        ),
+        1 => 
+        array (
+          'name' => 'polupricep-cisterna',
+          'title' => 'Полуприцеп-цистерна',
+        ),
       ),
-      3 => 
-      array (
-        'value' => 'CELICA',
-        'title' => 'Celica',
+    ),
+    204 => 
+    array (
+      'name' => 'lueck',
+      'title' => 'LUECK',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'skm35_3',
+          'title' => 'SKM35/3',
+        ),
       ),
-      4 => 
-      array (
-        'value' => 'COROL',
-        'title' => 'Corolla',
+    ),
+    205 => 
+    array (
+      'name' => 'syland',
+      'title' => 'Syland',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'hp2',
+          'title' => 'HP2',
+        ),
       ),
-      5 => 
-      array (
-        'value' => 'CORONA',
-        'title' => 'Corona',
+    ),
+    206 => 
+    array (
+      'name' => 'cimc-silvergreen',
+      'title' => 'CIMC Silvergreen',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'curtain',
+          'title' => 'Curtain',
+        ),
       ),
-      6 => 
-      array (
-        'value' => 'CRESS',
-        'title' => 'Cressida',
+    ),
+    207 => 
+    array (
+      'name' => 'm_g',
+      'title' => 'M&amp;G',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'mac27b',
+          'title' => 'MAC27B',
+        ),
       ),
-      7 => 
-      array (
-        'value' => 'ECHO',
-        'title' => 'Echo',
+    ),
+    208 => 
+    array (
+      'name' => 'tabbert',
+      'title' => 'Tabbert',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'comtesse',
+          'title' => 'Comtesse',
+        ),
       ),
-      8 => 
-      array (
-        'value' => 'FJCRUIS',
-        'title' => 'FJ Cruiser',
+    ),
+    209 => 
+    array (
+      'name' => 'cobo',
+      'title' => 'Cobo',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'hermanos',
+          'title' => 'Hermanos',
+        ),
+        1 => 
+        array (
+          'name' => 'soa',
+          'title' => 'SOA',
+        ),
       ),
-      9 => 
-      array (
-        'value' => 'HIGHLANDER',
-        'title' => 'Highlander',
+    ),
+    210 => 
+    array (
+      'name' => 'magyar',
+      'title' => 'Magyar',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'sr3meb',
+          'title' => 'SR3MEB',
+        ),
+        1 => 
+        array (
+          'name' => 'tsa',
+          'title' => 'TSA',
+        ),
       ),
-      10 => 
-      array (
-        'value' => 'LC',
-        'title' => 'Land Cruiser',
+    ),
+    211 => 
+    array (
+      'name' => 'tauras',
+      'title' => 'Tauras',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => '250204',
+          'title' => 'Прицепы легковые',
+        ),
       ),
-      11 => 
-      array (
-        'value' => 'MATRIX',
-        'title' => 'Matrix',
+    ),
+    212 => 
+    array (
+      'name' => 'coder',
+      'title' => 'Coder',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 's3384',
+          'title' => 'S3384',
+        ),
       ),
-      12 => 
-      array (
-        'value' => 'MR2',
-        'title' => 'MR2',
+    ),
+    213 => 
+    array (
+      'name' => 'man',
+      'title' => 'MAN',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'wagen-meyer',
+          'title' => 'Wagen Meyer',
+        ),
       ),
-      13 => 
-      array (
-        'value' => 'MR2SPYDR',
-        'title' => 'MR2 Spyder',
+    ),
+    214 => 
+    array (
+      'name' => 'tecnokar',
+      'title' => 'Tecnokar',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'talento',
+          'title' => 'Talento',
+        ),
       ),
-      14 => 
-      array (
-        'value' => 'PASEO',
-        'title' => 'Paseo',
+    ),
+    215 => 
+    array (
+      'name' => 'cometto',
+      'title' => 'Cometto',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'cometto',
+          'title' => 'Cometto',
+        ),
       ),
-      15 => 
-      array (
-        'value' => 'PICKUP',
-        'title' => 'Pickup',
+    ),
+    216 => 
+    array (
+      'name' => 'massenza',
+      'title' => 'Massenza',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => '1svf703',
+          'title' => '1SVF703',
+        ),
       ),
-      16 => 
-      array (
-        'value' => 'PREVIA',
-        'title' => 'Previa',
+    ),
+    217 => 
+    array (
+      'name' => 'thule',
+      'title' => 'Thule',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'seriya-8000',
+          'title' => 'Серия 8000',
+        ),
       ),
-      17 => 
-      array (
-        'value' => 'PRIUS',
-        'title' => 'Prius',
+    ),
+    218 => 
+    array (
+      'name' => 'cuhadar',
+      'title' => 'Cuhadar',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'polupricep-cisterni',
+          'title' => 'Полуприцеп цистерны',
+        ),
       ),
-      18 => 
-      array (
-        'value' => 'PRIUSC',
-        'title' => 'Prius C',
+    ),
+    219 => 
+    array (
+      'name' => 'matec-trailer',
+      'title' => 'MATEC-Trailer',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'pricepi',
+          'title' => 'Прицепы',
+        ),
       ),
-      19 => 
-      array (
-        'value' => 'PRIUSV',
-        'title' => 'Prius V',
+    ),
+    220 => 
+    array (
+      'name' => 'tiki-treiler',
+      'title' => 'Tiki Treiler',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'avtotreyleri',
+          'title' => 'Автотрейлеры',
+        ),
+        1 => 
+        array (
+          'name' => 'standart',
+          'title' => 'Грузовые',
+        ),
       ),
-      20 => 
-      array (
-        'value' => 'RAV4',
-        'title' => 'RAV4',
+    ),
+    221 => 
+    array (
+      'name' => 'd-tec',
+      'title' => 'D-Tec',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'ct',
+          'title' => 'CT',
+        ),
       ),
-      21 => 
-      array (
-        'value' => 'SEQUOIA',
-        'title' => 'Sequoia',
+    ),
+    222 => 
+    array (
+      'name' => 'max-trailer',
+      'title' => 'Max Trailer',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'max-100',
+          'title' => 'Max 100',
+        ),
       ),
-      22 => 
-      array (
-        'value' => 'SIENNA',
-        'title' => 'Sienna',
+    ),
+    223 => 
+    array (
+      'name' => 'tirsan',
+      'title' => 'Tirsan',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'umbo',
+          'title' => 'Umbo',
+        ),
+        1 => 
+        array (
+          'name' => 'pricep',
+          'title' => 'Прицеп',
+        ),
       ),
-      23 => 
-      array (
-        'value' => 'SOLARA',
-        'title' => 'Solara',
+    ),
+    224 => 
+    array (
+      'name' => 'dalery',
+      'title' => 'Dalery',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'rebel-2',
+          'title' => 'Rebel 2',
+        ),
       ),
-      24 => 
-      array (
-        'value' => 'STARLET',
-        'title' => 'Starlet',
+    ),
+    225 => 
+    array (
+      'name' => 'mega',
+      'title' => 'Mega',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'polupricep-lesovoz',
+          'title' => 'Полуприцеп лесовоз',
+        ),
+        1 => 
+        array (
+          'name' => 'polupricep-samosvalniy',
+          'title' => 'Полуприцеп самосвальный',
+        ),
+        2 => 
+        array (
+          'name' => 'polupricep-samosvalniy-alyuminieviy',
+          'title' => 'Полуприцеп самосвальный алюминиевый',
+        ),
+        3 => 
+        array (
+          'name' => 'pricep-lesovoz',
+          'title' => 'Прицеп лесовоз',
+        ),
+        4 => 
+        array (
+          'name' => 'pricep-samosvalniy',
+          'title' => 'Прицеп самосвальный',
+        ),
       ),
-      25 => 
-      array (
-        'value' => 'SUPRA',
-        'title' => 'Supra',
+    ),
+    226 => 
+    array (
+      'name' => 'tompson',
+      'title' => 'Tompson',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'carmichael',
+          'title' => 'Carmichael',
+        ),
       ),
-      26 => 
-      array (
-        'value' => 'T100',
-        'title' => 'T100',
+    ),
+    227 => 
+    array (
+      'name' => 'dennison',
+      'title' => 'Dennison',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'ef',
+          'title' => 'EF',
+        ),
       ),
-      27 => 
-      array (
-        'value' => 'TACOMA',
-        'title' => 'Tacoma',
+    ),
+    228 => 
+    array (
+      'name' => 'meierling',
+      'title' => 'Meierling',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'msk',
+          'title' => 'MSK',
+        ),
       ),
-      28 => 
-      array (
-        'value' => 'TERCEL',
-        'title' => 'Tercel',
+    ),
+    229 => 
+    array (
+      'name' => 'tongyada',
+      'title' => 'TongYada',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'cty9403gyy',
+          'title' => 'CTY9403GYY',
+        ),
       ),
-      29 => 
-      array (
-        'value' => 'TUNDRA',
-        'title' => 'Tundra',
+    ),
+    230 => 
+    array (
+      'name' => 'desot-',
+      'title' => 'Desot',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'opp-3at',
+          'title' => 'OPP 3AT',
+        ),
       ),
-      30 => 
-      array (
-        'value' => 'TOYVAN',
-        'title' => 'Van',
+    ),
+    231 => 
+    array (
+      'name' => 'meiller',
+      'title' => 'Meiller',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'mhks-41_3-s',
+          'title' => 'MHKS 41/3-S',
+        ),
+        1 => 
+        array (
+          'name' => 'mhps-41_3-s',
+          'title' => 'MHPS 41/3-S',
+        ),
       ),
-      31 => 
-      array (
-        'value' => 'VENZA',
-        'title' => 'Venza',
+    ),
+    232 => 
+    array (
+      'name' => 'trailer-group',
+      'title' => 'Trailer Group',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'avtovoz',
+          'title' => 'Автовоз',
+        ),
+        1 => 
+        array (
+          'name' => 'samosval',
+          'title' => 'Самосвал',
+        ),
+        2 => 
+        array (
+          'name' => 'tsementovoz',
+          'title' => 'Цементовоз',
+        ),
       ),
-      32 => 
-      array (
-        'value' => 'YARIS',
-        'title' => 'Yaris',
+    ),
+    233 => 
+    array (
+      'name' => 'dethleffs',
+      'title' => 'Dethleffs',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'new-line',
+          'title' => 'New Line',
+        ),
       ),
-      33 => 
-      array (
-        'value' => 'TOYOTH',
-        'title' => 'Other Toyota Models',
+    ),
+    234 => 
+    array (
+      'name' => 'menci',
+      'title' => 'Menci',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'menci',
+          'title' => 'Menci',
+        ),
       ),
     ),
-  ),
-  67 => 
-  array (
-    'value' => 'TRI',
-    'title' => 'Triumph',
-    'models' => 
+    235 => 
     array (
-      0 => 
-      array (
-        'value' => 'TR7',
-        'title' => 'TR7',
+      'name' => 'trailer-max',
+      'title' => 'TrailerMax',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => '1000s',
+          'title' => '1000s',
+        ),
       ),
-      1 => 
-      array (
-        'value' => 'TR8',
-        'title' => 'TR8',
+    ),
+    236 => 
+    array (
+      'name' => 'dogumak-bonum',
+      'title' => 'Dogumak-Bonum',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'lpg',
+          'title' => 'LPG',
+        ),
       ),
-      2 => 
-      array (
-        'value' => 'TRIOTH',
-        'title' => 'Other Triumph Models',
+    ),
+    237 => 
+    array (
+      'name' => 'merceron',
+      'title' => 'Merceron',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'merceron',
+          'title' => 'Merceron',
+        ),
       ),
     ),
-  ),
-  68 => 
-  array (
-    'value' => 'VOLKS',
-    'title' => 'Volkswagen',
-    'models' => 
+    238 => 
     array (
-      0 => 
-      array (
-        'value' => 'BEETLE',
-        'title' => 'Beetle',
+      'name' => 'trailor',
+      'title' => 'Trailor',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'trailor',
+          'title' => 'Trailor',
+        ),
       ),
-      1 => 
-      array (
-        'value' => 'VOLKSCAB',
-        'title' => 'Cabrio',
+    ),
+    239 => 
+    array (
+      'name' => 'doll',
+      'title' => 'Doll',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'nizkoramnie-polupricepi',
+          'title' => 'Низкорамные полуприцепы',
+        ),
       ),
-      2 => 
-      array (
-        'value' => 'CAB',
-        'title' => 'Cabriolet',
+    ),
+    240 => 
+    array (
+      'name' => 'merker',
+      'title' => 'Merker',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'polupricep',
+          'title' => 'Полуприцеп',
+        ),
       ),
-      3 => 
-      array (
-        'value' => 'CC',
-        'title' => 'CC',
+    ),
+    241 => 
+    array (
+      'name' => 'trouillet',
+      'title' => 'Trouillet',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => '_',
+          'title' => 'Полуприцеп',
+        ),
       ),
-      4 => 
-      array (
-        'value' => 'CORR',
-        'title' => 'Corrado',
+    ),
+    242 => 
+    array (
+      'name' => 'dolly',
+      'title' => 'Dolly',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'podkatnaya-telejka',
+          'title' => 'Подкатная тележка',
+        ),
       ),
-      5 => 
-      array (
-        'value' => 'DASHER',
-        'title' => 'Dasher',
+    ),
+    243 => 
+    array (
+      'name' => 'metaco',
+      'title' => 'Metaco',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'sd3',
+          'title' => 'SD3',
+        ),
       ),
-      6 => 
-      array (
-        'value' => 'EOS',
-        'title' => 'Eos',
+    ),
+    244 => 
+    array (
+      'name' => 'tsr',
+      'title' => 'TSR',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'polupricepi-s-samopodrulivayutshimi-osyami',
+          'title' => 'Полуприцепы с самоподруливающими осями',
+        ),
       ),
-      7 => 
-      array (
-        'value' => 'EUROVAN',
-        'title' => 'Eurovan',
+    ),
+    245 => 
+    array (
+      'name' => 'eduard',
+      'title' => 'Eduard',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'p4',
+          'title' => 'P4',
+        ),
       ),
-      8 => 
-      array (
-        'value' => 'VOLKSFOX',
-        'title' => 'Fox',
+    ),
+    246 => 
+    array (
+      'name' => 'meusburger',
+      'title' => 'Meusburger',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'polupricep-konteynerovoz',
+          'title' => 'Полуприцеп-контейнеровоз',
+        ),
+        1 => 
+        array (
+          'name' => 'polupricep-nizkoramniy-tral',
+          'title' => 'Полуприцеп-низкорамный трал',
+        ),
+        2 => 
+        array (
+          'name' => 'polupricep-sortimentovoz',
+          'title' => 'Полуприцеп-сортиментовоз',
+        ),
+        3 => 
+        array (
+          'name' => 'samosvalniy-polupricep',
+          'title' => 'Самосвальный полуприцеп',
+        ),
       ),
-      9 => 
-      array (
-        'value' => 'GLI',
-        'title' => 'GLI',
+    ),
+    247 => 
+    array (
+      'name' => 'utility',
+      'title' => 'Utility',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'polupricepi',
+          'title' => 'Полуприцепы',
+        ),
       ),
-      10 => 
-      array (
-        'value' => 'GOLFR',
-        'title' => 'Golf R',
+    ),
+    248 => 
+    array (
+      'name' => 'ekeri',
+      'title' => 'Ekeri',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'l-3',
+          'title' => 'L-3',
+        ),
       ),
-      11 => 
-      array (
-        'value' => 'GTI',
-        'title' => 'GTI',
+    ),
+    249 => 
+    array (
+      'name' => 'mirofret',
+      'title' => 'Mirofret',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'trs-3_1',
+          'title' => 'TRS-3.1',
+        ),
       ),
-      12 => 
-      array (
-        'value' => 'GOLFANDRABBITMODELS',
-        'title' => 'Golf and Rabbit Models (2)',
+    ),
+    250 => 
+    array (
+      'name' => 'van_eck',
+      'title' => 'Van Eck',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'polupricepi-refrijeratori',
+          'title' => 'Рефрижераторы',
+        ),
       ),
-      13 => 
-      array (
-        'value' => 'GOLF',
-        'title' => ' - Golf',
+    ),
+    251 => 
+    array (
+      'name' => 'es-ge',
+      'title' => 'ES-GE',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => '7_sou-5n',
+          'title' => '7.SOU-5N',
+        ),
       ),
-      14 => 
-      array (
-        'value' => 'RABBIT',
-        'title' => ' - Rabbit',
+    ),
+    252 => 
+    array (
+      'name' => 'mistrall',
+      'title' => 'Mistrall',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'polupricepi',
+          'title' => 'Полуприцепы',
+        ),
       ),
-      15 => 
-      array (
-        'value' => 'JET',
-        'title' => 'Jetta',
+    ),
+    253 => 
+    array (
+      'name' => 'van_hool',
+      'title' => 'Van Hool',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => '2014aa',
+          'title' => '2014AA',
+        ),
+        1 => 
+        array (
+          'name' => '3b2007',
+          'title' => '3B2007',
+        ),
+        2 => 
+        array (
+          'name' => 'a330',
+          'title' => 'A330',
+        ),
+        3 => 
+        array (
+          'name' => 'a3z001',
+          'title' => 'A3Z001',
+        ),
+        4 => 
+        array (
+          'name' => 'a420',
+          'title' => 'A420',
+        ),
+        5 => 
+        array (
+          'name' => 'astrobel',
+          'title' => 'Astrobel',
+        ),
+        6 => 
+        array (
+          'name' => 'astromega',
+          'title' => 'Astromega',
+        ),
+        7 => 
+        array (
+          'name' => 'astron',
+          'title' => 'Astron',
+        ),
+        8 => 
+        array (
+          'name' => 'c2000',
+          'title' => 'C2000',
+        ),
+        9 => 
+        array (
+          'name' => 'eos',
+          'title' => 'EOS',
+        ),
+        10 => 
+        array (
+          'name' => 't2100',
+          'title' => 'T2100',
+        ),
       ),
-      16 => 
-      array (
-        'value' => 'PASS',
-        'title' => 'Passat',
+    ),
+    254 => 
+    array (
+      'name' => 'everlast',
+      'title' => 'Everlast',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'ppts',
+          'title' => 'ППЦ',
+        ),
       ),
-      17 => 
-      array (
-        'value' => 'PHAETON',
-        'title' => 'Phaeton',
+    ),
+    255 => 
+    array (
+      'name' => 'mmv',
+      'title' => 'MMV',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'ga',
+          'title' => 'GA',
+        ),
       ),
-      18 => 
-      array (
-        'value' => 'RABBITPU',
-        'title' => 'Pickup',
+    ),
+    256 => 
+    array (
+      'name' => 'venture',
+      'title' => 'Venture',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'vatb',
+          'title' => 'VATB',
+        ),
       ),
-      19 => 
-      array (
-        'value' => 'QUAN',
-        'title' => 'Quantum',
+    ),
+    257 => 
+    array (
+      'name' => 'faymonville',
+      'title' => 'Faymonville',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'cargomax',
+          'title' => 'Cargomax',
+        ),
+        1 => 
+        array (
+          'name' => 'euromax',
+          'title' => 'Euromax',
+        ),
+        2 => 
+        array (
+          'name' => 'megamax',
+          'title' => 'Megamax',
+        ),
+        3 => 
+        array (
+          'name' => 'modulmax',
+          'title' => 'Modulmax',
+        ),
+        4 => 
+        array (
+          'name' => 'multimax',
+          'title' => 'Multimax',
+        ),
+        5 => 
+        array (
+          'name' => 'telemax',
+          'title' => 'Telemax',
+        ),
+        6 => 
+        array (
+          'name' => 'variomax',
+          'title' => 'Variomax',
+        ),
       ),
-      20 => 
-      array (
-        'value' => 'R32',
-        'title' => 'R32',
+    ),
+    258 => 
+    array (
+      'name' => 'monon',
+      'title' => 'Monon',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'polupricep---konteynerovoz',
+          'title' => 'Полуприцеп - контейнеровоз',
+        ),
       ),
-      21 => 
-      array (
-        'value' => 'ROUTAN',
-        'title' => 'Routan',
+    ),
+    259 => 
+    array (
+      'name' => 'viberti',
+      'title' => 'Viberti',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'tsisterni',
+          'title' => 'Цистерны',
+        ),
       ),
-      22 => 
-      array (
-        'value' => 'SCIR',
-        'title' => 'Scirocco',
+    ),
+    260 => 
+    array (
+      'name' => 'feldbinder',
+      'title' => 'Feldbinder',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => '31',
+          'title' => '31',
+        ),
+        1 => 
+        array (
+          'name' => '34',
+          'title' => '34',
+        ),
+        2 => 
+        array (
+          'name' => '35',
+          'title' => '35',
+        ),
+        3 => 
+        array (
+          'name' => '36',
+          'title' => '36',
+        ),
+        4 => 
+        array (
+          'name' => '48',
+          'title' => '48',
+        ),
       ),
-      23 => 
-      array (
-        'value' => 'TIGUAN',
-        'title' => 'Tiguan',
+    ),
+    261 => 
+    array (
+      'name' => 'montenegro',
+      'title' => 'Montenegro',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => '3s',
+          'title' => '3S',
+        ),
       ),
-      24 => 
-      array (
-        'value' => 'TOUAREG',
-        'title' => 'Touareg',
+    ),
+    262 => 
+    array (
+      'name' => 'vogelzang',
+      'title' => 'Vogelzang',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'pricepi',
+          'title' => 'Прицепы',
+        ),
       ),
-      25 => 
-      array (
-        'value' => 'VANAG',
-        'title' => 'Vanagon',
+    ),
+    263 => 
+    array (
+      'name' => 'fliegl',
+      'title' => 'Fliegl',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'polupricepi-samosvalnie',
+          'title' => 'Полуприцепы самосвальные',
+        ),
+        1 => 
+        array (
+          'name' => 'polupricep',
+          'title' => 'Полуприцепы тентованные',
+        ),
+        2 => 
+        array (
+          'name' => 'pricepi',
+          'title' => 'Прицепы',
+        ),
       ),
-      26 => 
-      array (
-        'value' => 'VWOTH',
-        'title' => 'Other Volkswagen Models',
+    ),
+    264 => 
+    array (
+      'name' => 'montracon',
+      'title' => 'Montracon',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'konteynerniy-polupricep',
+          'title' => 'Контейнерный полуприцеп',
+        ),
+        1 => 
+        array (
+          'name' => 'refrijeratorniy-polupricep',
+          'title' => 'Рефрижераторный полуприцеп',
+        ),
+        2 => 
+        array (
+          'name' => 'tentovannie-polupricepi',
+          'title' => 'Тентованные полуприцепы',
+        ),
       ),
     ),
-  ),
-  69 => 
-  array (
-    'value' => 'VOLVO',
-    'title' => 'Volvo',
-    'models' => 
+    265 => 
     array (
-      0 => 
-      array (
-        'value' => '240',
-        'title' => '240',
+      'name' => 'wabash',
+      'title' => 'Wabash',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'polupricep-refrijerator',
+          'title' => 'Полуприцеп-рефрижератор',
+        ),
       ),
-      1 => 
-      array (
-        'value' => '260',
-        'title' => '260',
+    ),
+    266 => 
+    array (
+      'name' => 'floor',
+      'title' => 'Floor',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'floor',
+          'title' => 'Floor',
+        ),
       ),
-      2 => 
-      array (
-        'value' => '740',
-        'title' => '740',
+    ),
+    267 => 
+    array (
+      'name' => 'moslein',
+      'title' => 'Moslein',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'moslein',
+          'title' => 'Moslein',
+        ),
       ),
-      3 => 
-      array (
-        'value' => '760',
-        'title' => '760',
+    ),
+    268 => 
+    array (
+      'name' => 'wackenhut',
+      'title' => 'Wackenhut',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'pricep-tentirovanniy',
+          'title' => 'Прицеп тентированный',
+        ),
       ),
-      4 => 
-      array (
-        'value' => '780',
-        'title' => '780',
+    ),
+    269 => 
+    array (
+      'name' => 'foxtank',
+      'title' => 'FoxTank',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'polupricep-cisterni',
+          'title' => 'Полуприцеп-цистерны',
+        ),
       ),
-      5 => 
-      array (
-        'value' => '850',
-        'title' => '850',
+    ),
+    270 => 
+    array (
+      'name' => 'muller-mitteltal',
+      'title' => 'Muller-Mitteltal',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 't4',
+          'title' => 'T4',
+        ),
       ),
-      6 => 
-      array (
-        'value' => '940',
-        'title' => '940',
+    ),
+    271 => 
+    array (
+      'name' => 'webtrailer',
+      'title' => 'WebTrailer',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'cos',
+          'title' => 'COS',
+        ),
       ),
-      7 => 
-      array (
-        'value' => '960',
-        'title' => '960',
+    ),
+    272 => 
+    array (
+      'name' => 'franz-mersch',
+      'title' => 'Franz Mersch',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'tdl-a9500',
+          'title' => 'TDL A9500',
+        ),
       ),
-      8 => 
-      array (
-        'value' => 'C30',
-        'title' => 'C30',
+    ),
+    273 => 
+    array (
+      'name' => 'narko',
+      'title' => 'Narko',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'polupricep',
+          'title' => 'Полуприцеп',
+        ),
       ),
-      9 => 
-      array (
-        'value' => 'C70',
-        'title' => 'C70',
+    ),
+    274 => 
+    array (
+      'name' => 'westfalia',
+      'title' => 'Westfalia',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'wae',
+          'title' => 'WAE',
+        ),
       ),
-      10 => 
-      array (
-        'value' => 'S40',
-        'title' => 'S40',
+    ),
+    275 => 
+    array (
+      'name' => 'fruehauf',
+      'title' => 'Fruehauf',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'fruehauf',
+          'title' => 'Fruehauf',
+        ),
+        1 => 
+        array (
+          'name' => 'polupricep-platforma',
+          'title' => 'Полуприцеп-платформа',
+        ),
+        2 => 
+        array (
+          'name' => 'polupricepi-cisterna',
+          'title' => 'Полуприцепы-цистерна',
+        ),
       ),
-      11 => 
-      array (
-        'value' => 'S60',
-        'title' => 'S60',
+    ),
+    276 => 
+    array (
+      'name' => 'neptun_',
+      'title' => 'Neptun',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'n6',
+          'title' => 'N6',
+        ),
       ),
-      12 => 
-      array (
-        'value' => 'S70',
-        'title' => 'S70',
+    ),
+    277 => 
+    array (
+      'name' => 'wielton',
+      'title' => 'Wielton',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'nj',
+          'title' => 'NJ',
+        ),
+        1 => 
+        array (
+          'name' => 'ns',
+          'title' => 'NS',
+        ),
+        2 => 
+        array (
+          'name' => 'ns-pt',
+          'title' => 'NS PT',
+        ),
+        3 => 
+        array (
+          'name' => 'ns-st',
+          'title' => 'NS ST',
+        ),
+        4 => 
+        array (
+          'name' => 'ns-kt',
+          'title' => 'NS КТ',
+        ),
+        5 => 
+        array (
+          'name' => 'nw',
+          'title' => 'NW',
+        ),
+        6 => 
+        array (
+          'name' => 'stm',
+          'title' => 'STM',
+        ),
       ),
-      13 => 
-      array (
-        'value' => 'S80',
-        'title' => 'S80',
+    ),
+    278 => 
+    array (
+      'name' => 'gala-bbg',
+      'title' => 'Gala BBG',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'syriusz',
+          'title' => 'Syriusz',
+        ),
       ),
-      14 => 
-      array (
-        'value' => 'S90',
-        'title' => 'S90',
+    ),
+    279 => 
+    array (
+      'name' => 'nicolas',
+      'title' => 'Nicolas',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'nicolas',
+          'title' => 'Nicolas',
+        ),
       ),
-      15 => 
-      array (
-        'value' => 'V40',
-        'title' => 'V40',
+    ),
+    280 => 
+    array (
+      'name' => 'wilk',
+      'title' => 'Wilk',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'de-luxe',
+          'title' => 'De Luxe',
+        ),
       ),
-      16 => 
-      array (
-        'value' => 'V50',
-        'title' => 'V50',
+    ),
+    281 => 
+    array (
+      'name' => 'gifut',
+      'title' => 'Gifut',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'titan',
+          'title' => 'Titan',
+        ),
       ),
-      17 => 
-      array (
-        'value' => 'V70',
-        'title' => 'V70',
+    ),
+    282 => 
+    array (
+      'name' => 'nooteboom',
+      'title' => 'Nooteboom',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'polupricep-konteynerovoz',
+          'title' => 'Полуприцеп-контейнеровоз',
+        ),
+        1 => 
+        array (
+          'name' => 'polupricep-platforma',
+          'title' => 'Полуприцеп-платформа',
+        ),
+        2 => 
+        array (
+          'name' => 'polupricep-tral',
+          'title' => 'Полуприцеп-трал',
+        ),
       ),
-      18 => 
-      array (
-        'value' => 'V90',
-        'title' => 'V90',
+    ),
+    283 => 
+    array (
+      'name' => 'willig',
+      'title' => 'Willig',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'polupricepi-cisterni',
+          'title' => 'Полуприцепы-цистерны',
+        ),
       ),
-      19 => 
-      array (
-        'value' => 'XC60',
-        'title' => 'XC60',
+    ),
+    284 => 
+    array (
+      'name' => 'gloria---fahrzeugbau',
+      'title' => 'Gloria - Fahrzeugbau',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'gta',
+          'title' => 'GTA',
+        ),
       ),
-      20 => 
-      array (
-        'value' => 'XC',
-        'title' => 'XC70',
+    ),
+    285 => 
+    array (
+      'name' => 'nordic-tank',
+      'title' => 'Nordic Tank',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'polupricepi-cisterni',
+          'title' => 'Полуприцепы-цистерны',
+        ),
       ),
-      21 => 
-      array (
-        'value' => 'XC90',
-        'title' => 'XC90',
+    ),
+    286 => 
+    array (
+      'name' => 'witzco-challenger-trailers',
+      'title' => 'Witzco Challenger Trailers',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'rg-40',
+          'title' => 'RG-40',
+        ),
+        1 => 
+        array (
+          'name' => 'rg-50',
+          'title' => 'RG-50',
+        ),
+        2 => 
+        array (
+          'name' => 'rg-60',
+          'title' => 'RG-60',
+        ),
       ),
-      22 => 
-      array (
-        'value' => 'VOLOTH',
-        'title' => 'Other Volvo Models',
+    ),
+    287 => 
+    array (
+      'name' => 'goldhofer',
+      'title' => 'Goldhofer',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'goldhofer-tiflader',
+          'title' => 'Goldhofer-tiflader',
+        ),
+        1 => 
+        array (
+          'name' => 'stra',
+          'title' => 'STRA',
+        ),
+        2 => 
+        array (
+          'name' => 'stz-vl4',
+          'title' => 'STZ-VL4',
+        ),
+        3 => 
+        array (
+          'name' => 'tu3-24_80',
+          'title' => 'TU3-24\\80',
+        ),
       ),
     ),
-  ),
-  70 => 
-  array (
-    'value' => 'YUGO',
-    'title' => 'Yugo',
-    'models' => 
+    288 => 
     array (
-      0 => 
-      array (
-        'value' => 'GV',
-        'title' => 'GV',
+      'name' => 'nursan',
+      'title' => 'Nursan',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'polupricepi-cementovozi',
+          'title' => 'Полуприцепы',
+        ),
       ),
-      1 => 
-      array (
-        'value' => 'GVC',
-        'title' => 'GVC',
+    ),
+    289 => 
+    array (
+      'name' => 'zaslaw',
+      'title' => 'Zaslaw',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'ns',
+          'title' => 'NS',
+        ),
       ),
-      2 => 
-      array (
-        'value' => 'GVL',
-        'title' => 'GVL',
+    ),
+    290 => 
+    array (
+      'name' => 'goodwill',
+      'title' => 'Goodwill',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => '94480',
+          'title' => '94480',
+        ),
       ),
-      3 => 
-      array (
-        'value' => 'GVS',
-        'title' => 'GVS',
+    ),
+    291 => 
+    array (
+      'name' => 'o_me_p_s_',
+      'title' => 'O.ME.P.S.',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'cm---series',
+          'title' => 'CM-Series',
+        ),
+        1 => 
+        array (
+          'name' => 'cr-series',
+          'title' => 'CR-Series',
+        ),
+        2 => 
+        array (
+          'name' => 's-series',
+          'title' => 'S-Series',
+        ),
       ),
-      4 => 
-      array (
-        'value' => 'GVX',
-        'title' => 'GVX',
+    ),
+    292 => 
+    array (
+      'name' => 'zorzi',
+      'title' => 'Zorzi',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'zorzi',
+          'title' => 'Zorzi',
+        ),
       ),
-      5 => 
-      array (
-        'value' => 'YUOTH',
-        'title' => 'Other Yugo Models',
+    ),
+    293 => 
+    array (
+      'name' => 'gooseneck',
+      'title' => 'Gooseneck',
+      'soviet' => false,
+      'models' => 
+      array (
+        0 => 
+        array (
+          'name' => 'konteynerovoz',
+          'title' => 'Контейнеровоз',
+        ),
       ),
     ),
   ),

@@ -18,9 +18,7 @@ class CreateModelsTable extends Migration {
 
 			$t->string('name');
 			$t->string('title');
-			$t->string('icon');
-			$t->string('desc');
-
+			
 			$t->index('name');
 
 			$t->integer('make_id')->unsigned();

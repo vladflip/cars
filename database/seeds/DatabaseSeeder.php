@@ -12,10 +12,8 @@ class DatabaseSeeder extends Seeder {
 		$this->call('UserSeeder');
 
 		$this->call('SpecSeeder');
-		
-		$this->call('TypeSeeder');
 
-		$this->call('MakeCarModelSeeder');
+		$this->call('TypesMakeCarModelSeeder');
 		
 		$this->call('CompanySeeder');
 
@@ -88,8 +86,7 @@ class SpecSeeder extends Seeder {
 			App\Spec::create([
 				'title' => $arr[$i],
 				'name' => $arr2[$i],
-				'icon' => $f->imageUrl(),
-				'desc' => $f->paragraph(2)
+				'icon' => $f->imageUrl()
 			]);
 
 		}
@@ -98,98 +95,80 @@ class SpecSeeder extends Seeder {
 
 }
 
-class TypeSeeder extends Seeder {
+class TypesMakeCarModelSeeder extends Seeder {
 
 	public function run() {
 
-		$f = FF::get();
+		$arr = Config::get('makemodel');
 
-		$arr = [
+		$i = 1;
+
+		$types = [
 			'Грузовики', 'Автобусы', 
 			'Малый коммерческий траспорт', 'Прицепы'
 		];
 
-		$arr2 = [
-			'trucks', 'buses',
-			'small', 'trailers'
+		$types2 = [
+			'trucks', 'bus',
+			'light-trucks', 'trailers'
 		];
 
-		for($i=0; $i < count($arr); $i++){
+		foreach ($arr as $key => $makes) {
 
-			$im = $i+1;
+			\App\Type::create([
 
-			App\Type::create([
-				'name' => $arr2[$i],
-				'title' => $arr[$i],
-				'icon' => "img/icon{$im}.jpg",
-				'icon_active' => "img/icon{$im}-active.jpg",
-				'desc' => $f->paragraph(2)
-			]);
+					'name' => $types2[$i-1],
+					'title' => $types[$i-1],
+					'icon' => "img/icon{$i}.jpg",
+					'icon_active' => "img/icon{$i}-active.jpg"
 
-		}
+				]);
+			
+			foreach ($makes as $k => $make) {
+				
+				$ma = (object)$make;
 
-	}
+				if($ins = \App\Make::exists($ma->name)){
 
-}
-
-class MakeCarModelSeeder extends Seeder {
-
-	public function run() {
-
-		$makes = Config::get('makemodel');
-
-		$f = FF::get();
-
-		$id = 1;
-
-		foreach ($makes as $k => $v) {
-
-			foreach ($v as $key => $value) {
-
-				if(is_array($value)){
-
-					foreach ($value as $ke => $val) {
-
-						foreach ($val as $k2 => $v2) {
-
-							if($k2 == 'title')
-								continue;
-
-							$m = App\CarModel::create([
-								'name' => urlencode(strtolower($v2)),
-								'title' => $v2,
-								'icon' => $f->imageUrl(),
-								'desc' => $f->paragraph(2),
-								'make_id' => $id
-							]);
-
-							if($id%10 == 0)
-								error_log($id);
-						}
-
-					}
+					$newmake = $ins;
 
 				} else {
 
-					if($key == 'value')
-						continue;
+					$newmake = \App\Make::create([
 
-					$m = App\Make::create([
-						'title' => $value,
-						'name' => urlencode(strtolower($value)),
-						'icon' => $f->imageUrl(),
-						'desc' => $f->paragraph(2)
+						'name' => urlencode(strtolower($ma->name)),
+						'title' => $ma->title,
+						'soviet' => $ma->soviet
+
 					]);
-
-					$m->types()->attach(rand(1, 2));
-
-					$m->types()->attach(rand(3, 4));
 
 				}
 
+				foreach ($ma->models as $model) {
+
+					$mo = (object)$model;
+
+					$newmodel = new \App\CarModel([
+
+						'name' => urlencode(strtolower($mo->name)),
+						'title' => $mo->title
+
+					]);
+
+					$newmodel->make()->associate($newmake);
+
+					$newmodel->save();
+
+					$newmodel->types()->attach($i);
+
+				}
+
+
 			}
 
-			$id++;
+
+			$i++;
+
 		}
 
 	}

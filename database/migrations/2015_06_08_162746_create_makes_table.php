@@ -18,8 +18,7 @@ class CreateMakesTable extends Migration {
 
 			$t->string('name');
 			$t->string('title');
-			$t->string('icon');
-			$t->string('desc');
+			$t->boolean('soviet');
 
 			$t->index('name');
 

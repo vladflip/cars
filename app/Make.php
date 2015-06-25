@@ -6,18 +6,17 @@ class Make extends Model {
 
 	protected $table = 'makes';
 
-	public function types() {
-		return $this->belongsToMany(
-				'App\Make', 'type_makes', 
-				'make_id', 'type_id'
-			);
-	}
+	protected $fillable = ['name', 'title', 'soviet'];
 
 	public function companies() {
 		return $this->belongsToMany(
 				'App\Company', 'company_makes', 
 				'make_id', 'company_id'
 			);
+	}
+
+	public static function exists($name) {
+		return self::whereName($name)->first();
 	}
 
 	public function models() {

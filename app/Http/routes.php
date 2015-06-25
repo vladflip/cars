@@ -13,6 +13,12 @@
 
 get('/', ['as' => 'home', 'uses' => 'HomeController@index']);
 
+get('fuck', function(){
+
+	
+
+});
+
 Route::group(['prefix' => 'catalog'], function(){
 
 	get('/', [
