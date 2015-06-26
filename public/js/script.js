@@ -466,7 +466,7 @@ SpecMakes = (function(superClass) {
     return $.ajax(this.home + "/" + this.url, {
       data: {
         type: i,
-        specs: [this.$el.data('current')]
+        spec: this.$el.data('current')
       }
     }).done((function(_this) {
       return function(ids) {
@@ -483,6 +483,10 @@ SpecMakes = (function(superClass) {
 types = new TypeList({
   el: '#catalog-types'
 });
+
+setTimeout(function() {
+  return types.click();
+}, 400);
 
 makes = new MainMakes({
   el: '#catalog-makes',
@@ -613,6 +617,7 @@ TypeView = (function(superClass) {
   TypeView.prototype.initialize = function() {
     this["class"] = 'type_item--active';
     this.model.on('deactivate', this.deactivate);
+    this.model.on('click', this.activate);
     return this.state = false;
   };
 
@@ -695,6 +700,10 @@ TypeList = (function(superClass) {
     return this.trigger('changed', this.activeId);
   };
 
+  TypeList.prototype.click = function() {
+    return this.collection.at(0).trigger('click');
+  };
+
   return TypeList;
 
 })(Backbone.View);
@@ -728,8 +737,7 @@ SpecModel = (function(superClass) {
   }
 
   SpecModel.prototype.defaults = {
-    id: 0,
-    active: false
+    id: 0
   };
 
   return SpecModel;
@@ -760,6 +768,7 @@ SpecView = (function(superClass) {
   }
 
   SpecView.prototype.initialize = function() {
+    this.state = false;
     this["class"] = 'parts--active';
     return this.model.on('deactivate', this.deactivate);
   };
@@ -769,18 +778,19 @@ SpecView = (function(superClass) {
   };
 
   SpecView.prototype.changeState = function() {
-    if (this.model.get('active')) {
-      this.deactivate();
+    if (this.state) {
+      this.model.trigger('pass');
+      return this.deactivate();
     } else {
-      this.activate();
+      return this.activate();
     }
-    return this.model.trigger('pass');
   };
 
   SpecView.prototype.activate = function() {
     if (this.options.list.active) {
       this.$el.addClass(this["class"]);
-      return this.model.set('active', true);
+      this.state = true;
+      return this.model.trigger('active', this.model);
     } else {
       return this.options.list.trigger('error');
     }
@@ -788,7 +798,7 @@ SpecView = (function(superClass) {
 
   SpecView.prototype.deactivate = function() {
     this.$el.removeClass(this["class"]);
-    return this.model.set('active', false);
+    return this.state = false;
   };
 
   return SpecView;
@@ -802,20 +812,34 @@ SpecList = (function(superClass) {
     this.pass = bind(this.pass, this);
     this.fromTypes = bind(this.fromTypes, this);
     this.error = bind(this.error, this);
+    this.deactivate = bind(this.deactivate, this);
     return SpecList.__super__.constructor.apply(this, arguments);
   }
 
   SpecList.prototype.initialize = function() {
+    this.active = false;
     this.ids = {
       type: 0,
-      specs: []
+      spec: 0
     };
-    this.active = false;
     this.collection = new SpecCollection;
     this.collection.on('pass', this.pass);
+    this.collection.on('active', this.deactivate);
     this.on('error', this.error);
     this.options.types.on('changed', this.fromTypes);
     return this.fillCollection();
+  };
+
+  SpecList.prototype.deactivate = function(model) {
+    this.ids.spec = model.get('id');
+    this.collection.each((function(_this) {
+      return function(m) {
+        if (m !== model) {
+          return m.trigger('deactivate');
+        }
+      };
+    })(this));
+    return this.trigger('changed', this.ids);
   };
 
   SpecList.prototype.error = function() {
@@ -826,13 +850,13 @@ SpecList = (function(superClass) {
     if (id) {
       this.active = true;
       this.ids.type = id;
-      if (this.ids.specs.length !== 0) {
+      if (this.ids.spec !== 0) {
         return this.trigger('changed', this.ids);
       }
     } else {
       this.active = false;
       this.trigger('changed', 0);
-      this.ids.specs = [];
+      this.ids.spec = 0;
       return this.collection.each((function(_this) {
         return function(model) {
           return model.trigger('deactivate');
@@ -842,16 +866,7 @@ SpecList = (function(superClass) {
   };
 
   SpecList.prototype.pass = function() {
-    var ids, j, len, model, models;
-    ids = [];
-    models = this.collection.where({
-      active: true
-    });
-    for (j = 0, len = models.length; j < len; j++) {
-      model = models[j];
-      ids.push(model.get('id'));
-    }
-    this.ids.specs = ids;
+    this.ids.spec = 0;
     return this.trigger('changed', this.ids);
   };
 
@@ -924,7 +939,8 @@ MakeView = (function(superClass) {
   };
 
   MakeView.prototype.hide = function() {
-    return this.$el.css('display', 'none');
+    this.$el.css('display', 'none');
+    return this.deactivate();
   };
 
   MakeView.prototype.show = function() {
@@ -1014,7 +1030,7 @@ MakeList = (function(superClass) {
 
   MakeList.prototype.changed = function(ids) {
     this.parentIds = ids;
-    if (ids === 0 || ids.specs.length === 0) {
+    if (ids === 0 || ids.spec === 0) {
       this.hide();
       this.trigger('hideComps');
       return;
@@ -1241,7 +1257,7 @@ CompanyList = (function(superClass) {
       data: {
         type: this.ids.type,
         makes: this.ids.makes,
-        specs: this.ids.specs,
+        spec: this.ids.spec,
         skip: this.toSkip
       }
     }).done((function(_this) {
@@ -1285,7 +1301,7 @@ CompanyList = (function(superClass) {
       data: {
         type: this.ids.type,
         makes: this.ids.makes,
-        specs: this.ids.specs,
+        spec: this.ids.spec,
         skip: this.toSkip
       }
     }).done((function(_this) {

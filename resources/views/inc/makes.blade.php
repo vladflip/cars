@@ -1,3 +1,9 @@
+<?php
+
+	$got = false;
+
+?>
+
 <div class="makes">
 	
 	@include('parts.media-header', [
@@ -10,6 +16,14 @@
 		<ul id="{{ $id }}">
 	@endif
 		@foreach($makes as $make)
+
+				@if(!$got && !$make->soviet)
+					
+					<div style="clear:both; margin-top:30px;"></div>
+
+					<?php $got = true; ?>
+
+				@endif
 			
 				<li data-id="{{ $make->id }}">
 

@@ -1,9 +1,23 @@
+<?php
+
+	$got = false;
+
+?>
+
 <div class="makes makes--live">
 	
 	@include('parts.media-header', ['title' => 'Выберите производителя'])
 
 	<ul id="main-makes-list">
 		@foreach($makes as $make)
+
+			@if(!$got && !$make->soviet)
+				
+				<div style="clear:both; margin-top:30px;"></div>
+
+				<?php $got = true; ?>
+
+			@endif
 
 			<li data-id="{{ $make->id }}">
 				<span>

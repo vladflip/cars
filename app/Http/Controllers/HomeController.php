@@ -4,7 +4,9 @@ class HomeController extends Controller {
 
 	public function index() {
 
-		$makes = \App\Make::all();
+		$makes = \App\Make::has('companies')
+		->orderBy('soviet', 'DESC')
+		->orderBy('title', 'ASC')->get();
 
 		return view('pages.home')->with('makes', $makes);
 

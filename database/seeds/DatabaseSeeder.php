@@ -30,6 +30,8 @@ class DatabaseSeeder extends Seeder {
 		$this->call('RequestSeeder');
 
 		$this->call('ResponseSeeder');
+
+		$this->call('AlterMakesSeeder');
 	}
 
 }
@@ -388,6 +390,16 @@ class ResponseSeeder extends Seeder {
 			]);
 
 		}
+
+	}
+
+}
+
+class AlterMakesSeeder extends Seeder {
+
+	public function run() {
+
+		DB::statement('alter table makes order by soviet desc, title asc');
 
 	}
 

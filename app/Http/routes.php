@@ -15,7 +15,6 @@ get('/', ['as' => 'home', 'uses' => 'HomeController@index']);
 
 get('fuck', function(){
 
-	
 
 });
 

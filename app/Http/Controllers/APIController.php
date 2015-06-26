@@ -12,7 +12,7 @@ class APIController extends Controller {
 
 		$id = \Input::get('id');
 
-		$m = \App\Make::whereHas('types', function($q) use($id){
+		$m = \App\Make::whereHas('companies', function($q) use($id){
 			$q->where('type_id', '=', $id);
 		})
 		->select('id', 'title')->get();
@@ -35,14 +35,16 @@ class APIController extends Controller {
 
 		$typeId = \Input::get('type');
 
-		$specIds = \Input::get('specs');
+		$specId = \Input::get('spec');
 
 		$makes = \App\Make::select('id')
-			->whereHas('companies', function($q) use ($typeId, $specIds){
-				$q->where('type_id', '=', $typeId);
-				$q->whereIn('spec_id', $specIds);
-			})
-			->get();
+		->whereHas('companies', function($q) use ($typeId, $specId){
+			$q->where('type_id', '=', $typeId);
+			$q->where('spec_id', '=', $specId);
+		})
+		->orderBy('soviet', 'DESC')
+		->get();
+
 		$ids = array();
 
 		foreach ($makes as $k => $v) {
@@ -61,16 +63,18 @@ class APIController extends Controller {
 
 		$makes = \Input::get('makes');
 
-		$specs = \Input::get('specs');
+		$spec = \Input::get('spec');
 
 		$c = \App\Company::where('type_id', '=', $type)
-			->whereIn('spec_id', $specs)
+			->where('spec_id', '=', $spec)
 			->whereHas('makes', function($q) use($makes){
 				$q->whereIn('make_id', $makes);
 			})
 			->with('type')
 			->with('spec')
 			->with(['makes' => function($q){
+				$q->orderBy('soviet', 'DESC');
+				$q->orderBy('title', 'ASC');
 				$q->select('title');
 			}])
 			->skip($skip)

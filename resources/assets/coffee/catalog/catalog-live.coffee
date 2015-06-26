@@ -119,7 +119,7 @@ class SpecMakes extends MakeList
 		$.ajax "#{@home}/#{@url}",
 			data:
 				type: i
-				specs: [@$el.data 'current']
+				spec: @$el.data 'current'
 		.done (ids) =>
 			@deps[i] = ids
 		
@@ -129,6 +129,10 @@ class SpecMakes extends MakeList
 
 types = new TypeList
 	el: '#catalog-types'
+
+setTimeout ->
+	do types.click
+, 400
 
 makes = new MainMakes
 	el: '#catalog-makes'

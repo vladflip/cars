@@ -3,7 +3,6 @@ TypeList = require './inc/TypeList'
 class SpecModel extends Backbone.Model
 	defaults:
 		id: 0
-		active: false
 
 class SpecCollection extends Backbone.Collection
 	model: SpecModel
@@ -11,6 +10,8 @@ class SpecCollection extends Backbone.Collection
 class SpecView extends Backbone.View
 
 	initialize: ->
+
+		@state = false
 
 		@class = 'parts--active'
 
@@ -20,18 +21,23 @@ class SpecView extends Backbone.View
 		'click' : 'changeState'
 
 	changeState: =>
-		if @model.get 'active' 
+		if @state 
+			@model.trigger('pass')
+
 			do @deactivate
 		else
 			do @activate
 
-		@model.trigger('pass')
 
 	activate: =>
 		if @options.list.active
+
 			@$el.addClass @class
 
-			@model.set 'active', true
+			@state = true
+
+			@model.trigger 'active', @model
+
 		else
 			@options.list.trigger 'error'
 
@@ -39,21 +45,25 @@ class SpecView extends Backbone.View
 	deactivate: =>
 		@$el.removeClass @class
 
-		@model.set 'active', false
+		@state = false
+
 
 class SpecList extends Backbone.View
 
 	initialize: ->
 
+		@active = false
+
 		@ids = 
 			type: 0
-			specs: []
-
-		@active = false
+			spec: 0
 
 		@collection = new SpecCollection
 
+		# when no specs selected
 		@collection.on 'pass', @pass
+
+		@collection.on 'active', @deactivate
 
 		@on 'error', @error
 
@@ -61,29 +71,36 @@ class SpecList extends Backbone.View
 
 		do @fillCollection
 
+	deactivate:(model) =>
+		@ids.spec = model.get 'id'
+
+		@collection.each (m) =>
+			if m isnt model
+				m.trigger('deactivate')
+
+		# trigger event for lower dependencies
+		@trigger 'changed', @ids
+
 	error: =>
 		console.log 'choose type'
 
 	fromTypes: (id) =>
 		if id
-			@active = true 
+			# to check wether type is selected
+			@active = true
+
 			@ids.type = id
-			if @ids.specs.length isnt 0
+			if @ids.spec isnt 0
 				@trigger 'changed', @ids
 		else
 			@active = false
 			@trigger 'changed', 0
-			@ids.specs = []
+			@ids.spec = 0
 			@collection.each (model) =>
 				model.trigger 'deactivate'
 
 	pass: =>
-		ids = []
-		models = @collection.where active: true
-		for model in models
-			ids.push model.get 'id'
-
-		@ids.specs = ids
+		@ids.spec = 0
 
 		@trigger 'changed', @ids
 
@@ -119,6 +136,7 @@ class MakeView extends Backbone.View
 
 	hide: =>
 		@$el.css('display', 'none')
+		do @deactivate
 
 	show: =>
 		@$el.css('display', 'block')
@@ -185,7 +203,7 @@ class MakeList extends Backbone.View
 
 	changed: (ids) =>
 		@parentIds = ids
-		if ids is 0 or ids.specs.length is 0
+		if ids is 0 or ids.spec is 0
 			do @hide
 			@trigger 'hideComps'
 			return
@@ -360,7 +378,7 @@ class CompanyList extends Backbone.View
 			data: 
 				type: @ids.type
 				makes: @ids.makes
-				specs: @ids.specs
+				spec: @ids.spec
 				skip: @toSkip
 
 		.done (comps) =>
@@ -396,7 +414,7 @@ class CompanyList extends Backbone.View
 			data: 
 				type: @ids.type
 				makes: @ids.makes
-				specs: @ids.specs
+				spec: @ids.spec
 				skip: @toSkip
 		.done (comps) =>
 			@updateCollection JSON.parse comps

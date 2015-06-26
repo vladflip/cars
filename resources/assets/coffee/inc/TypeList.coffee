@@ -14,6 +14,8 @@ class TypeView extends Backbone.View
 
 		@model.on('deactivate', @deactivate)
 
+		@model.on 'click', @activate
+
 		@state = false
 
 	events:
@@ -81,6 +83,9 @@ class TypeList extends Backbone.View
 		@activeId = 0
 
 		@trigger 'changed', @activeId
+
+	click: ->
+		@collection.at(0).trigger 'click'
 
 
 module.exports = TypeList
