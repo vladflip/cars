@@ -701,7 +701,9 @@ TypeList = (function(superClass) {
   };
 
   TypeList.prototype.click = function() {
-    return this.collection.at(0).trigger('click');
+    if (this.collection.length) {
+      return this.collection.at(0).trigger('click');
+    }
   };
 
   return TypeList;

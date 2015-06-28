@@ -85,7 +85,8 @@ class TypeList extends Backbone.View
 		@trigger 'changed', @activeId
 
 	click: ->
-		@collection.at(0).trigger 'click'
+		if(@collection.length)
+			@collection.at(0).trigger 'click'
 
 
 module.exports = TypeList

@@ -9,11 +9,11 @@ class DatabaseSeeder extends Seeder {
 	{
 		Model::unguard();
 
+		$this->call('TypesMakeCarModelSeeder');
+
 		$this->call('UserSeeder');
 
 		$this->call('SpecSeeder');
-
-		$this->call('TypesMakeCarModelSeeder');
 		
 		$this->call('CompanySeeder');
 
@@ -48,7 +48,9 @@ class UserSeeder extends Seeder {
 
 		$f = FF::get();
 
-		for($i=0; $i < 30; $i++){
+		$count = \App\Make::count();
+
+		for($i=0; $i < $count; $i++){
 
 			App\User::create([
 					'email' => $f->email,
@@ -183,7 +185,9 @@ class CompanySeeder extends Seeder {
 
 		$f = FF::get();
 
-		for($i=0; $i < 30; $i++){
+		$count = \App\Make::count();
+
+		for($i=0; $i < $count; $i++){
 
 			$c = App\Company::create([
 				'user_id' => $i+1,
@@ -197,20 +201,6 @@ class CompanySeeder extends Seeder {
 			]);
 
 			$c->makes()->attach($i+1);
-
-			$c->makes()->attach($i+2);
-
-			$c->makes()->attach($i+3);
-
-			$c->makes()->attach($i+4);
-
-			$c->makes()->attach($i+5);
-
-			$c->makes()->attach($i+6);
-
-			$c->makes()->attach($i+7);
-
-			$c->makes()->attach($i+8);
 
 		}
 
