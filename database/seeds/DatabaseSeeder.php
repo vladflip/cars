@@ -89,8 +89,7 @@ class SpecSeeder extends Seeder {
 
 			App\Spec::create([
 				'title' => $arr[$i],
-				'name' => $arr2[$i],
-				'icon' => $f->imageUrl()
+				'name' => $arr2[$i]
 			]);
 
 		}
@@ -183,24 +182,27 @@ class CompanySeeder extends Seeder {
 
 	public function run() {
 
+		Model::unguard();
+
 		$f = FF::get();
 
 		$count = \App\Make::count();
 
 		for($i=0; $i < $count; $i++){
 
-			$c = App\Company::create([
+			$c = \App\Company::create([
 				'user_id' => $i+1,
 				'name' => $f->company,
 				'description' => $f->paragraph(5),
 				'phone' => $f->phoneNumber,
 				'address' => $f->address,
 				'spec_id' => rand(1, 7),
-				'type_id' => rand(1, 4),
 				'logo' => 'http://lorempixel.com/100/100/business/'
 			]);
 
-			$c->makes()->attach($i+1);
+			$model = \App\CarModel::getModelByMake($i+1);
+
+			$c->models()->attach($model);
 
 		}
 

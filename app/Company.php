@@ -18,10 +18,10 @@ class Company extends Model {
 		return $this->belongsTo('App\Type', 'type_id');
 	}
 
-	public function makes() {
+	public function models() {
 		return $this->belongsToMany(
-				'App\Make', 'company_makes', 
-				'company_id', 'make_id'
+				'App\CarModel', 'company_models', 
+				'company_id', 'model_id'
 			);
 	}
 

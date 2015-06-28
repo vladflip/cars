@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateCompanyMakesTable extends Migration {
+class CreateTypeModelsTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,19 +12,19 @@ class CreateCompanyMakesTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('company_makes', function(Blueprint $t)
+		Schema::create('type_models', function(Blueprint $t)
 		{
+			
+			$t->integer('type_id')->unsigned();
+			$t->integer('model_id')->unsigned();
 
-			$t->integer('company_id')->unsigned();
-			$t->integer('make_id')->unsigned();
+			$t->primary(['type_id', 'model_id']);
 
-			$t->primary(['company_id', 'make_id']);
-
-			$t->foreign('company_id')->references('id')->on('companies')
+			$t->foreign('type_id')->references('id')->on('types')
 											->onDelete('cascade')
 											->onUpdate('no action');
 
-			$t->foreign('make_id')->references('id')->on('makes')
+			$t->foreign('model_id')->references('id')->on('models')
 											->onDelete('cascade')
 											->onUpdate('no action');
 
@@ -38,7 +38,7 @@ class CreateCompanyMakesTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('company_makes');
+		Schema::drop('type_models');
 	}
 
 }

@@ -14,7 +14,7 @@ class Type extends Model {
 
 	public function models() {
 		return $this->belongsToMany(
-				'App\CarModel', 'types_models', 
+				'App\CarModel', 'type_models', 
 				'type_id', 'model_id'
 			);
 	}

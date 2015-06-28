@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTypesModelsTable extends Migration {
+class CreateCompanyModelsTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,15 +12,15 @@ class CreateTypesModelsTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('types_models', function(Blueprint $t)
+		Schema::create('company_models', function(Blueprint $t)
 		{
-			
-			$t->integer('type_id')->unsigned();
+
+			$t->integer('company_id')->unsigned();
 			$t->integer('model_id')->unsigned();
 
-			$t->primary(['type_id', 'model_id']);
+			$t->primary(['company_id', 'model_id']);
 
-			$t->foreign('type_id')->references('id')->on('types')
+			$t->foreign('company_id')->references('id')->on('companies')
 											->onDelete('cascade')
 											->onUpdate('no action');
 
@@ -38,7 +38,7 @@ class CreateTypesModelsTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('types_models');
+		Schema::drop('company_models');
 	}
 
 }

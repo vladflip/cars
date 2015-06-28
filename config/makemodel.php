@@ -1,5 +1,5 @@
 <?php 
- return array (
+ return array (
   'trucks' => 
   array (
     0 => 
@@ -7380,6 +7380,11 @@
       'soviet' => false,
       'models' => 
       array (
+        0 => 
+        array (
+          'name' => 'nordkapp',
+          'title' => 'Nordkapp',
+        ),
       ),
     ),
     93 => 

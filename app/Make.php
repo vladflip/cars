@@ -8,13 +8,6 @@ class Make extends Model {
 
 	protected $fillable = ['name', 'title', 'soviet'];
 
-	public function companies() {
-		return $this->belongsToMany(
-				'App\Company', 'company_makes', 
-				'make_id', 'company_id'
-			);
-	}
-
 	public static function exists($name) {
 		return self::whereName($name)->first();
 	}
