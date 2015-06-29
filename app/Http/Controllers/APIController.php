@@ -13,6 +13,9 @@ class APIController extends Controller {
 		$id = \Input::get('id');
 
 		$m = \App\Make::select('id', 'title')
+		->whereHas('models', function($q) use($id){
+			$q->where('type_id', $id);
+		})
 		->orderBy('soviet', 'DESC')
 		->orderBy('title', 'ASC')
 		->get();
@@ -39,7 +42,7 @@ class APIController extends Controller {
 
 		$id = \Input::get('id');
 
-		$m = \App\CarModel::where('make_id', '=', $id)
+		$m = \App\CarModel::where('make_id', $id)
 		->select('id', 'title')->get();
 
 		return $m;

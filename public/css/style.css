@@ -197,8 +197,13 @@ h3 {
   font-weight: 300;
   font-size: 12px;
 }
-.create-company_make {
+.create-company_make,
+.create-company_model {
   position: relative;
+}
+.create-company_make:not(:first-child),
+.create-company_model:not(:first-child) {
+  margin-top: 20px;
 }
 .create-company-selectBox-dropdown-menu .selectBox-disabled {
   display: none;
@@ -206,11 +211,21 @@ h3 {
 ul.create-company_select-selectBox-dropdown-menu {
   max-height: 250px;
 }
-.create-company_added .create-company_make {
-  margin-top: 20px;
-}
-.create-company_makes > .create-company_make .popup_redx {
+.create-company_makes > .create-company_make:first-child .popup_redx,
+.create-company_models > .create-company_model:first-child .popup_redx {
   display: none;
+}
+.create-company_lower,
+.create-company_higher {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+.create-company_lower {
+  margin-top: 50px;
 }
 .found {
   margin: 35px 0 0 0;
@@ -440,15 +455,6 @@ ul.create-company_select-selectBox-dropdown-menu {
 .popup_content {
   margin: auto;
 }
-.popup_content--create-company {
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-justify-content: space-between;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  padding-bottom: 50px;
-}
 .popup_comp-logo {
   height: 160px;
   margin-top: 10px;
@@ -547,12 +553,6 @@ ul.create-company_select-selectBox-dropdown-menu {
   -webkit-justify-content: space-between;
       -ms-flex-pack: justify;
           justify-content: space-between;
-}
-.popup_field--types {
-  margin-top: 79px;
-}
-.popup_field--types .popup_label {
-  margin-bottom: 9px;
 }
 .popup_select {
   padding: 15px 10px;

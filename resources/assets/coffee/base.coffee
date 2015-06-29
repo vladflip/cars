@@ -9,6 +9,9 @@ Array.prototype.in = (i) ->
 		if a.id is i then return true
 	false
 
+Array.prototype.last = ->
+	@[@length - 1]
+
 String.prototype.excerpt = ->
 	i = @.indexOf '.'
 	@slice 0, i+1

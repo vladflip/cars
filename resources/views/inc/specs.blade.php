@@ -39,127 +39,160 @@
 		
 		<div class="popup_content--create-company">
 
-			<div>
+			<div class="create-company_higher">
 
-				<div class="popup_field">
-						
-					<div class="popup_label">Название</div>
-				
-					<input type="text" class="popup_input" 
-					placeholder="ООО 'Комтранс'">
-				
-				</div>
-
-				<div class="popup_field">
-						
-					<div class="popup_label">Адрес</div>
-				
-					<input type="text" class="popup_input" 
-					placeholder="г. Москва Красная пл, д1">
-				
-				</div>
-
-				<div class="popup_field">
-						
-					<div class="popup_label">Телефоны</div>
-				
-					<input type="text" class="popup_input" 
-					placeholder="8 (495) 123-45-67">
-				
-				</div>
-
-				<div class="popup_field">
-
-					<div class="popup_label">Специализация</div>
+				<div>
+					<div class="popup_field popup_field--types">
 					
-					<select name="" id="create-company-spec" class="popup_select">
+						<div class="popup_label">Ориентация</div>
 						
-						@foreach($specs as $spec)
+						<select name="" id="create-company-type" 
+						class="popup_select create-company">
+					
+							<option value="" disabled selected></option>
 							
-							<option value="{{ $spec->id }}" class="popup_option">
-								{{ $spec->title }}
-							</option>
-
-						@endforeach
-
-					</select>
-
+							@foreach($types as $type)
+								
+								<option value="{{ $type->id }}" class="popup_option">
+									{{ $type->title }}
+								</option>
+					
+							@endforeach
+					
+						</select>
+					
+					</div>
+					
+					<div class="popup_field popup_field--makes">
+						
+						<div class="popup_header-field">
+							<div class="popup_label">Производители</div>
+							
+							<div class="popup_plus-sign">
+								+
+							</div>
+						</div>
+					
+						<div class="create-company_makes" 
+							id="create-company-makes-list">
+							
+							<div class="create-company_make">
+								
+								<select name="" class="create-company_select popup_select"></select>
+					
+							</div>
+					
+						</div>
+					
+					</div>
 				</div>
 
-				<div class="popup_field popup_field--types">
-
-					<div class="popup_label">Ориентация</div>
+				<div>
+					<div class="popup_field">
 					
-					<select name="" id="create-company-type" 
-					class="popup_select create-company">
-
-						<option value="" disabled selected></option>
+						<div class="popup_label">Специализация</div>
 						
-						@foreach($types as $type)
+						<select name="" id="create-company-spec" class="popup_select">
 							
-							<option value="{{ $type->id }}" class="popup_option">
-								{{ $type->title }}
-							</option>
+							@foreach($specs as $spec)
+								
+								<option value="{{ $spec->id }}" class="popup_option">
+									{{ $spec->title }}
+								</option>
+					
+							@endforeach
+					
+						</select>
+					
+					</div>
 
-						@endforeach
+					<div class="create-company_models">
+					
+						{{-- <div class="create-company_models-list_item popup_field popup_field--models">
+							
+							<div class="popup_header-field">
+								<div class="popup_label">Уточнить модель</div>
+								
+								<div class="popup_plus-sign">
+									+
+								</div>
+							</div>
+						
+								
+							<div class="create-company_models-list_model">
+								<div class="create-company_model">
+									
+									<select name="" class="create-company_select popup_select"></select>
+													
+								</div>
+							</div>
+						
+						
+						</div> --}}
 
-					</select>
+					</div>
 
 				</div>
 
 			</div>
 
-			<div>
-				
-				<div class="popup_field">
+			<div class="create-company_lower">
 
-					<div class="popup_label">Кратко о компании</div>
-
-					<textarea name="" id="create-company-about" cols="30" rows="7" class="popup_textarea"></textarea>
-
-				</div>
-				
-				<div class="popup_field">
-
-					<div class="popup_header-field">
-
-						<div class="popup_label">Логотип</div>
-						
-						<div id="create-company-logo-btn" class="popup_pick-file">
-							Выбрать файл
-						</div>
-
-						<input type="file" id="create-company-logo">
-
-					</div>
-
-					<div id="create-company-logo-html" class="popup_comp-logo"></div>
-
-				</div>
-
-				<div class="popup_field popup_field--makes">
-					
-					<div class="popup_header-field">
-						<div class="popup_label">Производители</div>
-						
-						<div class="popup_plus-sign">
-							+
-						</div>
-					</div>
-
-					<div class="create-company_makes" 
-						id="create-company-makes-list">
-						
-						<div class="create-company_make">
+				<div>
+					<div class="popup_field">
 							
-							<select name="" class="create-company_select popup_select"></select>
-
-						</div>
-
-						<div class="create-company_added"></div>
-
+						<div class="popup_label">Название</div>
+					
+						<input type="text" class="popup_input" 
+						placeholder="ООО 'Комтранс'">
+					
 					</div>
+					
+					<div class="popup_field">
+							
+						<div class="popup_label">Адрес</div>
+					
+						<input type="text" class="popup_input" 
+						placeholder="г. Москва Красная пл, д1">
+					
+					</div>
+					
+					<div class="popup_field">
+							
+						<div class="popup_label">Телефоны</div>
+					
+						<input type="text" class="popup_input" 
+						placeholder="8 (495) 123-45-67">
+					
+					</div>
+				</div>
 
+				<div>
+					<div class="popup_field">
+					
+						<div class="popup_label">Кратко о компании</div>
+					
+						<textarea name="" id="create-company-about" cols="30" rows="7" class="popup_textarea"></textarea>
+					
+					</div>
+					
+					<div class="popup_field">
+					
+						<div class="popup_header-field">
+					
+							<div class="popup_label">Логотип</div>
+							
+							<div id="create-company-logo-btn" class="popup_pick-file">
+								Выбрать файл
+							</div>
+					
+							<input type="file" id="create-company-logo">
+					
+						</div>
+					
+						<div id="create-company-logo-html" class="popup_comp-logo"></div>
+					
+					</div>
 				</div>
 
 			</div>
@@ -173,3 +206,7 @@
 </div>
 
 @include('parts.create-company-make')
+
+@include('parts.create-company-model')
+
+@include('parts.create-company-models-list')

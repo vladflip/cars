@@ -1,7 +1,10 @@
 .create-company
 	
-	&_make
+	&_make,
+	&_model
 		position relative
+		&:not(:first-child)	
+			margin-top 20px
 		
 	&-selectBox-dropdown-menu
 		
@@ -10,9 +13,15 @@
 			
 	ul&_select-selectBox-dropdown-menu
 		max-height 250px
-	
-	&_added &_make
-		margin-top 20px
 		
-	&_makes > &_make .popup_redx
+	&_makes > &_make:first-child .popup_redx,
+	&_models > &_model:first-child .popup_redx
 		display none
+	
+	&_lower,
+	&_higher
+		display flex
+		justify-content space-between
+	
+	&_lower
+		margin-top 50px

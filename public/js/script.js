@@ -22,6 +22,10 @@ Array.prototype["in"] = function(i) {
   return false;
 };
 
+Array.prototype.last = function() {
+  return this[this.length - 1];
+};
+
 String.prototype.excerpt = function() {
   var i;
   i = this.indexOf('.');
@@ -1360,7 +1364,7 @@ companies = new CompanyList({
 });
 
 },{"./inc/TypeList":5}],8:[function(require,module,exports){
-var AddLogo, MakeView, MakesList, SelectType, SelectView, makes, specs, types,
+var AddLogo, MakeView, MakesList, ModelView, ModelsList, SelectType, SelectView, makes, specs, types,
   bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; },
   extend = function(child, parent) { for (var key in parent) { if (hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; },
   hasProp = {}.hasOwnProperty;
@@ -1456,6 +1460,99 @@ SelectType = (function(superClass) {
 
 })(Backbone.View);
 
+ModelView = (function(superClass) {
+  extend(ModelView, superClass);
+
+  function ModelView() {
+    return ModelView.__super__.constructor.apply(this, arguments);
+  }
+
+  ModelView.prototype.template = Handlebars.compile($('#create-company-model-template').html());
+
+  ModelView.prototype.className = 'create-company_model';
+
+  ModelView.prototype.render = function(models) {
+    this.$el.html(this.template({
+      models: models
+    }));
+    return this.$el;
+  };
+
+  return ModelView;
+
+})(Backbone.View);
+
+ModelsList = (function(superClass) {
+  extend(ModelsList, superClass);
+
+  function ModelsList() {
+    this.refresh = bind(this.refresh, this);
+    this.remove = bind(this.remove, this);
+    this.add = bind(this.add, this);
+    return ModelsList.__super__.constructor.apply(this, arguments);
+  }
+
+  ModelsList.prototype.template = Handlebars.compile($('#create-company-model-template').html());
+
+  ModelsList.prototype.home = $('body').data('home');
+
+  ModelsList.prototype.url = 'api/get-models-by-make';
+
+  ModelsList.prototype.className = '.create-company_models-list';
+
+  ModelsList.prototype.models = [];
+
+  ModelsList.prototype.collection = [];
+
+  ModelsList.prototype.initialize = function() {
+    console.log(this.options.v);
+    this.options.makes.on('add', this.add);
+    this.options.makes.on('remove', this.remove);
+    return this.options.makes.on('refresh', this.refresh);
+  };
+
+  ModelsList.prototype.add = function(v) {
+    var modelview;
+    modelview = new ModelView({
+      make: v
+    });
+    this.collection.push(modelview);
+    return this.render();
+  };
+
+  ModelsList.prototype.remove = function(v) {
+    return console.log(v);
+  };
+
+  ModelsList.prototype.refresh = function(id) {
+    return $.ajax(this.home + "/" + this.url, {
+      data: {
+        id: id
+      }
+    }).done((function(_this) {
+      return function(d) {
+        return _this.models = d;
+      };
+    })(this));
+  };
+
+  ModelsList.prototype.update = function() {
+    this.collection = [];
+    this.container.html('');
+    return this.updateFirst();
+  };
+
+  ModelsList.prototype.updateFirst = function() {
+    this.first.html(this.template({
+      models: this.models
+    }));
+    return this.first.children('select').selectBox();
+  };
+
+  return ModelsList;
+
+})(Backbone.View);
+
 MakeView = (function(superClass) {
   extend(MakeView, superClass);
 
@@ -1466,6 +1563,22 @@ MakeView = (function(superClass) {
   MakeView.prototype.template = Handlebars.compile($('#create-company-make-template').html());
 
   MakeView.prototype.className = 'create-company_make';
+
+  MakeView.prototype.initialize = function(prop) {
+    if (prop.first) {
+      return this.initFirst();
+    } else {
+      return this.init();
+    }
+  };
+
+  MakeView.prototype.init = function() {};
+
+  MakeView.prototype.initFirst = function() {
+    return new ModelsList({
+      v: this
+    });
+  };
 
   MakeView.prototype.render = function(makes) {
     this.$el.html(this.template({
@@ -1504,30 +1617,51 @@ MakesList = (function(superClass) {
 
   MakesList.prototype.collection = [];
 
-  MakesList.prototype.container = $('.create-company_added');
-
   MakesList.prototype.initialize = function() {
     this.options.types.on('changed', this.get);
-    this.first = this.$el.children('.create-company_make');
-    this.first.children('select').selectBox();
     this.plus = this.$el.parent().find('.popup_plus-sign');
-    return this.plus.click(this.add);
+    this.plus.click(this.add);
+    return this.createFirstMake();
+  };
+
+  MakesList.prototype.createFirstMake = function() {
+    var el, v;
+    el = this.$el.children('.create-company_make');
+    v = new MakeView({
+      el: el,
+      first: true
+    });
+    this.collection.push(v);
+    return el.children('select').selectBox();
   };
 
   MakesList.prototype.update = function() {
-    this.collection = [];
-    this.container.html('');
-    return this.updateFirst();
+    var i, j, k, len, len1, make, ref, results, toRemove;
+    toRemove = [];
+    ref = this.collection;
+    for (i = j = 0, len = ref.length; j < len; i = ++j) {
+      make = ref[i];
+      if (i !== 0) {
+        make.remove();
+        toRemove.push(make);
+      }
+    }
+    results = [];
+    for (k = 0, len1 = toRemove.length; k < len1; k++) {
+      make = toRemove[k];
+      results.push(this.collection.remove(make));
+    }
+    return results;
   };
 
-  MakesList.prototype.updateFirst = function() {
-    this.first.html(this.template({
-      makes: this.makes
-    }));
-    return this.first.children('select').selectBox();
+  MakesList.prototype.renderFirst = function() {
+    var el;
+    el = this.collection[0].render(this.makes);
+    return el.children('select').selectBox();
   };
 
   MakesList.prototype.get = function(id) {
+    this.update();
     return $.ajax(this.home + "/" + this.url, {
       data: {
         id: id
@@ -1535,7 +1669,7 @@ MakesList = (function(superClass) {
     }).done((function(_this) {
       return function(d) {
         _this.makes = d;
-        return _this.update();
+        return _this.renderFirst();
       };
     })(this));
   };
@@ -1553,16 +1687,11 @@ MakesList = (function(superClass) {
   };
 
   MakesList.prototype.render = function() {
-    var el, i, len, make, ref, results;
-    ref = this.collection;
-    results = [];
-    for (i = 0, len = ref.length; i < len; i++) {
-      make = ref[i];
-      el = make.render(this.makes);
-      this.container.append(el);
-      results.push(el.children('select').selectBox());
-    }
-    return results;
+    var el, make;
+    make = this.collection.last();
+    el = make.render(this.makes);
+    this.$el.append(el);
+    return el.children('select').selectBox();
   };
 
   return MakesList;
