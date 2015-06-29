@@ -4,9 +4,9 @@
 
 	<h3 class="feed_header">Отзывы</h3>
 				
-	@foreach($makes as $make)
+	@foreach($types as $type)
 
-		@include('inc.feed-makes', ['type' => $make])
+		@include('inc.feed-makes', ['type' => $type])
 
 	@endforeach
 

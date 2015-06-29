@@ -13,14 +13,18 @@ class Type extends Model {
 	}
 
 	public function models() {
-		return $this->belongsToMany(
-				'App\CarModel', 'type_models', 
-				'type_id', 'model_id'
-			);
+		return $this->hasMany('App\CarModel', 'type_id');
 	}
 
 	public function feedbacks() {
 		return $this->hasMany('App\Feedback', 'type_id');
+	}
+
+	public function makes() {
+		return $this->belongsToMany(
+				'App\Make', 'type_makes', 
+				'type_id', 'make_id'
+			);
 	}
 
 }

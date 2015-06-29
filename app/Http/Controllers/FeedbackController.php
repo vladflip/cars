@@ -6,11 +6,10 @@ class FeedbackController extends Controller {
 
 		$data = \App\Type::with(['makes' => function($q){
 			$q->has('feedbacks');
-			$q->with('feedbacks');
 		}])->get();
 
 		return view('parts.feed.main')
-			->with('makes', $data);
+			->with('types', $data);
 
 	}
 

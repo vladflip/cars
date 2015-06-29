@@ -8,6 +8,19 @@ class APIController extends Controller {
 		return $m;
 	}
 
+	public function makes_by_type() {
+
+		$id = \Input::get('id');
+
+		$m = \App\Make::select('id', 'title')
+		->orderBy('soviet', 'DESC')
+		->orderBy('title', 'ASC')
+		->get();
+
+		return $m;
+
+	}
+
 	public function makes_by_type_has_comps() {
 
 		$id = \Input::get('id');
