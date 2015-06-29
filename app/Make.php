@@ -19,4 +19,12 @@ class Make extends Model {
 	public function feedbacks() {
 		return $this->hasMany('App\Feedback', 'make_id');
 	}
+
+	public function companies() {
+		return $this->belongsToMany(
+				'App\Company', 'company_makes', 
+				'make_id', 'company_id'
+			);
+	}
+
 }

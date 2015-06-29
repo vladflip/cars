@@ -426,7 +426,7 @@ class CompanyList extends Backbone.View
 						address: comp.address
 						description: comp.description
 						excerpt: comp.description.excerpt()
-						logo: comp.logo
+						logo: "url(#{comp.logo})"
 						name: comp.name
 						phone: comp.phone
 						tags: comp.tags

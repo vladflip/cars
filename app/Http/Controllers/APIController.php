@@ -8,14 +8,15 @@ class APIController extends Controller {
 		return $m;
 	}
 
-	public function makes_by_type() {
+	public function makes_by_type_has_comps() {
 
 		$id = \Input::get('id');
 
-		$m = \App\Make::whereHas('companies', function($q) use($id){
-			$q->where('type_id', '=', $id);
+		$m = \App\Make::select('id', 'title')
+		->whereHas('companies', function($q) use($id){
+			$q->where('type_id', $id);
 		})
-		->select('id', 'title')->get();
+		->get();
 
 		return $m;
 
@@ -38,11 +39,10 @@ class APIController extends Controller {
 		$specId = \Input::get('spec');
 
 		$makes = \App\Make::select('id')
-		->whereHas('companies', function($q) use ($typeId, $specId){
-			$q->where('type_id', '=', $typeId);
-			$q->where('spec_id', '=', $specId);
+		->whereHas('companies', function($q) use($specId, $typeId){	
+			$q->where('spec_id', $specId);
+			$q->where('type_id', $typeId);
 		})
-		->orderBy('soviet', 'DESC')
 		->get();
 
 		$ids = array();
@@ -65,18 +65,15 @@ class APIController extends Controller {
 
 		$spec = \Input::get('spec');
 
-		$c = \App\Company::where('type_id', '=', $type)
-			->where('spec_id', '=', $spec)
-			->whereHas('makes', function($q) use($makes){
-				$q->whereIn('make_id', $makes);
+		$c = \App\Company::
+			whereHas('makes', function($q) use($makes){
+				$q->whereIn('id', $makes);
 			})
+			->where('type_id', $type)
+			->where('spec_id', $spec)
 			->with('type')
 			->with('spec')
-			->with(['makes' => function($q){
-				$q->orderBy('soviet', 'DESC');
-				$q->orderBy('title', 'ASC');
-				$q->select('title');
-			}])
+			->with('makes')
 			->skip($skip)
 			->take(6)
 			->get();
@@ -114,6 +111,7 @@ class APIController extends Controller {
 
 	}
 
+	// in catalog
 	public function companies_by_make_and_spec() {
 
 		$skip = \Input::get('skip');

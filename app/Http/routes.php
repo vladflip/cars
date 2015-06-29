@@ -1,4 +1,5 @@
 <?php
+use Illuminate\Database\Eloquent\Model as Model;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,7 +15,6 @@
 get('/', ['as' => 'home', 'uses' => 'HomeController@index']);
 
 get('fuck', function(){
-
 
 });
 
@@ -84,6 +84,8 @@ Route::group(['prefix' => 'feedback'], function(){
 Route::group(['prefix' => 'api', 'middleware' => 'api'], function(){
 
 	get('get-makes', 'APIController@makes');
+
+	get('get-makes-by-type-has-comps', 'APIController@makes_by_type_has_comps');
 
 	get('get-makes-by-type', 'APIController@makes_by_type');
 

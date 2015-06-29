@@ -154,15 +154,14 @@ class TypesMakeCarModelSeeder extends Seeder {
 					$newmodel = new \App\CarModel([
 
 						'name' => urlencode(strtolower($mo->name)),
-						'title' => $mo->title
+						'title' => $mo->title,
+						'type_id' => $i
 
 					]);
 
 					$newmodel->make()->associate($newmake);
 
 					$newmodel->save();
-
-					$newmodel->types()->attach($i);
 
 				}
 
@@ -182,13 +181,13 @@ class CompanySeeder extends Seeder {
 
 	public function run() {
 
-		Model::unguard();
-
 		$f = FF::get();
 
 		$count = \App\Make::count();
 
 		for($i=0; $i < $count; $i++){
+
+			$model = \App\CarModel::getModelByMake($i+1);
 
 			$c = \App\Company::create([
 				'user_id' => $i+1,
@@ -197,12 +196,13 @@ class CompanySeeder extends Seeder {
 				'phone' => $f->phoneNumber,
 				'address' => $f->address,
 				'spec_id' => rand(1, 7),
-				'logo' => 'http://lorempixel.com/100/100/business/'
+				'logo' => 'http://lorempixel.com/100/100/business/',
+				'type_id' => $model->type_id
 			]);
 
-			$model = \App\CarModel::getModelByMake($i+1);
+			$c->models()->attach($model->id);
 
-			$c->models()->attach($model);
+			$c->makes()->attach($i+1);
 
 		}
 

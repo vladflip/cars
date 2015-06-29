@@ -97,7 +97,7 @@ class MakeList extends Backbone.View
 
 class MainMakes extends MakeList
 
-	url: 'api/get-makes-by-type'
+	url: 'api/get-makes-by-type-has-comps'
 
 	get: (i) ->
 		$.ajax "#{@home}/#{@url}",

@@ -429,7 +429,7 @@ MainMakes = (function(superClass) {
     return MainMakes.__super__.constructor.apply(this, arguments);
   }
 
-  MainMakes.prototype.url = 'api/get-makes-by-type';
+  MainMakes.prototype.url = 'api/get-makes-by-type-has-comps';
 
   MainMakes.prototype.get = function(i) {
     return $.ajax(this.home + "/" + this.url, {
@@ -1322,7 +1322,7 @@ CompanyList = (function(superClass) {
           address: comp.address,
           description: comp.description,
           excerpt: comp.description.excerpt(),
-          logo: comp.logo,
+          logo: "url(" + comp.logo + ")",
           name: comp.name,
           phone: comp.phone,
           tags: comp.tags

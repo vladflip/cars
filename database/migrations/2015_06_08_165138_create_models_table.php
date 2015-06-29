@@ -23,7 +23,13 @@ class CreateModelsTable extends Migration {
 
 			$t->integer('make_id')->unsigned();
 
+			$t->integer('type_id')->unsigned();
+
 			$t->foreign('make_id')->references('id')->on('makes')
+											->onDelete('cascade')
+											->onUpdate('no action');
+
+			$t->foreign('type_id')->references('id')->on('types')
 											->onDelete('cascade')
 											->onUpdate('no action');
 

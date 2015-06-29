@@ -12,6 +12,10 @@ class CarModel extends Model {
 		return $this->belongsTo('App\Make', 'make_id');
 	}
 
+	public function type() {
+		return $this->belongsTo('App\Type', 'type_id');
+	}
+
 	public function companies() {
 		return $this->belongsToMany(
 				'App\Company', 'company_models', 
@@ -28,20 +32,10 @@ class CarModel extends Model {
 	}
 
 	public static function getModelByMake($id) {
-		$model = self::whereHas('make', function($q) use($id){
-			$q->whereId($id);
-		})
-		->select('id')
+		$model = self::where('make_id', $id)
 		->first();
 
-		return $model->id;
-	}
-
-	public function types() {
-		return $this->belongsToMany(
-				'App\Type', 'type_models', 
-				'model_id', 'type_id'
-			);
+		return $model;
 	}
 
 }

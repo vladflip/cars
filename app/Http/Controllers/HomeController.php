@@ -6,7 +6,8 @@ class HomeController extends Controller {
 
 		$makes = \App\Make::has('companies')
 		->orderBy('soviet', 'DESC')
-		->orderBy('title', 'ASC')->get();
+		->orderBy('title', 'ASC')
+		->get();
 
 		return view('pages.home')->with('makes', $makes);
 

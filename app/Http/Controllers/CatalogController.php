@@ -29,7 +29,7 @@ class CatalogController extends Controller {
 
 		$makes = \App\Make::whereHas('companies', function($q) use ($spec){
 
-			$q->where('spec_id', '=', $spec->id);
+			$q->where('spec_id', $spec->id);
 
 		})->get();
 
@@ -55,11 +55,9 @@ class CatalogController extends Controller {
 			abort(404);
 
 		$c = \App\Company::whereHas('makes', function($q) use($make){
-			$q->where('make_id', '=', $make->id);
+			$q->where('make_id', $make->id);
 		})
-		->whereHas('spec', function($q) use($spec)	{
-			$q->where('spec_id', $spec->id);
-		})
+		->where('spec_id', $spec->id)
 		->take(6)
 		->get();
 
@@ -111,7 +109,7 @@ class CatalogController extends Controller {
 			abort(404);
 
 		$c = \App\Company::whereHas('makes', function($q) use($make){
-			$q->where('make_id', '=', $make->id);
+			$q->where('make_id', $make->id);
 		})
 		->take(6)
 		->get();
