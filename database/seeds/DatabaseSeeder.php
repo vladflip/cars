@@ -9,6 +9,8 @@ class DatabaseSeeder extends Seeder {
 	{
 		Model::unguard();
 
+		DB::disableQueryLog();
+
 		$this->call('TypesMakeCarModelSeeder');
 
 		$this->call('UserSeeder');
@@ -45,7 +47,6 @@ class FF {
 class UserSeeder extends Seeder {
 
 	public function run() {
-		Model::unguard();
 
 		$f = FF::get();
 
@@ -71,7 +72,6 @@ class UserSeeder extends Seeder {
 class SpecSeeder extends Seeder {
 
 	public function run() {
-		Model::unguard();
 
 		$f = FF::get();
 
@@ -103,7 +103,6 @@ class SpecSeeder extends Seeder {
 class TypesMakeCarModelSeeder extends Seeder {
 
 	public function run() {
-		Model::unguard();
 
 		$arr = Config::get('makemodel');
 
@@ -183,7 +182,6 @@ class TypesMakeCarModelSeeder extends Seeder {
 class CompanySeeder extends Seeder {
 
 	public function run() {
-		Model::unguard();
 
 		$f = FF::get();
 
