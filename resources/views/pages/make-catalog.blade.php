@@ -37,7 +37,39 @@
 
 				</h3>
 
-				@include('inc.found')
+				<div class="makes makes--catalog">
+
+					<ul>	
+					
+						@foreach($models as $model)
+					
+							<li>
+								<span>
+									
+									@if(isset($allmakes))
+										<a href="{{ route('allmake-model', 
+										['spec' => $current, 
+										'make' => $make->name, 
+										'model' => $model->name]) }}">
+											{{ $model->title }}</a>
+									@else
+										<a href="{{ route('spec-make-model', 
+										['spec' => $current, 
+										'make' => $make->name, 
+										'model' => $model->name]) }}">
+											{{ $model->title }}</a>
+									@endif
+					
+								</span>
+							</li>
+					
+						@endforeach
+						
+					</ul>
+
+				</div>
+
+				@include('inc.found', ['make_id' => $make->id])
 				
 				<div class="company-popup mfp-hide" id="company-main-popup"></div>
 

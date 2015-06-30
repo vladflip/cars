@@ -330,7 +330,8 @@ ul.create-company-spec-selectBox-dropdown-menu {
   position: relative;
   margin: 30px 0 0 0;
 }
-.makes--feed {
+.makes--feed,
+.makes--catalog {
   margin: 0;
 }
 .makes ul {

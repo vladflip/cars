@@ -54,6 +54,8 @@ class CatalogController extends Controller {
 		if(!$make)
 			abort(404);
 
+		$models = $make->models;
+
 		$c = \App\Company::whereHas('makes', function($q) use($make){
 			$q->where('make_id', $make->id);
 		})
@@ -95,7 +97,8 @@ class CatalogController extends Controller {
 		return view('pages.make-catalog')
 			->with('current', $spec->name)
 			->with('spec_id', $spec->id)
-			->with('make_id', $make->id)
+			->with('models', $models)
+			->with('make', $make)
 			->with('bread', $bread)
 			->with('companies', $companies);
 
@@ -147,9 +150,18 @@ class CatalogController extends Controller {
 
 		return view('pages.make-catalog')
 			->with('bread', $bread)
-			->with('make_id', $make->id)
+			->with('make', $make)
 			->with('allmakes', true)
 			->with('companies', $companies);
+
+	}
+
+	public function spec_make_models() {
+
+	}
+
+	public function allmakes_models() {
+
 
 	}
 
