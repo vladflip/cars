@@ -2,7 +2,7 @@
 	
 	<select name="" class="popup_select create-company_select">
 
-		<option value="all" selected>Все модели</option>
+		<option value="all" selected class="popup_option">Все модели</option>
 
 		{{#each models}}
 			<option value="{{id}}" class="popup_option">
@@ -11,5 +11,7 @@
 		{{/each}}
 
 	</select>
+	
+	<div class="popup_redx popup_redx--left"></div>
 
 </script>

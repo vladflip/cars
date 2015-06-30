@@ -211,8 +211,7 @@ h3 {
 ul.create-company_select-selectBox-dropdown-menu {
   max-height: 250px;
 }
-.create-company_makes > .create-company_make:first-child .popup_redx,
-.create-company_models > .create-company_model:first-child .popup_redx {
+.create-company_makes > .create-company_make:first-child .popup_redx {
   display: none;
 }
 .create-company_lower,

@@ -1,6 +1,6 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 Array.prototype.have = function(i) {
-  if (this.indexOf(i) === -1) {
+  if (this.indexOf("" + i) === -1) {
     return false;
   } else {
     return true;
@@ -502,7 +502,257 @@ specmakes = new SpecMakes({
   types: types
 });
 
-},{"../inc/TypeList":5}],4:[function(require,module,exports){
+},{"../inc/TypeList":7}],4:[function(require,module,exports){
+var MakeView, MakesList, ModelsList,
+  bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; },
+  extend = function(child, parent) { for (var key in parent) { if (hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; },
+  hasProp = {}.hasOwnProperty;
+
+ModelsList = require('./ModelsList');
+
+MakeView = (function(superClass) {
+  extend(MakeView, superClass);
+
+  function MakeView() {
+    this.render = bind(this.render, this);
+    this.postRender = bind(this.postRender, this);
+    this.destroy = bind(this.destroy, this);
+    return MakeView.__super__.constructor.apply(this, arguments);
+  }
+
+  MakeView.prototype.template = Handlebars.compile($('#create-company-make-template').html());
+
+  MakeView.prototype.className = 'create-company_make';
+
+  MakeView.prototype.initialize = function() {
+    return this.modelslist = new ModelsList;
+  };
+
+  MakeView.prototype.destroy = function() {
+    this.remove();
+    return this.modelslist.destroy();
+  };
+
+  MakeView.prototype.postRender = function() {
+    return this.$el.children('select').selectBox();
+  };
+
+  MakeView.prototype.render = function(makes) {
+    var id, self;
+    self = this;
+    this.$el.html(this.template({
+      makes: makes
+    }));
+    this.$el.children('.popup_redx').click((function(_this) {
+      return function() {
+        return _this.destroy();
+      };
+    })(this));
+    id = this.$el.children('select').val();
+    this.modelslist.update(id);
+    this.$el.children('select').on('change', function() {
+      id = $(this).val();
+      return self.modelslist.update(id);
+    });
+    return this.$el;
+  };
+
+  return MakeView;
+
+})(Backbone.View);
+
+MakesList = (function(superClass) {
+  extend(MakesList, superClass);
+
+  function MakesList() {
+    this.getMakes = bind(this.getMakes, this);
+    this.reset = bind(this.reset, this);
+    this.add = bind(this.add, this);
+    return MakesList.__super__.constructor.apply(this, arguments);
+  }
+
+  MakesList.prototype.collection = [];
+
+  MakesList.prototype.home = $('body').data('home');
+
+  MakesList.prototype.url = 'api/get-makes-by-type';
+
+  MakesList.prototype.makes = [];
+
+  MakesList.prototype.initialize = function() {
+    this.options.types.on('changed', this.reset);
+    this.add();
+    return this.$el.parent().find('.popup_plus-sign').click(this.add);
+  };
+
+  MakesList.prototype.add = function() {
+    var v;
+    v = new MakeView;
+    this.collection.push(v);
+    return this.render();
+  };
+
+  MakesList.prototype.reset = function(id) {
+    var i, j, k, len, len1, make, ref, toRemove;
+    toRemove = [];
+    ref = this.collection;
+    for (i = j = 0, len = ref.length; j < len; i = ++j) {
+      make = ref[i];
+      if (i !== 0) {
+        make.destroy();
+        toRemove.push(make);
+      }
+    }
+    for (k = 0, len1 = toRemove.length; k < len1; k++) {
+      make = toRemove[k];
+      this.collection.remove(make);
+    }
+    return this.getMakes(id, (function(_this) {
+      return function(d) {
+        return _this.render();
+      };
+    })(this));
+  };
+
+  MakesList.prototype.getMakes = function(id, callback) {
+    return $.ajax(this.home + "/" + this.url, {
+      data: {
+        id: id
+      }
+    }).done((function(_this) {
+      return function(d) {
+        _this.makes = d;
+        return callback(d);
+      };
+    })(this));
+  };
+
+  MakesList.prototype.render = function() {
+    var make;
+    make = this.collection.last();
+    this.$el.append(make.render(this.makes));
+    return make.postRender();
+  };
+
+  return MakesList;
+
+})(Backbone.View);
+
+module.exports = MakesList;
+
+},{"./ModelsList":5}],5:[function(require,module,exports){
+var ModelView, ModelsList,
+  bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; },
+  extend = function(child, parent) { for (var key in parent) { if (hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; },
+  hasProp = {}.hasOwnProperty;
+
+ModelView = (function(superClass) {
+  extend(ModelView, superClass);
+
+  function ModelView() {
+    this.postRender = bind(this.postRender, this);
+    return ModelView.__super__.constructor.apply(this, arguments);
+  }
+
+  ModelView.prototype.template = Handlebars.compile($('#create-company-model-template').html());
+
+  ModelView.prototype.className = 'create-company_model';
+
+  ModelView.prototype.postRender = function() {
+    return this.$el.children('select').selectBox();
+  };
+
+  ModelView.prototype.render = function(models) {
+    this.$el.html(this.template({
+      models: models
+    }));
+    return this.$el;
+  };
+
+  return ModelView;
+
+})(Backbone.View);
+
+ModelsList = (function(superClass) {
+  extend(ModelsList, superClass);
+
+  function ModelsList() {
+    this.destroy = bind(this.destroy, this);
+    this.add = bind(this.add, this);
+    return ModelsList.__super__.constructor.apply(this, arguments);
+  }
+
+  ModelsList.prototype.template = Handlebars.compile($('#create-company-models-list-template').html());
+
+  ModelsList.prototype.home = $('body').data('home');
+
+  ModelsList.prototype.url = 'api/get-models-by-make';
+
+  ModelsList.prototype.className = 'create-company_models-list_item popup_field popup_field--models';
+
+  ModelsList.prototype.initialize = function() {
+    this.collection = [];
+    this.models = [];
+    this.id = 0;
+    this.render();
+    this.container = this.$el.children('.create-company_models-list');
+    return this.$el.find('.popup_plus-sign').click(this.add);
+  };
+
+  ModelsList.prototype.add = function() {
+    var v;
+    v = new ModelView;
+    this.collection.push(v);
+    this.container.append(v.render(this.models));
+    return v.postRender();
+  };
+
+  ModelsList.prototype.update = function(id) {
+    var i, j, k, len, len1, model, ref, results, toRemove;
+    this.id = id;
+    this.getModels(id);
+    toRemove = [];
+    ref = this.collection;
+    for (i = j = 0, len = ref.length; j < len; i = ++j) {
+      model = ref[i];
+      model.remove();
+      toRemove.push(model);
+    }
+    results = [];
+    for (k = 0, len1 = toRemove.length; k < len1; k++) {
+      model = toRemove[k];
+      results.push(this.collection.remove(model));
+    }
+    return results;
+  };
+
+  ModelsList.prototype.getModels = function(id) {
+    return $.ajax(this.home + "/" + this.url, {
+      data: {
+        id: id
+      }
+    }).done((function(_this) {
+      return function(d) {
+        return _this.models = d;
+      };
+    })(this));
+  };
+
+  ModelsList.prototype.destroy = function() {
+    return this.remove();
+  };
+
+  ModelsList.prototype.render = function() {
+    return $('.create-company_models').append(this.$el.html(this.template));
+  };
+
+  return ModelsList;
+
+})(Backbone.View);
+
+module.exports = ModelsList;
+
+},{}],6:[function(require,module,exports){
 var SelectView,
   extend = function(child, parent) { for (var key in parent) { if (hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; },
   hasProp = {}.hasOwnProperty;
@@ -574,7 +824,7 @@ SelectView = (function(superClass) {
 
 module.exports = SelectView;
 
-},{}],5:[function(require,module,exports){
+},{}],7:[function(require,module,exports){
 var TypeList, TypeModel, TypeView, TypesCollection,
   extend = function(child, parent) { for (var key in parent) { if (hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; },
   hasProp = {}.hasOwnProperty,
@@ -716,7 +966,7 @@ TypeList = (function(superClass) {
 
 module.exports = TypeList;
 
-},{}],6:[function(require,module,exports){
+},{}],8:[function(require,module,exports){
 require('./base');
 
 require('./popups/index');
@@ -727,7 +977,7 @@ require('./catalog/catalog-live');
 
 require('./catalog/catalog-companies');
 
-},{"./base":1,"./catalog/catalog-companies":2,"./catalog/catalog-live":3,"./main-live-search":7,"./popups/index":10}],7:[function(require,module,exports){
+},{"./base":1,"./catalog/catalog-companies":2,"./catalog/catalog-live":3,"./main-live-search":9,"./popups/index":12}],9:[function(require,module,exports){
 var CompanyCollection, CompanyList, CompanyModel, CompanyView, MakeCollection, MakeList, MakeModel, MakeView, SpecCollection, SpecList, SpecModel, SpecView, TypeList, companies, makes, specs, types,
   extend = function(child, parent) { for (var key in parent) { if (hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; },
   hasProp = {}.hasOwnProperty,
@@ -1363,13 +1613,15 @@ companies = new CompanyList({
   makes: makes
 });
 
-},{"./inc/TypeList":5}],8:[function(require,module,exports){
-var AddLogo, MakeView, MakesList, ModelView, ModelsList, SelectType, SelectView, makes, specs, types,
+},{"./inc/TypeList":7}],10:[function(require,module,exports){
+var AddLogo, MakesList, SelectType, SelectView, makes, specs, types,
   bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; },
   extend = function(child, parent) { for (var key in parent) { if (hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; },
   hasProp = {}.hasOwnProperty;
 
 SelectView = require('../inc/SelectView');
+
+MakesList = require('../create-company/MakesList');
 
 $('#create-company-button').magnificPopup({
   type: 'inline',
@@ -1460,244 +1712,6 @@ SelectType = (function(superClass) {
 
 })(Backbone.View);
 
-ModelView = (function(superClass) {
-  extend(ModelView, superClass);
-
-  function ModelView() {
-    return ModelView.__super__.constructor.apply(this, arguments);
-  }
-
-  ModelView.prototype.template = Handlebars.compile($('#create-company-model-template').html());
-
-  ModelView.prototype.className = 'create-company_model';
-
-  ModelView.prototype.render = function(models) {
-    this.$el.html(this.template({
-      models: models
-    }));
-    return this.$el;
-  };
-
-  return ModelView;
-
-})(Backbone.View);
-
-ModelsList = (function(superClass) {
-  extend(ModelsList, superClass);
-
-  function ModelsList() {
-    this.refresh = bind(this.refresh, this);
-    this.remove = bind(this.remove, this);
-    this.add = bind(this.add, this);
-    return ModelsList.__super__.constructor.apply(this, arguments);
-  }
-
-  ModelsList.prototype.template = Handlebars.compile($('#create-company-model-template').html());
-
-  ModelsList.prototype.home = $('body').data('home');
-
-  ModelsList.prototype.url = 'api/get-models-by-make';
-
-  ModelsList.prototype.className = '.create-company_models-list';
-
-  ModelsList.prototype.models = [];
-
-  ModelsList.prototype.collection = [];
-
-  ModelsList.prototype.initialize = function() {
-    console.log(this.options.v);
-    this.options.makes.on('add', this.add);
-    this.options.makes.on('remove', this.remove);
-    return this.options.makes.on('refresh', this.refresh);
-  };
-
-  ModelsList.prototype.add = function(v) {
-    var modelview;
-    modelview = new ModelView({
-      make: v
-    });
-    this.collection.push(modelview);
-    return this.render();
-  };
-
-  ModelsList.prototype.remove = function(v) {
-    return console.log(v);
-  };
-
-  ModelsList.prototype.refresh = function(id) {
-    return $.ajax(this.home + "/" + this.url, {
-      data: {
-        id: id
-      }
-    }).done((function(_this) {
-      return function(d) {
-        return _this.models = d;
-      };
-    })(this));
-  };
-
-  ModelsList.prototype.update = function() {
-    this.collection = [];
-    this.container.html('');
-    return this.updateFirst();
-  };
-
-  ModelsList.prototype.updateFirst = function() {
-    this.first.html(this.template({
-      models: this.models
-    }));
-    return this.first.children('select').selectBox();
-  };
-
-  return ModelsList;
-
-})(Backbone.View);
-
-MakeView = (function(superClass) {
-  extend(MakeView, superClass);
-
-  function MakeView() {
-    return MakeView.__super__.constructor.apply(this, arguments);
-  }
-
-  MakeView.prototype.template = Handlebars.compile($('#create-company-make-template').html());
-
-  MakeView.prototype.className = 'create-company_make';
-
-  MakeView.prototype.initialize = function(prop) {
-    if (prop.first) {
-      return this.initFirst();
-    } else {
-      return this.init();
-    }
-  };
-
-  MakeView.prototype.init = function() {};
-
-  MakeView.prototype.initFirst = function() {
-    return new ModelsList({
-      v: this
-    });
-  };
-
-  MakeView.prototype.render = function(makes) {
-    this.$el.html(this.template({
-      makes: makes
-    }));
-    this.$el.children('.popup_redx').click((function(_this) {
-      return function() {
-        _this.remove();
-        return _this.trigger('remove', _this);
-      };
-    })(this));
-    return this.$el;
-  };
-
-  return MakeView;
-
-})(Backbone.View);
-
-MakesList = (function(superClass) {
-  extend(MakesList, superClass);
-
-  function MakesList() {
-    this.removed = bind(this.removed, this);
-    this.add = bind(this.add, this);
-    this.get = bind(this.get, this);
-    return MakesList.__super__.constructor.apply(this, arguments);
-  }
-
-  MakesList.prototype.home = $('body').data('home');
-
-  MakesList.prototype.url = 'api/get-makes-by-type';
-
-  MakesList.prototype.makes = [];
-
-  MakesList.prototype.template = Handlebars.compile($('#create-company-make-template').html());
-
-  MakesList.prototype.collection = [];
-
-  MakesList.prototype.initialize = function() {
-    this.options.types.on('changed', this.get);
-    this.plus = this.$el.parent().find('.popup_plus-sign');
-    this.plus.click(this.add);
-    return this.createFirstMake();
-  };
-
-  MakesList.prototype.createFirstMake = function() {
-    var el, v;
-    el = this.$el.children('.create-company_make');
-    v = new MakeView({
-      el: el,
-      first: true
-    });
-    this.collection.push(v);
-    return el.children('select').selectBox();
-  };
-
-  MakesList.prototype.update = function() {
-    var i, j, k, len, len1, make, ref, results, toRemove;
-    toRemove = [];
-    ref = this.collection;
-    for (i = j = 0, len = ref.length; j < len; i = ++j) {
-      make = ref[i];
-      if (i !== 0) {
-        make.remove();
-        toRemove.push(make);
-      }
-    }
-    results = [];
-    for (k = 0, len1 = toRemove.length; k < len1; k++) {
-      make = toRemove[k];
-      results.push(this.collection.remove(make));
-    }
-    return results;
-  };
-
-  MakesList.prototype.renderFirst = function() {
-    var el;
-    el = this.collection[0].render(this.makes);
-    return el.children('select').selectBox();
-  };
-
-  MakesList.prototype.get = function(id) {
-    this.update();
-    return $.ajax(this.home + "/" + this.url, {
-      data: {
-        id: id
-      }
-    }).done((function(_this) {
-      return function(d) {
-        _this.makes = d;
-        return _this.renderFirst();
-      };
-    })(this));
-  };
-
-  MakesList.prototype.add = function() {
-    var v;
-    v = new MakeView;
-    this.collection.push(v);
-    v.on('remove', this.removed);
-    return this.render();
-  };
-
-  MakesList.prototype.removed = function(v) {
-    return this.collection.remove(v);
-  };
-
-  MakesList.prototype.render = function() {
-    var el, make;
-    make = this.collection.last();
-    el = make.render(this.makes);
-    this.$el.append(el);
-    return el.children('select').selectBox();
-  };
-
-  return MakesList;
-
-})(Backbone.View);
-
 types = new SelectType({
   el: '#create-company-type'
 });
@@ -1707,7 +1721,7 @@ makes = new MakesList({
   types: types
 });
 
-},{"../inc/SelectView":4}],9:[function(require,module,exports){
+},{"../create-company/MakesList":4,"../inc/SelectView":6}],11:[function(require,module,exports){
 var AddPhotos, Image, ImageCollection, ImageView, ImagesView, List, ListCollection, ListModel, ListView, SelectView, imageCollection, imagesView, make, minuses, model, pluses, type,
   extend = function(child, parent) { for (var key in parent) { if (hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; },
   hasProp = {}.hasOwnProperty,
@@ -2074,7 +2088,7 @@ $('#add-feedback').click(function() {
   return console.log(concs);
 });
 
-},{"../inc/SelectView":4}],10:[function(require,module,exports){
+},{"../inc/SelectView":6}],12:[function(require,module,exports){
 require('./search');
 
 require('./reg');
@@ -2083,7 +2097,7 @@ require('./feedback');
 
 require('./create-company');
 
-},{"./create-company":8,"./feedback":9,"./reg":11,"./search":12}],11:[function(require,module,exports){
+},{"./create-company":10,"./feedback":11,"./reg":13,"./search":14}],13:[function(require,module,exports){
 $('#register').magnificPopup({
   type: 'inline',
   closeBtnInside: true
@@ -2094,7 +2108,7 @@ $('#footer-register').magnificPopup({
   closeBtnInside: true
 });
 
-},{}],12:[function(require,module,exports){
+},{}],14:[function(require,module,exports){
 var SelectView, make, model, type;
 
 SelectView = require('../inc/SelectView');
@@ -2122,4 +2136,4 @@ type = new SelectView({
 
 autosize($('#search-more'));
 
-},{"../inc/SelectView":4}]},{},[6]);
+},{"../inc/SelectView":6}]},{},[8]);

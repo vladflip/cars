@@ -1,0 +1,80 @@
+class ModelView extends Backbone.View
+
+	template: Handlebars.compile $('#create-company-model-template').html()
+
+	className: 'create-company_model'
+
+	postRender: =>
+
+		do @$el.children('select').selectBox
+
+	render: (models) ->
+		@$el.html @template models: models
+
+		@$el
+
+
+class ModelsList extends Backbone.View
+
+	template: Handlebars.compile $('#create-company-models-list-template').html()
+
+	home: $('body').data('home')
+
+	url: 'api/get-models-by-make'
+
+	className: 'create-company_models-list_item popup_field popup_field--models'
+
+	# store models, update on refresh, on add just render it with new view
+
+	initialize: ->
+
+		@collection = []
+
+		@models = []
+
+		@id = 0
+
+		do @render
+
+		@container = @$el.children('.create-company_models-list')
+
+		@$el.find('.popup_plus-sign').click @add
+
+	add: =>
+		v = new ModelView
+
+		@collection.push v
+
+		@container.append v.render @models
+
+		do v.postRender
+
+	update: (id) ->
+		@id = id
+	# get models, destroy all modelview
+		@getModels id
+
+		toRemove = []
+		for model, i in @collection
+			do model.remove
+			toRemove.push model
+
+		for model in toRemove
+			@collection.remove model
+
+	getModels: (id) ->
+		$.ajax "#{@home}/#{@url}",
+			data:
+				id: id
+		.done (d) =>
+			@models = d
+
+	destroy: =>
+		do @remove
+
+	render: ->
+		$('.create-company_models').append @$el.html @template
+
+
+
+module.exports = ModelsList

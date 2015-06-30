@@ -76,11 +76,11 @@
 						<div class="create-company_makes" 
 							id="create-company-makes-list">
 							
-							<div class="create-company_make">
+							{{-- <div class="create-company_make">
 								
 								<select name="" class="create-company_select popup_select"></select>
 					
-							</div>
+							</div> --}}
 					
 						</div>
 					
