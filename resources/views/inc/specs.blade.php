@@ -68,7 +68,7 @@
 					
 						<div class="popup_label">Специализация</div>
 						
-						<select name="" id="create-company-spec" class="popup_select">
+						<select name="" id="create-company-spec" class="popup_select create-company-spec">
 							
 							@foreach($specs as $spec)
 								
