@@ -62,31 +62,7 @@
 						</select>
 					
 					</div>
-					
-					<div class="popup_field popup_field--makes">
-						
-						<div class="popup_header-field">
-							<div class="popup_label">Производители</div>
-							
-							<div class="popup_plus-sign">
-								+
-							</div>
-						</div>
-					
-						<div class="create-company_makes" 
-							id="create-company-makes-list">
-							
-							{{-- <div class="create-company_make">
-								
-								<select name="" class="create-company_select popup_select"></select>
-					
-							</div> --}}
-					
-						</div>
-					
-					</div>
 				</div>
-
 				<div>
 					<div class="popup_field">
 					
@@ -105,34 +81,48 @@
 						</select>
 					
 					</div>
+				</div>
 
-					<div class="create-company_models">
+			</div>
+
+			<div id="create-company_makes-models" class="create-company_makes-models">
+
+				<div class="popup_header-field">
+					<div class="popup_label">Производители</div>
 					
-						{{-- <div class="create-company_models-list_item popup_field popup_field--models">
-							
-							<div class="popup_header-field">
-								<div class="popup_label">Уточнить модель</div>
-								
-								<div class="popup_plus-sign">
-									+
-								</div>
-							</div>
-						
-								
-							<div class="create-company_models-list_model">
-								<div class="create-company_model">
-									
-									<select name="" class="create-company_select popup_select"></select>
-													
-								</div>
-							</div>
-						
-						
-						</div> --}}
+					<div class="popup_plus-sign">
+						+
+					</div>
+				</div>
 
+				{{-- <div class="create-company_makes-models_item">
+
+					<div class="create-company_make popup_field">
+								
+						<select name="" class="create-company_select popup_select"></select>
+					
+					</div>
+					
+					
+					<div class="create-company_models">
+							
+						<div class="popup_header-field">
+							<div class="popup_label">Уточнить модель</div>
+							
+							<div class="popup_plus-sign">
+								+
+							</div>
+						</div>
+					
+						<div class="create-company_model popup_field">
+							
+							<select name="" class="create-company_select popup_select"></select>
+											
+						</div>
+					
 					</div>
 
-				</div>
+				</div> --}}
 
 			</div>
 

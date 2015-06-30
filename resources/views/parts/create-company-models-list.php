@@ -8,9 +8,4 @@
 		</div>
 	</div>
 
-		
-	<div class="create-company_models-list">
-		
-	</div>
-
 </script>

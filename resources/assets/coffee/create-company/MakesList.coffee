@@ -4,12 +4,7 @@ class MakeView extends Backbone.View
 
 	template: Handlebars.compile $('#create-company-make-template').html()
 
-	className: 'create-company_make'
-
-	initialize: ->
-		# default init, create models list
-
-		@modelslist = new ModelsList
+	className: 'create-company_makes-models_item'
 
 	destroy: =>
 		do @remove
@@ -18,29 +13,36 @@ class MakeView extends Backbone.View
 	postRender: =>
 	# do when apended to dom
 
-		do @$el.children('select').selectBox
-
-	render: (makes) =>
 		self = @
 
-		@$el.html @template makes: makes
+		unless @modelslist
+			@modelslist = new ModelsList
+				el: @$el.children('.create-company_models')
 
 		# -----------------
 
-		@$el.children('.popup_redx').click =>
+		@$el.find('.create-company_make').children('.popup_redx').click =>
 			do @destroy
 
 		# -----------------
 
-		id = @$el.children('select').val()
+		@select = @$el.find('.create-company_make').children('select')
 
-		@modelslist.update id
+		@modelslist.update @select.val()
 
 		# -----------------
 
-		@$el.children('select').on 'change', ->
+		@select.on 'change', ->
 			id = $(@).val()
 			self.modelslist.update id
+
+		# -----------------
+
+		do @select.selectBox
+
+	render: (makes) =>
+
+		@$el.html @template makes: makes
 
 		@$el
 
@@ -67,17 +69,16 @@ class MakesList extends Backbone.View
 		# add first default
 		do @add
 
-		@$el.parent().find('.popup_plus-sign').click @add
+		@$el.find('.popup_plus-sign:first').click @add
 
 	add: =>
-		v = new MakeView
 
-		@collection.push v
+		@collection.push new MakeView
 
 		do @render
 
 	reset: (id) =>
-		# delete makes all but 0, get makes and reset options in 0 make
+		# delete all makes but 0, get makes, create new make and add to collection
 		toRemove = []
 		for make, i in @collection
 			unless i is 0
@@ -106,6 +107,8 @@ class MakesList extends Backbone.View
 		make = @collection.last()
 
 		@$el.append make.render @makes
+
+		make.modelslist = 0
 
 		do make.postRender
 

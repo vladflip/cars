@@ -2,11 +2,18 @@ class ModelView extends Backbone.View
 
 	template: Handlebars.compile $('#create-company-model-template').html()
 
-	className: 'create-company_model'
+	className: 'create-company_model popup_field'
 
 	postRender: =>
 
 		do @$el.children('select').selectBox
+
+		@$el.children('.popup_redx').click =>
+			do @destroy
+
+	destroy: =>
+		do @remove
+
 
 	render: (models) ->
 		@$el.html @template models: models
@@ -22,8 +29,6 @@ class ModelsList extends Backbone.View
 
 	url: 'api/get-models-by-make'
 
-	className: 'create-company_models-list_item popup_field popup_field--models'
-
 	# store models, update on refresh, on add just render it with new view
 
 	initialize: ->
@@ -36,8 +41,6 @@ class ModelsList extends Backbone.View
 
 		do @render
 
-		@container = @$el.children('.create-company_models-list')
-
 		@$el.find('.popup_plus-sign').click @add
 
 	add: =>
@@ -45,7 +48,7 @@ class ModelsList extends Backbone.View
 
 		@collection.push v
 
-		@container.append v.render @models
+		@$el.append v.render @models
 
 		do v.postRender
 
@@ -73,7 +76,7 @@ class ModelsList extends Backbone.View
 		do @remove
 
 	render: ->
-		$('.create-company_models').append @$el.html @template
+		@$el.append @$el.html @template
 
 
 

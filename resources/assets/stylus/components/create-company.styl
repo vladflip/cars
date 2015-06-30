@@ -3,8 +3,11 @@
 	&_make,
 	&_model
 		position relative
-		&:not(:first-child)	
-			margin-top 20px
+		&:nth-child(2)
+			margin-top 0px
+	
+	&_makes-models_item:not(:nth-child(2)) &_make
+		margin-top 29px
 		
 	&-selectBox-dropdown-menu
 		
@@ -14,7 +17,7 @@
 	ul&_select-selectBox-dropdown-menu
 		max-height 250px
 		
-	&_makes > &_make:first-child .popup_redx
+	&_makes-models_item:nth-child(2) &_make .popup_redx
 		display none
 	
 	&_lower,
@@ -24,3 +27,23 @@
 	
 	&_lower
 		margin-top 50px
+		
+	&_makes-models_item
+		position relative
+		display flex
+		justify-content space-between
+		&:not(:nth-child(2))
+			margin-top 20px
+		
+	&_makes-models_item:nth-child(2) &_make
+		margin-top 0
+		
+	&_makes-models_item:nth-child(2) &_models .popup_header-field
+		position absolute
+		top -29px
+	
+	&_models
+		width 297px
+		
+	&_makes-models
+		margin-top 20px

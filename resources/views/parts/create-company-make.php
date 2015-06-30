@@ -1,15 +1,23 @@
 <script id="create-company-make-template" type="text/x-handlebars-template">
 	
-	<select name="" class="popup_select create-company_select">
+	<div>
+		<div class="create-company_make">
 
-		{{#each makes}}
-			<option value="{{id}}" class="popup_option">
-				{{title}}
-			</option>	
-		{{/each}}
+			<select name="" class="popup_select create-company_select">
 
-	</select>
+				{{#each makes}}
+					<option value="{{id}}" class="popup_option">
+						{{title}}
+					</option>	
+				{{/each}}
 
-	<div class="popup_redx popup_redx--left"></div>
+			</select>
+
+			<div class="popup_redx popup_redx--left"></div>
+
+		</div>
+	</div>
+
+	<div class="create-company_models"></div>
 
 </script>
