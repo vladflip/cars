@@ -63,9 +63,9 @@ class CatalogController extends Controller {
 		->get();
 
 		$models = \App\CarModel::where('make_id', $make->id)
-		->whereHas('companies', function($q) use($spec){
-			$q->where('spec_id', $spec->id);
-		})
+		// ->whereHas('companies', function($q) use($spec){
+		// 	$q->where('spec_id', $spec->id);
+		// })
 		->get();
 
 		$companies = array();
@@ -152,7 +152,7 @@ class CatalogController extends Controller {
 		}
 
 		$models = \App\CarModel::where('make_id', $make->id)
-		->has('companies')
+		// ->has('companies')
 		->get();
 
 		$bread = ['allmakes' => $make];
