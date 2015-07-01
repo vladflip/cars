@@ -448,6 +448,7 @@ MainMakes = (function(superClass) {
           make = makes[j];
           _this.deps[i].push(make.id);
         }
+        console.log(makes);
         return _this.showIfActive(i);
       };
     })(this));

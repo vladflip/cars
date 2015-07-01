@@ -107,6 +107,7 @@ class MainMakes extends MakeList
 			@deps[i] = []
 			for make in makes
 				@deps[i].push make.id
+			console.log makes
 
 			@showIfActive i
 
