@@ -47,9 +47,8 @@
 								<span>
 									
 									@if(isset($allmakes))
-										<a href="{{ route('allmake-model', 
-										['spec' => $current, 
-										'make' => $make->name, 
+										<a href="{{ route('allmakes-model', 
+										['allmakes' => $make->name, 
 										'model' => $model->name]) }}">
 											{{ $model->title }}</a>
 									@else

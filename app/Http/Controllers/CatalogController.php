@@ -54,13 +54,18 @@ class CatalogController extends Controller {
 		if(!$make)
 			abort(404);
 
-		$models = $make->models;
-
 		$c = \App\Company::whereHas('makes', function($q) use($make){
 			$q->where('make_id', $make->id);
 		})
 		->where('spec_id', $spec->id)
+		->with('models')
 		->take(6)
+		->get();
+
+		$models = \App\CarModel::where('make_id', $make->id)
+		->whereHas('companies', function($q) use($spec){
+			$q->where('spec_id', $spec->id);
+		})
 		->get();
 
 		$companies = array();
@@ -146,11 +151,16 @@ class CatalogController extends Controller {
 
 		}
 
+		$models = \App\CarModel::where('make_id', $make->id)
+		->has('companies')
+		->get();
+
 		$bread = ['allmakes' => $make];
 
 		return view('pages.make-catalog')
 			->with('bread', $bread)
 			->with('make', $make)
+			->with('models', $models)
 			->with('allmakes', true)
 			->with('companies', $companies);
 
