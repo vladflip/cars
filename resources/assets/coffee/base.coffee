@@ -1,5 +1,5 @@
 Array.prototype.have = (i) ->
-	if @indexOf("#{i}") is -1 then return false else true
+	if @indexOf(i) is -1 then return false else true
 
 Array.prototype.remove = (i) ->
 	@splice(@indexOf(i), 1)

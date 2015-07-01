@@ -12,6 +12,10 @@ class Make extends Model {
 		return self::whereName($name)->first();
 	}
 
+	public function getIdAttribute($id) {
+		return intval($id);
+	}
+
 	public function models() {
 		return $this->hasMany('App\CarModel', 'make_id');
 	}
