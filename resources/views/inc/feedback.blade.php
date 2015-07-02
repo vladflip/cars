@@ -119,8 +119,8 @@
 
 	</div>
 
-	@include('parts.photos-template')
+	@include('templates.photos-template')
 
-	@include('parts.plus-minus-template')
+	@include('templates.plus-minus-template')
 
 </div>

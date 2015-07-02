@@ -30,6 +30,6 @@
 
 	<div class="makes_empty">По данному запросу организаций не найдено</div>
 
-	@include('parts.makes-template')
+	@include('templates.makes-template')
 
 </div>

@@ -75,6 +75,6 @@
 
 	</div>
 
-	@include('parts.options-template')
+	@include('templates.options-template')
 	
 </div>

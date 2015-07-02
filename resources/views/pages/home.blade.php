@@ -32,9 +32,9 @@
 
 				<div id="found" class="found"></div>
 
-				@include('parts.found-template')
+				@include('templates.found-template')
 
-				@include('parts.company-template')
+				@include('templates.company-template')
 
 				<div class="company-popup mfp-hide" id="company-main-popup"></div>
 
