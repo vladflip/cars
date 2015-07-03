@@ -83,7 +83,7 @@ $toogler--active
 		
 	&_name
 		margin 0
-		font-size 18px
+		font-size 16px
 		font-weight 400
 	
 	&_pen
@@ -99,7 +99,7 @@ $toogler--active
 		margin 7px 0
 	
 	&_phone
-		font-size 14px
+		font-size 12px
 		letter-spacing .6px
 		
 	&_about
@@ -118,6 +118,43 @@ $toogler--active
 			background-color #f6f6f6
 			padding 8px
 			border-radius 2px
+			
+$request_logo-name
+	display flex
+	align-items center
+	
+$request_time
+	color #ccc
+	font-size 12px
+	align-self center
+			
+$request_body
+	padding 15px
+	border-radius 2px
+	font-size 14px
+	line-height 18px
+	letter-spacing .4px
+	position relative
+	
+	&--yellow
+		background-color $orange
+		&:before
+			border-right 9px solid $orange
+		
+	&--yellow,
+	&--grey
+		&:before
+			content ''
+			border-top 9px solid transparent
+			border-bottom 9px solid transparent
+			position absolute
+			left -9px
+			top 43%
+		
+	&--grey
+		background-color $grey
+		&:before
+			border-right 9px solid $grey
 			
 .requests
 	margin-top 25px
@@ -142,7 +179,7 @@ $toogler--active
 			height 60px
 		
 	&_name
-		font-size 16px
+		font-size 14px
 		font-weight 400
 		margin-left 10px
 		center-text()
@@ -153,47 +190,6 @@ $toogler--active
 		font-size 14px
 		letter-spacing .4px
 		
-			
-$request_body
-	padding 15px
-	border-radius 2px
-	font-size 14px
-	letter-spacing .4px
-	position relative
-	
-	&--yellow
-		background-color $orange
-		&:before
-			border-right 9px solid $orange
-		
-	&--yellow,
-	&--grey
-		&:before
-			content ''
-			border-top 9px solid transparent
-			border-bottom 9px solid transparent
-			position absolute
-			left -9px
-			top 45%
-		
-	&--grey
-		background-color $grey
-		&:before
-			border-right 9px solid $grey
-
-$request_logo-name
-	display flex
-	align-items center
-	
-$request_time
-	color #ccc
-	font-size 12px
-	width 80px
-	align-self center
-		
-.sent-requests
-	margin-top 35px
-	
 	&_item
 		margin-bottom 15px
 	
@@ -201,11 +197,15 @@ $request_time
 		display flex
 		justify-content space-between
 		align-items flex-start
-			
+		
 	&_logo-name
 		@extends $request_logo-name
 		width 300px
 		
+		&--company
+			margin-left 20px
+			width auto
+
 	&_body
 		@extends $request_body
 		width 350px
@@ -213,28 +213,34 @@ $request_time
 	&_time
 		@extends $request_time
 		text-align center
+		width 80px
+	
+		
+.sent-requests
+	margin-top 35px
 		
 	// -----
-	// answer
+	// response
 	// -----
 	
-	&_answer
+	&_response
 		display flex
 		justify-content space-between
 		margin-top 15px
 		
-	&_answ-time
+	&_response-time
 		@extends $request_time
+		width 70px
 		
-	&_answer-info
-		width 250px
+	&_response-info
+		width 240px
 			
-	&_answer-contacts
+	&_response-contacts
 		font-size 12px
 		line-height 17px
 		color #ccc
 		margin-top 7px
 		
-	&_answer-body
+	&_response-body
 		@extends $request_body
-		width 463px
+		width 450px

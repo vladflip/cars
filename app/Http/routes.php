@@ -53,11 +53,7 @@ Route::group(['prefix' => 'catalog'], function(){
 
 });
 
-get('/profile', ['as' => 'profile', function(){
-
-	return view('pages.profile');
-
-}]);
+get('/profile', ['as' => 'profile', 'uses' => 'UserController@profile']);
 
 Route::group(['prefix' => 'feedback'], function(){
 

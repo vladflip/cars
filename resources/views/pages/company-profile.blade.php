@@ -78,7 +78,7 @@
 
 				<div class="requests">
 					
-					<div class="request_header">
+					<div class="requests_header">
 						
 						<div class="requests_toogler">
 
@@ -90,71 +90,9 @@
 
 					</div>
 
-					<div class="sent-requests">
+					@include('parts.sent-requests')
 
-						<div class="sent-requests_item">
-							
-							<div class="sent-requests_request">
-								
-								<div class="sent-requests_logo-name">
-
-									<div class="requests_logo">
-										<img src="img/ava.jpg" alt="">
-									</div>
-
-									<div class="requests_name">
-										Павел Калачев
-									</div>
-
-								</div>
-
-								<div class="sent-requests_body sent-requests_body--yellow">
-									Lorem ipsum dolor sit amet, consectetur adipisicing.
-									Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veniam eum ipsum aspernatur facere aliquid eius vitae ipsam rerum porro debitis.
-								</div>
-
-								<div class="sent-requests_time">
-									20 мая 2015
-								</div>
-
-							</div>
-
-							<div class="sent-requests_answer">
-								
-								<div class="sent-requests_answ-time">
-									20 мая
-								</div>
-
-								<div class="sent-requests_answer-info">
-									
-									<div class="sent-requests_logo-name">
-										
-										<div class="requests_logo">
-											<img src="img/com_logo.jpg" alt="">
-										</div>
-
-										<div class="requests_name">
-											ООО Трансавтосервис
-										</div>
-
-									</div>
-
-									<div class="sent-requests_answer-contacts">
-										г. Москва, ул. Улица д21 <br>
-										843 089 98 4, 34 98432 7893
-									</div>
-
-								</div>
-
-								<div class="sent-requests_answer-body sent-requests_body--grey">
-									Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore est esse nesciunt optio illo tempora sapiente aspernatur recusandae. Totam, iste.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore harum porro doloribus provident, deleniti ducimus minus, repellendus.
-								</div>
-
-							</div>
-
-						</div>
-
-					</div>
+					@include('parts.received-requests')
 
 				</div>
 
