@@ -2100,24 +2100,13 @@ $('#add-feedback').click(function() {
 },{"../inc/SelectView":6}],12:[function(require,module,exports){
 require('./search');
 
-require('./reg');
+require('./sign-up');
 
 require('./feedback');
 
 require('./create-company');
 
-},{"./create-company":10,"./feedback":11,"./reg":13,"./search":14}],13:[function(require,module,exports){
-$('#register').magnificPopup({
-  type: 'inline',
-  closeBtnInside: true
-});
-
-$('#footer-register').magnificPopup({
-  type: 'inline',
-  closeBtnInside: true
-});
-
-},{}],14:[function(require,module,exports){
+},{"./create-company":10,"./feedback":11,"./search":13,"./sign-up":14}],13:[function(require,module,exports){
 var SelectView, make, model, type;
 
 SelectView = require('../inc/SelectView');
@@ -2145,4 +2134,15 @@ type = new SelectView({
 
 autosize($('#search-more'));
 
-},{"../inc/SelectView":6}]},{},[8]);
+},{"../inc/SelectView":6}],14:[function(require,module,exports){
+$('#sign-up').magnificPopup({
+  type: 'inline',
+  closeBtnInside: true
+});
+
+$('#footer-sign-up').magnificPopup({
+  type: 'inline',
+  closeBtnInside: true
+});
+
+},{}]},{},[8]);

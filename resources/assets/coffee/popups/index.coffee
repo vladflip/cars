@@ -1,4 +1,4 @@
 require './search'
-require './reg'
+require './sign-up'
 require './feedback'
 require './create-company'

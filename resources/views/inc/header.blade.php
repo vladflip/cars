@@ -41,11 +41,11 @@
 			
 				</div>
 
-				<div id="register" href="#reg-popup" class="header_register">
+				<div id="sign-up" href="#sign-up-popup" class="header_sign-up">
 					Регистрация
 				</div>
 
-				@include('popups.reg')
+				@include('popups.sign-up')
 			
 			@endif
 

@@ -510,11 +510,11 @@ ul.create-company-spec-selectBox-dropdown-menu {
           align-items: center;
 }
 .popup--search,
-.popup--reg {
+.popup--sign-up {
   width: 450px;
 }
 .popup--search .popup_content,
-.popup--reg .popup_content {
+.popup--sign-up .popup_content {
   width: 300px;
 }
 .popup--feedback {
@@ -998,7 +998,7 @@ ul.create-company-spec-selectBox-dropdown-menu {
   color: #e0e0e0;
   font-weight: 300;
 }
-.footer_reg-button {
+.footer_sign-up-button {
   color: #e0e0e0;
   margin-top: 40px;
   font-size: 14px;
@@ -1120,7 +1120,7 @@ ul.create-company-spec-selectBox-dropdown-menu {
   top: 4px;
   cursor: pointer;
 }
-.header_register {
+.header_sign-up {
   text-align: right;
   font-size: 13px;
   cursor: pointer;
