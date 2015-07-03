@@ -21,8 +21,6 @@
 				<input name="password" type="text" class="popup_input">
 			
 			</div>
-
-			{!! Form::token() !!}
 			
 			<div id="sign-up-button" class="popup_button">
 				Зарегистрировать

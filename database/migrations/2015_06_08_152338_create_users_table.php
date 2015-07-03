@@ -15,13 +15,18 @@ class CreateUsersTable extends Migration {
 			$t->string('password', 64);
 			$t->string('name');
 
-			$t->boolean('is_admin');
+			// $t->boolean('is_admin');
+
+			$t->unique('email');
+			$t->index('email');
 
 			$t->dateTime('new_logged_in');
 			$t->dateTime('last_logged_in');
 
 			$t->boolean('confirmed')->default(0);
 			$t->string('confirmation_code')->nullable();
+
+			$t->rememberToken();
 
 			// $t->boolean('email_subscr');
 

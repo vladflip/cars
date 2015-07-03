@@ -1,4 +1,26 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
+var button, email, form, passw;
+
+form = $('#user-auth-form');
+
+email = form.find('input[name="email"]');
+
+passw = form.find('input[name="password"]');
+
+button = $('#user-auth-button');
+
+button.click(function() {
+  var pattern;
+  pattern = /^([a-z0-9_\.-])+@[a-z0-9-]+\.([a-z]{2,4}\.)?[a-z]{2,4}$/i;
+  if (pattern.test(email.val())) {
+    console.log('fuck');
+    if (passw.val() !== '') {
+      return form.submit();
+    }
+  }
+});
+
+},{}],2:[function(require,module,exports){
 Array.prototype.have = function(i) {
   if (this.indexOf(i) === -1) {
     return false;
@@ -36,7 +58,7 @@ $('.sticky').stick_in_parent({
   offset_top: 25
 });
 
-},{}],2:[function(require,module,exports){
+},{}],3:[function(require,module,exports){
 var CompanyCollection, CompanyList, CompanyModel, CompanyView, companies,
   extend = function(child, parent) { for (var key in parent) { if (hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; },
   hasProp = {}.hasOwnProperty,
@@ -262,7 +284,7 @@ companies = new CompanyList({
   el: '#catalog-companies'
 });
 
-},{}],3:[function(require,module,exports){
+},{}],4:[function(require,module,exports){
 var MainMakes, MakeCollection, MakeList, MakeModel, MakeView, SpecMakes, TypeList, makes, specmakes, types,
   extend = function(child, parent) { for (var key in parent) { if (hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; },
   hasProp = {}.hasOwnProperty,
@@ -503,7 +525,7 @@ specmakes = new SpecMakes({
   types: types
 });
 
-},{"../inc/TypeList":7}],4:[function(require,module,exports){
+},{"../inc/TypeList":8}],5:[function(require,module,exports){
 var MakeView, MakesList, ModelsList,
   bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; },
   extend = function(child, parent) { for (var key in parent) { if (hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; },
@@ -642,7 +664,7 @@ MakesList = (function(superClass) {
 
 module.exports = MakesList;
 
-},{"./ModelsList":5}],5:[function(require,module,exports){
+},{"./ModelsList":6}],6:[function(require,module,exports){
 var ModelView, ModelsList,
   bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; },
   extend = function(child, parent) { for (var key in parent) { if (hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; },
@@ -761,7 +783,7 @@ ModelsList = (function(superClass) {
 
 module.exports = ModelsList;
 
-},{}],6:[function(require,module,exports){
+},{}],7:[function(require,module,exports){
 var SelectView,
   extend = function(child, parent) { for (var key in parent) { if (hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; },
   hasProp = {}.hasOwnProperty;
@@ -833,7 +855,7 @@ SelectView = (function(superClass) {
 
 module.exports = SelectView;
 
-},{}],7:[function(require,module,exports){
+},{}],8:[function(require,module,exports){
 var TypeList, TypeModel, TypeView, TypesCollection,
   extend = function(child, parent) { for (var key in parent) { if (hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; },
   hasProp = {}.hasOwnProperty,
@@ -975,7 +997,7 @@ TypeList = (function(superClass) {
 
 module.exports = TypeList;
 
-},{}],8:[function(require,module,exports){
+},{}],9:[function(require,module,exports){
 require('./base');
 
 require('./popups/index');
@@ -986,7 +1008,9 @@ require('./catalog/catalog-live');
 
 require('./catalog/catalog-companies');
 
-},{"./base":1,"./catalog/catalog-companies":2,"./catalog/catalog-live":3,"./main-live-search":9,"./popups/index":12}],9:[function(require,module,exports){
+require('./auth');
+
+},{"./auth":1,"./base":2,"./catalog/catalog-companies":3,"./catalog/catalog-live":4,"./main-live-search":10,"./popups/index":13}],10:[function(require,module,exports){
 var CompanyCollection, CompanyList, CompanyModel, CompanyView, MakeCollection, MakeList, MakeModel, MakeView, SpecCollection, SpecList, SpecModel, SpecView, TypeList, companies, makes, specs, types,
   extend = function(child, parent) { for (var key in parent) { if (hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; },
   hasProp = {}.hasOwnProperty,
@@ -1622,7 +1646,7 @@ companies = new CompanyList({
   makes: makes
 });
 
-},{"./inc/TypeList":7}],10:[function(require,module,exports){
+},{"./inc/TypeList":8}],11:[function(require,module,exports){
 var AddLogo, MakesList, SelectType, SelectView, makes, specs, types,
   bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; },
   extend = function(child, parent) { for (var key in parent) { if (hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; },
@@ -1730,7 +1754,7 @@ makes = new MakesList({
   types: types
 });
 
-},{"../create-company/MakesList":4,"../inc/SelectView":6}],11:[function(require,module,exports){
+},{"../create-company/MakesList":5,"../inc/SelectView":7}],12:[function(require,module,exports){
 var AddPhotos, Image, ImageCollection, ImageView, ImagesView, List, ListCollection, ListModel, ListView, SelectView, imageCollection, imagesView, make, minuses, model, pluses, type,
   extend = function(child, parent) { for (var key in parent) { if (hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; },
   hasProp = {}.hasOwnProperty,
@@ -2097,7 +2121,7 @@ $('#add-feedback').click(function() {
   return console.log(concs);
 });
 
-},{"../inc/SelectView":6}],12:[function(require,module,exports){
+},{"../inc/SelectView":7}],13:[function(require,module,exports){
 require('./search');
 
 require('./sign-up');
@@ -2106,7 +2130,7 @@ require('./feedback');
 
 require('./create-company');
 
-},{"./create-company":10,"./feedback":11,"./search":13,"./sign-up":14}],13:[function(require,module,exports){
+},{"./create-company":11,"./feedback":12,"./search":14,"./sign-up":15}],14:[function(require,module,exports){
 var SelectView, make, model, type;
 
 SelectView = require('../inc/SelectView');
@@ -2134,7 +2158,7 @@ type = new SelectView({
 
 autosize($('#search-more'));
 
-},{"../inc/SelectView":6}],14:[function(require,module,exports){
+},{"../inc/SelectView":7}],15:[function(require,module,exports){
 var button, email, form, passw;
 
 $('#sign-up').magnificPopup({
@@ -2172,4 +2196,4 @@ if (form) {
   });
 }
 
-},{}]},{},[8]);
+},{}]},{},[9]);

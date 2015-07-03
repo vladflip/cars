@@ -18,6 +18,25 @@ get('fuck', function(){
 
 });
 
+Route::group(['prefix' => 'user'], function(){
+
+	get('profile', [
+		'as' => 'profile', 
+		'uses' => 'UserController@profile'
+	]);
+
+	post('create', [
+		'as' => 'user-create',
+		'uses' => 'UserController@create'
+	]);
+
+	post('auth', [
+		'as' => 'user-auth',
+		'uses' => 'UserController@authenticate'
+	]);
+
+});
+
 Route::group(['prefix' => 'catalog'], function(){
 
 	get('/', [
@@ -25,7 +44,7 @@ Route::group(['prefix' => 'catalog'], function(){
 		'uses' => 'CatalogController@index'
 	]);
 
-	get('/make/{allmakes}', [
+	get('make/{allmakes}', [
 		'as' => 'allmakes',
 		'uses' => 'CatalogController@allmakes'
 	])->where(['allmakes' => '[a-z+-]+']);
@@ -52,8 +71,6 @@ Route::group(['prefix' => 'catalog'], function(){
 
 
 });
-
-get('/profile', ['as' => 'profile', 'uses' => 'UserController@profile']);
 
 Route::group(['prefix' => 'feedback'], function(){
 

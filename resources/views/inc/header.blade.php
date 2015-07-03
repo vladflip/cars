@@ -30,16 +30,20 @@
 				</div>
 			
 			@else
+
+			{!! Form::open(['method' => 'POST', 'route' => 'user-auth', 'id' => 'user-auth-form']) !!}
 				
 				<div class="header_inputs">
-			
-					<input class="header_login" type="text" placeholder="Логин">
-					
-					<input class="header_pass" type="password" placeholder="Пароль">
 
-					<div class="header_submit-arrow"></div>
-			
+					<input name="email" class="header_login" type="email" placeholder="Почта">
+					
+					<input name="password" class="header_pass" type="password" placeholder="Пароль">
+
+					<div id="user-auth-button" class="header_submit-arrow"></div>
+
 				</div>
+
+			{!! Form::close() !!}
 
 				<div id="sign-up" href="#sign-up-popup" class="header_sign-up">
 					Регистрация

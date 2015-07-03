@@ -8,7 +8,8 @@
 		"laravel/framework": "5.0.*",
 		"fzaninotto/faker": "1.5.*@dev",
 		"barryvdh/laravel-debugbar": "^2.0",
-		"davejamesmiller/laravel-breadcrumbs": "^3.0"
+		"davejamesmiller/laravel-breadcrumbs": "^3.0",
+		"illuminate/html": "^5.0"
 	},
 	"require-dev": {
 		"phpunit/phpunit": "~4.0",

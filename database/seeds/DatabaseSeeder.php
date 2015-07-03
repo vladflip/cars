@@ -56,12 +56,19 @@ class UserSeeder extends Seeder {
 					'email' => $f->email,
 					'password' => Hash::make($f->password),
 					'name' => $f->name(),
-
-					'is_admin' => 0,
+					
 					'confirmed' => 1
 				]);
 
 		}
+
+		App\User::create([
+			'email' => 'admin@mail.ru',
+			'password' => Hash::make('admin'),
+			'name' => 'admin',
+
+			'confirmed' => 0
+		]);
 
 	}
 
