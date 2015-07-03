@@ -24,7 +24,7 @@
 
 			{!! Form::token() !!}
 			
-			<div class="popup_button">
+			<div id="sign-up-button" class="popup_button">
 				Зарегистрировать
 			</div>
 
