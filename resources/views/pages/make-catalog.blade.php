@@ -72,9 +72,9 @@
 				
 				<div class="company-popup mfp-hide" id="company-main-popup"></div>
 
-				@include('parts.company-template')
+				@include('templates.company-template')
 
-				@include('parts.company-preview-template')
+				@include('templates.company-preview-template')
 
 			</div>
 
