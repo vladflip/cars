@@ -15,6 +15,12 @@ class CreateUsersTable extends Migration {
 			$t->string('password', 64);
 			$t->string('name');
 
+			$t->string('ava');
+
+			$t->string('address');
+			$t->string('phone');
+			$t->string('description');
+
 			// $t->boolean('is_admin');
 
 			$t->unique('email');

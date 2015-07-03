@@ -1,4 +1,5 @@
 <?php
+
 use Illuminate\Database\Eloquent\Model as Model;
 
 /*
@@ -12,7 +13,10 @@ use Illuminate\Database\Eloquent\Model as Model;
 |
 */
 
-get('/', ['as' => 'home', 'uses' => 'HomeController@index']);
+get('/', [
+	'as' => 'home', 
+	'uses' => 'HomeController@index'
+]);
 
 get('fuck', function(){
 
