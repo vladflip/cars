@@ -1010,7 +1010,9 @@ require('./catalog/catalog-companies');
 
 require('./auth');
 
-},{"./auth":1,"./base":2,"./catalog/catalog-companies":3,"./catalog/catalog-live":4,"./main-live-search":10,"./popups/index":13}],10:[function(require,module,exports){
+require('./user-profile');
+
+},{"./auth":1,"./base":2,"./catalog/catalog-companies":3,"./catalog/catalog-live":4,"./main-live-search":10,"./popups/index":13,"./user-profile":16}],10:[function(require,module,exports){
 var CompanyCollection, CompanyList, CompanyModel, CompanyView, MakeCollection, MakeList, MakeModel, MakeView, SpecCollection, SpecList, SpecModel, SpecView, TypeList, companies, makes, specs, types,
   extend = function(child, parent) { for (var key in parent) { if (hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; },
   hasProp = {}.hasOwnProperty,
@@ -2195,5 +2197,144 @@ if (form) {
     }
   });
 }
+
+},{}],16:[function(require,module,exports){
+var FieldCollection, FieldModel, FieldSet, FieldView, collection,
+  extend = function(child, parent) { for (var key in parent) { if (hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; },
+  hasProp = {}.hasOwnProperty;
+
+$('#profile-pen').magnificPopup({
+  type: 'inline',
+  closeBtnInside: true
+});
+
+FieldModel = (function(superClass) {
+  extend(FieldModel, superClass);
+
+  function FieldModel() {
+    return FieldModel.__super__.constructor.apply(this, arguments);
+  }
+
+  FieldModel.prototype.defaults = {
+    value: '',
+    name: '',
+    title: '',
+    "default": ''
+  };
+
+  return FieldModel;
+
+})(Backbone.Model);
+
+FieldCollection = (function(superClass) {
+  extend(FieldCollection, superClass);
+
+  function FieldCollection() {
+    return FieldCollection.__super__.constructor.apply(this, arguments);
+  }
+
+  FieldCollection.prototype.model = FieldModel;
+
+  return FieldCollection;
+
+})(Backbone.Collection);
+
+FieldView = (function(superClass) {
+  extend(FieldView, superClass);
+
+  function FieldView() {
+    return FieldView.__super__.constructor.apply(this, arguments);
+  }
+
+  FieldView.prototype.className = 'popup_field';
+
+  FieldView.prototype.template = $('#popup-field-template').get(0) ? Handlebars.compile($('#popup-field-template').html()) : void 0;
+
+  FieldView.prototype.initialize = function() {
+    return this.render();
+  };
+
+  FieldView.prototype.render = function() {
+    if (this.model.get('value')) {
+      this.$el.html(this.template({
+        label: this.model.get('title'),
+        value: this.model.get('value'),
+        input: this.model.get('name') === 'about' ? false : true
+      }));
+    } else {
+      this.$el.html(this.template({
+        label: this.model.get('title'),
+        input: this.model.get('name') === 'about' ? false : true
+      }));
+    }
+    return this.$el;
+  };
+
+  return FieldView;
+
+})(Backbone.View);
+
+FieldSet = (function(superClass) {
+  extend(FieldSet, superClass);
+
+  function FieldSet() {
+    return FieldSet.__super__.constructor.apply(this, arguments);
+  }
+
+  FieldSet.prototype.url = 'api/edit-profile';
+
+  FieldSet.prototype.home = $('body').data('home');
+
+  FieldSet.prototype.button = $('#edit-profile-button');
+
+  FieldSet.prototype.initialize = function() {
+    return this.render();
+  };
+
+  FieldSet.prototype.render = function() {
+    return this.collection.each((function(_this) {
+      return function(field) {
+        var v;
+        v = new FieldView({
+          model: field
+        });
+        return _this.button.before(v.el);
+      };
+    })(this));
+  };
+
+  return FieldSet;
+
+})(Backbone.View);
+
+collection = new FieldCollection;
+
+collection.add(new FieldModel({
+  name: 'name',
+  value: $.trim($('#edit-profile-name').children('span:first').html()),
+  title: 'Имя'
+}));
+
+collection.add(new FieldModel({
+  name: 'address',
+  value: $.trim($('#edit-profile-address').html()),
+  title: 'Адрес'
+}));
+
+collection.add(new FieldModel({
+  name: 'phone',
+  value: $.trim($('#edit-profile-phone').html()),
+  title: 'Телефон'
+}));
+
+collection.add(new FieldModel({
+  name: 'about',
+  value: $.trim($('#edit-profile-about').html()),
+  title: 'О себе'
+}));
+
+new FieldSet({
+  collection: collection
+});
 
 },{}]},{},[9]);

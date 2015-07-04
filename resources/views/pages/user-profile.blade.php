@@ -18,7 +18,7 @@
 								Мой профиль
 							</div>
 							
-							<div class="profile-info_company">
+							<div id="create-company-button" href="#create-company" class="profile-info_company">
 								Создать компанию
 							</div>
 
@@ -43,21 +43,22 @@
 						
 						<div class="profile-info_right">
 							
-							<h3 class="profile-info_name">
-								{{ $user->name or 'имя' }}
-								<span class="profile-info_pen"></span>
+							<h3 id="edit-profile-name" class="profile-info_name">
+								<span>{{ $user->name }}</span>
+								<span id="profile-pen" href="#edit-profile-popup" class="profile-info_pen">
+								</span>
 							</h3>
 						
-							<div class="profile-info_address">
-								{{ $user->address or 'адрес' }}
+							<div id="edit-profile-address" class="profile-info_address">
+								{{ $user->address }}
 							</div>
 						
-							<div class="profile-info_phone">
-								{{ $user->phone or 'телефон' }}
+							<div id="edit-profile-phone" class="profile-info_phone">
+								{{ $user->phone }}
 							</div>
 
-							<div class="profile-info_about">
-								{{ $user->description or 'о себе' }}
+							<div id="edit-profile-about" class="profile-info_about">
+								{{ $user->description }}
 							</div>
 						
 						</div>
@@ -101,5 +102,11 @@
 		</div>
 
 	</div>
+
+	@include('popups.create-company')
+
+	@include('popups.edit-profile')
+
+	@include('templates.popup-field-template')
 
 @stop

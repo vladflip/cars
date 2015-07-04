@@ -26,12 +26,9 @@ class ComposerServiceProvider extends ServiceProvider {
 
 			$specs = \App\Spec::select('id', 'name', 'title')->get();
 
-			$types = \App\Type::select('id', 'title')->get();
-
 			// current is only for pages where no specs active, passes false
 
-			$v->with('specs', $specs)->with('current', $current)
-				->with('types', $types);
+			$v->with('specs', $specs)->with('current', $current);
 
 		});
 
@@ -58,7 +55,7 @@ class ComposerServiceProvider extends ServiceProvider {
 
 		});
 
-		View::composer(['inc.search', 'inc.feedback', 'inc.type'], function($v) {
+		View::composer(['inc.search', 'inc.feedback', 'inc.type', 'popups.create-company'], function($v) {
 
 			$types = \App\Type::select('id', 'title', 'icon_active', 'icon')->get();
 
@@ -66,7 +63,7 @@ class ComposerServiceProvider extends ServiceProvider {
 
 		});
 
-		View::composer('inc.parts', function($v) {
+		View::composer(['inc.parts', 'popups.create-company'], function($v) {
 
 			$specs = \App\Spec::select('id', 'title')->get();
 

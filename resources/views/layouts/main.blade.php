@@ -10,7 +10,7 @@
 		<link rel="stylesheet" href="{{ URL::to('/') }}/css/vendor/popup.css">
 	</head>
 
-	<body data-home="{{ URL::to('/') }}">
+	<body data-home="{{ URL::to('/') }}" data-csrf="{{ csrf_token() }}">
 		
 		@include('inc.header')
 

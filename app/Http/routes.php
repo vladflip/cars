@@ -33,7 +33,7 @@ Route::group(['prefix' => 'user'], function(){
 		'as' => 'user-create',
 		'uses' => 'UserController@create'
 	]);
-
+	
 	post('auth', [
 		'as' => 'user-auth',
 		'uses' => 'UserController@authenticate'
