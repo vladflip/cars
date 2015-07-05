@@ -85,7 +85,7 @@ CompanyModel = (function(superClass) {
 
   CompanyModel.prototype.defaults = {
     address: '',
-    description: '',
+    about: '',
     excerpt: '',
     logo: '',
     name: '',
@@ -131,7 +131,7 @@ CompanyView = (function(superClass) {
     src = $.parseHTML(this.popupTemplate({
       logo: this.model.get('logo'),
       name: this.model.get('name'),
-      description: this.model.get('description'),
+      about: this.model.get('about'),
       address: this.model.get('address'),
       phone: this.model.get('phone'),
       tags: this.model.get('tags')
@@ -223,7 +223,7 @@ CompanyList = (function(superClass) {
           name: $(el).find('.company-preview_name').html(),
           excerpt: $(el).find('.company-preview_excerpt').html(),
           phone: $(el).children('.company-preview_data').data('phone'),
-          description: $(el).children('.company-preview_data').data('description'),
+          about: $(el).children('.company-preview_data').data('about'),
           tags: tags
         });
         v = new CompanyView({
@@ -262,8 +262,8 @@ CompanyList = (function(superClass) {
       if (i < 5) {
         m = new CompanyModel({
           address: comp.address,
-          description: comp.description,
-          excerpt: comp.description.excerpt(),
+          about: comp.about,
+          excerpt: comp.about.excerpt(),
           logo: "url(" + comp.logo + ")",
           name: comp.name,
           phone: comp.phone,

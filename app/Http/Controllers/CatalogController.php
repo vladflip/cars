@@ -77,7 +77,7 @@ class CatalogController extends Controller {
 			$t = array();
 
 			$arr['name'] = $val->name;
-			$arr['description'] = $val->description;
+			$arr['about'] = $val->about;
 			$arr['phone'] = $val->phone;
 			$arr['logo'] = $val->logo;
 			$arr['address'] = $val->address;
@@ -131,7 +131,7 @@ class CatalogController extends Controller {
 			$t = array();
 
 			$arr['name'] = $val->name;
-			$arr['description'] = $val->description;
+			$arr['about'] = $val->about;
 			$arr['phone'] = $val->phone;
 			$arr['logo'] = $val->logo;
 			$arr['address'] = $val->address;

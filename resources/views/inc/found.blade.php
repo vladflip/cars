@@ -26,14 +26,14 @@
 						<h3 class="company-preview_name">{{ $companies[$i]['name'] }}</h3>
 						<h5 class="company-preview_address">{{ $companies[$i]['address'] }}</h5>
 						<h5 class="company-preview_excerpt">
-							{{ substr($companies[$i]['description'], 
-								0, strpos($companies[$i]['description'], '.')+1) }}
+							{{ substr($companies[$i]['about'], 
+								0, strpos($companies[$i]['about'], '.')+1) }}
 						</h5>
 					</div>
 					<div class="company-preview_more">Подробнее</div>
 					<div class="company-preview_data"
 						data-phone="{{ $companies[$i]['phone'] }}"
-						data-description="{{ $companies[$i]['description'] }}"
+						data-about="{{ $companies[$i]['about'] }}"
 					>
 						@foreach($companies[$i]['tags'] as $tag)
 
