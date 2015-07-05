@@ -31,4 +31,6 @@ if form
 		if pattern.test email.val()
 			if passw.val() isnt ''
 				form.submit()
+		else
+			email.blink()
 			

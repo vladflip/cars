@@ -56,12 +56,10 @@ String.prototype.excerpt = function() {
 
 $.fn.blink = function() {
   return this.stop(true).animate({
-    backgroundColor: '#f3df6d',
-    color: 'white'
+    backgroundColor: '#f3df6d'
   }, 300, function() {
     return $(this).stop(true).animate({
-      backgroundColor: 'white',
-      color: '#222'
+      backgroundColor: 'white'
     }, 300);
   });
 };
@@ -2206,6 +2204,8 @@ if (form) {
       if (passw.val() !== '') {
         return form.submit();
       }
+    } else {
+      return email.blink();
     }
   });
 }

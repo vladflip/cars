@@ -20,7 +20,12 @@ get('/', [
 
 get('fuck', function(){
 
-	Auth::logout();
+	// Auth::logout();
+
+	Mail::send('emails.verify', [], function($msg){
+		$msg->to('vlad.flip.prg@gmail.com', 'Headeeeer')
+		->subject('Приветики');
+	});
 
 });
 
