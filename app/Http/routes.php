@@ -20,6 +20,8 @@ get('/', [
 
 get('fuck', function(){
 
+	Auth::logout();
+
 });
 
 Route::group(['prefix' => 'user'], function(){

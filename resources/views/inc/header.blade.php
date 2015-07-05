@@ -12,9 +12,9 @@
 
 		<div>
 
-			@if(Request::is('profile'))
+			@if(Auth::check())
 			
-				<div class="user-info">
+				{{-- <div class="user-info">
 					
 					<span>x</span>
 			
@@ -27,7 +27,7 @@
 						<img src="img/ava.jpg" alt="">
 					</div>
 			
-				</div>
+				</div> --}}
 			
 			@else
 

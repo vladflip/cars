@@ -23,7 +23,7 @@
 	<h4 class="company-popup_desc">Описание</h4>
 
 	<p class="company-popup_description">
-		{{description}}
+		{{about}}
 	</p>
 
 	<div class="company-popup_close">Закрыть</div>

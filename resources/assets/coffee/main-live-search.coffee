@@ -261,7 +261,7 @@ class MakeList extends Backbone.View
 class CompanyModel extends Backbone.Model
 	defaults:
 		address: ''
-		description: ''
+		about: ''
 		excerpt: ''
 		logo: ''
 		name: ''
@@ -279,7 +279,7 @@ class CompanyView extends Backbone.View
 		src = $.parseHTML @template
 			logo: @model.get 'logo'
 			name: @model.get 'name'
-			description: @model.get 'description'
+			about: @model.get 'about'
 			address: @model.get 'address'
 			phone: @model.get 'phone'
 			tags: @model.get 'tags'
@@ -392,8 +392,8 @@ class CompanyList extends Backbone.View
 			if i < 5
 				m = new CompanyModel
 						address: comp.address
-						description: comp.description
-						excerpt: comp.description.excerpt()
+						about: comp.about
+						excerpt: comp.about.excerpt()
 						logo: "url(#{comp.logo})"
 						name: comp.name
 						phone: comp.phone
@@ -424,8 +424,8 @@ class CompanyList extends Backbone.View
 			if i < 5
 				m = new CompanyModel
 						address: comp.address
-						description: comp.description
-						excerpt: comp.description.excerpt()
+						about: comp.about
+						excerpt: comp.about.excerpt()
 						logo: "url(#{comp.logo})"
 						name: comp.name
 						phone: comp.phone
