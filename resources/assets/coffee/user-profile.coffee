@@ -5,10 +5,12 @@ $('#profile-pen').magnificPopup
 
 class FieldModel extends Backbone.Model
 	defaults:
-		value  : ''
-		name   : ''
-		title  : ''
-		default: ''
+		value      : ''
+		newvalue   : ''
+		name       : ''
+		title      : ''
+		state      : 'same'
+		elToRefresh: ''
 
 class FieldCollection extends Backbone.Collection
 	model: FieldModel
@@ -22,6 +24,43 @@ class FieldView extends Backbone.View
 	initialize: ->
 
 		do @render
+
+		@model.on 'error', @error
+		@model.on 'update', @update
+
+		if @model.get('name') is 'about'
+			@input = @$el.children 'textarea'
+		else
+			@input = @$el.children 'input'
+
+		if @input.val() is ''
+			@model.set 'state', 'empty'
+
+		@input.keyup @updateModel
+
+	updateModel: =>
+		@model.set 'newvalue', @input.val()
+
+		if @model.get('value') is @model.get('newvalue')
+			@model.set 'state', 'same'
+		else if @model.get('newvalue') is ''
+			@model.set 'state', 'empty'
+		else
+			@model.set 'state', 'ready'
+
+	# update when changes saved, value = newvalue, state = same, update dom
+	update: =>
+		el = @model.get 'elToRefresh'
+
+		if @model.get('newvalue') isnt ''
+			@model.set 'value', @model.get 'newvalue'
+
+		@model.set 'state', 'same'
+
+		el.html @model.get 'value'
+
+	error: =>
+		@$el.children('input, textarea').blink()
 
 	render: ->
 		if @model.get('value')
@@ -41,7 +80,7 @@ class FieldView extends Backbone.View
 
 class FieldSet extends Backbone.View
 
-	url  : 'api/edit-profile'
+	url  : 'api/user/edit'
 	
 	home : $('body').data 'home'
 	
@@ -50,6 +89,39 @@ class FieldSet extends Backbone.View
 	initialize: ->
 
 		do @render
+
+		@button.click @saveChanges
+
+	saveChanges: =>
+		pass = true
+		data = {}
+
+		@collection.each (field) ->
+			if field.get('state') is 'empty'
+				field.trigger 'error'
+				pass = false
+			else if field.get('newvalue') isnt ''
+				data[field.get('name')] = field.get('newvalue')
+
+		if pass then @post data
+
+	updateModels: ->
+		@collection.each (model) ->
+			model.trigger 'update'
+
+	post: (data) ->
+		$.ajax "#{@home}/#{@url}",
+			headers:
+				'X-CSRF-TOKEN' : $('body').data 'csrf'
+			method: 'POST'
+			data: data
+		.done (response) =>
+			console.log response
+			# loading icon
+			do @updateModels
+			$.magnificPopup.instance.close()
+
+
 
 	# init views and append to popup content
 	render: ->
@@ -68,21 +140,25 @@ collection.add new FieldModel
 	name: 'name' 
 	value: $.trim( $('#edit-profile-name').children('span:first').html() )
 	title: 'Имя'
+	elToRefresh: $('#edit-profile-name').children('span:first')
 
 collection.add new FieldModel
 	name: 'address'
 	value: $.trim($('#edit-profile-address').html())
 	title: 'Адрес'
+	elToRefresh: $('#edit-profile-address')
 
 collection.add new FieldModel
 	name: 'phone'
 	value: $.trim($('#edit-profile-phone').html())
 	title: 'Телефон'
+	elToRefresh: $('#edit-profile-phone')
 
 collection.add new FieldModel
 	name: 'about'
 	value: $.trim($('#edit-profile-about').html())
 	title: 'О себе'
+	elToRefresh: $('#edit-profile-about')
 
 
 new FieldSet

@@ -24,7 +24,7 @@ class CreateCompaniesTable extends Migration {
 			$t->string('phone', 45);
 			$t->string('logo');
 			$t->string('address');
-			$t->text('description');
+			$t->text('about');
 
 
 			$t->foreign('user_id')->references('id')->on('users')

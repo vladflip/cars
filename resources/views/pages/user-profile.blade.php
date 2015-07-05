@@ -36,7 +36,8 @@
 						<div class="profile-info_left">
 							
 							<div class="profile-info_logo">
-								<img src="{{ $user->ava or URL::to('/') . '/img/ava.jpg' }}" alt="">
+								<img 
+								src="{{ $user->ava ? $user->ava : URL::to('/') . '/img/ava.jpg' }}" alt="">
 							</div>
 						
 						</div>
@@ -58,7 +59,7 @@
 							</div>
 
 							<div id="edit-profile-about" class="profile-info_about">
-								{{ $user->description }}
+								{{ $user->about }}
 							</div>
 						
 						</div>

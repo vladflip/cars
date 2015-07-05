@@ -19,7 +19,7 @@ class CreateUsersTable extends Migration {
 
 			$t->string('address');
 			$t->string('phone');
-			$t->string('description');
+			$t->string('about');
 
 			// $t->boolean('is_admin');
 

@@ -16,5 +16,15 @@ String.prototype.excerpt = ->
 	i = @.indexOf '.'
 	@slice 0, i+1
 
+$.fn.blink = ->
+	@stop(true).animate
+		backgroundColor: '#f3df6d'
+		color          : 'white'
+	, 300, ->
+		$(@).stop(true).animate
+			backgroundColor: 'white'
+			color: '#222'
+		, 300
+
 $('.sticky').stick_in_parent
 	offset_top: 25

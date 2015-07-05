@@ -56,6 +56,9 @@ class UserSeeder extends Seeder {
 					'email' => $f->email,
 					'password' => Hash::make($f->password),
 					'name' => $f->name(),
+					'about' => $f->paragraph(5),
+					'address' => 'fuck',
+					'phone' => '2340293',
 					
 					'confirmed' => 1
 				]);
@@ -201,7 +204,7 @@ class CompanySeeder extends Seeder {
 			$c = \App\Company::create([
 				'user_id' => $i+1,
 				'name' => $f->company,
-				'description' => $f->paragraph(5),
+				'about' => $f->paragraph(5),
 				'phone' => $f->phoneNumber,
 				'address' => $f->address,
 				'spec_id' => rand(1, 7),

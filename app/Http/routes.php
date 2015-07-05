@@ -25,8 +25,9 @@ get('fuck', function(){
 Route::group(['prefix' => 'user'], function(){
 
 	get('profile', [
-		'as' => 'profile', 
-		'uses' => 'UserController@profile'
+		'as' => 'profile',
+		'uses' => 'UserController@profile',
+		'middleware' => 'auth'
 	]);
 
 	post('create', [
@@ -112,7 +113,7 @@ Route::group(['prefix' => 'api', 'middleware' => 'api'], function(){
 
 	Route::group(['prefix' => 'user', 'middleware' => 'auth'], function() {
 
-		get('edit', ['uses' => 'APIController@edit_user']);
+		post('edit', ['uses' => 'APIController@edit_user']);
 
 	});
 

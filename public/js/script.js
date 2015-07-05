@@ -54,6 +54,18 @@ String.prototype.excerpt = function() {
   return this.slice(0, i + 1);
 };
 
+$.fn.blink = function() {
+  return this.stop(true).animate({
+    backgroundColor: '#f3df6d',
+    color: 'white'
+  }, 300, function() {
+    return $(this).stop(true).animate({
+      backgroundColor: 'white',
+      color: '#222'
+    }, 300);
+  });
+};
+
 $('.sticky').stick_in_parent({
   offset_top: 25
 });
@@ -2201,7 +2213,8 @@ if (form) {
 },{}],16:[function(require,module,exports){
 var FieldCollection, FieldModel, FieldSet, FieldView, collection,
   extend = function(child, parent) { for (var key in parent) { if (hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; },
-  hasProp = {}.hasOwnProperty;
+  hasProp = {}.hasOwnProperty,
+  bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };
 
 $('#profile-pen').magnificPopup({
   type: 'inline',
@@ -2217,9 +2230,11 @@ FieldModel = (function(superClass) {
 
   FieldModel.prototype.defaults = {
     value: '',
+    newvalue: '',
     name: '',
     title: '',
-    "default": ''
+    state: 'same',
+    elToRefresh: ''
   };
 
   return FieldModel;
@@ -2243,6 +2258,9 @@ FieldView = (function(superClass) {
   extend(FieldView, superClass);
 
   function FieldView() {
+    this.error = bind(this.error, this);
+    this.update = bind(this.update, this);
+    this.updateModel = bind(this.updateModel, this);
     return FieldView.__super__.constructor.apply(this, arguments);
   }
 
@@ -2251,7 +2269,43 @@ FieldView = (function(superClass) {
   FieldView.prototype.template = $('#popup-field-template').get(0) ? Handlebars.compile($('#popup-field-template').html()) : void 0;
 
   FieldView.prototype.initialize = function() {
-    return this.render();
+    this.render();
+    this.model.on('error', this.error);
+    this.model.on('update', this.update);
+    if (this.model.get('name') === 'about') {
+      this.input = this.$el.children('textarea');
+    } else {
+      this.input = this.$el.children('input');
+    }
+    if (this.input.val() === '') {
+      this.model.set('state', 'empty');
+    }
+    return this.input.keyup(this.updateModel);
+  };
+
+  FieldView.prototype.updateModel = function() {
+    this.model.set('newvalue', this.input.val());
+    if (this.model.get('value') === this.model.get('newvalue')) {
+      return this.model.set('state', 'same');
+    } else if (this.model.get('newvalue') === '') {
+      return this.model.set('state', 'empty');
+    } else {
+      return this.model.set('state', 'ready');
+    }
+  };
+
+  FieldView.prototype.update = function() {
+    var el;
+    el = this.model.get('elToRefresh');
+    if (this.model.get('newvalue') !== '') {
+      this.model.set('value', this.model.get('newvalue'));
+    }
+    this.model.set('state', 'same');
+    return el.html(this.model.get('value'));
+  };
+
+  FieldView.prototype.error = function() {
+    return this.$el.children('input, textarea').blink();
   };
 
   FieldView.prototype.render = function() {
@@ -2278,17 +2332,58 @@ FieldSet = (function(superClass) {
   extend(FieldSet, superClass);
 
   function FieldSet() {
+    this.saveChanges = bind(this.saveChanges, this);
     return FieldSet.__super__.constructor.apply(this, arguments);
   }
 
-  FieldSet.prototype.url = 'api/edit-profile';
+  FieldSet.prototype.url = 'api/user/edit';
 
   FieldSet.prototype.home = $('body').data('home');
 
   FieldSet.prototype.button = $('#edit-profile-button');
 
   FieldSet.prototype.initialize = function() {
-    return this.render();
+    this.render();
+    return this.button.click(this.saveChanges);
+  };
+
+  FieldSet.prototype.saveChanges = function() {
+    var data, pass;
+    pass = true;
+    data = {};
+    this.collection.each(function(field) {
+      if (field.get('state') === 'empty') {
+        field.trigger('error');
+        return pass = false;
+      } else if (field.get('newvalue') !== '') {
+        return data[field.get('name')] = field.get('newvalue');
+      }
+    });
+    if (pass) {
+      return this.post(data);
+    }
+  };
+
+  FieldSet.prototype.updateModels = function() {
+    return this.collection.each(function(model) {
+      return model.trigger('update');
+    });
+  };
+
+  FieldSet.prototype.post = function(data) {
+    return $.ajax(this.home + "/" + this.url, {
+      headers: {
+        'X-CSRF-TOKEN': $('body').data('csrf')
+      },
+      method: 'POST',
+      data: data
+    }).done((function(_this) {
+      return function(response) {
+        console.log(response);
+        _this.updateModels();
+        return $.magnificPopup.instance.close();
+      };
+    })(this));
   };
 
   FieldSet.prototype.render = function() {
@@ -2312,25 +2407,29 @@ collection = new FieldCollection;
 collection.add(new FieldModel({
   name: 'name',
   value: $.trim($('#edit-profile-name').children('span:first').html()),
-  title: 'Имя'
+  title: 'Имя',
+  elToRefresh: $('#edit-profile-name').children('span:first')
 }));
 
 collection.add(new FieldModel({
   name: 'address',
   value: $.trim($('#edit-profile-address').html()),
-  title: 'Адрес'
+  title: 'Адрес',
+  elToRefresh: $('#edit-profile-address')
 }));
 
 collection.add(new FieldModel({
   name: 'phone',
   value: $.trim($('#edit-profile-phone').html()),
-  title: 'Телефон'
+  title: 'Телефон',
+  elToRefresh: $('#edit-profile-phone')
 }));
 
 collection.add(new FieldModel({
   name: 'about',
   value: $.trim($('#edit-profile-about').html()),
-  title: 'О себе'
+  title: 'О себе',
+  elToRefresh: $('#edit-profile-about')
 }));
 
 new FieldSet({

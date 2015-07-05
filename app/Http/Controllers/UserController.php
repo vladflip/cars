@@ -11,26 +11,18 @@ class UserController extends Controller {
 
 	public function profile() {
 
-		if(Auth::check()){
+		$user = \App\User::with('requests', 'company')
+		->find(Auth::id());
 
-			$user = \App\User::with('requests', 'company')
-			->find(Auth::id());
+		if($user->company){
 
-			if($user->company){
+			return view('pages.company-profile');
 
-				return view('pages.company-profile');
-
-			} else {
-
-				return view('pages.user-profile')->with('user', $user);
-
-			}
 		} else {
 
-			return redirect()->route('home');
+			return view('pages.user-profile')->with('user', $user);
 
 		}
-
 
 	}
 
