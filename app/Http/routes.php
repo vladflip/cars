@@ -110,6 +110,12 @@ Route::group(['prefix' => 'feedback'], function(){
 
 Route::group(['prefix' => 'api', 'middleware' => 'api'], function(){
 
+	Route::group(['prefix' => 'user', 'middleware' => 'auth'], function() {
+
+		get('edit', ['uses' => 'APIController@edit_user']);
+
+	});
+
 	get('get-makes', 'APIController@makes');
 
 	get('get-makes-by-type-has-comps', 'APIController@makes_by_type_has_comps');
