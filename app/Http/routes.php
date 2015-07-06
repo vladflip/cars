@@ -10,8 +10,8 @@ use Illuminate\Database\Eloquent\Model as Model;
 | Here is where you can register all of the routes for an application.
 | It's a breeze. Simply tell Laravel the URIs it should respond to
 | and give it the controller to call when that URI is requested.
-|
-*/
+
+|*/
 
 get('/', [
 	'as' => 'home', 
@@ -20,7 +20,7 @@ get('/', [
 
 get('fuck', function(){
 
-	Auth::logout();
+	echo substr('fuck fuck', 0, strpos('fuck fuck', ' ')).'...';
 
 });
 

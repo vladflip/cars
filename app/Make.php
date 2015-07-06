@@ -24,6 +24,24 @@ class Make extends Model {
 		return $this->hasMany('App\Feedback', 'make_id');
 	}
 
+	public static function getMakeByType($id) {
+		return self::whereHas('types', function($q) use($id){
+			$q->whereId($id);
+		})
+		->first();
+	}
+
+	public static function isInType($make, $type) {
+		$make = self::whereHas('types', function($q) use($type){
+			$q->whereId($type);
+		})
+		->find($make);
+
+		if($make)
+			return true;
+		return false;
+	}
+
 	public function companies() {
 		return $this->belongsToMany(
 				'App\Company', 'company_makes', 

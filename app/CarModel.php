@@ -32,10 +32,15 @@ class CarModel extends Model {
 	}
 
 	public static function getModelByMake($id) {
-		$model = self::where('make_id', $id)
+		return self::where('make_id', $id)
 		->first();
+	}
 
-		return $model;
+	public static function isInMake($model, $make) {
+		$model = self::where('make_id', $make)->find($model);
+		if($model)
+			return true;
+		return false;
 	}
 
 }

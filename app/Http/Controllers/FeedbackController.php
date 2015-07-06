@@ -117,7 +117,58 @@ class FeedbackController extends Controller {
 
 		$input = (object)\Input::all();
 
-		return $input->header;
+		$feedback = new \App\Feedback([
+
+			'header' => $input->header,
+			'content' => $input->content
+
+		]);
+
+		$feedback->type_id = $input->type;
+
+		if(\App\Make::isInType($input->make, $input->type))
+			$feedback->make_id = $input->make;
+		else
+			return 'fuck';
+
+		$feedback->user_id = \Auth::id();
+
+		if(\App\CarModel::isInMake($input->model, $input->make))
+			$feedback->model_id = $input->model;
+		else
+			return 'fuck';
+
+		$feedback->save();
+
+		if(isset($input->images)){
+
+			foreach ($input->images as $src) {
+
+				$name = md5(\Hash::make($src . \Auth::id()));
+
+				$dirname = 'img/user' . \Auth::id();
+
+				$fullname = $dirname . '/' . $name . 'jpg';
+
+				if( ! file_exists($dirname) ){
+					mkdir($dirname, 0777, true);
+				}
+				
+				\Image::make($src)->save($fullname, 100);
+
+					$photo = new \App\Photo(['src' => $fullname]);
+
+					$photo->feedback_id = $feedback->id;
+
+					$photo->save();
+
+				$feedback->photos()->save($photo);
+
+			}
+
+		}
+
+		return $feedback->id;
 
 	}
 

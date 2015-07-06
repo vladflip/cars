@@ -6,6 +6,8 @@ class Photo extends Model {
 
 	protected $table = 'photos';
 
+	protected $fillable = ['src'];
+
 	public $timestamps = false;
 
 	public function feedback() {
