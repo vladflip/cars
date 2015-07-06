@@ -139,6 +139,7 @@ return [
 		'Barryvdh\Debugbar\ServiceProvider',
 		'DaveJamesMiller\Breadcrumbs\ServiceProvider',
 		'Illuminate\Html\HtmlServiceProvider',
+		'Intervention\Image\ImageServiceProvider',
 
 		/*
 		 * Application Service Providers...
@@ -201,6 +202,7 @@ return [
 		'Breadcrumbs' => 'DaveJamesMiller\Breadcrumbs\Facade',
 		'Form'=> 'Illuminate\Html\FormFacade', 
 		'HTML'=> 'Illuminate\Html\HtmlFacade',
+		'Image' => 'Intervention\Image\Facades\Image',
 
 	],
 
