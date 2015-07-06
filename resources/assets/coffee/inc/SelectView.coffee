@@ -21,6 +21,9 @@ class SelectView extends Backbone.View
 
 		# reset on children
 		do @options.c.reset if @options.c
+
+	error: ->
+		@$el.selectBox('control').blink()
 		
 	render: ->
 		temp = Handlebars.compile $('#options-template').html()

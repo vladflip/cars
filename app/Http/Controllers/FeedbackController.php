@@ -113,4 +113,12 @@ class FeedbackController extends Controller {
 
 	}
 
+	public function create() {
+
+		$input = (object)\Input::all();
+
+		return $input->header;
+
+	}
+
 }

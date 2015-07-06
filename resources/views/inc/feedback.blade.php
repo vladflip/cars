@@ -80,9 +80,9 @@
 
 					<div class="ql-format-group">
 
-						<select title="Шрифт" class="ql-font">
+						{{-- <select title="Шрифт" class="ql-font">
 							<option value="Roboto">Roboto</option>
-						</select>
+						</select> --}}
 						
 						<select title="Размер" class="ql-size feedback_size">
 							<option value="10px">10px</option>

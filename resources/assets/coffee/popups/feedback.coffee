@@ -73,7 +73,7 @@ class ImagesView extends Backbone.View
 	get: ->
 		r = []
 		@collection.each (image) ->
-			r.push image.toJSON()
+			r.push image.get 'src'
 
 		r
 
@@ -127,13 +127,13 @@ quill = new Quill '#feedback-editor',
 
 quill.addModule 'toolbar', container: '#feedback-editor-toolbar'
 
-quill.setContents [
-	{insert: '\n'}
-	{insert: '\n'}
-	{insert: '\n'}
-	{insert: '\n'}
-	{insert: '\n'}
-]
+# quill.setContents [
+# 	{insert: '\n'}
+# 	{insert: '\n'}
+# 	{insert: '\n'}
+# 	{insert: '\n'}
+# 	{insert: '\n'}
+# ]
 
 # -------------------------------------------
 # ------------- Quill.js
@@ -178,9 +178,9 @@ class List extends Backbone.View
 	initialize: ->
 		@options.add.on('click', @add)
 
-		@collection.add new ListModel
+		# @collection.add new ListModel
 
-		do @addFirst
+		# do @addFirst
 
 	add: =>
 		@collection.add new ListModel
@@ -210,7 +210,7 @@ class List extends Backbone.View
 	get: ->
 		r = []
 		@collection.each (item) ->
-			r.push item.toJSON()
+			r.push item.get 'text'
 
 		r
 
@@ -228,14 +228,65 @@ minuses = new List
 	collection: new ListCollection
 
 $('#add-feedback').click ->
-	concs = 
-		pluses: pluses.get()
-		minuses: minuses.get()
-		images: imagesView.get()
-		type: type.get()
-		make: make.get()
-		model: model.get()
-		header: $('#feedback-header').val()
-		text: $('#feedback-textarea').val()
 
-	console.log concs
+	result = {}
+
+	if type.get()?
+		result.type = parseInt type.get()
+	else
+		type.error()
+		return
+
+	# ===================================
+
+	if make.get()?
+		result.make = parseInt make.get()
+	else
+		make.error()
+		return
+
+	# ===================================
+
+	if model.get()?
+		result.model = parseInt model.get()
+	else
+		model.error()
+		return
+
+	# ===================================
+	if imagesView.get().length isnt 0
+		result.images = imagesView.get()
+
+	# ===================================
+
+	header = $('#feedback-header')
+
+	if header.val() is ''
+		header.blink()
+	else
+		result.header = header.val()
+
+	# ===================================
+
+	if quill.getLength() is 1
+		$('#feedback-editor').blink()
+	else
+		result.content = quill.getHTML()
+
+	# ===================================
+
+	if pluses.get().length isnt 0
+		result.pluses = pluses.get()
+
+	if minuses.get().length isnt 0
+		result.minuses = minuses.get()
+
+	# ===================================
+
+	$.ajax "#{$('body').data 'home'}/api/feedback/create",
+			headers:
+				'X-CSRF-TOKEN' : $('body').data 'csrf'
+			method: 'POST'
+			data: result
+		.done (response) =>
+			console.log response

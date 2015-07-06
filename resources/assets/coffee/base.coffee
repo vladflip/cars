@@ -19,11 +19,9 @@ String.prototype.excerpt = ->
 $.fn.blink = ->
 	@stop(true).animate
 		backgroundColor: '#f3df6d'
-		color          : 'white'
 	, 300, ->
 		$(@).stop(true).animate
 			backgroundColor: 'white'
-			color: '#222'
 		, 300
 
 $('.sticky').stick_in_parent

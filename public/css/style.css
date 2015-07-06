@@ -934,6 +934,9 @@ ul.create-company-spec-selectBox-dropdown-menu {
       -ms-flex-pack: justify;
           justify-content: space-between;
 }
+.feedback_minuses {
+  width: 307px;
+}
 .feedback_plus,
 .feedback_minus {
   position: relative;

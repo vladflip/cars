@@ -56,12 +56,10 @@ String.prototype.excerpt = function() {
 
 $.fn.blink = function() {
   return this.stop(true).animate({
-    backgroundColor: '#f3df6d',
-    color: 'white'
+    backgroundColor: '#f3df6d'
   }, 300, function() {
     return $(this).stop(true).animate({
-      backgroundColor: 'white',
-      color: '#222'
+      backgroundColor: 'white'
     }, 300);
   });
 };
@@ -832,6 +830,10 @@ SelectView = (function(superClass) {
     if (this.options.c) {
       return this.options.c.reset();
     }
+  };
+
+  SelectView.prototype.error = function() {
+    return this.$el.selectBox('control').blink();
   };
 
   SelectView.prototype.render = function() {
@@ -1908,7 +1910,7 @@ ImagesView = (function(superClass) {
     var r;
     r = [];
     this.collection.each(function(image) {
-      return r.push(image.toJSON());
+      return r.push(image.get('src'));
     });
     return r;
   };
@@ -1978,20 +1980,6 @@ quill = new Quill('#feedback-editor', {
 quill.addModule('toolbar', {
   container: '#feedback-editor-toolbar'
 });
-
-quill.setContents([
-  {
-    insert: '\n'
-  }, {
-    insert: '\n'
-  }, {
-    insert: '\n'
-  }, {
-    insert: '\n'
-  }, {
-    insert: '\n'
-  }
-]);
 
 ListModel = (function(superClass) {
   extend(ListModel, superClass);
@@ -2074,9 +2062,7 @@ List = (function(superClass) {
   }
 
   List.prototype.initialize = function() {
-    this.options.add.on('click', this.add);
-    this.collection.add(new ListModel);
-    return this.addFirst();
+    return this.options.add.on('click', this.add);
   };
 
   List.prototype.add = function() {
@@ -2117,7 +2103,7 @@ List = (function(superClass) {
     var r;
     r = [];
     this.collection.each(function(item) {
-      return r.push(item.toJSON());
+      return r.push(item.get('text'));
     });
     return r;
   };
@@ -2141,18 +2127,57 @@ minuses = new List({
 });
 
 $('#add-feedback').click(function() {
-  var concs;
-  concs = {
-    pluses: pluses.get(),
-    minuses: minuses.get(),
-    images: imagesView.get(),
-    type: type.get(),
-    make: make.get(),
-    model: model.get(),
-    header: $('#feedback-header').val(),
-    text: $('#feedback-textarea').val()
-  };
-  return console.log(concs);
+  var header, result;
+  result = {};
+  if (type.get() != null) {
+    result.type = parseInt(type.get());
+  } else {
+    type.error();
+    return;
+  }
+  if (make.get() != null) {
+    result.make = parseInt(make.get());
+  } else {
+    make.error();
+    return;
+  }
+  if (model.get() != null) {
+    result.model = parseInt(model.get());
+  } else {
+    model.error();
+    return;
+  }
+  if (imagesView.get().length !== 0) {
+    result.images = imagesView.get();
+  }
+  header = $('#feedback-header');
+  if (header.val() === '') {
+    header.blink();
+  } else {
+    result.header = header.val();
+  }
+  if (quill.getLength() === 1) {
+    $('#feedback-editor').blink();
+  } else {
+    result.content = quill.getHTML();
+  }
+  if (pluses.get().length !== 0) {
+    result.pluses = pluses.get();
+  }
+  if (minuses.get().length !== 0) {
+    result.minuses = minuses.get();
+  }
+  return $.ajax(($('body').data('home')) + "/api/feedback/create", {
+    headers: {
+      'X-CSRF-TOKEN': $('body').data('csrf')
+    },
+    method: 'POST',
+    data: result
+  }).done((function(_this) {
+    return function(response) {
+      return console.log(response);
+    };
+  })(this));
 });
 
 },{"../inc/SelectView":7}],13:[function(require,module,exports){
