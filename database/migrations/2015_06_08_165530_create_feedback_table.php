@@ -17,7 +17,6 @@ class CreateFeedbackTable extends Migration {
 			$t->increments('id');
 
 			$t->integer('type_id')->unsigned();
-			$t->integer('make_id')->unsigned();
 			$t->integer('model_id')->unsigned();
 			$t->integer('user_id')->unsigned();
 
@@ -26,10 +25,6 @@ class CreateFeedbackTable extends Migration {
 			$t->string('logo');
 
 			$t->foreign('type_id')->references('id')->on('types')
-											->onDelete('cascade')
-											->onUpdate('no action');
-
-			$t->foreign('make_id')->references('id')->on('makes')
 											->onDelete('cascade')
 											->onUpdate('no action');
 

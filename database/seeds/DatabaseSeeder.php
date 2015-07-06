@@ -240,7 +240,6 @@ class FeedbackSeeder extends Seeder {
 
 				'user_id' => $i+1,
 				'type_id' => rand(1, 4),
-				'make_id' => $i+1,
 				'model_id' => $id
 			]);
 
