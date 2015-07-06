@@ -118,10 +118,26 @@ class AddPhotos
 
 new AddPhotos '#feedback-input', '#feedback-plus'
 
-autosize $ '#feedback-textarea'
+# -------------------------------------------
+# ------------- Quill.js
+# -------------------------------------------
 
+quill = new Quill '#feedback-editor',
+	theme: 'snow'
 
+quill.addModule 'toolbar', container: '#feedback-editor-toolbar'
 
+quill.setContents [
+	{insert: '\n'}
+	{insert: '\n'}
+	{insert: '\n'}
+	{insert: '\n'}
+	{insert: '\n'}
+]
+
+# -------------------------------------------
+# ------------- Quill.js
+# -------------------------------------------
 
 class ListModel extends Backbone.Model
 	defaults:

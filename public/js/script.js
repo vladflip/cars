@@ -1769,7 +1769,7 @@ makes = new MakesList({
 });
 
 },{"../create-company/MakesList":5,"../inc/SelectView":7}],12:[function(require,module,exports){
-var AddPhotos, Image, ImageCollection, ImageView, ImagesView, List, ListCollection, ListModel, ListView, SelectView, imageCollection, imagesView, make, minuses, model, pluses, type,
+var AddPhotos, Image, ImageCollection, ImageView, ImagesView, List, ListCollection, ListModel, ListView, SelectView, imageCollection, imagesView, make, minuses, model, pluses, quill, type,
   extend = function(child, parent) { for (var key in parent) { if (hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; },
   hasProp = {}.hasOwnProperty,
   bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };
@@ -1971,7 +1971,27 @@ AddPhotos = (function() {
 
 new AddPhotos('#feedback-input', '#feedback-plus');
 
-autosize($('#feedback-textarea'));
+quill = new Quill('#feedback-editor', {
+  theme: 'snow'
+});
+
+quill.addModule('toolbar', {
+  container: '#feedback-editor-toolbar'
+});
+
+quill.setContents([
+  {
+    insert: '\n'
+  }, {
+    insert: '\n'
+  }, {
+    insert: '\n'
+  }, {
+    insert: '\n'
+  }, {
+    insert: '\n'
+  }
+]);
 
 ListModel = (function(superClass) {
   extend(ListModel, superClass);

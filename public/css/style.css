@@ -645,10 +645,6 @@ ul.create-company-spec-selectBox-dropdown-menu {
   outline: none;
   resize: none;
 }
-.popup_textarea--feedback {
-  display: block;
-  width: auto;
-}
 .popup_button {
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -885,6 +881,16 @@ ul.create-company-spec-selectBox-dropdown-menu {
 }
 .feedback_photos:after {
   clear: both;
+}
+.feedback_toolbar {
+  color: #444;
+  border-bottom: 1px solid #e4e4e4;
+}
+.feedback_editor {
+  color: #222;
+}
+.feedback_editor-wrapper {
+  border: 1px solid #e4e4e4;
 }
 .feedback_add-photos {
   margin-top: 20px;
