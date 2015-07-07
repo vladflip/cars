@@ -167,10 +167,10 @@ class FeedbackController extends Controller {
 			}
 
 		} else {
-			$feedback->logo = URL::to('/') . '/feedback.png';
+			$feedback->logo = \URL::to('/') . '/img/feedback.png';
 		}
 
-		return $feedback;
+		$feedback->save();
 
 	}
 

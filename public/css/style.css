@@ -974,6 +974,24 @@ ul.create-company-spec-selectBox-dropdown-menu {
 .feedlist_excerpt {
   font-size: 16px;
   margin: 10px 0;
+  word-wrap: break-word;
+}
+.feedlist_img {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 65px;
+  height: 65px;
+}
+.feedlist_img img {
+  max-height: 65px;
+  max-width: 65px;
 }
 .footer {
   position: relative;
@@ -1344,6 +1362,17 @@ ul.create-company-spec-selectBox-dropdown-menu {
   display: -ms-flexbox;
   display: flex;
 }
+.mention_info {
+  width: 550px;
+}
+.mention_votes {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
 .mention_date {
   color: #ccc;
   font-size: 14px;
@@ -1352,11 +1381,6 @@ ul.create-company-spec-selectBox-dropdown-menu {
 .mention_user {
   color: #4e61eb;
   font-size: 14px;
-}
-.mention_votes {
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
 }
 .mention_likes,
 .mention_dislikes {
