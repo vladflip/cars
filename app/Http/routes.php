@@ -98,14 +98,14 @@ Route::group(['prefix' => 'feedback'], function(){
 	get('{type}/{make}', [
 
 		'as' => 'feedback-make',
-		'uses' => 'FeedbackController@make'
+		'uses' => 'FeedbackController@by_make'
 
 	])->where(['type' => '[a-z]+', 'make' => '[a-z+-]+']);
 
 	get('{type}/{make}/{model}', [
 
 		'as' => 'feedback-model',
-		'uses' => 'FeedbackController@model'
+		'uses' => 'FeedbackController@by_model'
 
 	])->where(['type' => '[a-z]+', 'make' => '[a-z+-]+']);
 

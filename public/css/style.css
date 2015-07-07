@@ -1419,6 +1419,16 @@ ul.create-company-spec-selectBox-dropdown-menu {
 .mention_content {
   margin-top: 15px;
 }
+.mention_content ul,
+.mention_content ol {
+  list-style-position: inside;
+}
+.mention_content ul {
+  list-style-type: disc;
+}
+.mention_content ol {
+  list-style-type: decimal;
+}
 .mention_rate {
   display: -webkit-flex;
   display: -ms-flexbox;

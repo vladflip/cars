@@ -41,7 +41,7 @@
 		</div>
 
 		<div class="mention_content">
-			{{ $mention->content }}
+			{!! $mention->content !!}
 		</div>
 
 		<div class="mention_pluses-minuses">

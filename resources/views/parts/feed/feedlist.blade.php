@@ -12,7 +12,7 @@
 				</div>
 
 				<div class="feedlist_excerpt">
-					{{ substr($feed->content, 0, 70).'...' }}
+					{{-- {!! substr($feed->content, 0, 70).'...' !!} --}}
 				</div>
 
 				<div class="mention_date-user">

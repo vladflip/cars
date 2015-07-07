@@ -13,7 +13,7 @@ class FeedbackController extends Controller {
 
 	}
 
-	public function make($type, $make) {
+	public function by_make($type, $make) {
 
 		$t = \App\Type::whereName($type)->first();
 
@@ -36,6 +36,7 @@ class FeedbackController extends Controller {
 		->with('user')
 		->with('likes')
 		->with('dislikes')
+		->orderBy('created_at', 'DESC')
 		->get();
 
 		$bread = ['make' => $m, 'type' => $t];
@@ -49,7 +50,7 @@ class FeedbackController extends Controller {
 
 	}
 
-	public function model($type, $make, $model) {
+	public function by_model($type, $make, $model) {
 
 		$t = \App\Type::whereName($type)->first();
 
@@ -73,6 +74,7 @@ class FeedbackController extends Controller {
 		->with('user')
 		->with('likes')
 		->with('dislikes')
+		->orderBy('created_at', 'DESC')
 		->get();
 
 		$bread = ['model' => $mo, 'make' => $ma, 'type' => $t];
@@ -117,10 +119,14 @@ class FeedbackController extends Controller {
 
 		$input = (object)\Input::all();
 
+		$content = preg_replace('#<script(.*?)>(.*?)</script>#is', '', $input->content);
+
+		$content = preg_replace('/<img[^>]+\>/i', '', $content);
+
 		$feedback = new \App\Feedback([
 
 			'header' => $input->header,
-			'content' => $input->content
+			'content' => $content
 
 		]);
 
@@ -171,6 +177,8 @@ class FeedbackController extends Controller {
 		}
 
 		$feedback->save();
+
+		return 'ok';
 
 	}
 
