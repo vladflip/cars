@@ -11,6 +11,7 @@ button = $('#user-auth-button');
 
 button.click(function() {
   var pattern;
+  console.log('fuck');
   pattern = /^([a-z0-9_\.-])+@[a-z0-9-]+\.([a-z]{2,4}\.)?[a-z]{2,4}$/i;
   if (pattern.test(email.val())) {
     console.log('fuck');
@@ -68,6 +69,14 @@ $('.sticky').stick_in_parent({
   offset_top: 25
 });
 
+$.HandlebarsFactory = function(id) {
+  if ($(id).get(0)) {
+    return Handlebars.compile($(id).html());
+  } else {
+    return function() {};
+  }
+};
+
 },{}],3:[function(require,module,exports){
 var CompanyCollection, CompanyList, CompanyModel, CompanyView, companies,
   extend = function(child, parent) { for (var key in parent) { if (hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; },
@@ -120,9 +129,9 @@ CompanyView = (function(superClass) {
 
   CompanyView.prototype.popup = $('#company-main-popup');
 
-  CompanyView.prototype.popupTemplate = $('#company-template').get(0) ? Handlebars.compile($('#company-template').html()) : void 0;
+  CompanyView.prototype.popupTemplate = $.HandlebarsFactory('#company-template');
 
-  CompanyView.prototype.template = $('#company-preview-template').get(0) ? Handlebars.compile($('#company-preview-template').html()) : void 0;
+  CompanyView.prototype.template = $.HandlebarsFactory('#company-preview-template');
 
   CompanyView.prototype.initialize = function() {
     var src;
@@ -480,7 +489,6 @@ MainMakes = (function(superClass) {
           make = makes[j];
           _this.deps[i].push(make.id);
         }
-        console.log(makes);
         return _this.showIfActive(i);
       };
     })(this));
@@ -553,7 +561,7 @@ MakeView = (function(superClass) {
     return MakeView.__super__.constructor.apply(this, arguments);
   }
 
-  MakeView.prototype.template = Handlebars.compile($('#create-company-make-template').html());
+  MakeView.prototype.template = $.HandlebarsFactory('#create-company-make-template');
 
   MakeView.prototype.className = 'create-company_makes-models_item';
 
@@ -689,7 +697,7 @@ ModelView = (function(superClass) {
     return ModelView.__super__.constructor.apply(this, arguments);
   }
 
-  ModelView.prototype.template = Handlebars.compile($('#create-company-model-template').html());
+  ModelView.prototype.template = $.HandlebarsFactory('#create-company-model-template');
 
   ModelView.prototype.className = 'create-company_model popup_field';
 
@@ -726,7 +734,7 @@ ModelsList = (function(superClass) {
     return ModelsList.__super__.constructor.apply(this, arguments);
   }
 
-  ModelsList.prototype.template = Handlebars.compile($('#create-company-models-list-template').html());
+  ModelsList.prototype.template = $.HandlebarsFactory('#create-company-models-list-template');
 
   ModelsList.prototype.home = $('body').data('home');
 
@@ -838,7 +846,7 @@ SelectView = (function(superClass) {
 
   SelectView.prototype.render = function() {
     var html, options, temp;
-    temp = Handlebars.compile($('#options-template').html());
+    temp = $.HandlebarsFactory('#options-template');
     options = temp(this.options.json);
     html = $.parseHTML(options);
     this.$el.find('option:first').after(html);
@@ -1427,7 +1435,7 @@ CompanyView = (function(superClass) {
     return CompanyView.__super__.constructor.apply(this, arguments);
   }
 
-  CompanyView.prototype.template = $('#company-template').get(0) ? Handlebars.compile($('#company-template').html()) : void 0;
+  CompanyView.prototype.template = $.HandlebarsFactory('#company-template');
 
   CompanyView.prototype.popup = $('#company-main-popup');
 
@@ -1500,7 +1508,7 @@ CompanyList = (function(superClass) {
 
   CompanyList.prototype.button = $('#show-found-orgs');
 
-  CompanyList.prototype.template = $('#found-template').get(0) ? Handlebars.compile($('#found-template').html()) : void 0;
+  CompanyList.prototype.template = $.HandlebarsFactory('#found-template');
 
   CompanyList.prototype.initialize = function() {
     this.toSkip = 0;
@@ -1838,7 +1846,7 @@ ImageView = (function(superClass) {
 
   ImageView.prototype.className = 'feedback_photo';
 
-  ImageView.prototype.template = Handlebars.compile($('#photos-template').html());
+  ImageView.prototype.template = $.HandlebarsFactory('#photos-template');
 
   ImageView.prototype.initialize = function() {
     var self;
@@ -2017,7 +2025,7 @@ ListView = (function(superClass) {
     return ListView.__super__.constructor.apply(this, arguments);
   }
 
-  ListView.prototype.template = Handlebars.compile($('#plus-minus-template').html());
+  ListView.prototype.template = $.HandlebarsFactory('#plus-minus-template');
 
   ListView.prototype.initialize = function() {
     var self;
@@ -2311,7 +2319,7 @@ FieldView = (function(superClass) {
 
   FieldView.prototype.className = 'popup_field';
 
-  FieldView.prototype.template = $('#popup-field-template').get(0) ? Handlebars.compile($('#popup-field-template').html()) : void 0;
+  FieldView.prototype.template = $.HandlebarsFactory('#popup-field-template');
 
   FieldView.prototype.initialize = function() {
     this.render();

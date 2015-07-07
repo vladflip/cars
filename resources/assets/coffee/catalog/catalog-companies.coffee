@@ -19,9 +19,9 @@ class CompanyView extends Backbone.View
 
 	popup: $ '#company-main-popup'
 
-	popupTemplate: if $('#company-template').get 0 then Handlebars.compile $('#company-template').html()
+	popupTemplate: $.HandlebarsFactory '#company-template'
 
-	template: if $('#company-preview-template').get 0 then Handlebars.compile $('#company-preview-template').html()
+	template: $.HandlebarsFactory '#company-preview-template'
 
 	initialize: ->
 

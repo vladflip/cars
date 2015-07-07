@@ -2,7 +2,7 @@ ModelsList = require './ModelsList'
 
 class MakeView extends Backbone.View
 
-	template: Handlebars.compile $('#create-company-make-template').html()
+	template: $.HandlebarsFactory '#create-company-make-template'
 
 	className: 'create-company_makes-models_item'
 

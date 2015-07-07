@@ -19,7 +19,7 @@ class FieldView extends Backbone.View
 
 	className: 'popup_field'
 
-	template: if $('#popup-field-template').get 0 then Handlebars.compile $('#popup-field-template').html()
+	template: $.HandlebarsFactory '#popup-field-template'
 
 	initialize: ->
 

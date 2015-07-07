@@ -270,7 +270,7 @@ class CompanyModel extends Backbone.Model
 
 class CompanyView extends Backbone.View
 
-	template: if $('#company-template').get 0 then Handlebars.compile $('#company-template').html()
+	template: $.HandlebarsFactory '#company-template'
 
 	popup: $ '#company-main-popup'
 
@@ -313,7 +313,7 @@ class CompanyList extends Backbone.View
 
 	button: $('#show-found-orgs')
 
-	template: if $('#found-template').get 0 then Handlebars.compile $('#found-template').html()
+	template: $.HandlebarsFactory  '#found-template'
 
 	initialize: ->
 

@@ -166,9 +166,11 @@ class FeedbackController extends Controller {
 
 			}
 
+		} else {
+			$feedback->logo = URL::to('/') . '/feedback.png';
 		}
 
-		return $feedback->id;
+		return $feedback;
 
 	}
 

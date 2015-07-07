@@ -26,3 +26,9 @@ $.fn.blink = ->
 
 $('.sticky').stick_in_parent
 	offset_top: 25
+
+$.HandlebarsFactory = (id) ->
+	if $(id).get 0
+		return Handlebars.compile $(id).html()
+	else
+		return ->

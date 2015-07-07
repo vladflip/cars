@@ -7,6 +7,7 @@ passw = form.find 'input[name="password"]'
 button = $ '#user-auth-button'
 
 button.click ->
+	console.log 'fuck'
 	pattern = /^([a-z0-9_\.-])+@[a-z0-9-]+\.([a-z]{2,4}\.)?[a-z]{2,4}$/i
 
 	if pattern.test email.val()

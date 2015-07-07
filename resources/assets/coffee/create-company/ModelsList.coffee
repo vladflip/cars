@@ -1,6 +1,6 @@
 class ModelView extends Backbone.View
 
-	template: Handlebars.compile $('#create-company-model-template').html()
+	template: $.HandlebarsFactory '#create-company-model-template'
 
 	className: 'create-company_model popup_field'
 
@@ -23,7 +23,7 @@ class ModelView extends Backbone.View
 
 class ModelsList extends Backbone.View
 
-	template: Handlebars.compile $('#create-company-models-list-template').html()
+	template: $.HandlebarsFactory '#create-company-models-list-template'
 
 	home: $('body').data('home')
 

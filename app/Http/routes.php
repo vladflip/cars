@@ -20,7 +20,7 @@ get('/', [
 
 get('fuck', function(){
 
-	echo substr('fuck fuck', 0, strpos('fuck fuck', ' ')).'...';
+	\Auth::logout();
 
 });
 

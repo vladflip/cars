@@ -26,7 +26,7 @@ class SelectView extends Backbone.View
 		@$el.selectBox('control').blink()
 		
 	render: ->
-		temp = Handlebars.compile $('#options-template').html()
+		temp = $.HandlebarsFactory '#options-template'
 
 		options = temp @options.json
 

@@ -31,7 +31,7 @@ class ImageView extends Backbone.View
 
 	className : 'feedback_photo'
 
-	template: Handlebars.compile $('#photos-template').html()
+	template: $.HandlebarsFactory '#photos-template'
 
 	initialize: ->
 		self = @
@@ -148,7 +148,7 @@ class ListCollection extends Backbone.Collection
 
 class ListView extends Backbone.View
 
-	template: Handlebars.compile $('#plus-minus-template').html()
+	template: $.HandlebarsFactory '#plus-minus-template'
 
 	initialize: ->
 		self = @
