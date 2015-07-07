@@ -5,6 +5,8 @@ use Illuminate\Database\Eloquent\Model;
 class Minus extends Model {
 
 	protected $table = 'minuses';
+
+	protected $fillable = ['text'];
 	
 	public $timestamps = false;
 

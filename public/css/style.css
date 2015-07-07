@@ -1418,6 +1418,7 @@ ul.create-company-spec-selectBox-dropdown-menu {
 }
 .mention_content {
   margin-top: 15px;
+  font-size: 14px;
 }
 .mention_content ul,
 .mention_content ol {
@@ -1430,6 +1431,7 @@ ul.create-company-spec-selectBox-dropdown-menu {
   list-style-type: decimal;
 }
 .mention_rate {
+  margin-top: 20px;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
@@ -1442,6 +1444,7 @@ ul.create-company-spec-selectBox-dropdown-menu {
   margin-right: 20px;
 }
 .mention_pluses-minuses {
+  margin-top: 20px;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;

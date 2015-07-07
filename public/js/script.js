@@ -2174,7 +2174,18 @@ $('#add-feedback').click(function() {
   if (minuses.get().length !== 0) {
     result.minuses = minuses.get();
   }
-  return console.log(result.content);
+  console.log(result.content);
+  return $.ajax(($('body').data('home')) + "/api/feedback/create", {
+    headers: {
+      'X-CSRF-TOKEN': $('body').data('csrf')
+    },
+    method: 'POST',
+    data: result
+  }).done((function(_this) {
+    return function(response) {
+      return console.log(response);
+    };
+  })(this));
 });
 
 },{"../inc/SelectView":7}],13:[function(require,module,exports){

@@ -6,6 +6,8 @@ class Plus extends Model {
 
 	protected $table = 'pluses';
 
+	protected $fillable = ['text'];
+
 	public $timestamps = false;
 
 	public function feedback() {

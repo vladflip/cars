@@ -176,6 +176,34 @@ class FeedbackController extends Controller {
 			$feedback->logo = \URL::to('/') . '/img/feedback.png';
 		}
 
+		if(isset($input->pluses)){
+
+			foreach ($input->pluses as $text) {
+				
+				$plus = new \App\Plus(['text' => $text]);
+
+				$plus->feedback_id = $feedback->id;
+
+				$plus->save();
+
+			}
+
+		}
+
+		if(isset($input->minuses)){
+
+			foreach ($input->minuses as $text) {
+				
+				$minus = new \App\Minus(['text' => $text]);
+
+				$minus->feedback_id = $feedback->id;
+
+				$minus->save();
+
+			}
+
+		}
+
 		$feedback->save();
 
 		return 'ok';

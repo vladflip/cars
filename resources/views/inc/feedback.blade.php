@@ -86,7 +86,7 @@
 						
 						<select title="Размер" class="ql-size feedback_size">
 							<option value="10px">10px</option>
-							<option value="13px" selected>13px</option>
+							<option value="14px" selected>14px</option>
 							<option value="18px">18px</option>
 							<option value="32px">32px</option>
 						</select>
