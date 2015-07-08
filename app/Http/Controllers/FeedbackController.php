@@ -123,7 +123,7 @@ class FeedbackController extends Controller {
 			$col = count($opts[$row]);
 			$randOption = rand(0, $col-1);
 
-			$option = $opts[$col][$randOption];
+			$option = $opts[$row][$randOption];
 		}
 
 		$bread = [
