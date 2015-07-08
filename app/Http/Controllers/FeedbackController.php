@@ -93,6 +93,19 @@ class FeedbackController extends Controller {
 		if(!$f)
 			abort(404);
 
+		$opts = [
+			['1'],
+			['2'],
+			['21','12'],
+			['22', '13', '31'],
+			['23', '32', '14', '41'],
+			['33', '42', '51', '15', '24'],
+			['25', '34', '52', '43'],
+			['35', '53'],
+			['45', '54'],
+			['55']
+		];
+
 		$mention = \App\Feedback::with('user')
 			->with('likes')
 			->with('dislikes')
@@ -100,7 +113,18 @@ class FeedbackController extends Controller {
 			->with('type')
 			->with('model')
 			->with('make')
+			->with('photos')
 			->find($id);
+
+		$option = 0;
+
+		if(count($mention->photos)>0){
+			$row = count($mention->photos)-1;
+			$col = count($opts[$row]);
+			$randOption = rand(0, $col-1);
+
+			$option = $opts[$col][$randOption];
+		}
 
 		$bread = [
 			'model' => $mention->model, 
@@ -110,6 +134,7 @@ class FeedbackController extends Controller {
 
 		return view('pages.mention')
 			->with('mention', $mention)
+			->with('option', $option)
 			->with('bread', $bread);
 
 
@@ -152,9 +177,9 @@ class FeedbackController extends Controller {
 
 				$name = md5(\Hash::make($src . \Auth::id()));
 
-				$dirname = 'img/user' . \Auth::id();
+				$dirname = 'img/user' . \Auth::id() . '/feedbacks';
 
-				$fullname = $dirname . '/' . $name . 'jpg';
+				$fullname = $dirname . '/' . $name . '.jpg';
 
 				if( ! file_exists($dirname) ){
 					mkdir($dirname, 0777, true);

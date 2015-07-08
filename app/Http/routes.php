@@ -20,17 +20,7 @@ get('/', [
 
 get('fuck', function(){
 
-	// \Auth::logout();
-
-	$f = \App\Feedback::with('pluses')->find(33);
-
-	return $f;
-
-	// $plus = new \App\Plus;
-
-	// $plus->text = 'fuck';
-	// $plus->feedback_id = $f->id;
-	// $plus->save();
+	\Auth::logout();
 
 });
 

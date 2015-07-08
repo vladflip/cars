@@ -78,7 +78,15 @@
 
 		</div>
 
-		{{-- photos --}}
+		<div id="mention_photos" class="mention_photos" data-layout="{{ $option }}">
+			
+			@foreach($mention->photos as $photo)
+
+				<img src="{{ URL::to('/') . '/' . $photo->src }}" alt="">
+
+			@endforeach
+
+		</div>
 
 		<div class="mention_rate">
 			<span>Отзыв был полезен?</span>

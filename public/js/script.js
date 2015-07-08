@@ -1033,7 +1033,9 @@ require('./auth');
 
 require('./user-profile');
 
-},{"./auth":1,"./base":2,"./catalog/catalog-companies":3,"./catalog/catalog-live":4,"./main-live-search":10,"./popups/index":13,"./user-profile":16}],10:[function(require,module,exports){
+require('./mention');
+
+},{"./auth":1,"./base":2,"./catalog/catalog-companies":3,"./catalog/catalog-live":4,"./main-live-search":10,"./mention":11,"./popups/index":14,"./user-profile":17}],10:[function(require,module,exports){
 var CompanyCollection, CompanyList, CompanyModel, CompanyView, MakeCollection, MakeList, MakeModel, MakeView, SpecCollection, SpecList, SpecModel, SpecView, TypeList, companies, makes, specs, types,
   extend = function(child, parent) { for (var key in parent) { if (hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; },
   hasProp = {}.hasOwnProperty,
@@ -1670,6 +1672,24 @@ companies = new CompanyList({
 });
 
 },{"./inc/TypeList":8}],11:[function(require,module,exports){
+var mention_photos;
+
+mention_photos = $('#mention_photos');
+
+mention_photos.photosetGrid({
+  gutter: '3px',
+  highresLinks: true,
+  onComplete: function() {
+    return mention_photos.find('a').magnificPopup({
+      type: 'image',
+      gallery: {
+        enabled: true
+      }
+    });
+  }
+});
+
+},{}],12:[function(require,module,exports){
 var AddLogo, MakesList, SelectType, SelectView, makes, specs, types,
   bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; },
   extend = function(child, parent) { for (var key in parent) { if (hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; },
@@ -1777,7 +1797,7 @@ makes = new MakesList({
   types: types
 });
 
-},{"../create-company/MakesList":5,"../inc/SelectView":7}],12:[function(require,module,exports){
+},{"../create-company/MakesList":5,"../inc/SelectView":7}],13:[function(require,module,exports){
 var AddPhotos, Image, ImageCollection, ImageView, ImagesView, List, ListCollection, ListModel, ListView, SelectView, imageCollection, imagesView, make, minuses, model, pluses, quill, type,
   extend = function(child, parent) { for (var key in parent) { if (hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; },
   hasProp = {}.hasOwnProperty,
@@ -2174,7 +2194,6 @@ $('#add-feedback').click(function() {
   if (minuses.get().length !== 0) {
     result.minuses = minuses.get();
   }
-  console.log(result.content);
   return $.ajax(($('body').data('home')) + "/api/feedback/create", {
     headers: {
       'X-CSRF-TOKEN': $('body').data('csrf')
@@ -2188,7 +2207,7 @@ $('#add-feedback').click(function() {
   })(this));
 });
 
-},{"../inc/SelectView":7}],13:[function(require,module,exports){
+},{"../inc/SelectView":7}],14:[function(require,module,exports){
 require('./search');
 
 require('./sign-up');
@@ -2197,7 +2216,7 @@ require('./feedback');
 
 require('./create-company');
 
-},{"./create-company":11,"./feedback":12,"./search":14,"./sign-up":15}],14:[function(require,module,exports){
+},{"./create-company":12,"./feedback":13,"./search":15,"./sign-up":16}],15:[function(require,module,exports){
 var SelectView, make, model, type;
 
 SelectView = require('../inc/SelectView');
@@ -2225,7 +2244,7 @@ type = new SelectView({
 
 autosize($('#search-more'));
 
-},{"../inc/SelectView":7}],15:[function(require,module,exports){
+},{"../inc/SelectView":7}],16:[function(require,module,exports){
 var button, email, form, passw;
 
 $('#sign-up').magnificPopup({
@@ -2263,7 +2282,7 @@ if (form) {
   });
 }
 
-},{}],16:[function(require,module,exports){
+},{}],17:[function(require,module,exports){
 var FieldCollection, FieldModel, FieldSet, FieldView, collection,
   extend = function(child, parent) { for (var key in parent) { if (hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; },
   hasProp = {}.hasOwnProperty,

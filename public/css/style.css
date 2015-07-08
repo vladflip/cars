@@ -1382,6 +1382,9 @@ ul.create-company-spec-selectBox-dropdown-menu {
   color: #4e61eb;
   font-size: 14px;
 }
+.mention_photos {
+  margin-top: 20px;
+}
 .mention_likes,
 .mention_dislikes {
   font-size: 18px;

@@ -283,8 +283,6 @@ $('#add-feedback').click ->
 
 	# ===================================
 
-	console.log result.content
-
 	$.ajax "#{$('body').data 'home'}/api/feedback/create",
 			headers:
 				'X-CSRF-TOKEN' : $('body').data 'csrf'
