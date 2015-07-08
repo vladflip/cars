@@ -7,5 +7,6 @@ mention_photos.photosetGrid
 	onComplete: ->
 		mention_photos.find('a').magnificPopup
 			type: 'image'
+			closeBtnInside: false
 			gallery:
 				enabled: true

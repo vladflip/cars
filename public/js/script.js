@@ -1682,6 +1682,7 @@ mention_photos.photosetGrid({
   onComplete: function() {
     return mention_photos.find('a').magnificPopup({
       type: 'image',
+      closeBtnInside: false,
       gallery: {
         enabled: true
       }
@@ -2194,7 +2195,7 @@ $('#add-feedback').click(function() {
   if (minuses.get().length !== 0) {
     result.minuses = minuses.get();
   }
-  return $.ajax(($('body').data('home')) + "/api/feedback/create", {
+  $.ajax(($('body').data('home')) + "/api/feedback/create", {
     headers: {
       'X-CSRF-TOKEN': $('body').data('csrf')
     },
@@ -2205,6 +2206,7 @@ $('#add-feedback').click(function() {
       return console.log(response);
     };
   })(this));
+  return $.magnificPopup.instance.close();
 });
 
 },{"../inc/SelectView":7}],14:[function(require,module,exports){

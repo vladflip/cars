@@ -290,3 +290,5 @@ $('#add-feedback').click ->
 			data: result
 		.done (response) =>
 			console.log response
+
+	$.magnificPopup.instance.close()
