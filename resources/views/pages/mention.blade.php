@@ -44,6 +44,16 @@
 			{!! $mention->content !!}
 		</div>
 
+		<div id="mention_photos" class="mention_photos" data-layout="{{ $option }}">
+			
+			@foreach($mention->photos as $photo)
+
+				<img src="{{ URL::to('/') . '/' . $photo->src }}" alt="">
+
+			@endforeach
+
+		</div>
+		
 		<div class="mention_pluses-minuses">
 
 			<div class="mention_pluses">
@@ -75,16 +85,6 @@
 				@endforeach
 
 			</div>
-
-		</div>
-
-		<div id="mention_photos" class="mention_photos" data-layout="{{ $option }}">
-			
-			@foreach($mention->photos as $photo)
-
-				<img src="{{ URL::to('/') . '/' . $photo->src }}" alt="">
-
-			@endforeach
 
 		</div>
 
