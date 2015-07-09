@@ -63,9 +63,7 @@ class CatalogController extends Controller {
 		->get();
 
 		$models = \App\CarModel::where('make_id', $make->id)
-		// ->whereHas('companies', function($q) use($spec){
-		// 	$q->where('spec_id', $spec->id);
-		// })
+		// ->has('companies')
 		->get();
 
 		$companies = array();
