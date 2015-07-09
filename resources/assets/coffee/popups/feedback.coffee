@@ -102,7 +102,7 @@ class AddPhotos
 			self.input.click()
 
 	check: (files) ->
-		for file in files
+		for file, i in files
 			unless file.type.search('image') is -1
 				@read file
 
@@ -110,8 +110,9 @@ class AddPhotos
 		src = ''
 		r = new FileReader
 
-		r.onloadend = ->
-			imageCollection.add new Image src : r.result
+		if imageCollection.length < 10
+			r.onloadend = ->
+				imageCollection.add new Image src : r.result
 
 		r.readAsDataURL(file)
 

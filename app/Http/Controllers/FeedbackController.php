@@ -144,6 +144,10 @@ class FeedbackController extends Controller {
 
 		$input = (object)\Input::all();
 
+		if(count($input->images) > 10){
+			return 'hello lamer';
+		}
+
 		$content = preg_replace('#<script(.*?)>(.*?)</script>#is', '', $input->content);
 
 		$content = preg_replace('/<img[^>]+\>/i', '', $content);

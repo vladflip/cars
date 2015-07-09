@@ -57,7 +57,7 @@
 			<input id="feedback-input" 
 			type="file" multiple class="feedback_input-file">
 			
-			<div class="popup_label">Фотографии</div>
+			<div class="popup_label">Фотографии (10 макс)</div>
 
 			<div id="feedback-photos" class="feedback_photos">
 				

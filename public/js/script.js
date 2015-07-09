@@ -1970,9 +1970,9 @@ AddPhotos = (function() {
   }
 
   AddPhotos.prototype.check = function(files) {
-    var file, i, len, results;
+    var file, i, j, len, results;
     results = [];
-    for (i = 0, len = files.length; i < len; i++) {
+    for (i = j = 0, len = files.length; j < len; i = ++j) {
       file = files[i];
       if (file.type.search('image') !== -1) {
         results.push(this.read(file));
@@ -1987,11 +1987,13 @@ AddPhotos = (function() {
     var r, src;
     src = '';
     r = new FileReader;
-    r.onloadend = function() {
-      return imageCollection.add(new Image({
-        src: r.result
-      }));
-    };
+    if (imageCollection.length < 10) {
+      r.onloadend = function() {
+        return imageCollection.add(new Image({
+          src: r.result
+        }));
+      };
+    }
     return r.readAsDataURL(file);
   };
 
