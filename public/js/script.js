@@ -2044,6 +2044,7 @@ ListView = (function(superClass) {
 
   function ListView() {
     this.clean = bind(this.clean, this);
+    this.error = bind(this.error, this);
     return ListView.__super__.constructor.apply(this, arguments);
   }
 
@@ -2054,6 +2055,7 @@ ListView = (function(superClass) {
     self = this;
     this.render();
     this.model.on('clean', this.clean);
+    this.model.on('error', this.error);
     this.$el.find('.popup_redx').click((function(_this) {
       return function() {
         return _this.destroy();
@@ -2062,6 +2064,10 @@ ListView = (function(superClass) {
     return this.$el.children('input').keyup(function() {
       return self.model.set('text', $(this).val());
     });
+  };
+
+  ListView.prototype.error = function() {
+    return this.$el.children('input').blink();
   };
 
   ListView.prototype.render = function() {
@@ -2124,7 +2130,7 @@ List = (function(superClass) {
           model: item,
           className: _this.options["class"]
         });
-        return _this.$el.children('div:first').after(v.el);
+        return _this.$el.append(v.el);
       };
     })(this));
   };
@@ -2132,8 +2138,17 @@ List = (function(superClass) {
   List.prototype.get = function() {
     var r;
     r = [];
-    this.collection.each(function(item) {
-      return r.push(item.get('text'));
+    this.collection.each(function(model) {
+      return r.push(model);
+    });
+    return r;
+  };
+
+  List.prototype.getText = function() {
+    var r;
+    r = [];
+    this.collection.each(function(model) {
+      return r.push(model.get('text'));
     });
     return r;
   };
@@ -2157,7 +2172,7 @@ minuses = new List({
 });
 
 $('#add-feedback').click(function() {
-  var header, result;
+  var header, j, k, len, len1, minus, plus, ref, ref1, result;
   result = {};
   if (type.get() != null) {
     result.type = parseInt(type.get());
@@ -2192,10 +2207,26 @@ $('#add-feedback').click(function() {
     result.content = quill.getHTML();
   }
   if (pluses.get().length !== 0) {
-    result.pluses = pluses.get();
+    ref = pluses.get();
+    for (j = 0, len = ref.length; j < len; j++) {
+      plus = ref[j];
+      if (plus.get('text').length === 0) {
+        plus.trigger('error');
+        return false;
+      }
+    }
+    result.pluses = pluses.getText();
   }
   if (minuses.get().length !== 0) {
-    result.minuses = minuses.get();
+    ref1 = minuses.get();
+    for (k = 0, len1 = ref1.length; k < len1; k++) {
+      minus = ref1[k];
+      if (minus.get('text').length === 0) {
+        minus.trigger('error');
+        return false;
+      }
+    }
+    result.minuses = minuses.getText();
   }
   $.ajax(($('body').data('home')) + "/api/feedback/create", {
     headers: {

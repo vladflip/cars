@@ -158,11 +158,16 @@ class ListView extends Backbone.View
 
 		@model.on('clean', @clean)
 
+		@model.on 'error', @error
+
 		@$el.find('.popup_redx').click =>
 			do @destroy
 
 		@$el.children('input').keyup ->
 			self.model.set('text', $(@).val())
+
+	error: =>
+		@$el.children('input').blink()
 
 	render: ->
 		@$el.html @template text : @model.get 'text'
@@ -206,13 +211,18 @@ class List extends Backbone.View
 				model: item
 				className : @options.class
 
-			@$el.children('div:first').after(v.el)
+			@$el.append(v.el)
 
 	get: ->
 		r = []
-		@collection.each (item) ->
-			r.push item.get 'text'
+		@collection.each (model) ->
+			r.push model
+		r
 
+	getText: ->
+		r = []
+		@collection.each (model) ->
+			r.push model.get 'text'
 		r
 
 
@@ -277,10 +287,20 @@ $('#add-feedback').click ->
 	# ===================================
 
 	if pluses.get().length isnt 0
-		result.pluses = pluses.get()
+		for plus in pluses.get()
+			if plus.get('text').length is 0
+				plus.trigger 'error'
+				return false
+
+		result.pluses = pluses.getText()
 
 	if minuses.get().length isnt 0
-		result.minuses = minuses.get()
+		for minus in minuses.get()
+			if minus.get('text').length is 0
+				minus.trigger 'error'
+				return false
+				
+		result.minuses = minuses.getText()
 
 	# ===================================
 

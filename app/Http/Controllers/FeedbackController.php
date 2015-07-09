@@ -143,9 +143,26 @@ class FeedbackController extends Controller {
 	public function create() {
 
 		$input = (object)\Input::all();
+			
+		if(isset($input->images)){
+			if( count($input->images) > 10 )
+				return 'hello lamer';
+		}
 
-		if(count($input->images) > 10){
-			return 'hello lamer';
+		if(isset($input->pluses)) {
+			foreach ($input->pluses as $text) {
+				if(strlen($text) == 0) {
+					return 'hello lamer';
+				}
+			}
+		}
+
+		if(isset($input->minuses)) {
+			foreach ($input->minuses as $text) {
+				if(strlen($text) == 0) {
+					return 'hello lamer';
+				}
+			}
 		}
 
 		$content = preg_replace('#<script(.*?)>(.*?)</script>#is', '', $input->content);
