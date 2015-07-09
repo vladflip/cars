@@ -143,27 +143,6 @@ class FeedbackController extends Controller {
 	public function create() {
 
 		$input = (object)\Input::all();
-			
-		if(isset($input->images)){
-			if( count($input->images) > 10 )
-				return 'hello lamer';
-		}
-
-		if(isset($input->pluses)) {
-			foreach ($input->pluses as $text) {
-				if(strlen($text) == 0) {
-					return 'hello lamer';
-				}
-			}
-		}
-
-		if(isset($input->minuses)) {
-			foreach ($input->minuses as $text) {
-				if(strlen($text) == 0) {
-					return 'hello lamer';
-				}
-			}
-		}
 
 		$content = preg_replace('#<script(.*?)>(.*?)</script>#is', '', $input->content);
 
@@ -181,18 +160,21 @@ class FeedbackController extends Controller {
 		if(\App\Make::isInType($input->make, $input->type))
 			$feedback->make_id = $input->make;
 		else
-			return 'fuck';
+			return 'hello lamer';
 
 		$feedback->user_id = \Auth::id();
 
 		if(\App\CarModel::isInMake($input->model, $input->make))
 			$feedback->model_id = $input->model;
 		else
-			return 'fuck';
+			return 'hello lamer';
 
 		$feedback->save();
 
 		if(isset($input->images)){
+
+			if( count($input->images) > 10 )
+				return 'hello lamer';
 
 			foreach ($input->images as $src) {
 
@@ -225,6 +207,10 @@ class FeedbackController extends Controller {
 		if(isset($input->pluses)){
 
 			foreach ($input->pluses as $text) {
+
+				if(strlen($text) == 0) {
+					return 'hello lamer';
+				}
 				
 				$plus = new \App\Plus(['text' => $text]);
 
@@ -239,6 +225,10 @@ class FeedbackController extends Controller {
 		if(isset($input->minuses)){
 
 			foreach ($input->minuses as $text) {
+
+				if(strlen($text) == 0) {
+					return 'hello lamer';
+				}
 				
 				$minus = new \App\Minus(['text' => $text]);
 
