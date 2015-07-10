@@ -24,6 +24,20 @@ $.fn.blink = ->
 			backgroundColor: 'white'
 		, 300
 
+$.fn.preload = (command) ->
+	if command is 'start'
+		@data 'text', @html()
+		@html ''
+		@addClass 'preloader-start'
+
+	if command is 'stop'
+		@removeClass 'preloader-start'
+		@addClass 'preloader-end'
+
+	if command is 'reset'
+		@removeClass 'preloader-end'
+		@html @data 'text'
+
 $('.sticky').stick_in_parent
 	offset_top: 25
 

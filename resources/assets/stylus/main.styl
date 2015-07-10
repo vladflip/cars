@@ -8,3 +8,37 @@
 @import 'layout/*'
 
 @import 'pages/*'
+
+
+@keyframes preload
+	0%
+		transform rotate(0deg)
+	100%
+		transform rotate(360deg)
+
+@keyframes success
+	// 0%
+	// 	opacity 0
+	// 	transform scale(0, 0)
+	100%
+		opacity 1
+		transform scale(1, 1)
+
+.preloader-start
+	width 40px
+	height 40px
+	border-radius 100%
+	border-style dotted
+	animation preload 2.5s infinite linear
+	animation-delay .2s
+	cursor auto
+
+.preloader-end
+	width 40px
+	height 40px
+	border-color transparent
+	cursor auto
+	
+	&:before
+		opacity 1
+		transform scale(1, 1)

@@ -304,6 +304,8 @@ $('#add-feedback').click ->
 
 	# ===================================
 
+	$(@).preload('start')
+
 	$.ajax "#{$('body').data 'home'}/api/feedback/create",
 			headers:
 				'X-CSRF-TOKEN' : $('body').data 'csrf'
@@ -312,4 +314,11 @@ $('#add-feedback').click ->
 		.done (response) =>
 			console.log response
 
-	$.magnificPopup.instance.close()
+			$(@).preload('stop')
+
+			setTimeout ->
+				$.magnificPopup.instance.close()
+			, 1000
+			setTimeout =>
+				$(@).preload('reset')
+			, 1500

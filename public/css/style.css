@@ -666,6 +666,22 @@ ul.create-company-spec-selectBox-dropdown-menu {
       -ms-user-select: none;
           user-select: none;
   margin: 30px auto 0;
+  position: relative;
+  transition: all 0.2s linear;
+}
+.popup_button::before {
+  transition: all 0.4s ease-in;
+  content: '';
+  display: block;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  -webkit-transform: scale(0, 0);
+          transform: scale(0, 0);
+  background: url("../img/success.png") no-repeat center;
+  background-size: contain;
 }
 .selectBox-disabled {
   color: #ccc;
@@ -1777,4 +1793,60 @@ ul.create-company-spec-selectBox-dropdown-menu {
 }
 .sent-requests_response-body {
   width: 450px;
+}
+.preloader-start {
+  width: 40px;
+  height: 40px;
+  border-radius: 100%;
+  border-style: dotted;
+  -webkit-animation: preload 2.5s infinite linear;
+          animation: preload 2.5s infinite linear;
+  -webkit-animation-delay: 0.2s;
+          animation-delay: 0.2s;
+  cursor: auto;
+}
+.preloader-end {
+  width: 40px;
+  height: 40px;
+  border-color: transparent;
+  cursor: auto;
+}
+.preloader-end:before {
+  opacity: 1;
+  -webkit-transform: scale(1, 1);
+          transform: scale(1, 1);
+}
+@-webkit-keyframes preload {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+@keyframes preload {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+@-webkit-keyframes success {
+  100% {
+    opacity: 1;
+    -webkit-transform: scale(1, 1);
+            transform: scale(1, 1);
+  }
+}
+@keyframes success {
+  100% {
+    opacity: 1;
+    -webkit-transform: scale(1, 1);
+            transform: scale(1, 1);
+  }
 }
