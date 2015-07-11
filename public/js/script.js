@@ -2336,6 +2336,8 @@ if (form) {
       if (passw.val() !== '') {
         return form.submit();
       }
+    } else {
+      return email.blink();
     }
   });
 }
