@@ -12,7 +12,7 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 
 	protected $table = 'users';
 
-	protected $fillable = ['name', 'address', 'phone', 'about'];
+	protected $fillable = ['name', 'email', 'address', 'phone', 'about', 'password', 'confirmation_code'];
 
 	protected $hidden = ['password', 'remember_token'];
 
@@ -31,11 +31,24 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 			);
 	}
 
+	public function email_provider() {
+		$start = strrpos($this->email, '@');
+		$provider = substr($this->email, $start + 1);
+		return $provider;
+	}
+
 	public function dislikes() {
 		return $this->belongsToMany(
 				'App\User', 'feedback_dislikes', 
 				'user_id', 'feedback_id'
 			);
+	}
+
+	public function sendConfirmation($code) {
+		\Mail::send('emails.verify', ['code' => $code], function($msg){
+			$msg->to('vlad.flip.prg@gmail.com')
+			->subject('Подтверждение почты');
+		});
 	}
 
 	public function comments() {

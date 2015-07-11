@@ -54,7 +54,7 @@ return [
 	|
 	*/
 
-	'from' => ['address' => '', 'name' => 'Komtrans Club'],
+	'from' => ['address' => 'komtrans-club@yandex.ru', 'name' => 'Komtrans Club'],
 
 	/*
 	|--------------------------------------------------------------------------

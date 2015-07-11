@@ -28,9 +28,52 @@ class UserController extends Controller {
 
 	public function create() {
 
-		$input = \Input::all();
+		$input = (object)\Input::all();
 
-		return $input;
+		$validator = \Validator::make(
+			['email' => $input->email],
+			['email' => 'required|email|unique:users']
+
+		);
+
+		if($validator->fails()){
+			return 'hello lamer';
+		}
+
+		$code = md5(\Hash::make($input->email));
+
+		$user = \App\User::create([
+			'email' => $input->email,
+			'password' => \Hash::make($input->password),
+			'confirmation_code' => $code
+		]);
+
+		\Auth::login($user);
+
+		\Mail::send('emails.verify', ['code' => $code], function($msg) use ($user){
+			$msg->to($user->email)
+			->subject('Подтверждение почты');
+		});
+
+		return redirect()->route('profile');
+
+	}
+
+	public function verify($code) {
+
+		$user = \App\User::where('confirmation_code', $code)->first();
+
+		if(!$user) {
+			return redirect()->route('home');
+		}
+
+		$user->confirmed = true;
+
+		$user->confirmation_code = null;
+
+		$user->save();
+
+		return redirect()->route('profile');
 
 	}
 

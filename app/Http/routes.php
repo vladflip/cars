@@ -20,12 +20,14 @@ get('/', [
 
 get('fuck', function(){
 
-	// Auth::logout();
+	Auth::logout();
 
-	Mail::send('emails.verify', [], function($msg){
-		$msg->to('vlad.flip.prg@gmail.com', 'Headeeeer')
-		->subject('Приветики');
-	});
+	// Mail::send('emails.verify', ['code' => 'asdflaskjdf'], function($msg){
+	// 	$msg->to('vlad.flip.prg@gmail.com')
+	// 	->subject('Подтверждение почты');
+	// });
+
+	// var_dump(\Auth::user()->sendConfirmation('fas;ldf'));
 
 });
 
@@ -45,6 +47,12 @@ Route::group(['prefix' => 'user'], function(){
 	post('auth', [
 		'as' => 'user-auth',
 		'uses' => 'UserController@authenticate'
+	]);
+
+	get('verify/{code}', [
+		'as' => 'user-verify',
+		'uses' => 'UserController@verify',
+		'middleware' => 'auth'
 	]);
 
 });

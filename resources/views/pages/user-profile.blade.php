@@ -8,65 +8,78 @@
 			
 			<div class="profile_left">
 
-				<div class="profile-info">
+				@if($user->confirmed)
 
-					<div class="profile-info_header">
-					
-						<div class="profile-info_toogler">
+					<div class="profile-info">
 
-							<div class="profile-info_profile profile-info_toogler--active">
-								Мой профиль
+						<div class="profile-info_header">
+						
+							<div class="profile-info_toogler">
+
+								<div class="profile-info_profile profile-info_toogler--active">
+									Мой профиль
+								</div>
+								
+								<div id="create-company-button" href="#create-company" class="profile-info_company">
+									Создать компанию
+								</div>
+
 							</div>
-							
-							<div id="create-company-button" href="#create-company" class="profile-info_company">
-								Создать компанию
+
+							<div class="profile_settings">
+								<span class="profile_settings-icon"></span>
+								Настройки
 							</div>
 
 						</div>
+						
+						<div class="profile-info_body">
 
-						<div class="profile_settings">
-							<span class="profile_settings-icon"></span>
-							Настройки
+							<div class="profile-info_left">
+								
+								<div class="profile-info_logo">
+									<img 
+									src="{{ $user->ava ? $user->ava : URL::to('/') . '/img/ava.jpg' }}" alt="">
+								</div>
+							
+							</div>
+							
+							<div class="profile-info_right">
+								
+								<h3 id="edit-profile-name" class="profile-info_name">
+									<span>{{ $user->name }}</span>
+									<span id="profile-pen" href="#edit-profile-popup" class="profile-info_pen">
+									</span>
+								</h3>
+							
+								<div id="edit-profile-address" class="profile-info_address">
+									{{ $user->address }}
+								</div>
+							
+								<div id="edit-profile-phone" class="profile-info_phone">
+									{{ $user->phone }}
+								</div>
+
+								<div id="edit-profile-about" class="profile-info_about">
+									{{ $user->about }}
+								</div>
+							
+							</div>
+
 						</div>
 
 					</div>
-					
-					<div class="profile-info_body">
 
-						<div class="profile-info_left">
-							
-							<div class="profile-info_logo">
-								<img 
-								src="{{ $user->ava ? $user->ava : URL::to('/') . '/img/ava.jpg' }}" alt="">
-							</div>
-						
-						</div>
-						
-						<div class="profile-info_right">
-							
-							<h3 id="edit-profile-name" class="profile-info_name">
-								<span>{{ $user->name }}</span>
-								<span id="profile-pen" href="#edit-profile-popup" class="profile-info_pen">
-								</span>
-							</h3>
-						
-							<div id="edit-profile-address" class="profile-info_address">
-								{{ $user->address }}
-							</div>
-						
-							<div id="edit-profile-phone" class="profile-info_phone">
-								{{ $user->phone }}
-							</div>
+				@else
 
-							<div id="edit-profile-about" class="profile-info_about">
-								{{ $user->about }}
-							</div>
-						
-						</div>
-
+					<div class="profile_verify">
+						Подтвердите свою почту. 
+						На вашу почту (
+							<a href="http://{{ $user->email_provider() }}">{{ $user->email_provider() }}</a>
+						) было выслано письмо.
 					</div>
 
-				</div>
+				@endif
 
 				@if(count($user->requests))
 
