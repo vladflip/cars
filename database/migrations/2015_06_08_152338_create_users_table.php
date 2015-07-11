@@ -32,7 +32,7 @@ class CreateUsersTable extends Migration {
 			$t->boolean('confirmed')->default(0);
 			$t->string('confirmation_code')->nullable();
 
-			$->index('confirmation_code');
+			$t->index('confirmation_code');
 
 			$t->rememberToken();
 

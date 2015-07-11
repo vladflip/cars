@@ -22,13 +22,6 @@ get('fuck', function(){
 
 	\Auth::logout();
 
-	// Mail::send('emails.verify', ['code' => 'asdflaskjdf'], function($msg){
-	// 	$msg->to('vlad.flip.prg@gmail.com')
-	// 	->subject('Подтверждение почты');
-	// });
-
-	// var_dump(\Auth::user()->sendConfirmation('fas;ldf'));
-
 });
 
 Route::group(['prefix' => 'user'], function(){
