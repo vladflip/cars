@@ -75,7 +75,7 @@
 					<div class="profile_verify">
 						Подтвердите свою почту. 
 						На вашу почту (
-							<a href="http://{{ $user->email_provider() }}">{{ $user->email_provider() }}</a>
+							<a href="http://{{ $user->email_provider() }}">{{ $user->email }}</a>
 						) было выслано письмо.
 					</div>
 
