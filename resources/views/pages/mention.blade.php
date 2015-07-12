@@ -88,19 +88,22 @@
 
 		</div>
 
-		<div class="mention_rate">
-			<span>Отзыв был полезен?</span>
+		@if( ! $mention->likes->contains(Auth::id()) || ! $mention->dislikes->container(Auth::id()) )
 
-			<div class="mention_likes mention_likes--active">
-				<span>{{ count($mention->likes) }}</span>
-				<img src="{{ URL::to('/') }}/img/like.png" alt="">
-			</div>
-			<div class="mention_dislikes mention_dislikes--active">
-				<span>{{ count($mention->dislikes) }}</span>
-				<img src="{{ URL::to('/') }}/img/dislike.png" alt="">
-			</div>
+			<div class="mention_rate">
+				<span>Отзыв был полезен?</span>
 
-		</div>
+				<div class="mention_likes mention_likes--active">
+					<span>{{ count($mention->likes) }}</span>
+					<img src="{{ URL::to('/') }}/img/like.png" alt="">
+				</div>
+				<div class="mention_dislikes mention_dislikes--active">
+					<span>{{ count($mention->dislikes) }}</span>
+					<img src="{{ URL::to('/') }}/img/dislike.png" alt="">
+				</div>
+			</div>
+			
+		@endif
 
 	</div>
 

@@ -20,7 +20,17 @@ get('/', [
 
 get('fuck', function(){
 
-	\Auth::logout();
+	// \Auth::logout();
+
+	$f = \App\Feedback::find(30);
+
+	// $f->likes()->attach(1);
+
+	$b = $f->likes->contains(1);
+
+	if($b){
+		echo 'fuck';
+	}
 
 });
 
