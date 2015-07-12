@@ -41,9 +41,11 @@
 				Зарегистрируйся и найди любые запчасти бесплатно
 			</h5>
 
-			<div id="footer-sign-up" href="#sign-up-popup" class="footer_sign-up-button">
-				Регистрация
-			</div>
+			@if(Auth::guest())
+				<div id="footer-sign-up" href="#sign-up-popup" class="footer_sign-up-button">
+					Регистрация
+				</div>
+			@endif
 
 			<div class="footer_logo">
 				
