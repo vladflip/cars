@@ -100,11 +100,19 @@ $toogler--active
 	
 	&_pen
 		width 8px
-		height 9px
+		height 10px
 		display inline-block
 		cursor pointer
 		margin-left 20px
+		position relative
 		background url(../img/pen.png) no-repeat center
+		
+		&::after
+			content 'ред.'
+			color $yellow
+			position absolute
+			left 10px
+			font-size 12px
 		
 	&_address
 		font-size 12px

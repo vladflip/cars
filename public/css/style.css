@@ -1627,11 +1627,19 @@ ul.create-company-spec-selectBox-dropdown-menu {
 }
 .profile-info_pen {
   width: 8px;
-  height: 9px;
+  height: 10px;
   display: inline-block;
   cursor: pointer;
   margin-left: 20px;
+  position: relative;
   background: url("../img/pen.png") no-repeat center;
+}
+.profile-info_pen::after {
+  content: 'ред.';
+  color: #f3df6d;
+  position: absolute;
+  left: 10px;
+  font-size: 12px;
 }
 .profile-info_address {
   font-size: 12px;
