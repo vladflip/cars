@@ -558,7 +558,7 @@ specmakes = new SpecMakes({
   types: types
 });
 
-},{"../inc/TypeList":8}],5:[function(require,module,exports){
+},{"../inc/TypeList":9}],5:[function(require,module,exports){
 var MakeView, MakesList, ModelsList,
   bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; },
   extend = function(child, parent) { for (var key in parent) { if (hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; },
@@ -817,6 +817,111 @@ ModelsList = (function(superClass) {
 module.exports = ModelsList;
 
 },{}],7:[function(require,module,exports){
+var Avatar;
+
+Avatar = (function() {
+  function Avatar(id, input) {
+    var self;
+    self = this;
+    this.coords = {};
+    this.id = $(id);
+    this.input = $(input);
+    this.popup = $('#avatar-popup');
+    this.template = $.HandlebarsFactory('#avatar-template');
+    this.id.click((function(_this) {
+      return function() {
+        return _this.input.click();
+      };
+    })(this));
+    this.input.change(function() {
+      return self.readFile(this.files);
+    });
+  }
+
+  Avatar.prototype.readFile = function(fileList) {
+    var img, r;
+    img = fileList[0];
+    if (img.type.search('image') === -1) {
+      alert('это не картинка');
+      return;
+    }
+    r = new FileReader;
+    r.onloadend = (function(_this) {
+      return function() {
+        var src;
+        src = r.result;
+        return _this.showPopup(src);
+      };
+    })(this);
+    return r.readAsDataURL(img);
+  };
+
+  Avatar.prototype.adjustPopup = function(img) {
+    if (img.naturalWidth > 780) {
+
+    } else if (img.naturalWidth > 300) {
+      return this.popup.css('width', img.naturalWidth + 'px');
+    } else {
+      return this.popup.css('width', '300px');
+    }
+  };
+
+  Avatar.prototype.showErrorPopup = function() {
+    this.popup.html('<span class="popup_error">Картинка должна быть не меньше 115px и не больше 7000px по ширине и высоте</span>');
+    return $.magnificPopup.open({
+      items: {
+        src: this.popup
+      }
+    });
+  };
+
+  Avatar.prototype.showPopup = function(src) {
+    var img, imgHeight, imgWidth, ref, ref1;
+    this.popup.html(this.template({
+      src: src
+    }));
+    img = this.popup.find('img');
+    if ((115 < (ref = img[0].naturalHeight) && ref > 7000) || (115 < (ref1 = img[0].naturalWidth) && ref1 < 7000)) {
+      this.showErrorPopup();
+      return;
+    }
+    this.adjustPopup(img[0]);
+    imgWidth = img[0].naturalWidth;
+    imgHeight = img[0].naturalHeight;
+    img.Jcrop({
+      aspectRatio: 1 / 1,
+      minSize: [115, 115],
+      boxWidth: 780,
+      boxHeight: $(document).height() - 300,
+      setSelect: [imgWidth * 0.25, imgHeight * 0.07, imgWidth * 0.75, imgHeight * 0.75],
+      onSelect: (function(_this) {
+        return function(c) {
+          return console.log(c.x, c.y, c.x2, c.y2, c.w, c.h);
+        };
+      })(this)
+    });
+    return $.magnificPopup.open({
+      items: {
+        src: this.popup
+      },
+      closeBtnInside: false,
+      callbacks: {
+        close: (function(_this) {
+          return function() {
+            return console.log(_this.input.val(''));
+          };
+        })(this)
+      }
+    });
+  };
+
+  return Avatar;
+
+})();
+
+module.exports = Avatar;
+
+},{}],8:[function(require,module,exports){
 var SelectView,
   extend = function(child, parent) { for (var key in parent) { if (hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; },
   hasProp = {}.hasOwnProperty;
@@ -892,7 +997,7 @@ SelectView = (function(superClass) {
 
 module.exports = SelectView;
 
-},{}],8:[function(require,module,exports){
+},{}],9:[function(require,module,exports){
 var TypeList, TypeModel, TypeView, TypesCollection,
   extend = function(child, parent) { for (var key in parent) { if (hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; },
   hasProp = {}.hasOwnProperty,
@@ -1034,7 +1139,7 @@ TypeList = (function(superClass) {
 
 module.exports = TypeList;
 
-},{}],9:[function(require,module,exports){
+},{}],10:[function(require,module,exports){
 require('./base');
 
 require('./popups/index');
@@ -1051,7 +1156,7 @@ require('./user-profile');
 
 require('./mention');
 
-},{"./auth":1,"./base":2,"./catalog/catalog-companies":3,"./catalog/catalog-live":4,"./main-live-search":10,"./mention":11,"./popups/index":14,"./user-profile":17}],10:[function(require,module,exports){
+},{"./auth":1,"./base":2,"./catalog/catalog-companies":3,"./catalog/catalog-live":4,"./main-live-search":11,"./mention":12,"./popups/index":15,"./user-profile":18}],11:[function(require,module,exports){
 var CompanyCollection, CompanyList, CompanyModel, CompanyView, MakeCollection, MakeList, MakeModel, MakeView, SpecCollection, SpecList, SpecModel, SpecView, TypeList, companies, makes, specs, types,
   extend = function(child, parent) { for (var key in parent) { if (hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; },
   hasProp = {}.hasOwnProperty,
@@ -1687,7 +1792,7 @@ companies = new CompanyList({
   makes: makes
 });
 
-},{"./inc/TypeList":8}],11:[function(require,module,exports){
+},{"./inc/TypeList":9}],12:[function(require,module,exports){
 var mention_photos;
 
 mention_photos = $('#mention_photos');
@@ -1706,7 +1811,7 @@ mention_photos.photosetGrid({
   }
 });
 
-},{}],12:[function(require,module,exports){
+},{}],13:[function(require,module,exports){
 var AddLogo, MakesList, SelectType, SelectView, makes, specs, types,
   bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; },
   extend = function(child, parent) { for (var key in parent) { if (hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; },
@@ -1814,7 +1919,7 @@ makes = new MakesList({
   types: types
 });
 
-},{"../create-company/MakesList":5,"../inc/SelectView":7}],13:[function(require,module,exports){
+},{"../create-company/MakesList":5,"../inc/SelectView":8}],14:[function(require,module,exports){
 var AddPhotos, Image, ImageCollection, ImageView, ImagesView, List, ListCollection, ListModel, ListView, SelectView, imageCollection, imagesView, make, minuses, model, pluses, quill, type,
   extend = function(child, parent) { for (var key in parent) { if (hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; },
   hasProp = {}.hasOwnProperty,
@@ -2265,7 +2370,7 @@ $('#add-feedback').click(function() {
   })(this));
 });
 
-},{"../inc/SelectView":7}],14:[function(require,module,exports){
+},{"../inc/SelectView":8}],15:[function(require,module,exports){
 require('./search');
 
 require('./sign-up');
@@ -2274,7 +2379,7 @@ require('./feedback');
 
 require('./create-company');
 
-},{"./create-company":12,"./feedback":13,"./search":15,"./sign-up":16}],15:[function(require,module,exports){
+},{"./create-company":13,"./feedback":14,"./search":16,"./sign-up":17}],16:[function(require,module,exports){
 var SelectView, make, model, type;
 
 SelectView = require('../inc/SelectView');
@@ -2302,7 +2407,7 @@ type = new SelectView({
 
 autosize($('#search-more'));
 
-},{"../inc/SelectView":7}],16:[function(require,module,exports){
+},{"../inc/SelectView":8}],17:[function(require,module,exports){
 var button, email, form, passw;
 
 $('#sign-up').magnificPopup({
@@ -2342,11 +2447,13 @@ if (form) {
   });
 }
 
-},{}],17:[function(require,module,exports){
-var FieldCollection, FieldModel, FieldSet, FieldView, collection,
+},{}],18:[function(require,module,exports){
+var Avatar, FieldCollection, FieldModel, FieldSet, FieldView, collection,
   extend = function(child, parent) { for (var key in parent) { if (hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; },
   hasProp = {}.hasOwnProperty,
   bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };
+
+Avatar = require('./inc/Avatar');
 
 $('#profile-pen').magnificPopup({
   type: 'inline',
@@ -2534,6 +2641,8 @@ FieldSet = (function(superClass) {
 
 })(Backbone.View);
 
+new Avatar('#user-logo', '#user-logo-file');
+
 collection = new FieldCollection;
 
 collection.add(new FieldModel({
@@ -2568,4 +2677,4 @@ new FieldSet({
   collection: collection
 });
 
-},{}]},{},[9]);
+},{"./inc/Avatar":7}]},{},[10]);

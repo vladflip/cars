@@ -37,10 +37,14 @@
 
 							<div class="profile-info_left">
 								
-								<div class="profile-info_logo">
-									<img 
+								<div class="profile-info_logo" id="user-logo">
+									<img id="jcrop"
 									src="{{ $user->ava ? $user->ava : URL::to('/') . '/img/ava.jpg' }}" alt="">
 								</div>
+								
+								<input type="file" style="display:none" id="user-logo-file">
+
+								<div id="avatar-popup" class="popup mfp-hide popup--avatar"></div>
 							
 							</div>
 							
@@ -122,5 +126,7 @@
 	@include('popups.edit-profile')
 
 	@include('templates.popup-field-template')
+
+	@include('templates.avatar-template')
 
 @stop

@@ -1,3 +1,5 @@
+Avatar = require './inc/Avatar'
+
 $('#profile-pen').magnificPopup
 
 	type: 'inline'
@@ -132,6 +134,7 @@ class FieldSet extends Backbone.View
 			@button.before v.el
 
 
+new Avatar '#user-logo', '#user-logo-file'
 
 
 collection = new FieldCollection

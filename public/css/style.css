@@ -509,6 +509,10 @@ ul.create-company-spec-selectBox-dropdown-menu {
       -ms-flex-align: center;
           align-items: center;
 }
+.popup_error {
+  font-size: 14px;
+  color: #222;
+}
 .popup--search,
 .popup--sign-up {
   width: 450px;
@@ -518,8 +522,20 @@ ul.create-company-spec-selectBox-dropdown-menu {
 .popup--edit-profile {
   width: 300px;
 }
-.popup--feedback {
+.popup--feedback,
+.popup--avatar {
   width: 780px;
+}
+.popup--avatar .popup_content {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 .popup--create-company {
   width: 660px;
@@ -1628,6 +1644,7 @@ ul.create-company-spec-selectBox-dropdown-menu {
 .profile-info_logo {
   width: 115px;
   height: 115px;
+  cursor: pointer;
 }
 .profile-info_logo img {
   max-height: 115px;
