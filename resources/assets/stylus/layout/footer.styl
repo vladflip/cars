@@ -4,33 +4,39 @@
 	background-color #2d2d2d
 	margin-top 30px
 	
-	.left		
-		ul
-			float left
-			margin 35px 70px 0 0
-			
-			li:first-child
-				color #e0e0e0
-				font-size 14px
-				margin-top 0
-				
-			li
-				color #6a6a6a
-				font-size 13px
-				margin-top 15px
-			
-		h5
-			color #6a6a6a
-			font-weight 300
+	&_row
+		display flex
+		justify-content space-between
+		
+		&:last-child	
 			margin-top 150px
+
+		
+	&_list
+		float left
+		margin 35px 70px 0 0
+		
+		li:first-child
+			color #e0e0e0
+			font-size 14px
+			margin-top 0
 			
-	.right		
+		li
+			color #6a6a6a
+			font-size 13px
+			margin-top 15px
+	
+	&_sign-up-block
 		width 215px
 		
 		h5
 			margin 35px 0 0 0
 			color #e0e0e0
 			font-weight 300
+			
+	&_rights
+		color #6a6a6a
+		font-weight 300
 		
 	&_sign-up-button
 		color #e0e0e0
@@ -42,9 +48,10 @@
 		border-radius 2px
 		width 200px
 		height 55px
+		align-self flex-end
 		
 	&_logo
 		background url(../img/footer_logo.jpg) center no-repeat
-		height 100px
-		margin-top 120px
+		height 58px
+		width 200px
 		

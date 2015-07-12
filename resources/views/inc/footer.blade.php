@@ -1,58 +1,69 @@
 <div class="footer">
 	
 	<div class="container">
-		
-		<div class="left">
+
+		<div class="footer_row">
 			
-			<ul>
-				<li>Информация</li>
-				<li>О клубе</li>
-				<li>Вступить</li>
-				<li>Контакты</li>
-				<li>Сотрудничество</li>
-			</ul>
+			<div>
 
-			<ul>
-				<li>Каталог</li>
-				<li>Компании</li>
-				<li>Запчасти</li>
-				<li>Услуги</li>
-				<li>Поиск</li>
-			</ul>
+				<ul class="footer_list">
+					<li>Информация</li>
+					<li>О клубе</li>
+					<li>Вступить</li>
+					<li>Контакты</li>
+					<li>Сотрудничество</li>
+				</ul>
+				
+				<ul class="footer_list">
+					<li>Каталог</li>
+					<li>Компании</li>
+					<li>Запчасти</li>
+					<li>Услуги</li>
+					<li>Поиск</li>
+				</ul>
+				
+				<ul class="footer_list">
+					<li>Клуб</li>
+					<li>Новости</li>
+					<li>Общение</li>
+					<li>Клубные карты</li>
+				</ul>
 
-			<ul>
-				<li>Клуб</li>
-				<li>Новости</li>
-				<li>Общение</li>
-				<li>Клубные карты</li>
-			</ul>
+			</div>
 
-			<div class="clear-fix"></div>
+			@if(Auth::guest())
+			
+				<div class="footer_sign-up-block">
 
-			<h5>
-				2015 Komtrans club. Все права защищены.
-			</h5>
+					<h5>
+						Зарегистрируйся и найди любые запчасти бесплатно
+					</h5>
+
+					<div id="footer-sign-up" href="#sign-up-popup" class="footer_sign-up-button">
+						Регистрация
+					</div>
+
+				</div>
+
+			@endif
 
 		</div>
 
-		<div class="right">
+		<div class="footer_row">
 			
-			<h5>
-				Зарегистрируйся и найди любые запчасти бесплатно
-			</h5>
-
-			@if(Auth::guest())
-				<div id="footer-sign-up" href="#sign-up-popup" class="footer_sign-up-button">
-					Регистрация
-				</div>
-			@endif
-
-			<div class="footer_logo">
+			<div>
 				
+				<h5 class="footer_rights">2015 Komtrans club. Все права защищены.</h5>
+
+			</div>
+			
+			<div>
+				
+				<div class="footer_logo"></div>
+
 			</div>
 
 		</div>
-
 
 	</div>
 

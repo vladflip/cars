@@ -1015,31 +1015,41 @@ ul.create-company-spec-selectBox-dropdown-menu {
   background-color: #2d2d2d;
   margin-top: 30px;
 }
-.footer .left ul {
+.footer_row {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+.footer_row:last-child {
+  margin-top: 150px;
+}
+.footer_list {
   float: left;
   margin: 35px 70px 0 0;
 }
-.footer .left ul li:first-child {
+.footer_list li:first-child {
   color: #e0e0e0;
   font-size: 14px;
   margin-top: 0;
 }
-.footer .left ul li {
+.footer_list li {
   color: #6a6a6a;
   font-size: 13px;
   margin-top: 15px;
 }
-.footer .left h5 {
-  color: #6a6a6a;
-  font-weight: 300;
-  margin-top: 150px;
-}
-.footer .right {
+.footer_sign-up-block {
   width: 215px;
 }
-.footer .right h5 {
+.footer_sign-up-block h5 {
   margin: 35px 0 0 0;
   color: #e0e0e0;
+  font-weight: 300;
+}
+.footer_rights {
+  color: #6a6a6a;
   font-weight: 300;
 }
 .footer_sign-up-button {
@@ -1061,11 +1071,14 @@ ul.create-company-spec-selectBox-dropdown-menu {
   border-radius: 2px;
   width: 200px;
   height: 55px;
+  -webkit-align-self: flex-end;
+      -ms-flex-item-align: end;
+          align-self: flex-end;
 }
 .footer_logo {
   background: url("../img/footer_logo.jpg") center no-repeat;
-  height: 100px;
-  margin-top: 120px;
+  height: 58px;
+  width: 200px;
 }
 .container {
   height: 100%;
