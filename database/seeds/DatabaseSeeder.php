@@ -70,7 +70,7 @@ class UserSeeder extends Seeder {
 			'password' => Hash::make('admin'),
 			'name' => 'admin',
 
-			'confirmed' => 0
+			'confirmed' => 1
 		]);
 
 	}
