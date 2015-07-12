@@ -5,7 +5,10 @@
 	<p>Заполните форму и получите 
 		персональные предложения от актуальных компаний</p>
 
-	<div id="search" href="#search-popup" class="search_button">Отправить запрос</div>
+	<div id="search" class="search_button"
+	href="{{ Auth::guest() ? '#sign-up-popup' : '#search-popup' }}">
+		Отправить запрос
+	</div>
 
 </div>
 

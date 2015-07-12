@@ -5,7 +5,9 @@
 		Вы можете поделиться своим мнением с другими участниками клуба
 	</p>
 
-	<div id="feedback" href="#feedback-popup" class="feedback_button">
+	<div id="feedback" class="feedback_button"
+	href="{{ Auth::guest() ? '#sign-up-popup' : '#feedback-popup' }}" >
+		
 		Написать отзыв
 	</div>
 

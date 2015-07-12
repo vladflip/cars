@@ -25,7 +25,8 @@
 
 	</ul>
 
-	<div id="create-company-button" class="specs_add" href="#create-company">
+	<div id="create-company-button" class="specs_add" 
+	href="{{ Auth::guest() ? '#sign-up-popup' : '#create-company' }}">
 		Добавить организацию
 	</div>
 
