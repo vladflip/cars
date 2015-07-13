@@ -1419,6 +1419,10 @@ ul.create-company-spec-selectBox-dropdown-menu {
       -ms-flex-pack: justify;
           justify-content: space-between;
 }
+.mention_votes .mention_likes,
+.mention_votes .mention_dislikes {
+  cursor: auto;
+}
 .mention_date {
   color: #ccc;
   font-size: 14px;
@@ -1441,11 +1445,12 @@ ul.create-company-spec-selectBox-dropdown-menu {
   -webkit-align-items: center;
       -ms-flex-align: center;
           align-items: center;
-}
-.mention_likes--active,
-.mention_dislikes--active {
-  padding: 8px 15px;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
   cursor: pointer;
+  padding: 8px 15px;
 }
 .mention_likes span,
 .mention_dislikes span {
@@ -1457,7 +1462,6 @@ ul.create-company-spec-selectBox-dropdown-menu {
 }
 .mention_likes--active {
   background-color: #f6fae9;
-  margin-right: 5px;
 }
 .mention_dislikes {
   color: #dbdbdb;

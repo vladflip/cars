@@ -21,6 +21,10 @@
 		display flex
 		justify-content space-between
 		
+	&_votes &_likes,
+	&_votes &_dislikes
+		cursor auto
+		
 	&_date
 		color #ccc
 		font-size 14px
@@ -47,10 +51,9 @@
 		font-weight 400
 		display flex
 		align-items center
-		
-		&--active
-			padding 8px 15px
-			cursor pointer
+		user-select none
+		cursor pointer
+		padding 8px 15px
 		
 		span
 			margin-right 7px
@@ -61,7 +64,6 @@
 		
 		&--active
 			background-color #f6fae9
-			margin-right 5px
 		
 	&_dislikes
 		color #dbdbdb

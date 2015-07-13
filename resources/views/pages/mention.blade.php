@@ -14,11 +14,11 @@
 
 			<div class="mention_votes">
 				<div class="mention_likes">
-					<span>{{ count($mention->likes) }}</span>
+					<span id="mention-likes-info">{{ count($mention->likes) }}</span>
 					<img src="{{ URL::to('/') }}/img/like.png" alt="">
 				</div>
 				<div class="mention_dislikes">
-					<span>{{ count($mention->dislikes) }}</span>
+					<span id="mention-dislikes-info">{{ count($mention->dislikes) }}</span>
 					<img src="{{ URL::to('/') }}/img/dislike.png" alt="">
 				</div>
 			</div>
@@ -88,16 +88,24 @@
 
 		</div>
 
-		@if( ! $mention->likes->contains(Auth::id()) || ! $mention->dislikes->container(Auth::id()) )
+		@if( Auth::check() )
 
 			<div class="mention_rate">
 				<span>Отзыв был полезен?</span>
 
-				<div class="mention_likes mention_likes--active">
+				<div id="mention-likes" class="mention_likes"
+
+				 data-count="{{ (int)count($mention->likes) }}"
+				 data-active="{{ (int)$mention->likes->contains(Auth::id()) }}"
+				>
 					<span>{{ count($mention->likes) }}</span>
 					<img src="{{ URL::to('/') }}/img/like.png" alt="">
 				</div>
-				<div class="mention_dislikes mention_dislikes--active">
+				<div id="mention-dislikes" class="mention_dislikes"
+
+				 data-count="{{ (int)count($mention->dislikes) }}"
+				 data-active="{{ (int)$mention->dislikes->contains(Auth::id()) }}"
+				>
 					<span>{{ count($mention->dislikes) }}</span>
 					<img src="{{ URL::to('/') }}/img/dislike.png" alt="">
 				</div>

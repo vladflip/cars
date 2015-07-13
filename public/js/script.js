@@ -1844,7 +1844,8 @@ companies = new CompanyList({
 });
 
 },{"./inc/TypeList":9}],12:[function(require,module,exports){
-var mention_photos;
+var Counter, Votes, dislikes, likes, mention_photos,
+  bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };
 
 mention_photos = $('#mention_photos');
 
@@ -1861,6 +1862,92 @@ mention_photos.photosetGrid({
     });
   }
 });
+
+Counter = (function() {
+  function Counter(el, elInfo, _class) {
+    this.el = el;
+    this.elInfo = elInfo;
+    this["class"] = _class;
+    this.minus = bind(this.minus, this);
+    this.plus = bind(this.plus, this);
+    this.toggle = bind(this.toggle, this);
+    this.pass = bind(this.pass, this);
+    this.span = this.el.children('span');
+    this.count = this.el.data('count');
+    this.active = this.el.data('active');
+    this.el.click(this.pass);
+  }
+
+  Counter.prototype.pass = function() {
+    return this.click(this);
+  };
+
+  Counter.prototype.updateInfo = function() {
+    return this.elInfo.html(this.count);
+  };
+
+  Counter.prototype.toggle = function() {
+    if (this.active) {
+      this.minus();
+      this.active = 0;
+      this.el.removeClass(this["class"]);
+    } else {
+      this.plus();
+      this.active = 1;
+      this.el.addClass(this["class"]);
+    }
+    return this.updateInfo();
+  };
+
+  Counter.prototype.plus = function() {
+    return this.span.html(++this.count);
+  };
+
+  Counter.prototype.minus = function() {
+    return this.span.html(--this.count);
+  };
+
+  return Counter;
+
+})();
+
+Votes = (function() {
+  function Votes(likes1, dislikes1) {
+    this.likes = likes1;
+    this.dislikes = dislikes1;
+    this.dislikesClick = bind(this.dislikesClick, this);
+    this.likesClick = bind(this.likesClick, this);
+    this.likes.click = this.likesClick;
+    this.dislikes.click = this.dislikesClick;
+  }
+
+  Votes.prototype.likesClick = function(e) {
+    if (!e.active) {
+      e.toggle();
+      if (this.dislikes.active) {
+        return this.dislikes.toggle();
+      }
+    }
+  };
+
+  Votes.prototype.dislikesClick = function(e) {
+    if (!e.active) {
+      e.toggle();
+      if (this.likes.active) {
+        return this.likes.toggle();
+      }
+    }
+  };
+
+  return Votes;
+
+})();
+
+likes = new Counter($('#mention-likes'), $('#mention-likes-info'), 'mention_likes--active');
+
+dislikes = new Counter($('#mention-dislikes'), $('#mention-dislikes-info'), 'mention_dislikes--active');
+
+new Votes(likes, dislikes);
 
 },{}],13:[function(require,module,exports){
 var AddLogo, MakesList, SelectType, SelectView, makes, specs, types,
