@@ -34,7 +34,7 @@ class Avatar
 
 	adjustPopup: (img) ->
 		if img.naturalWidth > 780
-
+			@popup.css 'width', '780px'
 		else if img.naturalWidth > 300
 			@popup.css 'width', img.naturalWidth + 'px'
 		else
@@ -53,7 +53,7 @@ class Avatar
 
 		img = @popup.find('img')
 
-		if 115 < img[0].naturalHeight > 7000 or 115 < img[0].naturalWidth < 7000
+		if 115 > img[0].naturalHeight > 7000 or 115 > img[0].naturalWidth > 7000
 			do @showErrorPopup
 			return
 
@@ -76,6 +76,8 @@ class Avatar
 				src: @popup
 			closeBtnInside: false
 			callbacks:
+				open: =>
+					console.log @popup.find '.popup_button'
 				close: =>
 					console.log @input.val ''
 

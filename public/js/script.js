@@ -858,7 +858,7 @@ Avatar = (function() {
 
   Avatar.prototype.adjustPopup = function(img) {
     if (img.naturalWidth > 780) {
-
+      return this.popup.css('width', '780px');
     } else if (img.naturalWidth > 300) {
       return this.popup.css('width', img.naturalWidth + 'px');
     } else {
@@ -881,7 +881,7 @@ Avatar = (function() {
       src: src
     }));
     img = this.popup.find('img');
-    if ((115 < (ref = img[0].naturalHeight) && ref > 7000) || (115 < (ref1 = img[0].naturalWidth) && ref1 < 7000)) {
+    if ((115 > (ref = img[0].naturalHeight) && ref > 7000) || (115 > (ref1 = img[0].naturalWidth) && ref1 > 7000)) {
       this.showErrorPopup();
       return;
     }
@@ -906,6 +906,11 @@ Avatar = (function() {
       },
       closeBtnInside: false,
       callbacks: {
+        open: (function(_this) {
+          return function() {
+            return console.log(_this.popup.find('.popup_button'));
+          };
+        })(this),
         close: (function(_this) {
           return function() {
             return console.log(_this.input.val(''));
