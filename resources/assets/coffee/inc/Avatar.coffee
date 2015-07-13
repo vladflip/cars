@@ -59,42 +59,44 @@ class Avatar
 
 		img = @popup.find('img')
 
-		if img[0].naturalHeight < 115 or img[0].naturalHeight > 7000
-			do @showErrorPopup
-			return
+		img.load =>
 
-		if img[0].naturalWidth < 115 or img[0].naturalWidth > 7000
-			do @showErrorPopup
-			return
+			if img[0].naturalHeight < 115 or img[0].naturalHeight > 7000
+				do @showErrorPopup
+				return
 
-		@adjustPopup img[0]
-		
-		imgWidth = img[0].naturalWidth
-		imgHeight = img[0].naturalHeight
+			if img[0].naturalWidth < 115 or img[0].naturalWidth > 7000
+				do @showErrorPopup
+				return
 
-		img.Jcrop
-			aspectRatio: 1 / 1
-			minSize: [115, 115]
-			boxWidth: 780
-			boxHeight: $(document).height() - 300
-			setSelect: [imgWidth*0.25, imgHeight*0.07, imgWidth*0.75, imgHeight*0.75]
-			onSelect: (c) =>
-				@coords =
-					x: c.x
-					y: c.y
-					w: c.w
-					h: c.h
+			@adjustPopup img[0]
+			
+			imgWidth = img[0].naturalWidth
+			imgHeight = img[0].naturalHeight
 
-		$.magnificPopup.open
-			items:
-				src: @popup
-			closeOnBgClick: false
-			callbacks:
-				open: =>
-					@button = @popup.find('.popup_button')
-					@button.click @send
-				close: =>
-					@input.val ''
+			img.Jcrop
+				aspectRatio: 1 / 1
+				minSize: [115, 115]
+				boxWidth: 780
+				boxHeight: $(document).height() - 300
+				setSelect: [imgWidth*0.25, imgHeight*0.07, imgWidth*0.75, imgHeight*0.75]
+				onSelect: (c) =>
+					@coords =
+						x: c.x
+						y: c.y
+						w: c.w
+						h: c.h
+
+			$.magnificPopup.open
+				items:
+					src: @popup
+				closeOnBgClick: false
+				callbacks:
+					open: =>
+						@button = @popup.find('.popup_button')
+						@button.click @send
+					close: =>
+						@input.val ''
 
 	updateAva: (src) ->
 		@id.children('img').attr 'src', src

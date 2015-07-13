@@ -883,58 +883,57 @@ Avatar = (function() {
   };
 
   Avatar.prototype.showPopup = function(src) {
-    var img, imgHeight, imgWidth;
+    var img;
     this.popup.html(this.template({
       src: src
     }));
     img = this.popup.find('img');
-    if (img[0].naturalHeight < 115 || img[0].naturalHeight > 7000) {
-      this.showErrorPopup();
-      return;
-    }
-    if (img[0].naturalWidth < 115 || img[0].naturalWidth > 7000) {
-      this.showErrorPopup();
-      return;
-    }
-    this.adjustPopup(img[0]);
-    imgWidth = img[0].naturalWidth;
-    imgHeight = img[0].naturalHeight;
-    img.Jcrop({
-      aspectRatio: 1 / 1,
-      minSize: [115, 115],
-      boxWidth: 780,
-      boxHeight: $(document).height() - 300,
-      setSelect: [imgWidth * 0.25, imgHeight * 0.07, imgWidth * 0.75, imgHeight * 0.75],
-      onSelect: (function(_this) {
-        return function(c) {
-          return _this.coords = {
-            x: c.x,
-            y: c.y,
-            w: c.w,
-            h: c.h
-          };
-        };
-      })(this)
-    });
-    return $.magnificPopup.open({
-      items: {
-        src: this.popup
-      },
-      closeOnBgClick: false,
-      callbacks: {
-        open: (function(_this) {
-          return function() {
-            _this.button = _this.popup.find('.popup_button');
-            return _this.button.click(_this.send);
-          };
-        })(this),
-        close: (function(_this) {
-          return function() {
-            return _this.input.val('');
-          };
-        })(this)
-      }
-    });
+    return img.load((function(_this) {
+      return function() {
+        var imgHeight, imgWidth;
+        if (img[0].naturalHeight < 115 || img[0].naturalHeight > 7000) {
+          _this.showErrorPopup();
+          return;
+        }
+        if (img[0].naturalWidth < 115 || img[0].naturalWidth > 7000) {
+          _this.showErrorPopup();
+          return;
+        }
+        _this.adjustPopup(img[0]);
+        imgWidth = img[0].naturalWidth;
+        imgHeight = img[0].naturalHeight;
+        img.Jcrop({
+          aspectRatio: 1 / 1,
+          minSize: [115, 115],
+          boxWidth: 780,
+          boxHeight: $(document).height() - 300,
+          setSelect: [imgWidth * 0.25, imgHeight * 0.07, imgWidth * 0.75, imgHeight * 0.75],
+          onSelect: function(c) {
+            return _this.coords = {
+              x: c.x,
+              y: c.y,
+              w: c.w,
+              h: c.h
+            };
+          }
+        });
+        return $.magnificPopup.open({
+          items: {
+            src: _this.popup
+          },
+          closeOnBgClick: false,
+          callbacks: {
+            open: function() {
+              _this.button = _this.popup.find('.popup_button');
+              return _this.button.click(_this.send);
+            },
+            close: function() {
+              return _this.input.val('');
+            }
+          }
+        });
+      };
+    })(this));
   };
 
   Avatar.prototype.updateAva = function(src) {
