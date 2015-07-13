@@ -1864,10 +1864,17 @@ mention_photos.photosetGrid({
 });
 
 Counter = (function() {
+  Counter.prototype.home = $('body').data('home');
+
+  Counter.prototype.id = $('.mention_rate:first').data('id');
+
+  Counter.prototype.url = 'api/feedback/vote';
+
   function Counter(el, elInfo, _class) {
     this.el = el;
     this.elInfo = elInfo;
     this["class"] = _class;
+    this.send = bind(this.send, this);
     this.minus = bind(this.minus, this);
     this.plus = bind(this.plus, this);
     this.toggle = bind(this.toggle, this);
@@ -1875,6 +1882,9 @@ Counter = (function() {
     this.span = this.el.children('span');
     this.count = this.el.data('count');
     this.active = this.el.data('active');
+    if (this.active) {
+      this.el.addClass(this["class"]);
+    }
     this.el.click(this.pass);
   }
 
@@ -1907,6 +1917,26 @@ Counter = (function() {
     return this.span.html(--this.count);
   };
 
+  Counter.prototype.send = function(type) {
+    return $.ajax(this.home + "/" + this.url, {
+      headers: {
+        'X-CSRF-TOKEN': $('body').data('csrf')
+      },
+      method: 'POST',
+      data: {
+        id: this.id,
+        active: this.active,
+        type: type
+      }
+    }).done((function(_this) {
+      return function(response) {
+        return console.log(response);
+      };
+    })(this)).error(function() {
+      return console.log('error');
+    });
+  };
+
   return Counter;
 
 })();
@@ -1922,21 +1952,19 @@ Votes = (function() {
   }
 
   Votes.prototype.likesClick = function(e) {
-    if (!e.active) {
-      e.toggle();
-      if (this.dislikes.active) {
-        return this.dislikes.toggle();
-      }
+    e.toggle();
+    if (this.dislikes.active) {
+      this.dislikes.toggle();
     }
+    return e.send('likes');
   };
 
   Votes.prototype.dislikesClick = function(e) {
-    if (!e.active) {
-      e.toggle();
-      if (this.likes.active) {
-        return this.likes.toggle();
-      }
+    e.toggle();
+    if (this.likes.active) {
+      this.likes.toggle();
     }
+    return e.send('dislikes');
   };
 
   return Votes;

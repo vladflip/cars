@@ -246,4 +246,46 @@ class FeedbackController extends Controller {
 
 	}
 
+	public function vote() {
+
+		$id = \Input::get('id');
+
+		$active = \Input::get('active');
+
+		$type = \Input::get('type');
+
+		$feedback = \App\Feedback::find($id);
+
+		if($type == 'likes') {
+
+			if($active) {
+
+				$feedback->likes()->attach(\Auth::id());
+
+				$feedback->dislikes()->detach(\Auth::id());
+
+			} else {
+
+				$feedback->likes()->detach(\Auth::id());
+
+			}
+				
+		} else {
+
+			if($active) {
+
+				$feedback->dislikes()->attach(\Auth::id());
+
+				$feedback->likes()->detach(\Auth::id());
+
+			} else {
+
+				$feedback->dislikes()->detach(\Auth::id());
+
+			}
+
+		}
+
+	}
+
 }

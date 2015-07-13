@@ -131,6 +131,8 @@ Route::group(['prefix' => 'api', 'middleware' => 'api'], function(){
 
 		post('create', ['uses' => 'FeedbackController@create']);
 
+		post('vote', ['uses' => 'FeedbackController@vote']);
+
 	});
 
 	get('get-makes', 'APIController@makes');

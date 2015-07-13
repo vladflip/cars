@@ -90,7 +90,7 @@
 
 		@if( Auth::check() )
 
-			<div class="mention_rate">
+			<div class="mention_rate" data-id="{{ $mention->id }}">
 				<span>Отзыв был полезен?</span>
 
 				<div id="mention-likes" class="mention_likes"
