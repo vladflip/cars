@@ -874,6 +874,7 @@ Avatar = (function() {
 
   Avatar.prototype.showErrorPopup = function() {
     this.popup.html('<span class="popup_error">Картинка должна быть не меньше 115px и не больше 7000px по ширине и высоте</span>');
+    this.input.val('');
     return $.magnificPopup.open({
       items: {
         src: this.popup
@@ -882,12 +883,16 @@ Avatar = (function() {
   };
 
   Avatar.prototype.showPopup = function(src) {
-    var img, imgHeight, imgWidth, ref, ref1;
+    var img, imgHeight, imgWidth;
     this.popup.html(this.template({
       src: src
     }));
     img = this.popup.find('img');
-    if ((115 > (ref = img[0].naturalHeight) && ref > 7000) || (115 > (ref1 = img[0].naturalWidth) && ref1 > 7000)) {
+    if (img[0].naturalHeight < 115 || img[0].naturalHeight > 7000) {
+      this.showErrorPopup();
+      return;
+    }
+    if (img[0].naturalWidth < 115 || img[0].naturalWidth > 7000) {
       this.showErrorPopup();
       return;
     }
@@ -925,14 +930,20 @@ Avatar = (function() {
         })(this),
         close: (function(_this) {
           return function() {
-            return console.log(_this.input.val(''));
+            return _this.input.val('');
           };
         })(this)
       }
     });
   };
 
+  Avatar.prototype.updateAva = function(src) {
+    return this.id.children('img').attr('src', src);
+  };
+
   Avatar.prototype.send = function() {
+    var popup;
+    popup = $.magnificPopup.instance.st.closeOnBgClick = true;
     this.button.preload('start');
     return $.ajax(this.home + "/" + this.url, {
       headers: {
@@ -945,8 +956,13 @@ Avatar = (function() {
       }
     }).done((function(_this) {
       return function(response) {
-        console.log(response);
-        return _this.button.preload('stop');
+        setTimeout(function() {
+          return _this.updateAva(response);
+        }, 800);
+        _this.button.preload('stop');
+        return setTimeout(function() {
+          return $.magnificPopup.instance.close();
+        }, 1000);
       };
     })(this));
   };
@@ -2677,7 +2693,7 @@ FieldSet = (function(superClass) {
 
 })(Backbone.View);
 
-new Avatar('#user-logo', '#user-logo-file', 'user-edit-avatar');
+new Avatar('#user-ava', '#user-ava-file', 'api/user/avatar');
 
 collection = new FieldCollection;
 

@@ -94,4 +94,48 @@ class UserController extends Controller {
 
 	}
 
+	public function avatar() {
+
+		$input = (object)\Input::all();
+
+		$image = \Image::make($input->src);
+
+		$coords = (object)$input->coords;
+
+		$user = \Auth::user();
+
+		if($image->height() < 115 or $image->height() > 7000) {
+			return 'hello lamer';
+		}
+
+		if($image->width() < 115 or $image->width() > 7000) {
+			return 'hello lamer';
+		}
+
+		$image->crop( (int)$coords->w, (int)$coords->h, (int)$coords->x, (int)$coords->y );
+
+		$name = md5(\Hash::make($input->src . \Auth::id()));
+
+		$dirname = 'img/user' . \Auth::id();
+
+		$fullname = $dirname . '/' . $name . '.jpg';
+
+		if( ! file_exists($dirname) ){
+			mkdir($dirname, 0777, true);
+		}
+
+		if( file_exists($user->ava) ){
+			unlink($user->ava);
+		}
+
+		$user->ava = $fullname;
+
+		$user->save();
+
+		$image->save($fullname);
+
+		return \URL::to('/') . '/' . $user->ava;
+
+	}
+
 }

@@ -123,6 +123,8 @@ Route::group(['prefix' => 'api', 'middleware' => 'api'], function(){
 
 		post('edit', ['uses' => 'APIController@edit_user']);
 
+		post('avatar', ['uses' => 'UserController@avatar']);
+
 	});
 
 	Route::group(['prefix' => 'feedback', 'middleware' => 'auth'], function() {

@@ -47,6 +47,8 @@ class Avatar
 	showErrorPopup: ->
 		@popup.html('<span class="popup_error">Картинка должна быть не меньше 115px и не больше 7000px по ширине и высоте</span>')
 
+		@input.val ''
+
 		$.magnificPopup.open
 			items:
 				src: @popup
@@ -57,7 +59,11 @@ class Avatar
 
 		img = @popup.find('img')
 
-		if 115 > img[0].naturalHeight > 7000 or 115 > img[0].naturalWidth > 7000
+		if img[0].naturalHeight < 115 or img[0].naturalHeight > 7000
+			do @showErrorPopup
+			return
+
+		if img[0].naturalWidth < 115 or img[0].naturalWidth > 7000
 			do @showErrorPopup
 			return
 
@@ -88,9 +94,14 @@ class Avatar
 					@button = @popup.find('.popup_button')
 					@button.click @send
 				close: =>
-					console.log @input.val ''
+					@input.val ''
+
+	updateAva: (src) ->
+		@id.children('img').attr 'src', src
 
 	send: =>
+		popup = $.magnificPopup.instance.st.closeOnBgClick = true
+
 		@button.preload 'start'
 
 		$.ajax "#{@home}/#{@url}",
@@ -102,8 +113,15 @@ class Avatar
 				coords: @coords
 
 		.done (response) =>
-			console.log response
+
+			setTimeout =>
+				@updateAva response
+			, 800
 
 			@button.preload 'stop'
+
+			setTimeout ->
+				$.magnificPopup.instance.close()
+			, 1000
 
 module.exports = Avatar

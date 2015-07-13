@@ -37,12 +37,14 @@
 
 							<div class="profile-info_left">
 								
-								<div class="profile-info_logo" id="user-logo">
-									<img id="jcrop"
-									src="{{ $user->ava ? $user->ava : URL::to('/') . '/img/ava.jpg' }}" alt="">
+								<div class="profile-info_logo" id="user-ava">
+									<img
+									src="{{ $user->ava ? 
+									URL::to('/') . '/' . $user->ava : 
+									URL::to('/') . '/img/ava.jpg' }}" alt="">
 								</div>
 								
-								<input type="file" style="display:none" id="user-logo-file">
+								<input type="file" style="display:none" id="user-ava-file">
 
 								<div id="avatar-popup" class="popup mfp-hide popup--avatar"></div>
 							
