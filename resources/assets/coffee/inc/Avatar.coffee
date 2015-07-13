@@ -1,6 +1,8 @@
 class Avatar
 
-	constructor: (id, input) ->
+	home: $('body').data 'home'
+
+	constructor: (id, input, @url) ->
 		self = @
 
 		@coords = {}
@@ -27,6 +29,8 @@ class Avatar
 
 		r.onloadend = =>
 			src = r.result
+
+			@src = src
 
 			@showPopup src
 
@@ -69,16 +73,37 @@ class Avatar
 			boxHeight: $(document).height() - 300
 			setSelect: [imgWidth*0.25, imgHeight*0.07, imgWidth*0.75, imgHeight*0.75]
 			onSelect: (c) =>
-				console.log c.x, c.y, c.x2, c.y2, c.w, c.h
+				@coords =
+					x: c.x
+					y: c.y
+					w: c.w
+					h: c.h
 
 		$.magnificPopup.open
 			items:
 				src: @popup
-			closeBtnInside: false
+			closeOnBgClick: false
 			callbacks:
 				open: =>
-					console.log @popup.find '.popup_button'
+					@button = @popup.find('.popup_button')
+					@button.click @send
 				close: =>
 					console.log @input.val ''
+
+	send: =>
+		@button.preload 'start'
+
+		$.ajax "#{@home}/#{@url}",
+			headers:
+				'X-CSRF-TOKEN' : $('body').data 'csrf'
+			method: 'POST'
+			data:
+				src: @src
+				coords: @coords
+
+		.done (response) =>
+			console.log response
+
+			@button.preload 'stop'
 
 module.exports = Avatar

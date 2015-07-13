@@ -134,7 +134,7 @@ class FieldSet extends Backbone.View
 			@button.before v.el
 
 
-new Avatar '#user-logo', '#user-logo-file'
+new Avatar '#user-logo', '#user-logo-file', 'user-edit-avatar'
 
 
 collection = new FieldCollection

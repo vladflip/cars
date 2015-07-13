@@ -817,11 +817,16 @@ ModelsList = (function(superClass) {
 module.exports = ModelsList;
 
 },{}],7:[function(require,module,exports){
-var Avatar;
+var Avatar,
+  bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };
 
 Avatar = (function() {
-  function Avatar(id, input) {
+  Avatar.prototype.home = $('body').data('home');
+
+  function Avatar(id, input, url) {
     var self;
+    this.url = url;
+    this.send = bind(this.send, this);
     self = this;
     this.coords = {};
     this.id = $(id);
@@ -850,6 +855,7 @@ Avatar = (function() {
       return function() {
         var src;
         src = r.result;
+        _this.src = src;
         return _this.showPopup(src);
       };
     })(this);
@@ -896,7 +902,12 @@ Avatar = (function() {
       setSelect: [imgWidth * 0.25, imgHeight * 0.07, imgWidth * 0.75, imgHeight * 0.75],
       onSelect: (function(_this) {
         return function(c) {
-          return console.log(c.x, c.y, c.x2, c.y2, c.w, c.h);
+          return _this.coords = {
+            x: c.x,
+            y: c.y,
+            w: c.w,
+            h: c.h
+          };
         };
       })(this)
     });
@@ -904,11 +915,12 @@ Avatar = (function() {
       items: {
         src: this.popup
       },
-      closeBtnInside: false,
+      closeOnBgClick: false,
       callbacks: {
         open: (function(_this) {
           return function() {
-            return console.log(_this.popup.find('.popup_button'));
+            _this.button = _this.popup.find('.popup_button');
+            return _this.button.click(_this.send);
           };
         })(this),
         close: (function(_this) {
@@ -918,6 +930,25 @@ Avatar = (function() {
         })(this)
       }
     });
+  };
+
+  Avatar.prototype.send = function() {
+    this.button.preload('start');
+    return $.ajax(this.home + "/" + this.url, {
+      headers: {
+        'X-CSRF-TOKEN': $('body').data('csrf')
+      },
+      method: 'POST',
+      data: {
+        src: this.src,
+        coords: this.coords
+      }
+    }).done((function(_this) {
+      return function(response) {
+        console.log(response);
+        return _this.button.preload('stop');
+      };
+    })(this));
   };
 
   return Avatar;
@@ -2646,7 +2677,7 @@ FieldSet = (function(superClass) {
 
 })(Backbone.View);
 
-new Avatar('#user-logo', '#user-logo-file');
+new Avatar('#user-logo', '#user-logo-file', 'user-edit-avatar');
 
 collection = new FieldCollection;
 
