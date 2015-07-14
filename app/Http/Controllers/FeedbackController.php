@@ -36,7 +36,8 @@ class FeedbackController extends Controller {
 		->with('user')
 		->with('likes')
 		->with('dislikes')
-		->orderBy('created_at', 'DESC')
+		->orderBy('created_at', 'desc')
+		// ->orderByRaw('likes_count desc, likes_count / dislikes_count')
 		->get();
 
 		$bread = ['make' => $m, 'type' => $t];
@@ -260,13 +261,13 @@ class FeedbackController extends Controller {
 
 			if($active) {
 
-				$feedback->likes()->attach(\Auth::id());
+				$feedback->attach_like(\Auth::id());
 
-				$feedback->dislikes()->detach(\Auth::id());
+				$feedback->detach_dislike(\Auth::id());
 
 			} else {
 
-				$feedback->likes()->detach(\Auth::id());
+				$feedback->detach_like(\Auth::id());
 
 			}
 				
@@ -274,13 +275,13 @@ class FeedbackController extends Controller {
 
 			if($active) {
 
-				$feedback->dislikes()->attach(\Auth::id());
+				$feedback->attach_dislike(\Auth::id());
 
-				$feedback->likes()->detach(\Auth::id());
+				$feedback->detach_like(\Auth::id());
 
 			} else {
 
-				$feedback->dislikes()->detach(\Auth::id());
+				$feedback->detach_dislike(\Auth::id());
 
 			}
 
