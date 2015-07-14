@@ -50,6 +50,29 @@ class Feedback extends Model {
 			);
 	}
 
+	public function attach_like($id) {
+		$this->likes()->attach($id);
+		$this->likes_count++;
+		$this->save();
+	}
+	
+	public function detach_like($id) {
+		$this->likes()->detach($id);
+		$this->likes_count--;
+		$this->save();
+	}
+
+	public function attach_dislike($id) {
+		$this->dislikes()->attach($id);
+		$this->dislikes_count++;
+		$this->save();
+	}
+	public function detach_dislike($id) {
+		$this->dislikes()->detach($id);
+		$this->dislikes_count--;
+		$this->save();
+	}
+
 	public function comments() {
 		return $this->hasMany('App\Comment', 'feedback_id');
 	}

@@ -244,9 +244,9 @@ class FeedbackSeeder extends Seeder {
 				'model_id' => $id
 			]);
 
-			$feed->likes()->attach($i+1);
+			$feed->attach_like($i+1);
 
-			$feed->dislikes()->attach($i+1);
+			$feed->attach_dislike($i+1);
 
 		}
 

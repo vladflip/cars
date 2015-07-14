@@ -21,6 +21,9 @@ class CreateFeedbackTable extends Migration {
 			$t->integer('model_id')->unsigned();
 			$t->integer('user_id')->unsigned();
 
+			$t->integer('likes_count')->unsigned();
+			$t->integer('dislikes_count')->unsigned();
+
 			$t->string('header');
 			$t->text('content');
 			$t->string('logo');
