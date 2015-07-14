@@ -1195,6 +1195,7 @@ ul.create-company-spec-selectBox-dropdown-menu {
   cursor: pointer;
 }
 .header_sign-up {
+  float: right;
   text-align: right;
   font-size: 13px;
   cursor: pointer;
