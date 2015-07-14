@@ -30,11 +30,11 @@
 
 	</div>
 
-	<div class="feed-sort">
+	{{-- <div class="feed-sort">
 		<span class="feed-sort_item">Сортировать по:</span>
 		<div class="feed-sort_date">Дате</div>
 		<div class="feed-sort_benefit feed-sort--active">Полезности</div>
-	</div>
+	</div> --}}
 
 	<hr>
 
