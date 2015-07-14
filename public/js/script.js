@@ -1,5 +1,5 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
-var button, email, form, passw;
+var button, email, form, passw, submit;
 
 form = $('#user-auth-form');
 
@@ -9,14 +9,25 @@ passw = form.find('input[name="password"]');
 
 button = $('#user-auth-button');
 
-button.click(function() {
+submit = function() {
   var pattern;
   pattern = /^([a-z0-9_\.-])+@[a-z0-9-]+\.([a-z]{2,4}\.)?[a-z]{2,4}$/i;
   if (pattern.test(email.val())) {
-    console.log('fuck');
     if (passw.val() !== '') {
       return form.submit();
+    } else {
+      return passw.blink();
     }
+  } else {
+    return email.blink();
+  }
+};
+
+button.click(submit);
+
+form.keypress(function(e) {
+  if (e.which === 13) {
+    return submit();
   }
 });
 
@@ -2574,7 +2585,7 @@ type = new SelectView({
 autosize($('#search-more'));
 
 },{"../inc/SelectView":8}],17:[function(require,module,exports){
-var button, email, form, passw;
+var button, email, form, passw, submit;
 
 $('#sign-up').magnificPopup({
   type: 'inline',
@@ -2598,17 +2609,25 @@ form = $('#sign-up-form');
 button = $('#sign-up-button');
 
 if (form) {
-  email = form.find('input[name="email"]');
-  passw = form.find('input[name="password"]');
-  button.click(function() {
+  submit = function() {
     var pattern;
     pattern = /^([a-z0-9_\.-])+@[a-z0-9-]+\.([a-z]{2,4}\.)?[a-z]{2,4}$/i;
     if (pattern.test(email.val())) {
       if (passw.val() !== '') {
         return form.submit();
+      } else {
+        return passw.blink();
       }
     } else {
       return email.blink();
+    }
+  };
+  email = form.find('input[name="email"]');
+  passw = form.find('input[name="password"]');
+  button.click(submit);
+  form.keypress(function(e) {
+    if (e.which === 13) {
+      return submit();
     }
   });
 }
