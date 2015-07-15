@@ -1,8 +1,8 @@
 <div class="feedback">
 
-	<h3 class="feedback_h3">Нам важно мнение</h3>
+	<h3 class="feedback_h3">Ваше мнение - важно</h3>
 	<p class="feedback_p">
-		Вы можете поделиться своим мнением с другими участниками клуба
+		Вы можете оставить отзыв об эксплуатации Вашего автомобиля
 	</p>
 
 	<div id="feedback" class="feedback_button"
