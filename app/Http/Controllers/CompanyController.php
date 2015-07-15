@@ -9,6 +9,10 @@ class CompanyController extends Controller {
 
 	public function create() {
 
+		// if user has company return hello lamer
+		if( \Auth::user()->company )
+			return 'hello lamer';
+
 		$input = (object)\Input::all();
 
 		$company = new \App\Company;

@@ -20,6 +20,8 @@ class CreateCompaniesTable extends Migration {
 			$t->integer('spec_id')->unsigned();
 			$t->integer('type_id')->unsigned();
 
+			$t->unique('user_id');
+
 			$t->string('name');
 			$t->string('phone');
 			$t->string('logo');
