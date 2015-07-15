@@ -2,8 +2,10 @@
 	height 60px
 	background-color #2d2d2d
 
-	.container
+	.container, &_item
 		display flex
+		align-items center
+		justify-content space-between
 		
 	&_btn
 		height 100%
@@ -27,3 +29,12 @@
 			text-align center
 			justify-content center
 			//---------------
+			
+	&_sign-up
+		center-text()
+		border 2px solid white
+		font-size 14px
+		cursor pointer
+		color white
+		width 100px
+		height 30px

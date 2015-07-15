@@ -44,12 +44,6 @@
 				</div>
 
 			{!! Form::close() !!}
-
-				<div id="sign-up" href="#sign-up-popup" class="header_sign-up">
-					Регистрация
-				</div>
-
-				@include('popups.sign-up')
 			
 			@endif
 

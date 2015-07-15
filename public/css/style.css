@@ -1195,14 +1195,6 @@ ul.create-company-spec-selectBox-dropdown-menu {
   top: 4px;
   cursor: pointer;
 }
-.header_sign-up {
-  float: right;
-  text-align: right;
-  font-size: 13px;
-  cursor: pointer;
-  color: #2d2d2d;
-  margin-top: 15px;
-}
 .user-info {
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -1243,10 +1235,17 @@ ul.create-company-spec-selectBox-dropdown-menu {
   height: 60px;
   background-color: #2d2d2d;
 }
-.menu .container {
+.menu .container,
+.menu_item {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 .menu_btn {
   height: 100%;
@@ -1274,6 +1273,24 @@ ul.create-company-spec-selectBox-dropdown-menu {
   -webkit-justify-content: center;
       -ms-flex-pack: center;
           justify-content: center;
+}
+.menu_sign-up {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  text-align: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  border: 2px solid #fff;
+  font-size: 14px;
+  cursor: pointer;
+  color: #fff;
+  width: 100px;
+  height: 30px;
 }
 .catalog {
   position: relative;
