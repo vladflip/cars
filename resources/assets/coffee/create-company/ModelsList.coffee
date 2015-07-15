@@ -173,5 +173,16 @@ class ModelsList extends Backbone.View
 
 		do model.initSelectbox
 
+	get: ->
+		result = []
+
+		if @modelsArray.length is 0
+			return 0
+		else
+			for model in @modelsArray
+				result.push parseInt model.select.val()
+
+			return result
+
 
 module.exports = ModelsList

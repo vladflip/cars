@@ -35,7 +35,9 @@
 					
 						<div class="popup_label">Специализация</div>
 						
-						<select name="" id="create-company-spec" class="popup_select create-company-spec">
+						<select name="" id="create-company-spec" class="popup_select create-company-spec create-company">
+
+							<option value="" disabled selected></option>
 							
 							@foreach($specs as $spec)
 								
@@ -100,7 +102,7 @@
 							
 						<div class="popup_label">Название</div>
 					
-						<input type="text" class="popup_input" 
+						<input id="create-company-name" type="text" class="popup_input" 
 						placeholder="ООО 'Комтранс'">
 					
 					</div>
@@ -109,7 +111,7 @@
 							
 						<div class="popup_label">Адрес</div>
 					
-						<input type="text" class="popup_input" 
+						<input id="create-company-address" type="text" class="popup_input" 
 						placeholder="г. Москва Красная пл, д1">
 					
 					</div>
@@ -118,7 +120,7 @@
 							
 						<div class="popup_label">Телефоны</div>
 					
-						<input type="text" class="popup_input" 
+						<input id="create-company-phone" type="text" class="popup_input" 
 						placeholder="8 (495) 123-45-67">
 					
 					</div>
@@ -137,7 +139,7 @@
 					
 						<div class="popup_header-field">
 					
-							<div class="popup_label">Логотип</div>
+							<div id="create-company-logo-label" class="popup_label">Логотип</div>
 							
 							<div id="create-company-logo-btn" class="popup_pick-file">
 								Выбрать файл
@@ -156,7 +158,7 @@
 
 		</div>
 
-		<div class="popup_button">Зарегистрировать</div>
+		<div id="create-company-submit" class="popup_button">Зарегистрировать</div>
 
 	</div>
 

@@ -797,6 +797,20 @@ Makes = (function(superClass) {
     return makeslist.initSelectbox();
   };
 
+  Makes.prototype.get = function() {
+    var i, len, makeslist, obj, ref, result;
+    result = [];
+    ref = this.makesListArray;
+    for (i = 0, len = ref.length; i < len; i++) {
+      makeslist = ref[i];
+      obj = {};
+      obj.id = parseInt(makeslist.select.val());
+      obj.models = makeslist.modelslist.get();
+      result.push(obj);
+    }
+    return result;
+  };
+
   return Makes;
 
 })(Backbone.View);
@@ -1021,6 +1035,21 @@ ModelsList = (function(superClass) {
     model = this.modelsArray.last();
     this.$el.append(model.el);
     return model.initSelectbox();
+  };
+
+  ModelsList.prototype.get = function() {
+    var i, len, model, ref, result;
+    result = [];
+    if (this.modelsArray.length === 0) {
+      return 0;
+    } else {
+      ref = this.modelsArray;
+      for (i = 0, len = ref.length; i < len; i++) {
+        model = ref[i];
+        result.push(parseInt(model.select.val()));
+      }
+      return result;
+    }
   };
 
   return ModelsList;
@@ -2191,7 +2220,7 @@ dislikes = new Counter($('#mention-dislikes'), $('#mention-dislikes-info'), 'men
 new Votes(likes, dislikes);
 
 },{}],13:[function(require,module,exports){
-var AddLogo, MakesList, SelectType, SelectView, makes, specs, types,
+var AddLogo, MakesList, SelectType, SelectView, about, address, logo, logolabel, makes, name, phone, specs, submit, types,
   bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; },
   extend = function(child, parent) { for (var key in parent) { if (hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; },
   hasProp = {}.hasOwnProperty;
@@ -2209,7 +2238,21 @@ specs = $('#create-company-spec');
 
 specs.selectBox();
 
-autosize($('#create-company-about'));
+name = $('#create-company-name');
+
+address = $('#create-company-address');
+
+phone = $('#create-company-phone');
+
+about = $('#create-company-about');
+
+logolabel = $('#create-company-logo-label');
+
+logolabel.css('padding', '10px');
+
+logolabel.css('margin-bottom', '0');
+
+autosize(about);
 
 AddLogo = (function() {
   function AddLogo(btn, input, container) {
@@ -2222,6 +2265,7 @@ AddLogo = (function() {
     this.input.change(function() {
       return self.check(this.files);
     });
+    this.src = '';
     this.btn.click(function() {
       return self.input.click();
     });
@@ -2250,6 +2294,10 @@ AddLogo = (function() {
     return this.container.html(img);
   };
 
+  AddLogo.prototype.get = function() {
+    return this.src;
+  };
+
   AddLogo.prototype.read = function(file) {
     var r, src;
     src = '';
@@ -2257,6 +2305,7 @@ AddLogo = (function() {
     r.onloadend = (function(_this) {
       return function() {
         src = r.result;
+        _this.src = src;
         return _this.append(src);
       };
     })(this);
@@ -2267,7 +2316,7 @@ AddLogo = (function() {
 
 })();
 
-new AddLogo('#create-company-logo-btn', '#create-company-logo', '#create-company-logo-html');
+logo = new AddLogo('#create-company-logo-btn', '#create-company-logo', '#create-company-logo-html');
 
 SelectType = (function(superClass) {
   extend(SelectType, superClass);
@@ -2289,6 +2338,10 @@ SelectType = (function(superClass) {
     return this.$el.selectBox('control').blink();
   };
 
+  SelectType.prototype.get = function() {
+    return this.$el.val();
+  };
+
   return SelectType;
 
 })(Backbone.View);
@@ -2300,6 +2353,55 @@ types = new SelectType({
 makes = new MakesList({
   el: '#create-company_makes-models',
   types: types
+});
+
+submit = $('#create-company-submit');
+
+submit.click(function() {
+  var result;
+  result = {};
+  if (types.get() != null) {
+    result.type = parseInt(types.get());
+  } else {
+    types.error();
+    return;
+  }
+  if (specs.val() != null) {
+    result.spec = parseInt(specs.val());
+  } else {
+    specs.selectBox('control').blink();
+    return;
+  }
+  result.makesmodels = makes.get();
+  if (name.val() === '') {
+    name.blink();
+    return;
+  } else {
+    result.name = name.val();
+  }
+  if (address.val() === '') {
+    address.blink();
+    return;
+  } else {
+    result.address = address.val();
+  }
+  if (phone.val() === '') {
+    phone.blink();
+    return;
+  } else {
+    result.phone = phone.val();
+  }
+  if (about.val() === '') {
+    about.blink();
+    return;
+  } else {
+    result.about = about.val();
+  }
+  if (logo.get() !== '') {
+    return result.logo = logo.get();
+  } else {
+    logolabel.blink();
+  }
 });
 
 },{"../create-company/MakesList":5,"../inc/SelectView":8}],14:[function(require,module,exports){

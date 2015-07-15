@@ -190,5 +190,18 @@ class Makes extends Backbone.View
 
 		makeslist.initSelectbox()
 
+	# return [ { id:1, models: [1, 2, 4] } ]
+	get: ->
+		result = []
+
+		for makeslist in @makesListArray
+			obj = {}
+			obj.id = parseInt makeslist.select.val()
+
+			obj.models = makeslist.modelslist.get()
+
+			result.push obj
+
+		result
 
 module.exports = Makes
