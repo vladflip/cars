@@ -170,3 +170,25 @@ submit.click ->
 	else
 		logolabel.blink()
 		return
+
+	# ===================================
+
+	$(@).preload('start')
+
+	$.ajax "#{$('body').data('home')}/api/company/create",
+			headers:
+				'X-CSRF-TOKEN' : $('body').data 'csrf'
+			method: 'POST'
+			data: result
+		.done (response) =>
+			console.log response
+
+			$(@).preload('stop')
+
+			setTimeout ->
+				# $.magnificPopup.instance.close()
+				a = 2
+			, 1000
+			setTimeout =>
+				$(@).preload('reset')
+			, 1500

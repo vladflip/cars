@@ -2398,10 +2398,31 @@ submit.click(function() {
     result.about = about.val();
   }
   if (logo.get() !== '') {
-    return result.logo = logo.get();
+    result.logo = logo.get();
   } else {
     logolabel.blink();
+    return;
   }
+  $(this).preload('start');
+  return $.ajax(($('body').data('home')) + "/api/company/create", {
+    headers: {
+      'X-CSRF-TOKEN': $('body').data('csrf')
+    },
+    method: 'POST',
+    data: result
+  }).done((function(_this) {
+    return function(response) {
+      console.log(response);
+      $(_this).preload('stop');
+      setTimeout(function() {
+        var a;
+        return a = 2;
+      }, 1000);
+      return setTimeout(function() {
+        return $(_this).preload('reset');
+      }, 1500);
+    };
+  })(this));
 });
 
 },{"../create-company/MakesList":5,"../inc/SelectView":8}],14:[function(require,module,exports){

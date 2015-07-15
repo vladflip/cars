@@ -21,7 +21,7 @@ class CreateCompaniesTable extends Migration {
 			$t->integer('type_id')->unsigned();
 
 			$t->string('name');
-			$t->string('phone', 45);
+			$t->string('phone');
 			$t->string('logo');
 			$t->string('address');
 			$t->text('about');

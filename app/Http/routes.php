@@ -135,6 +135,12 @@ Route::group(['prefix' => 'api', 'middleware' => 'api'], function(){
 
 	});
 
+	Route::group(['prefix' => 'company', 'middleware' => 'auth'], function() {
+
+		post('create', ['uses' => 'CompanyController@create']);
+
+	});
+
 	get('get-makes', 'APIController@makes');
 
 	get('get-makes-by-type-has-comps', 'APIController@makes_by_type_has_comps');

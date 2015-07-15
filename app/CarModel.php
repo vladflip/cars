@@ -40,6 +40,15 @@ class CarModel extends Model {
 		->first();
 	}
 
+	public static function getModelsArrayByMake($id) {
+		$models = self::where('make_id', $id)->select('id')->get()->toArray();
+		$array = [];
+		foreach ($models as $model) {
+			$array[] = $model['id'];
+		}
+		return $array;
+	}
+
 	public static function isInMake($model, $make) {
 		$model = self::where('make_id', $make)->find($model);
 		if($model)
