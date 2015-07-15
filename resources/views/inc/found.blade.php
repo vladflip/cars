@@ -21,7 +21,7 @@
 
 				<div class="company-preview">
 					<div class="company-preview_logo"
-					style="background-image: url({{ $companies[$i]['logo'] }})"></div>
+					style="background-image: url({{ URL::to('/') . '/' . $companies[$i]['logo'] }})"></div>
 					<div class="company-preview_info">
 						<h3 class="company-preview_name">{{ $companies[$i]['name'] }}</h3>
 						<h5 class="company-preview_address">{{ $companies[$i]['address'] }}</h5>

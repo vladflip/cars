@@ -186,8 +186,7 @@ submit.click ->
 			$(@).preload('stop')
 
 			setTimeout ->
-				# $.magnificPopup.instance.close()
-				a = 2
+				$.magnificPopup.instance.close()
 			, 1000
 			setTimeout =>
 				$(@).preload('reset')

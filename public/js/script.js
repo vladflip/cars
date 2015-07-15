@@ -2415,8 +2415,7 @@ submit.click(function() {
       console.log(response);
       $(_this).preload('stop');
       setTimeout(function() {
-        var a;
-        return a = 2;
+        return $.magnificPopup.instance.close();
       }, 1000);
       return setTimeout(function() {
         return $(_this).preload('reset');

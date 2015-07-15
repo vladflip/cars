@@ -81,7 +81,8 @@ class CompanyController extends Controller {
 		if( $this->associate_type_and_spec($company, $input) )
 			return 'hello lamer';
 
-		// $image->save($fullname);
+		$image->save($fullname);
+		
 		return $company;
 
 	}
