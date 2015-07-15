@@ -78,8 +78,11 @@ class SelectType extends Backbone.View
 			
 			self.trigger 'changed', $(@).val()
 
+	error: ->
+		@$el.selectBox('control').blink()
 
-types = new SelectType 
+
+types = new SelectType
 	el: '#create-company-type'
 
 makes = new MakesList 

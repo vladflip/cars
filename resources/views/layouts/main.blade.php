@@ -6,7 +6,7 @@
 		<meta charset="UTF-8">
 		<title>Komtrans</title>
 		<link rel="stylesheet" href="{{ URL::to('/') }}/css/style.css">
-		<link href='http://fonts.googleapis.com/css?family=Roboto:500,700italic,300,700,500italic,300italic' rel='stylesheet' type='text/css'>
+		{{-- <link href='http://fonts.googleapis.com/css?family=Roboto:500,700italic,300,700,500italic,300italic' rel='stylesheet' type='text/css'> --}}
 		<link rel="stylesheet" href="{{ URL::to('/') }}/css/vendor/popup.css">
 		<link rel="stylesheet" href="{{ URL::to('/') }}/css/vendor/jcrop.css">
 		<link rel="stylesheet" href="{{ URL::to('/') }}/css/vendor/quill.snow.css">

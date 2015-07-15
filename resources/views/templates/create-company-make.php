@@ -8,7 +8,7 @@
 				{{#each makes}}
 					<option value="{{id}}" class="popup_option">
 						{{title}}
-					</option>	
+					</option>
 				{{/each}}
 
 			</select>

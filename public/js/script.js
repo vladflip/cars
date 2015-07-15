@@ -570,143 +570,233 @@ specmakes = new SpecMakes({
 });
 
 },{"../inc/TypeList":9}],5:[function(require,module,exports){
-var MakeView, MakesList, ModelsList,
-  bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; },
+var MakeModel, Makes, MakesCollection, MakesList, ModelsList,
   extend = function(child, parent) { for (var key in parent) { if (hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; },
-  hasProp = {}.hasOwnProperty;
+  hasProp = {}.hasOwnProperty,
+  bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };
 
 ModelsList = require('./ModelsList');
 
-MakeView = (function(superClass) {
-  extend(MakeView, superClass);
+MakeModel = (function(superClass) {
+  extend(MakeModel, superClass);
 
-  function MakeView() {
-    this.render = bind(this.render, this);
-    this.postRender = bind(this.postRender, this);
-    this.destroy = bind(this.destroy, this);
-    return MakeView.__super__.constructor.apply(this, arguments);
+  function MakeModel() {
+    return MakeModel.__super__.constructor.apply(this, arguments);
   }
 
-  MakeView.prototype.template = $.HandlebarsFactory('#create-company-make-template');
-
-  MakeView.prototype.className = 'create-company_makes-models_item';
-
-  MakeView.prototype.destroy = function() {
-    this.remove();
-    return this.modelslist.destroy();
+  MakeModel.prototype.defaults = {
+    id: 0,
+    title: '',
+    visible: true
   };
 
-  MakeView.prototype.postRender = function() {
-    var self;
-    self = this;
-    if (!this.modelslist) {
-      this.modelslist = new ModelsList({
-        el: this.$el.children('.create-company_models')
-      });
-    }
+  return MakeModel;
+
+})(Backbone.Model);
+
+MakesCollection = (function(superClass) {
+  extend(MakesCollection, superClass);
+
+  function MakesCollection() {
+    return MakesCollection.__super__.constructor.apply(this, arguments);
+  }
+
+  MakesCollection.prototype.model = MakeModel;
+
+  MakesCollection.prototype.resetVisible = function() {
+    return this.each(function(model) {
+      return model.set('visible', true);
+    });
+  };
+
+  return MakesCollection;
+
+})(Backbone.Collection);
+
+MakesList = (function(superClass) {
+  extend(MakesList, superClass);
+
+  function MakesList() {
+    this.destroy = bind(this.destroy, this);
+    this.selectChanged = bind(this.selectChanged, this);
+    return MakesList.__super__.constructor.apply(this, arguments);
+  }
+
+  MakesList.prototype.template = $.HandlebarsFactory('#create-company-make-template');
+
+  MakesList.prototype.className = 'create-company_makes-models_item';
+
+  MakesList.prototype.initialize = function() {
+    this.makes = new MakesCollection(this.options.makes);
+    this.render();
     this.$el.find('.create-company_make').children('.popup_redx').click((function(_this) {
       return function() {
         return _this.destroy();
       };
     })(this));
     this.select = this.$el.find('.create-company_make').children('select');
-    this.modelslist.update(this.select.val());
-    this.select.on('change', function() {
-      var id;
-      id = $(this).val();
-      return self.modelslist.update(id);
-    });
+    return this.select.change(this.selectChanged);
+  };
+
+  MakesList.prototype.selectChanged = function(e) {
+    return this.trigger('selectChanged', e.target.value, this);
+  };
+
+  MakesList.prototype.destroy = function() {
+    this.trigger('destroy', this);
+    return this.remove();
+  };
+
+  MakesList.prototype.updateOptions = function(makes) {
+    var selected;
+    selected = parseInt(this.select.val());
+    this.select.children().remove();
+    makes.each((function(_this) {
+      return function(make) {
+        var opt;
+        opt = $('<option class="popup_option"></option>');
+        opt.val(make.get('id'));
+        opt.html(make.get('title'));
+        if (!(selected !== parseInt(opt.val()) && !make.get('visible'))) {
+          _this.select.append(opt);
+        }
+        if (selected === parseInt(opt.val())) {
+          return opt.attr('selected', 'selected');
+        }
+      };
+    })(this));
+    return this.select.selectBox('refresh');
+  };
+
+  MakesList.prototype.initSelectbox = function() {
     return this.select.selectBox();
   };
 
-  MakeView.prototype.render = function(makes) {
-    this.$el.html(this.template({
-      makes: makes
-    }));
-    return this.$el;
-  };
-
-  return MakeView;
-
-})(Backbone.View);
-
-MakesList = (function(superClass) {
-  extend(MakesList, superClass);
-
-  function MakesList() {
-    this.getMakes = bind(this.getMakes, this);
-    this.reset = bind(this.reset, this);
-    this.add = bind(this.add, this);
-    return MakesList.__super__.constructor.apply(this, arguments);
-  }
-
-  MakesList.prototype.collection = [];
-
-  MakesList.prototype.home = $('body').data('home');
-
-  MakesList.prototype.url = 'api/get-makes-by-type';
-
-  MakesList.prototype.makes = [];
-
-  MakesList.prototype.initialize = function() {
-    this.options.types.on('changed', this.reset);
-    this.add();
-    return this.$el.find('.popup_plus-sign:first').click(this.add);
-  };
-
-  MakesList.prototype.add = function() {
-    this.collection.push(new MakeView);
-    return this.render();
-  };
-
-  MakesList.prototype.reset = function(id) {
-    var i, j, k, len, len1, make, ref, toRemove;
-    toRemove = [];
-    ref = this.collection;
-    for (i = j = 0, len = ref.length; j < len; i = ++j) {
-      make = ref[i];
-      if (i !== 0) {
-        make.destroy();
-        toRemove.push(make);
-      }
-    }
-    for (k = 0, len1 = toRemove.length; k < len1; k++) {
-      make = toRemove[k];
-      this.collection.remove(make);
-    }
-    return this.getMakes(id, (function(_this) {
-      return function(d) {
-        return _this.render();
-      };
-    })(this));
-  };
-
-  MakesList.prototype.getMakes = function(id, callback) {
-    return $.ajax(this.home + "/" + this.url, {
-      data: {
-        id: id
-      }
-    }).done((function(_this) {
-      return function(d) {
-        _this.makes = d;
-        return callback(d);
-      };
-    })(this));
-  };
-
   MakesList.prototype.render = function() {
-    var make;
-    make = this.collection.last();
-    this.$el.append(make.render(this.makes));
-    make.modelslist = 0;
-    return make.postRender();
+    return this.$el.html(this.template({
+      makes: this.makes.toJSON()
+    }));
   };
 
   return MakesList;
 
 })(Backbone.View);
 
-module.exports = MakesList;
+Makes = (function(superClass) {
+  extend(Makes, superClass);
+
+  function Makes() {
+    this.getMakes = bind(this.getMakes, this);
+    this.typeUpdated = bind(this.typeUpdated, this);
+    this.updateOptions = bind(this.updateOptions, this);
+    this.updateMakesCollection = bind(this.updateMakesCollection, this);
+    this.destroyMakesList = bind(this.destroyMakesList, this);
+    this.add = bind(this.add, this);
+    return Makes.__super__.constructor.apply(this, arguments);
+  }
+
+  Makes.prototype.home = $('body').data('home');
+
+  Makes.prototype.url = 'api/get-makes-by-type';
+
+  Makes.prototype.makesCollection = new MakesCollection;
+
+  Makes.prototype.makesListArray = [];
+
+  Makes.prototype.active = false;
+
+  Makes.prototype.initialize = function() {
+    this.options.types.on('changed', this.typeUpdated);
+    return this.$el.find('.popup_plus-sign:first').click(this.add);
+  };
+
+  Makes.prototype.add = function() {
+    var makeslist;
+    if (!this.active) {
+      this.options.types.error();
+      return;
+    }
+    makeslist = new MakesList({
+      makes: this.makesCollection.where({
+        visible: true
+      })
+    });
+    this.makesListArray.push(makeslist);
+    makeslist.on('destroy', this.destroyMakesList);
+    makeslist.on('selectChanged', this.updateMakesCollection);
+    this.renderAddMakesList();
+    return this.updateMakesCollection();
+  };
+
+  Makes.prototype.destroyMakesList = function(makeslist) {
+    this.makesListArray.remove(makeslist);
+    return this.updateMakesCollection();
+  };
+
+  Makes.prototype.updateMakesCollection = function() {
+    var i, j, len, len1, makeslist, model, ref, ref1, results;
+    this.makesCollection.resetVisible();
+    ref = this.makesListArray;
+    for (i = 0, len = ref.length; i < len; i++) {
+      makeslist = ref[i];
+      model = this.makesCollection.get(makeslist.select.val());
+      model.set('visible', false);
+    }
+    ref1 = this.makesListArray;
+    results = [];
+    for (j = 0, len1 = ref1.length; j < len1; j++) {
+      makeslist = ref1[j];
+      results.push(makeslist.updateOptions(this.makesCollection));
+    }
+    return results;
+  };
+
+  Makes.prototype.updateOptions = function(id, makeslist) {
+    return console.log(this, id, makeslist);
+  };
+
+  Makes.prototype.typeUpdated = function(id) {
+    this.reset();
+    return this.getMakes(id);
+  };
+
+  Makes.prototype.reset = function() {
+    var i, len, makeslist, ref;
+    this.makesCollection.reset();
+    ref = this.makesListArray;
+    for (i = 0, len = ref.length; i < len; i++) {
+      makeslist = ref[i];
+      makeslist.remove();
+    }
+    return this.makesListArray = [];
+  };
+
+  Makes.prototype.getMakes = function(id) {
+    return $.ajax(this.home + "/" + this.url, {
+      data: {
+        id: id
+      }
+    }).done((function(_this) {
+      return function(makes) {
+        _this.makesCollection.add(makes);
+        _this.active = true;
+        return _this.add();
+      };
+    })(this));
+  };
+
+  Makes.prototype.renderAddMakesList = function() {
+    var makeslist;
+    makeslist = this.makesListArray.last();
+    this.$el.append(makeslist.el);
+    return makeslist.initSelectbox();
+  };
+
+  return Makes;
+
+})(Backbone.View);
+
+module.exports = Makes;
 
 },{"./ModelsList":6}],6:[function(require,module,exports){
 var ModelView, ModelsList,
@@ -2081,6 +2171,10 @@ SelectType = (function(superClass) {
     return this.$el.change(function() {
       return self.trigger('changed', $(this).val());
     });
+  };
+
+  SelectType.prototype.error = function() {
+    return this.$el.selectBox('control').blink();
   };
 
   return SelectType;
