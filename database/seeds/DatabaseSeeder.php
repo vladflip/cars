@@ -208,7 +208,7 @@ class CompanySeeder extends Seeder {
 				'phone' => $f->phoneNumber,
 				'address' => $f->address,
 				'spec_id' => rand(1, 7),
-				'logo' => 'http://lorempixel.com/100/100/business/',
+				'logo' => 'img/company_logo.png',
 				'type_id' => $model->type_id
 			]);
 
