@@ -2430,8 +2430,11 @@ submit.click(function() {
       setTimeout(function() {
         return $.magnificPopup.instance.close();
       }, 1000);
-      return setTimeout(function() {
+      setTimeout(function() {
         return $(_this).preload('reset');
+      }, 1500);
+      return setTimeout(function() {
+        return location.reload();
       }, 1500);
     };
   })(this));

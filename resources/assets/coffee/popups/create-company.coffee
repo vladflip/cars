@@ -191,3 +191,6 @@ submit.click ->
 			setTimeout =>
 				$(@).preload('reset')
 			, 1500
+			setTimeout =>
+				location.reload()
+			, 1500

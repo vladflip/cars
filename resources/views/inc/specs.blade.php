@@ -25,11 +25,15 @@
 
 	</ul>
 
-	<div id="create-company-button" class="specs_add" 
-	href="{{ Auth::guest() ? '#sign-up-popup' : '#create-company' }}">
-		Добавить организацию
-	</div>
+	@if( ! Auth::user()->company )
+		<div id="create-company-button" class="specs_add" 
+		href="{{ Auth::guest() ? '#sign-up-popup' : '#create-company' }}">
+			Добавить организацию
+		</div>
+	@endif
 
 </div>
 
-@include('popups.create-company')
+@if( ! Auth::user()->company )
+	@include('popups.create-company')
+@endif
