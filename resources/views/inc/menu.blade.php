@@ -22,9 +22,17 @@
 			</div>
 		</div>
 
-		<div id="sign-up" href="#sign-up-popup" class="menu_sign-up">
-			Регистрация
-		</div>
+		@if(Auth::check())
+			{!! Form::open(['method' => 'GET', 'route' => 'user-logout', 'id' => 'user-logout-form']) !!}
+				<div id="user-logout-button" class="menu_sign-up">
+					Выход
+				</div>
+			{!! Form::close() !!}
+		@else
+			<div id="sign-up" href="#sign-up-popup" class="menu_sign-up">
+				Регистрация
+			</div>
+		@endif
 
 	</div>
 

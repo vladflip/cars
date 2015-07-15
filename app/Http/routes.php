@@ -18,12 +18,6 @@ get('/', [
 	'uses' => 'HomeController@index'
 ]);
 
-get('fuck', function(){
-
-	\Auth::logout();
-
-});
-
 Route::group(['prefix' => 'user'], function(){
 
 	get('profile', [
@@ -40,6 +34,14 @@ Route::group(['prefix' => 'user'], function(){
 	post('auth', [
 		'as' => 'user-auth',
 		'uses' => 'UserController@authenticate'
+	]);
+
+	get('logout', [
+		'as' => 'user-logout',
+		function(){
+			\Auth::logout();
+			return redirect()->route('home');
+		}
 	]);
 
 	get('verify/{code}', [
