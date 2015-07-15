@@ -16,6 +16,10 @@ class CarModel extends Model {
 		return $this->belongsTo('App\Type', 'type_id');
 	}
 
+	public function getIdAttribute($id) {
+		return intval($id);
+	}
+
 	public function companies() {
 		return $this->belongsToMany(
 				'App\Company', 'company_models', 

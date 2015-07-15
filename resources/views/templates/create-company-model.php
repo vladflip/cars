@@ -2,8 +2,6 @@
 	
 	<select name="" class="popup_select create-company_select">
 
-		<option value="all" selected class="popup_option">Все модели</option>
-
 		{{#each models}}
 			<option value="{{id}}" class="popup_option">
 				{{title}}

@@ -635,10 +635,15 @@ MakesList = (function(superClass) {
       };
     })(this));
     this.select = this.$el.find('.create-company_make').children('select');
-    return this.select.change(this.selectChanged);
+    this.select.change(this.selectChanged);
+    return this.modelslist = new ModelsList({
+      el: this.$el.children('.create-company_models'),
+      typeId: parseInt(this.select.val())
+    });
   };
 
   MakesList.prototype.selectChanged = function(e) {
+    this.modelslist.update(parseInt(e.target.value));
     return this.trigger('selectChanged', e.target.value, this);
   };
 
@@ -657,7 +662,7 @@ MakesList = (function(superClass) {
         opt = $('<option class="popup_option"></option>');
         opt.val(make.get('id'));
         opt.html(make.get('title'));
-        if (!(selected !== parseInt(opt.val()) && !make.get('visible'))) {
+        if (selected === parseInt(opt.val()) || make.get('visible')) {
           _this.select.append(opt);
         }
         if (selected === parseInt(opt.val())) {
@@ -688,7 +693,6 @@ Makes = (function(superClass) {
   function Makes() {
     this.getMakes = bind(this.getMakes, this);
     this.typeUpdated = bind(this.typeUpdated, this);
-    this.updateOptions = bind(this.updateOptions, this);
     this.updateMakesCollection = bind(this.updateMakesCollection, this);
     this.destroyMakesList = bind(this.destroyMakesList, this);
     this.add = bind(this.add, this);
@@ -714,6 +718,11 @@ Makes = (function(superClass) {
     var makeslist;
     if (!this.active) {
       this.options.types.error();
+      return;
+    }
+    if (this.makesCollection.where({
+      visible: true
+    }).length === 0) {
       return;
     }
     makeslist = new MakesList({
@@ -749,10 +758,6 @@ Makes = (function(superClass) {
       results.push(makeslist.updateOptions(this.makesCollection));
     }
     return results;
-  };
-
-  Makes.prototype.updateOptions = function(id, makeslist) {
-    return console.log(this, id, makeslist);
   };
 
   Makes.prototype.typeUpdated = function(id) {
@@ -799,17 +804,54 @@ Makes = (function(superClass) {
 module.exports = Makes;
 
 },{"./ModelsList":6}],6:[function(require,module,exports){
-var ModelView, ModelsList,
-  bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; },
+var Model, ModelView, ModelsCollection, ModelsList,
   extend = function(child, parent) { for (var key in parent) { if (hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; },
-  hasProp = {}.hasOwnProperty;
+  hasProp = {}.hasOwnProperty,
+  bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };
+
+Model = (function(superClass) {
+  extend(Model, superClass);
+
+  function Model() {
+    return Model.__super__.constructor.apply(this, arguments);
+  }
+
+  Model.prototype.defaults = {
+    id: 0,
+    title: '',
+    visible: true
+  };
+
+  return Model;
+
+})(Backbone.Model);
+
+ModelsCollection = (function(superClass) {
+  extend(ModelsCollection, superClass);
+
+  function ModelsCollection() {
+    return ModelsCollection.__super__.constructor.apply(this, arguments);
+  }
+
+  ModelsCollection.prototype.model = Model;
+
+  ModelsCollection.prototype.resetVisible = function() {
+    return this.each(function(model) {
+      return model.set('visible', true);
+    });
+  };
+
+  return ModelsCollection;
+
+})(Backbone.Collection);
 
 ModelView = (function(superClass) {
   extend(ModelView, superClass);
 
   function ModelView() {
     this.destroy = bind(this.destroy, this);
-    this.postRender = bind(this.postRender, this);
+    this.selectChanged = bind(this.selectChanged, this);
+    this.initSelectbox = bind(this.initSelectbox, this);
     return ModelView.__super__.constructor.apply(this, arguments);
   }
 
@@ -817,24 +859,56 @@ ModelView = (function(superClass) {
 
   ModelView.prototype.className = 'create-company_model popup_field';
 
-  ModelView.prototype.postRender = function() {
-    this.$el.children('select').selectBox();
-    return this.$el.children('.popup_redx').click((function(_this) {
+  ModelView.prototype.initialize = function() {
+    this.models = new ModelsCollection(this.options.models);
+    this.render();
+    this.$el.children('.popup_redx').click((function(_this) {
       return function() {
         return _this.destroy();
       };
     })(this));
+    this.select = this.$el.children('select');
+    return this.select.change(this.selectChanged);
+  };
+
+  ModelView.prototype.initSelectbox = function() {
+    return this.select.selectBox();
+  };
+
+  ModelView.prototype.selectChanged = function(e) {
+    return this.trigger('selectChanged', e.target.value, this);
+  };
+
+  ModelView.prototype.updateOptions = function(models) {
+    var selected;
+    selected = parseInt(this.select.val());
+    this.select.children().remove();
+    models.each((function(_this) {
+      return function(model) {
+        var opt;
+        opt = $('<option class="popup_option"></option>');
+        opt.val(model.get('id'));
+        opt.html(model.get('title'));
+        if (selected === parseInt(opt.val()) || model.get('visible')) {
+          _this.select.append(opt);
+        }
+        if (selected === parseInt(opt.val())) {
+          return opt.attr('selected', 'selected');
+        }
+      };
+    })(this));
+    return this.select.selectBox('refresh');
   };
 
   ModelView.prototype.destroy = function() {
+    this.trigger('destroy', this);
     return this.remove();
   };
 
-  ModelView.prototype.render = function(models) {
-    this.$el.html(this.template({
-      models: models
+  ModelView.prototype.render = function() {
+    return this.$el.html(this.template({
+      models: this.models.toJSON()
     }));
-    return this.$el;
   };
 
   return ModelView;
@@ -846,6 +920,8 @@ ModelsList = (function(superClass) {
 
   function ModelsList() {
     this.destroy = bind(this.destroy, this);
+    this.updateModelsCollection = bind(this.updateModelsCollection, this);
+    this.destroyMakesList = bind(this.destroyMakesList, this);
     this.add = bind(this.add, this);
     return ModelsList.__super__.constructor.apply(this, arguments);
   }
@@ -857,48 +933,77 @@ ModelsList = (function(superClass) {
   ModelsList.prototype.url = 'api/get-models-by-make';
 
   ModelsList.prototype.initialize = function() {
-    this.collection = [];
-    this.models = [];
-    this.id = 0;
+    this.modelsCollection = new ModelsCollection;
+    this.modelsArray = [];
+    this.typeId = this.options.typeId;
+    this.getModels();
     this.render();
     return this.$el.find('.popup_plus-sign').click(this.add);
   };
 
   ModelsList.prototype.add = function() {
-    var v;
-    v = new ModelView;
-    this.collection.push(v);
-    this.$el.append(v.render(this.models));
-    return v.postRender();
+    var modelview;
+    if (this.modelsCollection.where({
+      visible: true
+    }).length === 0) {
+      return;
+    }
+    modelview = new ModelView({
+      models: this.modelsCollection.where({
+        visible: true
+      })
+    });
+    this.modelsArray.push(modelview);
+    this.renderAddModel();
+    this.updateModelsCollection();
+    modelview.on('destroy', this.destroyMakesList);
+    return modelview.on('selectChanged', this.updateModelsCollection);
   };
 
-  ModelsList.prototype.update = function(id) {
-    var i, j, k, len, len1, model, ref, results, toRemove;
-    this.id = id;
-    this.getModels(id);
-    toRemove = [];
-    ref = this.collection;
-    for (i = j = 0, len = ref.length; j < len; i = ++j) {
-      model = ref[i];
-      model.remove();
-      toRemove.push(model);
+  ModelsList.prototype.destroyMakesList = function(modelview) {
+    this.modelsArray.remove(modelview);
+    return this.updateModelsCollection();
+  };
+
+  ModelsList.prototype.updateModelsCollection = function() {
+    var i, j, len, len1, model, modelview, ref, ref1, results;
+    this.modelsCollection.resetVisible();
+    ref = this.modelsArray;
+    for (i = 0, len = ref.length; i < len; i++) {
+      modelview = ref[i];
+      model = this.modelsCollection.get(modelview.select.val());
+      model.set('visible', false);
     }
+    ref1 = this.modelsArray;
     results = [];
-    for (k = 0, len1 = toRemove.length; k < len1; k++) {
-      model = toRemove[k];
-      results.push(this.collection.remove(model));
+    for (j = 0, len1 = ref1.length; j < len1; j++) {
+      modelview = ref1[j];
+      results.push(modelview.updateOptions(this.modelsCollection));
     }
     return results;
   };
 
-  ModelsList.prototype.getModels = function(id) {
+  ModelsList.prototype.update = function(id) {
+    var i, len, model, ref;
+    this.typeId = id;
+    this.modelsCollection.reset();
+    ref = this.modelsArray;
+    for (i = 0, len = ref.length; i < len; i++) {
+      model = ref[i];
+      model.remove();
+    }
+    this.modelsArray = [];
+    return this.getModels();
+  };
+
+  ModelsList.prototype.getModels = function() {
     return $.ajax(this.home + "/" + this.url, {
       data: {
-        id: id
+        id: this.typeId
       }
     }).done((function(_this) {
       return function(d) {
-        return _this.models = d;
+        return _this.modelsCollection.add(d);
       };
     })(this));
   };
@@ -909,6 +1014,13 @@ ModelsList = (function(superClass) {
 
   ModelsList.prototype.render = function() {
     return this.$el.append(this.$el.html(this.template));
+  };
+
+  ModelsList.prototype.renderAddModel = function() {
+    var model;
+    model = this.modelsArray.last();
+    this.$el.append(model.el);
+    return model.initSelectbox();
   };
 
   return ModelsList;

@@ -1,25 +1,71 @@
+class Model extends Backbone.Model
+	defaults:
+		id: 0
+		title: ''
+		visible: true
+
+class ModelsCollection extends Backbone.Collection
+	model: Model
+
+	# reset all models visible to true
+	resetVisible: ->
+		@.each (model) ->
+			model.set 'visible', true
+
 class ModelView extends Backbone.View
 
 	template: $.HandlebarsFactory '#create-company-model-template'
 
 	className: 'create-company_model popup_field'
 
-	postRender: =>
+	initialize: ->
 
-		do @$el.children('select').selectBox
+		@models = new ModelsCollection @options.models
+
+		do @render
 
 		@$el.children('.popup_redx').click =>
 			do @destroy
 
+		@select = @$el.children('select')
+
+		@select.change @selectChanged
+
+	initSelectbox: =>
+		do @select.selectBox
+
+	selectChanged: (e) =>
+		@trigger 'selectChanged', e.target.value, @
+
+	# loop options
+	# get value of select
+	# remove all options
+	# append all where visible or selected
+	updateOptions: (models) ->
+		selected = parseInt @select.val()
+
+		@select.children().remove()
+
+		models.each (model) =>
+			opt = $('<option class="popup_option"></option>')
+			opt.val model.get 'id'
+			opt.html model.get 'title'
+			
+			# append only if visible or selected
+			if selected is parseInt(opt.val()) or model.get('visible')
+				@select.append opt
+
+			if selected is parseInt opt.val()
+				opt.attr('selected', 'selected')
+
+		@select.selectBox('refresh')
+
 	destroy: =>
+		@trigger 'destroy', @
 		do @remove
 
-
-	render: (models) ->
-		@$el.html @template models: models
-
-		@$el
-
+	render: ->
+		@$el.html @template models: @models.toJSON()
 
 class ModelsList extends Backbone.View
 
@@ -33,44 +79,86 @@ class ModelsList extends Backbone.View
 
 	initialize: ->
 
-		@collection = []
+		# store models objects
+		@modelsCollection = new ModelsCollection
 
-		@models = []
+		# store modelviews
+		@modelsArray = []
 
-		@id = 0
+		@typeId = @options.typeId
+
+		do @getModels
 
 		do @render
 
 		@$el.find('.popup_plus-sign').click @add
 
+	# init ModelView
+	# add to @modelsArray
 	add: =>
-		v = new ModelView
+		# if no visible models - return
+		if @modelsCollection.where(visible: true).length is 0
+			return
 
-		@collection.push v
+		modelview = new ModelView
+			models: @modelsCollection.where visible: true
 
-		@$el.append v.render @models
+		@modelsArray.push modelview
 
-		do v.postRender
+		do @renderAddModel
 
+		do @updateModelsCollection
+
+		modelview.on 'destroy', @destroyMakesList
+
+		modelview.on 'selectChanged', @updateModelsCollection
+
+	# remove modelview from @modelsArray
+	# do updateMakesCollection
+	destroyMakesList: (modelview) =>
+		@modelsArray.remove modelview
+
+		do @updateModelsCollection
+
+	# reset visible
+	# loop @modelsArray
+	# get selected option id
+	# set visible false where id is selected option
+	updateModelsCollection: =>
+
+		@modelsCollection.resetVisible()
+
+		for modelview in @modelsArray
+			model = @modelsCollection.get modelview.select.val()
+			model.set 'visible', false
+
+		# loop after becauze @modelsCollection must be updated
+		for modelview in @modelsArray
+			modelview.updateOptions @modelsCollection
+
+	# get models
+	# reset @modelsCollection
+	# destroy all modelviews in @modelsArray
+	# empty @modelsArray
 	update: (id) ->
-		@id = id
-	# get models, destroy all modelview
-		@getModels id
+		@typeId = id
 
-		toRemove = []
-		for model, i in @collection
+		@modelsCollection.reset()
+
+		for model in @modelsArray
 			do model.remove
-			toRemove.push model
 
-		for model in toRemove
-			@collection.remove model
+		@modelsArray = []
 
-	getModels: (id) ->
+		do @getModels
+
+	# add models to @modelsCollection
+	getModels: ->
 		$.ajax "#{@home}/#{@url}",
 			data:
-				id: id
+				id: @typeId
 		.done (d) =>
-			@models = d
+			@modelsCollection.add d
 
 	destroy: =>
 		do @remove
@@ -78,6 +166,12 @@ class ModelsList extends Backbone.View
 	render: ->
 		@$el.append @$el.html @template
 
+	renderAddModel: ->
+		model = @modelsArray.last()
+
+		@$el.append model.el
+
+		do model.initSelectbox
 
 
 module.exports = ModelsList
