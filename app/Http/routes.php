@@ -18,6 +18,10 @@ get('/', [
 	'uses' => 'HomeController@index'
 ]);
 
+get('/fuck', function(){
+	return Auth::guest();
+});
+
 Route::group(['prefix' => 'user'], function(){
 
 	get('profile', [
