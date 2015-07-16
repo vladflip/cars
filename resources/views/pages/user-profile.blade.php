@@ -41,7 +41,7 @@
 									<img
 									src="{{ $user->ava ? 
 									URL::to('/') . '/' . $user->ava : 
-									URL::to('/') . '/img/ava.jpg' }}" alt="">
+									URL::to('/') . '/img/noavatar.png' }}" alt="">
 								</div>
 								
 								<input type="file" style="display:none" id="user-ava-file">
