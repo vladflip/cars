@@ -181,16 +181,9 @@ submit.click ->
 			method: 'POST'
 			data: result
 		.done (response) =>
-			console.log response
-
 			$(@).preload('stop')
 
 			setTimeout ->
 				$.magnificPopup.instance.close()
+				location.href = response
 			, 1000
-			setTimeout =>
-				$(@).preload('reset')
-			, 1500
-			setTimeout =>
-				location.reload()
-			, 1500

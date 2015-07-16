@@ -2425,17 +2425,11 @@ submit.click(function() {
     data: result
   }).done((function(_this) {
     return function(response) {
-      console.log(response);
       $(_this).preload('stop');
-      setTimeout(function() {
-        return $.magnificPopup.instance.close();
-      }, 1000);
-      setTimeout(function() {
-        return $(_this).preload('reset');
-      }, 1500);
       return setTimeout(function() {
-        return location.reload();
-      }, 1500);
+        $.magnificPopup.instance.close();
+        return location.href = response;
+      }, 1000);
     };
   })(this));
 });

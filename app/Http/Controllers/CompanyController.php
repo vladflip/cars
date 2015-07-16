@@ -83,7 +83,7 @@ class CompanyController extends Controller {
 
 		$image->save($fullname);
 		
-		return $company;
+		return route('profile');
 
 	}
 
