@@ -62,27 +62,27 @@ Route::group(['prefix' => 'catalog'], function(){
 	get('make/{allmakes}', [
 		'as' => 'allmakes',
 		'uses' => 'CatalogController@allmakes'
-	])->where(['allmakes' => '[a-z+-]+']);
+	]);
 
 	get('make/{allmakes}/{model}', [
 		'as' => 'allmakes-model',
 		'uses' => 'CatalogController@allmakes_models'
-	])->where(['allmakes' => '[a-z]+', 'model' => '[a-z+-]+']);
+	]);
 
 	get('{spec}', [
 		'as' => 'specs',
 		'uses' => 'CatalogController@specs'
-	])->where('spec', '[a-z]+');
+	]);
 
 	get('{spec}/{make}', [
 		'as' => 'make',
 		'uses' => 'CatalogController@companies'
-	])->where(['spec' => '[a-z]+', 'make' => '[a-z+-]+']);
+	]);
 
 	get('{spec}/{make}/{model}', [
 		'as' => 'spec-make-model',
 		'uses' => 'CatalogController@spec_make_models'
-	])->where(['spec' => '[a-z]+', 'make' => '[a-z+-]+', 'model' => '[a-z0-9+-]+']);
+	]);
 
 
 });
