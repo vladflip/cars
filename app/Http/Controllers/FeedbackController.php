@@ -37,7 +37,7 @@ class FeedbackController extends Controller {
 		->with('likes')
 		->with('dislikes')
 		->orderBy('created_at', 'desc')
-		// ->orderByRaw('likes_count desc, likes_count / dislikes_count')
+		// ->orderByRaw('(likes_count - dislikes_count) * -1')
 		->get();
 
 		$bread = ['make' => $m, 'type' => $t];
