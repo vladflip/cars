@@ -251,37 +251,41 @@ class FeedbackController extends Controller {
 
 		$id = \Input::get('id');
 
-		$active = \Input::get('active');
-
 		$type = \Input::get('type');
 
 		$feedback = \App\Feedback::find($id);
 
-		if($type == 'likes') {
+		$hasLike = $feedback->likes->contains( \Auth::id() );
 
-			if($active) {
+		$hasDislike = $feedback->dislikes->contains( \Auth::id() );
 
-				$feedback->attach_like(\Auth::id());
+		if( $type == 'likes' ) {
 
-				$feedback->detach_dislike(\Auth::id());
+			if( $hasLike ) {
+
+				$feedback->detach_like( \Auth::id() );
 
 			} else {
 
-				$feedback->detach_like(\Auth::id());
+				$feedback->attach_like( \Auth::id() );
+
+				if( $feedback->dislikes->contains( \Auth::id() ) )
+					$feedback->detach_dislike( \Auth::id() );
 
 			}
 				
-		} else {
+		} else if( $type == 'dislikes' ) {
 
-			if($active) {
+			if( $hasDislike ) {
 
-				$feedback->attach_dislike(\Auth::id());
-
-				$feedback->detach_like(\Auth::id());
+				$feedback->detach_dislike( \Auth::id() );
 
 			} else {
 
-				$feedback->detach_dislike(\Auth::id());
+				$feedback->attach_dislike( \Auth::id() );
+
+				if( $feedback->likes->contains( \Auth::id() ) )
+					$feedback->detach_like( \Auth::id() );
 
 			}
 

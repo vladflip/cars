@@ -63,7 +63,6 @@ class Counter
 			method: 'POST'
 			data:
 				id: @id
-				active: @active
 				type: type
 
 		.done (response) =>

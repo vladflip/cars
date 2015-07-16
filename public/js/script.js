@@ -2180,7 +2180,6 @@ Counter = (function() {
       method: 'POST',
       data: {
         id: this.id,
-        active: this.active,
         type: type
       }
     }).done((function(_this) {
