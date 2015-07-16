@@ -14,20 +14,44 @@
 
 			@if(Auth::check())
 			
-				{{-- <div class="user-info">
-					
-					<span>x</span>
+				<a class="header_user-info" href="{{ route('profile') }}">
+
+					<div class="header_user-info_arrow"></div>
 			
-					<div class="user-info_names">
-						<h5>Павел Калачов</h5>
-						<h5>Ренестранском</h5>
+					<div class="header_user-info_names">
+
+						@if(Auth::user()->name)
+							
+							<h5>{{ Auth::user()->name }}</h5>
+
+						@else
+
+							<h5>{{ Auth::user()->email }}</h5>
+
+						@endif
+
+						@if(Auth::user()->company)
+							<h5 class="header_user-info_company-name">{{ Auth::user()->company->name }}</h5>
+						@endif
+
 					</div>
+
+					@if(AUth::user()->company)
+						<div class="header_user-info_ava" 
+						style="background-image:url({{ URL::to('/') . '/' . Auth::user()->company->logo }})">
+						</div>
+					@elseif(Auth::user()->ava)
+						<div class="header_user-info_ava" 
+						style="background-image:url({{ URL::to('/') . '/' . Auth::user()->ava }})">
+						</div>
+					@else
+						<div class="header_user-info_ava" 
+						style="background-image:url({{ URL::to('/') }}/img/noavatar.png)"></div>
+					@endif
+
+					<span class="header_user-info_notification">+2</span>
 			
-					<div class="user-info_ava">
-						<img src="img/ava.jpg" alt="">
-					</div>
-			
-				</div> --}}
+				</a>
 			
 			@else
 

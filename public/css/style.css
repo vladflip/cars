@@ -1195,7 +1195,7 @@ ul.create-company-spec-selectBox-dropdown-menu {
   top: 4px;
   cursor: pointer;
 }
-.user-info {
+.header_user-info {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
@@ -1205,31 +1205,58 @@ ul.create-company-spec-selectBox-dropdown-menu {
   -webkit-align-content: space-between;
       -ms-flex-line-pack: justify;
           align-content: space-between;
+  cursor: pointer;
+  height: 80px;
+  position: relative;
 }
-.user-info span {
-  font-weight: 700;
-  font-size: 12px;
-}
-.user-info_names {
+.header_user-info_names {
   margin: 0 20px;
+  transition: opacity 0.3s ease-in-out;
 }
-.user-info_names h5 {
+.header_user-info_names h5 {
   margin: 0;
+  font-weight: 400;
 }
-.user-info_names h5:last-child {
+.header_user-info_company-name {
   color: #aaa;
   font-weight: 300;
   font-size: 12px;
   margin-top: 5px;
 }
-.user-info_ava {
+.header_user-info_ava {
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  overflow: hidden;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  transition: opacity 0.3s ease-in-out;
 }
-.user-info_ava img {
-  margin-top: -10px;
+.header_user-info_arrow {
+  background: url("../img/profile-arrow.png") center no-repeat;
+  width: 18px;
+  height: 18px;
+  position: relative;
+  left: 0;
+  transition: left 0.3s ease-in-out;
+}
+.header_user-info:hover .header_user-info_arrow {
+  left: 10px;
+}
+.header_user-info:hover .header_user-info_ava,
+.header_user-info:hover .header_user-info_names {
+  opacity: 0.6;
+}
+.header_user-info_notification {
+  background-color: #f3df6d;
+  padding: 2px 5px;
+  font-size: 12px;
+  font-weight: 400;
+  color: #fff;
+  border-radius: 2px;
+  position: absolute;
+  top: 10px;
+  right: 0;
 }
 .menu {
   height: 60px;

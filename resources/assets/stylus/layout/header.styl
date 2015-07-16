@@ -61,32 +61,65 @@
 		top 4px
 		cursor pointer
 			
-.user-info
-	display flex
-	align-items center
-	align-content space-between
-	
-	span
-		font-weight 700
-		font-size 12px
-	
-	&_names
-		margin 0 20px
+	&_user-info
+		display flex
+		align-items center
+		align-content space-between
 		
-		h5
-			margin 0
+		cursor pointer
+		height 80px
+		
+		position relative
+		
+		&_names
+			margin 0 20px
 			
-		h5:last-child
+			transition opacity .3s ease-in-out
+			
+			h5
+				margin 0
+				font-weight 400
+				
+		&_company-name
 			color #aaa
 			font-weight 300
 			font-size 12px
 			margin-top 5px
+				
+		&_ava
+			width 40px
+			height 40px
+			border-radius 50%
 			
-	&_ava
-		width 40px
-		height 40px
-		border-radius 50%
-		overflow hidden
+			background-size cover
+			background-repeat no-repeat
+			background-position center
+			
+			transition opacity .3s ease-in-out
 		
-		img
-			margin-top -10px
+		&_arrow
+			background url(../img/profile-arrow.png) center no-repeat
+			width 18px
+			height 18px
+			position relative
+			left 0
+			
+			transition left .3s ease-in-out
+		
+		&:hover &_arrow
+			left 10px
+		
+		&:hover &_ava,
+		&:hover &_names
+			opacity .6
+			
+		&_notification
+			background-color $yellow
+			padding 2px 5px
+			font-size 12px
+			font-weight 400
+			color white
+			border-radius 2px
+			position absolute
+			top 10px
+			right 0
