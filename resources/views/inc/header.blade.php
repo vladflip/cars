@@ -48,8 +48,16 @@
 						<div class="header_user-info_ava" 
 						style="background-image:url({{ URL::to('/') }}/img/noavatar.png)"></div>
 					@endif
-
-					<span class="header_user-info_notification">+2</span>
+					
+					@if(Auth::user()->company)
+						<span class="header_user-info_notification">
+							+{{ Auth::user()->company->requests_count() }}
+						</span>
+					@else
+						<span class="header_user-info_notification">
+							+{{ Auth::user()->requests_count() }}
+						</span>
+					@endif
 			
 				</a>
 			

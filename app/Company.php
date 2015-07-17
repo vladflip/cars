@@ -39,4 +39,10 @@ class Company extends Model {
 		return false;
 	}
 
+	public function requests_count() {
+
+		return $this->requests()->whereRead(0)->count();
+
+	}
+
 }
