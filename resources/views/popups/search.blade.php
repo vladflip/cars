@@ -6,10 +6,10 @@
 		
 		<div class="popup_checks">
 
-			<input type="checkbox" class="popup_check">
+			<input id="search-new" type="checkbox" class="popup_check">
 			<label class="popup_label">Новая</label>
 
-			<input type="checkbox" class="popup_check">
+			<input id="search-old" type="checkbox" class="popup_check">
 			<label class="popup_label">б/у</label>
 
 		</div>
@@ -58,7 +58,7 @@
 			class="popup_textarea"></textarea>
 		</div>
 
-		<div class="popup_button">
+		<div id="search-button" class="popup_button">
 			Запросить
 		</div>
 

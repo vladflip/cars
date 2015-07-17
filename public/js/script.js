@@ -3088,7 +3088,7 @@ require('./feedback');
 require('./create-company');
 
 },{"./create-company":15,"./feedback":16,"./search":18,"./sign-up":19}],18:[function(require,module,exports){
-var SelectView, make, model, type;
+var SelectView, button, isNew, isNewLabel, isOld, isOldLabel, make, model, more, type, year;
 
 SelectView = require('../inc/SelectView');
 
@@ -3113,7 +3113,88 @@ type = new SelectView({
   c: make
 });
 
-autosize($('#search-more'));
+more = $('#search-more');
+
+year = $('#search-year');
+
+autosize(more);
+
+isNew = $('#search-new');
+
+isOld = $('#search-old');
+
+isNewLabel = $('#search-new + label');
+
+isOldLabel = $('#search-old + label');
+
+button = $('#search-button');
+
+button.click(function() {
+  var result;
+  result = {};
+  if (isNew.is(':checked') || isOld.is(':checked')) {
+    if (isNew.is(':checked') && isOld.is(':checked')) {
+      result["new"] = true;
+      result.old = true;
+    } else if (isNew.is(':checked')) {
+      result["new"] = true;
+      result.old = false;
+    } else if (isOld.is(':checked')) {
+      result["new"] = false;
+      result.old = true;
+    }
+  } else {
+    isNewLabel.blink();
+    isOldLabel.blink();
+    return;
+  }
+  if (type.get() != null) {
+    result.type = parseInt(type.get());
+  } else {
+    type.error();
+    return;
+  }
+  if (make.get() != null) {
+    result.make = parseInt(make.get());
+  } else {
+    make.error();
+    return;
+  }
+  if (model.get() != null) {
+    result.model = parseInt(model.get());
+  } else {
+    model.error();
+    return;
+  }
+  if (year.val() !== '') {
+    result.year = year.val();
+  } else {
+    year.blink();
+    return;
+  }
+  if (more.val() !== '') {
+    result.more = more.val();
+  } else {
+    more.blink();
+    return;
+  }
+  $(this).preload('start');
+  return $.ajax(($('body').data('home')) + "/api/request/create", {
+    headers: {
+      'X-CSRF-TOKEN': $('body').data('csrf')
+    },
+    method: 'POST',
+    data: result
+  }).done((function(_this) {
+    return function(response) {
+      console.log(response);
+      $(_this).preload('stop');
+      return setTimeout(function() {
+        return $.magnificPopup.instance.close();
+      }, 1000);
+    };
+  })(this));
+});
 
 },{"../inc/SelectView":9}],19:[function(require,module,exports){
 var button, email, form, passw, submit;

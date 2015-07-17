@@ -9,7 +9,10 @@ class RequestController extends Controller {
 
 	public function create() {
 
-		return 'hello';
+		if( ! \Auth::user()->is_ready() )
+			return 'hello lamer';
+
+		
 
 	}
 

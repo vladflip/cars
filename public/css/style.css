@@ -561,6 +561,7 @@ ul.create-company-spec-selectBox-dropdown-menu {
 }
 .popup_checks .popup_label {
   margin: 0 10px 0 0;
+  padding: 10px;
 }
 .popup_check {
   width: 15px;
