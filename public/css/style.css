@@ -711,6 +711,7 @@ ul.create-company-spec-selectBox-dropdown-menu {
   background-color: #f3df6d;
   padding: 20px 40px;
   border-radius: 2px;
+  margin: 0 0 10px 0;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
@@ -858,7 +859,6 @@ ul.create-company-spec-selectBox-dropdown-menu {
   display: none;
 }
 .feedback {
-  margin: 10px 0 0 0;
   background-color: #fff;
   padding: 20px 40px;
   display: -webkit-flex;

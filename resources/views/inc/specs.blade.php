@@ -29,7 +29,7 @@
 
 		<div id="create-company-button" class="specs_add" 
 			href="{{ Auth::guest() ? '#sign-up-popup' :
-			Auth::user()->is_ready() ? '#create-company' : '#fill-up-profile-popup' }}">
+			( Auth::user()->is_ready() ? '#create-company' : '#fill-up-profile-popup' ) }}">
 			Добавить организацию
 		</div>
 
