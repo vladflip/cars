@@ -33,7 +33,8 @@ class Company extends Model {
 	}
 
 	public function requests() {
-		// get all requests by type and makes of company
+		// get all requests by type and make and model of company
+		return false;
 	}
 
 }

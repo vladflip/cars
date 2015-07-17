@@ -16,7 +16,7 @@ class UserController extends Controller {
 
 		if($user->company){
 
-			return view('pages.company-profile');
+			return view('pages.company-profile')->with('user', $user);
 
 		} else {
 

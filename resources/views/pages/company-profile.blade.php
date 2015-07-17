@@ -36,7 +36,7 @@
 						<div class="profile-info_left">
 							
 							<div class="profile-info_logo">
-								<img src="img/com_logo.jpg" alt="">
+								<img src="{{ URL::to('/') . '/' . $user->company->logo }}" alt="">
 							</div>
 						
 						</div>
@@ -44,12 +44,12 @@
 						<div class="profile-info_right">
 							
 							<h3 class="profile-info_name">
-								ООО Трансавтосервис
+								{{ $user->company->name }}
 								<span class="profile-info_pen"></span>
 							</h3>
 						
 							<div class="profile-info_address">
-								Москва, Россия
+								{{ $user->company->address }}
 							</div>
 						
 							<div class="profile-info_phone">
@@ -75,26 +75,30 @@
 					</div>
 
 				</div>
-
-				<div class="requests">
-					
-					<div class="requests_header">
+				
+				@if($user->company->requests())
+		
+					<div class="requests">
 						
-						<div class="requests_toogler">
-
-							<div class="requests_received requests_toogler--active">Исходящие запросы</div>
+						<div class="requests_header">
 							
-							<div class="requests_sent">Входящие (+2)</div>
+							<div class="requests_toogler">
+
+								<div class="requests_received requests_toogler--active">Исходящие запросы</div>
+								
+								<div class="requests_sent">Входящие (+2)</div>
+
+							</div>
 
 						</div>
 
+						@include('parts.sent-requests')
+
+						@include('parts.received-requests')
+
 					</div>
 
-					@include('parts.sent-requests')
-
-					@include('parts.received-requests')
-
-				</div>
+				@endif
 
 			</div>
 
