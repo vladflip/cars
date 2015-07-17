@@ -17,9 +17,9 @@ class CreateUsersTable extends Migration {
 
 			$t->string('ava');
 
-			$t->string('address');
-			$t->string('phone');
-			$t->string('about');
+			// $t->string('address');
+			// $t->string('phone');
+			// $t->string('about');
 
 			// $t->boolean('is_admin');
 

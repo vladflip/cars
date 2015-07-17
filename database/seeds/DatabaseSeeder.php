@@ -56,9 +56,9 @@ class UserSeeder extends Seeder {
 					'email' => $f->email,
 					'password' => Hash::make($f->password),
 					'name' => $f->name(),
-					'about' => $f->paragraph(5),
-					'address' => 'fuck',
-					'phone' => '2340293',
+					// 'about' => $f->paragraph(5),
+					// 'address' => 'fuck',
+					// 'phone' => '2340293',
 					
 					'confirmed' => 1
 				]);

@@ -57,7 +57,7 @@
 									<span id="profile-pen" href="#edit-profile-popup" class="profile-info_pen">
 									</span>
 								</h3>
-							
+							{{-- 
 								<div id="edit-profile-address" class="profile-info_address">
 									{{ $user->address }}
 								</div>
@@ -68,7 +68,7 @@
 
 								<div id="edit-profile-about" class="profile-info_about">
 									{{ $user->about }}
-								</div>
+								</div> --}}
 							
 							</div>
 

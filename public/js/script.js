@@ -3174,27 +3174,6 @@ collection.add(new FieldModel({
   elToRefresh: $('#edit-profile-name').children('span:first')
 }));
 
-collection.add(new FieldModel({
-  name: 'address',
-  value: $.trim($('#edit-profile-address').html()),
-  title: 'Адрес',
-  elToRefresh: $('#edit-profile-address')
-}));
-
-collection.add(new FieldModel({
-  name: 'phone',
-  value: $.trim($('#edit-profile-phone').html()),
-  title: 'Телефон',
-  elToRefresh: $('#edit-profile-phone')
-}));
-
-collection.add(new FieldModel({
-  name: 'about',
-  value: $.trim($('#edit-profile-about').html()),
-  title: 'О себе',
-  elToRefresh: $('#edit-profile-about')
-}));
-
 new FieldSet({
   collection: collection
 });
