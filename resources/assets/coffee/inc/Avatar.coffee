@@ -124,6 +124,7 @@ class Avatar
 
 			setTimeout ->
 				$.magnificPopup.instance.close()
+				location.reload()
 			, 1000
 
 module.exports = Avatar

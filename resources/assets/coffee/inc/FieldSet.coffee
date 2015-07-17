@@ -107,6 +107,8 @@ class FieldSet extends Backbone.View
 			model.trigger 'update'
 
 	post: (data) ->
+		@button.preload 'start'
+
 		$.ajax "#{@home}/#{@url}",
 			headers:
 				'X-CSRF-TOKEN' : $('body').data 'csrf'
@@ -114,9 +116,15 @@ class FieldSet extends Backbone.View
 			data: data
 		.done (response) =>
 			console.log response
-			# loading icon
+			
+			@button.preload 'stop'
+
 			do @updateModels
-			$.magnificPopup.instance.close()
+			
+			setTimeout ->
+				$.magnificPopup.instance.close()
+				location.reload()
+			, 1000
 
 
 

@@ -1202,7 +1202,8 @@ Avatar = (function() {
         }, 800);
         _this.button.preload('stop');
         return setTimeout(function() {
-          return $.magnificPopup.instance.close();
+          $.magnificPopup.instance.close();
+          return location.reload();
         }, 1000);
       };
     })(this));
@@ -1369,6 +1370,7 @@ FieldSet = (function(superClass) {
   };
 
   FieldSet.prototype.post = function(data) {
+    this.button.preload('start');
     return $.ajax(this.home + "/" + this.url, {
       headers: {
         'X-CSRF-TOKEN': $('body').data('csrf')
@@ -1378,8 +1380,12 @@ FieldSet = (function(superClass) {
     }).done((function(_this) {
       return function(response) {
         console.log(response);
+        _this.button.preload('stop');
         _this.updateModels();
-        return $.magnificPopup.instance.close();
+        return setTimeout(function() {
+          $.magnificPopup.instance.close();
+          return location.reload();
+        }, 1000);
       };
     })(this));
   };
