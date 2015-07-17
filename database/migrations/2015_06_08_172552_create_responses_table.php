@@ -20,6 +20,8 @@ class CreateResponsesTable extends Migration {
 			$t->integer('company_id')->unsigned();
 
 			$t->text('text');
+			
+			$t->tinyInteger('read')->default(0);
 
 			$t->foreign('request_id')->references('id')->on('requests')
 											->onDelete('cascade')
