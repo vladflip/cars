@@ -233,20 +233,4 @@ class APIController extends Controller {
 
 	}
 
-	// ---------------------------------------------------
-	// --------- user api
-	// ---------------------------------------------------
-
-	public function edit_user() {
-
-		$data = \Input::all();
-
-		$user = \Auth::user();
-
-		$user->update($data);
-
-		return $user;
-
-	}
-
 }

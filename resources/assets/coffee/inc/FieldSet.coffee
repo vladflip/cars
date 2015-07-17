@@ -1,10 +1,3 @@
-Avatar = require './inc/Avatar'
-
-$('#profile-pen').magnificPopup
-
-	type: 'inline'
-	closeBtnInside: true
-
 class FieldModel extends Backbone.Model
 	defaults:
 		value      : ''
@@ -81,14 +74,16 @@ class FieldView extends Backbone.View
 		@$el
 
 class FieldSet extends Backbone.View
-
-	url  : 'api/user/edit'
 	
 	home : $('body').data 'home'
-	
-	button: $ '#edit-profile-button'
 
 	initialize: ->
+
+		@collection = new FieldCollection @collection
+
+		@button = @options.button
+
+		@url = @options.url
 
 		do @render
 
@@ -133,36 +128,4 @@ class FieldSet extends Backbone.View
 
 			@button.before v.el
 
-
-new Avatar '#user-ava', '#user-ava-file', 'api/user/avatar'
-
-
-collection = new FieldCollection
-
-collection.add new FieldModel
-	name: 'name' 
-	value: $.trim( $('#edit-profile-name').children('span:first').html() )
-	title: 'Имя'
-	elToRefresh: $('#edit-profile-name').children('span:first')
-
-# collection.add new FieldModel
-# 	name: 'address'
-# 	value: $.trim($('#edit-profile-address').html())
-# 	title: 'Адрес'
-# 	elToRefresh: $('#edit-profile-address')
-
-# collection.add new FieldModel
-# 	name: 'phone'
-# 	value: $.trim($('#edit-profile-phone').html())
-# 	title: 'Телефон'
-# 	elToRefresh: $('#edit-profile-phone')
-
-# collection.add new FieldModel
-# 	name: 'about'
-# 	value: $.trim($('#edit-profile-about').html())
-# 	title: 'О себе'
-# 	elToRefresh: $('#edit-profile-about')
-
-
-new FieldSet
-	collection: collection
+module.exports = FieldSet

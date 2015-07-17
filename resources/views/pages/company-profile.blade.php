@@ -14,11 +14,12 @@
 					
 						<div class="profile-info_toogler">
 
-							<div class="profile-info_company profile-info_toogler--active">
+							<div id="profile-show-company" 
+							class="profile-info_company profile-info_toogler--active">
 								Моя компания
 							</div>
 							
-							<div class="profile-info_profile">
+							<div id="profile-show-user" class="profile-info_profile">
 								Мой профиль
 							</div>
 
@@ -35,38 +36,62 @@
 
 						<div class="profile-info_left">
 							
-							<div class="profile-info_logo">
+							<div class="profile-info_logo" id="company-ava">
 								<img src="{{ URL::to('/') . '/' . $user->company->logo }}" alt="">
 							</div>
+
+							<div class="profile-info_logo profile--hidden" id="user-ava">
+								<img src="{{ URL::to('/') . '/' . $user->ava  }}" alt="">
+							</div>
+							
+							<input type="file" style="display:none" id="user-ava-file">
+
+							<input type="file" style="display:none" id="company-ava-file">
+
+							<div id="avatar-popup" class="popup mfp-hide popup--avatar"></div>
 						
 						</div>
 						
 						<div class="profile-info_right">
 							
-							<h3 class="profile-info_name">
-								{{ $user->company->name }}
-								<span class="profile-info_pen"></span>
-							</h3>
-						
-							<div class="profile-info_address">
-								{{ $user->company->address }}
-							</div>
-						
-							<div class="profile-info_phone">
-								8 (967) 176-66-77
+							<div id="profile-company-info">
+
+								<h3 id="profile-company-name" class="profile-info_name">
+									<span>{{ $user->company->name }}</span>
+									<span id="profile-company-pen" href="#edit-company-profile-popup" class="profile-info_pen"></span>
+								</h3>
+														
+								<div id="profile-company-address" class="profile-info_address">
+									{{ $user->company->address }}
+								</div>
+														
+								<div id="profile-company-phone" class="profile-info_phone">
+									{{ $user->company->phone }}
+								</div>
+								
+								<div id="profile-company-about" class="profile-info_about">
+									{{ $user->company->about }}
+								</div>
+
 							</div>
 
-							<div class="profile-info_about">
-								Мы предоставляем нашим клиентам запчасти по самым низким ценам от любых производителей.
+							<div id="profile-user-info" class="profile--hidden">
+								<h3 id="profile-user-name" class="profile-info_name">
+									<span>{{ $user->name }}</span>
+									<span id="profile-user-pen" href="#edit-user-profile-popup" class="profile-info_pen">
+									</span>
+								</h3>
 							</div>
 						
 						
-							<ul class="profile-info_tags">
+							<ul id="profile-company-tags" class="profile-info_tags">
 								
-								<li>Автобусы</li>
-								<li>Грузовики</li>
-								<li>BMW</li>
-								<li>Шиномонтаж</li>
+								<li>{{ $user->company->spec->title }}</li>
+								<li>{{ $user->company->type->title }}</li>
+
+								@foreach($user->company->makes as $make)
+									<li>{{ $make->title }}</li>
+								@endforeach
 						
 							</ul>
 						
@@ -113,5 +138,19 @@
 		</div>
 
 	</div>
+
+	@include('popups.edit-profile', [
+		'id' => 'edit-company-profile-popup', 
+		'button_id' => 'edit-company-profile-button'
+	])
+
+	@include('popups.edit-profile', [
+		'id' => 'edit-user-profile-popup', 
+		'button_id' => 'edit-user-profile-button'
+	])
+
+	@include('templates.popup-field-template')
+
+	@include('templates.avatar-template')
 
 @stop

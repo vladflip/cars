@@ -569,7 +569,7 @@ specmakes = new SpecMakes({
   types: types
 });
 
-},{"../inc/TypeList":9}],5:[function(require,module,exports){
+},{"../inc/TypeList":10}],5:[function(require,module,exports){
 var MakeModel, Makes, MakesCollection, MakesList, ModelsList,
   extend = function(child, parent) { for (var key in parent) { if (hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; },
   hasProp = {}.hasOwnProperty,
@@ -1215,6 +1215,194 @@ Avatar = (function() {
 module.exports = Avatar;
 
 },{}],8:[function(require,module,exports){
+var FieldCollection, FieldModel, FieldSet, FieldView,
+  extend = function(child, parent) { for (var key in parent) { if (hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; },
+  hasProp = {}.hasOwnProperty,
+  bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };
+
+FieldModel = (function(superClass) {
+  extend(FieldModel, superClass);
+
+  function FieldModel() {
+    return FieldModel.__super__.constructor.apply(this, arguments);
+  }
+
+  FieldModel.prototype.defaults = {
+    value: '',
+    newvalue: '',
+    name: '',
+    title: '',
+    state: 'same',
+    elToRefresh: ''
+  };
+
+  return FieldModel;
+
+})(Backbone.Model);
+
+FieldCollection = (function(superClass) {
+  extend(FieldCollection, superClass);
+
+  function FieldCollection() {
+    return FieldCollection.__super__.constructor.apply(this, arguments);
+  }
+
+  FieldCollection.prototype.model = FieldModel;
+
+  return FieldCollection;
+
+})(Backbone.Collection);
+
+FieldView = (function(superClass) {
+  extend(FieldView, superClass);
+
+  function FieldView() {
+    this.error = bind(this.error, this);
+    this.update = bind(this.update, this);
+    this.updateModel = bind(this.updateModel, this);
+    return FieldView.__super__.constructor.apply(this, arguments);
+  }
+
+  FieldView.prototype.className = 'popup_field';
+
+  FieldView.prototype.template = $.HandlebarsFactory('#popup-field-template');
+
+  FieldView.prototype.initialize = function() {
+    this.render();
+    this.model.on('error', this.error);
+    this.model.on('update', this.update);
+    if (this.model.get('name') === 'about') {
+      this.input = this.$el.children('textarea');
+    } else {
+      this.input = this.$el.children('input');
+    }
+    if (this.input.val() === '') {
+      this.model.set('state', 'empty');
+    }
+    return this.input.keyup(this.updateModel);
+  };
+
+  FieldView.prototype.updateModel = function() {
+    this.model.set('newvalue', this.input.val());
+    if (this.model.get('value') === this.model.get('newvalue')) {
+      return this.model.set('state', 'same');
+    } else if (this.model.get('newvalue') === '') {
+      return this.model.set('state', 'empty');
+    } else {
+      return this.model.set('state', 'ready');
+    }
+  };
+
+  FieldView.prototype.update = function() {
+    var el;
+    el = this.model.get('elToRefresh');
+    if (this.model.get('newvalue') !== '') {
+      this.model.set('value', this.model.get('newvalue'));
+    }
+    this.model.set('state', 'same');
+    return el.html(this.model.get('value'));
+  };
+
+  FieldView.prototype.error = function() {
+    return this.$el.children('input, textarea').blink();
+  };
+
+  FieldView.prototype.render = function() {
+    if (this.model.get('value')) {
+      this.$el.html(this.template({
+        label: this.model.get('title'),
+        value: this.model.get('value'),
+        input: this.model.get('name') === 'about' ? false : true
+      }));
+    } else {
+      this.$el.html(this.template({
+        label: this.model.get('title'),
+        input: this.model.get('name') === 'about' ? false : true
+      }));
+    }
+    return this.$el;
+  };
+
+  return FieldView;
+
+})(Backbone.View);
+
+FieldSet = (function(superClass) {
+  extend(FieldSet, superClass);
+
+  function FieldSet() {
+    this.saveChanges = bind(this.saveChanges, this);
+    return FieldSet.__super__.constructor.apply(this, arguments);
+  }
+
+  FieldSet.prototype.home = $('body').data('home');
+
+  FieldSet.prototype.initialize = function() {
+    this.collection = new FieldCollection(this.collection);
+    this.button = this.options.button;
+    this.url = this.options.url;
+    this.render();
+    return this.button.click(this.saveChanges);
+  };
+
+  FieldSet.prototype.saveChanges = function() {
+    var data, pass;
+    pass = true;
+    data = {};
+    this.collection.each(function(field) {
+      if (field.get('state') === 'empty') {
+        field.trigger('error');
+        return pass = false;
+      } else if (field.get('newvalue') !== '') {
+        return data[field.get('name')] = field.get('newvalue');
+      }
+    });
+    if (pass) {
+      return this.post(data);
+    }
+  };
+
+  FieldSet.prototype.updateModels = function() {
+    return this.collection.each(function(model) {
+      return model.trigger('update');
+    });
+  };
+
+  FieldSet.prototype.post = function(data) {
+    return $.ajax(this.home + "/" + this.url, {
+      headers: {
+        'X-CSRF-TOKEN': $('body').data('csrf')
+      },
+      method: 'POST',
+      data: data
+    }).done((function(_this) {
+      return function(response) {
+        console.log(response);
+        _this.updateModels();
+        return $.magnificPopup.instance.close();
+      };
+    })(this));
+  };
+
+  FieldSet.prototype.render = function() {
+    return this.collection.each((function(_this) {
+      return function(field) {
+        var v;
+        v = new FieldView({
+          model: field
+        });
+        return _this.button.before(v.el);
+      };
+    })(this));
+  };
+
+  return FieldSet;
+
+})(Backbone.View);
+
+module.exports = FieldSet;
+
+},{}],9:[function(require,module,exports){
 var SelectView,
   extend = function(child, parent) { for (var key in parent) { if (hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; },
   hasProp = {}.hasOwnProperty;
@@ -1290,7 +1478,7 @@ SelectView = (function(superClass) {
 
 module.exports = SelectView;
 
-},{}],9:[function(require,module,exports){
+},{}],10:[function(require,module,exports){
 var TypeList, TypeModel, TypeView, TypesCollection,
   extend = function(child, parent) { for (var key in parent) { if (hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; },
   hasProp = {}.hasOwnProperty,
@@ -1432,7 +1620,7 @@ TypeList = (function(superClass) {
 
 module.exports = TypeList;
 
-},{}],10:[function(require,module,exports){
+},{}],11:[function(require,module,exports){
 require('./base');
 
 require('./popups/index');
@@ -1445,13 +1633,13 @@ require('./catalog/catalog-companies');
 
 require('./auth');
 
-require('./user-profile');
+require('./profile');
 
 require('./mention');
 
 require('./logout');
 
-},{"./auth":1,"./base":2,"./catalog/catalog-companies":3,"./catalog/catalog-live":4,"./logout":11,"./main-live-search":12,"./mention":13,"./popups/index":16,"./user-profile":19}],11:[function(require,module,exports){
+},{"./auth":1,"./base":2,"./catalog/catalog-companies":3,"./catalog/catalog-live":4,"./logout":12,"./main-live-search":13,"./mention":14,"./popups/index":17,"./profile":20}],12:[function(require,module,exports){
 var button, form;
 
 form = $('#user-logout-form');
@@ -1462,7 +1650,7 @@ button.click(function() {
   return form.submit();
 });
 
-},{}],12:[function(require,module,exports){
+},{}],13:[function(require,module,exports){
 var CompanyCollection, CompanyList, CompanyModel, CompanyView, MakeCollection, MakeList, MakeModel, MakeView, SpecCollection, SpecList, SpecModel, SpecView, TypeList, companies, makes, specs, types,
   extend = function(child, parent) { for (var key in parent) { if (hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; },
   hasProp = {}.hasOwnProperty,
@@ -2098,7 +2286,7 @@ companies = new CompanyList({
   makes: makes
 });
 
-},{"./inc/TypeList":9}],13:[function(require,module,exports){
+},{"./inc/TypeList":10}],14:[function(require,module,exports){
 var Counter, Votes, dislikes, likes, mention_photos,
   bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };
 
@@ -2231,7 +2419,7 @@ dislikes = new Counter($('#mention-dislikes'), $('#mention-dislikes-info'), 'men
 
 new Votes(likes, dislikes);
 
-},{}],14:[function(require,module,exports){
+},{}],15:[function(require,module,exports){
 var AddLogo, MakesList, SelectType, SelectView, about, address, logo, logolabel, makes, name, phone, specs, submit, types,
   bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; },
   extend = function(child, parent) { for (var key in parent) { if (hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; },
@@ -2433,7 +2621,7 @@ submit.click(function() {
   })(this));
 });
 
-},{"../create-company/MakesList":5,"../inc/SelectView":8}],15:[function(require,module,exports){
+},{"../create-company/MakesList":5,"../inc/SelectView":9}],16:[function(require,module,exports){
 var AddPhotos, Image, ImageCollection, ImageView, ImagesView, List, ListCollection, ListModel, ListView, SelectView, imageCollection, imagesView, make, minuses, model, pluses, quill, type,
   extend = function(child, parent) { for (var key in parent) { if (hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; },
   hasProp = {}.hasOwnProperty,
@@ -2884,7 +3072,7 @@ $('#add-feedback').click(function() {
   })(this));
 });
 
-},{"../inc/SelectView":8}],16:[function(require,module,exports){
+},{"../inc/SelectView":9}],17:[function(require,module,exports){
 require('./search');
 
 require('./sign-up');
@@ -2893,7 +3081,7 @@ require('./feedback');
 
 require('./create-company');
 
-},{"./create-company":14,"./feedback":15,"./search":17,"./sign-up":18}],17:[function(require,module,exports){
+},{"./create-company":15,"./feedback":16,"./search":18,"./sign-up":19}],18:[function(require,module,exports){
 var SelectView, make, model, type;
 
 SelectView = require('../inc/SelectView');
@@ -2921,7 +3109,7 @@ type = new SelectView({
 
 autosize($('#search-more'));
 
-},{"../inc/SelectView":8}],18:[function(require,module,exports){
+},{"../inc/SelectView":9}],19:[function(require,module,exports){
 var button, email, form, passw, submit;
 
 $('#sign-up').magnificPopup({
@@ -2969,213 +3157,164 @@ if (form) {
   });
 }
 
-},{}],19:[function(require,module,exports){
-var Avatar, FieldCollection, FieldModel, FieldSet, FieldView, collection,
-  extend = function(child, parent) { for (var key in parent) { if (hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; },
-  hasProp = {}.hasOwnProperty,
+},{}],20:[function(require,module,exports){
+var Avatar, FieldSet, ProfileToggler, company, companyAvatar, companyProfileCollection, user, userAvatar, userProfileCollection,
   bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };
 
 Avatar = require('./inc/Avatar');
 
-$('#profile-pen').magnificPopup({
+FieldSet = require('./inc/FieldSet');
+
+$('#profile-company-pen').magnificPopup({
   type: 'inline',
   closeBtnInside: true
 });
 
-FieldModel = (function(superClass) {
-  extend(FieldModel, superClass);
-
-  function FieldModel() {
-    return FieldModel.__super__.constructor.apply(this, arguments);
-  }
-
-  FieldModel.prototype.defaults = {
-    value: '',
-    newvalue: '',
-    name: '',
-    title: '',
-    state: 'same',
-    elToRefresh: ''
-  };
-
-  return FieldModel;
-
-})(Backbone.Model);
-
-FieldCollection = (function(superClass) {
-  extend(FieldCollection, superClass);
-
-  function FieldCollection() {
-    return FieldCollection.__super__.constructor.apply(this, arguments);
-  }
-
-  FieldCollection.prototype.model = FieldModel;
-
-  return FieldCollection;
-
-})(Backbone.Collection);
-
-FieldView = (function(superClass) {
-  extend(FieldView, superClass);
-
-  function FieldView() {
-    this.error = bind(this.error, this);
-    this.update = bind(this.update, this);
-    this.updateModel = bind(this.updateModel, this);
-    return FieldView.__super__.constructor.apply(this, arguments);
-  }
-
-  FieldView.prototype.className = 'popup_field';
-
-  FieldView.prototype.template = $.HandlebarsFactory('#popup-field-template');
-
-  FieldView.prototype.initialize = function() {
-    this.render();
-    this.model.on('error', this.error);
-    this.model.on('update', this.update);
-    if (this.model.get('name') === 'about') {
-      this.input = this.$el.children('textarea');
-    } else {
-      this.input = this.$el.children('input');
-    }
-    if (this.input.val() === '') {
-      this.model.set('state', 'empty');
-    }
-    return this.input.keyup(this.updateModel);
-  };
-
-  FieldView.prototype.updateModel = function() {
-    this.model.set('newvalue', this.input.val());
-    if (this.model.get('value') === this.model.get('newvalue')) {
-      return this.model.set('state', 'same');
-    } else if (this.model.get('newvalue') === '') {
-      return this.model.set('state', 'empty');
-    } else {
-      return this.model.set('state', 'ready');
-    }
-  };
-
-  FieldView.prototype.update = function() {
-    var el;
-    el = this.model.get('elToRefresh');
-    if (this.model.get('newvalue') !== '') {
-      this.model.set('value', this.model.get('newvalue'));
-    }
-    this.model.set('state', 'same');
-    return el.html(this.model.get('value'));
-  };
-
-  FieldView.prototype.error = function() {
-    return this.$el.children('input, textarea').blink();
-  };
-
-  FieldView.prototype.render = function() {
-    if (this.model.get('value')) {
-      this.$el.html(this.template({
-        label: this.model.get('title'),
-        value: this.model.get('value'),
-        input: this.model.get('name') === 'about' ? false : true
-      }));
-    } else {
-      this.$el.html(this.template({
-        label: this.model.get('title'),
-        input: this.model.get('name') === 'about' ? false : true
-      }));
-    }
-    return this.$el;
-  };
-
-  return FieldView;
-
-})(Backbone.View);
-
-FieldSet = (function(superClass) {
-  extend(FieldSet, superClass);
-
-  function FieldSet() {
-    this.saveChanges = bind(this.saveChanges, this);
-    return FieldSet.__super__.constructor.apply(this, arguments);
-  }
-
-  FieldSet.prototype.url = 'api/user/edit';
-
-  FieldSet.prototype.home = $('body').data('home');
-
-  FieldSet.prototype.button = $('#edit-profile-button');
-
-  FieldSet.prototype.initialize = function() {
-    this.render();
-    return this.button.click(this.saveChanges);
-  };
-
-  FieldSet.prototype.saveChanges = function() {
-    var data, pass;
-    pass = true;
-    data = {};
-    this.collection.each(function(field) {
-      if (field.get('state') === 'empty') {
-        field.trigger('error');
-        return pass = false;
-      } else if (field.get('newvalue') !== '') {
-        return data[field.get('name')] = field.get('newvalue');
-      }
-    });
-    if (pass) {
-      return this.post(data);
-    }
-  };
-
-  FieldSet.prototype.updateModels = function() {
-    return this.collection.each(function(model) {
-      return model.trigger('update');
-    });
-  };
-
-  FieldSet.prototype.post = function(data) {
-    return $.ajax(this.home + "/" + this.url, {
-      headers: {
-        'X-CSRF-TOKEN': $('body').data('csrf')
-      },
-      method: 'POST',
-      data: data
-    }).done((function(_this) {
-      return function(response) {
-        console.log(response);
-        _this.updateModels();
-        return $.magnificPopup.instance.close();
-      };
-    })(this));
-  };
-
-  FieldSet.prototype.render = function() {
-    return this.collection.each((function(_this) {
-      return function(field) {
-        var v;
-        v = new FieldView({
-          model: field
-        });
-        return _this.button.before(v.el);
-      };
-    })(this));
-  };
-
-  return FieldSet;
-
-})(Backbone.View);
-
-new Avatar('#user-ava', '#user-ava-file', 'api/user/avatar');
-
-collection = new FieldCollection;
-
-collection.add(new FieldModel({
-  name: 'name',
-  value: $.trim($('#edit-profile-name').children('span:first').html()),
-  title: 'Имя',
-  elToRefresh: $('#edit-profile-name').children('span:first')
-}));
-
-new FieldSet({
-  collection: collection
+$('#profile-user-pen').magnificPopup({
+  type: 'inline',
+  closeBtnInside: true
 });
 
-},{"./inc/Avatar":7}]},{},[10]);
+userAvatar = new Avatar('#user-ava', '#user-ava-file', 'api/user/avatar');
+
+companyAvatar = new Avatar('#company-ava', '#company-ava-file', 'api/company/avatar');
+
+userProfileCollection = [
+  {
+    name: 'name',
+    value: $.trim($('#profile-user-name').children('span:first').html()),
+    title: 'Имя',
+    elToRefresh: $('#profile-user-name').children('span:first')
+  }
+];
+
+companyProfileCollection = [
+  {
+    name: 'name',
+    value: $.trim($('#profile-company-name').children('span:first').html()),
+    title: 'Имя',
+    elToRefresh: $('#profile-company-name').children('span:first')
+  }, {
+    name: 'address',
+    value: $.trim($('#profile-company-address').html()),
+    title: 'Адрес',
+    elToRefresh: $('#profile-company-address')
+  }, {
+    name: 'phone',
+    value: $.trim($('#profile-company-phone').html()),
+    title: 'Телефон',
+    elToRefresh: $('#profile-company-phone')
+  }, {
+    name: 'about',
+    value: $.trim($('#profile-company-about').html()),
+    title: 'О Компании',
+    elToRefresh: $('#profile-company-about')
+  }
+];
+
+user = new FieldSet({
+  collection: userProfileCollection,
+  button: $('#edit-user-profile-button'),
+  url: 'api/user/edit'
+});
+
+company = new FieldSet({
+  collection: companyProfileCollection,
+  button: $('#edit-company-profile-button'),
+  url: 'api/company/edit'
+});
+
+ProfileToggler = (function() {
+  ProfileToggler.prototype["class"] = 'profile--hidden';
+
+  ProfileToggler.prototype.activeClass = 'profile-info_toogler--active';
+
+  ProfileToggler.prototype.state = 'company';
+
+  ProfileToggler.prototype.companyBtn = $('#profile-show-company');
+
+  ProfileToggler.prototype.userBtn = $('#profile-show-user');
+
+  function ProfileToggler(obj) {
+    this.showUser = bind(this.showUser, this);
+    this.showCompany = bind(this.showCompany, this);
+    this.companyBtn.click(this.showCompany);
+    this.userBtn.click(this.showUser);
+    this.userFields = obj.user;
+    this.companyFields = obj.company;
+  }
+
+  ProfileToggler.prototype.showCompany = function() {
+    if (this.state === 'company') {
+      return;
+    }
+    this.changeState();
+    return this.state = 'company';
+  };
+
+  ProfileToggler.prototype.showUser = function() {
+    if (this.state === 'user') {
+      return;
+    }
+    this.changeState();
+    return this.state = 'user';
+  };
+
+  ProfileToggler.prototype.toggleButtons = function() {
+    if (this.state === 'company') {
+      this.companyBtn.removeClass(this.activeClass);
+      return this.userBtn.addClass(this.activeClass);
+    } else {
+      this.userBtn.removeClass(this.activeClass);
+      return this.companyBtn.addClass(this.activeClass);
+    }
+  };
+
+  ProfileToggler.prototype.changeState = function() {
+    this.toggleButtons();
+    if (this.state === 'company') {
+      this.hideFields(this.companyFields);
+      return this.showFields(this.userFields);
+    } else {
+      this.hideFields(this.userFields);
+      return this.showFields(this.companyFields);
+    }
+  };
+
+  ProfileToggler.prototype.hideFields = function(fields) {
+    var field, k, results;
+    results = [];
+    for (k in fields) {
+      field = fields[k];
+      results.push(field.addClass('profile--hidden'));
+    }
+    return results;
+  };
+
+  ProfileToggler.prototype.showFields = function(fields) {
+    var field, k, results;
+    results = [];
+    for (k in fields) {
+      field = fields[k];
+      results.push(field.removeClass('profile--hidden'));
+    }
+    return results;
+  };
+
+  return ProfileToggler;
+
+})();
+
+new ProfileToggler({
+  user: {
+    ava: $('#user-ava'),
+    info: $('#profile-user-info')
+  },
+  company: {
+    ava: $('#company-ava'),
+    info: $('#profile-company-info'),
+    tags: $('#profile-company-tags')
+  }
+});
+
+},{"./inc/Avatar":7,"./inc/FieldSet":8}]},{},[11]);

@@ -26,6 +26,18 @@ class UserController extends Controller {
 
 	}
 
+	public function edit() {
+
+		$data = \Input::all();
+
+		$user = \Auth::user();
+
+		$user->update($data);
+
+		return $user;
+
+	}
+
 	public function create() {
 
 		$input = (object)\Input::all();

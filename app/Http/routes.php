@@ -123,7 +123,7 @@ Route::group(['prefix' => 'api', 'middleware' => 'api'], function(){
 
 	Route::group(['prefix' => 'user', 'middleware' => 'auth'], function() {
 
-		post('edit', ['uses' => 'APIController@edit_user']);
+		post('edit', ['uses' => 'UserController@edit']);
 
 		post('avatar', ['uses' => 'UserController@avatar']);
 
@@ -140,6 +140,10 @@ Route::group(['prefix' => 'api', 'middleware' => 'api'], function(){
 	Route::group(['prefix' => 'company', 'middleware' => 'auth'], function() {
 
 		post('create', ['uses' => 'CompanyController@create']);
+
+		post('avatar', ['uses' => 'CompanyController@avatar']);
+
+		post('edit', ['uses' => 'CompanyController@edit']);
 
 	});
 

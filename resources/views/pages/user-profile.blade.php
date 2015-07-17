@@ -54,7 +54,7 @@
 								
 								<h3 id="edit-profile-name" class="profile-info_name">
 									<span>{{ $user->name }}</span>
-									<span id="profile-pen" href="#edit-profile-popup" class="profile-info_pen">
+									<span id="profile-pen" href="#edit-user-profile-popup" class="profile-info_pen">
 									</span>
 								</h3>
 							{{-- 
@@ -125,7 +125,10 @@
 
 	@include('popups.create-company')
 
-	@include('popups.edit-profile')
+	@include('popups.edit-profile', [
+		'id' => 'edit-user-profile-popup', 
+		'button_id' => 'edit-user-profile-button'
+	])
 
 	@include('templates.popup-field-template')
 

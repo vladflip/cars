@@ -1678,6 +1678,13 @@ ul.create-company-spec-selectBox-dropdown-menu {
 .profile-info_toogler {
   float: left;
 }
+.profile-info_company,
+.profile-info_profile {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
 .profile-info_body {
   margin-top: 20px;
   display: -webkit-flex;
@@ -1747,6 +1754,9 @@ ul.create-company-spec-selectBox-dropdown-menu {
   background-color: #f6f6f6;
   padding: 8px;
   border-radius: 2px;
+}
+.profile--hidden {
+  display: none;
 }
 .requests_logo-name {
   display: -webkit-flex;

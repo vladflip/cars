@@ -6,6 +6,8 @@ class Company extends Model {
 
 	protected $table = 'companies';
 
+	protected $fillable = ['name', 'address', 'phone', 'about'];
+
 	public function user() {
 		return $this->hasOne('App\User', 'user_id');
 	}
