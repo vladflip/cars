@@ -143,6 +143,9 @@ class FeedbackController extends Controller {
 
 	public function create() {
 
+		if( ! \Auth::user()->is_ready() )
+			return 'hello lamer';
+
 		$input = (object)\Input::all();
 
 		$content = preg_replace('#<script(.*?)>(.*?)</script>#is', '', $input->content);

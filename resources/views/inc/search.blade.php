@@ -6,7 +6,8 @@
 		персональные предложения от актуальных компаний</p>
 
 	<div id="search" class="search_button"
-	href="{{ Auth::guest() ? '#sign-up-popup' : '#search-popup' }}">
+	href="{{ Auth::guest() ? '#sign-up-popup' : 
+			Auth::user()->is_ready() ? '#search-popup' : '#fill-up-profile-popup' }}">
 		Отправить запрос
 	</div>
 

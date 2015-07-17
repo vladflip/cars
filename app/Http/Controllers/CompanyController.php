@@ -9,6 +9,9 @@ class CompanyController extends Controller {
 
 	public function create() {
 
+		if( ! \Auth::user()->is_ready() )
+			return 'hello lamer';
+
 		// if user has company return hello lamer
 		if( \Auth::user()->company )
 			return 'hello lamer';

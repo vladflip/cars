@@ -31,6 +31,10 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 			);
 	}
 
+	public function is_ready() {
+		return $this->name && $this->ava;
+	}
+
 	public function email_provider() {
 		$start = strrpos($this->email, '@');
 		$provider = substr($this->email, $start + 1);

@@ -6,7 +6,8 @@
 	</p>
 
 	<div id="feedback" class="feedback_button"
-	href="{{ Auth::guest() ? '#sign-up-popup' : '#feedback-popup' }}" >
+	href="{{ Auth::guest() ? '#sign-up-popup' : 
+			Auth::user()->is_ready() ? '#feedback-popup' : '#fill-up-profile-popup' }}" >
 		
 		Написать отзыв
 	</div>

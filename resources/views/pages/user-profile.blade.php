@@ -20,7 +20,8 @@
 									Мой профиль
 								</div>
 								
-								<div id="create-company-button" href="#create-company" class="profile-info_company">
+								<div id="create-company-button" class="profile-info_company" 
+								href="{{ $user->is_ready() ? '#create-company' : '#fill-up-profile-popup' }}">
 									Создать компанию
 								</div>
 

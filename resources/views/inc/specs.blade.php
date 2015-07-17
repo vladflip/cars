@@ -28,7 +28,8 @@
 	@if( Auth::guest() ? 1 : ( Auth::user()->company ? 0 : 1 ) )
 
 		<div id="create-company-button" class="specs_add" 
-			href="{{ Auth::guest() ? '#sign-up-popup' : '#create-company' }}">
+			href="{{ Auth::guest() ? '#sign-up-popup' :
+			Auth::user()->is_ready() ? '#create-company' : '#fill-up-profile-popup' }}">
 			Добавить организацию
 		</div>
 

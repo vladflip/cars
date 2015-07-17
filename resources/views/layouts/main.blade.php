@@ -22,6 +22,9 @@
 
 		@yield('body')
 
+		<div id="fill-up-profile-popup" class="mfp-hide popup popup_error">
+			Заполните профиль что бы пользоваться услугами сайта.
+		</div>
 		
 		@include('inc.footer')
 
