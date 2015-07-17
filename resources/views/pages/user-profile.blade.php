@@ -52,9 +52,9 @@
 							
 							<div class="profile-info_right">
 								
-								<h3 id="edit-profile-name" class="profile-info_name">
+								<h3 id="profile-user-name" class="profile-info_name">
 									<span>{{ $user->name }}</span>
-									<span id="profile-pen" href="#edit-user-profile-popup" class="profile-info_pen">
+									<span id="profile-user-pen" href="#edit-user-profile-popup" class="profile-info_pen">
 									</span>
 								</h3>
 							{{-- 
