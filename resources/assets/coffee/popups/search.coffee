@@ -40,14 +40,14 @@ button.click ->
 
 	if isNew.is(':checked') or isOld.is(':checked')
 		if isNew.is(':checked') and isOld.is(':checked')
-			result.new = true
-			result.old = true
+			result.new = 1
+			result.old = 1
 		else if isNew.is(':checked')
-			result.new = true
-			result.old = false
+			result.new = 1
+			result.old = 0
 		else if isOld.is(':checked')
-			result.new = false
-			result.old = true
+			result.new = 0
+			result.old = 1
 	else
 		isNewLabel.blink()
 		isOldLabel.blink()
