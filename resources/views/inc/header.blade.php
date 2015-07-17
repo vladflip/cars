@@ -55,7 +55,7 @@
 						</span>
 					@else
 						<span class="header_user-info_notification">
-							+{{ Auth::user()->requests_count() }}
+							+{{ Auth::user()->responses_count() }}
 						</span>
 					@endif
 			

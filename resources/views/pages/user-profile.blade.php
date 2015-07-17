@@ -102,8 +102,7 @@
 
 						</div>
 
-						@include('parts.sent-requests', 
-							['requests' => $user->requests])
+						@include('parts.sent-requests')
 
 					</div>
 

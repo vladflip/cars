@@ -63,7 +63,7 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 		return $this->hasMany('App\Request', 'user_id');
 	}
 
-	public function requests_count() {
+	public function responses_count() {
 
 		return $this->requests()->where('read', 0)->count();
 

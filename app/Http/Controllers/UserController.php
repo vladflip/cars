@@ -11,7 +11,12 @@ class UserController extends Controller {
 
 	public function profile() {
 
-		$user = \App\User::with('requests', 'company')
+		$user = \App\User::with(['requests' => function($q){
+			$q->with(['responses' => function($q){
+				$q->orderBy('created_at');
+			}]);
+			$q->orderBy('created_at');
+		}], 'company')
 		->find(Auth::id());
 
 		if($user->company){
