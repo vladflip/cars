@@ -32,25 +32,32 @@
 
 			</div>
 
-			{{-- <div class="sent-requests_response sent-requests_response--company">
+			<div class="response">
 					
 				<div class="requests_logo-name requests_logo-name--company">
 					
 					<div class="requests_logo">
-						<img src="img/com_logo.jpg" alt="">
+						<img src="{{ URL::to('/') . '/' . $user->company->logo }}" alt="">
 					</div>
 
 					<div class="requests_name">
-						ООО Трансавтосервис
+						{{ $user->company->name }}
 					</div>
 
 				</div>
 
-				<div class="sent-requests_response-body requests_body--grey">
-					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore est esse nesciunt optio illo tempora sapiente aspernatur recusandae. Totam, iste.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore harum porro doloribus provident, deleniti ducimus minus, repellendus.
+				<div>
+					<div class="response_body requests_body--grey">
+						<textarea placeholder="Ответить" class="response_textarea" name="" id="" cols="30" rows="5"></textarea>
+					</div>
+					
+					<div class="response_buttons">
+						<div class="response_decline">Отклонить</div>
+						<div class="response_answer">Ответить</div>
+					</div>
 				</div>
 
-			</div> --}}
+			</div>
 
 		</div>
 

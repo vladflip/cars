@@ -1769,7 +1769,7 @@ ul.create-company-spec-selectBox-dropdown-menu {
           align-items: center;
 }
 .requests_time,
-.sent-requests_response-time {
+.response_time {
   color: #ccc;
   font-size: 12px;
   -webkit-align-self: center;
@@ -1777,7 +1777,7 @@ ul.create-company-spec-selectBox-dropdown-menu {
           align-self: center;
 }
 .requests_body,
-.sent-requests_response-body {
+.response_body {
   padding: 15px;
   border-radius: 2px;
   font-size: 14px;
@@ -1786,17 +1786,17 @@ ul.create-company-spec-selectBox-dropdown-menu {
   position: relative;
 }
 .requests_body--yellow,
-.sent-requests_response-body--yellow {
+.response_body--yellow {
   background-color: #fdf6d1;
 }
 .requests_body--yellow:before,
-.sent-requests_response-body--yellow:before {
+.response_body--yellow:before {
   border-right: 9px solid #fdf6d1;
 }
 .requests_body--yellow:before,
-.sent-requests_response-body--yellow:before,
+.response_body--yellow:before,
 .requests_body--grey:before,
-.sent-requests_response-body--grey:before {
+.response_body--grey:before {
   content: '';
   border-top: 9px solid transparent;
   border-bottom: 9px solid transparent;
@@ -1805,11 +1805,11 @@ ul.create-company-spec-selectBox-dropdown-menu {
   top: 43%;
 }
 .requests_body--grey,
-.sent-requests_response-body--grey {
+.response_body--grey {
   background-color: #f0f0f0;
 }
 .requests_body--grey:before,
-.sent-requests_response-body--grey:before {
+.response_body--grey:before {
   border-right: 9px solid #f0f0f0;
 }
 .requests {
@@ -1852,7 +1852,7 @@ ul.create-company-spec-selectBox-dropdown-menu {
   letter-spacing: 0.4px;
 }
 .requests_item {
-  margin-bottom: 15px;
+  margin-bottom: 50px;
 }
 .requests_request {
   display: -webkit-flex;
@@ -1879,10 +1879,7 @@ ul.create-company-spec-selectBox-dropdown-menu {
   text-align: center;
   width: 80px;
 }
-.sent-requests {
-  margin-top: 35px;
-}
-.sent-requests_response {
+.response {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
@@ -1891,8 +1888,49 @@ ul.create-company-spec-selectBox-dropdown-menu {
           justify-content: space-between;
   margin-top: 15px;
 }
-.sent-requests_response-time {
+.response_time {
   width: 70px;
+}
+.response_body {
+  width: 450px;
+}
+.response_textarea {
+  outline: 0;
+  border: none;
+  resize: none;
+  width: 430px;
+  padding: 10px;
+  margin: 0;
+  font-size: 12px;
+}
+.response_buttons {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+.response_decline,
+.response_answer {
+  padding: 8px 12px;
+  font-size: 12px;
+  border-radius: 2px;
+  cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  margin-top: 10px;
+}
+.response_decline {
+  background-color: #fcf1f1;
+}
+.response_answer {
+  background-color: #e4f3e5;
+}
+.sent-requests {
+  margin-top: 35px;
 }
 .sent-requests_response-info {
   width: 240px;
@@ -1902,9 +1940,6 @@ ul.create-company-spec-selectBox-dropdown-menu {
   line-height: 17px;
   color: #ccc;
   margin-top: 7px;
-}
-.sent-requests_response-body {
-  width: 450px;
 }
 .received-requests {
   margin-top: 35px;

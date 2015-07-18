@@ -217,7 +217,7 @@ $request_body
 		letter-spacing .4px
 		
 	&_item
-		margin-bottom 15px
+		margin-bottom 50px
 	
 	&_request
 		display flex
@@ -240,23 +240,51 @@ $request_body
 		@extends $request_time
 		text-align center
 		width 80px
+
+.response
+	display flex
+	justify-content space-between
+	margin-top 15px
 	
+	&_time
+		@extends $request_time
+		width 70px
+
+	&_body
+		@extends $request_body
+		width 450px
+		
+	&_textarea
+		outline 0
+		border none
+		resize none
+		width 430px
+		padding 10px
+		margin 0
+		font-size 12px
+		
+	&_buttons
+		display flex
+		justify-content space-between
+		
+	&_decline,
+	&_answer
+		padding 8px 12px
+		font-size 12px
+		border-radius 2px
+		cursor pointer
+		user-select none
+		margin-top 10px
+		
+	&_decline
+		background-color #fcf1f1
+		
+	&_answer
+		background-color #e4f3e5
+		
 		
 .sent-requests
 	margin-top 35px
-		
-	// -----
-	// response
-	// -----
-	
-	&_response
-		display flex
-		justify-content space-between
-		margin-top 15px
-		
-	&_response-time
-		@extends $request_time
-		width 70px
 		
 	&_response-info
 		width 240px
@@ -266,10 +294,6 @@ $request_body
 		line-height 17px
 		color #ccc
 		margin-top 7px
-		
-	&_response-body
-		@extends $request_body
-		width 450px
 		
 .received-requests
 	margin-top 35px

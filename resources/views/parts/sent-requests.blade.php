@@ -34,7 +34,7 @@
 
 			@foreach($request->responses as $response)
 
-				<div class="sent-requests_response">
+			{{-- 	<div class="sent-requests_response">
 					
 					<div class="sent-requests_response-time">
 						{{ 
@@ -69,7 +69,7 @@
 						Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore est esse nesciunt optio illo tempora sapiente aspernatur recusandae. Totam, iste.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore harum porro doloribus provident, deleniti ducimus minus, repellendus.
 					</div>
 
-				</div>
+				</div> --}}
 
 			@endforeach
 
