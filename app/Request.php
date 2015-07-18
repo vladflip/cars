@@ -14,6 +14,10 @@ class Request extends Model {
 		return $this->belongsTo('App\Make', 'make_id');
 	}
 
+	public function getReadAttribute($read) {
+		return intval($read);
+	}
+
 	public function model() {
 		return $this->belongsTo('App\CarModel', 'model_id');
 	}

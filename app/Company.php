@@ -36,12 +36,17 @@ class Company extends Model {
 
 	public function requests() {
 		// get all requests by type and make and model of company
-		
+		$models = $this->models()->select('id')->get();
+		$ids = [];
+		foreach ($models as $model) {
+			$ids[] = $model['id'];
+		}
+		return \App\Request::whereIn('model_id', $ids)->get();
 	}
 
 	public function requests_count() {
 
-		// return $this->requests()->whereRead(0)->count();
+		return $this->requests()->where('read', 0)->count();
 
 	}
 
