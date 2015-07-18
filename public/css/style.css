@@ -1816,6 +1816,10 @@ ul.create-company-spec-selectBox-dropdown-menu {
   margin-top: 25px;
   padding: 0 35px;
 }
+.requests_received,
+.requests_sent {
+  font-size: 16px;
+}
 .requests_logo {
   width: 45px;
   height: 45px;
@@ -1901,6 +1905,9 @@ ul.create-company-spec-selectBox-dropdown-menu {
 }
 .sent-requests_response-body {
   width: 450px;
+}
+.received-requests {
+  margin-top: 35px;
 }
 .preloader-start {
   width: 40px;

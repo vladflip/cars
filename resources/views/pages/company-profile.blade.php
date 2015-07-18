@@ -101,7 +101,7 @@
 
 				</div>
 				
-				@if($user->company->requests())
+				@if($requests)
 		
 					<div class="requests">
 						
@@ -109,15 +109,17 @@
 							
 							<div class="requests_toogler">
 
-								<div class="requests_received requests_toogler--active">Исходящие запросы</div>
+								{{-- <div class="requests_received requests_toogler--active">Исходящие запросы</div> --}}
 								
-								<div class="requests_sent">Входящие (+2)</div>
+								<div class="requests_sent requests_toogler--active">
+									Входящие запросы {{ '+' . $user->company->requests_count() }}
+								</div>
 
 							</div>
 
 						</div>
 
-						@include('parts.sent-requests')
+						{{-- @include('parts.sent-requests') --}}
 
 						@include('parts.received-requests')
 

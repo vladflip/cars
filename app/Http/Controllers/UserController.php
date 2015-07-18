@@ -11,23 +11,36 @@ class UserController extends Controller {
 
 	public function profile() {
 
-		$user = \App\User::with(['requests' => function($q){
-			$q->with(['responses' => function($q){
-				$q->orderBy('created_at');
-			}]);
-			$q->orderBy('created_at');
-		}], 'company')
-		->find(Auth::id());
+		if(Auth::user()->company){
 
-		if($user->company){
+			$user = \App\User::with(['company' => function($q){
+				$q->with('spec');
+				$q->with('type');
+				$q->with('makes');
+			}])->find(Auth::id());
 
-			return view('pages.company-profile')->with('user', $user);
+			return view('pages.company-profile')
+			->with('user', $user)
+			->with('requests', $user->company->requests());
 
 		} else {
+
+			$user = \App\User::with(['requests' => function($q){
+
+				$q->with(['responses' => function($q){
+					$q->orderBy('created_at');
+				}]);
+
+				$q->orderBy('created_at');
+
+			}])
+			->find(Auth::id());
 
 			return view('pages.user-profile')->with('user', $user);
 
 		}
+
+		echo 'fuck';
 
 	}
 

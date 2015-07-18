@@ -8,8 +8,10 @@ class Company extends Model {
 
 	protected $fillable = ['name', 'address', 'phone', 'about'];
 
+	private $requests = null;
+
 	public function user() {
-		return $this->hasOne('App\User', 'user_id');
+		return $this->belongsTo('App\User', 'user_id');
 	}
 
 	public function type() {
@@ -34,14 +36,28 @@ class Company extends Model {
 			);
 	}
 
+	// get all requests by type and make and model of company
 	public function requests() {
-		// get all requests by type and make and model of company
-		$models = $this->models()->select('id')->get();
-		$ids = [];
-		foreach ($models as $model) {
-			$ids[] = $model['id'];
-		}
-		return \App\Request::whereIn('model_id', $ids)->get();
+
+		if($this->requests)
+			return $this->requests;
+		
+		else {
+			$models = $this->models()->select('id')->get();
+			$ids = [];
+
+			foreach ($models as $model) {
+				$ids[] = $model['id'];
+			}
+
+			$this->requests = \App\Request::whereIn('model_id', $ids)
+			->with('user')
+			->orderBy('created_at', 'desc')
+			->get();
+
+			return $this->requests;
+		}		
+
 	}
 
 	public function requests_count() {
