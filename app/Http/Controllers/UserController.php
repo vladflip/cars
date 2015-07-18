@@ -53,7 +53,11 @@ class UserController extends Controller {
 
 		);
 
-		return $validator->failed();
+		dd($input);
+
+		return;
+
+		// return $validator->failed();
 
 		// if($validator->fails()){
 		// 	return $validator->failed();
