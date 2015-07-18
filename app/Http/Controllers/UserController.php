@@ -53,9 +53,11 @@ class UserController extends Controller {
 
 		);
 
-		if($validator->fails()){
-			return 'hello lamer';
-		}
+		return $validator->messages();
+
+		// if($validator->fails()){
+		// 	return $validator->failed();
+		// }
 
 		$code = md5(\Hash::make($input->email));
 

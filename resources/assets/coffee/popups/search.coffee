@@ -97,4 +97,5 @@ button.click ->
 
 			setTimeout ->
 				$.magnificPopup.instance.close()
+				location.reload()
 			, 1000

@@ -36,12 +36,12 @@ class Company extends Model {
 
 	public function requests() {
 		// get all requests by type and make and model of company
-		return false;
+		
 	}
 
 	public function requests_count() {
 
-		return $this->requests()->whereRead(0)->count();
+		// return $this->requests()->whereRead(0)->count();
 
 	}
 

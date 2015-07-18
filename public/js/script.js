@@ -3190,7 +3190,8 @@ button.click(function() {
       console.log(response);
       $(_this).preload('stop');
       return setTimeout(function() {
-        return $.magnificPopup.instance.close();
+        $.magnificPopup.instance.close();
+        return location.reload();
       }, 1000);
     };
   })(this));

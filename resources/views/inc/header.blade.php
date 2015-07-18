@@ -49,11 +49,11 @@
 						style="background-image:url({{ URL::to('/') }}/img/noavatar.png)"></div>
 					@endif
 					
-					@if(Auth::user()->company)
+					@if(Auth::user()->company && Auth::user()->company->requests_count())
 						<span class="header_user-info_notification">
 							+{{ Auth::user()->company->requests_count() }}
 						</span>
-					@else
+					@elseif(Auth::user()->responses_count())
 						<span class="header_user-info_notification">
 							+{{ Auth::user()->responses_count() }}
 						</span>
