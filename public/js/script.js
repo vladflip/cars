@@ -1645,7 +1645,9 @@ require('./mention');
 
 require('./logout');
 
-},{"./auth":1,"./base":2,"./catalog/catalog-companies":3,"./catalog/catalog-live":4,"./logout":12,"./main-live-search":13,"./mention":14,"./popups/index":17,"./profile":20}],12:[function(require,module,exports){
+require('./requests');
+
+},{"./auth":1,"./base":2,"./catalog/catalog-companies":3,"./catalog/catalog-live":4,"./logout":12,"./main-live-search":13,"./mention":14,"./popups/index":17,"./profile":20,"./requests":21}],12:[function(require,module,exports){
 var button, form;
 
 form = $('#user-logout-form');
@@ -3405,4 +3407,140 @@ new ProfileToggler({
   }
 });
 
-},{"./inc/Avatar":7,"./inc/FieldSet":8}]},{},[11]);
+},{"./inc/Avatar":7,"./inc/FieldSet":8}],21:[function(require,module,exports){
+var Request, RequestView, RequestsCollection, RequestsList, Response, ResponseView,
+  extend = function(child, parent) { for (var key in parent) { if (hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; },
+  hasProp = {}.hasOwnProperty,
+  bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };
+
+Response = (function(superClass) {
+  extend(Response, superClass);
+
+  function Response() {
+    return Response.__super__.constructor.apply(this, arguments);
+  }
+
+  return Response;
+
+})(Backbone.Model);
+
+ResponseView = (function(superClass) {
+  extend(ResponseView, superClass);
+
+  function ResponseView() {
+    this.doDecline = bind(this.doDecline, this);
+    this.doAnswer = bind(this.doAnswer, this);
+    return ResponseView.__super__.constructor.apply(this, arguments);
+  }
+
+  ResponseView.prototype.initialize = function() {
+    this.requestId = this.options.requestId;
+    this.text = this.$el.find('.response_textarea');
+    this.answer = this.$el.find('.response_answer');
+    this.decline = this.$el.find('.response_decline');
+    this.body = this.$el.find('.response_body');
+    this.answer.click(this.doAnswer);
+    return this.decline.click(this.doDecline);
+  };
+
+  ResponseView.prototype.doAnswer = function() {
+    if (this.text.val() === '') {
+      return;
+    }
+    this.text.hide();
+    this.answer.hide();
+    this.decline.hide();
+    return this.body.html(this.text.val());
+  };
+
+  ResponseView.prototype.doDecline = function() {
+    return console.log(this);
+  };
+
+  return ResponseView;
+
+})(Backbone.View);
+
+Request = (function(superClass) {
+  extend(Request, superClass);
+
+  function Request() {
+    return Request.__super__.constructor.apply(this, arguments);
+  }
+
+  Request.prototype.defaults = {
+    id: 0
+  };
+
+  return Request;
+
+})(Backbone.Model);
+
+RequestView = (function(superClass) {
+  extend(RequestView, superClass);
+
+  function RequestView() {
+    return RequestView.__super__.constructor.apply(this, arguments);
+  }
+
+  RequestView.prototype.initialize = function() {
+    return new ResponseView({
+      el: this.$el.children('.response'),
+      requestId: this.model.get('id')
+    });
+  };
+
+  return RequestView;
+
+})(Backbone.View);
+
+RequestsCollection = (function(superClass) {
+  extend(RequestsCollection, superClass);
+
+  function RequestsCollection() {
+    return RequestsCollection.__super__.constructor.apply(this, arguments);
+  }
+
+  RequestsCollection.prototype.model = Request;
+
+  return RequestsCollection;
+
+})(Backbone.Collection);
+
+RequestsList = (function(superClass) {
+  extend(RequestsList, superClass);
+
+  function RequestsList() {
+    return RequestsList.__super__.constructor.apply(this, arguments);
+  }
+
+  RequestsList.prototype.initialize = function() {
+    this.collection = new RequestsCollection;
+    return this.initRequests();
+  };
+
+  RequestsList.prototype.initRequests = function() {
+    return this.$el.children('.requests_item').each((function(_this) {
+      return function(i, request) {
+        var model, v;
+        model = new Request({
+          id: $(request).data('id')
+        });
+        _this.collection.add(model);
+        return v = new RequestView({
+          el: request,
+          model: model
+        });
+      };
+    })(this));
+  };
+
+  return RequestsList;
+
+})(Backbone.View);
+
+new RequestsList({
+  el: '#company-requests'
+});
+
+},{}]},{},[11]);

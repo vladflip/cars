@@ -1,8 +1,8 @@
-<div class="received-requests">
+<div class="received-requests" id="company-requests">
 
 	@foreach($requests as $request)
 	
-		<div class="requests_item">
+		<div class="requests_item" data-id="{{ $request->id }}">
 			
 			<div class="requests_request">
 				
