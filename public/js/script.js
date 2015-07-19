@@ -3433,6 +3433,10 @@ ResponseView = (function(superClass) {
     return ResponseView.__super__.constructor.apply(this, arguments);
   }
 
+  ResponseView.prototype.url = 'api/response/create';
+
+  ResponseView.prototype.home = $('body').data('home');
+
   ResponseView.prototype.initialize = function() {
     this.requestId = this.options.requestId;
     this.text = this.$el.find('.response_textarea');
@@ -3450,11 +3454,34 @@ ResponseView = (function(superClass) {
     this.text.hide();
     this.answer.hide();
     this.decline.hide();
-    return this.body.html(this.text.val());
+    this.body.html(this.text.val());
+    return this.sendResponse();
   };
 
   ResponseView.prototype.doDecline = function() {
-    return console.log(this);
+    this.text.hide();
+    this.answer.hide();
+    this.decline.hide();
+    return this.body.html('Отклонено.');
+  };
+
+  ResponseView.prototype.sendResponse = function() {
+    return $.ajax(this.home + "/" + this.url, {
+      headers: {
+        'X-CSRF-TOKEN': $('body').data('csrf')
+      },
+      method: 'POST',
+      data: {
+        request: this.requestId,
+        response: this.text.val()
+      }
+    }).done((function(_this) {
+      return function(response) {
+        return console.log(response);
+      };
+    })(this)).error(function() {
+      return console.log('error');
+    });
   };
 
   return ResponseView;

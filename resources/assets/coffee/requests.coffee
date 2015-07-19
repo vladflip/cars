@@ -2,6 +2,10 @@ class Response extends Backbone.Model
 
 class ResponseView extends Backbone.View
 
+	url: 'api/response/create'
+
+	home: $('body').data 'home'
+
 	# create templates : 
 	# declined
 	# answered
@@ -24,6 +28,7 @@ class ResponseView extends Backbone.View
 		@decline.click @doDecline
 
 	doAnswer: =>
+
 		if @text.val() is '' then return
 
 		@text.hide()
@@ -34,10 +39,32 @@ class ResponseView extends Backbone.View
 
 		@body.html @text.val()
 
+		do @sendResponse
 
 	doDecline: =>
 
-		console.log @
+		@text.hide()
+
+		@answer.hide()
+
+		@decline.hide()
+
+		@body.html 'Отклонено.'
+
+	sendResponse: ->
+		
+		$.ajax "#{@home}/#{@url}",
+			headers:
+				'X-CSRF-TOKEN' : $('body').data 'csrf'
+			method: 'POST'
+			data:
+				request: @requestId
+				response: @text.val()
+
+		.done (response) =>
+			console.log response
+		.error ->
+			console.log 'error'
 
 
 class Request extends Backbone.Model
