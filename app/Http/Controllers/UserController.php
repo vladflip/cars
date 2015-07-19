@@ -28,7 +28,7 @@ class UserController extends Controller {
 			$user = \App\User::with(['requests' => function($q){
 
 				$q->with(['responses' => function($q){
-					$q->orderBy('created_at');
+					$q->orderBy('created_at', 'desc');
 					$q->with('company');
 				}]);
 
