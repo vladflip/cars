@@ -64,9 +64,14 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 	}
 
 	public function responses_count() {
-		// return $this->requests()->where('read', 0)->count();
-		// responses whereIn this->requests
-		return 1;
+		$ids = [];
+		$requests = $this->requests()->select('id')->get();
+
+		foreach ($requests as $request) {
+			$ids[] = $request->id;
+		}
+
+		return \App\Response::whereIn('request_id', $ids)->count();
 	}
 
 }
