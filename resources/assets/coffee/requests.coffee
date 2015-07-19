@@ -63,8 +63,6 @@ class ResponseView extends Backbone.View
 
 		.done (response) =>
 			console.log response
-		.error ->
-			console.log 'error'
 
 
 class Request extends Backbone.Model

@@ -3479,9 +3479,7 @@ ResponseView = (function(superClass) {
       return function(response) {
         return console.log(response);
       };
-    })(this)).error(function() {
-      return console.log('error');
-    });
+    })(this));
   };
 
   return ResponseView;

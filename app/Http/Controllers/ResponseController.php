@@ -9,9 +9,20 @@ class ResponseController extends Controller {
 
 	public function create() {
 
-		$input = \Input::all();
+		$input = (object)\Input::all();
 
-		return $input;
+		if( $input->response == '' )
+			return 'hello lamer';
+		if( ! \App\Request::find($input->request) )
+			return 'hello lamer';
+
+		$response = new \App\Response;
+
+		$response->text = $input->response;
+		$response->company_id = \Auth::user()->company->id;
+		$response->request_id = $input->request;
+
+		$response->save();
 
 	}
 

@@ -29,9 +29,9 @@ class DatabaseSeeder extends Seeder {
 
 		$this->call('PhotoSeeder');
 
-		$this->call('RequestSeeder');
+		// $this->call('RequestSeeder');
 
-		$this->call('ResponseSeeder');
+		// $this->call('ResponseSeeder');
 	}
 
 }

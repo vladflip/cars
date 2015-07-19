@@ -39,6 +39,8 @@ class Company extends Model {
 	// get all requests by type and make and model of company
 	public function requests() {
 
+		$id = $this->id;
+
 		if($this->requests)
 			return $this->requests;
 		
@@ -52,6 +54,9 @@ class Company extends Model {
 
 			$this->requests = \App\Request::whereIn('model_id', $ids)
 			->with('user')
+			->with(['responses' => function($q) use($id){
+				$q->whereCompanyId($id);
+			}])
 			->orderBy('created_at', 'desc')
 			->get();
 

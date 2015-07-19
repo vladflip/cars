@@ -32,32 +32,58 @@
 
 			</div>
 
-			<div class="response">
-					
-				<div class="requests_logo-name requests_logo-name--company">
-					
-					<div class="requests_logo">
-						<img src="{{ URL::to('/') . '/' . $user->company->logo }}" alt="">
+			@if(count($request->responses))
+
+				<div class="response">
+						
+					<div class="requests_logo-name requests_logo-name--company">
+						
+						<div class="requests_logo">
+							<img src="{{ URL::to('/') . '/' . $user->company->logo }}" alt="">
+						</div>
+
+						<div class="requests_name">
+							{{ $user->company->name }}
+						</div>
+
 					</div>
 
-					<div class="requests_name">
-						{{ $user->company->name }}
-					</div>
-
-				</div>
-
-				<div>
 					<div class="response_body requests_body--grey">
-						<textarea placeholder="Ответить" class="response_textarea" name="" id="" cols="30" rows="5"></textarea>
+						{{ $request->responses[0]->text }}
 					</div>
-					
-					<div class="response_buttons">
-						<div class="response_decline">Отклонить</div>
-						<div class="response_answer">Ответить</div>
-					</div>
+
 				</div>
 
-			</div>
+			@else
+
+				<div class="response">
+						
+					<div class="requests_logo-name requests_logo-name--company">
+						
+						<div class="requests_logo">
+							<img src="{{ URL::to('/') . '/' . $user->company->logo }}" alt="">
+						</div>
+
+						<div class="requests_name">
+							{{ $user->company->name }}
+						</div>
+
+					</div>
+
+					<div>
+						<div class="response_body requests_body--grey">
+							<textarea placeholder="Ответить" class="response_textarea" name="" id="" cols="30" rows="5"></textarea>
+						</div>
+						
+						<div class="response_buttons">
+							<div class="response_decline">Отклонить</div>
+							<div class="response_answer">Ответить</div>
+						</div>
+					</div>
+
+				</div>
+
+			@endif
 
 		</div>
 
