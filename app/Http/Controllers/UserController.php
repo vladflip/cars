@@ -29,9 +29,10 @@ class UserController extends Controller {
 
 				$q->with(['responses' => function($q){
 					$q->orderBy('created_at');
+					$q->with('company');
 				}]);
 
-				$q->orderBy('created_at');
+				$q->orderBy('created_at', 'desc');
 
 			}])
 			->find(Auth::id());

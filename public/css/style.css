@@ -1929,11 +1929,11 @@ ul.create-company-spec-selectBox-dropdown-menu {
 .response_answer {
   background-color: #e4f3e5;
 }
+.response_info {
+  width: 240px;
+}
 .sent-requests {
   margin-top: 35px;
-}
-.sent-requests_response-info {
-  width: 240px;
 }
 .sent-requests_response-contacts {
   font-size: 12px;

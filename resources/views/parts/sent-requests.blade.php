@@ -34,9 +34,9 @@
 
 			@foreach($request->responses as $response)
 
-			{{-- 	<div class="sent-requests_response">
+				<div class="response">
 					
-					<div class="sent-requests_response-time">
+					<div class="response_time">
 						{{ 
 							$response->created_at->day . '.' . 
 							$response->created_at->month . '.'.
@@ -44,32 +44,32 @@
 						}}
 					</div>
 
-					<div class="sent-requests_response-info">
+					<div class="response_info">
 						
 						<div class="requests_logo-name">
 							
 							<div class="requests_logo">
-								<img src="img/com_logo.jpg" alt="">
+								<img src="{{ URL::to('/') . '/' . $response->company->logo }}" alt="">
 							</div>
 
 							<div class="requests_name">
-								ООО Трансавтосервис
+								{{ $response->company->name }}
 							</div>
 
 						</div>
 
 						<div class="sent-requests_response-contacts">
-							г. Москва, ул. Улица д21 <br>
-							843 089 98 4, 34 98432 7893
+							{{ $response->company->address }} <br>
+							{{ $response->company->phone }}
 						</div>
 
 					</div>
 
-					<div class="sent-requests_response-body requests_body--grey">
-						Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore est esse nesciunt optio illo tempora sapiente aspernatur recusandae. Totam, iste.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore harum porro doloribus provident, deleniti ducimus minus, repellendus.
+					<div class="response_body requests_body--grey">
+						{{ $response->text }}
 					</div>
 
-				</div> --}}
+				</div>
 
 			@endforeach
 
