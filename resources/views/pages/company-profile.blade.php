@@ -112,7 +112,11 @@
 								{{-- <div class="requests_received requests_toogler--active">Исходящие запросы</div> --}}
 								
 								<div class="requests_sent requests_toogler--active">
-									Входящие запросы {{ '+' . $user->company->requests_count() }}
+									Входящие запросы 
+									{{ 
+										$requests_count ?
+										 '+' . $requests_count : ''
+									}}
 								</div>
 
 							</div>

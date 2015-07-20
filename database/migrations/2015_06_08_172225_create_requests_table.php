@@ -24,7 +24,7 @@ class CreateRequestsTable extends Migration {
 			$t->tinyInteger('opened');
 			$t->tinyInteger('new');
 			$t->tinyInteger('old');
-			$t->tinyInteger('read')->default(0);
+			$t->tinyInteger('canceled')->default(0);
 
 			$t->string('year');
 			$t->text('text');

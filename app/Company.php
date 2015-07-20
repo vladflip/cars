@@ -65,9 +65,33 @@ class Company extends Model {
 
 	}
 
+	public function readRequests() {
+		return $this->belongsToMany(
+				'App\Request', 'read_requests', 
+				'company_id', 'request_id'
+			);
+	}
+
 	public function requests_count() {
 
-		return $this->requests()->where('read', 0)->count();
+		$ids = [];
+
+		$requests = $this->readRequests;
+
+		foreach ($requests as $request) {
+			$ids[] = $request->id;
+		}
+
+		$models = $this->models()->select('id')->get();
+		$modelIds = [];
+
+		foreach ($models as $model) {
+			$modelIds[] = $model['id'];
+		}
+
+		return \App\Request::whereIn('model_id', $modelIds)
+		->whereNotIn('id', $ids)
+		->count();
 
 	}
 

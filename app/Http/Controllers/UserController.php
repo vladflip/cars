@@ -19,9 +19,12 @@ class UserController extends Controller {
 				$q->with('makes');
 			}])->find(Auth::id());
 
+			$requests_count = $user->company->requests_count();
+
 			return view('pages.company-profile')
 			->with('user', $user)
-			->with('requests', $user->company->requests(0));
+			->with('requests', $user->company->requests())
+			->with('requests_count', $requests_count);
 
 		} else {
 

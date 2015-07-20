@@ -7,7 +7,7 @@ class ResponseView extends Backbone.View
 	home: $('body').data 'home'
 
 	# create templates : 
-	# declined
+	# canceled
 	# answered
 	# own template (for loading more) or not needed cuz request template will include response
 
@@ -19,13 +19,13 @@ class ResponseView extends Backbone.View
 
 		@answer = @$el.find('.response_answer')
 
-		@decline = @$el.find('.response_decline')
+		@cancel = @$el.find('.response_cancel')
 
 		@body = @$el.find('.response_body')
 
 		@answer.click @doAnswer
 
-		@decline.click @doDecline
+		@cancel.click @doCancel
 
 	doAnswer: =>
 
@@ -35,19 +35,19 @@ class ResponseView extends Backbone.View
 
 		@answer.hide()
 
-		@decline.hide()
+		@cancel.hide()
 
 		@body.html @text.val()
 
 		do @sendResponse
 
-	doDecline: =>
+	doCancel: =>
 
 		@text.hide()
 
 		@answer.hide()
 
-		@decline.hide()
+		@cancel.hide()
 
 		@body.html 'Отклонено.'
 

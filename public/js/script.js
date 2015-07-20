@@ -3428,7 +3428,7 @@ ResponseView = (function(superClass) {
   extend(ResponseView, superClass);
 
   function ResponseView() {
-    this.doDecline = bind(this.doDecline, this);
+    this.doCancel = bind(this.doCancel, this);
     this.doAnswer = bind(this.doAnswer, this);
     return ResponseView.__super__.constructor.apply(this, arguments);
   }
@@ -3441,10 +3441,10 @@ ResponseView = (function(superClass) {
     this.requestId = this.options.requestId;
     this.text = this.$el.find('.response_textarea');
     this.answer = this.$el.find('.response_answer');
-    this.decline = this.$el.find('.response_decline');
+    this.cancel = this.$el.find('.response_cancel');
     this.body = this.$el.find('.response_body');
     this.answer.click(this.doAnswer);
-    return this.decline.click(this.doDecline);
+    return this.cancel.click(this.doCancel);
   };
 
   ResponseView.prototype.doAnswer = function() {
@@ -3453,15 +3453,15 @@ ResponseView = (function(superClass) {
     }
     this.text.hide();
     this.answer.hide();
-    this.decline.hide();
+    this.cancel.hide();
     this.body.html(this.text.val());
     return this.sendResponse();
   };
 
-  ResponseView.prototype.doDecline = function() {
+  ResponseView.prototype.doCancel = function() {
     this.text.hide();
     this.answer.hide();
-    this.decline.hide();
+    this.cancel.hide();
     return this.body.html('Отклонено.');
   };
 

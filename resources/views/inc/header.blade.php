@@ -1,3 +1,9 @@
+<?php
+	if(Auth::check() && Auth::user()->company)
+		$requests_count = Auth::user()->company->requests_count();
+?>
+
+
 <div class="header">
 	
 	<div class="container">
@@ -36,7 +42,7 @@
 
 					</div>
 
-					@if(AUth::user()->company)
+					@if(Auth::user()->company)
 						<div class="header_user-info_ava" 
 						style="background-image:url({{ URL::to('/') . '/' . Auth::user()->company->logo }})">
 						</div>
@@ -49,10 +55,12 @@
 						style="background-image:url({{ URL::to('/') }}/img/noavatar.png)"></div>
 					@endif
 					
-					@if(Auth::user()->company && Auth::user()->company->requests_count())
-						<span class="header_user-info_notification">
-							+{{ Auth::user()->company->requests_count() }}
-						</span>
+					@if(Auth::user()->company)
+						@if($requests_count)
+							<span class="header_user-info_notification">
+								+{{ $requests_count }}
+							</span>
+						@endif
 					@elseif(Auth::user()->responses_count())
 						<span class="header_user-info_notification">
 							+{{ Auth::user()->responses_count() }}

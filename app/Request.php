@@ -30,4 +30,11 @@ class Request extends Model {
 		return $this->hasMany('App\Response', 'request_id');
 	}
 
+	public function readRequests() {
+		return $this->belongsToMany(
+				'App\Company', 'read_requests', 
+				'request_id', 'company_id'
+			);
+	}
+
 }

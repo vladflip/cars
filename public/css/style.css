@@ -1911,7 +1911,7 @@ ul.create-company-spec-selectBox-dropdown-menu {
       -ms-flex-pack: justify;
           justify-content: space-between;
 }
-.response_decline,
+.response_cancel,
 .response_answer {
   padding: 8px 12px;
   font-size: 12px;
@@ -1923,7 +1923,7 @@ ul.create-company-spec-selectBox-dropdown-menu {
           user-select: none;
   margin-top: 10px;
 }
-.response_decline {
+.response_cancel {
   background-color: #fcf1f1;
 }
 .response_answer {
