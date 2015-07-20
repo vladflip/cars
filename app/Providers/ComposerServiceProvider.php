@@ -24,7 +24,7 @@ class ComposerServiceProvider extends ServiceProvider {
 			else
 				$current = false;
 
-			$specs = \App\Spec::select('id', 'name', 'title')->get();
+			$specs = \App\Singleton::specs();
 
 			// current is only for pages where no specs active, passes false
 
@@ -57,7 +57,7 @@ class ComposerServiceProvider extends ServiceProvider {
 
 		View::composer(['inc.search', 'inc.feedback', 'inc.type', 'popups.create-company'], function($v) {
 
-			$types = \App\Type::select('id', 'title', 'icon_active', 'icon')->get();
+			$types = \App\Singleton::types();
 
 			$v->with('types', $types);
 
@@ -65,9 +65,19 @@ class ComposerServiceProvider extends ServiceProvider {
 
 		View::composer(['inc.parts', 'popups.create-company'], function($v) {
 
-			$specs = \App\Spec::select('id', 'title')->get();
+			$specs = \App\Singleton::specs();
 
 			$v->with('specs', $specs);
+
+		});
+
+		View::composer('inc.header', function($v) {
+
+			$requestsCount = \App\Singleton::requestsCount();
+
+			$responsesCount = \App\Singleton::responsesCount();
+
+			$v->with('requestsCount', $requestsCount)->with('responsesCount', $responsesCount);
 
 		});
 	}

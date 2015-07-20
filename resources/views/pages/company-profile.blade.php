@@ -114,8 +114,8 @@
 								<div class="requests_sent requests_toogler--active">
 									Входящие запросы 
 									{{ 
-										$requests_count ?
-										 '+' . $requests_count : ''
+										$requestsCount ?
+										 '+' . $requestsCount : ''
 									}}
 								</div>
 

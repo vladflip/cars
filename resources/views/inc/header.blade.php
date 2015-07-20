@@ -1,9 +1,3 @@
-<?php
-	if(Auth::check() && Auth::user()->company)
-		$requests_count = Auth::user()->company->requests_count();
-?>
-
-
 <div class="header">
 	
 	<div class="container">
@@ -56,14 +50,14 @@
 					@endif
 					
 					@if(Auth::user()->company)
-						@if($requests_count)
+						@if($requestsCount)
 							<span class="header_user-info_notification">
-								+{{ $requests_count }}
+								+{{ $requestsCount }}
 							</span>
 						@endif
-					@elseif(Auth::user()->responses_count())
+					@elseif($responsesCount)
 						<span class="header_user-info_notification">
-							+{{ Auth::user()->responses_count() }}
+							+{{ $responsesCount }}
 						</span>
 					@endif
 			

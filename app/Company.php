@@ -72,7 +72,7 @@ class Company extends Model {
 			);
 	}
 
-	public function requests_count() {
+	public function requestsCount() {
 
 		$ids = [];
 
