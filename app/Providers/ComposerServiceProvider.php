@@ -75,12 +75,14 @@ class ComposerServiceProvider extends ServiceProvider {
 
 			if(\Auth::check()) {
 
-				if(\Auth::user()->company)
+				if(\Auth::user()->company) {
 					$requestsCount = \App\Singleton::requestsCount();
-				else
+					$responsesCount = 0;
+				} else {
+					$responsesCount = \App\Singleton::responsesCount();
 					$requestsCount = 0;
+				}
 
-				$responsesCount = \App\Singleton::responsesCount();
 
 				$v->with('requestsCount', $requestsCount)->with('responsesCount', $responsesCount);
 

@@ -65,6 +65,13 @@ class Company extends Model {
 
 	}
 
+	public function setReadRequests() {
+		foreach ($this->requests() as $request) {
+			if( ! $this->readRequests->contains($request->id))
+				$this->readRequests()->attach($request->id);
+		}
+	}
+
 	public function readRequests() {
 		return $this->belongsToMany(
 				'App\Request', 'read_requests', 
