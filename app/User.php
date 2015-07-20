@@ -63,6 +63,16 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 		return $this->hasMany('App\Request', 'user_id');
 	}
 
+	public function setReadResponses() {
+		foreach ($this->requests as $request) {
+			foreach ($request->responses as $response) {
+				$response->read = 1;
+				$response->save();
+			}
+		}
+		
+	}
+
 	public function responsesCount() {
 		$ids = [];
 		$requests = $this->requests()->select('id')->get();
@@ -71,7 +81,7 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 			$ids[] = $request->id;
 		}
 
-		return \App\Response::whereIn('request_id', $ids)->count();
+		return \App\Response::whereIn('request_id', $ids)->where('read', 0)->count();
 	}
 
 }

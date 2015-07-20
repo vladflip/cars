@@ -40,6 +40,8 @@ class UserController extends Controller {
 			}])
 			->find(Auth::id());
 
+			$user->setReadResponses();
+
 			return view('pages.user-profile')->with('user', $user);
 
 		}
