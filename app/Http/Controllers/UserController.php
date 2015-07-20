@@ -19,9 +19,7 @@ class UserController extends Controller {
 				$q->with('makes');
 			}])->find(Auth::id());
 
-			$requestsCount = $user->company->requestsCount();
-
-			\App\Singleton::set('requestsCount', $requestsCount);
+			$requestsCount = \App\Singleton::requestsCount();
 
 			return view('pages.company-profile')
 			->with('user', $user)
@@ -41,8 +39,6 @@ class UserController extends Controller {
 
 			}])
 			->find(Auth::id());
-
-			\App\Singleton::set('responsesCount', $user->responsesCount());
 
 			return view('pages.user-profile')->with('user', $user);
 

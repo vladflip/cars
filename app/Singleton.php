@@ -6,9 +6,9 @@ class Singleton {
 
 	private static $specs;
 
-	private static $requestsCount = 0;
+	private static $requestsCount;
 
-	private static $responsesCount = 0;
+	private static $responsesCount;
 
 	public static function types() {
 
@@ -22,20 +22,32 @@ class Singleton {
 	}
 
 	public static function specs() {
+
 		if(self::$specs)
 			return self::$specs;
 		else {
 			self::$specs = \App\Spec::all();
 			return self::$specs;
 		}
+
 	}
 	
 	public static function requestsCount() {
+
+		if(is_null(self::$requestsCount) && \Auth::check())
+			self::$requestsCount = \Auth::user()->company->requestsCount();
+
 		return self::$requestsCount;
-	}
+
+	}	
 
 	public static function responsesCount() {
+
+		if(is_null(self::$responsesCount) && \Auth::check())
+			self::$responsesCount = \Auth::user()->responsesCount();
+
 		return self::$responsesCount;
+
 	}
 
 	public static function set($name, $value) {
