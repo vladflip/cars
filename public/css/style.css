@@ -1613,6 +1613,7 @@ ul.create-company-spec-selectBox-dropdown-menu {
 .profile {
   position: relative;
   overflow: hidden;
+  min-height: 400px;
 }
 .profile .container {
   position: relative;
@@ -1784,6 +1785,11 @@ ul.create-company-spec-selectBox-dropdown-menu {
   line-height: 18px;
   letter-spacing: 0.4px;
   position: relative;
+  transition: background-color 0.3s ease-in;
+}
+.requests_body:before,
+.response_body:before {
+  transition: background-color 0.3s ease-in;
 }
 .requests_body--yellow,
 .response_body--yellow {

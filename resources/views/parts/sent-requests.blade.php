@@ -1,8 +1,8 @@
-<div class="sent-requests">
+<div class="sent-requests" id="user-requests">
 
 	@foreach($user->requests as $request)
 	
-		<div class="requests_item">
+		<div class="requests_item" data-id="{{ $request->id }}">
 			
 			<div class="requests_request">
 				
@@ -19,13 +19,16 @@
 				</div>
 
 				<div>
-					<div class="requests_body requests_body--yellow">
+					<div class="requests_body 
+					{{ $request->canceled ? 'requests_body--grey' : 'requests_body--yellow' }}">
 						{{ $request->text }}
 					</div>
 
-					<div class="response_buttons">
-						<div class="response_cancel">Закрыть</div>
-					</div>
+					@if( ! $request->canceled)
+						<div class="response_buttons">
+							<div class="response_cancel">Закрыть</div>
+						</div>
+					@endif
 				</div>
 
 				<div class="requests_time">

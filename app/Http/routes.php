@@ -151,6 +151,8 @@ Route::group(['prefix' => 'api', 'middleware' => 'api'], function(){
 
 		post('create', ['uses' => 'RequestController@create']);
 
+		post('cancel', ['uses' => 'RequestController@cancel']);
+
 	});
 
 	Route::group(['prefix' => 'response', 'middleware' => 'auth'], function() {

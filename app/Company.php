@@ -57,6 +57,7 @@ class Company extends Model {
 			->with(['responses' => function($q) use($id){
 				$q->whereCompanyId($id);
 			}])
+			->whereCanceled(0)
 			->orderBy('created_at', 'desc')
 			->get();
 

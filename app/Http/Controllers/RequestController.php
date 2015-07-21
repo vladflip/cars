@@ -53,4 +53,19 @@ class RequestController extends Controller {
 
 	}
 
+	public function cancel() {
+
+		$id = \Input::get('id');
+
+		$request = \App\Request::find($id);
+
+		if( $request->user_id != \Auth::id() )
+			return 'hello lamer';
+
+		$request->canceled = true;
+
+		$request->save();
+
+	}
+
 }

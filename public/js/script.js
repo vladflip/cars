@@ -569,7 +569,177 @@ specmakes = new SpecMakes({
   types: types
 });
 
-},{"../inc/TypeList":10}],5:[function(require,module,exports){
+},{"../inc/TypeList":11}],5:[function(require,module,exports){
+var Request, RequestView, RequestsCollection, RequestsList, Response, ResponseView,
+  extend = function(child, parent) { for (var key in parent) { if (hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; },
+  hasProp = {}.hasOwnProperty,
+  bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };
+
+Response = (function(superClass) {
+  extend(Response, superClass);
+
+  function Response() {
+    return Response.__super__.constructor.apply(this, arguments);
+  }
+
+  return Response;
+
+})(Backbone.Model);
+
+ResponseView = (function(superClass) {
+  extend(ResponseView, superClass);
+
+  function ResponseView() {
+    this.doCancel = bind(this.doCancel, this);
+    this.doAnswer = bind(this.doAnswer, this);
+    return ResponseView.__super__.constructor.apply(this, arguments);
+  }
+
+  ResponseView.prototype.url = 'api/response/create';
+
+  ResponseView.prototype.home = $('body').data('home');
+
+  ResponseView.prototype.initialize = function() {
+    this.requestId = this.options.requestId;
+    this.text = this.$el.find('.response_textarea');
+    this.answer = this.$el.find('.response_answer');
+    this.cancel = this.$el.find('.response_cancel');
+    this.body = this.$el.find('.response_body');
+    this.answer.click(this.doAnswer);
+    return this.cancel.click(this.doCancel);
+  };
+
+  ResponseView.prototype.doAnswer = function() {
+    if (this.text.val() === '') {
+      return;
+    }
+    this.text.hide();
+    this.answer.hide();
+    this.cancel.hide();
+    this.body.html(this.text.val());
+    return this.sendResponse();
+  };
+
+  ResponseView.prototype.doCancel = function() {
+    this.text.hide();
+    this.answer.hide();
+    this.cancel.hide();
+    this.body.html('Отклонено.');
+    return $.ajax(this.home + "/api/response/cancel", {
+      headers: {
+        'X-CSRF-TOKEN': $('body').data('csrf')
+      },
+      method: 'POST',
+      data: {
+        id: this.requestId
+      }
+    });
+  };
+
+  ResponseView.prototype.sendResponse = function() {
+    return $.ajax(this.home + "/" + this.url, {
+      headers: {
+        'X-CSRF-TOKEN': $('body').data('csrf')
+      },
+      method: 'POST',
+      data: {
+        request: this.requestId,
+        response: this.text.val()
+      }
+    }).done((function(_this) {
+      return function(response) {
+        return console.log(response);
+      };
+    })(this));
+  };
+
+  return ResponseView;
+
+})(Backbone.View);
+
+Request = (function(superClass) {
+  extend(Request, superClass);
+
+  function Request() {
+    return Request.__super__.constructor.apply(this, arguments);
+  }
+
+  Request.prototype.defaults = {
+    id: 0
+  };
+
+  return Request;
+
+})(Backbone.Model);
+
+RequestView = (function(superClass) {
+  extend(RequestView, superClass);
+
+  function RequestView() {
+    return RequestView.__super__.constructor.apply(this, arguments);
+  }
+
+  RequestView.prototype.initialize = function() {
+    return new ResponseView({
+      el: this.$el.children('.response'),
+      requestId: this.model.get('id')
+    });
+  };
+
+  return RequestView;
+
+})(Backbone.View);
+
+RequestsCollection = (function(superClass) {
+  extend(RequestsCollection, superClass);
+
+  function RequestsCollection() {
+    return RequestsCollection.__super__.constructor.apply(this, arguments);
+  }
+
+  RequestsCollection.prototype.model = Request;
+
+  return RequestsCollection;
+
+})(Backbone.Collection);
+
+RequestsList = (function(superClass) {
+  extend(RequestsList, superClass);
+
+  function RequestsList() {
+    return RequestsList.__super__.constructor.apply(this, arguments);
+  }
+
+  RequestsList.prototype.initialize = function() {
+    this.collection = new RequestsCollection;
+    return this.initRequests();
+  };
+
+  RequestsList.prototype.initRequests = function() {
+    return this.$el.children('.requests_item').each((function(_this) {
+      return function(i, request) {
+        var model, v;
+        model = new Request({
+          id: $(request).data('id')
+        });
+        _this.collection.add(model);
+        return v = new RequestView({
+          el: request,
+          model: model
+        });
+      };
+    })(this));
+  };
+
+  return RequestsList;
+
+})(Backbone.View);
+
+new RequestsList({
+  el: '#company-requests'
+});
+
+},{}],6:[function(require,module,exports){
 var MakeModel, Makes, MakesCollection, MakesList, ModelsList,
   extend = function(child, parent) { for (var key in parent) { if (hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; },
   hasProp = {}.hasOwnProperty,
@@ -817,7 +987,7 @@ Makes = (function(superClass) {
 
 module.exports = Makes;
 
-},{"./ModelsList":6}],6:[function(require,module,exports){
+},{"./ModelsList":7}],7:[function(require,module,exports){
 var Model, ModelView, ModelsCollection, ModelsList,
   extend = function(child, parent) { for (var key in parent) { if (hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; },
   hasProp = {}.hasOwnProperty,
@@ -1058,7 +1228,7 @@ ModelsList = (function(superClass) {
 
 module.exports = ModelsList;
 
-},{}],7:[function(require,module,exports){
+},{}],8:[function(require,module,exports){
 var Avatar,
   bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };
 
@@ -1215,7 +1385,7 @@ Avatar = (function() {
 
 module.exports = Avatar;
 
-},{}],8:[function(require,module,exports){
+},{}],9:[function(require,module,exports){
 var FieldCollection, FieldModel, FieldSet, FieldView,
   extend = function(child, parent) { for (var key in parent) { if (hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; },
   hasProp = {}.hasOwnProperty,
@@ -1408,7 +1578,7 @@ FieldSet = (function(superClass) {
 
 module.exports = FieldSet;
 
-},{}],9:[function(require,module,exports){
+},{}],10:[function(require,module,exports){
 var SelectView,
   extend = function(child, parent) { for (var key in parent) { if (hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; },
   hasProp = {}.hasOwnProperty;
@@ -1484,7 +1654,7 @@ SelectView = (function(superClass) {
 
 module.exports = SelectView;
 
-},{}],10:[function(require,module,exports){
+},{}],11:[function(require,module,exports){
 var TypeList, TypeModel, TypeView, TypesCollection,
   extend = function(child, parent) { for (var key in parent) { if (hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; },
   hasProp = {}.hasOwnProperty,
@@ -1626,7 +1796,7 @@ TypeList = (function(superClass) {
 
 module.exports = TypeList;
 
-},{}],11:[function(require,module,exports){
+},{}],12:[function(require,module,exports){
 require('./base');
 
 require('./popups/index');
@@ -1645,9 +1815,11 @@ require('./mention');
 
 require('./logout');
 
-require('./requests');
+require('./company-requests');
 
-},{"./auth":1,"./base":2,"./catalog/catalog-companies":3,"./catalog/catalog-live":4,"./logout":12,"./main-live-search":13,"./mention":14,"./popups/index":17,"./profile":20,"./requests":21}],12:[function(require,module,exports){
+require('./user-requests');
+
+},{"./auth":1,"./base":2,"./catalog/catalog-companies":3,"./catalog/catalog-live":4,"./company-requests":5,"./logout":13,"./main-live-search":14,"./mention":15,"./popups/index":18,"./profile":21,"./user-requests":22}],13:[function(require,module,exports){
 var button, form;
 
 form = $('#user-logout-form');
@@ -1658,7 +1830,7 @@ button.click(function() {
   return form.submit();
 });
 
-},{}],13:[function(require,module,exports){
+},{}],14:[function(require,module,exports){
 var CompanyCollection, CompanyList, CompanyModel, CompanyView, MakeCollection, MakeList, MakeModel, MakeView, SpecCollection, SpecList, SpecModel, SpecView, TypeList, companies, makes, specs, types,
   extend = function(child, parent) { for (var key in parent) { if (hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; },
   hasProp = {}.hasOwnProperty,
@@ -2294,7 +2466,7 @@ companies = new CompanyList({
   makes: makes
 });
 
-},{"./inc/TypeList":10}],14:[function(require,module,exports){
+},{"./inc/TypeList":11}],15:[function(require,module,exports){
 var Counter, Votes, dislikes, likes, mention_photos,
   bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };
 
@@ -2427,7 +2599,7 @@ dislikes = new Counter($('#mention-dislikes'), $('#mention-dislikes-info'), 'men
 
 new Votes(likes, dislikes);
 
-},{}],15:[function(require,module,exports){
+},{}],16:[function(require,module,exports){
 var AddLogo, MakesList, SelectType, SelectView, about, address, logo, logolabel, makes, name, phone, specs, submit, types,
   bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; },
   extend = function(child, parent) { for (var key in parent) { if (hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; },
@@ -2629,7 +2801,7 @@ submit.click(function() {
   })(this));
 });
 
-},{"../create-company/MakesList":5,"../inc/SelectView":9}],16:[function(require,module,exports){
+},{"../create-company/MakesList":6,"../inc/SelectView":10}],17:[function(require,module,exports){
 var AddPhotos, Image, ImageCollection, ImageView, ImagesView, List, ListCollection, ListModel, ListView, SelectView, imageCollection, imagesView, make, minuses, model, pluses, quill, type,
   extend = function(child, parent) { for (var key in parent) { if (hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; },
   hasProp = {}.hasOwnProperty,
@@ -3080,7 +3252,7 @@ $('#add-feedback').click(function() {
   })(this));
 });
 
-},{"../inc/SelectView":9}],17:[function(require,module,exports){
+},{"../inc/SelectView":10}],18:[function(require,module,exports){
 require('./search');
 
 require('./sign-up');
@@ -3089,7 +3261,7 @@ require('./feedback');
 
 require('./create-company');
 
-},{"./create-company":15,"./feedback":16,"./search":18,"./sign-up":19}],18:[function(require,module,exports){
+},{"./create-company":16,"./feedback":17,"./search":19,"./sign-up":20}],19:[function(require,module,exports){
 var SelectView, button, isNew, isNewLabel, isOld, isOldLabel, make, model, more, type, year;
 
 SelectView = require('../inc/SelectView');
@@ -3199,7 +3371,7 @@ button.click(function() {
   })(this));
 });
 
-},{"../inc/SelectView":9}],19:[function(require,module,exports){
+},{"../inc/SelectView":10}],20:[function(require,module,exports){
 var button, email, form, passw, submit;
 
 $('#sign-up').magnificPopup({
@@ -3247,7 +3419,7 @@ if (form) {
   });
 }
 
-},{}],20:[function(require,module,exports){
+},{}],21:[function(require,module,exports){
 var Avatar, FieldSet, ProfileToggler, company, companyAvatar, companyProfileCollection, user, userAvatar, userProfileCollection,
   bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };
 
@@ -3407,93 +3579,11 @@ new ProfileToggler({
   }
 });
 
-},{"./inc/Avatar":7,"./inc/FieldSet":8}],21:[function(require,module,exports){
-var Request, RequestView, RequestsCollection, RequestsList, Response, ResponseView,
+},{"./inc/Avatar":8,"./inc/FieldSet":9}],22:[function(require,module,exports){
+var Request, RequestView, Requests, RequestsCollection,
   extend = function(child, parent) { for (var key in parent) { if (hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; },
   hasProp = {}.hasOwnProperty,
   bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };
-
-Response = (function(superClass) {
-  extend(Response, superClass);
-
-  function Response() {
-    return Response.__super__.constructor.apply(this, arguments);
-  }
-
-  return Response;
-
-})(Backbone.Model);
-
-ResponseView = (function(superClass) {
-  extend(ResponseView, superClass);
-
-  function ResponseView() {
-    this.doCancel = bind(this.doCancel, this);
-    this.doAnswer = bind(this.doAnswer, this);
-    return ResponseView.__super__.constructor.apply(this, arguments);
-  }
-
-  ResponseView.prototype.url = 'api/response/create';
-
-  ResponseView.prototype.home = $('body').data('home');
-
-  ResponseView.prototype.initialize = function() {
-    this.requestId = this.options.requestId;
-    this.text = this.$el.find('.response_textarea');
-    this.answer = this.$el.find('.response_answer');
-    this.cancel = this.$el.find('.response_cancel');
-    this.body = this.$el.find('.response_body');
-    this.answer.click(this.doAnswer);
-    return this.cancel.click(this.doCancel);
-  };
-
-  ResponseView.prototype.doAnswer = function() {
-    if (this.text.val() === '') {
-      return;
-    }
-    this.text.hide();
-    this.answer.hide();
-    this.cancel.hide();
-    this.body.html(this.text.val());
-    return this.sendResponse();
-  };
-
-  ResponseView.prototype.doCancel = function() {
-    this.text.hide();
-    this.answer.hide();
-    this.cancel.hide();
-    this.body.html('Отклонено.');
-    return $.ajax(this.home + "/api/response/cancel", {
-      headers: {
-        'X-CSRF-TOKEN': $('body').data('csrf')
-      },
-      method: 'POST',
-      data: {
-        id: this.requestId
-      }
-    });
-  };
-
-  ResponseView.prototype.sendResponse = function() {
-    return $.ajax(this.home + "/" + this.url, {
-      headers: {
-        'X-CSRF-TOKEN': $('body').data('csrf')
-      },
-      method: 'POST',
-      data: {
-        request: this.requestId,
-        response: this.text.val()
-      }
-    }).done((function(_this) {
-      return function(response) {
-        return console.log(response);
-      };
-    })(this));
-  };
-
-  return ResponseView;
-
-})(Backbone.View);
 
 Request = (function(superClass) {
   extend(Request, superClass);
@@ -3501,10 +3591,6 @@ Request = (function(superClass) {
   function Request() {
     return Request.__super__.constructor.apply(this, arguments);
   }
-
-  Request.prototype.defaults = {
-    id: 0
-  };
 
   return Request;
 
@@ -3514,14 +3600,31 @@ RequestView = (function(superClass) {
   extend(RequestView, superClass);
 
   function RequestView() {
+    this.cancel = bind(this.cancel, this);
     return RequestView.__super__.constructor.apply(this, arguments);
   }
 
+  RequestView.prototype.home = $('body').data('home');
+
   RequestView.prototype.initialize = function() {
-    return new ResponseView({
-      el: this.$el.children('.response'),
-      requestId: this.model.get('id')
+    this.cancelButton = this.$el.find('.response_cancel');
+    this.body = this.$el.find('.requests_body');
+    return this.cancelButton.click(this.cancel);
+  };
+
+  RequestView.prototype.cancel = function() {
+    $.ajax(this.home + "/api/request/cancel", {
+      headers: {
+        'X-CSRF-TOKEN': $('body').data('csrf')
+      },
+      method: 'POST',
+      data: {
+        id: this.model.get('id')
+      }
     });
+    this.body.removeClass('requests_body--yellow');
+    this.body.addClass('requests_body--grey');
+    return this.cancelButton.hide();
   };
 
   return RequestView;
@@ -3535,25 +3638,23 @@ RequestsCollection = (function(superClass) {
     return RequestsCollection.__super__.constructor.apply(this, arguments);
   }
 
-  RequestsCollection.prototype.model = Request;
-
   return RequestsCollection;
 
 })(Backbone.Collection);
 
-RequestsList = (function(superClass) {
-  extend(RequestsList, superClass);
+Requests = (function(superClass) {
+  extend(Requests, superClass);
 
-  function RequestsList() {
-    return RequestsList.__super__.constructor.apply(this, arguments);
+  function Requests() {
+    return Requests.__super__.constructor.apply(this, arguments);
   }
 
-  RequestsList.prototype.initialize = function() {
+  Requests.prototype.initialize = function() {
     this.collection = new RequestsCollection;
     return this.initRequests();
   };
 
-  RequestsList.prototype.initRequests = function() {
+  Requests.prototype.initRequests = function() {
     return this.$el.children('.requests_item').each((function(_this) {
       return function(i, request) {
         var model, v;
@@ -3569,12 +3670,12 @@ RequestsList = (function(superClass) {
     })(this));
   };
 
-  return RequestsList;
+  return Requests;
 
 })(Backbone.View);
 
-new RequestsList({
-  el: '#company-requests'
+new Requests({
+  el: '#user-requests'
 });
 
-},{}]},{},[11]);
+},{}]},{},[12]);
