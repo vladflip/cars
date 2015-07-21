@@ -51,6 +51,13 @@ class ResponseView extends Backbone.View
 
 		@body.html 'Отклонено.'
 
+		$.ajax "#{@home}/api/response/cancel",
+			headers:
+				'X-CSRF-TOKEN' : $('body').data 'csrf'
+			method: 'POST'
+			data:
+				id: @requestId
+
 	sendResponse: ->
 		
 		$.ajax "#{@home}/#{@url}",

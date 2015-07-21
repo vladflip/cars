@@ -53,7 +53,7 @@ class UserSeeder extends Seeder {
 		for($i=0; $i < $count; $i++){
 
 			App\User::create([
-					'email' => $f->email,
+					'email' => (rand(1, 10)) . $f->email,
 					'password' => Hash::make($f->password),
 					'name' => $f->name(),
 					// 'about' => $f->paragraph(5),

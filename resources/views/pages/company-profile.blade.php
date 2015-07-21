@@ -101,7 +101,7 @@
 
 				</div>
 				
-				@if($requests)
+				@if(count($requests))
 		
 					<div class="requests">
 						

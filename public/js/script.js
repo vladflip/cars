@@ -3462,7 +3462,16 @@ ResponseView = (function(superClass) {
     this.text.hide();
     this.answer.hide();
     this.cancel.hide();
-    return this.body.html('Отклонено.');
+    this.body.html('Отклонено.');
+    return $.ajax(this.home + "/api/response/cancel", {
+      headers: {
+        'X-CSRF-TOKEN': $('body').data('csrf')
+      },
+      method: 'POST',
+      data: {
+        id: this.requestId
+      }
+    });
   };
 
   ResponseView.prototype.sendResponse = function() {

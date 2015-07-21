@@ -23,6 +23,8 @@ class CreateResponsesTable extends Migration {
 			
 			$t->tinyInteger('read')->default(0);
 
+			$t->tinyInteger('canceled')->default(0);
+
 			$t->foreign('request_id')->references('id')->on('requests')
 											->onDelete('cascade')
 											->onUpdate('no action');

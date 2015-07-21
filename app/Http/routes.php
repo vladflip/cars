@@ -157,6 +157,8 @@ Route::group(['prefix' => 'api', 'middleware' => 'api'], function(){
 
 		post('create', ['uses' => 'ResponseController@create']);
 
+		post('cancel', ['uses' => 'ResponseController@cancel']);
+
 	});
 
 	get('get-makes', 'APIController@makes');

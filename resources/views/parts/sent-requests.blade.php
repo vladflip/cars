@@ -18,8 +18,14 @@
 
 				</div>
 
-				<div class="requests_body requests_body--yellow">
-					{{ $request->text }}
+				<div>
+					<div class="requests_body requests_body--yellow">
+						{{ $request->text }}
+					</div>
+
+					<div class="response_buttons">
+						<div class="response_cancel">Закрыть</div>
+					</div>
 				</div>
 
 				<div class="requests_time">

@@ -32,6 +32,7 @@ class UserController extends Controller {
 				$q->with(['responses' => function($q){
 					$q->orderBy('created_at', 'desc');
 					$q->with('company');
+					$q->whereCanceled(0);
 				}]);
 
 				$q->orderBy('created_at', 'desc');
