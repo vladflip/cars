@@ -35,7 +35,10 @@ class Singleton {
 	public static function requestsCount() {
 
 		if(is_null(self::$requestsCount) && \Auth::check())
-			self::$requestsCount = \Auth::user()->company->requests()->wherePivot('read', 0)->count();
+			self::$requestsCount = \Auth::user()->company->requests()
+				->wherePivot('read', 0)
+				->whereCanceled(0)
+				->count();
 
 		return self::$requestsCount;
 
