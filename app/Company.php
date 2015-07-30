@@ -23,83 +23,80 @@ class Company extends Model {
 	}
 
 	public function models() {
+
 		return $this->belongsToMany(
 				'App\CarModel', 'company_models', 
 				'company_id', 'model_id'
 			);
+
 	}
 
 	public function makes() {
+
 		return $this->belongsToMany(
 				'App\Make', 'company_makes', 
 				'company_id', 'make_id'
 			);
+
 	}
 
-	// get all requests by type and make and model of company
 	public function requests() {
+
+		return $this->belongsToMany(
+				'App\Request', 'company_requests', 
+				'company_id', 'request_id'
+			);
+
+	}
+
+	public function freshRequests() {
 
 		$id = $this->id;
 
-		if($this->requests)
-			return $this->requests;
-		
-		else {
-			$models = $this->models()->select('id')->get();
-			$ids = [];
-
-			foreach ($models as $model) {
-				$ids[] = $model['id'];
-			}
-
-			$this->requests = \App\Request::whereIn('model_id', $ids)
-			->with('user')
-			->with(['responses' => function($q) use($id){
-				$q->whereCompanyId($id);
-			}])
-			->whereCanceled(0)
-			->orderBy('created_at', 'desc')
-			->get();
-
-			return $this->requests;
-		}		
-
-	}
-
-	public function setReadRequests() {
-		foreach ($this->requests() as $request) {
-			if( ! $this->readRequests->contains($request->id))
-				$this->readRequests()->attach($request->id);
-		}
-	}
-
-	public function readRequests() {
-		return $this->belongsToMany(
-				'App\Request', 'read_requests', 
-				'company_id', 'request_id'
-			);
-	}
-
-	public function requestsCount() {
-
+		$models = $this->models()->select('id')->get();
 		$ids = [];
 
-		$requests = $this->readRequests;
-
-		foreach ($requests as $request) {
-			$ids[] = $request->id;
-		}
-
-		$models = $this->models()->select('id')->get();
-		$modelIds = [];
-
 		foreach ($models as $model) {
-			$modelIds[] = $model['id'];
+			$ids[] = $model['id'];
 		}
 
-		return \App\Request::whereIn('model_id', $modelIds)
-		->whereNotIn('id', $ids)
-		->count();
+		$requests = \App\Request::select('id')
+		->whereIn('model_id', $ids)
+		->get();
+
+		return $requests;
+
+	}
+
+	public function updateRequests() {
+
+		$freshRequests = $this->freshRequests();
+
+		$attachedRequests = $this->requests()->select('id')->get();
+
+		$freshIds = [];
+		$attachedIds = [];
+
+		foreach ($freshRequests as $request) {
+			
+			$freshIds[] = $request->id;
+
+		}
+		foreach ($attachedRequests as $request) {
+			
+			$attachedIds[] = $request->id;
+
+		}
+
+		if( $freshRequests->count() != $attachedRequests->count() ) {
+
+			$ids = array_diff($freshIds, $attachedIds);
+
+			foreach ($ids as $id) {
+				$this->requests()->attach($id);
+			}	
+
+		}
 
 	}
 

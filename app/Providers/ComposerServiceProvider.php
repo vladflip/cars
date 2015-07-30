@@ -2,6 +2,7 @@
 
 use View;
 use Illuminate\Support\ServiceProvider;
+use Auth;
 
 class ComposerServiceProvider extends ServiceProvider {
 
@@ -73,9 +74,9 @@ class ComposerServiceProvider extends ServiceProvider {
 
 		View::composer('inc.header', function($v) {
 
-			if(\Auth::check()) {
+			if(Auth::check()) {
 
-				if(\Auth::user()->company) {
+				if(Auth::user()->company) {
 					$requestsCount = \App\Singleton::requestsCount();
 					$responsesCount = 0;
 				} else {
