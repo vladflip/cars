@@ -18,6 +18,10 @@ class Request extends Model {
 		return intval($read);
 	}
 
+	public function getIdAttribute($read) {
+		return intval($read);
+	}
+
 	public function model() {
 		return $this->belongsTo('App\CarModel', 'model_id');
 	}

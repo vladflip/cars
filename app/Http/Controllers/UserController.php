@@ -20,10 +20,13 @@ class UserController extends Controller {
 			}])->find(Auth::id());
 
 			$requests = $user->company->requests()
+				->with('responses', 'user')
 				->withPivot(['read', 'replied', 'canceled_by_company'])
 				->orderBy('pivot_replied')
 				->orderBy('created_at', 'desc')
 				->get();
+
+			$user->company->setReadRequests();
 
 			return view('pages.company-profile')
 			->with('user', $user)

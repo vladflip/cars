@@ -69,8 +69,7 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 				$response->read = 1;
 				$response->save();
 			}
-		}
-		
+		}	
 	}
 
 	public function responsesCount() {

@@ -8,8 +8,6 @@ class Company extends Model {
 
 	protected $fillable = ['name', 'address', 'phone', 'about'];
 
-	private $requests = null;
-
 	public function user() {
 		return $this->belongsTo('App\User', 'user_id');
 	}
@@ -96,6 +94,16 @@ class Company extends Model {
 				$this->requests()->attach($id);
 			}	
 
+		}
+
+	}
+
+	public function setReadRequests() {
+
+		$requests = $this->requests()->wherePivot('read', 0)->get();
+
+		foreach ($requests as $request) {
+			$this->requests()->updateExistingPivot($request->id, ['read' => true]);
 		}
 
 	}
