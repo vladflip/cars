@@ -11,18 +11,27 @@ class ResponseController extends Controller {
 
 		$input = (object)\Input::all();
 
+		$company = \Auth::user()->company;
+
 		if( $input->response == '' )
 			return 'hello lamer';
-		if( ! \App\Request::find($input->request) )
+
+		$request = \App\Request::find($input->request);
+
+		if( ! $request )
 			return 'hello lamer';
 
 		$response = new \App\Response;
 
 		$response->text = $input->response;
-		$response->company_id = \Auth::user()->company->id;
+		$response->company_id = $company->id;
 		$response->request_id = $input->request;
 
 		$response->save();
+
+		$company->requests()->updateExistingPivot($request->id, ['replied' => true]);
+
+		$request->touch();
 
 	}
 

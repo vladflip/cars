@@ -20,8 +20,8 @@ class UserController extends Controller {
 			}])->find(Auth::id());
 
 			$requests = $user->company->requests()
-				->orderBy('replied')
-				->withPivot(['read', 'replied'])
+				->withPivot(['read', 'replied', 'canceled_by_company'])
+				->orderBy('pivot_replied')
 				->whereCanceledByUser(0)
 				->get();
 
@@ -38,7 +38,7 @@ class UserController extends Controller {
 					$q->with('company');
 				}]);
 
-				$q->orderBy('created_at', 'desc');
+				$q->orderBy('updated_at', 'desc');
 
 			}])
 			->find(Auth::id());
