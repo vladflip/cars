@@ -41,7 +41,7 @@ class ResponseController extends Controller {
 
 		$company = \Auth::user()->company;
 
-		$company->requests()->updateExistingPivot($id, ['canceled_by_company' => true]);
+		$company->requests()->updateExistingPivot($id, ['canceled_by_company' => true, 'replied' => true]);
 
 	}
 

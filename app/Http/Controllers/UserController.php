@@ -22,6 +22,7 @@ class UserController extends Controller {
 			$requests = $user->company->requests()
 				->withPivot(['read', 'replied', 'canceled_by_company'])
 				->orderBy('pivot_replied')
+				->orderBy('created_at', 'desc')
 				->get();
 
 			return view('pages.company-profile')
