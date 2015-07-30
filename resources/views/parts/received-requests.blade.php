@@ -54,7 +54,7 @@
 
 				</div>
 
-			@elseif($request->pivot->canceled_by_company)
+			@elseif( $request->pivot->canceled_by_company )
 
 				<div class="response">
 						
