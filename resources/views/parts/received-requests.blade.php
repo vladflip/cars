@@ -54,6 +54,28 @@
 
 				</div>
 
+			@elseif($request->pivot->canceled_by_company)
+
+				<div class="response">
+						
+					<div class="requests_logo-name requests_logo-name--company">
+						
+						<div class="requests_logo">
+							<img src="{{ URL::to('/') . '/' . $user->company->logo }}" alt="">
+						</div>
+
+						<div class="requests_name">
+							{{ $user->company->name }}
+						</div>
+
+					</div>
+
+					<div class="response_body requests_body--grey">
+						Отклонено.
+					</div>
+
+				</div>
+
 			@else
 
 				<div class="response">

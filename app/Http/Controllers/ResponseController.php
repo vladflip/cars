@@ -39,14 +39,9 @@ class ResponseController extends Controller {
 
 		$id = \Input::get('id');
 
-		$response = new \App\Response;
+		$company = \Auth::user()->company;
 
-		$response->text = 'Отклонено.';
-		$response->canceled = true;
-		$response->company_id = \Auth::user()->company->id;
-		$response->request_id = $id;
-
-		$response->save();
+		$company->requests()->updateExistingPivot($id, ['canceled_by_company' => true]);
 
 	}
 
