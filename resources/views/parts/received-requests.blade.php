@@ -1,6 +1,11 @@
 <div class="received-requests" id="company-requests">
 
 	@foreach($requests as $request)
+
+		<?php
+			if( $request->canceled_by_user == 1  && ! count($request->responses) )
+				continue;
+		?>
 	
 		<div class="requests_item" data-id="{{ $request->id }}">
 			
