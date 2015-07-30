@@ -62,7 +62,7 @@ class RequestController extends Controller {
 		if( $request->user_id != \Auth::id() )
 			return 'hello lamer';
 
-		$request->canceled = true;
+		$request->canceled_by_user = true;
 
 		$request->save();
 

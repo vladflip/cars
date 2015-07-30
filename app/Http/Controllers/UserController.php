@@ -22,10 +22,8 @@ class UserController extends Controller {
 			$requests = $user->company->requests()
 				->orderBy('replied')
 				->withPivot(['read', 'replied'])
-				->whereCanceled(0)
+				->whereCanceledByUser(0)
 				->get();
-
-			var_dump($requests[0]->pivot->read);
 
 			return view('pages.company-profile')
 			->with('user', $user)
@@ -38,7 +36,6 @@ class UserController extends Controller {
 				$q->with(['responses' => function($q){
 					$q->orderBy('created_at', 'desc');
 					$q->with('company');
-					$q->whereCanceled(0);
 				}]);
 
 				$q->orderBy('created_at', 'desc');

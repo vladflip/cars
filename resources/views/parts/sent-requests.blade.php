@@ -20,11 +20,11 @@
 
 				<div>
 					<div class="requests_body 
-					{{ $request->canceled ? 'requests_body--grey' : 'requests_body--yellow' }}">
+					{{ $request->canceled_by_user ? 'requests_body--grey' : 'requests_body--yellow' }}">
 						{{ $request->text }}
 					</div>
 
-					@if( ! $request->canceled)
+					@if( ! $request->canceled_by_user )
 						<div class="response_buttons">
 							<div class="response_cancel">Закрыть</div>
 						</div>
