@@ -20,6 +20,7 @@ class CreateCompanyRequestsTable extends Migration {
 
 			$t->tinyInteger('read')->default(0);
 			$t->tinyInteger('replied')->default(0);
+			$t->tinyInteger('canceled_by_company')->default(0);
 
 			$t->primary(['request_id', 'company_id']);
 
