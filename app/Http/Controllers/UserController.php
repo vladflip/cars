@@ -19,14 +19,19 @@ class UserController extends Controller {
 				$q->with('makes');
 			}])->find(Auth::id());
 
-			$requests = $user->company->requests()
-				->with('responses', 'user')
+			$company = $user->company;
+
+			$requests = $company->requests()
+				->with(['responses' => function($q) use ($company){
+					$q->whereCompanyId($company->id);
+				}])
+				->with('user')
 				->withPivot(['read', 'replied', 'canceled_by_company'])
 				->orderBy('pivot_replied')
 				->orderBy('created_at', 'desc')
 				->get();
 
-			$user->company->setReadRequests();
+			$company->setReadRequests();
 
 			return view('pages.company-profile')
 			->with('user', $user)
