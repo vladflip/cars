@@ -22,6 +22,8 @@ class CreateCompaniesTable extends Migration {
 
 			$t->unique('user_id');
 
+			$t->tinyInteger('status')->default(0);
+
 			$t->string('name');
 			$t->string('phone');
 			$t->string('logo');

@@ -23,6 +23,8 @@ class CreateFeedbackTable extends Migration {
 
 			$t->integer('likes_count');
 			$t->integer('dislikes_count');
+			
+			$t->tinyInteger('status')->default(0);
 
 			$t->string('header');
 			$t->text('content');
