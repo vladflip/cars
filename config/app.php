@@ -52,7 +52,7 @@ return [
 	|
 	*/
 
-	'locale' => 'en',
+	'locale' => 'ru',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -151,6 +151,9 @@ return [
 		'App\Providers\RouteServiceProvider',
 		'App\Providers\ComposerServiceProvider',
 
+		'SleepingOwl\Admin\AdminServiceProvider',
+		'Illuminate\Html\HtmlServiceProvider',
+
 	],
 
 	/*
@@ -198,6 +201,14 @@ return [
 		'URL'       => 'Illuminate\Support\Facades\URL',
 		'Validator' => 'Illuminate\Support\Facades\Validator',
 		'View'      => 'Illuminate\Support\Facades\View',
+
+		'Admin'                => 'SleepingOwl\Admin\Admin',
+		'AdminAuth'            => 'SleepingOwl\AdminAuth\Facades\AdminAuth',
+		'AdminRouter'          => 'SleepingOwl\Admin\Facades\AdminRouter',
+		'AssetManager'         => 'SleepingOwl\Admin\AssetManager\AssetManager',
+		'Column'               => 'SleepingOwl\Admin\Columns\Column',
+		'FormItem'             => 'SleepingOwl\Admin\Models\Form\FormItem',
+		'ModelItem'            => 'SleepingOwl\Admin\Models\ModelItem',
 
 		'Breadcrumbs' => 'DaveJamesMiller\Breadcrumbs\Facade',
 		'Form'=> 'Illuminate\Html\FormFacade', 
