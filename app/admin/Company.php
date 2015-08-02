@@ -6,7 +6,7 @@ Admin::model(App\Company::class)->title('Компании')
 ->columns(function ()
 {
 
-	Column::string('id', 'id');
+	Column::string('id', '№');
 	Column::string('name', 'Имя');
 
 	Column::string('user.name', 'Пользователь');

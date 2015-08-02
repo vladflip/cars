@@ -6,16 +6,21 @@ Admin::model(App\Request::class)->title('Заказы')
 ->columns(function ()
 {
 
-	Column::string('id', 'id');
+	Column::status();
+
+	Column::string('id', '№');
 
 	Column::string('user.name', 'Пользователь');
 
-	Column::string('make.title', 'Марка');
-	Column::string('model.title', 'Модель');
+	Column::info();
+	Column::string('created_at', 'Дата создания');
 
 })->form(function ()
 {
 
-	FormItem::text('name', 'Name');
+	FormItem::select('status', 'Статус')
+	->list([1 => 'Подтвержден', 2 => 'Отклонен']);
+
+
 
 });

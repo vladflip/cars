@@ -1,10 +1,12 @@
 <?php namespace App;
 
-use Illuminate\Database\Eloquent\Model;
+use \SleepingOwl\Models\SleepingOwlModel as Model;
 
 class Request extends Model {
 
 	protected $table = 'requests';
+
+	protected $fillable = ['status'];
 
 	public function type() {
 		return $this->belongsTo('App\Type', 'type_id');

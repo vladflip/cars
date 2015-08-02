@@ -7,7 +7,7 @@ Admin::model(App\Feedback::class)->title('Отзывы')
 ->columns(function ()
 {
 
-	Column::string('id', 'id');
+	Column::string('id', '№');
 	Column::string('header', 'Заголовок');
 
 	Column::string('user.name', 'Пользователь');
@@ -21,6 +21,6 @@ Admin::model(App\Feedback::class)->title('Отзывы')
 })->form(function ()
 {
 
-	FormItem::text('name', 'Name');
+	FormItem::text('header', 'Заголовок')->required();
 
 });

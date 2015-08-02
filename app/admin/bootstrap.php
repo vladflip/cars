@@ -21,3 +21,6 @@
  * 		});
  */
 
+Column::register('status', \App\Columns\StatusColumn::class);
+
+Column::register('info', \App\Columns\RequestInfoColumn::class);

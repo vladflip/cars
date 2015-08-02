@@ -6,7 +6,7 @@ Admin::model(App\Make::class)->title('Марки')
 ->columns(function ()
 {
 
-	Column::string('id', 'id');
+	Column::string('id', '№');
 
 	Column::string('title', 'Марка');
 	Column::lists('models.title', 'Модели');

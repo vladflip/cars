@@ -6,9 +6,9 @@ Admin::model(App\CarModel::class)->title('Модели')
 ->columns(function ()
 {
 
-	Column::string('id', 'id');
+	Column::string('id', '№');
 
-	Column::string('make.name', 'Марка');
+	Column::string('make.title', 'Марка');
 	Column::string('title', 'Модель');
 
 })->form(function ()
