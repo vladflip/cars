@@ -59,6 +59,7 @@ class Company extends Model {
 		}
 
 		$requests = \App\Request::select('id')
+		->whereStatus(1)
 		->whereIn('model_id', $ids)
 		->get();
 

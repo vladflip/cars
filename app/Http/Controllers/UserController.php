@@ -34,8 +34,8 @@ class UserController extends Controller {
 			$company->setReadRequests();
 
 			return view('pages.company-profile')
-			->with('user', $user)
-			->with('requests', $requests);
+				->with('user', $user)
+				->with('requests', $requests);
 
 		} else {
 
