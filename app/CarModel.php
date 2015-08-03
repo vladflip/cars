@@ -1,6 +1,6 @@
 <?php namespace App;
 
-use Illuminate\Database\Eloquent\Model as Model;
+use \SleepingOwl\Models\SleepingOwlModel as Model;
 
 class CarModel extends Model {
 

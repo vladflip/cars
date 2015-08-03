@@ -35,6 +35,8 @@ class ComposerServiceProvider extends ServiceProvider {
 
 		View::composer('inc.menu', function($v) {
 
+			$pages = \App\Page::whereInHeader(1)->get();
+
 			$path = \Request::path();
 
 			$catalog = 'active';
@@ -52,7 +54,8 @@ class ComposerServiceProvider extends ServiceProvider {
 				$feedback = '';
 
 			$v->with('catalog', $catalog)
-				->with('feedback', $feedback);
+				->with('feedback', $feedback)
+				->with('pages', $pages);
 
 		});
 

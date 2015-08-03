@@ -1,7 +1,8 @@
 .found h3,
 .catalog_type,
 .feed_header,
-.home_middle>h3 {
+.home_middle>h3,
+.page_type {
   margin: 25px 0 0 35px;
 }
 hr {
@@ -1586,6 +1587,38 @@ ul.create-company-spec-selectBox-dropdown-menu {
 }
 .mention_plus-sign {
   color: #cbe887;
+}
+.page {
+  position: relative;
+  overflow: hidden;
+}
+.page .container {
+  position: relative;
+  margin-top: 25px;
+  *zoom: 1;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+.page .container:before,
+.page .container:after {
+  content: '';
+  display: table;
+}
+.page .container:after {
+  clear: both;
+}
+.page_left {
+  margin-right: 10px;
+  background-color: #fff;
+  width: 868px;
+  border: 1px solid #efefef;
+  border-radius: 2px;
+  padding: 15px 25px;
+}
+.page_right {
+  width: 260px;
+  border-radius: 2px;
 }
 .profile-info_company,
 .profile-info_profile,

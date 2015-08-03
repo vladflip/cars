@@ -30,3 +30,5 @@ Admin::menu(\App\Request::class);
 Admin::menu(\App\Make::class);
 
 Admin::menu(\App\CarModel::class);
+
+Admin::menu(\App\Page::class);

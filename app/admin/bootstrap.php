@@ -24,3 +24,7 @@
 Column::register('status', \App\Columns\StatusColumn::class);
 
 Column::register('info', \App\Columns\RequestInfoColumn::class);
+
+Column::register('in_menu', \App\Columns\InMenuColumn::class);
+
+Column::register('content', \App\Columns\PageContentColumn::class);

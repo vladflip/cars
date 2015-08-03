@@ -18,6 +18,17 @@ get('/', [
 	'uses' => 'HomeController@index'
 ]);
 
+get('page/{url}', function($url){
+
+	$page = \App\Page::whereUrl($url)->first();
+
+	if($page)
+		return view('pages.page')->with('page', $page);
+	else
+		abort(404);
+
+});
+
 Route::group(['prefix' => 'user'], function(){
 
 	get('profile', [

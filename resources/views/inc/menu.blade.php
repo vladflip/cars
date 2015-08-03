@@ -17,9 +17,15 @@
 			<div class="menu_btn {{ $feedback }}">
 				<a href="{{ route('feedback') }}">Отзывы</a>
 			</div>
-			<div class="menu_btn {{ Request::is('contacts') ? 'active' : '' }}">
-				<a href="#">Контакты</a>
-			</div>
+			
+			@foreach($pages as $page)
+
+				<div class="menu_btn {{ Request::is($page->url) ? 'active' : '' }}">
+					<a href="{{ URL::to('/') . '/page/' . $page->url }}">{{ $page->title }}</a>
+				</div>
+
+			@endforeach
+
 		</div>
 
 		@if(Auth::check())
