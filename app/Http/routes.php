@@ -55,6 +55,11 @@ Route::group(['prefix' => 'user'], function(){
 		}
 	]);
 
+	get('repeat-message', [
+		'as' => 'user-repeat-message',
+		'uses' => 'UserController@repeat_message'
+	]);
+
 	get('verify/{code}', [
 		'as' => 'user-verify',
 		'uses' => 'UserController@verify',

@@ -74,6 +74,28 @@ class UserController extends Controller {
 
 	}
 
+	public function repeat_message() {
+
+		$user = Auth::user();
+
+		if( $user->confirmed ) {
+			return redirect()->route('home');
+		}
+
+		$code = md5(\Hash::make($user->email));
+
+		$user->confirmation_code = $code;
+		$user->save();
+
+		\Mail::send('emails.verify', ['code' => $code], function($msg) use ($user){
+			$msg->to($user->email)
+			->subject('Подтверждение почты');
+		});	
+
+		return redirect()->route('profile');
+
+	}
+
 	public function create() {
 
 		$input = (object)\Input::all();

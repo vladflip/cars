@@ -80,10 +80,15 @@
 				@else
 
 					<div class="profile_verify">
+
 						Подтвердите свою почту. 
 						На вашу почту (
 							<a href="http://{{ $user->email_provider() }}">{{ $user->email }}</a>
 						) было выслано письмо.
+						<br>
+						<br>
+						Нажмите <a href="{{ route('user-repeat-message') }}">сюда</a> что бы отправить письмо еще раз если оно не пришло либо ссылка в письме не работает.
+
 					</div>
 
 				@endif
