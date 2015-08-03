@@ -2,6 +2,7 @@
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use \Carbon\Carbon;
 
 use Illuminate\Http\Request;
 
@@ -29,7 +30,10 @@ class ResponseController extends Controller {
 
 		$response->save();
 
-		$company->requests()->updateExistingPivot($request->id, ['replied' => true]);
+		$company->requests()->updateExistingPivot($request->id, [
+			'replied' => true,
+			'updated_at' => new Carbon
+		]);
 
 		$request->touch();
 
@@ -41,7 +45,11 @@ class ResponseController extends Controller {
 
 		$company = \Auth::user()->company;
 
-		$company->requests()->updateExistingPivot($id, ['canceled_by_company' => true, 'replied' => true]);
+		$company->requests()->updateExistingPivot($id, [
+			'canceled_by_company' => true, 
+			'replied' => true,
+			'updated_at' => new Carbon
+		]);
 
 	}
 

@@ -22,6 +22,8 @@ class CreateCompanyRequestsTable extends Migration {
 			$t->tinyInteger('replied')->default(0);
 			$t->tinyInteger('canceled_by_company')->default(0);
 
+			$t->timestamp('updated_at');
+
 			$t->primary(['request_id', 'company_id']);
 
 			$t->foreign('request_id')->references('id')->on('requests')

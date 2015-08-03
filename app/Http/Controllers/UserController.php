@@ -26,8 +26,9 @@ class UserController extends Controller {
 					$q->whereCompanyId($company->id);
 				}])
 				->with('user')
-				->withPivot(['read', 'replied', 'canceled_by_company'])
+				->withPivot(['read', 'replied', 'canceled_by_company', 'updated_at'])
 				->orderBy('pivot_replied')
+				->orderBy('pivot_updated_at', 'desc')
 				->orderBy('created_at', 'desc')
 				->get();
 
