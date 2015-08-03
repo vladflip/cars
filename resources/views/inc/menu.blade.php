@@ -20,7 +20,7 @@
 			
 			@foreach($pages as $page)
 
-				<div class="menu_btn {{ Request::is($page->url) ? 'active' : '' }}">
+				<div class="menu_btn {{ Request::is( 'page/' . $page->url) ? 'active' : '' }}">
 					<a href="{{ URL::to('/') . '/page/' . $page->url }}">{{ $page->title }}</a>
 				</div>
 

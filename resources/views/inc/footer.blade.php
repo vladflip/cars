@@ -8,10 +8,11 @@
 
 				<ul class="footer_list">
 					<li>Информация</li>
-					<li>О клубе</li>
-					<li>Вступить</li>
-					<li>Контакты</li>
-					<li>Сотрудничество</li>
+					@foreach($pages as $page)
+						<li>
+							<a href="{{ URL::to('/') . '/page/' . $page->url }}">{{ $page->title }}</a>
+						</li>
+					@endforeach
 				</ul>
 				
 				<ul class="footer_list">

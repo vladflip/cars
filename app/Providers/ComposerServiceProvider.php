@@ -33,6 +33,14 @@ class ComposerServiceProvider extends ServiceProvider {
 
 		});
 
+		View::composer('inc.footer', function($v) {
+
+			$pages = \App\Page::all();
+
+			$v->with('pages', $pages);
+
+		});
+
 		View::composer('inc.menu', function($v) {
 
 			$pages = \App\Page::whereInHeader(1)->get();
