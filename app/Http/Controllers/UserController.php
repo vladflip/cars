@@ -98,7 +98,7 @@ class UserController extends Controller {
 
 		\Auth::login($user);
 
-		\Mail::send('emails.verify', ['code' => $code], function($msg) use ($user){
+		\Mail::queue('emails.verify', ['code' => $code], function($msg) use ($user){
 			$msg->to($user->email)
 			->subject('Подтверждение почты');
 		});
