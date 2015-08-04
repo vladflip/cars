@@ -860,6 +860,94 @@ ul.create-company-spec-selectBox-dropdown-menu {
 .type_img--active {
   display: none;
 }
+.comments {
+  padding: 25px 35px;
+}
+.comments_header {
+  margin: 0;
+  font-weight: 400;
+}
+.comments_send-button {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  text-align: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-size: 12px;
+  width: 170px;
+  height: 40px;
+  cursor: pointer;
+  border: 4px solid #f3df6d;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  margin-top: 10px;
+}
+.comments_textarea {
+  background-color: #fff;
+  border: 1px solid #e4e4e4;
+  width: 770px;
+  height: 70px;
+  color: #2d2d2d;
+  padding: 15px 10px;
+  font-size: 13px;
+  display: block;
+  outline: none;
+  resize: none;
+  margin-top: 20px;
+}
+.comment {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  margin-top: 20px;
+}
+.comment_right {
+  margin-left: 10px;
+}
+.comment_ava {
+  width: 40px;
+  height: 40px;
+  background-size: cover;
+  background-position: center;
+}
+.comment_date {
+  color: #ccc;
+  font-size: 12px;
+  margin-left: 20px;
+}
+.comment_header {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: 10px;
+}
+.comment_name {
+  font-size: 14px;
+  color: #4e61eb;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  text-decoration: underline;
+  cursor: pointer;
+}
+.comment_content {
+  width: 740px;
+  margin-top: 10px;
+  line-height: 25px;
+  letter-spacing: 0.5px;
+  font-size: 14px;
+}
 .feedback {
   background-color: #fff;
   padding: 20px 40px;
@@ -1474,7 +1562,7 @@ ul.create-company-spec-selectBox-dropdown-menu {
 }
 .mention_date {
   color: #ccc;
-  font-size: 14px;
+  font-size: 12px;
   margin-right: 10px;
 }
 .mention_user {

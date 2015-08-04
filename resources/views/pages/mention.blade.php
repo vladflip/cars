@@ -114,5 +114,9 @@
 		@endif
 
 	</div>
+	
+	<hr>
+
+	@include('inc.comments')
 
 @stop
