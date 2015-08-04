@@ -32,7 +32,7 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 	}
 
 	public function is_ready() {
-		return $this->name && $this->ava;
+		return true;
 	}
 
 	public function email_provider() {

@@ -54,7 +54,7 @@
 							<div class="profile-info_right">
 								
 								<h3 id="profile-user-name" class="profile-info_name">
-									<span>{{ $user->name }}</span>
+									<span>{{ $user->name ? $user->name : $user->email }}</span>
 									<span id="profile-user-pen" href="#edit-user-profile-popup" class="profile-info_pen">
 									</span>
 								</h3>
