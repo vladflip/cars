@@ -31,11 +31,15 @@ class Comments extends Backbone.View
 
 	collection: new CommentsCollection
 
+	home: $('body').data('home')
+
 	initialize: ->
 
 		do @fillCollection
 
 		do @setAuthDefaults
+
+		@id = @$el.data 'feedback'
 
 		@button = $ '#comments-button'
 		@textarea = $ '#comments-textarea'
@@ -66,7 +70,7 @@ class Comments extends Backbone.View
 	setAuthDefaults: ->
 
 		@name = $('#comments-send').data 'name'
-		@ava = $('body').data('home') + '/' + $('#comments-send').data 'ava'
+		@ava = @home + '/' + $('#comments-send').data 'ava'
 
 	addComment: =>
 
@@ -88,6 +92,8 @@ class Comments extends Backbone.View
 
 		do @renderCollection
 
+		@send m
+
 	renderCollection: ->
 		comments = $ '.comments_block'
 		comments.html ''
@@ -102,7 +108,17 @@ class Comments extends Backbone.View
 		@textarea.val('')
 		@textarea.blur()
 
+	send: (comment) ->
 
+		$.ajax "#{@home}/api/comments/create",
+			headers:
+				'X-CSRF-TOKEN' : $('body').data 'csrf'
+			method: 'POST'
+			data:
+				comment: comment.get 'content'
+				feedback: @id
+		.done (r) ->
+			console.log r
 
 
 

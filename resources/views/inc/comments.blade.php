@@ -1,4 +1,4 @@
-<div id="comments" class="comments">
+<div data-feedback="{{ $mention->id }}" id="comments" class="comments">
 	
 	<h3 class="comments_header">Комментарии</h3>
 
@@ -16,7 +16,9 @@
 
 				<div class="comment_right">
 					<div class="comment_header">
-						<div class="comment_name">{{ $comment->user->name }}</div>
+						<div class="comment_name">
+							{{ $comment->user->name ? $comment->user->name : $comment->user->email }}
+						</div>
 						<div class="comment_date">
 							{{ 
 								$comment->created_at->day . '.' . 

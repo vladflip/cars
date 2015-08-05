@@ -643,9 +643,12 @@ Comments = (function(superClass) {
 
   Comments.prototype.collection = new CommentsCollection;
 
+  Comments.prototype.home = $('body').data('home');
+
   Comments.prototype.initialize = function() {
     this.fillCollection();
     this.setAuthDefaults();
+    this.id = this.$el.data('feedback');
     this.button = $('#comments-button');
     this.textarea = $('#comments-textarea');
     this.button.click(this.addComment);
@@ -684,7 +687,7 @@ Comments = (function(superClass) {
 
   Comments.prototype.setAuthDefaults = function() {
     this.name = $('#comments-send').data('name');
-    return this.ava = $('body').data('home') + '/' + $('#comments-send').data('ava');
+    return this.ava = this.home + '/' + $('#comments-send').data('ava');
   };
 
   Comments.prototype.addComment = function() {
@@ -702,7 +705,8 @@ Comments = (function(superClass) {
       date: date
     });
     this.collection.add(m);
-    return this.renderCollection();
+    this.renderCollection();
+    return this.send(m);
   };
 
   Comments.prototype.renderCollection = function() {
@@ -718,6 +722,21 @@ Comments = (function(superClass) {
     });
     this.textarea.val('');
     return this.textarea.blur();
+  };
+
+  Comments.prototype.send = function(comment) {
+    return $.ajax(this.home + "/api/comments/create", {
+      headers: {
+        'X-CSRF-TOKEN': $('body').data('csrf')
+      },
+      method: 'POST',
+      data: {
+        comment: comment.get('content'),
+        feedback: this.id
+      }
+    }).done(function(r) {
+      return console.log(r);
+    });
   };
 
   return Comments;
