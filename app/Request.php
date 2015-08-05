@@ -6,7 +6,7 @@ class Request extends Model {
 
 	protected $table = 'requests';
 
-	protected $fillable = ['status'];
+	protected $fillable = ['status', 'text'];
 
 	public function type() {
 		return $this->belongsTo('App\Type', 'type_id');

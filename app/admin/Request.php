@@ -21,6 +21,6 @@ Admin::model(App\Request::class)->title('Заказы')
 	FormItem::select('status', 'Статус')
 	->list([1 => 'Подтвержден', 2 => 'Отклонен']);
 
-
+	FormItem::textarea('text', 'Текст');
 
 });
