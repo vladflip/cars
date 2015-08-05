@@ -110,7 +110,7 @@ class FeedbackController extends Controller {
 		$mention = \App\Feedback::with('user')
 			->with('likes')
 			->with('dislikes')
-			->with('comments')
+			->with('comments.user')
 			->with('type')
 			->with('model')
 			->with('make')

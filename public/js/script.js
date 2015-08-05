@@ -569,7 +569,166 @@ specmakes = new SpecMakes({
   types: types
 });
 
-},{"../inc/TypeList":11}],5:[function(require,module,exports){
+},{"../inc/TypeList":12}],5:[function(require,module,exports){
+var Comment, CommentView, Comments, CommentsCollection,
+  extend = function(child, parent) { for (var key in parent) { if (hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; },
+  hasProp = {}.hasOwnProperty,
+  bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };
+
+Comment = (function(superClass) {
+  extend(Comment, superClass);
+
+  function Comment() {
+    return Comment.__super__.constructor.apply(this, arguments);
+  }
+
+  Comment.prototype.defaults = {
+    name: '',
+    date: '',
+    content: ''
+  };
+
+  return Comment;
+
+})(Backbone.Model);
+
+CommentsCollection = (function(superClass) {
+  extend(CommentsCollection, superClass);
+
+  function CommentsCollection() {
+    return CommentsCollection.__super__.constructor.apply(this, arguments);
+  }
+
+  CommentsCollection.prototype.model = Comment;
+
+  return CommentsCollection;
+
+})(Backbone.Collection);
+
+CommentView = (function(superClass) {
+  extend(CommentView, superClass);
+
+  function CommentView() {
+    return CommentView.__super__.constructor.apply(this, arguments);
+  }
+
+  CommentView.prototype.template = $.HandlebarsFactory('#comment-template');
+
+  CommentView.prototype.className = 'comment';
+
+  CommentView.prototype.initialize = function() {
+    return this.render();
+  };
+
+  CommentView.prototype.render = function() {
+    return this.$el.html(this.template({
+      name: this.model.get('name'),
+      ava: this.model.get('ava'),
+      date: this.model.get('date'),
+      content: this.model.get('content')
+    }));
+  };
+
+  return CommentView;
+
+})(Backbone.View);
+
+Comments = (function(superClass) {
+  extend(Comments, superClass);
+
+  function Comments() {
+    this.addComment = bind(this.addComment, this);
+    return Comments.__super__.constructor.apply(this, arguments);
+  }
+
+  Comments.prototype.collection = new CommentsCollection;
+
+  Comments.prototype.initialize = function() {
+    this.fillCollection();
+    this.setAuthDefaults();
+    this.button = $('#comments-button');
+    this.textarea = $('#comments-textarea');
+    this.button.click(this.addComment);
+    this.textarea.click((function(_this) {
+      return function() {
+        return _this.button.css('display', 'flex');
+      };
+    })(this));
+    return this.textarea.blur((function(_this) {
+      return function() {
+        if (_this.textarea.val() === '') {
+          return _this.button.hide();
+        }
+      };
+    })(this));
+  };
+
+  Comments.prototype.fillCollection = function() {
+    return this.$el.find('.comment').each((function(_this) {
+      return function(i, comment) {
+        var m, v;
+        m = new Comment({
+          name: $.trim($(comment).find('.comment_name').html()),
+          date: $.trim($(comment).find('.comment_date').html()),
+          content: $.trim($(comment).find('.comment_content').html()),
+          ava: $(comment).find('.comment_ava').data('ava')
+        });
+        _this.collection.add(m);
+        return v = new CommentView({
+          el: comment,
+          model: m
+        });
+      };
+    })(this));
+  };
+
+  Comments.prototype.setAuthDefaults = function() {
+    this.name = $('#comments-send').data('name');
+    return this.ava = $('body').data('home') + '/' + $('#comments-send').data('ava');
+  };
+
+  Comments.prototype.addComment = function() {
+    var d, date, m;
+    if (this.textarea.val() === '') {
+      this.textarea.blink();
+      return;
+    }
+    d = new Date;
+    date = d.getDate() + '.' + (d.getMonth() + 1) + '.' + d.getFullYear();
+    m = new Comment({
+      name: this.name,
+      ava: this.ava,
+      content: this.textarea.val(),
+      date: date
+    });
+    this.collection.add(m);
+    return this.renderCollection();
+  };
+
+  Comments.prototype.renderCollection = function() {
+    var comments;
+    comments = $('.comments_block');
+    comments.html('');
+    this.collection.each(function(comment) {
+      var v;
+      v = new CommentView({
+        model: comment
+      });
+      return comments.append(v.el);
+    });
+    this.textarea.val('');
+    return this.textarea.blur();
+  };
+
+  return Comments;
+
+})(Backbone.View);
+
+new Comments({
+  el: '#comments'
+});
+
+},{}],6:[function(require,module,exports){
 var Request, RequestView, RequestsCollection, RequestsList, Response, ResponseView,
   extend = function(child, parent) { for (var key in parent) { if (hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; },
   hasProp = {}.hasOwnProperty,
@@ -739,7 +898,7 @@ new RequestsList({
   el: '#company-requests'
 });
 
-},{}],6:[function(require,module,exports){
+},{}],7:[function(require,module,exports){
 var MakeModel, Makes, MakesCollection, MakesList, ModelsList,
   extend = function(child, parent) { for (var key in parent) { if (hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; },
   hasProp = {}.hasOwnProperty,
@@ -987,7 +1146,7 @@ Makes = (function(superClass) {
 
 module.exports = Makes;
 
-},{"./ModelsList":7}],7:[function(require,module,exports){
+},{"./ModelsList":8}],8:[function(require,module,exports){
 var Model, ModelView, ModelsCollection, ModelsList,
   extend = function(child, parent) { for (var key in parent) { if (hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; },
   hasProp = {}.hasOwnProperty,
@@ -1228,7 +1387,7 @@ ModelsList = (function(superClass) {
 
 module.exports = ModelsList;
 
-},{}],8:[function(require,module,exports){
+},{}],9:[function(require,module,exports){
 var Avatar,
   bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };
 
@@ -1385,7 +1544,7 @@ Avatar = (function() {
 
 module.exports = Avatar;
 
-},{}],9:[function(require,module,exports){
+},{}],10:[function(require,module,exports){
 var FieldCollection, FieldModel, FieldSet, FieldView,
   extend = function(child, parent) { for (var key in parent) { if (hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; },
   hasProp = {}.hasOwnProperty,
@@ -1578,7 +1737,7 @@ FieldSet = (function(superClass) {
 
 module.exports = FieldSet;
 
-},{}],10:[function(require,module,exports){
+},{}],11:[function(require,module,exports){
 var SelectView,
   extend = function(child, parent) { for (var key in parent) { if (hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; },
   hasProp = {}.hasOwnProperty;
@@ -1654,7 +1813,7 @@ SelectView = (function(superClass) {
 
 module.exports = SelectView;
 
-},{}],11:[function(require,module,exports){
+},{}],12:[function(require,module,exports){
 var TypeList, TypeModel, TypeView, TypesCollection,
   extend = function(child, parent) { for (var key in parent) { if (hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; },
   hasProp = {}.hasOwnProperty,
@@ -1796,7 +1955,7 @@ TypeList = (function(superClass) {
 
 module.exports = TypeList;
 
-},{}],12:[function(require,module,exports){
+},{}],13:[function(require,module,exports){
 require('./base');
 
 require('./popups/index');
@@ -1819,7 +1978,9 @@ require('./company-requests');
 
 require('./user-requests');
 
-},{"./auth":1,"./base":2,"./catalog/catalog-companies":3,"./catalog/catalog-live":4,"./company-requests":5,"./logout":13,"./main-live-search":14,"./mention":15,"./popups/index":18,"./profile":21,"./user-requests":22}],13:[function(require,module,exports){
+require('./comments');
+
+},{"./auth":1,"./base":2,"./catalog/catalog-companies":3,"./catalog/catalog-live":4,"./comments":5,"./company-requests":6,"./logout":14,"./main-live-search":15,"./mention":16,"./popups/index":19,"./profile":22,"./user-requests":23}],14:[function(require,module,exports){
 var button, form;
 
 form = $('#user-logout-form');
@@ -1830,7 +1991,7 @@ button.click(function() {
   return form.submit();
 });
 
-},{}],14:[function(require,module,exports){
+},{}],15:[function(require,module,exports){
 var CompanyCollection, CompanyList, CompanyModel, CompanyView, MakeCollection, MakeList, MakeModel, MakeView, SpecCollection, SpecList, SpecModel, SpecView, TypeList, companies, makes, specs, types,
   extend = function(child, parent) { for (var key in parent) { if (hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; },
   hasProp = {}.hasOwnProperty,
@@ -2466,7 +2627,7 @@ companies = new CompanyList({
   makes: makes
 });
 
-},{"./inc/TypeList":11}],15:[function(require,module,exports){
+},{"./inc/TypeList":12}],16:[function(require,module,exports){
 var Counter, Votes, dislikes, likes, mention_photos,
   bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };
 
@@ -2599,7 +2760,7 @@ dislikes = new Counter($('#mention-dislikes'), $('#mention-dislikes-info'), 'men
 
 new Votes(likes, dislikes);
 
-},{}],16:[function(require,module,exports){
+},{}],17:[function(require,module,exports){
 var AddLogo, MakesList, SelectType, SelectView, about, address, logo, logolabel, makes, name, phone, specs, submit, types,
   bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; },
   extend = function(child, parent) { for (var key in parent) { if (hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; },
@@ -2801,7 +2962,7 @@ submit.click(function() {
   })(this));
 });
 
-},{"../create-company/MakesList":6,"../inc/SelectView":10}],17:[function(require,module,exports){
+},{"../create-company/MakesList":7,"../inc/SelectView":11}],18:[function(require,module,exports){
 var AddPhotos, Image, ImageCollection, ImageView, ImagesView, List, ListCollection, ListModel, ListView, SelectView, imageCollection, imagesView, make, minuses, model, pluses, quill, type,
   extend = function(child, parent) { for (var key in parent) { if (hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; },
   hasProp = {}.hasOwnProperty,
@@ -3252,7 +3413,7 @@ $('#add-feedback').click(function() {
   })(this));
 });
 
-},{"../inc/SelectView":10}],18:[function(require,module,exports){
+},{"../inc/SelectView":11}],19:[function(require,module,exports){
 require('./search');
 
 require('./sign-up');
@@ -3261,7 +3422,7 @@ require('./feedback');
 
 require('./create-company');
 
-},{"./create-company":16,"./feedback":17,"./search":19,"./sign-up":20}],19:[function(require,module,exports){
+},{"./create-company":17,"./feedback":18,"./search":20,"./sign-up":21}],20:[function(require,module,exports){
 var SelectView, button, isNew, isNewLabel, isOld, isOldLabel, make, model, more, type, year;
 
 SelectView = require('../inc/SelectView');
@@ -3371,7 +3532,7 @@ button.click(function() {
   })(this));
 });
 
-},{"../inc/SelectView":10}],20:[function(require,module,exports){
+},{"../inc/SelectView":11}],21:[function(require,module,exports){
 var button, email, form, passw, submit;
 
 $('#sign-up').magnificPopup({
@@ -3419,7 +3580,7 @@ if (form) {
   });
 }
 
-},{}],21:[function(require,module,exports){
+},{}],22:[function(require,module,exports){
 var Avatar, FieldSet, ProfileToggler, company, companyAvatar, companyProfileCollection, user, userAvatar, userProfileCollection,
   bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };
 
@@ -3579,7 +3740,7 @@ new ProfileToggler({
   }
 });
 
-},{"./inc/Avatar":8,"./inc/FieldSet":9}],22:[function(require,module,exports){
+},{"./inc/Avatar":9,"./inc/FieldSet":10}],23:[function(require,module,exports){
 var Request, RequestView, Requests, RequestsCollection,
   extend = function(child, parent) { for (var key in parent) { if (hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; },
   hasProp = {}.hasOwnProperty,
@@ -3678,4 +3839,4 @@ new Requests({
   el: '#user-requests'
 });
 
-},{}]},{},[12]);
+},{}]},{},[13]);
