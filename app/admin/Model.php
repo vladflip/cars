@@ -8,8 +8,12 @@ Admin::model(App\CarModel::class)->title('Модели')
 
 	Column::string('id', '№');
 
-	Column::string('make.title', 'Марка');
 	Column::string('title', 'Модель');
+
+	Column::string('make.title', 'Марка');
+
+	Column::string('name', 'Url');
+
 
 })->form(function ()
 {
@@ -17,5 +21,7 @@ Admin::model(App\CarModel::class)->title('Модели')
 	FormItem::text('make.title', 'Марка');
 
 	FormItem::text('title', 'Модель');
+
+	FormItem::text('name', 'Url');
 
 });
