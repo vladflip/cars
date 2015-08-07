@@ -4,7 +4,7 @@
 								
 		<div class="popup_label">Имя</div>
 
-		<input id="create-company-address" type="text" class="popup_input" value="{{title}}">
+		<input type="text" class="popup_input make-title" value="{{title}}">
 
 	</div>
 
@@ -12,7 +12,7 @@
 								
 		<div class="popup_label">Url</div>
 
-		<input id="create-company-address" type="text" class="popup_input" value="{{url}}">
+		<input type="text" class="popup_input make-url" value="{{url}}">
 
 	</div>
 
@@ -20,10 +20,10 @@
 								
 		<div class="popup_label">Модели</div>
 
-		<table id="admin-makes" class="table-striped table table-hover">
+		<table id="admin-models" class="table-striped table table-hover">
 
 			<thead>
-				<tr>
+				<tr style="position:relative">
 					<th style="width:30px">№</th>
 					<th>Имя</th>
 					<th>Url</th>
@@ -32,7 +32,10 @@
 
 			{{#each models}}
 
-				<tr>
+				<tr class="model"
+				data-id="{{id}}"
+				data-title="{{title}}"
+				data-url="{{url}}">
 					<td>{{id}}</td>
 					<td>{{title}}</td>
 					<td>{{url}}</td>
@@ -44,7 +47,7 @@
 
 	</div>
 
-	<div id="edit-button" class="popup_button">
+	<div id="admin-edit-button" class="popup_button">
 		Принять изменения
 	</div>
 

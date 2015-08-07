@@ -22,4 +22,42 @@ class AdminController extends Controller {
 
 	}
 
+	public function makesmodels() {
+
+		$id = \Input::get('id');
+		$title = \Input::get('title');
+		$url = \Input::get('url');
+
+		$models = \Input::get('models');
+
+		$make = \App\Make::find($id);
+
+		if($title)
+			$make->title = $title;
+
+		if($url)
+			$make->name = $url;
+
+		$make->save();
+
+		if(($models)) {
+
+			foreach($models as $m) {
+
+				$mo = (object)$m;
+
+				$model = \App\CarModel::find($mo->id);
+
+				$model->id = $mo->id;
+				$model->title = $mo->title;
+				$model->name = $mo->url;
+
+				$model->save();
+
+			}
+
+		}
+
+	}
+
 }

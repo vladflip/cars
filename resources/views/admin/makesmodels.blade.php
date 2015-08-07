@@ -42,6 +42,8 @@
 
 </table>
 
+<div id="csrf" data-csrf="{{ csrf_token() }}" data-home="{{ route('home') }}"></div>
+
 <div id="admin-popup" style="width:800px" class="mfp-hide popup"></div>
 
 @include('templates.admin-makes')
