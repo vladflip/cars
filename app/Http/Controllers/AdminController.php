@@ -13,4 +13,13 @@ class AdminController extends Controller {
 
 	}
 
+	public function makes() {
+
+		$makes = \App\Make::with('models')->take(20)->get();
+
+
+		return view('admin.makesmodels')->with('makes', $makes);
+
+	}
+
 }

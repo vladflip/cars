@@ -27,6 +27,13 @@ gulp.task('default', ['stylus', 'coffee'], function(){
 
 });
 
+gulp.task('admin', ['admin-coffee'], function(){
+// gulp.task('default', ['stylus'], function(){
+
+	gulp.watch(cDest + '/**/*', ['admin-coffee']);
+
+});
+
 function showError(e) {
 	console.log(e.toString());
 
@@ -66,3 +73,14 @@ gulp.task('coffee', function(){
 				.pipe(rename('script.js'))
 				.pipe(gulp.dest('public/js'));
 });
+
+gulp.task('admin-coffee', function(){
+	return gulp.src(cDest + '/admin/admin.coffee')
+				.pipe(coffee())
+				.on('error', showError)
+				.pipe(notify('Compiled : Coffee'))
+				// .pipe(uglify())
+				.pipe(rename('admin.js'))
+				.pipe(gulp.dest('public/js'));
+});
+
