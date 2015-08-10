@@ -1,5 +1,7 @@
 Models = require './Models'
 
+require './create.coffee'
+
 class Make extends Backbone.Model
 	defaults:
 		id: ''

@@ -1,6 +1,15 @@
 <link rel="stylesheet" href="{{ URL::to('/') }}/css/style.css">
 <link rel="stylesheet" href="{{ URL::to('/') }}/css/vendor/popup.css">
 
+<h1>Марки и модели</h1>
+
+<hr>
+
+<div id="new-make" style="width:130px" class="btn btn-primary navbar-btn">
+	<i class="fa fa-plus"></i>
+	Новая запись
+</div>
+
 <table id="admin-makes" class="table-striped table table-hover">
 
 	<thead>

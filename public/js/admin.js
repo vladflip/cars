@@ -146,6 +146,8 @@ var Make, MakeView, Makes, MakesCollection, Models,
 
 Models = require('./Models');
 
+require('./create.coffee');
+
 Make = (function(superClass) {
   extend(Make, superClass);
 
@@ -312,5 +314,12 @@ Makes = (function(superClass) {
 new Makes({
   el: '#admin-makes'
 });
+
+},{"./Models":1,"./create.coffee":3}],3:[function(require,module,exports){
+var Models;
+
+Models = require('./Models');
+
+console.log(Models);
 
 },{"./Models":1}]},{},[2]);
