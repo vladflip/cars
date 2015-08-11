@@ -4,12 +4,22 @@ class FeedbackController extends Controller {
 
 	public function index() {
 
-		$data = \App\Type::with(['makes' => function($q){
-			$q->has('feedbacks');
-		}])->get();
+		$types = \App\Type::all();
+
+		foreach ($types as $type) {
+			
+			$makes = \App\Make::has('feedbacks')
+			->whereHas('models', function($q) use($type){
+				$q->whereTypeId($type->id);
+			})
+			->get();
+
+			$type->makes = $makes;
+
+		}
 
 		return view('parts.feed.main')
-			->with('types', $data);
+			->with('types', $types);
 
 	}
 

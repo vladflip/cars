@@ -157,8 +157,6 @@ class TypesMakeCarModelSeeder extends Seeder {
 
 				}
 
-				$newmake->types()->attach($i);
-
 				foreach ($ma->models as $model) {
 
 					$mo = (object)$model;

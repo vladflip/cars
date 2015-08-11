@@ -20,11 +20,4 @@ class Type extends Model {
 		return $this->hasMany('App\Feedback', 'type_id');
 	}
 
-	public function makes() {
-		return $this->belongsToMany(
-				'App\Make', 'type_makes', 
-				'type_id', 'make_id'
-			);
-	}
-
 }

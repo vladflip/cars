@@ -49,11 +49,4 @@ class Make extends Model {
 			);
 	}
 
-	public function types() {
-		return $this->belongsToMany(
-				'App\Type', 'type_makes', 
-				'make_id', 'type_id'
-			);
-	}
-
 }
