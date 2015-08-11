@@ -1,3 +1,44 @@
+$font = Roboto, sans-serif
+
+$orange = #fdf6d1
+
+$yellow = #f3df6d
+
+$grey = #f0f0f0
+
+$color = #2d2d2d
+
+$blue = #4e61eb
+
+center-text()
+	display flex
+	flex-direction column
+	text-align center
+	justify-content center
+	
+button(color)
+	center-text()
+	font-size 12px
+	width 170px
+	height 40px
+	cursor pointer
+	border 4px solid color
+	user-select none
+	
+placeholder()
+	&::-webkit-input-placeholder 
+		{block}
+	&::-moz-placeholder
+		{block}
+	&:-moz-placeholder
+		{block}
+	&:-ms-input-placeholder
+		{block}
+		
+block-border()
+	border 1px solid #efefef
+	border-radius 2px
+
 #create-company-logo
 	display none
 	
