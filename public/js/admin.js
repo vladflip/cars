@@ -41,16 +41,29 @@ ModelView = (function(superClass) {
   function ModelView() {
     this.saveChanges = bind(this.saveChanges, this);
     this.edit = bind(this.edit, this);
+    this.toggleEdit = bind(this.toggleEdit, this);
     return ModelView.__super__.constructor.apply(this, arguments);
   }
 
   ModelView.prototype.initialize = function() {
-    this.$el.click(this.edit);
+    this.editButton = this.$el.find('.edit-model');
+    this.editButton.click(this.toggleEdit);
     this.title = this.$el.children('td:eq(1)');
     this.url = this.$el.children('td:eq(2)');
-    this.saveButton = $('<td width="40px" style="display:none"><div class="popup_save"><span class="fa fa-chevron-down"></span></div></td>');
-    this.$el.append(this.saveButton);
-    return this.saveButton.click(this.saveChanges);
+    return this.$el.append(this.saveButton);
+  };
+
+  ModelView.prototype.toggleEdit = function() {
+    if (this.editButton.hasClass('activated')) {
+      this.editButton.html('<i class="fa fa-pencil"></i>');
+      this.editButton.toggleClass('activated');
+      this.saveChanges();
+      return this.hideInputs();
+    } else {
+      this.editButton.html('<i class="fa fa-chevron-down" style="color:green"></i>');
+      this.editButton.toggleClass('activated');
+      return this.edit();
+    }
   };
 
   ModelView.prototype.edit = function() {
@@ -58,37 +71,20 @@ ModelView = (function(superClass) {
     this.urlInput = $("<input value='" + (this.model.get('url')) + "'>");
     this.title.html(this.titleInput);
     this.url.html(this.urlInput);
-    this.titleInput.focus();
-    this.saveButton.show();
-    this.titleInput.click(function() {
-      return false;
-    });
-    this.urlInput.click(function() {
-      return false;
-    });
-    document.onclick = (function(_this) {
-      return function() {
-        _this.hideInputs();
-        return document.onclick = false;
-      };
-    })(this);
-    return false;
+    return this.titleInput.focus();
   };
 
   ModelView.prototype.hideInputs = function() {
     this.title.html(this.model.get('title'));
-    this.url.html(this.model.get('url'));
-    return this.saveButton.hide();
+    return this.url.html(this.model.get('url'));
   };
 
   ModelView.prototype.saveChanges = function() {
     if (this.titleInput.val() !== (this.model.get('title') + '') || this.urlInput.val() !== (this.model.get('url') + '')) {
       this.model.set('title', this.titleInput.val());
       this.model.set('url', this.urlInput.val());
-      this.model.set('changed', true);
+      return this.model.set('changed', true);
     }
-    this.hideInputs();
-    return false;
   };
 
   return ModelView;
@@ -99,13 +95,20 @@ Models = (function(superClass) {
   extend(Models, superClass);
 
   function Models() {
+    this.createModel = bind(this.createModel, this);
     return Models.__super__.constructor.apply(this, arguments);
   }
 
   Models.prototype.collection = new ModelsCollection;
 
   Models.prototype.initialize = function() {
-    return this.fillCollection();
+    this.fillCollection();
+    this.button = this.$el.parent().find('#new-model');
+    return this.button.click(this.createModel);
+  };
+
+  Models.prototype.createModel = function() {
+    return console.log(this.collection);
   };
 
   Models.prototype.fillCollection = function() {
@@ -319,7 +322,5 @@ new Makes({
 var Models;
 
 Models = require('./Models');
-
-console.log(Models);
 
 },{"./Models":1}]},{},[2]);

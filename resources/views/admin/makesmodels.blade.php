@@ -5,9 +5,9 @@
 
 <hr>
 
-<div id="new-make" style="width:130px" class="btn btn-primary navbar-btn">
+<div id="new-make" style="width:200px" class="btn btn-primary navbar-btn">
 	<i class="fa fa-plus"></i>
-	Новая запись
+	Новая марка-модель
 </div>
 
 <table id="admin-makes" class="table-striped table table-hover">
@@ -18,6 +18,7 @@
 			<th>Марка</th>
 			<th>Url</th>
 			<th>Модели</th>
+			<th style="width:90px"></th>
 		</tr>
 	</thead>
 	
@@ -44,6 +45,14 @@
 
 					@endforeach
 				</table>
+			</td>
+			<td>
+				<div class="btn btn-default btn-sm edit-make">
+					<i class="fa fa-pencil"></i>
+				</div>
+				<div class="btn btn-danger btn-sm btn-delete delete-make">
+					<i class="fa fa-times"></i>
+				</div>
 			</td>
 		</tr>
 

@@ -20,6 +20,11 @@
 								
 		<div class="popup_label">Модели</div>
 
+		<div id="new-model" style="width:130px" class="btn btn-primary navbar-btn">
+			<i class="fa fa-plus"></i>
+			Новая модель
+		</div>
+
 		<table id="admin-models" class="table-striped table table-hover">
 
 			<thead>
@@ -27,6 +32,7 @@
 					<th style="width:30px">№</th>
 					<th>Имя</th>
 					<th>Url</th>
+					<th style="width:90px"></th>
 				</tr>
 			</thead>
 
@@ -39,6 +45,14 @@
 					<td>{{id}}</td>
 					<td>{{title}}</td>
 					<td>{{url}}</td>
+					<td>
+						<div class="btn btn-default btn-sm edit-model">
+							<i class="fa fa-pencil"></i>
+						</div>
+						<div class="btn btn-danger btn-sm btn-delete delete-model">
+							<i class="fa fa-times"></i>
+						</div>
+					</td>
 				</tr>
 
 			{{/each}}
