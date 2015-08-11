@@ -78,6 +78,7 @@ class MakeView extends Backbone.View
 				m.id = model.get 'id'
 				m.title = model.get 'title'
 				m.url = model.get 'url'
+				m.new = model.get 'new'
 
 				modelsArray.push m
 
@@ -93,8 +94,10 @@ class MakeView extends Backbone.View
 				method: 'POST'
 				data: result
 
+			console.log result
 
-		location.reload()
+
+		# location.reload()
 
 
 		

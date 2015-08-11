@@ -15,7 +15,8 @@ Model = (function(superClass) {
     id: 0,
     title: '',
     url: '',
-    changed: ''
+    changed: '',
+    "new": 0
   };
 
   return Model;
@@ -45,7 +46,11 @@ ModelView = (function(superClass) {
     return ModelView.__super__.constructor.apply(this, arguments);
   }
 
-  ModelView.prototype.initialize = function() {
+  ModelView.prototype.className = 'model';
+
+  ModelView.prototype.tagName = 'tr';
+
+  ModelView.prototype.init = function() {
     this.editButton = this.$el.find('.edit-model');
     this.editButton.click(this.toggleEdit);
     this.title = this.$el.children('td:eq(1)');
@@ -81,10 +86,19 @@ ModelView = (function(superClass) {
 
   ModelView.prototype.saveChanges = function() {
     if (this.titleInput.val() !== (this.model.get('title') + '') || this.urlInput.val() !== (this.model.get('url') + '')) {
-      this.model.set('title', this.titleInput.val());
-      this.model.set('url', this.urlInput.val());
-      return this.model.set('changed', true);
+      if (this.titleInput.val() !== '' && this.urlInput.val() !== '') {
+        this.model.set('title', this.titleInput.val());
+        this.model.set('url', this.urlInput.val());
+        return this.model.set('changed', true);
+      }
     }
+  };
+
+  ModelView.prototype.render = function() {
+    this.$el.append("<td>" + (this.model.get('id')) + "</td>");
+    this.$el.append('<td></td>');
+    this.$el.append('<td></td>');
+    return this.$el.append("<td> <div class='btn btn-default btn-sm edit-model'> <i class='fa fa-pencil'></i> </div> <div class='btn btn-danger btn-delete btn-sm delete-model'> <i class='fa fa-times'></i> </div> </td>");
   };
 
   return ModelView;
@@ -99,16 +113,26 @@ Models = (function(superClass) {
     return Models.__super__.constructor.apply(this, arguments);
   }
 
-  Models.prototype.collection = new ModelsCollection;
-
   Models.prototype.initialize = function() {
+    this.collection = new ModelsCollection;
     this.fillCollection();
     this.button = this.$el.parent().find('#new-model');
     return this.button.click(this.createModel);
   };
 
   Models.prototype.createModel = function() {
-    return console.log(this.collection);
+    var m, v;
+    m = new Model({
+      id: this.collection.length + 1,
+      "new": 1
+    });
+    this.collection.add(m);
+    v = new ModelView({
+      model: m
+    });
+    v.render();
+    v.init();
+    return this.$el.prepend(v.el);
   };
 
   Models.prototype.fillCollection = function() {
@@ -124,6 +148,7 @@ Models = (function(superClass) {
           el: model,
           model: m
         });
+        v.init();
         return _this.collection.add(m);
       };
     })(this));
@@ -248,6 +273,7 @@ MakeView = (function(superClass) {
         m.id = model.get('id');
         m.title = model.get('title');
         m.url = model.get('url');
+        m["new"] = model.get('new');
         modelsArray.push(m);
       }
       result.models = modelsArray;
@@ -261,8 +287,8 @@ MakeView = (function(superClass) {
         method: 'POST',
         data: result
       });
+      return console.log(result);
     }
-    return location.reload();
   };
 
   return MakeView;

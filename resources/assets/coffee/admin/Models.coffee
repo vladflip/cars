@@ -4,13 +4,18 @@ class Model extends Backbone.Model
 		title: ''
 		url: ''
 		changed: ''
+		new: 0
 
 class ModelsCollection extends Backbone.Collection
 	model: Model
 
 class ModelView extends Backbone.View
 
-	initialize: ->
+	className: 'model'
+
+	tagName: 'tr'
+
+	init: ->
 
 		@editButton = @$el.find('.edit-model')
 
@@ -20,6 +25,9 @@ class ModelView extends Backbone.View
 		@url = @$el.children('td:eq(2)')
 
 		@$el.append @saveButton
+
+		# remove without asking if model is new
+
 
 	toggleEdit: =>
 
@@ -53,17 +61,34 @@ class ModelView extends Backbone.View
 	saveChanges: =>
 
 		if @titleInput.val() isnt (@model.get('title') + '') or @urlInput.val() isnt (@model.get('url') + '')
-			@model.set('title', @titleInput.val())
-			@model.set('url', @urlInput.val())
-			@model.set('changed', true)
+			if @titleInput.val() isnt '' and @urlInput.val() isnt ''
+				@model.set('title', @titleInput.val())
+				@model.set('url', @urlInput.val())
+				@model.set('changed', true)
+
+	render: ->
+
+		@$el.append "<td>#{@model.get('id')}</td>"
+		@$el.append '<td></td>'
+		@$el.append '<td></td>'
+		@$el.append "
+			<td>
+				<div class='btn btn-default btn-sm edit-model'>
+					<i class='fa fa-pencil'></i>
+				</div>
+				<div class='btn btn-danger btn-delete btn-sm delete-model'>
+					<i class='fa fa-times'></i>
+				</div>
+			</td>
+		"
 
 
 
 class Models extends Backbone.View
 
-	collection: new ModelsCollection
-
 	initialize: ->
+
+		@collection = new ModelsCollection
 
 		do @fillCollection
 
@@ -73,7 +98,20 @@ class Models extends Backbone.View
 
 	createModel: =>
 
-		console.log @collection
+		m = new Model
+			id: @collection.length + 1
+			new: 1
+
+		@collection.add m
+
+		v = new ModelView
+			model: m
+
+		v.render()
+
+		v.init()
+
+		@$el.prepend v.el
 
 	fillCollection: ->
 
@@ -87,6 +125,8 @@ class Models extends Backbone.View
 			v = new ModelView
 				el: model
 				model: m
+
+			v.init()
 
 			@collection.add m
 
