@@ -27,10 +27,11 @@ gulp.task('default', ['stylus', 'coffee'], function(){
 
 });
 
-gulp.task('admin', ['admin-coffee'], function(){
-// gulp.task('default', ['stylus'], function(){
+gulp.task('admin', ['admin-coffee', 'admin-stylus'], function(){
 
-	gulp.watch(cDest + '/**/*', ['admin-coffee']);
+	gulp.watch(cDest + '/admin/**/*', ['admin-coffee']);
+
+	gulp.watch(sDest + '/admin.styl', ['admin-stylus']);
 
 });
 
@@ -74,6 +75,7 @@ gulp.task('coffee', function(){
 				.pipe(gulp.dest('public/js'));
 });
 
+
 gulp.task('admin-coffee', function(){
 	return gulp.src(cDest + '/admin/admin.coffee')
 				.pipe(coffee())
@@ -84,3 +86,15 @@ gulp.task('admin-coffee', function(){
 				.pipe(gulp.dest('public/js'));
 });
 
+gulp.task('admin-stylus', function(){
+	return gulp.src(sDest + '/admin.styl')
+				.pipe(stylus())
+				.on('error', showError)
+				.pipe(notify('Compiled : Stylus'))
+				.pipe(prefix({
+					browsers: ['last 2 versions']
+				}))
+				// .pipe(minify())
+				.pipe(rename('admin.css'))
+				.pipe(gulp.dest('public/css'));
+});

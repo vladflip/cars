@@ -1,7 +1,7 @@
-<link rel="stylesheet" href="{{ URL::to('/') }}/css/style.css">
+<link rel="stylesheet" href="{{ URL::to('/') }}/css/admin.css">
 <link rel="stylesheet" href="{{ URL::to('/') }}/css/vendor/popup.css">
 
-<h1>Марки и модели</h1>
+<h1 class="admin_header">Марки и модели</h1>
 
 <hr>
 
