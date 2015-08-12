@@ -274,7 +274,8 @@ MakeView = (function(superClass) {
       url: this.model.get('url'),
       models: this.models
     });
-    return this.$el.magnificPopup({
+    this.editButton = this.$el.find('.edit-make');
+    return this.editButton.magnificPopup({
       type: 'inline',
       closeBtnInside: true,
       items: {

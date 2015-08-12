@@ -30,7 +30,9 @@ class MakeView extends Backbone.View
 			url: @model.get 'url'
 			models: @models
 
-		@$el.magnificPopup
+		@editButton = @$el.find('.edit-make')
+
+		@editButton.magnificPopup
 			type: 'inline'
 			closeBtnInside: true
 			items:
