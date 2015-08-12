@@ -440,16 +440,6 @@ ul.create-company-spec-selectBox-dropdown-menu {
   border-radius: 2px;
   position: relative;
 }
-.popup_save {
-  width: 30px;
-  height: 30px;
-  border: 2px solid #008000;
-  cursor: pointer;
-}
-.popup_save span {
-  font-size: 25px;
-  color: #008000;
-}
 .popup_redx {
   width: 10px;
   position: absolute;
@@ -720,7 +710,7 @@ ul.create-company-spec-selectBox-dropdown-menu {
   background-color: #fff;
 }
 .search {
-  background-color: #f3df6d;
+  background-color: #fff;
   padding: 20px 40px;
   border-radius: 2px;
   margin: 0 0 10px 0;
@@ -733,6 +723,7 @@ ul.create-company-spec-selectBox-dropdown-menu {
   -webkit-align-items: center;
       -ms-flex-align: center;
           align-items: center;
+  border: 3px solid #f3df6d;
 }
 .search h3 {
   font-size: 16px;
@@ -765,8 +756,19 @@ ul.create-company-spec-selectBox-dropdown-menu {
       -ms-user-select: none;
           user-select: none;
   margin: 10px 0;
-  background-color: #fff;
+  border-radius: 2px;
+  border: none;
+  font-size: 14px;
+  letter-spacing: 0.03em;
+  color: rgba(70,64,64,0.77);
+  text-shadow: 0px 1px 4px #fff5cb;
   box-shadow: 0 8px 6px -6px rgba(126,126,126,0.58);
+  background-image: -webkit-linear-gradient(top, #ffe58a 0%, #f3df6d 50%, #f3df6d 51%, #f3c66d 100%);
+  background: linear-gradient(top, #ffe58a 0%, #f3df6d 50%, #f3df6d 51%, #f3c66d 100%);
+}
+.search_button:hover {
+  color: #343333;
+  opacity: 0.9;
 }
 .specs {
   border-radius: 2px;

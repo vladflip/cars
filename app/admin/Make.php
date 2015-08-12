@@ -1,3 +1,3 @@
 <?php
 
-Admin::menu()->url('makes')->uses('App\Http\Controllers\AdminController@makes')->label('Марки');
+Admin::menu()->url('makes')->uses('App\Http\Controllers\AdminController@makes')->label('Марки и модели');
