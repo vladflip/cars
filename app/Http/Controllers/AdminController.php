@@ -55,6 +55,7 @@ class AdminController extends Controller {
 				$model->id = $mo->id;
 				$model->title = $mo->title;
 				$model->name = $mo->url;
+				$model->type_id = $mo->type;
 
 				$model->save();
 

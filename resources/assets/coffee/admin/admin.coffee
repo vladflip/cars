@@ -86,12 +86,13 @@ class MakeView extends Backbone.View
 				m.title = model.get 'title'
 				m.url = model.get 'url'
 				m.new = model.get 'new'
+				m.type = model.get 'type_id'
 
 				modelsArray.push m
 
 			result.models = modelsArray
 
-		if result.length isnt 0
+		if Object.keys(result).length isnt 0
 
 			result.id = @model.get 'id'
 

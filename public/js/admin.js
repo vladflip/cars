@@ -97,8 +97,8 @@ ModelView = (function(superClass) {
   };
 
   ModelView.prototype.showTypeSelect = function() {
-    var j, len, option, ref, select, type;
-    select = $('<select></select>');
+    var j, len, option, ref, type;
+    this.select = $('<select></select>');
     ref = this.types;
     for (j = 0, len = ref.length; j < len; j++) {
       type = ref[j];
@@ -107,9 +107,9 @@ ModelView = (function(superClass) {
       } else {
         option = "<option value='" + type.id + "'>" + type.title + "</option>";
       }
-      select.append(option);
+      this.select.append(option);
     }
-    return this.type.html(select);
+    return this.type.html(this.select);
   };
 
   ModelView.prototype.hideInputs = function() {
@@ -123,8 +123,24 @@ ModelView = (function(superClass) {
       if (this.titleInput.val() !== '' && this.urlInput.val() !== '') {
         this.model.set('title', this.titleInput.val());
         this.model.set('url', this.urlInput.val());
-        return this.model.set('changed', true);
+        this.model.set('changed', true);
       }
+    }
+    if (parseInt(this.select.val()) !== this.model.get('type_id')) {
+      this.model.set('changed', true);
+      this.model.set('type_id', parseInt(this.select.val()));
+      return this.model.set('type_title', (function(_this) {
+        return function() {
+          var j, len, ref, type;
+          ref = _this.types;
+          for (j = 0, len = ref.length; j < len; j++) {
+            type = ref[j];
+            if (type.id === _this.model.get('type_id')) {
+              return type.title;
+            }
+          }
+        };
+      })(this)());
     }
   };
 
@@ -319,11 +335,12 @@ MakeView = (function(superClass) {
         m.title = model.get('title');
         m.url = model.get('url');
         m["new"] = model.get('new');
+        m.type = model.get('type_id');
         modelsArray.push(m);
       }
       result.models = modelsArray;
     }
-    if (result.length !== 0) {
+    if (Object.keys(result).length !== 0) {
       result.id = this.model.get('id');
       $.ajax(this.home + "/api/admin/makesmodels", {
         headers: {

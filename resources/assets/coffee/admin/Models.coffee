@@ -65,16 +65,16 @@ class ModelView extends Backbone.View
 
 	showTypeSelect: ->
 
-		select = $ '<select></select>'
+		@select = $ '<select></select>'
 
 		for type in @types
 			if type.id is @model.get 'type_id'
 				option = "<option selected value='#{type.id}'>#{type.title}</option>"
 			else
 				option = "<option value='#{type.id}'>#{type.title}</option>"
-			select.append option
+			@select.append option
 
-		@type.html select
+		@type.html @select
 
 	hideInputs: ->
 		
@@ -89,6 +89,15 @@ class ModelView extends Backbone.View
 				@model.set('title', @titleInput.val())
 				@model.set('url', @urlInput.val())
 				@model.set('changed', true)
+
+		if parseInt(@select.val()) isnt @model.get 'type_id'
+			@model.set 'changed', true
+			@model.set 'type_id', parseInt @select.val()
+
+			@model.set 'type_title', do =>
+				for type in @types
+					if type.id is @model.get 'type_id'
+						return type.title
 
 	render: ->
 
