@@ -104,10 +104,7 @@ class MakeView extends Backbone.View
 				method: 'POST'
 				data: result
 
-			console.log result
-
-
-		# location.reload()
+			location.reload()
 
 
 		

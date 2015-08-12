@@ -125,6 +125,8 @@ ModelView = (function(superClass) {
         this.model.set('url', this.urlInput.val());
         this.model.set('changed', true);
       }
+    } else if (this.titleInput.val() === '' && this.urlInput.val() === '') {
+      return;
     }
     if (parseInt(this.select.val()) !== this.model.get('type_id')) {
       this.model.set('changed', true);
@@ -146,6 +148,7 @@ ModelView = (function(superClass) {
 
   ModelView.prototype.render = function() {
     this.$el.append("<td>" + (this.model.get('id')) + "</td>");
+    this.$el.append('<td></td>');
     this.$el.append('<td></td>');
     this.$el.append('<td></td>');
     return this.$el.append("<td> <div class='btn btn-default btn-sm edit-model'> <i class='fa fa-pencil'></i> </div> <div class='btn btn-danger btn-delete btn-sm delete-model'> <i class='fa fa-times'></i> </div> </td>");
@@ -182,6 +185,7 @@ Models = (function(superClass) {
     });
     v.render();
     v.init();
+    v.toggleEdit();
     return this.$el.prepend(v.el);
   };
 
@@ -350,7 +354,7 @@ MakeView = (function(superClass) {
         method: 'POST',
         data: result
       });
-      return console.log(result);
+      return location.reload();
     }
   };
 

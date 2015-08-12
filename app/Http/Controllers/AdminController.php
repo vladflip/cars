@@ -50,12 +50,24 @@ class AdminController extends Controller {
 
 				$mo = (object)$m;
 
-				$model = \App\CarModel::find($mo->id);
+				if($mo->new) {
 
-				$model->id = $mo->id;
-				$model->title = $mo->title;
-				$model->name = $mo->url;
-				$model->type_id = $mo->type;
+					$model = new \App\CarModel;
+
+					$model->title = $mo->title;
+					$model->name = $mo->url;
+					$model->type_id = $mo->type;
+					$model->make_id = $make->id;
+
+				} else {
+
+					$model = \App\CarModel::find($mo->id);
+
+					$model->title = $mo->title;
+					$model->name = $mo->url;
+					$model->type_id = $mo->type;
+
+				}
 
 				$model->save();
 

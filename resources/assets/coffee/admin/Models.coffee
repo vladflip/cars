@@ -90,6 +90,11 @@ class ModelView extends Backbone.View
 				@model.set('url', @urlInput.val())
 				@model.set('changed', true)
 
+		else if @titleInput.val() is '' and @urlInput.val() is ''
+			return
+
+
+
 		if parseInt(@select.val()) isnt @model.get 'type_id'
 			@model.set 'changed', true
 			@model.set 'type_id', parseInt @select.val()
@@ -102,6 +107,7 @@ class ModelView extends Backbone.View
 	render: ->
 
 		@$el.append "<td>#{@model.get('id')}</td>"
+		@$el.append '<td></td>'
 		@$el.append '<td></td>'
 		@$el.append '<td></td>'
 		@$el.append "
@@ -143,6 +149,8 @@ class Models extends Backbone.View
 		v.render()
 
 		v.init()
+
+		v.toggleEdit()
 
 		@$el.prepend v.el
 
