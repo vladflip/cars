@@ -2,6 +2,11 @@ Models = require './Models'
 
 require './create.coffee'
 
+Handlebars.registerHelper 'ifCond', (v1, v2, options) ->
+	if v1 is v2
+		return options.fn(this)
+	options.inverse(this)
+
 class Make extends Backbone.Model
 	defaults:
 		id: ''
@@ -16,6 +21,12 @@ class MakeView extends Backbone.View
 
 	home: $('#csrf').data 'home'
 
+	types: do ->
+
+		for type in $('#types').children()
+			id: $(type).data 'id'
+			title: $(type).data 'title'
+
 	initialize: ->
 
 		do @getModels
@@ -24,6 +35,7 @@ class MakeView extends Backbone.View
 			title: @model.get 'title'
 			url: @model.get 'url'
 			models: @models
+			types: @types
 
 		@$el.magnificPopup
 			type: 'inline'
@@ -53,6 +65,8 @@ class MakeView extends Backbone.View
 				id: $(model).data 'id'
 				title: $(model).data 'title'
 				url: $(model).data 'url'
+				type_id: $(model).data 'type-id'
+				type_title: $(model).data 'type-title'
 
 	saveChanges: =>
 

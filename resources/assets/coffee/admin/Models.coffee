@@ -5,6 +5,7 @@ class Model extends Backbone.Model
 		url: ''
 		changed: ''
 		new: 0
+		type: 0
 
 class ModelsCollection extends Backbone.Collection
 	model: Model
@@ -121,6 +122,7 @@ class Models extends Backbone.View
 				id: $(model).data 'id'
 				title: $(model).data 'title'
 				url: $(model).data 'url'
+				type: $(model).data 'type'
 
 			v = new ModelView
 				el: model

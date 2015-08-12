@@ -39,7 +39,9 @@
 						<tr class="model"
 						data-id="{{ $model->id }}"
 						data-title="{{ $model->title }}"
-						data-url="{{ $model->name }}">
+						data-url="{{ $model->name }}"
+						data-type-id="{{ $model->type->id }}"
+						data-type-title="{{ $model->type->title }}">
 							<td>{{ $model->title }}</td>
 						</tr>
 
@@ -59,6 +61,17 @@
 	@endforeach
 
 </table>
+
+<div id="types">
+	
+	@foreach($types as $type)
+
+		<div data-id="{{ $type->id }}"
+			data-title="{{ $type->title }}"></div>
+
+	@endforeach
+
+</div>
 
 <div id="csrf" data-csrf="{{ csrf_token() }}" data-home="{{ route('home') }}"></div>
 

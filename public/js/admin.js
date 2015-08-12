@@ -16,7 +16,8 @@ Model = (function(superClass) {
     title: '',
     url: '',
     changed: '',
-    "new": 0
+    "new": 0,
+    type: 0
   };
 
   return Model;
@@ -142,7 +143,8 @@ Models = (function(superClass) {
         m = new Model({
           id: $(model).data('id'),
           title: $(model).data('title'),
-          url: $(model).data('url')
+          url: $(model).data('url'),
+          type: $(model).data('type')
         });
         v = new ModelView({
           el: model,
@@ -176,6 +178,13 @@ Models = require('./Models');
 
 require('./create.coffee');
 
+Handlebars.registerHelper('ifCond', function(v1, v2, options) {
+  if (v1 === v2) {
+    return options.fn(this);
+  }
+  return options.inverse(this);
+});
+
 Make = (function(superClass) {
   extend(Make, superClass);
 
@@ -207,13 +216,28 @@ MakeView = (function(superClass) {
 
   MakeView.prototype.home = $('#csrf').data('home');
 
+  MakeView.prototype.types = (function() {
+    var j, len, ref, results, type;
+    ref = $('#types').children();
+    results = [];
+    for (j = 0, len = ref.length; j < len; j++) {
+      type = ref[j];
+      results.push({
+        id: $(type).data('id'),
+        title: $(type).data('title')
+      });
+    }
+    return results;
+  })();
+
   MakeView.prototype.initialize = function() {
     var src;
     this.getModels();
     src = this.template({
       title: this.model.get('title'),
       url: this.model.get('url'),
-      models: this.models
+      models: this.models,
+      types: this.types
     });
     return this.$el.magnificPopup({
       type: 'inline',
@@ -247,7 +271,9 @@ MakeView = (function(superClass) {
         return _this.models.push({
           id: $(model).data('id'),
           title: $(model).data('title'),
-          url: $(model).data('url')
+          url: $(model).data('url'),
+          type_id: $(model).data('type-id'),
+          type_title: $(model).data('type-title')
         });
       };
     })(this));

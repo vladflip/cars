@@ -32,6 +32,7 @@
 					<th style="width:30px">№</th>
 					<th>Имя</th>
 					<th>Url</th>
+					<th style="width:200px">Тип</th>
 					<th style="width:90px"></th>
 				</tr>
 			</thead>
@@ -41,10 +42,27 @@
 				<tr class="model"
 				data-id="{{id}}"
 				data-title="{{title}}"
-				data-url="{{url}}">
+				data-url="{{url}}"
+				data-type-id="{{type_id}}"
+				data-type-title="{{type_title}}">
 					<td>{{id}}</td>
 					<td>{{title}}</td>
 					<td>{{url}}</td>
+					<td>
+						<select>
+					
+							{{#each ../types}}
+
+								{{#ifCond ../type_id id}}
+									<option selected>{{title}}</option>
+								{{else}}
+									<option>{{title}}</option>
+								{{/ifCond}}
+
+							{{/each}}
+					
+						</select>
+					</td>
 					<td>
 						<div class="btn btn-default btn-sm edit-model">
 							<i class="fa fa-pencil"></i>
@@ -66,3 +84,4 @@
 	</div>
 
 </script>
+
