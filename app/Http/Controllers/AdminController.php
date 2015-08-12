@@ -42,6 +42,41 @@ class AdminController extends Controller {
 
 	}
 
+	public function createMake() {
+
+		$title = \Input::get('title');
+		$url = \Input::get('url');
+
+		$make = new \App\Make;
+
+		$make->title = $title;
+		$make->name = $url;
+
+		$make->save();
+
+		$models = \Input::get('models');
+
+		if($models) {
+
+			foreach($models as $m) {
+
+				$mo = (object)$m;
+
+				$model = new \App\CarModel;
+
+				$model->title = $mo->title;
+				$model->name = $mo->url;
+				$model->type_id = $mo->type;
+				$model->make_id = $make->id;
+
+				$model->save();
+
+			}
+
+		}
+
+	}
+
 	public function makesmodels() {
 
 		$id = \Input::get('id');
@@ -60,7 +95,7 @@ class AdminController extends Controller {
 
 		$make->save();
 
-		if(($models)) {
+		if($models) {
 
 			foreach($models as $m) {
 

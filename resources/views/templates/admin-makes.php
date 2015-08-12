@@ -66,7 +66,7 @@
 	</div>
 
 	<div id="admin-edit-button" class="popup_button">
-		Принять изменения
+		{{buttonText}}
 	</div>
 
 </script>

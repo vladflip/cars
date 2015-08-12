@@ -83,15 +83,17 @@ ModelView = (function(superClass) {
     return bootbox.confirm('Вы точно хотите удалить эту модель?', (function(_this) {
       return function(remove) {
         if (remove) {
-          $.ajax(_this.home + "/api/admin/remove-model", {
-            headers: {
-              'X-CSRF-TOKEN': $('#csrf').data('csrf')
-            },
-            method: 'POST',
-            data: {
-              id: _this.model.get('id')
-            }
-          });
+          if (!_this.model.get('new')) {
+            $.ajax(_this.home + "/api/admin/remove-model", {
+              headers: {
+                'X-CSRF-TOKEN': $('#csrf').data('csrf')
+              },
+              method: 'POST',
+              data: {
+                id: _this.model.get('id')
+              }
+            });
+          }
           return _this.remove();
         }
       };
@@ -284,6 +286,7 @@ MakeView = (function(superClass) {
   extend(MakeView, superClass);
 
   function MakeView() {
+    this.createMake = bind(this.createMake, this);
     this.saveChanges = bind(this.saveChanges, this);
     this.removeMake = bind(this.removeMake, this);
     return MakeView.__super__.constructor.apply(this, arguments);
@@ -298,15 +301,48 @@ MakeView = (function(superClass) {
   MakeView.prototype.initialize = function() {
     var src;
     this.getModels();
-    src = this.template({
-      title: this.model.get('title'),
-      url: this.model.get('url'),
-      models: this.models
-    });
+    this.createButton = $('#new-make');
     this.editButton = this.$el.find('.edit-make');
     this.deleteButton = this.$el.find('.delete-make');
     this.deleteButton.click(this.removeMake);
-    return this.editButton.magnificPopup({
+    this.initPopup(this.editButton);
+    src = this.template({
+      buttonText: 'Создать'
+    });
+    return this.createButton.magnificPopup({
+      type: 'inline',
+      closeBtnInside: true,
+      items: {
+        src: '#admin-popup'
+      },
+      callbacks: {
+        open: (function(_this) {
+          return function() {
+            _this.popup.append(src);
+            _this.modelsView = new Models({
+              el: _this.popup.find('#admin-models')
+            });
+            return _this.popup.find('#admin-edit-button').click(_this.createMake);
+          };
+        })(this),
+        close: (function(_this) {
+          return function() {
+            return _this.popup.html('');
+          };
+        })(this)
+      }
+    });
+  };
+
+  MakeView.prototype.initPopup = function(el) {
+    var src;
+    src = this.template({
+      title: this.model.get('title'),
+      url: this.model.get('url'),
+      models: this.models,
+      buttonText: 'Принять изменения'
+    });
+    return el.magnificPopup({
       type: 'inline',
       closeBtnInside: true,
       items: {
@@ -385,7 +421,6 @@ MakeView = (function(superClass) {
         m.id = model.get('id');
         m.title = model.get('title');
         m.url = model.get('url');
-        m["new"] = model.get('new');
         m.type = model.get('type_id');
         modelsArray.push(m);
       }
@@ -394,6 +429,49 @@ MakeView = (function(superClass) {
     if (Object.keys(result).length !== 0) {
       result.id = this.model.get('id');
       $.ajax(this.home + "/api/admin/makesmodels", {
+        headers: {
+          'X-CSRF-TOKEN': $('#csrf').data('csrf')
+        },
+        method: 'POST',
+        data: result
+      });
+      return location.reload();
+    }
+  };
+
+  MakeView.prototype.createMake = function() {
+    var j, len, m, model, models, modelsArray, result, title, url;
+    result = {};
+    models = this.modelsView.get();
+    title = this.popup.find('.make-title').val();
+    url = this.popup.find('.make-url').val();
+    if (title !== '') {
+      result.title = title;
+    } else {
+      return;
+    }
+    if (url !== '') {
+      result.url = url;
+    } else {
+      return;
+    }
+    if (models.length > 0) {
+      modelsArray = [];
+      for (j = 0, len = models.length; j < len; j++) {
+        model = models[j];
+        m = {};
+        m.title = model.get('title');
+        m.url = model.get('url');
+        m["new"] = model.get('new');
+        m.type = model.get('type_id');
+        modelsArray.push(m);
+      }
+      result.models = modelsArray;
+    } else {
+      return;
+    }
+    if (Object.keys(result).length !== 0) {
+      $.ajax(this.home + "/api/admin/create-make", {
         headers: {
           'X-CSRF-TOKEN': $('#csrf').data('csrf')
         },

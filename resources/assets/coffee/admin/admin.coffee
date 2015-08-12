@@ -25,10 +25,7 @@ class MakeView extends Backbone.View
 
 		do @getModels
 
-		src = @template
-			title: @model.get 'title'
-			url: @model.get 'url'
-			models: @models
+		@createButton = $ '#new-make'
 
 		@editButton = @$el.find('.edit-make')
 
@@ -36,7 +33,38 @@ class MakeView extends Backbone.View
 
 		@deleteButton.click @removeMake
 
-		@editButton.magnificPopup
+		@initPopup @editButton
+
+		src = @template
+			buttonText: 'Создать'
+
+		@createButton.magnificPopup
+			type: 'inline'
+			closeBtnInside: true
+			items:
+				src: '#admin-popup'
+
+			callbacks:
+				open: =>
+					@popup.append src
+
+					@modelsView = new Models
+						el: @popup.find('#admin-models')
+
+					@popup.find('#admin-edit-button').click @createMake
+
+				close: =>
+					@popup.html ''
+
+	initPopup: (el) ->
+
+		src = @template
+			title: @model.get 'title'
+			url: @model.get 'url'
+			models: @models
+			buttonText: 'Принять изменения'
+
+		el.magnificPopup
 			type: 'inline'
 			closeBtnInside: true
 			items:
@@ -53,6 +81,7 @@ class MakeView extends Backbone.View
 
 				close: =>
 					@popup.html ''
+
 
 	removeMake: =>
 
@@ -108,7 +137,6 @@ class MakeView extends Backbone.View
 				m.id = model.get 'id'
 				m.title = model.get 'title'
 				m.url = model.get 'url'
-				m.new = model.get 'new'
 				m.type = model.get 'type_id'
 
 				modelsArray.push m
@@ -120,6 +148,53 @@ class MakeView extends Backbone.View
 			result.id = @model.get 'id'
 
 			$.ajax "#{@home}/api/admin/makesmodels",
+				headers:
+					'X-CSRF-TOKEN' : $('#csrf').data 'csrf'
+				method: 'POST'
+				data: result
+
+			location.reload()
+
+	createMake: =>
+
+		result = {}
+
+		models = @modelsView.get()
+
+		title = @popup.find('.make-title').val()
+		url = @popup.find('.make-url').val()
+
+		if title isnt ''
+			result.title = title
+		else
+			return
+
+		if url isnt ''
+			result.url = url
+		else
+			return
+
+		if models.length > 0
+
+			modelsArray = []
+
+			for model in models
+				m = {}
+				m.title = model.get 'title'
+				m.url = model.get 'url'
+				m.new = model.get 'new'
+				m.type = model.get 'type_id'
+
+				modelsArray.push m
+
+			result.models = modelsArray
+
+		else
+			return
+
+		if Object.keys(result).length isnt 0
+
+			$.ajax "#{@home}/api/admin/create-make",
 				headers:
 					'X-CSRF-TOKEN' : $('#csrf').data 'csrf'
 				method: 'POST'

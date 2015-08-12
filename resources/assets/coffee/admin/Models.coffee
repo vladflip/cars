@@ -45,12 +45,13 @@ class ModelView extends Backbone.View
 
 			if remove
 
-				$.ajax "#{@home}/api/admin/remove-model",
-					headers:
-						'X-CSRF-TOKEN' : $('#csrf').data 'csrf'
-					method: 'POST'
-					data:
-						id: @model.get 'id'
+				if not @model.get('new')
+					$.ajax "#{@home}/api/admin/remove-model",
+						headers:
+							'X-CSRF-TOKEN' : $('#csrf').data 'csrf'
+						method: 'POST'
+						data:
+							id: @model.get 'id'
 
 				do @remove
 
