@@ -261,6 +261,7 @@ MakeView = (function(superClass) {
 
   function MakeView() {
     this.saveChanges = bind(this.saveChanges, this);
+    this.removeMake = bind(this.removeMake, this);
     return MakeView.__super__.constructor.apply(this, arguments);
   }
 
@@ -279,6 +280,8 @@ MakeView = (function(superClass) {
       models: this.models
     });
     this.editButton = this.$el.find('.edit-make');
+    this.deleteButton = this.$el.find('.delete-make');
+    this.deleteButton.click(this.removeMake);
     return this.editButton.magnificPopup({
       type: 'inline',
       closeBtnInside: true,
@@ -302,6 +305,25 @@ MakeView = (function(superClass) {
         })(this)
       }
     });
+  };
+
+  MakeView.prototype.removeMake = function() {
+    return bootbox.confirm('Вы точно хотите удалить эту марку?', (function(_this) {
+      return function(remove) {
+        if (remove) {
+          $.ajax(_this.home + "/api/admin/remove-make", {
+            headers: {
+              'X-CSRF-TOKEN': $('#csrf').data('csrf')
+            },
+            method: 'POST',
+            data: {
+              id: _this.model.get('id')
+            }
+          });
+          return _this.remove();
+        }
+      };
+    })(this));
   };
 
   MakeView.prototype.getModels = function() {

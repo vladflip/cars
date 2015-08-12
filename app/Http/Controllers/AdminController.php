@@ -26,6 +26,14 @@ class AdminController extends Controller {
 
 	}
 
+	public function removeMake() {
+
+		$id = \Input::get('id');
+
+		\App\Make::destroy($id);
+
+	}
+
 	public function makesmodels() {
 
 		$id = \Input::get('id');

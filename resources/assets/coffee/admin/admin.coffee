@@ -32,6 +32,10 @@ class MakeView extends Backbone.View
 
 		@editButton = @$el.find('.edit-make')
 
+		@deleteButton = @$el.find('.delete-make')
+
+		@deleteButton.click @removeMake
+
 		@editButton.magnificPopup
 			type: 'inline'
 			closeBtnInside: true
@@ -49,6 +53,23 @@ class MakeView extends Backbone.View
 
 				close: =>
 					@popup.html ''
+
+	removeMake: =>
+
+		bootbox.confirm 'Вы точно хотите удалить эту марку?', (remove) =>
+
+			if remove
+
+				$.ajax "#{@home}/api/admin/remove-make",
+					headers:
+						'X-CSRF-TOKEN' : $('#csrf').data 'csrf'
+					method: 'POST'
+					data:
+						id: @model.get 'id'
+
+				do @remove
+
+
 
 	getModels: ->
 

@@ -52,7 +52,7 @@
 				<div class="btn btn-default btn-sm edit-make">
 					<i class="fa fa-pencil"></i>
 				</div>
-				<div class="btn btn-danger btn-sm btn-delete delete-make">
+				<div class="btn btn-danger btn-sm delete-make">
 					<i class="fa fa-times"></i>
 				</div>
 			</td>
@@ -83,6 +83,7 @@
 <script src="{{ URL::to('/') }}/js/vendor/jquery-ui.js"></script>
 <script src="{{ URL::to('/') }}/js/vendor/handlebars.js"></script>
 <script src="{{ URL::to('/') }}/js/vendor/underscore.js"></script>
+<script src="{{ URL::to('/') }}/js/vendor/bootbox.min.js"></script>
 <script src="{{ URL::to('/') }}/js/vendor/backbone.js"></script>
 <script src="{{ URL::to('/') }}/js/vendor/selectbox.js"></script>
 <script src="{{ URL::to('/') }}/js/vendor/popup.js"></script>
