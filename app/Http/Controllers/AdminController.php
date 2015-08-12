@@ -34,6 +34,14 @@ class AdminController extends Controller {
 
 	}
 
+	public function removeModel() {
+
+		$id = \Input::get('id');
+
+		\App\CarModel::destroy($id);
+
+	}
+
 	public function makesmodels() {
 
 		$id = \Input::get('id');

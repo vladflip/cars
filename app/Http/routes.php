@@ -191,6 +191,8 @@ Route::group(['prefix' => 'api', 'middleware' => 'api'], function(){
 
 		post('remove-make', ['uses' => 'AdminController@removeMake']);
 
+		post('remove-model', ['uses' => 'AdminController@removeModel']);
+
 	});
 
 	get('get-makes', 'APIController@makes');

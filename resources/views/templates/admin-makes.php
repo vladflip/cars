@@ -53,7 +53,7 @@
 						<div class="btn btn-default btn-sm edit-model">
 							<i class="fa fa-pencil"></i>
 						</div>
-						<div class="btn btn-danger btn-sm btn-delete delete-model">
+						<div class="btn btn-danger btn-sm delete-model">
 							<i class="fa fa-times"></i>
 						</div>
 					</td>

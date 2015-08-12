@@ -44,12 +44,15 @@ ModelView = (function(superClass) {
     this.saveChanges = bind(this.saveChanges, this);
     this.edit = bind(this.edit, this);
     this.toggleEdit = bind(this.toggleEdit, this);
+    this.removeModel = bind(this.removeModel, this);
     return ModelView.__super__.constructor.apply(this, arguments);
   }
 
   ModelView.prototype.className = 'model';
 
   ModelView.prototype.tagName = 'tr';
+
+  ModelView.prototype.home = $('#csrf').data('home');
 
   ModelView.prototype.types = (function() {
     var j, len, ref, results, type;
@@ -67,11 +70,32 @@ ModelView = (function(superClass) {
 
   ModelView.prototype.init = function() {
     this.editButton = this.$el.find('.edit-model');
+    this.removeButton = this.$el.find('.delete-model');
+    this.removeButton.click(this.removeModel);
     this.editButton.click(this.toggleEdit);
     this.title = this.$el.children('td:eq(1)');
     this.url = this.$el.children('td:eq(2)');
     this.type = this.$el.children('td:eq(3)');
     return this.$el.append(this.saveButton);
+  };
+
+  ModelView.prototype.removeModel = function() {
+    return bootbox.confirm('Вы точно хотите удалить эту модель?', (function(_this) {
+      return function(remove) {
+        if (remove) {
+          $.ajax(_this.home + "/api/admin/remove-model", {
+            headers: {
+              'X-CSRF-TOKEN': $('#csrf').data('csrf')
+            },
+            method: 'POST',
+            data: {
+              id: _this.model.get('id')
+            }
+          });
+          return _this.remove();
+        }
+      };
+    })(this));
   };
 
   ModelView.prototype.toggleEdit = function() {

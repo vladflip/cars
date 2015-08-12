@@ -15,6 +15,8 @@ class ModelView extends Backbone.View
 	className: 'model'
 
 	tagName: 'tr'
+	
+	home: $('#csrf').data 'home'
 
 	types: do ->
 
@@ -25,6 +27,9 @@ class ModelView extends Backbone.View
 	init: ->
 
 		@editButton = @$el.find('.edit-model')
+		@removeButton = @$el.find('.delete-model')
+
+		@removeButton.click @removeModel
 
 		@editButton.click @toggleEdit
 
@@ -34,7 +39,20 @@ class ModelView extends Backbone.View
 
 		@$el.append @saveButton
 
-		# remove without asking if model is new
+	removeModel: =>
+
+		bootbox.confirm 'Вы точно хотите удалить эту модель?', (remove) =>
+
+			if remove
+
+				$.ajax "#{@home}/api/admin/remove-model",
+					headers:
+						'X-CSRF-TOKEN' : $('#csrf').data 'csrf'
+					method: 'POST'
+					data:
+						id: @model.get 'id'
+
+				do @remove
 
 
 	toggleEdit: =>
