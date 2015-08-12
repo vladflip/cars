@@ -21,12 +21,6 @@ class MakeView extends Backbone.View
 
 	home: $('#csrf').data 'home'
 
-	types: do ->
-
-		for type in $('#types').children()
-			id: $(type).data 'id'
-			title: $(type).data 'title'
-
 	initialize: ->
 
 		do @getModels
@@ -35,7 +29,6 @@ class MakeView extends Backbone.View
 			title: @model.get 'title'
 			url: @model.get 'url'
 			models: @models
-			types: @types
 
 		@$el.magnificPopup
 			type: 'inline'

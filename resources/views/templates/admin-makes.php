@@ -48,21 +48,7 @@
 					<td>{{id}}</td>
 					<td>{{title}}</td>
 					<td>{{url}}</td>
-					<td>
-						<select>
-					
-							{{#each ../types}}
-
-								{{#ifCond ../type_id id}}
-									<option selected>{{title}}</option>
-								{{else}}
-									<option>{{title}}</option>
-								{{/ifCond}}
-
-							{{/each}}
-					
-						</select>
-					</td>
+					<td>{{type_title}}</td>
 					<td>
 						<div class="btn btn-default btn-sm edit-model">
 							<i class="fa fa-pencil"></i>

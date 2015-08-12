@@ -51,11 +51,26 @@ ModelView = (function(superClass) {
 
   ModelView.prototype.tagName = 'tr';
 
+  ModelView.prototype.types = (function() {
+    var j, len, ref, results, type;
+    ref = $('#types').children();
+    results = [];
+    for (j = 0, len = ref.length; j < len; j++) {
+      type = ref[j];
+      results.push({
+        id: $(type).data('id'),
+        title: $(type).data('title')
+      });
+    }
+    return results;
+  })();
+
   ModelView.prototype.init = function() {
     this.editButton = this.$el.find('.edit-model');
     this.editButton.click(this.toggleEdit);
     this.title = this.$el.children('td:eq(1)');
     this.url = this.$el.children('td:eq(2)');
+    this.type = this.$el.children('td:eq(3)');
     return this.$el.append(this.saveButton);
   };
 
@@ -77,12 +92,30 @@ ModelView = (function(superClass) {
     this.urlInput = $("<input value='" + (this.model.get('url')) + "'>");
     this.title.html(this.titleInput);
     this.url.html(this.urlInput);
-    return this.titleInput.focus();
+    this.titleInput.focus();
+    return this.showTypeSelect();
+  };
+
+  ModelView.prototype.showTypeSelect = function() {
+    var j, len, option, ref, select, type;
+    select = $('<select></select>');
+    ref = this.types;
+    for (j = 0, len = ref.length; j < len; j++) {
+      type = ref[j];
+      if (type.id === this.model.get('type_id')) {
+        option = "<option selected value='" + type.id + "'>" + type.title + "</option>";
+      } else {
+        option = "<option value='" + type.id + "'>" + type.title + "</option>";
+      }
+      select.append(option);
+    }
+    return this.type.html(select);
   };
 
   ModelView.prototype.hideInputs = function() {
     this.title.html(this.model.get('title'));
-    return this.url.html(this.model.get('url'));
+    this.url.html(this.model.get('url'));
+    return this.type.html(this.model.get('type_title'));
   };
 
   ModelView.prototype.saveChanges = function() {
@@ -144,7 +177,8 @@ Models = (function(superClass) {
           id: $(model).data('id'),
           title: $(model).data('title'),
           url: $(model).data('url'),
-          type: $(model).data('type')
+          type_id: $(model).data('type-id'),
+          type_title: $(model).data('type-title')
         });
         v = new ModelView({
           el: model,
@@ -216,28 +250,13 @@ MakeView = (function(superClass) {
 
   MakeView.prototype.home = $('#csrf').data('home');
 
-  MakeView.prototype.types = (function() {
-    var j, len, ref, results, type;
-    ref = $('#types').children();
-    results = [];
-    for (j = 0, len = ref.length; j < len; j++) {
-      type = ref[j];
-      results.push({
-        id: $(type).data('id'),
-        title: $(type).data('title')
-      });
-    }
-    return results;
-  })();
-
   MakeView.prototype.initialize = function() {
     var src;
     this.getModels();
     src = this.template({
       title: this.model.get('title'),
       url: this.model.get('url'),
-      models: this.models,
-      types: this.types
+      models: this.models
     });
     return this.$el.magnificPopup({
       type: 'inline',

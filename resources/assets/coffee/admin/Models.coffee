@@ -16,6 +16,12 @@ class ModelView extends Backbone.View
 
 	tagName: 'tr'
 
+	types: do ->
+
+		for type in $('#types').children()
+			id: $(type).data 'id'
+			title: $(type).data 'title'
+
 	init: ->
 
 		@editButton = @$el.find('.edit-model')
@@ -24,6 +30,7 @@ class ModelView extends Backbone.View
 
 		@title = @$el.children('td:eq(1)')
 		@url = @$el.children('td:eq(2)')
+		@type = @$el.children('td:eq(3)')
 
 		@$el.append @saveButton
 
@@ -54,10 +61,26 @@ class ModelView extends Backbone.View
 
 		@titleInput.focus()
 
+		do @showTypeSelect
+
+	showTypeSelect: ->
+
+		select = $ '<select></select>'
+
+		for type in @types
+			if type.id is @model.get 'type_id'
+				option = "<option selected value='#{type.id}'>#{type.title}</option>"
+			else
+				option = "<option value='#{type.id}'>#{type.title}</option>"
+			select.append option
+
+		@type.html select
+
 	hideInputs: ->
 		
 		@title.html @model.get 'title'
 		@url.html @model.get 'url'
+		@type.html @model.get 'type_title'
 
 	saveChanges: =>
 
@@ -122,7 +145,8 @@ class Models extends Backbone.View
 				id: $(model).data 'id'
 				title: $(model).data 'title'
 				url: $(model).data 'url'
-				type: $(model).data 'type'
+				type_id: $(model).data 'type-id'
+				type_title: $(model).data 'type-title'
 
 			v = new ModelView
 				el: model
