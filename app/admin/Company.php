@@ -3,6 +3,7 @@
 Admin::model(App\Company::class)->title('Компании')
 ->as('companies')
 ->with(['makes.models', 'user', 'models'])
+->denyCreating()
 ->columns(function ()
 {
 

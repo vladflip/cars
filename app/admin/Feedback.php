@@ -9,6 +9,7 @@ Admin::model(App\Feedback::class)->title('Отзывы')
 
 	Column::string('id', '№');
 	Column::string('header', 'Заголовок');
+	Column::string('content', 'Контент');
 
 	Column::string('user.name', 'Пользователь');
 
@@ -22,5 +23,7 @@ Admin::model(App\Feedback::class)->title('Отзывы')
 {
 
 	FormItem::text('header', 'Заголовок')->required();
+
+	FormItem::ckeditor('content', 'Контент');
 
 });

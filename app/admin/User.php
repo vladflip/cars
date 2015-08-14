@@ -12,5 +12,7 @@ Admin::model(App\User::class)->title('Пользователи')
 })->form(function ()
 {
 	// Describing elements in create and editing forms
-	FormItem::text('name', 'Name');
+	FormItem::text('name', 'Имя');
+	FormItem::text('email', 'Email');
+
 });
