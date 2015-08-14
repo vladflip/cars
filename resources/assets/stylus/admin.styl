@@ -24,6 +24,12 @@ button(color)
 	cursor pointer
 	border 4px solid color
 	user-select none
+	translate .1s ease-in
+	
+button--hover()
+	background-color lighten($yellow, 10%)
+	transition .2s ease
+	
 	
 placeholder()
 	&::-webkit-input-placeholder 

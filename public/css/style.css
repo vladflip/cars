@@ -706,10 +706,6 @@ ul.create-company-spec-selectBox-dropdown-menu {
   background: url("../img/success.png") no-repeat center;
   background-size: contain;
 }
-.popup_button:hover {
-  background-color: #f3df6d;
-  transition: 0.2s ease;
-}
 .selectBox-disabled {
   color: #ccc;
 }
@@ -825,10 +821,6 @@ ul.create-company-spec-selectBox-dropdown-menu {
       -ms-user-select: none;
           user-select: none;
   margin: 40px auto 0;
-}
-.specs_add:hover {
-  background-color: #f3df6d;
-  transition: 0.2s ease;
 }
 .type {
   position: relative;
@@ -1239,6 +1231,7 @@ ul.create-company-spec-selectBox-dropdown-menu {
   -webkit-justify-content: space-between;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  padding: 0 10px;
 }
 .header_logo {
   background: url("../img/logo.jpg") center no-repeat;
@@ -1378,6 +1371,7 @@ ul.create-company-spec-selectBox-dropdown-menu {
 .menu {
   height: 60px;
   background-color: #2d2d2d;
+  padding: 0 10px;
 }
 .menu .container,
 .menu_item {
