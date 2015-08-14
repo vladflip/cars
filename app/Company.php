@@ -6,7 +6,7 @@ class Company extends Model {
 
 	protected $table = 'companies';
 
-	protected $fillable = ['name', 'address', 'phone', 'about'];
+	protected $fillable = ['name', 'address', 'phone', 'about', 'status'];
 
 	public function user() {
 		return $this->belongsTo('App\User', 'user_id');

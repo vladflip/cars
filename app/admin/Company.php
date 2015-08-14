@@ -10,7 +10,7 @@ Admin::model(App\Company::class)->title('Компании')
 	Column::status();
 
 	Column::string('id', '№');
-	Column::string('name', 'Имя');
+	Column::string('name', 'Название');
 
 	Column::string('user.name', 'Пользователь');
 

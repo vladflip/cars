@@ -6,7 +6,7 @@ class Comment extends Model {
 
 	protected $table = 'comments';
 
-	public $fillable = ['text'];
+	public $fillable = ['text', 'status'];
 
 	public function user() {
 		return $this->belongsTo('App\User', 'user_id');

@@ -6,7 +6,7 @@ class Feedback extends Model {
 
 	protected $table = 'feedback';
 
-	protected $fillable = ['header', 'content'];
+	protected $fillable = ['header', 'content', 'status'];
 
 	public function type() {
 		return $this->belongsTo('App\Type', 'type_id');
