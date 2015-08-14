@@ -20,6 +20,8 @@ class CreateCommentsTable extends Migration {
 			$t->integer('feedback_id')->unsigned();
 
 			$t->integer('parent_id')->unsigned();
+			
+			$t->tinyInteger('status')->default(0);
 
 			$t->text('text');
 
