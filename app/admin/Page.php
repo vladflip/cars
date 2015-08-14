@@ -17,8 +17,7 @@ Admin::model(App\Page::class)->title('Страницы')
 
 	FormItem::text('title', 'Заголовок')->required();
 
-	FormItem::textAddon('url', 'Url')->unique()->validationRule('url')
-	->addon('komtrans-club.ru/page/')->placement('before');
+	FormItem::textAddon('url', 'Url')->unique()->addon('komtrans-club.ru/page/')->placement('before');
 
 	FormItem::select('in_header', 'В меню')->list( [0 => 'Нет', 1 => 'Да'] );
 
