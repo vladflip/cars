@@ -28,3 +28,5 @@ Admin::menu(\App\Feedback::class);
 Admin::menu(\App\Request::class);
 
 Admin::menu(\App\Page::class);
+
+Admin::menu()->url('makes')->uses('App\Http\Controllers\AdminController@makes')->label('Марки и модели');
