@@ -6,6 +6,8 @@ Admin::model(App\Comment::class)->title('Комментарии')
 ->columns(function ()
 {
 
+	Column::status();
+
 	Column::string('id', '№');
 
 	Column::string('text', 'Текст');
@@ -17,6 +19,9 @@ Admin::model(App\Comment::class)->title('Комментарии')
 
 })->form(function ()
 {
+
+	FormItem::select('status', 'Статус')
+	->list([1 => 'Подтвержден', 2 => 'Отклонен']);
 
 	FormItem::textarea('text', 'Текст');
 

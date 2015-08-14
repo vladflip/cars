@@ -6,6 +6,8 @@ Admin::model(App\Company::class)->title('Компании')
 ->denyCreating()
 ->columns(function ()
 {
+	
+	Column::status();
 
 	Column::string('id', '№');
 	Column::string('name', 'Имя');
@@ -17,6 +19,9 @@ Admin::model(App\Company::class)->title('Компании')
 
 })->form(function ()
 {
+
+	FormItem::select('status', 'Статус')
+	->list([1 => 'Подтвержден', 2 => 'Отклонен']);
 
 	FormItem::text('name', 'Name');
 

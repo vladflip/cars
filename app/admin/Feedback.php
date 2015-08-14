@@ -7,6 +7,8 @@ Admin::model(App\Feedback::class)->title('Отзывы')
 ->columns(function ()
 {
 
+	Column::status();
+
 	Column::string('id', '№');
 	Column::string('header', 'Заголовок');
 	Column::string('content', 'Контент');
@@ -21,6 +23,9 @@ Admin::model(App\Feedback::class)->title('Отзывы')
 
 })->form(function ()
 {
+
+	FormItem::select('status', 'Статус')
+	->list([1 => 'Подтвержден', 2 => 'Отклонен']);
 
 	FormItem::text('header', 'Заголовок')->required();
 
