@@ -10,6 +10,8 @@ $color = #2d2d2d
 
 $blue = #4e61eb
 
+$black = #121212
+
 center-text()
 	display flex
 	flex-direction column
@@ -28,6 +30,19 @@ button(color)
 	
 button--hover(color)
 	background-color rgba(color, .9)
+	
+button__reg(color)
+	box-shadow inset 2px 2px 3px color
+	text-shadow 1px 3px 4px color
+	background-color rgba(color, 0.3)
+	transition .2s ease
+
+
+button__reg--hover(color)
+	box-shadow inset 2px 2px 3px rgba(color, .0)
+	text-shadow 1px 3px 4px rgba(color, .0)
+	background-color rgba(white, .1)
+		
 	
 placeholder()
 	&::-webkit-input-placeholder 

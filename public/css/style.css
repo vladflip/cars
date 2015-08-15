@@ -1218,6 +1218,15 @@ ul.create-company-spec-selectBox-dropdown-menu {
   -webkit-align-self: flex-end;
       -ms-flex-item-align: end;
           align-self: flex-end;
+  box-shadow: inset 2px 2px 3px #000;
+  text-shadow: 1px 3px 4px #000;
+  background-color: rgba(0,0,0,0.3);
+  transition: 0.2s ease;
+}
+.footer_sign-up-button:hover {
+  box-shadow: inset 2px 2px 3px rgba(0,0,0,0);
+  text-shadow: 1px 3px 4px rgba(0,0,0,0);
+  background-color: rgba(255,255,255,0.1);
 }
 .footer_logo {
   background: url("../img/footer_logo.jpg") center no-repeat;
@@ -1447,6 +1456,15 @@ ul.create-company-spec-selectBox-dropdown-menu {
   color: #fff;
   width: 100px;
   height: 30px;
+  box-shadow: inset 2px 2px 3px #000;
+  text-shadow: 1px 3px 4px #000;
+  background-color: rgba(0,0,0,0.3);
+  transition: 0.2s ease;
+}
+.menu_sign-up:hover {
+  box-shadow: inset 2px 2px 3px rgba(0,0,0,0);
+  text-shadow: 1px 3px 4px rgba(0,0,0,0);
+  background-color: rgba(255,255,255,0.1);
 }
 .catalog {
   position: relative;
