@@ -134,6 +134,7 @@ h3 {
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
+  transition: 0.2s ease;
   margin: 30px auto 0;
 }
 .company-preview {
@@ -280,6 +281,7 @@ ul.create-company-spec-selectBox-dropdown-menu {
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
+  transition: 0.2s ease;
   margin: 20px auto;
 }
 .found_more:hover {
@@ -328,6 +330,7 @@ ul.create-company-spec-selectBox-dropdown-menu {
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
+  transition: 0.2s ease;
   margin: 0 auto 25px;
   display: none;
 }
@@ -688,6 +691,7 @@ ul.create-company-spec-selectBox-dropdown-menu {
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
+  transition: 0.2s ease;
   margin: 30px auto 0;
   position: relative;
   transition: all 0.2s linear;
@@ -708,7 +712,6 @@ ul.create-company-spec-selectBox-dropdown-menu {
 }
 .popup_button:hover {
   background-color: rgba(243,223,109,0.9);
-  transition: 0.2s ease;
 }
 .selectBox-disabled {
   color: #ccc;
@@ -762,6 +765,7 @@ ul.create-company-spec-selectBox-dropdown-menu {
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
+  transition: 0.2s ease;
   margin: 10px 0;
   border-radius: 2px;
   border: none;
@@ -824,11 +828,11 @@ ul.create-company-spec-selectBox-dropdown-menu {
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
+  transition: 0.2s ease;
   margin: 40px auto 0;
 }
-.specs:hover {
+.specs_add:hover {
   background-color: rgba(243,223,109,0.9);
-  transition: 0.2s ease;
 }
 .type {
   position: relative;
@@ -912,6 +916,7 @@ ul.create-company-spec-selectBox-dropdown-menu {
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
+  transition: 0.2s ease;
   margin-top: 15px;
   display: none;
 }
@@ -1020,10 +1025,10 @@ ul.create-company-spec-selectBox-dropdown-menu {
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
+  transition: 0.2s ease;
 }
 .feedback_button:hover {
   background-color: rgba(243,223,109,0.9);
-  transition: 0.2s ease;
 }
 .feedback_photos {
   *zoom: 1;
