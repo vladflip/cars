@@ -246,6 +246,8 @@
 
 	</div>
 
+	@include('templates.options-template')
+
 	@include('templates.photos-template')
 
 	@include('templates.plus-minus-template')
