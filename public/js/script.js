@@ -1803,6 +1803,7 @@ SelectView = (function(superClass) {
     var html, options, temp;
     temp = $.HandlebarsFactory('#options-template');
     options = temp(this.options.json);
+    console.log(options);
     html = $.parseHTML(options);
     this.$el.find('option:first').after(html);
     return this.$el.selectBox('refresh');

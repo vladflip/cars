@@ -64,35 +64,6 @@
 					</div>
 				</div>
 
-				{{-- <div class="create-company_makes-models_item">
-
-					<div class="create-company_make popup_field">
-								
-						<select name="" class="create-company_select popup_select"></select>
-					
-					</div>
-					
-					
-					<div class="create-company_models">
-							
-						<div class="popup_header-field">
-							<div class="popup_label">Уточнить модель</div>
-							
-							<div class="popup_plus-sign">
-								+
-							</div>
-						</div>
-					
-						<div class="create-company_model popup_field">
-							
-							<select name="" class="create-company_select popup_select"></select>
-											
-						</div>
-					
-					</div>
-
-				</div> --}}
-
 			</div>
 
 			<div class="create-company_lower">

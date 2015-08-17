@@ -30,6 +30,8 @@ class SelectView extends Backbone.View
 
 		options = temp @options.json
 
+		console.log options
+
 		html = $.parseHTML(options)
 
 		@$el.find('option:first').after(html)

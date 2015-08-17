@@ -318,6 +318,7 @@ MakeView = (function(superClass) {
       callbacks: {
         open: (function(_this) {
           return function() {
+            console.log('fuck');
             _this.popup.append(src);
             _this.modelsView = new Models({
               el: _this.popup.find('#admin-models')
