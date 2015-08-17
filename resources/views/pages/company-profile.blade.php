@@ -115,32 +115,39 @@
 					</div>
 
 				</div>
-				
-				@if(count($requests))
+
+				<hr>
 		
-					<div class="requests">
+				<div class="requests">
+					
+					<div class="requests_header">
 						
-						<div class="requests_header">
+						<div class="requests_toogler">
+
+							{{-- <div class="requests_received requests_toogler--active">Исходящие запросы</div> --}}
 							
-							<div class="requests_toogler">
-
-								{{-- <div class="requests_received requests_toogler--active">Исходящие запросы</div> --}}
-								
-								<div class="requests_sent requests_toogler--active">
-									Входящие запросы
-								</div>
-
+							<div class="requests_sent requests_toogler--active">
+								Входящие запросы
 							</div>
 
 						</div>
 
-						{{-- @include('parts.sent-requests') --}}
+					</div>
+
+
+					@if(count($requests))
+
+					{{-- @include('parts.sent-requests') --}}
 
 						@include('parts.received-requests')
 
-					</div>
+					@else
 
-				@endif
+						<div style="text-align:center; margin:50px 0;">Список пуст</div>
+
+					@endif
+
+				</div>
 
 			</div>
 

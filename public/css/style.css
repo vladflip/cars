@@ -1834,7 +1834,7 @@ ul.create-company-spec-selectBox-dropdown-menu {
 }
 .profile-info {
   padding: 0 35px;
-  margin-top: 25px;
+  margin: 25px 0;
   min-height: 170px;
 }
 .profile-info_header {
