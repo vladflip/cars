@@ -185,6 +185,12 @@ Route::group(['prefix' => 'api', 'middleware' => 'api'], function(){
 
 	});
 
+	Route::group(['prefix' => 'settings', 'middleware' => 'auth'], function() {
+
+		post('email', ['uses' => 'UserController@changeEmail']);
+
+	});
+
 	Route::group(['prefix' => 'admin'], function() {
 
 		post('makesmodels', ['uses' => 'AdminController@makesmodels']);

@@ -6,10 +6,10 @@
 
 		<div class="popup_field">
 			<div class="popup_label">Почта</div>
-			<input type="text" class="popup_input" value="{{ Auth::user()->email }}">
+			<input id="settings-email" type="text" class="popup_input" value="{{ Auth::user()->email }}">
 		</div>
 		
-		<div class="popup_button" style="margin:20px auto">Изменить почту</div>
+		<div id="settings-email-button" class="popup_button" style="margin:20px auto">Изменить почту</div>
 
 		<div class="popup_field">
 			<div class="popup_label">Пароль</div>

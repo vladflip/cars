@@ -74,6 +74,27 @@ class UserController extends Controller {
 
 	}
 
+	public function changeEmail() {
+
+		$newEmail = \Input::get('email');
+
+		echo $newEmail;
+
+		$user = Auth::user();
+
+		$code = md5(\Hash::make($user->email));
+
+		$user->confirmation_code = $code;
+		$user->confirmed = 0;
+		$user->save();
+
+		\Mail::send('emails.verify', ['code' => $code], function($msg) use ($user){
+			$msg->to($user->email)
+			->subject('Подтверждение почты');
+		});
+
+	}
+
 	public function repeat_message() {
 
 		$user = Auth::user();

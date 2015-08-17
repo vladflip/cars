@@ -3554,10 +3554,64 @@ button.click(function() {
 });
 
 },{"../inc/SelectView":11}],21:[function(require,module,exports){
+var EmailChanger,
+  bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };
+
 $('#profile-settings').magnificPopup({
   type: 'inline',
   closeBtnInside: true
 });
+
+EmailChanger = (function() {
+  EmailChanger.prototype.input = $('#settings-email');
+
+  EmailChanger.prototype.button = $('#settings-email-button');
+
+  EmailChanger.prototype.home = $('body').data('home');
+
+  EmailChanger.prototype.url = 'api/settings/email';
+
+  function EmailChanger() {
+    this.change = bind(this.change, this);
+    this.email = this.input.val();
+    this.button.click(this.change);
+  }
+
+  EmailChanger.prototype.change = function() {
+    var pattern;
+    pattern = /^([a-z0-9_\.-])+@[a-z0-9-]+\.([a-z]{2,4}\.)?[a-z]{2,4}$/i;
+    if (this.input.val() === this.email) {
+      return this.input.blink();
+    } else {
+      if (pattern.test(this.input.val())) {
+        return this.send();
+      } else {
+        return this.input.blink();
+      }
+    }
+  };
+
+  EmailChanger.prototype.send = function() {
+    return $.ajax(this.home + "/" + this.url, {
+      headers: {
+        'X-CSRF-TOKEN': $('body').data('csrf')
+      },
+      method: 'POST',
+      data: {
+        email: this.input.val()
+      }
+    }).done((function(_this) {
+      return function(response) {
+        return location.reload();
+      };
+    })(this));
+  };
+
+  return EmailChanger;
+
+})();
+
+new EmailChanger;
 
 },{}],22:[function(require,module,exports){
 var button, email, form, passw, submit;
