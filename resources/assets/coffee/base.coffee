@@ -42,6 +42,7 @@ $('.sticky').stick_in_parent
 	offset_top: 25
 
 $.HandlebarsFactory = (id) ->
+	console.log $(id)
 	if $(id).get 0
 		return Handlebars.compile $(id).html()
 	else
