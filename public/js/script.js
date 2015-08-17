@@ -1975,20 +1975,29 @@ TypeList = (function(superClass) {
 module.exports = TypeList;
 
 },{}],13:[function(require,module,exports){
-$(document).ready(function() {
-  require('./base');
-  require('./popups/index');
-  require('./main-live-search');
-  require('./catalog/catalog-live');
-  require('./catalog/catalog-companies');
-  require('./auth');
-  require('./profile');
-  require('./mention');
-  require('./logout');
-  require('./company-requests');
-  require('./user-requests');
-  return require('./comments');
-});
+require('./base');
+
+require('./popups/index');
+
+require('./main-live-search');
+
+require('./catalog/catalog-live');
+
+require('./catalog/catalog-companies');
+
+require('./auth');
+
+require('./profile');
+
+require('./mention');
+
+require('./logout');
+
+require('./company-requests');
+
+require('./user-requests');
+
+require('./comments');
 
 },{"./auth":1,"./base":2,"./catalog/catalog-companies":3,"./catalog/catalog-live":4,"./comments":5,"./company-requests":6,"./logout":14,"./main-live-search":15,"./mention":16,"./popups/index":19,"./profile":22,"./user-requests":23}],14:[function(require,module,exports){
 var button, form;
