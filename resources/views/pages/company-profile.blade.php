@@ -56,21 +56,33 @@
 							
 							<div id="profile-company-info">
 
-								<h3 id="profile-company-name" class="profile-info_name">
-									<span>{{ $user->company->name }}</span>
-									<span id="profile-company-pen" href="#edit-company-profile-popup" class="profile-info_pen"></span>
-								</h3>
-														
-								<div id="profile-company-address" class="profile-info_address">
-									{{ $user->company->address }}
+								<div class="profile_row">
+									<div class="profile_label">Компания:</div>
+									<h3 id="profile-company-name" class="profile-info_name">
+										<span>{{ $user->company->name }}</span>
+										<span id="profile-company-pen" href="#edit-company-profile-popup" class="profile-info_pen"></span>
+									</h3>
 								</div>
 														
-								<div id="profile-company-phone" class="profile-info_phone">
-									{{ $user->company->phone }}
+								<div class="profile_row">
+									<div class="profile_label">Адрес:</div>
+									<div id="profile-company-address" class="profile-info_address">
+										{{ $user->company->address }}
+									</div>
+								</div>
+														
+								<div class="profile_row">
+									<div class="profile_label">Телефон:</div>
+									<div id="profile-company-phone" class="profile-info_phone">
+										{{ $user->company->phone }}
+									</div>
 								</div>
 								
-								<div id="profile-company-about" class="profile-info_about">
-									{{ $user->company->about }}
+								<div class="profile_row">
+									<div class="profile_label">Описание:</div>
+									<div id="profile-company-about" class="profile-info_about">
+										{{ $user->company->about }}
+									</div>
 								</div>
 
 							</div>
@@ -84,16 +96,19 @@
 							</div>
 						
 						
-							<ul id="profile-company-tags" class="profile-info_tags">
+							<div class="profile_row">
+								<div class="profile_label">Специализация:</div>
+								<ul id="profile-company-tags" class="profile-info_tags">
+									
+									<li>{{ $user->company->spec->title }}</li>
+									<li>{{ $user->company->type->title }}</li>
 								
-								<li>{{ $user->company->spec->title }}</li>
-								<li>{{ $user->company->type->title }}</li>
-
-								@foreach($user->company->makes as $make)
-									<li>{{ $make->title }}</li>
-								@endforeach
-						
-							</ul>
+									@foreach($user->company->makes as $make)
+										<li>{{ $make->title }}</li>
+									@endforeach
+														
+								</ul>
+							</div>
 						
 						</div>
 

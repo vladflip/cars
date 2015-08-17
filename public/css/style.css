@@ -1774,6 +1774,17 @@ ul.create-company-spec-selectBox-dropdown-menu {
   overflow: hidden;
   min-height: 400px;
 }
+.profile_row {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  margin-bottom: 10px;
+}
+.profile_label {
+  font-size: 14px;
+  font-weight: 400;
+  width: 150px;
+}
 .profile .container {
   position: relative;
   margin-top: 25px;
@@ -1892,20 +1903,17 @@ ul.create-company-spec-selectBox-dropdown-menu {
 }
 .profile-info_address {
   font-size: 12px;
-  margin: 7px 0;
 }
 .profile-info_phone {
   font-size: 12px;
   letter-spacing: 0.6px;
 }
 .profile-info_about {
-  margin: 20px 0 0 0;
-  font-size: 14px;
-  width: 550px;
+  width: 500px;
   line-height: 20px;
+  font-size: 14px;
 }
 .profile-info_tags {
-  margin: 20px 0 0 0;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;

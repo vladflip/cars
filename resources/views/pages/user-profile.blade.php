@@ -53,11 +53,14 @@
 							
 							<div class="profile-info_right">
 								
-								<h3 id="profile-user-name" class="profile-info_name">
-									<span>{{ $user->name ? $user->name : $user->email }}</span>
-									<span id="profile-user-pen" href="#edit-user-profile-popup" class="profile-info_pen">
-									</span>
-								</h3>
+								<div class="profile_row">
+									<div class="profile_label">Имя:</div>
+									<h3 id="profile-user-name" class="profile-info_name">
+										<span>{{ $user->name ? $user->name : $user->email }}</span>
+										<span id="profile-user-pen" href="#edit-user-profile-popup" class="profile-info_pen">
+										</span>
+									</h3>
+								</div>
 							{{-- 
 								<div id="edit-profile-address" class="profile-info_address">
 									{{ $user->address }}
