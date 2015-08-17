@@ -96,11 +96,14 @@ $('.sticky').stick_in_parent({
 });
 
 $.HandlebarsFactory = function(id) {
-  if ($(id).get(0)) {
-    return Handlebars.compile($(id).html());
-  } else {
-    return function() {};
-  }
+  return $(document).ready(function() {
+    if ($(id).get(0)) {
+      return Handlebars.compile($(id).html());
+    } else {
+      console.log(id + " Handlebars error");
+      return function() {};
+    }
+  });
 };
 
 },{}],3:[function(require,module,exports){
