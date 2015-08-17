@@ -28,9 +28,9 @@ class SelectView extends Backbone.View
 	render: ->
 		temp = $.HandlebarsFactory '#options-template'
 
-		options = temp @options.json
+		console.log temp
 
-		console.log options
+		options = temp @options.json
 
 		html = $.parseHTML(options)
 

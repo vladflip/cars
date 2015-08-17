@@ -1802,8 +1802,8 @@ SelectView = (function(superClass) {
   SelectView.prototype.render = function() {
     var html, options, temp;
     temp = $.HandlebarsFactory('#options-template');
+    console.log(temp);
     options = temp(this.options.json);
-    console.log(options);
     html = $.parseHTML(options);
     this.$el.find('option:first').after(html);
     return this.$el.selectBox('refresh');
