@@ -134,6 +134,7 @@ h3 {
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
+  transition: 0.2s ease;
   margin: 30px auto 0;
 }
 .company-preview {
@@ -280,7 +281,11 @@ ul.create-company-spec-selectBox-dropdown-menu {
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
+  transition: 0.2s ease;
   margin: 20px auto;
+}
+.found_more:hover {
+  border-color: #f3df6d;
 }
 .wide-image {
   background: url("../img/background.jpg") center -164px no-repeat;
@@ -325,6 +330,7 @@ ul.create-company-spec-selectBox-dropdown-menu {
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
+  transition: 0.2s ease;
   margin: 0 auto 25px;
   display: none;
 }
@@ -685,6 +691,7 @@ ul.create-company-spec-selectBox-dropdown-menu {
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
+  transition: 0.2s ease;
   margin: 30px auto 0;
   position: relative;
   transition: all 0.2s linear;
@@ -702,6 +709,9 @@ ul.create-company-spec-selectBox-dropdown-menu {
           transform: scale(0, 0);
   background: url("../img/success.png") no-repeat center;
   background-size: contain;
+}
+.popup_button:hover {
+  background-color: rgba(243,223,109,0.9);
 }
 .selectBox-disabled {
   color: #ccc;
@@ -755,6 +765,7 @@ ul.create-company-spec-selectBox-dropdown-menu {
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
+  transition: 0.2s ease;
   margin: 10px 0;
   border-radius: 2px;
   border: none;
@@ -817,7 +828,11 @@ ul.create-company-spec-selectBox-dropdown-menu {
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
+  transition: 0.2s ease;
   margin: 40px auto 0;
+}
+.specs_add:hover {
+  background-color: rgba(243,223,109,0.9);
 }
 .type {
   position: relative;
@@ -901,6 +916,7 @@ ul.create-company-spec-selectBox-dropdown-menu {
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
+  transition: 0.2s ease;
   margin-top: 15px;
   display: none;
 }
@@ -1009,6 +1025,10 @@ ul.create-company-spec-selectBox-dropdown-menu {
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
+  transition: 0.2s ease;
+}
+.feedback_button:hover {
+  background-color: rgba(243,223,109,0.9);
 }
 .feedback_photos {
   *zoom: 1;
@@ -1137,6 +1157,7 @@ ul.create-company-spec-selectBox-dropdown-menu {
   height: 400px;
   background-color: #2d2d2d;
   margin-top: 30px;
+  padding: 0 10px;
 }
 .footer_row {
   display: -webkit-flex;
@@ -1228,6 +1249,7 @@ ul.create-company-spec-selectBox-dropdown-menu {
   -webkit-justify-content: space-between;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  padding: 0 10px;
 }
 .header_logo {
   background: url("../img/logo.jpg") center no-repeat;
@@ -1367,6 +1389,7 @@ ul.create-company-spec-selectBox-dropdown-menu {
 .menu {
   height: 60px;
   background-color: #2d2d2d;
+  padding: 0 10px;
 }
 .menu .container,
 .menu_item {
