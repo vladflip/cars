@@ -27,7 +27,7 @@
 
 							</div>
 
-							<div class="profile_settings">
+							<div id="profile-settings" class="profile_settings" href="#settings-popup">
 								<span class="profile_settings-icon"></span>
 								Настройки
 							</div>
@@ -147,5 +147,7 @@
 	@include('templates.popup-field-template')
 
 	@include('templates.avatar-template')
+
+	@include('popups.settings')
 
 @stop

@@ -528,7 +528,8 @@ ul.create-company-spec-selectBox-dropdown-menu {
 }
 .popup--search .popup_content,
 .popup--sign-up .popup_content,
-.popup--edit-profile {
+.popup--edit-profile,
+.popup--settings {
   width: 300px;
 }
 .popup--feedback,

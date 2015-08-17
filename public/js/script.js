@@ -1999,7 +1999,7 @@ require('./user-requests');
 
 require('./comments');
 
-},{"./auth":1,"./base":2,"./catalog/catalog-companies":3,"./catalog/catalog-live":4,"./comments":5,"./company-requests":6,"./logout":14,"./main-live-search":15,"./mention":16,"./popups/index":19,"./profile":22,"./user-requests":23}],14:[function(require,module,exports){
+},{"./auth":1,"./base":2,"./catalog/catalog-companies":3,"./catalog/catalog-live":4,"./comments":5,"./company-requests":6,"./logout":14,"./main-live-search":15,"./mention":16,"./popups/index":19,"./profile":23,"./user-requests":24}],14:[function(require,module,exports){
 var button, form;
 
 form = $('#user-logout-form');
@@ -3441,7 +3441,9 @@ require('./feedback');
 
 require('./create-company');
 
-},{"./create-company":17,"./feedback":18,"./search":20,"./sign-up":21}],20:[function(require,module,exports){
+require('./settings');
+
+},{"./create-company":17,"./feedback":18,"./search":20,"./settings":21,"./sign-up":22}],20:[function(require,module,exports){
 var SelectView, button, isNew, isNewLabel, isOld, isOldLabel, make, model, more, type, year;
 
 SelectView = require('../inc/SelectView');
@@ -3552,6 +3554,12 @@ button.click(function() {
 });
 
 },{"../inc/SelectView":11}],21:[function(require,module,exports){
+$('#profile-settings').magnificPopup({
+  type: 'inline',
+  closeBtnInside: true
+});
+
+},{}],22:[function(require,module,exports){
 var button, email, form, passw, submit;
 
 $('#sign-up').magnificPopup({
@@ -3599,7 +3607,7 @@ if (form) {
   });
 }
 
-},{}],22:[function(require,module,exports){
+},{}],23:[function(require,module,exports){
 var Avatar, FieldSet, ProfileToggler, company, companyAvatar, companyProfileCollection, user, userAvatar, userProfileCollection,
   bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };
 
@@ -3759,7 +3767,7 @@ new ProfileToggler({
   }
 });
 
-},{"./inc/Avatar":9,"./inc/FieldSet":10}],23:[function(require,module,exports){
+},{"./inc/Avatar":9,"./inc/FieldSet":10}],24:[function(require,module,exports){
 var Request, RequestView, Requests, RequestsCollection,
   extend = function(child, parent) { for (var key in parent) { if (hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; },
   hasProp = {}.hasOwnProperty,
