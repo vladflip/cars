@@ -13,12 +13,12 @@
 
 		<div class="popup_field">
 			<div class="popup_label">Пароль</div>
-			<input type="text" class="popup_input" placeholder="Текущий пароль">
-			<input type="text" class="popup_input" placeholder="Новый пароль">
-			<input type="text" class="popup_input" placeholder="Повторите новый пароль">
+			<input id="settings-current-password" type="password" class="popup_input" placeholder="Текущий пароль">
+			<input id="settings-new-password" type="password" class="popup_input" placeholder="Новый пароль">
+			<input id="settings-new-repeat" type="password" class="popup_input" placeholder="Повторите новый пароль">
 		</div>
 
-		<div class="popup_button" style="margin:20px auto">Изменить пароль</div>
+		<div id="settings-change-password" class="popup_button" style="margin:20px auto">Изменить пароль</div>
 
 		<hr>
 

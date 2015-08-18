@@ -189,6 +189,8 @@ Route::group(['prefix' => 'api', 'middleware' => 'api'], function(){
 
 		post('email', ['uses' => 'UserController@changeEmail']);
 
+		post('password', ['uses' => 'UserController@changePassword']);
+
 	});
 
 	Route::group(['prefix' => 'admin'], function() {

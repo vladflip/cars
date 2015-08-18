@@ -36,6 +36,7 @@ $.fn.preload = (command) ->
 
 	if command is 'reset'
 		@removeClass 'preloader-end'
+		@removeClass 'preloader-start'
 		@html @data 'text'
 
 $('.sticky').stick_in_parent

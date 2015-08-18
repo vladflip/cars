@@ -78,20 +78,34 @@ class UserController extends Controller {
 
 		$newEmail = \Input::get('email');
 
-		echo $newEmail;
+		$user = Auth::user();
+
+		$user->email = $newEmail;
+		$user->save();
+
+	}
+
+	public function changePassword() {
+		
+		$current = \Input::get('current');
+
+		$new = \Input::get('new');
+
+		$newRepeat = \Input::get('newRepeat');
 
 		$user = Auth::user();
 
-		$code = md5(\Hash::make($user->email));
+		if( ! \Hash::check($current, $user->password) ){
+			return 'wrong';
+		}
 
-		$user->confirmation_code = $code;
-		$user->confirmed = 0;
+		if( $new != $newRepeat)
+			throw 'fuck';
+
+		$user->password = \Hash::make($new);
 		$user->save();
 
-		\Mail::send('emails.verify', ['code' => $code], function($msg) use ($user){
-			$msg->to($user->email)
-			->subject('Подтверждение почты');
-		});
+		return 'ok';
 
 	}
 

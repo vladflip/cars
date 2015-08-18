@@ -87,6 +87,7 @@ $.fn.preload = function(command) {
   }
   if (command === 'reset') {
     this.removeClass('preloader-end');
+    this.removeClass('preloader-start');
     return this.html(this.data('text'));
   }
 };
@@ -3554,7 +3555,7 @@ button.click(function() {
 });
 
 },{"../inc/SelectView":11}],21:[function(require,module,exports){
-var EmailChanger,
+var EmailChanger, PasswordChanger,
   bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };
 
 $('#profile-settings').magnificPopup({
@@ -3592,6 +3593,7 @@ EmailChanger = (function() {
   };
 
   EmailChanger.prototype.send = function() {
+    this.button.preload('start');
     return $.ajax(this.home + "/" + this.url, {
       headers: {
         'X-CSRF-TOKEN': $('body').data('csrf')
@@ -3602,7 +3604,11 @@ EmailChanger = (function() {
       }
     }).done((function(_this) {
       return function(response) {
-        return location.reload();
+        _this.button.preload('stop');
+        _this.email = _this.input.val();
+        return setTimeout(function() {
+          return _this.button.preload('reset');
+        }, 1500);
       };
     })(this));
   };
@@ -3612,6 +3618,78 @@ EmailChanger = (function() {
 })();
 
 new EmailChanger;
+
+PasswordChanger = (function() {
+  PasswordChanger.prototype.home = $('body').data('home');
+
+  PasswordChanger.prototype.url = 'api/settings/password';
+
+  PasswordChanger.prototype.current = $('#settings-current-password');
+
+  PasswordChanger.prototype["new"] = $('#settings-new-password');
+
+  PasswordChanger.prototype.newRepeat = $('#settings-new-repeat');
+
+  PasswordChanger.prototype.button = $('#settings-change-password');
+
+  function PasswordChanger() {
+    this.change = bind(this.change, this);
+    this.button.click(this.change);
+  }
+
+  PasswordChanger.prototype.change = function() {
+    if (this.current.val() === '') {
+      this.current.blink();
+      return;
+    }
+    if (this["new"].val() === '') {
+      this["new"].blink();
+      return;
+    }
+    if (this.newRepeat.val() === '' || this["new"].val() !== this.newRepeat.val()) {
+      this.newRepeat.blink();
+      return;
+    }
+    return this.send();
+  };
+
+  PasswordChanger.prototype.send = function() {
+    this.button.preload('start');
+    return $.ajax(this.home + "/" + this.url, {
+      headers: {
+        'X-CSRF-TOKEN': $('body').data('csrf')
+      },
+      method: 'POST',
+      data: {
+        current: this.current.val(),
+        "new": this["new"].val(),
+        newRepeat: this.newRepeat.val()
+      }
+    }).done((function(_this) {
+      return function(response) {
+        console.log(response);
+        if (response === 'wrong') {
+          _this.button.preload('reset');
+          _this.current.blink();
+        }
+        if (response === 'ok') {
+          _this.button.preload('stop');
+          _this.current.val('');
+          _this["new"].val('');
+          _this.newRepeat.val('');
+          return setTimeout(function() {
+            return _this.button.preload('reset');
+          }, 1500);
+        }
+      };
+    })(this));
+  };
+
+  return PasswordChanger;
+
+})();
+
+new PasswordChanger;
 
 },{}],22:[function(require,module,exports){
 var button, email, form, passw, submit;
