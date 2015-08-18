@@ -134,7 +134,6 @@
 
 					</div>
 
-
 					@if(count($requests))
 
 					{{-- @include('parts.sent-requests') --}}

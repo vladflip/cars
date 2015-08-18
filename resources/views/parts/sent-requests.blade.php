@@ -8,8 +8,8 @@
 				
 				<div class="requests_logo-name">
 
-					<div class="requests_logo">
-						<img src="{{ URL::to('/') . '/' . $user->ava }}" alt="">
+					<div class="requests_logo"
+					style="background-image:url({{ URL::to('/') . '/' . ($user->ava ? $user->ava : 'img/noavatar.png') }})">
 					</div>
 
 					<div class="requests_name">
