@@ -9,7 +9,14 @@ class AdminController extends Controller {
 
 	public function index() {
 
-		return view('admin.index');
+		$requests = \App\Request::whereStatus(0)->count();
+
+		$comments = \App\Comment::whereStatus(0)->count();
+
+		$feedbacks = \App\Feedback::whereStatus(0)->count();
+
+		return view('admin.index')
+			->with(compact('requests', 'feedbacks', 'comments'));
 
 	}
 
