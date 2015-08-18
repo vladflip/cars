@@ -1,17 +1,9 @@
 Models = require './Models'
 
-require './create.coffee'
-
 Handlebars.registerHelper 'ifCond', (v1, v2, options) ->
 	if v1 is v2
 		return options.fn(this)
 	options.inverse(this)
-
-class Make extends Backbone.Model
-	defaults:
-		id: ''
-		title: ''
-		url: ''
 
 class MakeView extends Backbone.View
 
@@ -24,6 +16,8 @@ class MakeView extends Backbone.View
 	initialize: ->
 
 		do @getModels
+
+		@model.on 'change:show', @triggerShow
 
 		@createButton = $ '#new-make'
 
@@ -55,6 +49,13 @@ class MakeView extends Backbone.View
 
 				close: =>
 					@popup.html ''
+
+	triggerShow: =>
+
+		if @model.get 'show'
+			do @$el.show
+		else
+			do @$el.hide
 
 	initPopup: (el) ->
 
@@ -97,8 +98,6 @@ class MakeView extends Backbone.View
 						id: @model.get 'id'
 
 				do @remove
-
-
 
 	getModels: ->
 
@@ -202,19 +201,35 @@ class MakeView extends Backbone.View
 
 			location.reload()
 
-
-		
+class Make extends Backbone.Model
+	defaults:
+		id: ''
+		title: ''
+		url: ''
+		show: true
 
 class MakesCollection extends Backbone.Collection
 	model: Make
 
 class Makes extends Backbone.View
 
+	collection: new MakesCollection
+
 	initialize: ->
 
-		do @fillCollectiion
+		do @fillCollection
 
-	fillCollectiion: ->
+		@count = 10
+
+		@offset = 0
+
+		@countSelect = $ '#makes-count'
+
+		@countSelect.change @updateCount
+
+		do @updateCount
+
+	fillCollection: ->
 
 		@$el.find('.make').each (i, make) =>
 			m = new Make
@@ -222,9 +237,23 @@ class Makes extends Backbone.View
 				title: $(make).data 'title'
 				url: $(make).data 'url'
 
+			@collection.add m
+
 			v = new MakeView
 				el: make
 				model: m
+
+	updateCount: =>
+		@count = @countSelect.val()
+
+		@collection.each (model, i) =>
+
+			if i >= @count
+				model.set 'show', false
+			else
+				model.set 'show', true
+			
+
 
 new Makes
 	el: '#admin-makes'

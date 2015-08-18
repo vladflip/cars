@@ -1,2 +1,0 @@
-Models = require './Models'
-

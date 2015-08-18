@@ -257,6 +257,7 @@
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
+  translate: 0.1s ease-in;
   margin: 30px auto 0;
   position: relative;
   transition: all 0.2s linear;

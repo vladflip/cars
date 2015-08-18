@@ -10,6 +10,20 @@
 	Новая марка-модель
 </div>
 
+<div class="row">
+	<div class="col-sm-6">
+		Отображать
+		<select data-all="{{ count($makes) }}" name="" id="makes-count" class="input-sm">
+			<option value="10">10</option>
+			<option value="25">25</option>
+			<option value="50">50</option>
+			<option value="100">100</option>
+			<option value="{{ count($makes) }}">Все</option>
+		</select>
+		записей
+	</div>
+</div>
+
 <table id="admin-makes" class="table-striped table table-hover">
 
 	<thead>

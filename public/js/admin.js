@@ -250,13 +250,11 @@ module.exports = Models;
 
 },{}],2:[function(require,module,exports){
 var Make, MakeView, Makes, MakesCollection, Models,
+  bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; },
   extend = function(child, parent) { for (var key in parent) { if (hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; },
-  hasProp = {}.hasOwnProperty,
-  bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };
+  hasProp = {}.hasOwnProperty;
 
 Models = require('./Models');
-
-require('./create.coffee');
 
 Handlebars.registerHelper('ifCond', function(v1, v2, options) {
   if (v1 === v2) {
@@ -265,23 +263,6 @@ Handlebars.registerHelper('ifCond', function(v1, v2, options) {
   return options.inverse(this);
 });
 
-Make = (function(superClass) {
-  extend(Make, superClass);
-
-  function Make() {
-    return Make.__super__.constructor.apply(this, arguments);
-  }
-
-  Make.prototype.defaults = {
-    id: '',
-    title: '',
-    url: ''
-  };
-
-  return Make;
-
-})(Backbone.Model);
-
 MakeView = (function(superClass) {
   extend(MakeView, superClass);
 
@@ -289,6 +270,7 @@ MakeView = (function(superClass) {
     this.createMake = bind(this.createMake, this);
     this.saveChanges = bind(this.saveChanges, this);
     this.removeMake = bind(this.removeMake, this);
+    this.triggerShow = bind(this.triggerShow, this);
     return MakeView.__super__.constructor.apply(this, arguments);
   }
 
@@ -301,6 +283,7 @@ MakeView = (function(superClass) {
   MakeView.prototype.initialize = function() {
     var src;
     this.getModels();
+    this.model.on('change:show', this.triggerShow);
     this.createButton = $('#new-make');
     this.editButton = this.$el.find('.edit-make');
     this.deleteButton = this.$el.find('.delete-make');
@@ -318,7 +301,6 @@ MakeView = (function(superClass) {
       callbacks: {
         open: (function(_this) {
           return function() {
-            console.log('fuck');
             _this.popup.append(src);
             _this.modelsView = new Models({
               el: _this.popup.find('#admin-models')
@@ -333,6 +315,14 @@ MakeView = (function(superClass) {
         })(this)
       }
     });
+  };
+
+  MakeView.prototype.triggerShow = function() {
+    if (this.model.get('show')) {
+      return this.$el.show();
+    } else {
+      return this.$el.hide();
+    }
   };
 
   MakeView.prototype.initPopup = function(el) {
@@ -487,6 +477,24 @@ MakeView = (function(superClass) {
 
 })(Backbone.View);
 
+Make = (function(superClass) {
+  extend(Make, superClass);
+
+  function Make() {
+    return Make.__super__.constructor.apply(this, arguments);
+  }
+
+  Make.prototype.defaults = {
+    id: '',
+    title: '',
+    url: '',
+    show: true
+  };
+
+  return Make;
+
+})(Backbone.Model);
+
 MakesCollection = (function(superClass) {
   extend(MakesCollection, superClass);
 
@@ -504,14 +512,22 @@ Makes = (function(superClass) {
   extend(Makes, superClass);
 
   function Makes() {
+    this.updateCount = bind(this.updateCount, this);
     return Makes.__super__.constructor.apply(this, arguments);
   }
 
+  Makes.prototype.collection = new MakesCollection;
+
   Makes.prototype.initialize = function() {
-    return this.fillCollectiion();
+    this.fillCollection();
+    this.count = 10;
+    this.offset = 0;
+    this.countSelect = $('#makes-count');
+    this.countSelect.change(this.updateCount);
+    return this.updateCount();
   };
 
-  Makes.prototype.fillCollectiion = function() {
+  Makes.prototype.fillCollection = function() {
     return this.$el.find('.make').each((function(_this) {
       return function(i, make) {
         var m, v;
@@ -520,10 +536,24 @@ Makes = (function(superClass) {
           title: $(make).data('title'),
           url: $(make).data('url')
         });
+        _this.collection.add(m);
         return v = new MakeView({
           el: make,
           model: m
         });
+      };
+    })(this));
+  };
+
+  Makes.prototype.updateCount = function() {
+    this.count = this.countSelect.val();
+    return this.collection.each((function(_this) {
+      return function(model, i) {
+        if (i >= _this.count) {
+          return model.set('show', false);
+        } else {
+          return model.set('show', true);
+        }
       };
     })(this));
   };
@@ -535,10 +565,5 @@ Makes = (function(superClass) {
 new Makes({
   el: '#admin-makes'
 });
-
-},{"./Models":1,"./create.coffee":3}],3:[function(require,module,exports){
-var Models;
-
-Models = require('./Models');
 
 },{"./Models":1}]},{},[2]);
