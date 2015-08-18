@@ -219,6 +219,10 @@ class Makes extends Backbone.View
 
 		do @fillCollection
 
+		@search = $ '#makes-search'
+
+		@search.keyup @filter
+
 		@count = 10
 
 		@offset = 0
@@ -228,6 +232,26 @@ class Makes extends Backbone.View
 		@countSelect.change @updateCount
 
 		do @updateCount
+
+	filter: =>
+
+		search = @search.val().toLowerCase()
+
+		console.log search
+
+		@collection.each (model) =>
+
+			if search is ''
+				model.set 'show', true
+				return
+
+			title = model.get('title').toLowerCase()
+			url = model.get('url').toLowerCase()
+
+			if title.indexOf(search) is -1 and url.indexOf(search) is -1
+				model.set 'show', false
+			else
+				model.set 'show', true
 
 	fillCollection: ->
 

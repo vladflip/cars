@@ -22,6 +22,12 @@
 		</select>
 		записей
 	</div>
+	<div class="col-sm-6">
+		<div class="makes-search" style="float:right">
+			Поиск:
+			<input id="makes-search" type="search" class="form-control input-sm">
+		</div>
+	</div>
 </div>
 
 <table id="admin-makes" class="table-striped table table-hover">
