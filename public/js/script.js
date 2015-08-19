@@ -96,7 +96,7 @@ $('.sticky').stick_in_parent({
   offset_top: 25
 });
 
-$.alert = function(msg) {
+$.alert = function(msg, reload) {
   return $.magnificPopup.open({
     type: 'inline',
     closeBtnInside: true,
@@ -107,7 +107,7 @@ $.alert = function(msg) {
       open: function() {
         var content;
         content = this.content.children('.popup_content');
-        content.prepend("<p>" + msg + "</p>");
+        content.prepend("<p class='alert-message'>" + msg + "</p>");
         return content.find('.popup_button').click((function(_this) {
           return function() {
             return $.magnificPopup.instance.close();
@@ -115,7 +115,10 @@ $.alert = function(msg) {
         })(this));
       },
       close: function() {
-        return this.content.children('.popup_content').html('');
+        this.content.children('.popup_content').html('');
+        if (reload) {
+          return location.reload();
+        }
       }
     }
   });
@@ -3449,7 +3452,8 @@ $('#add-feedback').click(function() {
       console.log(response);
       $(_this).preload('stop');
       setTimeout(function() {
-        return $.magnificPopup.instance.close();
+        $.magnificPopup.instance.close();
+        return $.alert('Ваш отзыв об авто добавлен и будет доступен на сайте после проверки.');
       }, 1000);
       return setTimeout(function() {
         return $(_this).preload('reset');
@@ -3573,7 +3577,7 @@ button.click(function() {
       $(_this).preload('stop');
       return setTimeout(function() {
         $.magnificPopup.instance.close();
-        return location.reload();
+        return $.alert('Ваша заявка отправлена! Мы уведомим Вас, как только поступят ответы от компаний.', true);
       }, 1000);
     };
   })(this));

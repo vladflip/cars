@@ -35,7 +35,7 @@
 		
 		@include('inc.footer')
 
-		<div id="alert-popup" class="popup mfp-hide popup--settings">
+		<div id="alert-popup" class="popup mfp-hide popup--alert">
 
 			<div class="popup_content">
 				<div class="popup_button">Закрыть</div>

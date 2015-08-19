@@ -97,5 +97,6 @@ button.click ->
 
 			setTimeout ->
 				$.magnificPopup.instance.close()
-				location.reload()
+				
+				$.alert 'Ваша заявка отправлена! Мы уведомим Вас, как только поступят ответы от компаний.', true
 			, 1000

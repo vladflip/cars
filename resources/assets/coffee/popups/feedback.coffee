@@ -318,6 +318,7 @@ $('#add-feedback').click ->
 
 			setTimeout ->
 				$.magnificPopup.instance.close()
+				$.alert 'Ваш отзыв об авто добавлен и будет доступен на сайте после проверки.'
 			, 1000
 			setTimeout =>
 				$(@).preload('reset')

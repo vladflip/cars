@@ -42,7 +42,7 @@ $.fn.preload = (command) ->
 $('.sticky').stick_in_parent
 	offset_top: 25
 
-$.alert = (msg) ->
+$.alert = (msg, reload) ->
 
 	$.magnificPopup.open
 		type: 'inline'
@@ -53,13 +53,16 @@ $.alert = (msg) ->
 		callbacks:
 			open: ->
 				content = @content.children '.popup_content'
-				content.prepend "<p>#{msg}</p>"
+				content.prepend "<p class='alert-message'>#{msg}</p>"
 
 				content.find('.popup_button').click =>
 					$.magnificPopup.instance.close()
 
 			close: ->
 				@content.children('.popup_content').html('')
+				
+				if reload
+					location.reload()
 
 
 $.HandlebarsFactory = (id) ->
