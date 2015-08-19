@@ -25,6 +25,11 @@
 
 				<div class="requests_body requests_body--yellow">
 					{{ $request->text }}
+					<p class="requests_additional">
+						Тип: {{ $request->new ? 'новая' : '' }} {{ $request->old ? ', бу' : '' }} <br>
+						Машина: {{ $request->type->title }} -> {{ $request->make->title }} -> {{ $request->model->title }} <br>
+						Год выпуска: {{ $request->year }}
+					</p>
 				</div>
 
 				<div class="requests_time">

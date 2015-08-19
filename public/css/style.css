@@ -1990,6 +1990,11 @@ ul.create-company-spec-selectBox-dropdown-menu {
   margin-top: 25px;
   padding: 0 35px;
 }
+.requests_additional {
+  margin: 14px 0 0 0;
+  font-style: italic;
+  font-size: 13px;
+}
 .requests_received,
 .requests_sent {
   font-size: 16px;

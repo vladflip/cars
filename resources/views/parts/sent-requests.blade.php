@@ -22,6 +22,11 @@
 					<div class="requests_body 
 					{{ $request->canceled_by_user ? 'requests_body--grey' : 'requests_body--yellow' }}">
 						{{ $request->text }}
+						<p class="requests_additional">
+							Тип: {{ $request->new ? 'новая' : '' }} {{ $request->old ? ', бу' : '' }} <br>
+							Машина: {{ $request->type->title }} -> {{ $request->make->title }} -> {{ $request->model->title }} <br>
+							Год выпуска: {{ $request->year }}
+						</p>
 					</div>
 
 					@if( ! $request->canceled_by_user )
@@ -67,15 +72,14 @@
 
 						</div>
 
-						<div class="sent-requests_response-contacts">
-							{{ $response->company->address }} <br>
-							{{ $response->company->phone }}
-						</div>
-
 					</div>
 
 					<div class="response_body requests_body--grey">
 						{{ $response->text }}
+						<p class="requests_additional">
+							Адрес: {{ $response->company->address }} <br>
+							Телефон: {{ $response->company->phone }}
+						</p>
 					</div>
 
 				</div>

@@ -46,6 +46,9 @@ class UserController extends Controller {
 					$q->orderBy('created_at', 'desc');
 					$q->with('company');
 				}]);
+				$q->with('make');
+				$q->with('type');
+				$q->with('model');
 
 				$q->orderBy('updated_at', 'desc');
 
