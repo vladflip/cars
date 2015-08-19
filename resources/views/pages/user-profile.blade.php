@@ -25,8 +25,10 @@
 									href="{{ $user->is_ready() ? '#create-company' : '#fill-up-profile-popup' }}">
 										Создать компанию
 									</div>
+								@else
+									<span style="font-size:14px; color:#777">Ваша компания ожидает модерацию</span>
 								@endif
-								
+
 							</div>
 
 							<div id="profile-settings" class="profile_settings" href="#settings-popup">

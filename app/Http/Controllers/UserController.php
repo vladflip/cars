@@ -50,8 +50,9 @@ class UserController extends Controller {
 				$q->with('type');
 				$q->with('model');
 
+				$q->orderBy('canceled_by_user');
 				$q->orderBy('updated_at', 'desc');
-
+				
 			}])
 			->find(Auth::id());
 
