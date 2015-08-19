@@ -41,7 +41,10 @@
 							</div>
 
 							<div class="profile-info_logo profile--hidden" id="user-ava">
-								<img src="{{ URL::to('/') . '/' . $user->ava  }}" alt="">
+								<img
+									src="{{ $user->ava ? 
+									URL::to('/') . '/' . $user->ava : 
+									URL::to('/') . '/img/noavatar.png' }}" alt="">
 							</div>
 							
 							<input type="file" style="display:none" id="user-ava-file">
@@ -87,18 +90,18 @@
 
 							</div>
 
-							<div id="profile-user-info" class="profile--hidden">
+							<div id="profile-user-info" class="profile_row profile--hidden">
+								<div class="profile_label">Имя:</div>
 								<h3 id="profile-user-name" class="profile-info_name">
-									<span>{{ $user->name }}</span>
+									<span>{{ $user->name ? $user->name : $user->email }}</span>
 									<span id="profile-user-pen" href="#edit-user-profile-popup" class="profile-info_pen">
 									</span>
 								</h3>
-							</div>
+							</div>						
 						
-						
-							<div class="profile_row">
+							<div id="profile-company-tags" class="profile_row">
 								<div class="profile_label">Специализация:</div>
-								<ul id="profile-company-tags" class="profile-info_tags">
+								<ul class="profile-info_tags">
 									
 									<li>{{ $user->company->spec->title }}</li>
 									<li>{{ $user->company->type->title }}</li>
