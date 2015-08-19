@@ -219,39 +219,22 @@ class Makes extends Backbone.View
 
 		do @fillCollection
 
-		@search = $ '#makes-search'
+		console.log @$el
 
-		@search.keyup @filter
-
-		@count = 10
-
-		@offset = 0
-
-		@countSelect = $ '#makes-count'
-
-		@countSelect.change @updateCount
-
-		do @updateCount
-
-	filter: =>
-
-		search = @search.val().toLowerCase()
-
-		console.log search
-
-		@collection.each (model) =>
-
-			if search is ''
-				model.set 'show', true
-				return
-
-			title = model.get('title').toLowerCase()
-			url = model.get('url').toLowerCase()
-
-			if title.indexOf(search) is -1 and url.indexOf(search) is -1
-				model.set 'show', false
-			else
-				model.set 'show', true
+		@$el.DataTable
+			language:
+				'search': 'Поиск: '
+				'infoEmpty': 'Записи с 0 по 0 из 0'
+				'infoFiltered': '- отфильтровано из _MAX_ записей'
+				'info': 'Записи с _START_ по _END_ из _TOTAL_'
+				'emptyTable': 'нет записей'
+				'paginate': 
+					'first': 'Первая'
+					'previous': '&larr;'
+					'next': '&rarr;'
+					'last': 'Последняя'
+				'zeroRecords': 'Не найдено подходящих записей.'
+				'lengthMenu': 'Отображать _MENU_ записей'
 
 	fillCollection: ->
 
@@ -266,18 +249,6 @@ class Makes extends Backbone.View
 			v = new MakeView
 				el: make
 				model: m
-
-	updateCount: =>
-		@count = @countSelect.val()
-
-		@collection.each (model, i) =>
-
-			if i >= @count
-				model.set 'show', false
-			else
-				model.set 'show', true
-			
-
 
 new Makes
 	el: '#admin-makes'

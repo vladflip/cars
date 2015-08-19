@@ -512,8 +512,6 @@ Makes = (function(superClass) {
   extend(Makes, superClass);
 
   function Makes() {
-    this.updateCount = bind(this.updateCount, this);
-    this.filter = bind(this.filter, this);
     return Makes.__super__.constructor.apply(this, arguments);
   }
 
@@ -521,35 +519,24 @@ Makes = (function(superClass) {
 
   Makes.prototype.initialize = function() {
     this.fillCollection();
-    this.search = $('#makes-search');
-    this.search.keyup(this.filter);
-    this.count = 10;
-    this.offset = 0;
-    this.countSelect = $('#makes-count');
-    this.countSelect.change(this.updateCount);
-    return this.updateCount();
-  };
-
-  Makes.prototype.filter = function() {
-    var search;
-    search = this.search.val().toLowerCase();
-    console.log(search);
-    return this.collection.each((function(_this) {
-      return function(model) {
-        var title, url;
-        if (search === '') {
-          model.set('show', true);
-          return;
-        }
-        title = model.get('title').toLowerCase();
-        url = model.get('url').toLowerCase();
-        if (title.indexOf(search) === -1 && url.indexOf(search) === -1) {
-          return model.set('show', false);
-        } else {
-          return model.set('show', true);
-        }
-      };
-    })(this));
+    console.log(this.$el);
+    return this.$el.DataTable({
+      language: {
+        'search': 'Поиск: ',
+        'infoEmpty': 'Записи с 0 по 0 из 0',
+        'infoFiltered': '- отфильтровано из _MAX_ записей',
+        'info': 'Записи с _START_ по _END_ из _TOTAL_',
+        'emptyTable': 'нет записей',
+        'paginate': {
+          'first': 'Первая',
+          'previous': '&larr;',
+          'next': '&rarr;',
+          'last': 'Последняя'
+        },
+        'zeroRecords': 'Не найдено подходящих записей.',
+        'lengthMenu': 'Отображать _MENU_ записей'
+      }
+    });
   };
 
   Makes.prototype.fillCollection = function() {
@@ -566,19 +553,6 @@ Makes = (function(superClass) {
           el: make,
           model: m
         });
-      };
-    })(this));
-  };
-
-  Makes.prototype.updateCount = function() {
-    this.count = this.countSelect.val();
-    return this.collection.each((function(_this) {
-      return function(model, i) {
-        if (i >= _this.count) {
-          return model.set('show', false);
-        } else {
-          return model.set('show', true);
-        }
       };
     })(this));
   };
