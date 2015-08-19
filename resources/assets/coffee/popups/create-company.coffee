@@ -185,5 +185,5 @@ submit.click ->
 
 			setTimeout ->
 				$.magnificPopup.instance.close()
-				location.href = response
+				$.alert 'Ваша компания добавлена и ожидает проверки.'
 			, 1000

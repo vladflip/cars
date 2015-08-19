@@ -20,11 +20,13 @@
 									Мой профиль
 								</div>
 								
-								<div id="create-company-button" class="profile-info_company" 
-								href="{{ $user->is_ready() ? '#create-company' : '#fill-up-profile-popup' }}">
-									Создать компанию
-								</div>
-
+								@if( ! $user->company)
+									<div id="create-company-button" class="profile-info_company" 
+									href="{{ $user->is_ready() ? '#create-company' : '#fill-up-profile-popup' }}">
+										Создать компанию
+									</div>
+								@endif
+								
 							</div>
 
 							<div id="profile-settings" class="profile_settings" href="#settings-popup">

@@ -3004,7 +3004,7 @@ submit.click(function() {
       $(_this).preload('stop');
       return setTimeout(function() {
         $.magnificPopup.instance.close();
-        return location.href = response;
+        return $.alert('Ваша компания добавлена и ожидает проверки.');
       }, 1000);
     };
   })(this));

@@ -11,7 +11,7 @@ class UserController extends Controller {
 
 	public function profile() {
 
-		if(Auth::user()->company){
+		if(Auth::user()->company && Auth::user()->company->status){
 
 			$user = \App\User::with(['company' => function($q){
 				$q->with('spec');
