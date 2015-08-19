@@ -41,11 +41,6 @@ Route::group(['prefix' => 'user'], function(){
 		'as' => 'user-create',
 		'uses' => 'UserController@create'
 	]);
-	
-	post('auth', [
-		'as' => 'user-auth',
-		'uses' => 'UserController@authenticate'
-	]);
 
 	get('logout', [
 		'as' => 'user-logout',
@@ -136,6 +131,11 @@ Route::group(['prefix' => 'feedback'], function(){
 });
 
 Route::group(['prefix' => 'api', 'middleware' => 'api'], function(){
+
+	post('user/auth', [
+			'as' => 'user-auth',
+			'uses' => 'UserController@authenticate'
+		]);
 
 	Route::group(['prefix' => 'user', 'middleware' => 'auth'], function() {
 

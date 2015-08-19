@@ -192,12 +192,11 @@ class UserController extends Controller {
 
 		if(Auth::attempt(['email' => $input->email, 'password' => $input->password], true)){
 
-			return redirect()->route('profile');
+			return route('profile');
 
 		} else {
 
-			// return view auth.error
-			return 'нет такого юзера';
+			return 'mismatch';
 
 		}
 

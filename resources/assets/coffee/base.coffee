@@ -59,7 +59,7 @@ $.alert = (msg, reload) ->
 					$.magnificPopup.instance.close()
 
 			close: ->
-				@content.children('.popup_content').html('')
+				@content.children('.popup_content').children('.alert-message').html('')
 				
 				if reload
 					location.reload()

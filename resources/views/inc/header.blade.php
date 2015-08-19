@@ -64,20 +64,16 @@
 				</a>
 			
 			@else
-
-			{!! Form::open(['method' => 'POST', 'route' => 'user-auth', 'id' => 'user-auth-form']) !!}
 				
-				<div class="header_inputs">
+			<div id="user-auth" class="header_inputs">
 
-					<input name="email" class="header_login" type="email" placeholder="Почта">
-					
-					<input name="password" class="header_pass" type="password" placeholder="Пароль">
+				<input name="email" class="header_login" type="email" placeholder="Почта">
+				
+				<input name="password" class="header_pass" type="password" placeholder="Пароль">
 
-					<div id="user-auth-button" class="header_submit-arrow"></div>
+				<div id="user-auth-button" class="header_submit-arrow"></div>
 
-				</div>
-
-			{!! Form::close() !!}
+			</div>
 			
 			@endif
 
