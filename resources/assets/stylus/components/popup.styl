@@ -18,6 +18,10 @@
 		margin auto
 		background url(../img/redx.png) no-repeat center
 		user-select none
+		opacity .7
+		
+		&:hover
+			opacity 1
 		
 		&--left
 			left -20px
@@ -39,6 +43,10 @@
 		border-radius 2px
 		display inline-block
 		user-select none
+		
+		&:hover
+			background-color #FFE136
+			
 		
 		&--flex
 			position static
@@ -64,6 +72,9 @@
 		padding 10px
 		cursor pointer
 		color $color
+		
+		&:hover
+			background-color #FFE136
 		
 	&_header-field
 		display flex
@@ -231,8 +242,8 @@
 			background url(../img/success.png) no-repeat center
 			background-size contain
 			
-		&:hover
-			button--hover($yellow)
+	&:hover
+		button--hover($yellow)
 
 .selectBox-disabled
 	color #ccc

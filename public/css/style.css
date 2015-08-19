@@ -459,6 +459,10 @@ ul.create-company-spec-selectBox-dropdown-menu {
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
+  opacity: 0.7;
+}
+.popup_redx:hover {
+  opacity: 1;
 }
 .popup_redx--left {
   left: -20px;
@@ -484,6 +488,9 @@ ul.create-company-spec-selectBox-dropdown-menu {
       -ms-user-select: none;
           user-select: none;
 }
+.popup_plus-sign:hover {
+  background-color: #ffe136;
+}
 .popup_plus-sign--flex {
   position: static;
   margin-left: 15px;
@@ -508,6 +515,9 @@ ul.create-company-spec-selectBox-dropdown-menu {
   padding: 10px;
   cursor: pointer;
   color: #2d2d2d;
+}
+.popup_pick-file:hover {
+  background-color: #ffe136;
 }
 .popup_header-field {
   display: -webkit-flex;
@@ -711,7 +721,7 @@ ul.create-company-spec-selectBox-dropdown-menu {
   background: url("../img/success.png") no-repeat center;
   background-size: contain;
 }
-.popup_button:hover {
+.popup:hover {
   background-color: rgba(243,223,109,0.9);
 }
 .selectBox-disabled {
@@ -779,8 +789,9 @@ ul.create-company-spec-selectBox-dropdown-menu {
   background: linear-gradient(top, #ffe58a 0%, #f3df6d 50%, #f3df6d 51%, #f3c66d 100%);
 }
 .search_button:hover {
-  color: #343333;
-  opacity: 0.9;
+  color: #000;
+  opacity: 0.85;
+  box-shadow: 0 8px 4px -6px rgba(42,42,42,0.58);
 }
 .specs {
   border-radius: 2px;
@@ -920,6 +931,9 @@ ul.create-company-spec-selectBox-dropdown-menu {
   transition: 0.2s ease;
   margin-top: 15px;
   display: none;
+}
+.comments_send-button:hover {
+  background-color: rgba(243,223,109,0.9);
 }
 .comments_textarea {
   background-color: #fff;
@@ -1219,6 +1233,15 @@ ul.create-company-spec-selectBox-dropdown-menu {
   -webkit-align-self: flex-end;
       -ms-flex-item-align: end;
           align-self: flex-end;
+  box-shadow: inset 2px 2px 3px #000;
+  text-shadow: 1px 3px 4px #000;
+  background-color: rgba(0,0,0,0.3);
+  transition: 0.2s ease;
+}
+.footer_sign-up-button:hover {
+  box-shadow: inset 2px 2px 3px rgba(0,0,0,0);
+  text-shadow: 1px 3px 4px rgba(0,0,0,0);
+  background-color: rgba(255,255,255,0.1);
 }
 .footer_logo {
   background: url("../img/footer_logo.jpg") center no-repeat;
@@ -1448,6 +1471,15 @@ ul.create-company-spec-selectBox-dropdown-menu {
   color: #fff;
   width: 100px;
   height: 30px;
+  box-shadow: inset 2px 2px 3px #000;
+  text-shadow: 1px 3px 4px #000;
+  background-color: rgba(0,0,0,0.3);
+  transition: 0.2s ease;
+}
+.menu_sign-up:hover {
+  box-shadow: inset 2px 2px 3px rgba(0,0,0,0);
+  text-shadow: 1px 3px 4px rgba(0,0,0,0);
+  background-color: rgba(255,255,255,0.1);
 }
 .catalog {
   position: relative;
