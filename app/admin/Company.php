@@ -23,6 +23,12 @@ Admin::model(App\Company::class)->title('Компании')
 	FormItem::select('status', 'Статус')
 	->list([1 => 'Подтвержден', 2 => 'Отклонен']);
 
-	FormItem::text('name', 'Name');
+	FormItem::text('name', 'Название');
+
+	FormItem::textarea('about', 'О компании');
+
+	FormItem::text('phone', 'Телефон');
+
+	FormItem::text('address', 'Адрес');
 
 });
