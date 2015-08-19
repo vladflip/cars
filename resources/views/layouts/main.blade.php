@@ -35,6 +35,14 @@
 		
 		@include('inc.footer')
 
+		<div id="alert-popup" class="popup mfp-hide popup--settings">
+
+			<div class="popup_content">
+				<div class="popup_button">Закрыть</div>
+			</div>
+
+		</div>
+
 		<script src="{{ URL::to('/') }}/js/vendor/jquery.js"></script>
 		<script src="{{ URL::to('/') }}/js/vendor/jquery-ui.js"></script>
 		<script src="{{ URL::to('/') }}/js/vendor/photoset-grid.js"></script>

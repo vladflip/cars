@@ -96,6 +96,31 @@ $('.sticky').stick_in_parent({
   offset_top: 25
 });
 
+$.alert = function(msg) {
+  return $.magnificPopup.open({
+    type: 'inline',
+    closeBtnInside: true,
+    items: {
+      src: '#alert-popup'
+    },
+    callbacks: {
+      open: function() {
+        var content;
+        content = this.content.children('.popup_content');
+        content.prepend("<p>" + msg + "</p>");
+        return content.find('.popup_button').click((function(_this) {
+          return function() {
+            return $.magnificPopup.instance.close();
+          };
+        })(this));
+      },
+      close: function() {
+        return this.content.children('.popup_content').html('');
+      }
+    }
+  });
+};
+
 $.HandlebarsFactory = function(id) {
   if ($(id).get(0)) {
     return Handlebars.compile($(id).html());

@@ -42,6 +42,26 @@ $.fn.preload = (command) ->
 $('.sticky').stick_in_parent
 	offset_top: 25
 
+$.alert = (msg) ->
+
+	$.magnificPopup.open
+		type: 'inline'
+		closeBtnInside: true
+		items:
+			src: '#alert-popup'
+
+		callbacks:
+			open: ->
+				content = @content.children '.popup_content'
+				content.prepend "<p>#{msg}</p>"
+
+				content.find('.popup_button').click =>
+					$.magnificPopup.instance.close()
+
+			close: ->
+				@content.children('.popup_content').html('')
+
+
 $.HandlebarsFactory = (id) ->
 	if $(id).get 0
 		return Handlebars.compile $(id).html()
