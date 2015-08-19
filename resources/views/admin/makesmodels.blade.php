@@ -52,21 +52,23 @@
 			<td>{{ $make->title }}</td>
 			<td>{{ $make->name }}</td>
 			<td>
-				<table class="table-striped table">
+				<div style="max-height:200px; overflow-y:auto">
+					<table class="table-striped table">
+						
+						@foreach($make->models as $model)
 					
-					@foreach($make->models as $model)
-
-						<tr class="model"
-						data-id="{{ $model->id }}"
-						data-title="{{ $model->title }}"
-						data-url="{{ $model->name }}"
-						data-type-id="{{ $model->type->id }}"
-						data-type-title="{{ $model->type->title }}">
-							<td>{{ $model->title }}</td>
-						</tr>
-
-					@endforeach
-				</table>
+							<tr class="model"
+							data-id="{{ $model->id }}"
+							data-title="{{ $model->title }}"
+							data-url="{{ $model->name }}"
+							data-type-id="{{ $model->type->id }}"
+							data-type-title="{{ $model->type->title }}">
+								<td>{{ $model->title }}</td>
+							</tr>
+					
+						@endforeach
+					</table>
+				</div>
 			</td>
 			<td>
 				<div class="btn btn-default btn-sm edit-make">
