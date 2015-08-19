@@ -459,6 +459,10 @@ ul.create-company-spec-selectBox-dropdown-menu {
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
+  opacity: 0.7;
+}
+.popup_redx:hover {
+  opacity: 1;
 }
 .popup_redx--left {
   left: -20px;
@@ -484,6 +488,9 @@ ul.create-company-spec-selectBox-dropdown-menu {
       -ms-user-select: none;
           user-select: none;
 }
+.popup_plus-sign:hover {
+  background-color: #ffe136;
+}
 .popup_plus-sign--flex {
   position: static;
   margin-left: 15px;
@@ -508,6 +515,9 @@ ul.create-company-spec-selectBox-dropdown-menu {
   padding: 10px;
   cursor: pointer;
   color: #2d2d2d;
+}
+.popup_pick-file:hover {
+  background-color: #ffe136;
 }
 .popup_header-field {
   display: -webkit-flex;
@@ -710,7 +720,7 @@ ul.create-company-spec-selectBox-dropdown-menu {
   background: url("../img/success.png") no-repeat center;
   background-size: contain;
 }
-.popup_button:hover {
+.popup:hover {
   background-color: rgba(243,223,109,0.9);
 }
 .selectBox-disabled {
@@ -778,8 +788,9 @@ ul.create-company-spec-selectBox-dropdown-menu {
   background: linear-gradient(top, #ffe58a 0%, #f3df6d 50%, #f3df6d 51%, #f3c66d 100%);
 }
 .search_button:hover {
-  color: #343333;
-  opacity: 0.9;
+  color: #000;
+  opacity: 0.85;
+  box-shadow: 0 8px 4px -6px rgba(42,42,42,0.58);
 }
 .specs {
   border-radius: 2px;
@@ -919,6 +930,9 @@ ul.create-company-spec-selectBox-dropdown-menu {
   transition: 0.2s ease;
   margin-top: 15px;
   display: none;
+}
+.comments_send-button:hover {
+  background-color: rgba(243,223,109,0.9);
 }
 .comments_textarea {
   background-color: #fff;
