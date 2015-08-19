@@ -519,7 +519,7 @@ ul.create-company-spec-selectBox-dropdown-menu {
   cursor: pointer;
   color: #2d2d2d;
 }
-.popup:hover {
+.popup_pick-file:hover {
   background-color: #ffe136;
 }
 .popup_header-field {
