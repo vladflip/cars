@@ -8,7 +8,9 @@ class FeedbackController extends Controller {
 
 		foreach ($types as $type) {
 			
-			$makes = \App\Make::has('feedbacks')
+			$makes = \App\Make::whereHas('feedbacks', function($q){
+				$q->whereStatus(1);
+			})
 			->whereHas('models', function($q) use($type){
 				$q->whereTypeId($type->id);
 			})
@@ -46,6 +48,7 @@ class FeedbackController extends Controller {
 		->with('user')
 		->with('likes')
 		->with('dislikes')
+		->whereStatus(1)
 		->orderBy('created_at', 'desc')
 		// ->orderByRaw('(likes_count - dislikes_count) * -1')
 		->get();
@@ -86,6 +89,7 @@ class FeedbackController extends Controller {
 		->with('likes')
 		->with('dislikes')
 		->orderBy('created_at', 'DESC')
+		->whereStatus(1)
 		->get();
 
 		$bread = ['model' => $mo, 'make' => $ma, 'type' => $t];
@@ -100,6 +104,9 @@ class FeedbackController extends Controller {
 	public function mention($id) {
 
 		$f = \App\Feedback::select('id')->find($id);
+
+		if($f->status != 1)
+			abort(404);
 
 		if(!$f)
 			abort(404);
