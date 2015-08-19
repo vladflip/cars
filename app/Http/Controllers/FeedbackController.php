@@ -127,7 +127,10 @@ class FeedbackController extends Controller {
 		$mention = \App\Feedback::with('user')
 			->with('likes')
 			->with('dislikes')
-			->with('comments.user')
+			->with(['comments' => function($q){
+				$q->whereStatus(1);
+				$q->with('user');
+			}])
 			->with('type')
 			->with('model')
 			->with('make')
