@@ -6,7 +6,7 @@
   margin: 25px 0 0 35px;
 }
 hr {
-  border-top: 1px solid #f0f0f0;
+  border-top: 1px solid #bbb;
   border-right: 0;
   border-bottom: 0;
   border-left: 0;
@@ -16,7 +16,7 @@ body {
   margin: 0;
   font-family: Roboto, sans-serif;
   font-weight: 300;
-  background-color: #fefefe;
+  background-color: #fafafa;
 }
 a {
   color: inherit;
@@ -24,9 +24,6 @@ a {
   height: 100%;
   width: 100%;
   display: inline-block;
-}
-a:hover {
-  opacity: 0.8;
 }
 ul,
 ol {
@@ -1008,7 +1005,7 @@ ul.create-company-spec-selectBox-dropdown-menu {
   -webkit-align-items: center;
       -ms-flex-align: center;
           align-items: center;
-  border: 1px solid #efefef;
+  border: 1px solid #bbb;
   border-radius: 2px;
 }
 .feedback_h3 {
@@ -1262,7 +1259,7 @@ ul.create-company-spec-selectBox-dropdown-menu {
   padding-right: 0;
 }
 .header {
-  background-color: #fff;
+  background-color: #fffffa;
 }
 .header .container {
   height: 100px;
@@ -1511,7 +1508,7 @@ ul.create-company-spec-selectBox-dropdown-menu {
   margin-right: 10px;
   width: 598px;
   background-color: #fff;
-  border: 1px solid #efefef;
+  border: 1px solid #bbb;
   border-radius: 2px;
 }
 .catalog_right {
@@ -1542,7 +1539,7 @@ ul.create-company-spec-selectBox-dropdown-menu {
   margin-right: 10px;
   background-color: #fff;
   width: 868px;
-  border: 1px solid #efefef;
+  border: 1px solid #bbb;
   border-radius: 2px;
 }
 .feed_right {
@@ -1589,7 +1586,7 @@ ul.create-company-spec-selectBox-dropdown-menu {
   width: 598px;
   background-color: #fff;
   border-radius: 2px;
-  border: 1px solid #efefef;
+  border: 1px solid #bbb;
   border-radius: 2px;
   position: relative;
 }
@@ -1773,7 +1770,7 @@ ul.create-company-spec-selectBox-dropdown-menu {
   margin-right: 10px;
   background-color: #fff;
   width: 868px;
-  border: 1px solid #efefef;
+  border: 1px solid #bbb;
   border-radius: 2px;
   padding: 15px 25px;
 }
@@ -1828,7 +1825,7 @@ ul.create-company-spec-selectBox-dropdown-menu {
   float: left;
   width: 868px;
   background-color: #fff;
-  border: 1px solid #efefef;
+  border: 1px solid #bbb;
   border-radius: 2px;
 }
 .profile_right {
