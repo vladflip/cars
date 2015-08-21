@@ -2,7 +2,7 @@
 	
 	<div class="container">
 		
-		<div>
+		<div class="header_box">
 			<div class="header_logo"></div>
 			
 			<div class="header_title">
@@ -10,7 +10,7 @@
 			</div>
 		</div>
 
-		<div>
+		<div class="header_user-box">
 
 			@if(Auth::check())
 			

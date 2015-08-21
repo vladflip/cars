@@ -1,6 +1,6 @@
 <div class="specs sticky">
 					
-	<h3 class="specs_header">Каталог Организаций</h3>
+	<h3 class="specs_header">Каталог организаций</h3>
 
 	<ul class="specs_menu">
 		

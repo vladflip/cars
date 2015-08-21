@@ -1290,6 +1290,10 @@ ul.create-company-spec-selectBox-dropdown-menu {
       -ms-flex-pack: justify;
           justify-content: space-between;
   padding: 0 10px;
+  position: relative;
+}
+.header_box {
+  width: 100%;
 }
 .header_logo {
   background: url("../img/logo.jpg") center no-repeat;
@@ -1363,6 +1367,7 @@ ul.create-company-spec-selectBox-dropdown-menu {
   top: 4px;
   cursor: pointer;
 }
+.header_user-box,
 .header_user-info {
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -1377,20 +1382,24 @@ ul.create-company-spec-selectBox-dropdown-menu {
   height: 80px;
   position: relative;
 }
+.header_user-box_names,
 .header_user-info_names {
   margin: 0 20px;
   transition: opacity 0.3s ease-in-out;
 }
+.header_user-box_names h5,
 .header_user-info_names h5 {
   margin: 0;
   font-weight: 400;
 }
+.header_user-box_company-name,
 .header_user-info_company-name {
   color: #aaa;
   font-weight: 300;
   font-size: 12px;
   margin-top: 5px;
 }
+.header_user-box_ava,
 .header_user-info_ava {
   width: 40px;
   height: 40px;
@@ -1400,6 +1409,7 @@ ul.create-company-spec-selectBox-dropdown-menu {
   background-position: center;
   transition: opacity 0.3s ease-in-out;
 }
+.header_user-box_arrow,
 .header_user-info_arrow {
   background: url("../img/profile-arrow.png") center no-repeat;
   width: 18px;
@@ -1408,13 +1418,17 @@ ul.create-company-spec-selectBox-dropdown-menu {
   left: 0;
   transition: left 0.3s ease-in-out;
 }
+.header_user-box:hover .header_user-box_arrow,
 .header_user-info:hover .header_user-info_arrow {
   left: 10px;
 }
+.header_user-box:hover .header_user-box_ava,
 .header_user-info:hover .header_user-info_ava,
+.header_user-box:hover .header_user-box_names,
 .header_user-info:hover .header_user-info_names {
   opacity: 0.6;
 }
+.header_user-box_notification,
 .header_user-info_notification {
   background-color: #f3df6d;
   padding: 2px 5px;
