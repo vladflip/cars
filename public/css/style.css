@@ -1296,7 +1296,7 @@ ul.create-company-spec-selectBox-dropdown-menu {
   width: 100%;
 }
 .header_logo {
-  background: url("../img/logo.jpg") center no-repeat;
+  background: url("../img/komtrans-logo.png") center no-repeat;
   background-size: 100%;
   width: 225px;
   height: 40px;
@@ -1388,6 +1388,7 @@ ul.create-company-spec-selectBox-dropdown-menu {
   cursor: pointer;
   height: 80px;
   position: relative;
+  right: 10px;
 }
 .header_user-info_names {
   margin: 0 20px;
