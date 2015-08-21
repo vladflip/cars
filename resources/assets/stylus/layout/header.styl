@@ -1,5 +1,5 @@
 .header
-	background-color white
+	background-color #FFFFFA
 
 	.container
 		height 100px
@@ -9,6 +9,10 @@
 		justify-content space-between
 		// -----------------------------
 		padding 0 10px
+		position relative
+		
+	&_box
+		width 100%
 	
 	&_logo
 		background url(../img/logo.jpg) center no-repeat
@@ -18,11 +22,12 @@
 	
 	&_title
 		color $color
-		font-weight 300
-		font-size 13px
+		font-weight 400
+		font-size 14px
 		word-spacing 2px
 		margin-top 10px
 		font-style italic
+		
 	
 	&_inputs
 		display flex
@@ -61,6 +66,11 @@
 		right 4px
 		top 4px
 		cursor pointer
+		
+	&_user-box
+		position absolute
+		top 0
+		right 0
 			
 	&_user-info
 		display flex

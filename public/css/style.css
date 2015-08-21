@@ -6,7 +6,7 @@
   margin: 25px 0 0 35px;
 }
 hr {
-  border-top: 1px solid #f0f0f0;
+  border-top: 1px solid #bbb;
   border-right: 0;
   border-bottom: 0;
   border-left: 0;
@@ -16,7 +16,7 @@ body {
   margin: 0;
   font-family: Roboto, sans-serif;
   font-weight: 300;
-  background-color: #fefefe;
+  background-color: #fafafa;
 }
 a {
   color: inherit;
@@ -24,9 +24,6 @@ a {
   height: 100%;
   width: 100%;
   display: inline-block;
-}
-a:hover {
-  opacity: 0.8;
 }
 ul,
 ol {
@@ -803,28 +800,41 @@ ul.create-company-spec-selectBox-dropdown-menu {
   box-shadow: 0 8px 4px -6px rgba(42,42,42,0.58);
 }
 .specs {
-  border-radius: 2px;
+  border-radius: 3px 0 0 3px;
   background-color: #fff;
   padding: 25px;
-  border-left: 3px solid #f3df6d;
-  border-right: 1px solid #efefef;
-  border-top: 1px solid #efefef;
-  border-bottom: 1px solid #efefef;
+  border-left: 3px solid #727272;
+  border-right: 1px solid #bbb;
+  border-top: 1px solid #bbb;
+  border-bottom: 1px solid #bbb;
+  transition: 0.2s ease-in;
+}
+.specs:hover {
+  border-color: #f4e177;
 }
 .specs_header {
   margin: 0;
+  color: #2d2d2d;
 }
 .specs_menu {
   list-style: none;
   font-size: 13px;
-  margin: 20px 0 0 0;
+  margin: 20px 0 0 20px;
   padding: 0;
+  list-style-type: disc;
 }
 .specs_menu li {
   margin-bottom: 15px;
+  color: #727272;
 }
 .specs_menu li:last-child {
   margin-bottom: 0;
+}
+.specs_menu li a {
+  color: #222;
+}
+.specs_menu li a:hover {
+  color: #000;
 }
 .specs_active {
   color: #ccc;
@@ -1015,8 +1025,12 @@ ul.create-company-spec-selectBox-dropdown-menu {
   -webkit-align-items: center;
       -ms-flex-align: center;
           align-items: center;
-  border: 1px solid #efefef;
+  border: 1px solid #bbb;
   border-radius: 2px;
+  transition: 0.2s ease-in;
+}
+.feedback:hover {
+  border: 1px solid #f4e177;
 }
 .feedback_h3 {
   font-size: 16px;
@@ -1269,7 +1283,7 @@ ul.create-company-spec-selectBox-dropdown-menu {
   padding-right: 0;
 }
 .header {
-  background-color: #fff;
+  background-color: #fffffa;
 }
 .header .container {
   height: 100px;
@@ -1283,6 +1297,10 @@ ul.create-company-spec-selectBox-dropdown-menu {
       -ms-flex-pack: justify;
           justify-content: space-between;
   padding: 0 10px;
+  position: relative;
+}
+.header_box {
+  width: 100%;
 }
 .header_logo {
   background: url("../img/logo.jpg") center no-repeat;
@@ -1292,8 +1310,8 @@ ul.create-company-spec-selectBox-dropdown-menu {
 }
 .header_title {
   color: #2d2d2d;
-  font-weight: 300;
-  font-size: 13px;
+  font-weight: 400;
+  font-size: 14px;
   word-spacing: 2px;
   margin-top: 10px;
   font-style: italic;
@@ -1355,6 +1373,11 @@ ul.create-company-spec-selectBox-dropdown-menu {
   right: 4px;
   top: 4px;
   cursor: pointer;
+}
+.header_user-box {
+  position: absolute;
+  top: 0;
+  right: 0;
 }
 .header_user-info {
   display: -webkit-flex;
@@ -1518,7 +1541,7 @@ ul.create-company-spec-selectBox-dropdown-menu {
   margin-right: 10px;
   width: 598px;
   background-color: #fff;
-  border: 1px solid #efefef;
+  border: 1px solid #bbb;
   border-radius: 2px;
 }
 .catalog_right {
@@ -1549,7 +1572,7 @@ ul.create-company-spec-selectBox-dropdown-menu {
   margin-right: 10px;
   background-color: #fff;
   width: 868px;
-  border: 1px solid #efefef;
+  border: 1px solid #bbb;
   border-radius: 2px;
 }
 .feed_right {
@@ -1596,7 +1619,7 @@ ul.create-company-spec-selectBox-dropdown-menu {
   width: 598px;
   background-color: #fff;
   border-radius: 2px;
-  border: 1px solid #efefef;
+  border: 1px solid #bbb;
   border-radius: 2px;
   position: relative;
 }
@@ -1780,7 +1803,7 @@ ul.create-company-spec-selectBox-dropdown-menu {
   margin-right: 10px;
   background-color: #fff;
   width: 868px;
-  border: 1px solid #efefef;
+  border: 1px solid #bbb;
   border-radius: 2px;
   padding: 15px 25px;
 }
@@ -1846,7 +1869,7 @@ ul.create-company-spec-selectBox-dropdown-menu {
   float: left;
   width: 868px;
   background-color: #fff;
-  border: 1px solid #efefef;
+  border: 1px solid #bbb;
   border-radius: 2px;
 }
 .profile_right {
