@@ -1,27 +1,41 @@
 .specs
-	border-radius 2px
+	border-radius 3px 0 0 3px
 	background-color white
 	padding 25px
+	border-left 3px solid #727272
+	border-right 1px solid #BBB
+	border-top 1px solid #BBB
+	border-bottom 1px solid #BBB
+	transition .2s ease-in
 	
-	border-left 3px solid $yellow
-	border-right 1px solid #efefef
-	border-top 1px solid #efefef
-	border-bottom 1px solid #efefef
+	&:hover
+		border 1px solid #F4E177
+	
 	
 	&_header
 		margin 0
+		color #2d2d2d
 	
 	&_menu
 		list-style none
 		font-size 13px
-		margin 20px 0 0 0
+		margin 20px 0 0 20px
 		padding 0
+		list-style-type disc
 		
 		li
 			margin-bottom 15px
+			color #727272
 			
 			&:last-child
 				margin-bottom 0
+				
+			a 
+				color #222222
+				
+				&:hover
+					color #000
+				
 				
 	&_active
 		color #ccc

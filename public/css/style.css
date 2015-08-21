@@ -793,28 +793,41 @@ ul.create-company-spec-selectBox-dropdown-menu {
   box-shadow: 0 8px 4px -6px rgba(42,42,42,0.58);
 }
 .specs {
-  border-radius: 2px;
+  border-radius: 3px 0 0 3px;
   background-color: #fff;
   padding: 25px;
-  border-left: 3px solid #f3df6d;
-  border-right: 1px solid #efefef;
-  border-top: 1px solid #efefef;
-  border-bottom: 1px solid #efefef;
+  border-left: 3px solid #727272;
+  border-right: 1px solid #bbb;
+  border-top: 1px solid #bbb;
+  border-bottom: 1px solid #bbb;
+  transition: 0.2s ease-in;
+}
+.specs:hover {
+  border: 1px solid #f4e177;
 }
 .specs_header {
   margin: 0;
+  color: #2d2d2d;
 }
 .specs_menu {
   list-style: none;
   font-size: 13px;
-  margin: 20px 0 0 0;
+  margin: 20px 0 0 20px;
   padding: 0;
+  list-style-type: disc;
 }
 .specs_menu li {
   margin-bottom: 15px;
+  color: #727272;
 }
 .specs_menu li:last-child {
   margin-bottom: 0;
+}
+.specs_menu li a {
+  color: #222;
+}
+.specs_menu li a:hover {
+  color: #000;
 }
 .specs_active {
   color: #ccc;
@@ -1007,6 +1020,10 @@ ul.create-company-spec-selectBox-dropdown-menu {
           align-items: center;
   border: 1px solid #bbb;
   border-radius: 2px;
+  transition: 0.2s ease-in;
+}
+.feedback:hover {
+  border: 1px solid #f4e177;
 }
 .feedback_h3 {
   font-size: 16px;
@@ -1282,8 +1299,8 @@ ul.create-company-spec-selectBox-dropdown-menu {
 }
 .header_title {
   color: #2d2d2d;
-  font-weight: 300;
-  font-size: 13px;
+  font-weight: 400;
+  font-size: 14px;
   word-spacing: 2px;
   margin-top: 10px;
   font-style: italic;
