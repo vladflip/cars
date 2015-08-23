@@ -18,7 +18,7 @@ class CreateTypesTable extends Migration {
 
 			$t->string('name');
 			$t->string('title');
-			$t->string('icon');
+			$t->text('icon');
 
 			$t->timestamps();
 		});

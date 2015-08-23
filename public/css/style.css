@@ -893,6 +893,9 @@ ul.create-company-spec-selectBox-dropdown-menu {
 .type_item--active span {
   color: #f3df6d;
 }
+.type_item--active path {
+  fill: #f3df6d;
+}
 .type_item div {
   width: 120px;
   margin: auto;
@@ -910,15 +913,6 @@ ul.create-company-spec-selectBox-dropdown-menu {
 .type_item span {
   font-size: 12px;
   display: block;
-}
-.type_item--active .type_img--active {
-  display: block;
-}
-.type_item--active .type_img--disactive {
-  display: none;
-}
-.type_img--active {
-  display: none;
 }
 .comments {
   padding: 25px 35px;
