@@ -192,7 +192,7 @@ class MakeList extends Backbone.View
 		console.log 'please chose make'
 
 	fillCollection: ->
-		@$el.children('li').each (i, li) =>
+		@$el.find('li').each (i, li) =>
 			id = $(li).data 'id'
 			title = $(li).children('span').html().trim()
 

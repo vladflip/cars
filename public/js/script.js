@@ -479,7 +479,7 @@ MakeList = (function(superClass) {
   };
 
   MakeList.prototype.fillCollection = function() {
-    return this.$el.children('li').each((function(_this) {
+    return this.$el.find('li').each((function(_this) {
       return function(i, li) {
         var m, v;
         m = new MakeModel({
@@ -2345,7 +2345,7 @@ MakeList = (function(superClass) {
   };
 
   MakeList.prototype.fillCollection = function() {
-    return this.$el.children('li').each((function(_this) {
+    return this.$el.find('li').each((function(_this) {
       return function(i, li) {
         var id, m, title, v;
         id = $(li).data('id');

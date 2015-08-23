@@ -1,6 +1,15 @@
 <?php
 
-	$got = false;
+	$soviet = [];
+
+	$notsoviet = [];
+
+	foreach ($makes as $make) {
+		if($make->soviet)
+			$soviet[] = $make;
+		else
+			$notsoviet[] = $make;
+	}
 
 ?>
 
@@ -11,42 +20,61 @@
 	])
 
 	@if(isset($current_id))
-		<ul id="{{ $id }}" data-current="{{ $current_id }}">
+		<div id="{{ $id }}" data-current="{{ $current_id }}">
 	@else
-		<ul id="{{ $id }}">
+		<div id="{{ $id }}">
 	@endif
-		@foreach($makes as $make)
-
-				@if(!$got && !$make->soviet)
-					
-					<div style="clear:both; margin-top:30px;"></div>
-
-					<?php $got = true; ?>
-
-				@endif
+		<ul>
+			@foreach($soviet as $make)
+				
+					<li data-id="{{ $make->id }}">
 			
-				<li data-id="{{ $make->id }}">
-
-				<span>
-					{{-- when main catalog --}}
-					@if(isset($allmakes))
-						
-						<a href="{{ route('allmakes', $make->name) }}">{{ $make->title }}</a>
-
-					{{-- when catalog with specs --}}
-					@else
-
-						<a href="{{ route('make', ['spec' => $current, 'make' => $make->name]) }}">
-							{{ $make->title }}
-						</a>
-
-					@endif
-
-				</span>
-			</li>
-
-		@endforeach
-	</ul>
+						<span>
+							{{-- when main catalog --}}
+							@if(isset($allmakes))
+								
+								<a href="{{ route('allmakes', $make->name) }}">{{ $make->title }}</a>
+			
+							{{-- when catalog with specs --}}
+							@else
+			
+								<a href="{{ route('make', ['spec' => $current, 'make' => $make->name]) }}">
+									{{ $make->title }}
+								</a>
+			
+							@endif
+			
+						</span>
+					</li>
+			
+			@endforeach
+		</ul>
+		<ul>
+			@foreach($notsoviet as $make)
+				
+					<li data-id="{{ $make->id }}">
+			
+						<span>
+							{{-- when main catalog --}}
+							@if(isset($allmakes))
+								
+								<a href="{{ route('allmakes', $make->name) }}">{{ $make->title }}</a>
+			
+							{{-- when catalog with specs --}}
+							@else
+			
+								<a href="{{ route('make', ['spec' => $current, 'make' => $make->name]) }}">
+									{{ $make->title }}
+								</a>
+			
+							@endif
+			
+						</span>
+					</li>
+			
+			@endforeach
+		</ul>
+	</div>
 	<div class="makes_empty">По данному запросу организаций не найдено</div>
 
 </div>

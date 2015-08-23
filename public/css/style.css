@@ -349,7 +349,10 @@ ul.create-company-spec-selectBox-dropdown-menu {
 }
 .makes ul {
   margin-left: 70px;
-  padding: 30px 0;
+  padding: 20px 0;
+  -webkit-columns: 4;
+     -moz-columns: 4;
+          columns: 4;
   *zoom: 1;
 }
 .makes ul:before,
@@ -361,7 +364,7 @@ ul.create-company-spec-selectBox-dropdown-menu {
   clear: both;
 }
 .makes ul li {
-  float: left;
+  display: inline-block;
   font-size: 13px;
   width: 125px;
   margin-bottom: 5px;

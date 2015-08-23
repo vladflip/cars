@@ -1,6 +1,15 @@
 <?php
 
-	$got = false;
+	$soviet = [];
+
+	$notsoviet = [];
+
+	foreach ($makes as $make) {
+		if($make->soviet)
+			$soviet[] = $make;
+		else
+			$notsoviet[] = $make;
+	}
 
 ?>
 
@@ -8,25 +17,33 @@
 	
 	@include('parts.media-header', ['title' => 'Выберите производителя'])
 
-	<ul id="main-makes-list">
-		@foreach($makes as $make)
+	<div id="main-makes-list">
 
-			@if(!$got && !$make->soviet)
-				
-				<div style="clear:both; margin-top:30px;"></div>
+		<ul>
+			@foreach($soviet as $make)
+			
+				<li data-id="{{ $make->id }}">
+					<span>
+						{{ $make->title }}
+					</span>
+				</li>
+			
+			@endforeach
+		</ul>
 
-				<?php $got = true; ?>
-
-			@endif
-
-			<li data-id="{{ $make->id }}">
-				<span>
-					{{ $make->title }}
-				</span>
-			</li>
-
-		@endforeach
-	</ul>
+		<ul>
+			@foreach($notsoviet as $make)
+			
+				<li data-id="{{ $make->id }}">
+					<span>
+						{{ $make->title }}
+					</span>
+				</li>
+			
+			@endforeach
+		</ul>
+		
+	</div>
 
 	<div class="makes_empty">По данному запросу организаций не найдено</div>
 

@@ -54,7 +54,7 @@ class MakeList extends Backbone.View
 				, 1000
 
 	fillCollection: ->
-		@$el.children('li').each (i, li) =>
+		@$el.find('li').each (i, li) =>
 			m = new MakeModel
 				id: $(li).data 'id'
 			@collection.add m
