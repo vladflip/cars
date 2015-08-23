@@ -803,7 +803,7 @@ ul.create-company-spec-selectBox-dropdown-menu {
   border-radius: 3px 0 0 3px;
   background-color: #fff;
   padding: 25px;
-  border-left: 3px solid #727272;
+  border-left: 3px solid #bbb;
   border-right: 1px solid #bbb;
   border-top: 1px solid #bbb;
   border-bottom: 1px solid #bbb;
@@ -1283,7 +1283,7 @@ ul.create-company-spec-selectBox-dropdown-menu {
   padding-right: 0;
 }
 .header {
-  background-color: #fffffa;
+  background-color: #fefefe;
 }
 .header .container {
   height: 100px;
@@ -1303,7 +1303,7 @@ ul.create-company-spec-selectBox-dropdown-menu {
   width: 100%;
 }
 .header_logo {
-  background: url("../img/logo.jpg") center no-repeat;
+  background: url("../img/komtrans-logo.png") center no-repeat;
   background-size: 100%;
   width: 225px;
   height: 40px;
@@ -1315,12 +1315,15 @@ ul.create-company-spec-selectBox-dropdown-menu {
   word-spacing: 2px;
   margin-top: 10px;
   font-style: italic;
+  text-align: center;
 }
 .header_inputs {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
   position: relative;
+  top: 20px;
+  right: 10px;
 }
 .header_login,
 .header_pass {
@@ -1392,6 +1395,7 @@ ul.create-company-spec-selectBox-dropdown-menu {
   cursor: pointer;
   height: 80px;
   position: relative;
+  right: 10px;
 }
 .header_user-info_names {
   margin: 0 20px;
