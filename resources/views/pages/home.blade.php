@@ -10,13 +10,27 @@
 			
 			<div class="home_left">
 				
+
+				<div class="company_reg">
+						
+					<h3>Регистрация Вашей компании</h3>
+
+					<p>Добавьте свою компанию в каталог и получайте новых клиентов</p>
+
+					<div id="" class="company_add" href="#sign-up-popup">
+						Добавить
+					</div>
+
+				</div>
+
+
 				@include('inc.specs')
 
 			</div>
 
 			<div class="home_middle">
 				
-				<h3>Поиск организации</h3>
+				<h3>Поиск организаций</h3>
 
 				@include('inc.type', ['id' => 'main-type-list'])
 
