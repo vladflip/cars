@@ -71,7 +71,7 @@
 				
 				<input name="password" class="header_pass" type="password" placeholder="Пароль">
 
-				<div id="user-auth-button" class="header_submit-arrow"></div>
+				<div id="user-auth-button" class="header_submit-arrow">Вход</div>
 
 			</div>
 			
