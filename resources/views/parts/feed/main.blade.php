@@ -6,7 +6,7 @@
 				
 	@foreach($types as $type)
 
-		@include('inc.feed-makes', ['type' => $type])
+		@include('inc.makes.feed-makes', ['type' => $type])
 
 	@endforeach
 
