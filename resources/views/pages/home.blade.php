@@ -17,7 +17,7 @@
 
 					<p>Добавьте свою компанию в каталог и получайте новых клиентов</p>
 
-					<div id="" class="company_add" href="#sign-up-popup">
+					<div id="" class="company-signup_button" href="#sign-up-popup">
 						Добавить
 					</div>
 
