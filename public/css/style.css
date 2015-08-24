@@ -135,7 +135,7 @@ h3 {
       -ms-user-select: none;
           user-select: none;
   transition: 0.2s ease;
-  box-shadow: 0 1px 0 0 #bd9d51;
+  box-shadow: 0 10px 10px -10px rgba(0,0,55,0.3);
   margin: 30px auto 0;
 }
 .company-preview {
@@ -231,7 +231,6 @@ h3 {
   font-size: 12px;
 }
 .company-signup_button {
-  margin: 10px;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
@@ -246,13 +245,23 @@ h3 {
   width: 170px;
   height: 40px;
   cursor: pointer;
-  border: 4px solid #f3df6d;
+  border: 4px solid rgba(126,126,126,0.68);
   -webkit-user-select: none;
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
   transition: 0.2s ease;
-  box-shadow: 0 1px 0 0 #bd9d51;
+  box-shadow: 0 10px 10px -10px rgba(0,0,55,0.3);
+  margin: 10px 0;
+  border-radius: 2px;
+  border: none;
+  font-size: 14px;
+  letter-spacing: 0.03em;
+  color: rgba(70,64,64,0.77);
+  text-shadow: 0px 1px 4px #fff5cb;
+  box-shadow: 0 8px 6px -6px rgba(126,126,126,0.58);
+  background-image: -webkit-linear-gradient(top, #ffe58a 0%, #f3df6d 50%, #f3df6d 51%, #f3c66d 100%);
+  background: linear-gradient(top, #ffe58a 0%, #f3df6d 50%, #f3df6d 51%, #f3c66d 100%);
   box-shadow: 0 10px 10px -10px rgba(0,0,55,0.3), 0 1px 0 0 #bd9d51;
 }
 .company-signup_button:hover {
@@ -350,7 +359,7 @@ ul.create-company-spec-selectBox-dropdown-menu {
       -ms-user-select: none;
           user-select: none;
   transition: 0.2s ease;
-  box-shadow: 0 1px 0 0 #bd9d51;
+  box-shadow: 0 10px 10px -10px rgba(0,0,55,0.3);
   margin: 20px auto;
 }
 .found_more:hover {
@@ -400,7 +409,7 @@ ul.create-company-spec-selectBox-dropdown-menu {
       -ms-user-select: none;
           user-select: none;
   transition: 0.2s ease;
-  box-shadow: 0 1px 0 0 #bd9d51;
+  box-shadow: 0 10px 10px -10px rgba(0,0,55,0.3);
   margin: 0 auto 25px;
   display: none;
 }
@@ -501,10 +510,10 @@ ul.create-company-spec-selectBox-dropdown-menu {
           user-select: none;
 }
 .parts_categories li span:hover {
-  background-color: #fdf6d1;
+  background-color: #f9e27b;
 }
 .parts--active span {
-  background-color: #fdf6d1;
+  background-color: #f9e27b;
 }
 #create-company-logo {
   display: none;
@@ -772,7 +781,7 @@ ul.create-company-spec-selectBox-dropdown-menu {
       -ms-user-select: none;
           user-select: none;
   transition: 0.2s ease;
-  box-shadow: 0 1px 0 0 #bd9d51;
+  box-shadow: 0 10px 10px -10px rgba(0,0,55,0.3);
   margin: 30px auto 0;
   position: relative;
   transition: all 0.2s linear;
@@ -847,7 +856,7 @@ ul.create-company-spec-selectBox-dropdown-menu {
       -ms-user-select: none;
           user-select: none;
   transition: 0.2s ease;
-  box-shadow: 0 1px 0 0 #bd9d51;
+  box-shadow: 0 10px 10px -10px rgba(0,0,55,0.3);
   margin: 10px 0;
   border-radius: 2px;
   border: none;
@@ -862,8 +871,6 @@ ul.create-company-spec-selectBox-dropdown-menu {
 }
 .search_button:hover {
   color: #000;
-  opacity: 0.85;
-  box-shadow: 0 8px 4px -6px rgba(42,42,42,0.58);
 }
 .specs {
   border-radius: 3px 0 0 3px;
@@ -928,7 +935,7 @@ ul.create-company-spec-selectBox-dropdown-menu {
       -ms-user-select: none;
           user-select: none;
   transition: 0.2s ease;
-  box-shadow: 0 1px 0 0 #bd9d51;
+  box-shadow: 0 10px 10px -10px rgba(0,0,55,0.3);
   margin: 40px auto 0;
 }
 .specs_add:hover {
@@ -1017,7 +1024,7 @@ ul.create-company-spec-selectBox-dropdown-menu {
       -ms-user-select: none;
           user-select: none;
   transition: 0.2s ease;
-  box-shadow: 0 1px 0 0 #bd9d51;
+  box-shadow: 0 10px 10px -10px rgba(0,0,55,0.3);
   margin-top: 15px;
   display: none;
 }
@@ -1134,7 +1141,7 @@ ul.create-company-spec-selectBox-dropdown-menu {
       -ms-user-select: none;
           user-select: none;
   transition: 0.2s ease;
-  box-shadow: 0 1px 0 0 #bd9d51;
+  box-shadow: 0 10px 10px -10px rgba(0,0,55,0.3);
 }
 .feedback_button:hover {
   background-color: rgba(243,223,109,0.9);
