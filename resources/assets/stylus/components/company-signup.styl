@@ -7,10 +7,9 @@
 	block-border()
 	transition .2s ease-in
 	border none
+	margin 0 0 10px 0
 	background linear-gradient(to bottom, #F3DF6D 0%, #FD8234 100%)
 	
-	&:hover
-		border 1px solid #F4E177
 	
 	&_h3
 		font-size 16px
@@ -25,7 +24,18 @@
 	&_button
 		margin 10px 
 		button($yellow)
+		box-shadow 0 10px 10px -10px rgba(0,0,55, 0.3), 0 1px 0 0 rgb(189, 157, 81)
 		
 		&:hover
 			button--hover($yellow)
 			
+	
+	h3
+		font-size 16px
+		margin 10px 0
+		
+	p
+		margin 0
+		text-align center
+		line-height 25px
+		font-size 12px

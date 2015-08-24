@@ -135,7 +135,7 @@ h3 {
       -ms-user-select: none;
           user-select: none;
   transition: 0.2s ease;
-  box-shadow: 0 10px 10px -10px rgba(0,0,55,0.3), 0 1px 0 0 #bd9d51;
+  box-shadow: 0 1px 0 0 #bd9d51;
   margin: 30px auto 0;
 }
 .company-preview {
@@ -217,10 +217,8 @@ h3 {
   border-radius: 2px;
   transition: 0.2s ease-in;
   border: none;
+  margin: 0 0 10px 0;
   background: linear-gradient(to bottom, #f3df6d 0%, #fd8234 100%);
-}
-.company-signup:hover {
-  border: 1px solid #f4e177;
 }
 .company-signup_h3 {
   font-size: 16px;
@@ -254,10 +252,21 @@ h3 {
       -ms-user-select: none;
           user-select: none;
   transition: 0.2s ease;
+  box-shadow: 0 1px 0 0 #bd9d51;
   box-shadow: 0 10px 10px -10px rgba(0,0,55,0.3), 0 1px 0 0 #bd9d51;
 }
 .company-signup_button:hover {
   background-color: rgba(243,223,109,0.9);
+}
+.company-signup h3 {
+  font-size: 16px;
+  margin: 10px 0;
+}
+.company-signup p {
+  margin: 0;
+  text-align: center;
+  line-height: 25px;
+  font-size: 12px;
 }
 .create-company_make,
 .create-company_model {
@@ -341,7 +350,7 @@ ul.create-company-spec-selectBox-dropdown-menu {
       -ms-user-select: none;
           user-select: none;
   transition: 0.2s ease;
-  box-shadow: 0 10px 10px -10px rgba(0,0,55,0.3), 0 1px 0 0 #bd9d51;
+  box-shadow: 0 1px 0 0 #bd9d51;
   margin: 20px auto;
 }
 .found_more:hover {
@@ -391,7 +400,7 @@ ul.create-company-spec-selectBox-dropdown-menu {
       -ms-user-select: none;
           user-select: none;
   transition: 0.2s ease;
-  box-shadow: 0 10px 10px -10px rgba(0,0,55,0.3), 0 1px 0 0 #bd9d51;
+  box-shadow: 0 1px 0 0 #bd9d51;
   margin: 0 auto 25px;
   display: none;
 }
@@ -763,7 +772,7 @@ ul.create-company-spec-selectBox-dropdown-menu {
       -ms-user-select: none;
           user-select: none;
   transition: 0.2s ease;
-  box-shadow: 0 10px 10px -10px rgba(0,0,55,0.3), 0 1px 0 0 #bd9d51;
+  box-shadow: 0 1px 0 0 #bd9d51;
   margin: 30px auto 0;
   position: relative;
   transition: all 0.2s linear;
@@ -838,7 +847,7 @@ ul.create-company-spec-selectBox-dropdown-menu {
       -ms-user-select: none;
           user-select: none;
   transition: 0.2s ease;
-  box-shadow: 0 10px 10px -10px rgba(0,0,55,0.3), 0 1px 0 0 #bd9d51;
+  box-shadow: 0 1px 0 0 #bd9d51;
   margin: 10px 0;
   border-radius: 2px;
   border: none;
@@ -849,6 +858,7 @@ ul.create-company-spec-selectBox-dropdown-menu {
   box-shadow: 0 8px 6px -6px rgba(126,126,126,0.58);
   background-image: -webkit-linear-gradient(top, #ffe58a 0%, #f3df6d 50%, #f3df6d 51%, #f3c66d 100%);
   background: linear-gradient(top, #ffe58a 0%, #f3df6d 50%, #f3df6d 51%, #f3c66d 100%);
+  box-shadow: 0 10px 10px -10px rgba(0,0,55,0.3), 0 1px 0 0 #bd9d51;
 }
 .search_button:hover {
   color: #000;
@@ -918,7 +928,7 @@ ul.create-company-spec-selectBox-dropdown-menu {
       -ms-user-select: none;
           user-select: none;
   transition: 0.2s ease;
-  box-shadow: 0 10px 10px -10px rgba(0,0,55,0.3), 0 1px 0 0 #bd9d51;
+  box-shadow: 0 1px 0 0 #bd9d51;
   margin: 40px auto 0;
 }
 .specs_add:hover {
@@ -1007,7 +1017,7 @@ ul.create-company-spec-selectBox-dropdown-menu {
       -ms-user-select: none;
           user-select: none;
   transition: 0.2s ease;
-  box-shadow: 0 10px 10px -10px rgba(0,0,55,0.3), 0 1px 0 0 #bd9d51;
+  box-shadow: 0 1px 0 0 #bd9d51;
   margin-top: 15px;
   display: none;
 }
@@ -1124,7 +1134,7 @@ ul.create-company-spec-selectBox-dropdown-menu {
       -ms-user-select: none;
           user-select: none;
   transition: 0.2s ease;
-  box-shadow: 0 10px 10px -10px rgba(0,0,55,0.3), 0 1px 0 0 #bd9d51;
+  box-shadow: 0 1px 0 0 #bd9d51;
 }
 .feedback_button:hover {
   background-color: rgba(243,223,109,0.9);
