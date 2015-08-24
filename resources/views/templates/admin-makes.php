@@ -18,6 +18,17 @@
 
 	<div class="popup_field">
 								
+		<div class="popup_label">Советская</div>
+
+		<select class="make-soviet" style="width:50px">
+			<option value="0">Нет</option>
+			<option value="1">Да</option>
+		</select>
+
+	</div>
+
+	<div class="popup_field">
+								
 		<div class="popup_label">Модели</div>
 
 		<div id="new-model" style="width:130px" class="btn btn-primary navbar-btn">
@@ -70,4 +81,3 @@
 	</div>
 
 </script>
-

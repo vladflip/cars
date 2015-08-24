@@ -281,40 +281,12 @@ MakeView = (function(superClass) {
   MakeView.prototype.home = $('#csrf').data('home');
 
   MakeView.prototype.initialize = function() {
-    var src;
     this.getModels();
     this.model.on('change:show', this.triggerShow);
-    this.createButton = $('#new-make');
     this.editButton = this.$el.find('.edit-make');
     this.deleteButton = this.$el.find('.delete-make');
     this.deleteButton.click(this.removeMake);
-    this.initPopup(this.editButton);
-    src = this.template({
-      buttonText: 'Создать'
-    });
-    return this.createButton.magnificPopup({
-      type: 'inline',
-      closeBtnInside: true,
-      items: {
-        src: '#admin-popup'
-      },
-      callbacks: {
-        open: (function(_this) {
-          return function() {
-            _this.popup.append(src);
-            _this.modelsView = new Models({
-              el: _this.popup.find('#admin-models')
-            });
-            return _this.popup.find('#admin-edit-button').click(_this.createMake);
-          };
-        })(this),
-        close: (function(_this) {
-          return function() {
-            return _this.popup.html('');
-          };
-        })(this)
-      }
-    });
+    return this.initPopup(this.editButton);
   };
 
   MakeView.prototype.triggerShow = function() {
@@ -346,7 +318,8 @@ MakeView = (function(superClass) {
             _this.modelsView = new Models({
               el: _this.popup.find('#admin-models')
             });
-            return _this.popup.find('#admin-edit-button').click(_this.saveChanges);
+            _this.popup.find('#admin-edit-button').click(_this.saveChanges);
+            return _this.popup.find('.make-soviet').val(_this.model.get('soviet'));
           };
         })(this),
         close: (function(_this) {
@@ -393,16 +366,20 @@ MakeView = (function(superClass) {
   };
 
   MakeView.prototype.saveChanges = function() {
-    var j, len, m, model, models, modelsArray, result, title, url;
+    var j, len, m, model, models, modelsArray, result, soviet, title, url;
     result = {};
     models = this.modelsView.get();
     title = this.popup.find('.make-title').val();
     url = this.popup.find('.make-url').val();
+    soviet = parseInt(this.popup.find('.make-soviet').val());
     if (title !== this.model.get('title')) {
       result.title = title;
     }
     if (url !== this.model.get('url')) {
       result.url = url;
+    }
+    if (soviet !== parseInt(this.model.get('soviet'))) {
+      result.soviet = soviet;
     }
     if (models.length > 0) {
       modelsArray = [];
@@ -488,7 +465,8 @@ Make = (function(superClass) {
     id: '',
     title: '',
     url: '',
-    show: true
+    show: true,
+    soviet: 1
   };
 
   return Make;
@@ -515,11 +493,42 @@ Makes = (function(superClass) {
     return Makes.__super__.constructor.apply(this, arguments);
   }
 
+  Makes.prototype.popup = $('#admin-popup');
+
+  Makes.prototype.template = Handlebars.compile($('#admin-makes-template').html());
+
   Makes.prototype.collection = new MakesCollection;
 
   Makes.prototype.initialize = function() {
+    var src;
+    this.createButton = $('#new-make');
     this.fillCollection();
-    console.log(this.$el);
+    src = this.template({
+      buttonText: 'Создать'
+    });
+    this.createButton.magnificPopup({
+      type: 'inline',
+      closeBtnInside: true,
+      items: {
+        src: '#admin-popup'
+      },
+      callbacks: {
+        open: (function(_this) {
+          return function() {
+            _this.popup.append(src);
+            _this.modelsView = new Models({
+              el: _this.popup.find('#admin-models')
+            });
+            return _this.popup.find('#admin-edit-button').click(_this.createMake);
+          };
+        })(this),
+        close: (function(_this) {
+          return function() {
+            return _this.popup.html('');
+          };
+        })(this)
+      }
+    });
     return this.$el.DataTable({
       language: {
         'search': 'Поиск: ',
@@ -546,7 +555,8 @@ Makes = (function(superClass) {
         m = new Make({
           id: $(make).data('id'),
           title: $(make).data('title'),
-          url: $(make).data('url')
+          url: $(make).data('url'),
+          soviet: $(make).data('soviet')
         });
         _this.collection.add(m);
         return v = new MakeView({

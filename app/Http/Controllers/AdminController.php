@@ -88,6 +88,7 @@ class AdminController extends Controller {
 		$id = \Input::get('id');
 		$title = \Input::get('title');
 		$url = \Input::get('url');
+		$soviet = \Input::get('soviet');
 
 		$models = \Input::get('models');
 
@@ -98,6 +99,9 @@ class AdminController extends Controller {
 
 		if($url)
 			$make->name = $url;
+
+		if( ! is_null($soviet))
+			$make->soviet = intval($soviet);
 
 		$make->save();
 

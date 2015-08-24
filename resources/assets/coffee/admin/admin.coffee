@@ -19,8 +19,6 @@ class MakeView extends Backbone.View
 
 		@model.on 'change:show', @triggerShow
 
-		@createButton = $ '#new-make'
-
 		@editButton = @$el.find('.edit-make')
 
 		@deleteButton = @$el.find('.delete-make')
@@ -28,27 +26,6 @@ class MakeView extends Backbone.View
 		@deleteButton.click @removeMake
 
 		@initPopup @editButton
-
-		src = @template
-			buttonText: 'Создать'
-
-		@createButton.magnificPopup
-			type: 'inline'
-			closeBtnInside: true
-			items:
-				src: '#admin-popup'
-
-			callbacks:
-				open: =>
-					@popup.append src
-
-					@modelsView = new Models
-						el: @popup.find('#admin-models')
-
-					@popup.find('#admin-edit-button').click @createMake
-
-				close: =>
-					@popup.html ''
 
 	triggerShow: =>
 
@@ -79,6 +56,8 @@ class MakeView extends Backbone.View
 						el: @popup.find('#admin-models')
 
 					@popup.find('#admin-edit-button').click @saveChanges
+
+					@popup.find('.make-soviet').val(@model.get('soviet'))
 
 				close: =>
 					@popup.html ''
@@ -120,12 +99,16 @@ class MakeView extends Backbone.View
 
 		title = @popup.find('.make-title').val()
 		url = @popup.find('.make-url').val()
+		soviet = parseInt @popup.find('.make-soviet').val()
 
 		if title isnt @model.get 'title'
 			result.title = title
 
 		if url isnt @model.get 'url'
 			result.url = url
+
+		if soviet isnt parseInt @model.get 'soviet'
+			result.soviet = soviet
 
 		if models.length > 0
 
@@ -207,19 +190,45 @@ class Make extends Backbone.Model
 		title: ''
 		url: ''
 		show: true
+		soviet: 1
 
 class MakesCollection extends Backbone.Collection
 	model: Make
 
 class Makes extends Backbone.View
 
+	popup: $ '#admin-popup'
+
+	template: Handlebars.compile $('#admin-makes-template').html()
+
 	collection: new MakesCollection
 
 	initialize: ->
 
+		@createButton = $ '#new-make'
+
 		do @fillCollection
 
-		console.log @$el
+		src = @template
+			buttonText: 'Создать'
+
+		@createButton.magnificPopup
+			type: 'inline'
+			closeBtnInside: true
+			items:
+				src: '#admin-popup'
+
+			callbacks:
+				open: =>
+					@popup.append src
+
+					@modelsView = new Models
+						el: @popup.find('#admin-models')
+
+					@popup.find('#admin-edit-button').click @createMake
+
+				close: =>
+					@popup.html ''
 
 		@$el.DataTable
 			language:
@@ -243,6 +252,7 @@ class Makes extends Backbone.View
 				id: $(make).data 'id'
 				title: $(make).data 'title'
 				url: $(make).data 'url'
+				soviet: $(make).data 'soviet'
 
 			@collection.add m
 

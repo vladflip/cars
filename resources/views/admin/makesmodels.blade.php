@@ -27,7 +27,8 @@
 		<tr class="make"
 			data-id="{{ $make->id }}"
 			data-title="{{ $make->title }}"
-			data-url="{{ $make->name }}">
+			data-url="{{ $make->name }}"
+			data-soviet="{{ $make->soviet }}">
 			<td>{{ $make->id }}</td>
 			<td>{{ $make->title }}</td>
 			<td>{{ $make->name }}</td>
