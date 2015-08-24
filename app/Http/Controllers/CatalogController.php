@@ -39,6 +39,41 @@ class CatalogController extends Controller {
 
 	}
 
+	public function gatherJSON($c) {
+
+		$companies = [];
+
+		foreach($c as $key => $val){
+
+			$arr = array();
+
+			$t = array();
+
+			$arr['name'] = $val->name;
+			$arr['about'] = $val->about;
+			$arr['phone'] = $val->phone;
+			$arr['logo'] = $val->logo;
+			$arr['address'] = $val->address;
+
+			$t[] = $val->spec->title;
+			$t[] = $val->type->title;
+
+			foreach($val->makes as $k => $v){
+
+				$t[] = $v->title;
+
+			}
+
+			$arr['tags'] = $t;
+
+			$companies[] = $arr;
+
+		}
+
+		return $companies;
+
+	}
+
 	public function withspecs($spec, $make) {
 
 		$spec = \App\Spec::whereName($spec)->first();
@@ -63,34 +98,7 @@ class CatalogController extends Controller {
 		->has('companies')
 		->get();
 
-		$companies = array();
-
-		foreach($c as $key => $val){
-
-			$arr = array();
-
-			$t = array();
-
-			$arr['name'] = $val->name;
-			$arr['about'] = $val->about;
-			$arr['phone'] = $val->phone;
-			$arr['logo'] = $val->logo;
-			$arr['address'] = $val->address;
-
-			$t[] = $val->spec->title;
-			$t[] = $val->type->title;
-
-			foreach($val->makes as $k => $v){
-
-				$t[] = $v->title;
-
-			}
-
-			$arr['tags'] = $t;
-
-			$companies[] = $arr;
-
-		}
+		$companies = $this->gatherJSON($c);
 
 		$bread = ['spec' => $spec, 'make' => $make];
 
@@ -112,34 +120,7 @@ class CatalogController extends Controller {
 		->take(6)
 		->get();
 
-		$companies = array();
-
-		foreach($c as $key => $val){
-
-			$arr = array();
-
-			$t = array();
-
-			$arr['name'] = $val->name;
-			$arr['about'] = $val->about;
-			$arr['phone'] = $val->phone;
-			$arr['logo'] = $val->logo;
-			$arr['address'] = $val->address;
-
-			$t[] = $val->spec->title;
-			$t[] = $val->type->title;
-
-			foreach($val->makes as $k => $v){
-
-				$t[] = $v->title;
-
-			}
-
-			$arr['tags'] = $t;
-
-			$companies[] = $arr;
-
-		}
+		$companies = $this->gatherJSON($c);
 
 		$models = \App\CarModel::where('make_id', $make->id)
 		->has('companies')
@@ -182,34 +163,7 @@ class CatalogController extends Controller {
 		->take(6)
 		->get();
 
-		$companies = array();
-
-		foreach($c as $key => $val){
-
-			$arr = array();
-
-			$t = array();
-
-			$arr['name'] = $val->name;
-			$arr['about'] = $val->about;
-			$arr['phone'] = $val->phone;
-			$arr['logo'] = $val->logo;
-			$arr['address'] = $val->address;
-
-			$t[] = $val->spec->title;
-			$t[] = $val->type->title;
-
-			foreach($val->makes as $k => $v){
-
-				$t[] = $v->title;
-
-			}
-
-			$arr['tags'] = $t;
-
-			$companies[] = $arr;
-
-		}
+		$companies = $this->gatherJSON($c);
 
 		$bread = ['spec' => $spec, 'make' => $make];
 
@@ -238,34 +192,7 @@ class CatalogController extends Controller {
 		->take(6)
 		->get();
 
-		$companies = array();
-
-		foreach($c as $key => $val){
-
-			$arr = array();
-
-			$t = array();
-
-			$arr['name'] = $val->name;
-			$arr['about'] = $val->about;
-			$arr['phone'] = $val->phone;
-			$arr['logo'] = $val->logo;
-			$arr['address'] = $val->address;
-
-			$t[] = $val->spec->title;
-			$t[] = $val->type->title;
-
-			foreach($val->makes as $k => $v){
-
-				$t[] = $v->title;
-
-			}
-
-			$arr['tags'] = $t;
-
-			$companies[] = $arr;
-
-		}
+		$companies = $this->gatherJSON($c);
 
 		$bread = ['nospecs' => $make];
 
