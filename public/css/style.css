@@ -1703,7 +1703,6 @@ ul.create-company-spec-selectBox-dropdown-menu {
   cursor: pointer;
 }
 .home {
-  padding: 0 10px 10px 10px;
   overflow: hidden;
 }
 .home .container {
@@ -1712,6 +1711,7 @@ ul.create-company-spec-selectBox-dropdown-menu {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  padding: 10px;
 }
 .home_left {
   margin-right: 10px;
