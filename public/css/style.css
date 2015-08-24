@@ -1404,16 +1404,16 @@ ul.create-company-spec-selectBox-dropdown-menu {
   font-weight: 400;
   font-size: 14px;
   word-spacing: 2px;
-  margin-top: -20px;
   font-style: italic;
   text-align: center;
+  margin-top: -30px;
 }
 .header_inputs {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
   position: relative;
-  top: 10px;
+  top: 35px;
   right: 10px;
 }
 .header_login,
