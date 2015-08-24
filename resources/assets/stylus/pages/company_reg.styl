@@ -1,0 +1,31 @@
+.company_reg
+	background-color white
+	padding 20px 40px
+	display flex
+	flex-direction column
+	align-items center
+	block-border()
+	transition .2s ease-in
+	border none
+	background linear-gradient(to bottom, #F3DF6D 0%, #FD8234 100%)
+	
+	&:hover
+		border 1px solid #F4E177
+	
+	&_h3
+		font-size 16px
+		margin 10px 0
+		
+	&_p
+		margin 0
+		text-align center
+		line-height 25px
+		font-size 12px
+		
+	&_button
+		margin 10px 0
+		button($yellow)
+		
+		&:hover
+			button--hover($yellow)
+			
