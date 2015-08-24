@@ -11,7 +11,7 @@
 			<div class="home_left">
 				
 
-				<div class="company_reg">
+				<div class="company-signup">
 						
 					<h3>Регистрация Вашей компании</h3>
 

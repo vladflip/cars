@@ -201,7 +201,7 @@ h3 {
   font-weight: 300;
   font-size: 12px;
 }
-.company_reg {
+.company-signup {
   background-color: #fff;
   padding: 20px 40px;
   display: -webkit-flex;
@@ -219,21 +219,21 @@ h3 {
   border: none;
   background: linear-gradient(to bottom, #f3df6d 0%, #fd8234 100%);
 }
-.company_reg:hover {
+.company-signup:hover {
   border: 1px solid #f4e177;
 }
-.company_reg_h3 {
+.company-signup_h3 {
   font-size: 16px;
   margin: 10px 0;
 }
-.company_reg_p {
+.company-signup_p {
   margin: 0;
   text-align: center;
   line-height: 25px;
   font-size: 12px;
 }
-.company_reg_button {
-  margin: 10px 0;
+.company-signup_button {
+  margin: 10px;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
@@ -256,7 +256,7 @@ h3 {
   transition: 0.2s ease;
   box-shadow: 0 10px 10px -10px rgba(0,0,55,0.3), 0 1px 0 0 #bd9d51;
 }
-.company_reg_button:hover {
+.company-signup_button:hover {
   background-color: rgba(243,223,109,0.9);
 }
 .create-company_make,
