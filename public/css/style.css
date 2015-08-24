@@ -220,10 +220,11 @@ h3 {
           align-items: center;
   border: 1px solid #bbb;
   border-radius: 2px;
+  box-shadow: 0 10px 10px -10px rgba(0,0,55,0.3);
   transition: 0.2s ease-in;
   border: none;
   margin: 0 0 10px 0;
-  background: linear-gradient(to bottom, #f3df6d 0%, #fd8234 100%);
+  background: linear-gradient(to bottom, #fce482 0%, #fdb334 100%);
 }
 .company-signup_h3 {
   font-size: 16px;
@@ -262,15 +263,14 @@ h3 {
   border: none;
   font-size: 14px;
   letter-spacing: 0.03em;
-  color: rgba(70,64,64,0.77);
+  color: #212121;
   text-shadow: 0px 1px 4px #fff5cb;
-  box-shadow: 0 8px 6px -6px rgba(126,126,126,0.58);
-  background-image: -webkit-linear-gradient(top, #ffe58a 0%, #f3df6d 50%, #f3df6d 51%, #f3c66d 100%);
-  background: linear-gradient(top, #ffe58a 0%, #f3df6d 50%, #f3df6d 51%, #f3c66d 100%);
+  background-image: -webkit-linear-gradient(top, #ffe58a 0%, #f3df6d 50%, #f3df6d 51%, #fce27f 100%);
+  background: linear-gradient(top, #ffe58a 0%, #f3df6d 50%, #f3df6d 51%, #fce27f 100%);
   box-shadow: 0 10px 10px -10px rgba(0,0,55,0.3), 0 1px 0 0 #bd9d51;
 }
 .company-signup_button:hover {
-  background-color: rgba(243,223,109,0.9);
+  opacity: 0.9;
 }
 .company-signup h3 {
   font-size: 16px;
@@ -872,11 +872,10 @@ ul.create-company-spec-selectBox-dropdown-menu {
   border: none;
   font-size: 14px;
   letter-spacing: 0.03em;
-  color: rgba(70,64,64,0.77);
+  color: #212121;
   text-shadow: 0px 1px 4px #fff5cb;
-  box-shadow: 0 8px 6px -6px rgba(126,126,126,0.58);
-  background-image: -webkit-linear-gradient(top, #ffe58a 0%, #f3df6d 50%, #f3df6d 51%, #f3c66d 100%);
-  background: linear-gradient(top, #ffe58a 0%, #f3df6d 50%, #f3df6d 51%, #f3c66d 100%);
+  background-image: -webkit-linear-gradient(top, #ffe58a 0%, #f3df6d 50%, #f3df6d 51%, #fce27f 100%);
+  background: linear-gradient(top, #ffe58a 0%, #f3df6d 50%, #f3df6d 51%, #fce27f 100%);
   box-shadow: 0 10px 10px -10px rgba(0,0,55,0.3), 0 1px 0 0 #bd9d51;
 }
 .search_button:hover {
@@ -976,6 +975,9 @@ ul.create-company-spec-selectBox-dropdown-menu {
       -ms-user-select: none;
           user-select: none;
 }
+.type_item path {
+  fill: #828282;
+}
 .type_item--active span {
   color: #f3df6d;
 }
@@ -999,9 +1001,6 @@ ul.create-company-spec-selectBox-dropdown-menu {
 .type_item span {
   font-size: 12px;
   display: block;
-}
-.type_item path {
-  fill: #828282;
 }
 .comments {
   padding: 25px 35px;
@@ -1111,6 +1110,7 @@ ul.create-company-spec-selectBox-dropdown-menu {
           align-items: center;
   border: 1px solid #bbb;
   border-radius: 2px;
+  box-shadow: 0 10px 10px -10px rgba(0,0,55,0.3);
   transition: 0.2s ease-in;
 }
 .feedback:hover {
@@ -1637,6 +1637,7 @@ ul.create-company-spec-selectBox-dropdown-menu {
   background-color: #fff;
   border: 1px solid #bbb;
   border-radius: 2px;
+  box-shadow: 0 10px 10px -10px rgba(0,0,55,0.3);
 }
 .catalog_right {
   width: 260px;
@@ -1668,6 +1669,7 @@ ul.create-company-spec-selectBox-dropdown-menu {
   width: 868px;
   border: 1px solid #bbb;
   border-radius: 2px;
+  box-shadow: 0 10px 10px -10px rgba(0,0,55,0.3);
 }
 .feed_right {
   width: 260px;
@@ -1715,6 +1717,7 @@ ul.create-company-spec-selectBox-dropdown-menu {
   border-radius: 2px;
   border: 1px solid #bbb;
   border-radius: 2px;
+  box-shadow: 0 10px 10px -10px rgba(0,0,55,0.3);
   position: relative;
 }
 .home_right {
@@ -1899,6 +1902,7 @@ ul.create-company-spec-selectBox-dropdown-menu {
   width: 868px;
   border: 1px solid #bbb;
   border-radius: 2px;
+  box-shadow: 0 10px 10px -10px rgba(0,0,55,0.3);
   padding: 15px 25px;
 }
 .page_right {
@@ -1965,6 +1969,7 @@ ul.create-company-spec-selectBox-dropdown-menu {
   background-color: #fff;
   border: 1px solid #bbb;
   border-radius: 2px;
+  box-shadow: 0 10px 10px -10px rgba(0,0,55,0.3);
 }
 .profile_right {
   float: right;
