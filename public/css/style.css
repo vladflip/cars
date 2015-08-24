@@ -1454,13 +1454,17 @@ ul.create-company-spec-selectBox-dropdown-menu {
   width: 130px;
 }
 .header_submit-arrow {
-  background: url("../img/sign-in-arrow.jpg") no-repeat;
-  width: 26px;
+  width: 56px;
   height: 26px;
   position: absolute;
   right: 4px;
   top: 4px;
   cursor: pointer;
+  background-color: #f2dd6d;
+  font-size: 12px;
+  line-height: 30px;
+  text-align: center;
+  color: #fff;
 }
 .header_user-box {
   position: absolute;
@@ -1506,11 +1510,11 @@ ul.create-company-spec-selectBox-dropdown-menu {
   transition: opacity 0.3s ease-in-out;
 }
 .header_user-info_arrow {
-  background-color: #f2dd6d;
-  font-size: 12px;
-  line-height: 30px;
-  text-align: center;
-  color: #fff;
+  background: url("../img/profile-arrow.png") center no-repeat;
+  width: 18px;
+  height: 18px;
+  position: relative;
+  left: 0;
   transition: left 0.3s ease-in-out;
 }
 .header_user-info:hover .header_user-info_arrow {
