@@ -135,6 +135,7 @@ h3 {
       -ms-user-select: none;
           user-select: none;
   transition: 0.2s ease;
+  box-shadow: 0 10px 10px -10px rgba(0,0,55,0.3);
   margin: 30px auto 0;
 }
 .company-preview {
@@ -282,6 +283,7 @@ ul.create-company-spec-selectBox-dropdown-menu {
       -ms-user-select: none;
           user-select: none;
   transition: 0.2s ease;
+  box-shadow: 0 10px 10px -10px rgba(0,0,55,0.3);
   margin: 20px auto;
 }
 .found_more:hover {
@@ -331,6 +333,7 @@ ul.create-company-spec-selectBox-dropdown-menu {
       -ms-user-select: none;
           user-select: none;
   transition: 0.2s ease;
+  box-shadow: 0 10px 10px -10px rgba(0,0,55,0.3);
   margin: 0 auto 25px;
   display: none;
 }
@@ -702,6 +705,7 @@ ul.create-company-spec-selectBox-dropdown-menu {
       -ms-user-select: none;
           user-select: none;
   transition: 0.2s ease;
+  box-shadow: 0 10px 10px -10px rgba(0,0,55,0.3);
   margin: 30px auto 0;
   position: relative;
   transition: all 0.2s linear;
@@ -776,6 +780,7 @@ ul.create-company-spec-selectBox-dropdown-menu {
       -ms-user-select: none;
           user-select: none;
   transition: 0.2s ease;
+  box-shadow: 0 10px 10px -10px rgba(0,0,55,0.3);
   margin: 10px 0;
   border-radius: 2px;
   border: none;
@@ -825,9 +830,11 @@ ul.create-company-spec-selectBox-dropdown-menu {
 }
 .specs_menu li a {
   color: #222;
+  text-decoration: underline;
 }
 .specs_menu li a:hover {
   color: #000;
+  text-decoration: none;
 }
 .specs_active {
   color: #ccc;
@@ -853,6 +860,7 @@ ul.create-company-spec-selectBox-dropdown-menu {
       -ms-user-select: none;
           user-select: none;
   transition: 0.2s ease;
+  box-shadow: 0 10px 10px -10px rgba(0,0,55,0.3);
   margin: 40px auto 0;
 }
 .specs_add:hover {
@@ -941,6 +949,7 @@ ul.create-company-spec-selectBox-dropdown-menu {
       -ms-user-select: none;
           user-select: none;
   transition: 0.2s ease;
+  box-shadow: 0 10px 10px -10px rgba(0,0,55,0.3);
   margin-top: 15px;
   display: none;
 }
@@ -1057,6 +1066,7 @@ ul.create-company-spec-selectBox-dropdown-menu {
       -ms-user-select: none;
           user-select: none;
   transition: 0.2s ease;
+  box-shadow: 0 10px 10px -10px rgba(0,0,55,0.3);
 }
 .feedback_button:hover {
   background-color: rgba(243,223,109,0.9);
@@ -1306,7 +1316,7 @@ ul.create-company-spec-selectBox-dropdown-menu {
   font-weight: 400;
   font-size: 14px;
   word-spacing: 2px;
-  margin-top: 10px;
+  margin-top: -20px;
   font-style: italic;
   text-align: center;
 }
@@ -1482,6 +1492,7 @@ ul.create-company-spec-selectBox-dropdown-menu {
   -webkit-justify-content: center;
       -ms-flex-pack: center;
           justify-content: center;
+  text-decoration: underline;
 }
 .menu_sign-up {
   display: -webkit-flex;
