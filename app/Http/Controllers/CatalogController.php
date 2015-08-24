@@ -52,7 +52,7 @@ class CatalogController extends Controller {
 			abort(404);
 
 		$c = \App\Company::whereHas('makes', function($q) use($make){
-			$q->where('make_id', $make->id);
+			$q->whereId($make->id);
 		})
 		->where('spec_id', $spec->id)
 		->with('models')
@@ -107,7 +107,7 @@ class CatalogController extends Controller {
 			abort(404);
 
 		$c = \App\Company::whereHas('makes', function($q) use($make){
-			$q->where('make_id', $make->id);
+			$q->whereId($make->id);
 		})
 		->take(6)
 		->get();
@@ -156,12 +156,124 @@ class CatalogController extends Controller {
 
 	}
 
-	public function spec_make_models() {
+	public function withspecsModel($spec, $make, $model) {
+
+		$spec = \App\Spec::whereName($spec)->first();
+
+		if(!$spec)
+			abort(404);
+
+		$make = \App\Make::whereName($make)->first();
+
+		if(!$make)
+			abort(404);
+
+		$model = \App\CarModel::whereName($model)
+		->whereMakeId($make->id)
+		->first();
+
+		if(!$model)
+			abort(404);
+
+		$c = \App\Company::whereHas('models', function($q) use($model){
+			$q->whereId($model->id);
+		})
+		->where('spec_id', $spec->id)
+		->take(6)
+		->get();
+
+		$companies = array();
+
+		foreach($c as $key => $val){
+
+			$arr = array();
+
+			$t = array();
+
+			$arr['name'] = $val->name;
+			$arr['about'] = $val->about;
+			$arr['phone'] = $val->phone;
+			$arr['logo'] = $val->logo;
+			$arr['address'] = $val->address;
+
+			$t[] = $val->spec->title;
+			$t[] = $val->type->title;
+
+			foreach($val->makes as $k => $v){
+
+				$t[] = $v->title;
+
+			}
+
+			$arr['tags'] = $t;
+
+			$companies[] = $arr;
+
+		}
+
+		$bread = ['spec' => $spec, 'make' => $make];
+
+		return view('pages.catalog.catalog-companies')
+			->with(compact('spec', 'make', 'bread', 'companies'));
 
 	}
 
-	public function nospecsModels() {
+	public function nospecsModel($make, $model) {
 
+		$make = \App\Make::whereName($make)->first();
+
+		if(!$make)
+			abort(404);
+
+		$model = \App\CarModel::whereName($model)
+		->whereMakeId($make->id)
+		->first();
+
+		if(!$model)
+			abort(404);
+
+		$c = \App\Company::whereHas('models', function($q) use($model){
+			$q->whereId($model->id);
+		})
+		->take(6)
+		->get();
+
+		$companies = array();
+
+		foreach($c as $key => $val){
+
+			$arr = array();
+
+			$t = array();
+
+			$arr['name'] = $val->name;
+			$arr['about'] = $val->about;
+			$arr['phone'] = $val->phone;
+			$arr['logo'] = $val->logo;
+			$arr['address'] = $val->address;
+
+			$t[] = $val->spec->title;
+			$t[] = $val->type->title;
+
+			foreach($val->makes as $k => $v){
+
+				$t[] = $v->title;
+
+			}
+
+			$arr['tags'] = $t;
+
+			$companies[] = $arr;
+
+		}
+
+		$bread = ['nospecs' => $make];
+
+		return view('pages.catalog.catalog-companies')
+			->with('bread', $bread)
+			->with('make', $make)
+			->with('nospecs', true)
+			->with('companies', $companies);
 
 	}
 

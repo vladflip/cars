@@ -77,7 +77,7 @@ Route::group(['prefix' => 'catalog'], function(){
 
 	get('make/{make}/{model}', [
 		'as' => 'catalog-nospecs-model',
-		'uses' => 'CatalogController@nospecsModels'
+		'uses' => 'CatalogController@nospecsModel'
 	]);
 
 	get('{spec}', [
@@ -92,7 +92,7 @@ Route::group(['prefix' => 'catalog'], function(){
 
 	get('{spec}/{make}/{model}', [
 		'as' => 'spec-make-model',
-		'uses' => 'CatalogController@spec_make_models'
+		'uses' => 'CatalogController@withspecsModel'
 	]);
 
 
