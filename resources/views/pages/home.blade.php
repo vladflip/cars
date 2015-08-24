@@ -22,7 +22,7 @@
 
 				@include('inc.parts')
 
-				@include('inc.main-makes')
+				@include('inc.makes.main-makes')
 
 				<div id="show-found-orgs" class="show-orgs">
 					Показать
