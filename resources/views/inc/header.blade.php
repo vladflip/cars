@@ -32,7 +32,9 @@
 						@endif
 
 						@if(Auth::user()->company)
+
 							<h5 class="header_user-info_company-name">{{ Auth::user()->company->name }}</h5>
+							
 						@endif
 
 					</div>
