@@ -1,7 +1,7 @@
 .found h3,
 .catalog_type,
 .feed_header,
-overflow hidden_middle>h3,
+.home_middle>h3,
 .page_type {
   margin: 25px 0 0 35px;
 }
@@ -1704,19 +1704,20 @@ ul.create-company-spec-selectBox-dropdown-menu {
 }
 .home {
   padding: 0 10px 10px 10px;
+  overflow: hidden;
 }
-overflow hidden .container {
+.home .container {
   position: relative;
   margin-top: 25px;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
 }
-overflow hidden_left {
+.home_left {
   margin-right: 10px;
   width: 260px;
 }
-overflow hidden_middle {
+.home_middle {
   border: 1px solid #bbb;
   border-radius: 2px;
   box-shadow: 0 10px 10px -10px rgba(0,0,55,0.5);
@@ -1726,7 +1727,7 @@ overflow hidden_middle {
   border-radius: 2px;
   position: relative;
 }
-overflow hidden_right {
+.home_right {
   width: 260px;
 }
 .mention {
