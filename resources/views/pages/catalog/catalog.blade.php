@@ -18,17 +18,7 @@
 
 				{!! Breadcrumbs::render('catalog', $bread) !!}
 
-				<h3 class="catalog_type">
-					{{ $bread ? $bread['spec']->title : 'Каталог' }}
-				</h3>
-
-				@include('inc.type', ['id' => 'catalog-types'])
-
-				@if(isset($allmakes))
-					@include('inc.makes', ['id' => 'catalog-makes'])
-				@else
-					@include('inc.makes', ['id' => 'catalog-specmakes'])
-				@endif
+				@yield('catalog')
 
 			</div>
 

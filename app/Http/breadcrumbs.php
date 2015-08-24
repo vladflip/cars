@@ -14,8 +14,8 @@ Breadcrumbs::register('catalog', function($breadcrumbs, $c)
 	$breadcrumbs->push('Каталог', route('catalog'));
 
 // Home > Catalog > Make
-	if(isset($c['allmakes'])){
-		$breadcrumbs->push($c['allmakes']->title);
+	if(isset($c['nospecs'])){
+		$breadcrumbs->push($c['nospecs']->title);
 	}
 
 // Home > Catalog > Spec

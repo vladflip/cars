@@ -9,9 +9,8 @@ class CatalogController extends Controller {
 		->orderBy('title', 'ASC')
 		->get();
 
-		return view('pages.catalog')
+		return view('pages.catalog.nospecs')
 			->with('makes', $makes)
-			->with('allmakes', true)
 			->with('bread', false);
 
 	}
@@ -25,7 +24,6 @@ class CatalogController extends Controller {
 		}
 
 		$bread = ['spec' => $spec];
-		// get makes by name of spec
 
 		$makes = \App\Make::whereHas('companies', function($q) use ($spec){
 
@@ -34,15 +32,14 @@ class CatalogController extends Controller {
 		})->get();
 
 
-		return view('pages.catalog')
-			->with('current', $name)
-			->with('current_id', $spec->id)
+		return view('pages.catalog.withspecs')
+			->with('spec', $spec)
 			->with('makes', $makes)
 			->with('bread', $bread);
 
 	}
 
-	public function companies($spec, $make) {
+	public function withspecs($spec, $make) {
 
 		$spec = \App\Spec::whereName($spec)->first();
 
@@ -63,7 +60,7 @@ class CatalogController extends Controller {
 		->get();
 
 		$models = \App\CarModel::where('make_id', $make->id)
-		// ->has('companies')
+		->has('companies')
 		->get();
 
 		$companies = array();
@@ -97,17 +94,12 @@ class CatalogController extends Controller {
 
 		$bread = ['spec' => $spec, 'make' => $make];
 
-		return view('pages.make-catalog')
-			->with('current', $spec->name)
-			->with('spec_id', $spec->id)
-			->with('models', $models)
-			->with('make', $make)
-			->with('bread', $bread)
-			->with('companies', $companies);
+		return view('pages.catalog.catalog-companies')
+			->with(compact('spec', 'models', 'make', 'bread', 'companies'));
 
 	}
 
-	public function allmakes($make) {
+	public function nospecs($make) {
 
 		$make = \App\Make::whereName($make)->first();
 
@@ -150,16 +142,16 @@ class CatalogController extends Controller {
 		}
 
 		$models = \App\CarModel::where('make_id', $make->id)
-		// ->has('companies')
+		->has('companies')
 		->get();
 
-		$bread = ['allmakes' => $make];
+		$bread = ['nospecs' => $make];
 
-		return view('pages.make-catalog')
+		return view('pages.catalog.catalog-companies')
 			->with('bread', $bread)
 			->with('make', $make)
 			->with('models', $models)
-			->with('allmakes', true)
+			->with('nospecs', true)
 			->with('companies', $companies);
 
 	}
@@ -168,7 +160,7 @@ class CatalogController extends Controller {
 
 	}
 
-	public function allmakes_models() {
+	public function nospecsModels() {
 
 
 	}

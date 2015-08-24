@@ -25,9 +25,9 @@
 
 						{{ $bread['spec']->title }}
 
-					@elseif(isset($allmakes))
+					@elseif(isset($nospecs))
 						
-						{{ $bread['allmakes']->title }}
+						{{ $bread['nospecs']->title }}
 
 					@else
 
@@ -37,36 +37,38 @@
 
 				</h3>
 
-				<div class="makes makes--catalog">
-
-					<ul>	
+				@if(isset($models))
+					<div class="makes makes--catalog">
 					
-						@foreach($models as $model)
-					
-							<li>
-								<span>
-									
-									@if(isset($allmakes))
-										<a href="{{ route('allmakes-model', 
-										['allmakes' => $make->name, 
-										'model' => $model->name]) }}">
-											{{ $model->title }}</a>
-									@else
-										<a href="{{ route('spec-make-model', 
-										['spec' => $current, 
-										'make' => $make->name, 
-										'model' => $model->name]) }}">
-											{{ $model->title }}</a>
-									@endif
-					
-								</span>
-							</li>
-					
-						@endforeach
+						<ul>	
 						
-					</ul>
-
-				</div>
+							@foreach($models as $model)
+						
+								<li>
+									<span>
+										
+										@if(isset($nospecs))
+											<a href="{{ route('catalog-nospecs-model', 
+											['make' => $make->name, 
+											'model' => $model->name]) }}">
+												{{ $model->title }}</a>
+										@else
+											<a href="{{ route('spec-make-model', 
+											['spec' => $spec->name, 
+											'make' => $make->name, 
+											'model' => $model->name]) }}">
+												{{ $model->title }}</a>
+										@endif
+						
+									</span>
+								</li>
+						
+							@endforeach
+							
+						</ul>
+					
+					</div>
+				@endif
 
 				@include('inc.found', ['make_id' => $make->id])
 				
