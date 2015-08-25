@@ -24,7 +24,7 @@
 		@endforeach
 
 	</ul>
-
+{{-- 
 	@if( Auth::guest() ? 1 : ( Auth::user()->company ? 0 : 1 ) )
 
 		<div id="create-company-button" class="specs_add" 
@@ -33,7 +33,7 @@
 			Добавить организацию
 		</div>
 
-	@endif
+	@endif --}}
 
 </div>
 
