@@ -427,8 +427,7 @@ ul.create-company-spec-selectBox-dropdown-menu {
   margin: 0;
 }
 .makes ul {
-  margin-left: 70px;
-  padding: 20px 0;
+  margin: 20px 0 20px 70px;
   -webkit-columns: 4;
      -moz-columns: 4;
           columns: 4;
