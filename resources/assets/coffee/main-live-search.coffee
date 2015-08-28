@@ -1,119 +1,8 @@
 TypeList = require './inc/TypeList'
 
-class SpecModel extends Backbone.Model
-	defaults:
-		id: 0
-
-class SpecCollection extends Backbone.Collection
-	model: SpecModel
-
-class SpecView extends Backbone.View
-
-	initialize: ->
-
-		@state = false
-
-		@class = 'parts--active'
-
-		@model.on 'deactivate', @deactivate
-
-	events:
-		'click' : 'changeState'
-
-	changeState: =>
-		if @state 
-			@model.trigger('pass')
-
-			do @deactivate
-		else
-			do @activate
-
-
-	activate: =>
-		if @options.list.active
-
-			@$el.addClass @class
-
-			@state = true
-
-			@model.trigger 'active', @model
-
-		else
-			@options.list.trigger 'error'
-
-
-	deactivate: =>
-		@$el.removeClass @class
-
-		@state = false
-
-
-class SpecList extends Backbone.View
-
-	initialize: ->
-
-		@active = false
-
-		@ids = 
-			type: 0
-			spec: 0
-
-		@collection = new SpecCollection
-
-		# when no specs selected
-		@collection.on 'pass', @pass
-
-		@collection.on 'active', @deactivate
-
-		@on 'error', @error
-
-		@options.types.on 'changed', @fromTypes
-
-		do @fillCollection
-
-	deactivate:(model) =>
-		@ids.spec = model.get 'id'
-
-		@collection.each (m) =>
-			if m isnt model
-				m.trigger('deactivate')
-
-		# trigger event for lower dependencies
-		@trigger 'changed', @ids
-
-	error: =>
-		console.log 'choose type'
-
-	fromTypes: (id) =>
-		if id
-			# to check wether type is selected
-			@active = true
-
-			@ids.type = id
-			if @ids.spec isnt 0
-				@trigger 'changed', @ids
-		else
-			@active = false
-			@trigger 'changed', 0
-			@ids.spec = 0
-			@collection.each (model) =>
-				model.trigger 'deactivate'
-
-	pass: =>
-		@ids.spec = 0
-
-		@trigger 'changed', @ids
-
-	fillCollection: ->
-		@$el.children('li').each (i, li) =>
-			id = $(li).data('id')
-			m = new SpecModel id: id
-			v = new SpecView model: m, el: li, list: @
-			@collection.add m
-
 
 # initializes default collection from html
-# on specs or type changed stores ids in specIds and typeId
+# on type changed stores id 
 # then gets makes be typeid and specids and updates collection
 
 class MakeModel extends Backbone.Model
@@ -135,11 +24,11 @@ class MakeView extends Backbone.View
 		@model.on('show', @show)
 
 	hide: =>
-		@$el.css('display', 'none')
+		@$el.hide()
 		do @deactivate
 
 	show: =>
-		@$el.css('display', 'block')
+		@$el.show()
 
 	events: 
 		'click' : 'changeState'
@@ -159,39 +48,47 @@ class MakeView extends Backbone.View
 
 class MakeList extends Backbone.View
 
-	url: 'api/live-makes'
+	makesIds: []
 
-	home: $('body').data 'home'
+	chosenIds: []
 
-	ids: []
-
-	parentIds: {}
-
-	button: $('#show-found-orgs')
-
-	makesElement: $('.makes.makes--live')
-
-	empty: $('.makes_empty')
+	collection: new MakeCollection
 
 	initialize: ->
 
-		@on 'error', @error
+		do @getMakesTypeIds
 
-		# dependency to listen for changes of ids
-		@options.specs.on 'changed', @changed
-
-		@collection = new MakeCollection
-
-		@collection.on 'change', @updateIds
-
-		# fill collection from html
 		do @fillCollection
 
-	# when no makes chosed
-	error: =>
-		console.log 'please chose make'
+		@collection.on 'change', @makesChosen
+
+		@options.types.on 'changed', @updateCollection
+
+	getMakesTypeIds: ->
+		el = $ '#type-makes-ids'
+
+		el.children().each (i, type) =>
+			@makesIds.push $(type).data 'ids'
+
+	updateCollection: (id) =>
+
+		ids = @makesIds[id-1]
+
+		if id isnt 0
+
+			@collection.each (model) ->
+				if ids.have model.get 'id'
+					model.trigger 'show'
+				else
+					model.trigger 'hide'
+
+		else
+			@collection.each (model) ->
+				model.trigger 'show'
+
 
 	fillCollection: ->
+
 		@$el.find('li').each (i, li) =>
 			id = $(li).data 'id'
 			title = $(li).children('span').html().trim()
@@ -201,61 +98,15 @@ class MakeList extends Backbone.View
 
 			@collection.add m
 
-	changed: (ids) =>
-		@parentIds = ids
-		if ids is 0 or ids.spec is 0
-			do @hide
-			@trigger 'hideComps'
-			return
+	makesChosen: (model) =>
 
-		@getMakes ids
-
-	getMakes: (ids) ->
-		console.log ids, 'selected'
-		self = @
-
-		$.ajax "#{@home}/#{@url}",
-			data: ids
-		.done (rids) =>
-			if rids.length is 0 
-				do @empty.show 
-				do @button.hide
-
-				@trigger 'hideComps'
-			else 
-				do @empty.hide
-				@button.css 'display', 'flex'
-			
-			self.updateCollection rids
-
-	hide: ->
-		@makesElement.hide()
-		@button.hide()
-
-	show: ->
-		@makesElement.show()
-
-	updateCollection: (ids) ->
-		console.log ids, 'received'
-		do @show
-
-		@collection.each (model) ->
-
-			if ids.have model.get 'id'
-				model.trigger 'show'
-			else
-				model.trigger 'hide'
-
-	# update make ids for companies module
-	updateIds: (model) =>
-		if model.get('active')
-			@ids.push model.get 'id'
+		if model.get 'active'
+			@chosenIds.push model.get 'id'
 		else
-			@ids.remove model.get 'id'
+			@chosenIds.remove model.get 'id'
 
-		@parentIds.makes = @ids
+		console.log @chosenIds
 
-		@trigger 'changed', @parentIds
 
 
 class CompanyModel extends Backbone.Model
@@ -443,13 +294,9 @@ class CompanyList extends Backbone.View
 types = new TypeList
 	el: '#main-type-list'
 
-specs = new SpecList
-	el: '#parts-list'
-	types: types
-
 makes = new MakeList
 	el: '#main-makes-list'
-	specs: specs
+	types: types
 
 companies = new CompanyList
 	el: '#found'

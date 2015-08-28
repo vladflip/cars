@@ -22,9 +22,15 @@
 				
 				<h3>Поиск организаций</h3>
 
-				@include('inc.type', ['id' => 'main-type-list'])
+				<div id="type-makes-ids">
+					@foreach($ids as $id)
+						
+						<div data-ids="{{ $id }}"></div>
 
-				@include('inc.parts')
+					@endforeach
+				</div>
+
+				@include('inc.type', ['id' => 'main-type-list'])
 
 				@include('inc.makes.main-makes')
 

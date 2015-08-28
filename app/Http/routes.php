@@ -211,6 +211,10 @@ Route::group(['prefix' => 'api', 'middleware' => 'api'], function(){
 
 	get('get-makes-by-type', 'APIController@makes_by_type');
 
+	get('get-makes-by-spec-type', 'APIController@specTypeMakes');
+
+	get('get-makes-by-type-ids', 'APIController@makesByTypeIds');
+
 	get('get-models-by-make', 'APIController@models_by_make');
 
 	get('live-makes', 'APIController@live_makes');

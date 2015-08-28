@@ -38,6 +38,26 @@ class APIController extends Controller {
 
 	}
 
+	public function makesByTypeIds() {
+
+		$typeId = \Input::get('type');
+
+		$makes = \App\Make::select('id')
+		->whereHas('companies', function($q) use($typeId){
+			$q->where('type_id', $typeId);
+		})
+		->get();
+
+		$ids = array();
+
+		foreach ($makes as $k => $v) {
+			$ids[] = $v->id;
+		}
+
+		return $ids;
+
+	}
+
 	public function models_by_make() {
 
 		$id = \Input::get('id');
@@ -48,16 +68,16 @@ class APIController extends Controller {
 		return $m;
 	}
 
-	public function live_makes() {
+	public function specTypeMakes() {
 
 		$typeId = \Input::get('type');
 
 		$specId = \Input::get('spec');
 
 		$makes = \App\Make::select('id')
-		->whereHas('companies', function($q) use($specId, $typeId){	
-			$q->where('spec_id', $specId);
+		->whereHas('companies', function($q) use($typeId, $specId){
 			$q->where('type_id', $typeId);
+			$q->where('spec_id', $specId);
 		})
 		->get();
 

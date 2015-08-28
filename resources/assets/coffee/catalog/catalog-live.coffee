@@ -114,7 +114,7 @@ class MainMakes extends MakeList
 
 class SpecMakes extends MakeList
 
-	url: 'api/live-makes'
+	url: 'api/get-makes-by-spec-type'
 
 	get: (i) ->
 		$.ajax "#{@home}/#{@url}",

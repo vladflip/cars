@@ -577,7 +577,7 @@ SpecMakes = (function(superClass) {
     return SpecMakes.__super__.constructor.apply(this, arguments);
   }
 
-  SpecMakes.prototype.url = 'api/live-makes';
+  SpecMakes.prototype.url = 'api/get-makes-by-spec-type';
 
   SpecMakes.prototype.get = function(i) {
     return $.ajax(this.home + "/" + this.url, {
@@ -2057,175 +2057,12 @@ button.click(function() {
 });
 
 },{}],15:[function(require,module,exports){
-var CompanyCollection, CompanyList, CompanyModel, CompanyView, MakeCollection, MakeList, MakeModel, MakeView, SpecCollection, SpecList, SpecModel, SpecView, TypeList, companies, makes, specs, types,
+var CompanyCollection, CompanyList, CompanyModel, CompanyView, MakeCollection, MakeList, MakeModel, MakeView, TypeList, companies, makes, types,
   extend = function(child, parent) { for (var key in parent) { if (hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; },
   hasProp = {}.hasOwnProperty,
   bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };
 
 TypeList = require('./inc/TypeList');
-
-SpecModel = (function(superClass) {
-  extend(SpecModel, superClass);
-
-  function SpecModel() {
-    return SpecModel.__super__.constructor.apply(this, arguments);
-  }
-
-  SpecModel.prototype.defaults = {
-    id: 0
-  };
-
-  return SpecModel;
-
-})(Backbone.Model);
-
-SpecCollection = (function(superClass) {
-  extend(SpecCollection, superClass);
-
-  function SpecCollection() {
-    return SpecCollection.__super__.constructor.apply(this, arguments);
-  }
-
-  SpecCollection.prototype.model = SpecModel;
-
-  return SpecCollection;
-
-})(Backbone.Collection);
-
-SpecView = (function(superClass) {
-  extend(SpecView, superClass);
-
-  function SpecView() {
-    this.deactivate = bind(this.deactivate, this);
-    this.activate = bind(this.activate, this);
-    this.changeState = bind(this.changeState, this);
-    return SpecView.__super__.constructor.apply(this, arguments);
-  }
-
-  SpecView.prototype.initialize = function() {
-    this.state = false;
-    this["class"] = 'parts--active';
-    return this.model.on('deactivate', this.deactivate);
-  };
-
-  SpecView.prototype.events = {
-    'click': 'changeState'
-  };
-
-  SpecView.prototype.changeState = function() {
-    if (this.state) {
-      this.model.trigger('pass');
-      return this.deactivate();
-    } else {
-      return this.activate();
-    }
-  };
-
-  SpecView.prototype.activate = function() {
-    if (this.options.list.active) {
-      this.$el.addClass(this["class"]);
-      this.state = true;
-      return this.model.trigger('active', this.model);
-    } else {
-      return this.options.list.trigger('error');
-    }
-  };
-
-  SpecView.prototype.deactivate = function() {
-    this.$el.removeClass(this["class"]);
-    return this.state = false;
-  };
-
-  return SpecView;
-
-})(Backbone.View);
-
-SpecList = (function(superClass) {
-  extend(SpecList, superClass);
-
-  function SpecList() {
-    this.pass = bind(this.pass, this);
-    this.fromTypes = bind(this.fromTypes, this);
-    this.error = bind(this.error, this);
-    this.deactivate = bind(this.deactivate, this);
-    return SpecList.__super__.constructor.apply(this, arguments);
-  }
-
-  SpecList.prototype.initialize = function() {
-    this.active = false;
-    this.ids = {
-      type: 0,
-      spec: 0
-    };
-    this.collection = new SpecCollection;
-    this.collection.on('pass', this.pass);
-    this.collection.on('active', this.deactivate);
-    this.on('error', this.error);
-    this.options.types.on('changed', this.fromTypes);
-    return this.fillCollection();
-  };
-
-  SpecList.prototype.deactivate = function(model) {
-    this.ids.spec = model.get('id');
-    this.collection.each((function(_this) {
-      return function(m) {
-        if (m !== model) {
-          return m.trigger('deactivate');
-        }
-      };
-    })(this));
-    return this.trigger('changed', this.ids);
-  };
-
-  SpecList.prototype.error = function() {
-    return console.log('choose type');
-  };
-
-  SpecList.prototype.fromTypes = function(id) {
-    if (id) {
-      this.active = true;
-      this.ids.type = id;
-      if (this.ids.spec !== 0) {
-        return this.trigger('changed', this.ids);
-      }
-    } else {
-      this.active = false;
-      this.trigger('changed', 0);
-      this.ids.spec = 0;
-      return this.collection.each((function(_this) {
-        return function(model) {
-          return model.trigger('deactivate');
-        };
-      })(this));
-    }
-  };
-
-  SpecList.prototype.pass = function() {
-    this.ids.spec = 0;
-    return this.trigger('changed', this.ids);
-  };
-
-  SpecList.prototype.fillCollection = function() {
-    return this.$el.children('li').each((function(_this) {
-      return function(i, li) {
-        var id, m, v;
-        id = $(li).data('id');
-        m = new SpecModel({
-          id: id
-        });
-        v = new SpecView({
-          model: m,
-          el: li,
-          list: _this
-        });
-        return _this.collection.add(m);
-      };
-    })(this));
-  };
-
-  return SpecList;
-
-})(Backbone.View);
 
 MakeModel = (function(superClass) {
   extend(MakeModel, superClass);
@@ -2274,12 +2111,12 @@ MakeView = (function(superClass) {
   };
 
   MakeView.prototype.hide = function() {
-    this.$el.css('display', 'none');
+    this.$el.hide();
     return this.deactivate();
   };
 
   MakeView.prototype.show = function() {
-    return this.$el.css('display', 'block');
+    return this.$el.show();
   };
 
   MakeView.prototype.events = {
@@ -2312,36 +2149,50 @@ MakeList = (function(superClass) {
   extend(MakeList, superClass);
 
   function MakeList() {
-    this.updateIds = bind(this.updateIds, this);
-    this.changed = bind(this.changed, this);
-    this.error = bind(this.error, this);
+    this.makesChosen = bind(this.makesChosen, this);
+    this.updateCollection = bind(this.updateCollection, this);
     return MakeList.__super__.constructor.apply(this, arguments);
   }
 
-  MakeList.prototype.url = 'api/live-makes';
+  MakeList.prototype.makesIds = [];
 
-  MakeList.prototype.home = $('body').data('home');
+  MakeList.prototype.chosenIds = [];
 
-  MakeList.prototype.ids = [];
-
-  MakeList.prototype.parentIds = {};
-
-  MakeList.prototype.button = $('#show-found-orgs');
-
-  MakeList.prototype.makesElement = $('.makes.makes--live');
-
-  MakeList.prototype.empty = $('.makes_empty');
+  MakeList.prototype.collection = new MakeCollection;
 
   MakeList.prototype.initialize = function() {
-    this.on('error', this.error);
-    this.options.specs.on('changed', this.changed);
-    this.collection = new MakeCollection;
-    this.collection.on('change', this.updateIds);
-    return this.fillCollection();
+    this.getMakesTypeIds();
+    this.fillCollection();
+    this.collection.on('change', this.makesChosen);
+    return this.options.types.on('changed', this.updateCollection);
   };
 
-  MakeList.prototype.error = function() {
-    return console.log('please chose make');
+  MakeList.prototype.getMakesTypeIds = function() {
+    var el;
+    el = $('#type-makes-ids');
+    return el.children().each((function(_this) {
+      return function(i, type) {
+        return _this.makesIds.push($(type).data('ids'));
+      };
+    })(this));
+  };
+
+  MakeList.prototype.updateCollection = function(id) {
+    var ids;
+    ids = this.makesIds[id - 1];
+    if (id !== 0) {
+      return this.collection.each(function(model) {
+        if (ids.have(model.get('id'))) {
+          return model.trigger('show');
+        } else {
+          return model.trigger('hide');
+        }
+      });
+    } else {
+      return this.collection.each(function(model) {
+        return model.trigger('show');
+      });
+    }
   };
 
   MakeList.prototype.fillCollection = function() {
@@ -2363,66 +2214,13 @@ MakeList = (function(superClass) {
     })(this));
   };
 
-  MakeList.prototype.changed = function(ids) {
-    this.parentIds = ids;
-    if (ids === 0 || ids.spec === 0) {
-      this.hide();
-      this.trigger('hideComps');
-      return;
-    }
-    return this.getMakes(ids);
-  };
-
-  MakeList.prototype.getMakes = function(ids) {
-    var self;
-    console.log(ids, 'selected');
-    self = this;
-    return $.ajax(this.home + "/" + this.url, {
-      data: ids
-    }).done((function(_this) {
-      return function(rids) {
-        if (rids.length === 0) {
-          _this.empty.show();
-          _this.button.hide();
-          _this.trigger('hideComps');
-        } else {
-          _this.empty.hide();
-          _this.button.css('display', 'flex');
-        }
-        return self.updateCollection(rids);
-      };
-    })(this));
-  };
-
-  MakeList.prototype.hide = function() {
-    this.makesElement.hide();
-    return this.button.hide();
-  };
-
-  MakeList.prototype.show = function() {
-    return this.makesElement.show();
-  };
-
-  MakeList.prototype.updateCollection = function(ids) {
-    console.log(ids, 'received');
-    this.show();
-    return this.collection.each(function(model) {
-      if (ids.have(model.get('id'))) {
-        return model.trigger('show');
-      } else {
-        return model.trigger('hide');
-      }
-    });
-  };
-
-  MakeList.prototype.updateIds = function(model) {
+  MakeList.prototype.makesChosen = function(model) {
     if (model.get('active')) {
-      this.ids.push(model.get('id'));
+      this.chosenIds.push(model.get('id'));
     } else {
-      this.ids.remove(model.get('id'));
+      this.chosenIds.remove(model.get('id'));
     }
-    this.parentIds.makes = this.ids;
-    return this.trigger('changed', this.parentIds);
+    return console.log(this.chosenIds);
   };
 
   return MakeList;
@@ -2677,14 +2475,9 @@ types = new TypeList({
   el: '#main-type-list'
 });
 
-specs = new SpecList({
-  el: '#parts-list',
-  types: types
-});
-
 makes = new MakeList({
   el: '#main-makes-list',
-  specs: specs
+  types: types
 });
 
 companies = new CompanyList({

@@ -457,9 +457,6 @@ ul.create-company-spec-selectBox-dropdown-menu {
   display: inline;
   text-decoration: underline;
 }
-.makes--live {
-  display: none;
-}
 .makes--live ul li {
   padding: 0;
 }
@@ -491,36 +488,6 @@ ul.create-company-spec-selectBox-dropdown-menu {
   -webkit-flex-grow: 1;
       -ms-flex-positive: 1;
           flex-grow: 1;
-}
-.parts {
-  position: relative;
-  margin: 25px 0 0 0;
-}
-.parts_categories {
-  margin: 10px 0 0 70px;
-  height: 160px;
-  width: 440px;
-}
-.parts_categories li {
-  float: left;
-  font-size: 12px;
-  width: 200px;
-  margin-bottom: 5px;
-}
-.parts_categories li span {
-  padding: 9px 15px;
-  display: inline-block;
-  cursor: pointer;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
-}
-.parts_categories li span:hover {
-  background-color: #f9e27b;
-}
-.parts--active span {
-  background-color: #f9e27b;
 }
 #create-company-logo {
   display: none;
