@@ -50,7 +50,9 @@ class MakeList extends Backbone.View
 
 	makesIds: []
 
-	chosenIds: []
+	chosenIds: 
+		makes: []
+		type: []
 
 	collection: new MakeCollection
 
@@ -73,6 +75,8 @@ class MakeList extends Backbone.View
 			@makesIds.push $(type).data 'ids'
 
 	updateCollection: (id) =>
+
+		@chosenIds.type = id
 
 		ids = @makesIds[id-1]
 
@@ -113,12 +117,13 @@ class MakeList extends Backbone.View
 	makeChosen: (model) =>
 
 		if model.get 'active'
-			@chosenIds.push model.get 'id'
+			@chosenIds.makes.push model.get 'id'
 		else
-			@chosenIds.remove model.get 'id'
+			@chosenIds.makes.remove model.get 'id'
 
 		do @triggerShowButton
 
+		@trigger 'changed', @chosenIds
 
 
 class CompanyModel extends Backbone.Model
@@ -241,7 +246,6 @@ class CompanyList extends Backbone.View
 			data: 
 				type: @ids.type
 				makes: @ids.makes
-				spec: @ids.spec
 				skip: @toSkip
 
 		.done (comps) =>

@@ -99,14 +99,11 @@ class APIController extends Controller {
 
 		$makes = \Input::get('makes');
 
-		$spec = \Input::get('spec');
-
 		$c = \App\Company::
 			whereHas('makes', function($q) use($makes){
 				$q->whereIn('id', $makes);
 			})
 			->where('type_id', $type)
-			->where('spec_id', $spec)
 			->with('type')
 			->with('spec')
 			->with('makes')

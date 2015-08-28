@@ -2156,7 +2156,10 @@ MakeList = (function(superClass) {
 
   MakeList.prototype.makesIds = [];
 
-  MakeList.prototype.chosenIds = [];
+  MakeList.prototype.chosenIds = {
+    makes: [],
+    type: []
+  };
 
   MakeList.prototype.collection = new MakeCollection;
 
@@ -2181,6 +2184,7 @@ MakeList = (function(superClass) {
 
   MakeList.prototype.updateCollection = function(id) {
     var ids;
+    this.chosenIds.type = id;
     ids = this.makesIds[id - 1];
     if (id !== 0) {
       this.collection.each(function(model) {
@@ -2231,11 +2235,12 @@ MakeList = (function(superClass) {
 
   MakeList.prototype.makeChosen = function(model) {
     if (model.get('active')) {
-      this.chosenIds.push(model.get('id'));
+      this.chosenIds.makes.push(model.get('id'));
     } else {
-      this.chosenIds.remove(model.get('id'));
+      this.chosenIds.makes.remove(model.get('id'));
     }
-    return this.triggerShowButton();
+    this.triggerShowButton();
+    return this.trigger('changed', this.chosenIds);
   };
 
   return MakeList;
@@ -2405,7 +2410,6 @@ CompanyList = (function(superClass) {
       data: {
         type: this.ids.type,
         makes: this.ids.makes,
-        spec: this.ids.spec,
         skip: this.toSkip
       }
     }).done((function(_this) {
