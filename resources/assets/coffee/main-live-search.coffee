@@ -54,13 +54,15 @@ class MakeList extends Backbone.View
 
 	collection: new MakeCollection
 
+	showButton: $ '#show-found-orgs'
+
 	initialize: ->
 
 		do @getMakesTypeIds
 
 		do @fillCollection
 
-		@collection.on 'change', @makesChosen
+		@collection.on 'change', @makeChosen
 
 		@options.types.on 'changed', @updateCollection
 
@@ -86,6 +88,16 @@ class MakeList extends Backbone.View
 			@collection.each (model) ->
 				model.trigger 'show'
 
+		do @triggerShowButton
+
+	triggerShowButton: ->
+
+		model = @collection.findWhere 'active': true
+		if model
+			@showButton.css 'display', 'flex'
+		else
+			@showButton.hide()
+
 
 	fillCollection: ->
 
@@ -98,14 +110,14 @@ class MakeList extends Backbone.View
 
 			@collection.add m
 
-	makesChosen: (model) =>
+	makeChosen: (model) =>
 
 		if model.get 'active'
 			@chosenIds.push model.get 'id'
 		else
 			@chosenIds.remove model.get 'id'
 
-		console.log @chosenIds
+		do @triggerShowButton
 
 
 

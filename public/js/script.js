@@ -2149,7 +2149,7 @@ MakeList = (function(superClass) {
   extend(MakeList, superClass);
 
   function MakeList() {
-    this.makesChosen = bind(this.makesChosen, this);
+    this.makeChosen = bind(this.makeChosen, this);
     this.updateCollection = bind(this.updateCollection, this);
     return MakeList.__super__.constructor.apply(this, arguments);
   }
@@ -2160,10 +2160,12 @@ MakeList = (function(superClass) {
 
   MakeList.prototype.collection = new MakeCollection;
 
+  MakeList.prototype.showButton = $('#show-found-orgs');
+
   MakeList.prototype.initialize = function() {
     this.getMakesTypeIds();
     this.fillCollection();
-    this.collection.on('change', this.makesChosen);
+    this.collection.on('change', this.makeChosen);
     return this.options.types.on('changed', this.updateCollection);
   };
 
@@ -2181,7 +2183,7 @@ MakeList = (function(superClass) {
     var ids;
     ids = this.makesIds[id - 1];
     if (id !== 0) {
-      return this.collection.each(function(model) {
+      this.collection.each(function(model) {
         if (ids.have(model.get('id'))) {
           return model.trigger('show');
         } else {
@@ -2189,9 +2191,22 @@ MakeList = (function(superClass) {
         }
       });
     } else {
-      return this.collection.each(function(model) {
+      this.collection.each(function(model) {
         return model.trigger('show');
       });
+    }
+    return this.triggerShowButton();
+  };
+
+  MakeList.prototype.triggerShowButton = function() {
+    var model;
+    model = this.collection.findWhere({
+      'active': true
+    });
+    if (model) {
+      return this.showButton.css('display', 'flex');
+    } else {
+      return this.showButton.hide();
     }
   };
 
@@ -2214,13 +2229,13 @@ MakeList = (function(superClass) {
     })(this));
   };
 
-  MakeList.prototype.makesChosen = function(model) {
+  MakeList.prototype.makeChosen = function(model) {
     if (model.get('active')) {
       this.chosenIds.push(model.get('id'));
     } else {
       this.chosenIds.remove(model.get('id'));
     }
-    return console.log(this.chosenIds);
+    return this.triggerShowButton();
   };
 
   return MakeList;
