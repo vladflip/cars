@@ -30,23 +30,9 @@
 					@endforeach
 				</div>
 
-				@include('inc.type', ['id' => 'main-type-list'])
+				@include('inc.type', ['id' => 'catalog-types'])
 
-				@include('inc.makes.main-makes')
-
-				<div id="show-found-orgs" class="show-orgs">
-					Показать
-				</div>
-
-				{{-- @include('inc.found') --}}
-
-				<div id="found" class="found"></div>
-
-				@include('templates.found-template')
-
-				@include('templates.company-template')
-
-				<div class="company-popup mfp-hide" id="company-main-popup"></div>
+				@include('inc.makes.makes', ['id' => 'catalog-makes'])
 
 			</div>
 
