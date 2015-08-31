@@ -1,5 +1,9 @@
 <script id="admin-makes-template" type="text/x-handlebars-template">
 
+	<div class="make-icon" style="background-image:url({{icon}})">
+	</div>
+	<input type="file" id="make-icon-input">
+
 	<div class="popup_field">
 								
 		<div class="popup_label">Имя</div>

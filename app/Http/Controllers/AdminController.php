@@ -89,6 +89,7 @@ class AdminController extends Controller {
 		$title = \Input::get('title');
 		$url = \Input::get('url');
 		$soviet = \Input::get('soviet');
+		$icon = \Input::get('icon');
 
 		$models = \Input::get('models');
 
@@ -99,6 +100,30 @@ class AdminController extends Controller {
 
 		if($url)
 			$make->name = $url;
+
+		if($icon) {
+
+			$image = \Image::make($icon);
+
+			$name = md5(\Hash::make($icon));
+
+			$dirname = 'img/makes/id' . $make->id;
+
+			$fullname = $dirname . '/' . $name . '.jpg';
+
+			if( ! file_exists($dirname) ){
+				mkdir($dirname, 0777, true);
+			}
+
+			if( file_exists($make->icon) ){
+				unlink($make->icon);
+			}
+
+			$make->icon = $fullname;
+
+			$image->save($fullname);
+
+		}
 
 		if( ! is_null($soviet))
 			$make->soviet = intval($soviet);

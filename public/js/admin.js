@@ -270,6 +270,7 @@ MakeView = (function(superClass) {
     this.createMake = bind(this.createMake, this);
     this.saveChanges = bind(this.saveChanges, this);
     this.removeMake = bind(this.removeMake, this);
+    this.readFile = bind(this.readFile, this);
     this.triggerShow = bind(this.triggerShow, this);
     return MakeView.__super__.constructor.apply(this, arguments);
   }
@@ -302,6 +303,7 @@ MakeView = (function(superClass) {
     src = this.template({
       title: this.model.get('title'),
       url: this.model.get('url'),
+      icon: this.model.get('icon') ? this.home + "/" + (this.model.get('icon')) : this.home + "/img/noavatar.png",
       models: this.models,
       buttonText: 'Принять изменения'
     });
@@ -314,11 +316,20 @@ MakeView = (function(superClass) {
       callbacks: {
         open: (function(_this) {
           return function() {
+            var input, self;
+            self = _this;
             _this.popup.append(src);
+            input = _this.popup.find('#make-icon-input');
             _this.modelsView = new Models({
               el: _this.popup.find('#admin-models')
             });
             _this.popup.find('#admin-edit-button').click(_this.saveChanges);
+            _this.popup.find('.make-icon').click(function() {
+              return input.click();
+            });
+            _this.popup.find('#make-icon-input').change(function() {
+              return self.readFile(this.files);
+            });
             return _this.popup.find('.make-soviet').val(_this.model.get('soviet'));
           };
         })(this),
@@ -329,6 +340,24 @@ MakeView = (function(superClass) {
         })(this)
       }
     });
+  };
+
+  MakeView.prototype.readFile = function(fileList) {
+    var img, r;
+    img = fileList[0];
+    if (img.type.search('image') === -1) {
+      alert('это не картинка');
+      return;
+    }
+    r = new FileReader;
+    r.onloadend = (function(_this) {
+      return function() {
+        var src;
+        src = r.result;
+        return _this.popup.find('.make-icon').css('background-image', "url(" + src + ")");
+      };
+    })(this);
+    return r.readAsDataURL(img);
   };
 
   MakeView.prototype.removeMake = function() {
@@ -366,12 +395,14 @@ MakeView = (function(superClass) {
   };
 
   MakeView.prototype.saveChanges = function() {
-    var j, len, m, model, models, modelsArray, result, soviet, title, url;
+    var icon, j, len, m, model, models, modelsArray, result, soviet, title, url;
     result = {};
     models = this.modelsView.get();
     title = this.popup.find('.make-title').val();
     url = this.popup.find('.make-url').val();
     soviet = parseInt(this.popup.find('.make-soviet').val());
+    icon = this.popup.find('.make-icon').css('background-image');
+    icon = icon.substring(4, icon.length - 1);
     if (title !== this.model.get('title')) {
       result.title = title;
     }
@@ -380,6 +411,9 @@ MakeView = (function(superClass) {
     }
     if (soviet !== parseInt(this.model.get('soviet'))) {
       result.soviet = soviet;
+    }
+    if (icon !== this.model.get('icon') && icon.search('noavatar') === -1) {
+      result.icon = icon;
     }
     if (models.length > 0) {
       modelsArray = [];
@@ -466,7 +500,8 @@ Make = (function(superClass) {
     title: '',
     url: '',
     show: true,
-    soviet: 1
+    soviet: 1,
+    icon: ''
   };
 
   return Make;
@@ -556,7 +591,8 @@ Makes = (function(superClass) {
           id: $(make).data('id'),
           title: $(make).data('title'),
           url: $(make).data('url'),
-          soviet: $(make).data('soviet')
+          soviet: $(make).data('soviet'),
+          icon: $(make).data('icon')
         });
         _this.collection.add(m);
         return v = new MakeView({

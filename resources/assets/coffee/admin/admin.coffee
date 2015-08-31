@@ -39,6 +39,7 @@ class MakeView extends Backbone.View
 		src = @template
 			title: @model.get 'title'
 			url: @model.get 'url'
+			icon: if @model.get('icon') then "#{@home}/#{@model.get('icon')}" else "#{@home}/img/noavatar.png"
 			models: @models
 			buttonText: 'Принять изменения'
 
@@ -50,17 +51,43 @@ class MakeView extends Backbone.View
 
 			callbacks:
 				open: =>
+					self = @
+
 					@popup.append src
+
+					input = @popup.find('#make-icon-input')
 
 					@modelsView = new Models
 						el: @popup.find('#admin-models')
 
 					@popup.find('#admin-edit-button').click @saveChanges
 
+					@popup.find('.make-icon').click =>
+						input.click()
+
+					@popup.find('#make-icon-input').change ->
+						self.readFile @files
+
 					@popup.find('.make-soviet').val(@model.get('soviet'))
 
 				close: =>
 					@popup.html ''
+
+	readFile: (fileList) =>
+		img = fileList[0]
+
+		if img.type.search('image') is -1
+			alert 'это не картинка'
+			return
+
+		r = new FileReader
+
+		r.onloadend = =>
+			src = r.result
+			
+			@popup.find('.make-icon').css('background-image', "url(#{src})")
+
+		r.readAsDataURL(img)
 
 
 	removeMake: =>
@@ -100,6 +127,8 @@ class MakeView extends Backbone.View
 		title = @popup.find('.make-title').val()
 		url = @popup.find('.make-url').val()
 		soviet = parseInt @popup.find('.make-soviet').val()
+		icon = @popup.find('.make-icon').css('background-image')
+		icon = icon.substring(4, icon.length - 1)
 
 		if title isnt @model.get 'title'
 			result.title = title
@@ -109,6 +138,9 @@ class MakeView extends Backbone.View
 
 		if soviet isnt parseInt @model.get 'soviet'
 			result.soviet = soviet
+
+		if icon isnt @model.get('icon') and icon.search('noavatar') is -1
+			result.icon = icon
 
 		if models.length > 0
 
@@ -191,6 +223,7 @@ class Make extends Backbone.Model
 		url: ''
 		show: true
 		soviet: 1
+		icon: ''
 
 class MakesCollection extends Backbone.Collection
 	model: Make
@@ -253,6 +286,7 @@ class Makes extends Backbone.View
 				title: $(make).data 'title'
 				url: $(make).data 'url'
 				soviet: $(make).data 'soviet'
+				icon: $(make).data 'icon'
 
 			@collection.add m
 

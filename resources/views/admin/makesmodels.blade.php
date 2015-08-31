@@ -28,7 +28,8 @@
 			data-id="{{ $make->id }}"
 			data-title="{{ $make->title }}"
 			data-url="{{ $make->name }}"
-			data-soviet="{{ $make->soviet }}">
+			data-soviet="{{ $make->soviet }}"
+			data-icon="{{ $make->icon }}">
 			<td>{{ $make->id }}</td>
 			<td>{{ $make->title }}</td>
 			<td>{{ $make->name }}</td>
