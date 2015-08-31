@@ -15,20 +15,6 @@
 					@endforeach
 				</ul>
 				
-				<ul class="footer_list">
-					<li>Каталог</li>
-					<li>Компании</li>
-					<li>Запчасти</li>
-					<li>Услуги</li>
-					<li>Поиск</li>
-				</ul>
-				
-				<ul class="footer_list">
-					<li>Клуб</li>
-					<li>Новости</li>
-					<li>Общение</li>
-					<li>Клубные карты</li>
-				</ul>
 
 			</div>
 
@@ -37,7 +23,7 @@
 				<div class="footer_sign-up-block">
 
 					<h5>
-						Зарегистрируйся и найди любые запчасти бесплатно
+						Поиск товаров и услуг для грузового автотранспорта доступен только зарегистрированным членам клуба
 					</h5>
 
 					<div id="footer-sign-up" href="#sign-up-popup" class="footer_sign-up-button">
