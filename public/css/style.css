@@ -422,6 +422,15 @@ ul.create-company-spec-selectBox-dropdown-menu {
   position: relative;
   margin: 30px 0 0 0;
 }
+.makes_icon {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  left: -30px;
+  top: -30px;
+}
 .makes--feed,
 .makes--catalog {
   margin: 0;
@@ -443,10 +452,11 @@ ul.create-company-spec-selectBox-dropdown-menu {
 }
 .makes ul li {
   display: inline-block;
+  position: relative;
   font-size: 13px;
   width: 125px;
   margin-bottom: 5px;
-  padding: 9px 0px;
+  padding: 20px 0px;
 }
 .makes ul li>span {
   color: #4e61eb;

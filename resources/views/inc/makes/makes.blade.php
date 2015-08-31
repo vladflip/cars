@@ -27,7 +27,6 @@
 			@foreach($soviet as $make)
 				
 					<li data-id="{{ $make->id }}">
-			
 						<span>
 							@if($id == 'catalog-makes')
 								<a href="{{ route('catalog-nospecs', $make->name) }}">{{ $make->title }}</a>
@@ -36,6 +35,7 @@
 									{{ $make->title }}
 								</a>
 							@endif
+							<span class="makes_icon" style="background-image:url({{ route('home') . '/' . $make->icon }})"></span>
 						</span>
 					</li>
 			
@@ -56,7 +56,7 @@
 									{{ $make->title }}
 								</a>
 							@endif
-			
+							<span class="makes_icon" style="background-image:url({{ route('home') . '/' . $make->icon }})"></span>
 						</span>
 					</li>
 			

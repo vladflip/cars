@@ -2025,8 +2025,6 @@ require('./base');
 
 require('./popups/index');
 
-require('./main-live-search');
-
 require('./catalog/catalog-live');
 
 require('./catalog/catalog-companies');
@@ -2045,7 +2043,7 @@ require('./user-requests');
 
 require('./comments');
 
-},{"./auth":1,"./base":2,"./catalog/catalog-companies":3,"./catalog/catalog-live":4,"./comments":5,"./company-requests":6,"./logout":14,"./main-live-search":15,"./mention":16,"./popups/index":19,"./profile":23,"./user-requests":24}],14:[function(require,module,exports){
+},{"./auth":1,"./base":2,"./catalog/catalog-companies":3,"./catalog/catalog-live":4,"./comments":5,"./company-requests":6,"./logout":14,"./mention":15,"./popups/index":18,"./profile":22,"./user-requests":23}],14:[function(require,module,exports){
 var button, form;
 
 form = $('#user-logout-form');
@@ -2057,454 +2055,6 @@ button.click(function() {
 });
 
 },{}],15:[function(require,module,exports){
-var CompanyCollection, CompanyList, CompanyModel, CompanyView, MakeCollection, MakeList, MakeModel, MakeView, TypeList, companies, makes, types,
-  extend = function(child, parent) { for (var key in parent) { if (hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; },
-  hasProp = {}.hasOwnProperty,
-  bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };
-
-TypeList = require('./inc/TypeList');
-
-MakeModel = (function(superClass) {
-  extend(MakeModel, superClass);
-
-  function MakeModel() {
-    return MakeModel.__super__.constructor.apply(this, arguments);
-  }
-
-  MakeModel.prototype.defaults = {
-    id: 0,
-    title: '',
-    active: false
-  };
-
-  return MakeModel;
-
-})(Backbone.Model);
-
-MakeCollection = (function(superClass) {
-  extend(MakeCollection, superClass);
-
-  function MakeCollection() {
-    return MakeCollection.__super__.constructor.apply(this, arguments);
-  }
-
-  MakeCollection.prototype.model = MakeModel;
-
-  return MakeCollection;
-
-})(Backbone.Collection);
-
-MakeView = (function(superClass) {
-  extend(MakeView, superClass);
-
-  function MakeView() {
-    this.changeState = bind(this.changeState, this);
-    this.show = bind(this.show, this);
-    this.hide = bind(this.hide, this);
-    return MakeView.__super__.constructor.apply(this, arguments);
-  }
-
-  MakeView.prototype.initialize = function() {
-    this["class"] = 'makes--active';
-    this.model.on('hide', this.hide);
-    return this.model.on('show', this.show);
-  };
-
-  MakeView.prototype.hide = function() {
-    this.$el.hide();
-    return this.deactivate();
-  };
-
-  MakeView.prototype.show = function() {
-    return this.$el.show();
-  };
-
-  MakeView.prototype.events = {
-    'click': 'changeState'
-  };
-
-  MakeView.prototype.changeState = function() {
-    if (!this.model.get('active')) {
-      return this.activate();
-    } else {
-      return this.deactivate();
-    }
-  };
-
-  MakeView.prototype.activate = function() {
-    this.$el.addClass(this["class"]);
-    return this.model.set('active', true);
-  };
-
-  MakeView.prototype.deactivate = function() {
-    this.$el.removeClass(this["class"]);
-    return this.model.set('active', false);
-  };
-
-  return MakeView;
-
-})(Backbone.View);
-
-MakeList = (function(superClass) {
-  extend(MakeList, superClass);
-
-  function MakeList() {
-    this.makeChosen = bind(this.makeChosen, this);
-    this.updateCollection = bind(this.updateCollection, this);
-    return MakeList.__super__.constructor.apply(this, arguments);
-  }
-
-  MakeList.prototype.makesIds = [];
-
-  MakeList.prototype.chosenIds = {
-    makes: [],
-    type: []
-  };
-
-  MakeList.prototype.collection = new MakeCollection;
-
-  MakeList.prototype.showButton = $('#show-found-orgs');
-
-  MakeList.prototype.initialize = function() {
-    this.getMakesTypeIds();
-    this.fillCollection();
-    this.collection.on('change', this.makeChosen);
-    return this.options.types.on('changed', this.updateCollection);
-  };
-
-  MakeList.prototype.getMakesTypeIds = function() {
-    var el;
-    el = $('#type-makes-ids');
-    return el.children().each((function(_this) {
-      return function(i, type) {
-        return _this.makesIds.push($(type).data('ids'));
-      };
-    })(this));
-  };
-
-  MakeList.prototype.updateCollection = function(id) {
-    var ids;
-    this.chosenIds.type = id;
-    ids = this.makesIds[id - 1];
-    if (id !== 0) {
-      this.collection.each(function(model) {
-        if (ids.have(model.get('id'))) {
-          return model.trigger('show');
-        } else {
-          return model.trigger('hide');
-        }
-      });
-    } else {
-      this.collection.each(function(model) {
-        return model.trigger('show');
-      });
-    }
-    return this.triggerShowButton();
-  };
-
-  MakeList.prototype.triggerShowButton = function() {
-    var model;
-    model = this.collection.findWhere({
-      'active': true
-    });
-    if (model) {
-      return this.showButton.css('display', 'flex');
-    } else {
-      return this.showButton.hide();
-    }
-  };
-
-  MakeList.prototype.fillCollection = function() {
-    return this.$el.find('li').each((function(_this) {
-      return function(i, li) {
-        var id, m, title, v;
-        id = $(li).data('id');
-        title = $(li).children('span').html().trim();
-        m = new MakeModel({
-          id: id,
-          title: title
-        });
-        v = new MakeView({
-          model: m,
-          el: li
-        });
-        return _this.collection.add(m);
-      };
-    })(this));
-  };
-
-  MakeList.prototype.makeChosen = function(model) {
-    if (model.get('active')) {
-      this.chosenIds.makes.push(model.get('id'));
-    } else {
-      this.chosenIds.makes.remove(model.get('id'));
-    }
-    this.triggerShowButton();
-    return this.trigger('changed', this.chosenIds);
-  };
-
-  return MakeList;
-
-})(Backbone.View);
-
-CompanyModel = (function(superClass) {
-  extend(CompanyModel, superClass);
-
-  function CompanyModel() {
-    return CompanyModel.__super__.constructor.apply(this, arguments);
-  }
-
-  CompanyModel.prototype.defaults = {
-    address: '',
-    about: '',
-    excerpt: '',
-    logo: '',
-    name: '',
-    phone: '',
-    tags: ''
-  };
-
-  return CompanyModel;
-
-})(Backbone.Model);
-
-CompanyView = (function(superClass) {
-  extend(CompanyView, superClass);
-
-  function CompanyView() {
-    return CompanyView.__super__.constructor.apply(this, arguments);
-  }
-
-  CompanyView.prototype.template = $.HandlebarsFactory('#company-template');
-
-  CompanyView.prototype.popup = $('#company-main-popup');
-
-  CompanyView.prototype.initialize = function() {
-    var src;
-    src = $.parseHTML(this.template({
-      logo: this.model.get('logo'),
-      name: this.model.get('name'),
-      about: this.model.get('about'),
-      address: this.model.get('address'),
-      phone: this.model.get('phone'),
-      tags: this.model.get('tags')
-    }));
-    return this.$el.magnificPopup({
-      type: 'inline',
-      closeBtnInside: true,
-      items: {
-        src: '#company-main-popup'
-      },
-      callbacks: {
-        open: (function(_this) {
-          return function() {
-            _this.popup.append(src);
-            return _this.popup.find('.company-popup_close').click(function() {
-              return $.magnificPopup.instance.close();
-            });
-          };
-        })(this),
-        close: (function(_this) {
-          return function() {
-            return _this.popup.html('');
-          };
-        })(this)
-      }
-    });
-  };
-
-  return CompanyView;
-
-})(Backbone.View);
-
-CompanyCollection = (function(superClass) {
-  extend(CompanyCollection, superClass);
-
-  function CompanyCollection() {
-    return CompanyCollection.__super__.constructor.apply(this, arguments);
-  }
-
-  CompanyCollection.prototype.model = CompanyModel;
-
-  return CompanyCollection;
-
-})(Backbone.Collection);
-
-CompanyList = (function(superClass) {
-  extend(CompanyList, superClass);
-
-  function CompanyList() {
-    this.updateCollection = bind(this.updateCollection, this);
-    this.getMore = bind(this.getMore, this);
-    this.makesChanged = bind(this.makesChanged, this);
-    this.showMe = bind(this.showMe, this);
-    this.hideMe = bind(this.hideMe, this);
-    return CompanyList.__super__.constructor.apply(this, arguments);
-  }
-
-  CompanyList.prototype.url = 'api/get-companies-by-makes-and-specs';
-
-  CompanyList.prototype.home = $('body').data('home');
-
-  CompanyList.prototype.button = $('#show-found-orgs');
-
-  CompanyList.prototype.template = $.HandlebarsFactory('#found-template');
-
-  CompanyList.prototype.initialize = function() {
-    this.toSkip = 0;
-    this.active = false;
-    this.collection = new CompanyCollection;
-    this.ids = [];
-    this.options.makes.on('changed', this.makesChanged);
-    this.button.on('click', this.showMe);
-    return this.options.makes.on('hideComps', this.hideMe);
-  };
-
-  CompanyList.prototype.hideMe = function() {
-    return this.$el.html('');
-  };
-
-  CompanyList.prototype.showMe = function() {
-    this.active = true;
-    if (this.ids.length === 0) {
-      this.options.makes.trigger('error');
-      return;
-    }
-    $('html, body').animate({
-      scrollTop: this.$el.offset().top
-    }, 500);
-    return this.render();
-  };
-
-  CompanyList.prototype.render = function() {
-    this.$el.html(this.template({
-      companies: this.collection.toJSON()
-    }));
-    this.$el.find('.company-preview').each((function(_this) {
-      return function(i, el) {
-        var v;
-        return v = new CompanyView({
-          model: _this.collection.at(i),
-          el: el
-        });
-      };
-    })(this));
-    this.showMore = this.$el.find('.found_more');
-    if (!this.more) {
-      return this.showMore.hide();
-    } else {
-      return this.showMore.click(this.getMore);
-    }
-  };
-
-  CompanyList.prototype.makesChanged = function(ids) {
-    this.ids = ids;
-    this.hideMe();
-    this.toSkip = 0;
-    this.active = false;
-    return this.get();
-  };
-
-  CompanyList.prototype.get = function() {
-    return $.ajax(this.home + "/" + this.url, {
-      data: {
-        type: this.ids.type,
-        makes: this.ids.makes,
-        skip: this.toSkip
-      }
-    }).done((function(_this) {
-      return function(comps) {
-        _this.fillCollection(JSON.parse(comps));
-        return console.log(JSON.parse(comps).length);
-      };
-    })(this));
-  };
-
-  CompanyList.prototype.fillCollection = function(c) {
-    var comp, i, j, len, m;
-    this.collection.reset();
-    for (i = j = 0, len = c.length; j < len; i = ++j) {
-      comp = c[i];
-      if (i < 5) {
-        m = new CompanyModel({
-          address: comp.address,
-          about: comp.about,
-          excerpt: comp.about.excerpt(),
-          logo: "url(" + comp.logo + ")",
-          name: comp.name,
-          phone: comp.phone,
-          tags: comp.tags
-        });
-        this.collection.add(m);
-      } else {
-        console.log(comp);
-        this.more = true;
-      }
-    }
-    if (this.active) {
-      return this.render();
-    }
-  };
-
-  CompanyList.prototype.getMore = function() {
-    this.toSkip += 5;
-    this.more = false;
-    return $.ajax(this.home + "/" + this.url, {
-      data: {
-        type: this.ids.type,
-        makes: this.ids.makes,
-        spec: this.ids.spec,
-        skip: this.toSkip
-      }
-    }).done((function(_this) {
-      return function(comps) {
-        return _this.updateCollection(JSON.parse(comps));
-      };
-    })(this));
-  };
-
-  CompanyList.prototype.updateCollection = function(c) {
-    var comp, i, j, len, m;
-    for (i = j = 0, len = c.length; j < len; i = ++j) {
-      comp = c[i];
-      if (i < 5) {
-        m = new CompanyModel({
-          address: comp.address,
-          about: comp.about,
-          excerpt: comp.about.excerpt(),
-          logo: "url(" + comp.logo + ")",
-          name: comp.name,
-          phone: comp.phone,
-          tags: comp.tags
-        });
-        this.collection.add(m);
-      } else {
-        console.log(comp);
-        this.more = true;
-      }
-    }
-    return this.render();
-  };
-
-  return CompanyList;
-
-})(Backbone.View);
-
-types = new TypeList({
-  el: '#main-type-list'
-});
-
-makes = new MakeList({
-  el: '#main-makes-list',
-  types: types
-});
-
-companies = new CompanyList({
-  el: '#found',
-  makes: makes
-});
-
-},{"./inc/TypeList":12}],16:[function(require,module,exports){
 var Counter, Votes, dislikes, likes, mention_photos,
   bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };
 
@@ -2637,7 +2187,7 @@ dislikes = new Counter($('#mention-dislikes'), $('#mention-dislikes-info'), 'men
 
 new Votes(likes, dislikes);
 
-},{}],17:[function(require,module,exports){
+},{}],16:[function(require,module,exports){
 var AddLogo, MakesList, SelectType, SelectView, about, address, logo, logolabel, makes, name, phone, specs, submit, types,
   bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; },
   extend = function(child, parent) { for (var key in parent) { if (hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; },
@@ -2839,7 +2389,7 @@ submit.click(function() {
   })(this));
 });
 
-},{"../create-company/MakesList":7,"../inc/SelectView":11}],18:[function(require,module,exports){
+},{"../create-company/MakesList":7,"../inc/SelectView":11}],17:[function(require,module,exports){
 var AddPhotos, Image, ImageCollection, ImageView, ImagesView, List, ListCollection, ListModel, ListView, SelectView, imageCollection, imagesView, make, minuses, model, pluses, quill, type,
   extend = function(child, parent) { for (var key in parent) { if (hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; },
   hasProp = {}.hasOwnProperty,
@@ -3291,7 +2841,7 @@ $('#add-feedback').click(function() {
   })(this));
 });
 
-},{"../inc/SelectView":11}],19:[function(require,module,exports){
+},{"../inc/SelectView":11}],18:[function(require,module,exports){
 require('./search');
 
 require('./sign-up');
@@ -3302,7 +2852,7 @@ require('./create-company');
 
 require('./settings');
 
-},{"./create-company":17,"./feedback":18,"./search":20,"./settings":21,"./sign-up":22}],20:[function(require,module,exports){
+},{"./create-company":16,"./feedback":17,"./search":19,"./settings":20,"./sign-up":21}],19:[function(require,module,exports){
 var SelectView, button, isNew, isNewLabel, isOld, isOldLabel, make, model, more, type, year;
 
 SelectView = require('../inc/SelectView');
@@ -3412,7 +2962,7 @@ button.click(function() {
   })(this));
 });
 
-},{"../inc/SelectView":11}],21:[function(require,module,exports){
+},{"../inc/SelectView":11}],20:[function(require,module,exports){
 var EmailChanger, PasswordChanger,
   bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };
 
@@ -3549,7 +3099,7 @@ PasswordChanger = (function() {
 
 new PasswordChanger;
 
-},{}],22:[function(require,module,exports){
+},{}],21:[function(require,module,exports){
 var button, email, form, passw, submit;
 
 $('#sign-up').magnificPopup({
@@ -3597,7 +3147,7 @@ if (form) {
   });
 }
 
-},{}],23:[function(require,module,exports){
+},{}],22:[function(require,module,exports){
 var Avatar, FieldSet, ProfileToggler, company, companyAvatar, companyProfileCollection, user, userAvatar, userProfileCollection,
   bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };
 
@@ -3757,7 +3307,7 @@ new ProfileToggler({
   }
 });
 
-},{"./inc/Avatar":9,"./inc/FieldSet":10}],24:[function(require,module,exports){
+},{"./inc/Avatar":9,"./inc/FieldSet":10}],23:[function(require,module,exports){
 var Request, RequestView, Requests, RequestsCollection,
   extend = function(child, parent) { for (var key in parent) { if (hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; },
   hasProp = {}.hasOwnProperty,
