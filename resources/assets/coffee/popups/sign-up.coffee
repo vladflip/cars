@@ -8,6 +8,11 @@ $('#footer-sign-up').magnificPopup
 	type : 'inline'
 	closeBtnInside: true
 
+$('#company-signup-button').magnificPopup
+	
+	type:'inline'
+	closeBtnInside: true
+
 $.fn.highlight = ->
 	$(@).animate
 		backgroundColor: '#f3df6d'

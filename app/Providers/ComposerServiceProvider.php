@@ -67,7 +67,7 @@ class ComposerServiceProvider extends ServiceProvider {
 
 		});
 
-		View::composer(['inc.search', 'inc.feedback', 'inc.type', 'popups.create-company'], function($v) {
+		View::composer(['inc.search', 'inc.feedback', 'inc.type', 'popups.create-company', 'popups.company-signup'], function($v) {
 
 			$types = \App\Singleton::types();
 
@@ -75,7 +75,7 @@ class ComposerServiceProvider extends ServiceProvider {
 
 		});
 
-		View::composer(['inc.parts', 'popups.create-company'], function($v) {
+		View::composer(['inc.parts', 'popups.create-company', 'popups.company-signup'], function($v) {
 
 			$specs = \App\Singleton::specs();
 

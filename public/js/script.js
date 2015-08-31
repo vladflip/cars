@@ -3112,6 +3112,11 @@ $('#footer-sign-up').magnificPopup({
   closeBtnInside: true
 });
 
+$('#company-signup-button').magnificPopup({
+  type: 'inline',
+  closeBtnInside: true
+});
+
 $.fn.highlight = function() {
   return $(this).animate({
     backgroundColor: '#f3df6d',
