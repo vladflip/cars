@@ -143,6 +143,9 @@ h3 {
   box-shadow: 0 10px 10px -10px rgba(0,0,55,0.3);
   margin: 30px auto 0;
 }
+.company-popup_close:hover {
+  background-color: rgba(243,223,109,0.9);
+}
 .company-preview {
   height: 102px;
   padding: 15px;
