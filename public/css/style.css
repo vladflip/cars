@@ -1282,6 +1282,13 @@ ul.create-company-spec-selectBox-dropdown-menu {
 }
 .footer_row:last-child {
   margin-top: 30px;
+  width: 100%;
+  -webkit-flex-direction: column-reverse;
+      -ms-flex-direction: column-reverse;
+          flex-direction: column-reverse;
+  -webkit-align-items: flex-end;
+      -ms-flex-align: end;
+          align-items: flex-end;
 }
 .footer_list {
   float: left;
