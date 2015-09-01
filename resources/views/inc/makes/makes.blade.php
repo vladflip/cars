@@ -49,6 +49,7 @@
 					<li data-id="{{ $make->id }}">
 			
 						<span>
+							<span class="makes_icon" style="background-image:url({{ route('home') . '/' . $make->icon }})"></span>
 								
 							@if($id == 'catalog-makes')
 								<a href="{{ route('catalog-nospecs', $make->name) }}">{{ $make->title }}</a>
@@ -57,7 +58,6 @@
 									{{ $make->title }}
 								</a>
 							@endif
-							<span class="makes_icon" style="background-image:url({{ route('home') . '/' . $make->icon }})"></span>
 						</span>
 					</li>
 			

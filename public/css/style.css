@@ -161,6 +161,13 @@ h3 {
   top: 5px;
   right: 15px;
 }
+.company-preview_more svg {
+  width: 16px;
+  height: 16px;
+  display: inline-block;
+  vertical-align: middle;
+  fill: #4e61eb;
+}
 .company-preview-list {
   margin: 20px 0 0 0;
   padding: 0 35px;
@@ -270,7 +277,7 @@ h3 {
   box-shadow: 0 10px 10px -10px rgba(0,0,55,0.3), 0 1px 0 0 #bd9d51;
 }
 .company-signup_button:hover {
-  opacity: 0.9;
+  opacity: 0.8;
 }
 .company-signup h3 {
   font-size: 16px;
@@ -426,15 +433,17 @@ ul.create-company-spec-selectBox-dropdown-menu {
   width: 30px;
   height: 30px;
   display: inline-block;
+  vertical-align: middle;
   background-repeat: no-repeat;
   background-size: cover;
+  margin: 0 5px 0 0;
 }
 .makes--feed,
 .makes--catalog {
   margin: 0;
 }
 .makes ul {
-  margin: 20px 0 20px 70px;
+  margin: 30px 30px 20px 50px;
   -webkit-columns: 4;
      -moz-columns: 4;
           columns: 4;
@@ -858,6 +867,7 @@ ul.create-company-spec-selectBox-dropdown-menu {
 }
 .search_button:hover {
   color: #000;
+  opacity: 0.8;
 }
 .specs {
   border: 1px solid #bbb;
@@ -1700,6 +1710,10 @@ ul.create-company-spec-selectBox-dropdown-menu {
   background-color: #fff;
   border-radius: 2px;
   position: relative;
+}
+.home_middle>h3 {
+  display: inline-block;
+  vertical-align: super;
 }
 .home_right {
   width: 260px;
