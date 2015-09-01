@@ -161,6 +161,13 @@ h3 {
   top: 5px;
   right: 15px;
 }
+.company-preview_more svg {
+  width: 16px;
+  height: 16px;
+  display: inline-block;
+  vertical-align: middle;
+  fill: #4e61eb;
+}
 .company-preview-list {
   margin: 20px 0 0 0;
   padding: 0 35px;
