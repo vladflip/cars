@@ -270,7 +270,7 @@ h3 {
   box-shadow: 0 10px 10px -10px rgba(0,0,55,0.3), 0 1px 0 0 #bd9d51;
 }
 .company-signup_button:hover {
-  opacity: 0.9;
+  opacity: 0.8;
 }
 .company-signup h3 {
   font-size: 16px;
@@ -426,15 +426,17 @@ ul.create-company-spec-selectBox-dropdown-menu {
   width: 30px;
   height: 30px;
   display: inline-block;
+  vertical-align: middle;
   background-repeat: no-repeat;
   background-size: cover;
+  margin: 0 5px 0 0;
 }
 .makes--feed,
 .makes--catalog {
   margin: 0;
 }
 .makes ul {
-  margin: 20px 0 20px 70px;
+  margin: 30px 30px 20px 50px;
   -webkit-columns: 4;
      -moz-columns: 4;
           columns: 4;
@@ -858,6 +860,7 @@ ul.create-company-spec-selectBox-dropdown-menu {
 }
 .search_button:hover {
   color: #000;
+  opacity: 0.8;
 }
 .specs {
   border: 1px solid #bbb;
