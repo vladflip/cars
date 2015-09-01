@@ -170,6 +170,7 @@ h3 {
   display: inline-block;
   vertical-align: middle;
   fill: #4e61eb;
+  margin-left: 10px;
 }
 .company-preview-list {
   margin: 20px 0 0 0;
