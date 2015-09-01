@@ -1704,6 +1704,10 @@ ul.create-company-spec-selectBox-dropdown-menu {
   border-radius: 2px;
   position: relative;
 }
+.home_middle>h3 {
+  display: inline-block;
+  vertical-align: super;
+}
 .home_right {
   width: 260px;
 }
