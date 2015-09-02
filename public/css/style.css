@@ -742,6 +742,7 @@ ul.create-company-spec-selectBox-dropdown-menu {
   font-size: 13px;
   display: block;
   outline: none;
+  margin: 5px 0;
 }
 .popup_input--header {
   display: block;
@@ -2065,7 +2066,7 @@ ul.create-company-spec-selectBox-dropdown-menu {
   background: url("../img/pen.png") no-repeat center;
 }
 .profile-info_pen::after {
-  content: 'ред.';
+  content: 'изменить';
   color: #f3df6d;
   position: absolute;
   left: 10px;
@@ -2087,9 +2088,14 @@ ul.create-company-spec-selectBox-dropdown-menu {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap;
+  margin-left: 10px;
 }
 .profile-info_tags li {
   margin-right: 5px;
+  margin-bottom: 5px;
   font-size: 12px;
   background-color: #f6f6f6;
   padding: 8px;
