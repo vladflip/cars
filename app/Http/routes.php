@@ -18,7 +18,7 @@ get('/', [
 	'uses' => 'HomeController@index'
 ]);
 
-post('/git-pull', function(){
+get('/git-pull', function(){
 	`git pull`;
 	return redirect()->route('home');
 });
