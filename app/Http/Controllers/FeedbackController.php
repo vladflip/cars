@@ -12,6 +12,7 @@ class FeedbackController extends Controller {
 				$q->whereStatus(1);
 			})
 			->whereHas('models', function($q) use($type){
+				$q->has('feedbacks');
 				$q->whereTypeId($type->id);
 			})
 			->get();
