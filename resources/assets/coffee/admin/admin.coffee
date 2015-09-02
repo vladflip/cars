@@ -169,52 +169,6 @@ class MakeView extends Backbone.View
 
 			location.reload()
 
-	createMake: =>
-
-		result = {}
-
-		models = @modelsView.get()
-
-		title = @popup.find('.make-title').val()
-		url = @popup.find('.make-url').val()
-
-		if title isnt ''
-			result.title = title
-		else
-			return
-
-		if url isnt ''
-			result.url = url
-		else
-			return
-
-		if models.length > 0
-
-			modelsArray = []
-
-			for model in models
-				m = {}
-				m.title = model.get 'title'
-				m.url = model.get 'url'
-				m.new = model.get 'new'
-				m.type = model.get 'type_id'
-
-				modelsArray.push m
-
-			result.models = modelsArray
-
-		else
-			return
-
-		if Object.keys(result).length isnt 0
-
-			$.ajax "#{@home}/api/admin/create-make",
-				headers:
-					'X-CSRF-TOKEN' : $('#csrf').data 'csrf'
-				method: 'POST'
-				data: result
-
-			location.reload()
 
 class Make extends Backbone.Model
 	defaults:
@@ -229,6 +183,8 @@ class MakesCollection extends Backbone.Collection
 	model: Make
 
 class Makes extends Backbone.View
+
+	home: $('#csrf').data 'home'
 
 	popup: $ '#admin-popup'
 
@@ -277,6 +233,55 @@ class Makes extends Backbone.View
 					'last': 'Последняя'
 				'zeroRecords': 'Не найдено подходящих записей.'
 				'lengthMenu': 'Отображать _MENU_ записей'
+
+
+	createMake: =>
+
+		result = {}
+
+		models = @modelsView.get()
+
+		title = @popup.find('.make-title').val()
+		url = @popup.find('.make-url').val()
+
+		if title isnt ''
+			result.title = title
+		else
+			return
+
+		if url isnt ''
+			result.url = url
+		else
+			return
+
+
+		if models.length > 0
+
+			modelsArray = []
+
+			for model in models
+				m = {}
+				m.title = model.get 'title'
+				m.url = model.get 'url'
+				m.new = model.get 'new'
+				m.type = model.get 'type_id'
+
+				modelsArray.push m
+
+			result.models = modelsArray
+
+		else
+			return
+
+		if Object.keys(result).length isnt 0
+
+			$.ajax "#{@home}/api/admin/create-make",
+				headers:
+					'X-CSRF-TOKEN' : $('#csrf').data 'csrf'
+				method: 'POST'
+				data: result
+
+			location.reload()
 
 	fillCollection: ->
 

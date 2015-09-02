@@ -267,7 +267,6 @@ MakeView = (function(superClass) {
   extend(MakeView, superClass);
 
   function MakeView() {
-    this.createMake = bind(this.createMake, this);
     this.saveChanges = bind(this.saveChanges, this);
     this.removeMake = bind(this.removeMake, this);
     this.readFile = bind(this.readFile, this);
@@ -441,49 +440,6 @@ MakeView = (function(superClass) {
     }
   };
 
-  MakeView.prototype.createMake = function() {
-    var j, len, m, model, models, modelsArray, result, title, url;
-    result = {};
-    models = this.modelsView.get();
-    title = this.popup.find('.make-title').val();
-    url = this.popup.find('.make-url').val();
-    if (title !== '') {
-      result.title = title;
-    } else {
-      return;
-    }
-    if (url !== '') {
-      result.url = url;
-    } else {
-      return;
-    }
-    if (models.length > 0) {
-      modelsArray = [];
-      for (j = 0, len = models.length; j < len; j++) {
-        model = models[j];
-        m = {};
-        m.title = model.get('title');
-        m.url = model.get('url');
-        m["new"] = model.get('new');
-        m.type = model.get('type_id');
-        modelsArray.push(m);
-      }
-      result.models = modelsArray;
-    } else {
-      return;
-    }
-    if (Object.keys(result).length !== 0) {
-      $.ajax(this.home + "/api/admin/create-make", {
-        headers: {
-          'X-CSRF-TOKEN': $('#csrf').data('csrf')
-        },
-        method: 'POST',
-        data: result
-      });
-      return location.reload();
-    }
-  };
-
   return MakeView;
 
 })(Backbone.View);
@@ -525,8 +481,11 @@ Makes = (function(superClass) {
   extend(Makes, superClass);
 
   function Makes() {
+    this.createMake = bind(this.createMake, this);
     return Makes.__super__.constructor.apply(this, arguments);
   }
+
+  Makes.prototype.home = $('#csrf').data('home');
 
   Makes.prototype.popup = $('#admin-popup');
 
@@ -581,6 +540,49 @@ Makes = (function(superClass) {
         'lengthMenu': 'Отображать _MENU_ записей'
       }
     });
+  };
+
+  Makes.prototype.createMake = function() {
+    var j, len, m, model, models, modelsArray, result, title, url;
+    result = {};
+    models = this.modelsView.get();
+    title = this.popup.find('.make-title').val();
+    url = this.popup.find('.make-url').val();
+    if (title !== '') {
+      result.title = title;
+    } else {
+      return;
+    }
+    if (url !== '') {
+      result.url = url;
+    } else {
+      return;
+    }
+    if (models.length > 0) {
+      modelsArray = [];
+      for (j = 0, len = models.length; j < len; j++) {
+        model = models[j];
+        m = {};
+        m.title = model.get('title');
+        m.url = model.get('url');
+        m["new"] = model.get('new');
+        m.type = model.get('type_id');
+        modelsArray.push(m);
+      }
+      result.models = modelsArray;
+    } else {
+      return;
+    }
+    if (Object.keys(result).length !== 0) {
+      $.ajax(this.home + "/api/admin/create-make", {
+        headers: {
+          'X-CSRF-TOKEN': $('#csrf').data('csrf')
+        },
+        method: 'POST',
+        data: result
+      });
+      return location.reload();
+    }
   };
 
   Makes.prototype.fillCollection = function() {
