@@ -18,6 +18,11 @@ get('/', [
 	'uses' => 'HomeController@index'
 ]);
 
+get('/git-pull', function(){
+	`git pull`;
+	return redirect()->route('home');
+});
+
 get('page/{url}', function($url){
 
 	$page = \App\Page::whereUrl($url)->first();
