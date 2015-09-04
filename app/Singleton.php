@@ -6,10 +6,6 @@ class Singleton {
 
 	private static $specs;
 
-	private static $requestsCount;
-
-	private static $responsesCount;
-
 	public static function types() {
 
 		if(self::$types)
@@ -29,26 +25,6 @@ class Singleton {
 			self::$specs = \App\Spec::all();
 			return self::$specs;
 		}
-
-	}
-	
-	public static function requestsCount() {
-
-		if(is_null(self::$requestsCount) && \Auth::check())
-			self::$requestsCount = \Auth::user()->company->requests()
-				->wherePivot('read', 0)
-				->count();
-
-		return self::$requestsCount;
-
-	}	
-
-	public static function responsesCount() {
-
-		if(is_null(self::$responsesCount) && \Auth::check())
-			self::$responsesCount = \Auth::user()->responsesCount();
-
-		return self::$responsesCount;
 
 	}
 

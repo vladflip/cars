@@ -21,42 +21,12 @@ class UserController extends Controller {
 
 			$company = $user->company;
 
-			$requests = $company->requests()
-				->with(['responses' => function($q) use ($company){
-					$q->whereCompanyId($company->id);
-				}])
-				->with('user')
-				->withPivot(['read', 'replied', 'canceled_by_company', 'updated_at'])
-				->orderBy('pivot_replied')
-				->orderBy('pivot_updated_at', 'desc')
-				->orderBy('created_at', 'desc')
-				->get();
-
-			$company->setReadRequests();
-
 			return view('pages.company-profile')
-				->with('user', $user)
-				->with('requests', $requests);
+				->with('user', $user);
 
 		} else {
 
-			$user = \App\User::with(['requests' => function($q){
-
-				$q->with(['responses' => function($q){
-					$q->orderBy('created_at', 'desc');
-					$q->with('company');
-				}]);
-				$q->with('make');
-				$q->with('type');
-				$q->with('model');
-
-				$q->orderBy('canceled_by_user');
-				$q->orderBy('updated_at', 'desc');
-				
-			}])
-			->find(Auth::id());
-
-			$user->setReadResponses();
+			$user = \Auth::user();
 
 			return view('pages.user-profile')->with('user', $user);
 

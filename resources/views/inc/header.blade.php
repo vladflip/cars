@@ -51,18 +51,6 @@
 						<div class="header_user-info_ava" 
 						style="background-image:url({{ URL::to('/') }}/img/noavatar.png)"></div>
 					@endif
-					
-					@if(Auth::user()->company)
-						@if($requestsCount)
-							<span class="header_user-info_notification">
-								+{{ $requestsCount }}
-							</span>
-						@endif
-					@elseif($responsesCount)
-						<span class="header_user-info_notification">
-							+{{ $responsesCount }}
-						</span>
-					@endif
 			
 				</a>
 			

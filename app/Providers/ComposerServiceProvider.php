@@ -82,25 +82,6 @@ class ComposerServiceProvider extends ServiceProvider {
 			$v->with('specs', $specs);
 
 		});
-
-		View::composer('inc.header', function($v) {
-
-			if(Auth::check()) {
-
-				if(Auth::user()->company) {
-					$requestsCount = \App\Singleton::requestsCount();
-					$responsesCount = 0;
-				} else {
-					$responsesCount = \App\Singleton::responsesCount();
-					$requestsCount = 0;
-				}
-
-
-				$v->with('requestsCount', $requestsCount)->with('responsesCount', $responsesCount);
-
-			}
-
-		});
 	}
 
 	public function register()

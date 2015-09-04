@@ -84,32 +84,6 @@
 
 					</div>
 
-					<hr>
-
-					<div class="requests">
-						
-						<div class="requests_header">
-							
-							<div class="requests_toogler">
-
-								<div class="requests_received requests_toogler--active">Исходящие запросы</div>
-
-							</div>
-
-						</div>
-
-						@if(count($user->requests))
-
-							@include('parts.sent-requests')
-
-						@else
-
-							<div style="text-align:center; margin:50px 0;">Список пуст</div>
-
-						@endif
-
-					</div>
-
 				@else
 
 					<div class="profile_verify">
