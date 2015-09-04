@@ -34,6 +34,12 @@ get('page/{url}', function($url){
 
 });
 
+get('request/id{id}', [
+	'uses' => 'RequestController@show',
+	'as' => 'request',
+	'middleware' => 'auth'
+]);
+
 Route::group(['prefix' => 'user'], function(){
 
 	get('profile', [

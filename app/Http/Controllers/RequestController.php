@@ -53,6 +53,20 @@ class RequestController extends Controller {
 
 	}
 
+	public function show($id) {
+
+		if(\Auth::user()->company && \Auth::user()->company->status){
+
+			
+
+		} else {
+
+			
+
+		}
+
+	}
+
 	public function cancel() {
 
 		$id = \Input::get('id');
