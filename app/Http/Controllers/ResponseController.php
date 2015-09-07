@@ -39,18 +39,4 @@ class ResponseController extends Controller {
 
 	}
 
-	public function cancel() {
-
-		$id = \Input::get('id');
-
-		$company = \Auth::user()->company;
-
-		$company->requests()->updateExistingPivot($id, [
-			'canceled_by_company' => true, 
-			'replied' => true,
-			'updated_at' => new Carbon
-		]);
-
-	}
-
 }

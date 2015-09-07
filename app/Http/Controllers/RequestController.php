@@ -49,20 +49,35 @@ class RequestController extends Controller {
 
 		$request->save();
 
+		return $this->createRooms($request);
+
 		return $request;
 
 	}
 
-	public function show($id) {
+	public function createRooms($request){
 
-		if(\Auth::user()->company && \Auth::user()->company->status){
+		$companies = \App\Company::whereHas('models', function($q) use($request){
+			$q->whereId($request->model_id);
+		})
+		->with('user')
+		->whereTypeId($request->type_id)
+		->get();
 
-			
 
-		} else {
+		foreach ($companies as $company) {
+			$room = new \App\Room;
+			$room->request_id = $request->id;
+			$room->company_id = $company->id;
+			$room->save();
 
-			
-
+			\Mail::queue('emails.request', [
+				'request' => $request,
+				'room' => $room
+			], function($msg) use ($company){
+				$msg->to($company->user->email)
+				->subject('Новый заказ | Комтранс');
+			});
 		}
 
 	}
@@ -79,6 +94,21 @@ class RequestController extends Controller {
 		$request->canceled_by_user = true;
 
 		$request->save();
+
+	}
+	
+
+	public function show($hash) {
+
+		if(\Auth::user()->company && \Auth::user()->company->status){
+
+			
+
+		} else {
+
+			
+
+		}
 
 	}
 

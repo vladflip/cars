@@ -34,9 +34,9 @@ get('page/{url}', function($url){
 
 });
 
-get('request/id{id}', [
-	'uses' => 'RequestController@show',
-	'as' => 'request',
+get('room/id{id}', [
+	'uses' => 'RoomController@index',
+	'as' => 'room',
 	'middleware' => 'auth'
 ]);
 
