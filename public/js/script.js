@@ -2594,13 +2594,14 @@ AddPhotos = (function() {
 
 new AddPhotos('#feedback-input', '#feedback-plus');
 
-quill = new Quill('#feedback-editor', {
-  theme: 'snow'
-});
-
-quill.addModule('toolbar', {
-  container: '#feedback-editor-toolbar'
-});
+if ($('#feedback-editor').length !== 0) {
+  quill = new Quill('#feedback-editor', {
+    theme: 'snow'
+  });
+  quill.addModule('toolbar', {
+    container: '#feedback-editor-toolbar'
+  });
+}
 
 ListModel = (function(superClass) {
   extend(ListModel, superClass);

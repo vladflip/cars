@@ -122,19 +122,11 @@ new AddPhotos '#feedback-input', '#feedback-plus'
 # -------------------------------------------
 # ------------- Quill.js
 # -------------------------------------------
+if $('#feedback-editor').length isnt 0
+	quill = new Quill '#feedback-editor',
+		theme: 'snow'
 
-quill = new Quill '#feedback-editor',
-	theme: 'snow'
-
-quill.addModule 'toolbar', container: '#feedback-editor-toolbar'
-
-# quill.setContents [
-# 	{insert: '\n'}
-# 	{insert: '\n'}
-# 	{insert: '\n'}
-# 	{insert: '\n'}
-# 	{insert: '\n'}
-# ]
+	quill.addModule 'toolbar', container: '#feedback-editor-toolbar'
 
 # -------------------------------------------
 # ------------- Quill.js
