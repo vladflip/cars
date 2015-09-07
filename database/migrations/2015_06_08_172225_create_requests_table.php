@@ -21,10 +21,8 @@ class CreateRequestsTable extends Migration {
 			$t->integer('make_id')->unsigned();
 			$t->integer('model_id')->unsigned();
 
-			$t->tinyInteger('opened');
 			$t->tinyInteger('new');
 			$t->tinyInteger('old');
-			$t->tinyInteger('canceled_by_user')->default(0);
 			$t->tinyInteger('status')->default(0);
 
 			$t->string('year');

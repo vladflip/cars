@@ -16,14 +16,12 @@ class CreateResponsesTable extends Migration {
 		{
 			$t->increments('id');
 
-			$t->integer('request_id')->unsigned();
+			$t->integer('room_id')->unsigned();
 			$t->integer('company_id')->unsigned();
 
 			$t->text('text');
-			
-			$t->tinyInteger('read')->default(0);
 
-			$t->foreign('request_id')->references('id')->on('requests')
+			$t->foreign('room_id')->references('id')->on('rooms')
 											->onDelete('cascade')
 											->onUpdate('no action');
 
