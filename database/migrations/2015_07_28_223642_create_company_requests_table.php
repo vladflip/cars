@@ -14,6 +14,8 @@ class CreateCompanyRequestsTable extends Migration {
 	{
 		Schema::create('company_requests', function(Blueprint $t)
 		{
+
+			$t->increments('id');
 			
 			$t->integer('request_id')->unsigned();
 			$t->integer('company_id')->unsigned();
@@ -23,8 +25,6 @@ class CreateCompanyRequestsTable extends Migration {
 			$t->tinyInteger('canceled_by_company')->default(0);
 
 			$t->timestamp('updated_at');
-
-			$t->primary(['request_id', 'company_id']);
 
 			$t->foreign('request_id')->references('id')->on('requests')
 											->onDelete('cascade')

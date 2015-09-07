@@ -11,7 +11,9 @@ class DatabaseSeeder extends Seeder {
 
 		DB::disableQueryLog();
 
-		$this->call('TypesMakeCarModelSeeder');
+		$this->call('TypeSeeder');
+
+		$this->call('MakeCarModelSeeder');
 
 		$this->call('UserSeeder');
 
@@ -108,13 +110,9 @@ class SpecSeeder extends Seeder {
 
 }
 
-class TypesMakeCarModelSeeder extends Seeder {
+class TypeSeeder extends Seeder {
 
 	public function run() {
-
-		$arr = Config::get('makemodel');
-
-		$i = 1;
 
 		$types = [
 			'Грузовики', 'Автобусы', 
@@ -173,15 +171,31 @@ class TypesMakeCarModelSeeder extends Seeder {
 			</svg>'
 		];
 
-		foreach ($arr as $key => $makes) {
+		for ($i=1; $i < 5; $i++) { 
 
 			\App\Type::create([
 
-					'name' => $types2[$i-1],
-					'title' => $types[$i-1],
-					'icon' => $icons[$i-1]
+				'name' => $types2[$i-1],
+				'title' => $types[$i-1],
+				'icon' => $icons[$i-1]
 
-				]);
+			]);
+
+		}
+
+	}
+
+}
+
+class MakeCarModelSeeder extends Seeder {
+
+	public function run() {
+
+		$arr = Config::get('makemodel');
+
+		$i = 1;
+
+		foreach ($arr as $key => $makes) {
 			
 			foreach ($makes as $k => $make) {
 				
