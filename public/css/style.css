@@ -998,6 +998,9 @@ ul.create-company-spec-selectBox-dropdown-menu {
   font-size: 12px;
   display: block;
 }
+.type_item svg {
+  width: 70px;
+}
 .comments {
   padding: 25px 35px;
 }
@@ -1360,6 +1363,7 @@ ul.create-company-spec-selectBox-dropdown-menu {
 }
 .container {
   height: 100%;
+  min-width: 1090px;
   width: auto;
   max-width: 1140px;
   float: none;
@@ -1525,17 +1529,6 @@ ul.create-company-spec-selectBox-dropdown-menu {
 .header_user-info:hover .header_user-info_ava,
 .header_user-info:hover .header_user-info_names {
   opacity: 0.6;
-}
-.header_user-info_notification {
-  background-color: #f3df6d;
-  padding: 2px 5px;
-  font-size: 12px;
-  font-weight: 400;
-  color: #fff;
-  border-radius: 2px;
-  position: absolute;
-  top: 10px;
-  right: 0;
 }
 .menu {
   height: 60px;
