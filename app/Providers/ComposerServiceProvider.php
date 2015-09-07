@@ -61,9 +61,17 @@ class ComposerServiceProvider extends ServiceProvider {
 			if($f === false)
 				$feedback = '';
 
+			$contacts = 'active';
+
+			$f = strpos($path, 'contacts');
+
+			if($f === false)
+				$contacts = '';
+
 			$v->with('catalog', $catalog)
 				->with('feedback', $feedback)
-				->with('pages', $pages);
+				->with('pages', $pages)
+				->with('contacts', $contacts);
 
 		});
 

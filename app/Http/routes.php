@@ -34,6 +34,10 @@ get('page/{url}', function($url){
 
 });
 
+get('contacts', ['as' => 'contacts', 'uses' => function() {
+	return view('pages.contacts');
+}]);
+
 get('room/id{id}', [
 	'uses' => 'RoomController@index',
 	'as' => 'room',

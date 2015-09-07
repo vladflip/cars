@@ -14,8 +14,13 @@
 				<a href="{{ route('catalog') }}">Каталог</a>
 			
 			</div>
+
 			<div class="menu_btn {{ $feedback }}">
 				<a href="{{ route('feedback') }}">Отзывы</a>
+			</div>
+
+			<div class="menu_btn {{ $contacts }}">
+				<a href="{{ route('contacts') }}">Контакты</a>
 			</div>
 			
 			@foreach($pages as $page)

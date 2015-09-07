@@ -1857,6 +1857,20 @@ ul.create-company-spec-selectBox-dropdown-menu {
   width: 260px;
   border-radius: 2px;
 }
+.contacts {
+  position: relative;
+  overflow: hidden;
+}
+.contacts .container {
+  position: relative;
+  margin-top: 25px;
+}
+.contacts_content {
+  width: 1140px;
+  min-height: 600px;
+  background-color: #fff;
+  padding: 25px 35px;
+}
 .feed {
   position: relative;
   overflow: hidden;
