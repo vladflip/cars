@@ -79,7 +79,6 @@
 					</div>
 					
 					<div class="response_buttons">
-						<div class="response_cancel">Отклонить</div>
 						<div class="response_answer">Ответить</div>
 					</div>
 				</div>

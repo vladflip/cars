@@ -17,8 +17,7 @@
 			</div>
 
 			<div>
-				<div class="requests_body 
-				{{ $request->canceled_by_user ? 'requests_body--grey' : 'requests_body--yellow' }}">
+				<div class="requests_body requests_body--yellow">
 					{{ $request->text }}
 					<p class="requests_additional">
 						Тип: {{ $request->new ? 'новая' : '' }} {{ $request->old ? ', бу' : '' }} <br>
@@ -26,12 +25,6 @@
 						Год выпуска: {{ $request->year }}
 					</p>
 				</div>
-
-				@if( ! $request->canceled_by_user )
-					<div class="response_buttons">
-						<div class="response_cancel">Закрыть</div>
-					</div>
-				@endif
 			</div>
 
 			<div class="requests_time">

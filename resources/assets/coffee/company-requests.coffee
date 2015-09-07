@@ -6,11 +6,6 @@ class ResponseView extends Backbone.View
 
 	home: $('body').data 'home'
 
-	# create templates : 
-	# canceled
-	# answered
-	# own template (for loading more) or not needed cuz request template will include response
-
 	initialize: ->
 
 		@requestId = @options.requestId
@@ -19,13 +14,9 @@ class ResponseView extends Backbone.View
 
 		@answer = @$el.find('.response_answer')
 
-		@cancel = @$el.find('.response_cancel')
-
 		@body = @$el.find('.response_body')
 
 		@answer.click @doAnswer
-
-		@cancel.click @doCancel
 
 	doAnswer: =>
 
@@ -35,28 +26,9 @@ class ResponseView extends Backbone.View
 
 		@answer.hide()
 
-		@cancel.hide()
-
 		@body.html @text.val()
 
 		do @sendResponse
-
-	doCancel: =>
-
-		@text.hide()
-
-		@answer.hide()
-
-		@cancel.hide()
-
-		@body.html 'Отклонено.'
-
-		$.ajax "#{@home}/api/response/cancel",
-			headers:
-				'X-CSRF-TOKEN' : $('body').data 'csrf'
-			method: 'POST'
-			data:
-				id: @requestId
 
 	sendResponse: ->
 		

@@ -6,25 +6,7 @@ class RequestView extends Backbone.View
 
 	initialize: ->
 
-		@cancelButton = @$el.find('.response_cancel')
-
 		@body = @$el.find('.requests_body')
-
-		@cancelButton.click @cancel
-
-	cancel: =>
-
-		$.ajax "#{@home}/api/request/cancel",
-			headers:
-				'X-CSRF-TOKEN' : $('body').data 'csrf'
-			method: 'POST'
-			data:
-				id: @model.get 'id'
-
-		@body.removeClass 'requests_body--yellow'
-		@body.addClass 'requests_body--grey'
-
-		@cancelButton.hide()
 
 
 
