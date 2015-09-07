@@ -8,7 +8,7 @@ class ResponseView extends Backbone.View
 
 	initialize: ->
 
-		@requestId = @options.requestId
+		@roomId = @options.roomId
 
 		@text = @$el.find('.response_textarea')
 
@@ -37,7 +37,7 @@ class ResponseView extends Backbone.View
 				'X-CSRF-TOKEN' : $('body').data 'csrf'
 			method: 'POST'
 			data:
-				request: @requestId
+				room: @roomId
 				response: @text.val()
 
 		.done (response) =>
@@ -54,7 +54,7 @@ class RequestView extends Backbone.View
 		
 		new ResponseView
 			el: @$el.children('.response')
-			requestId: @model.get 'id'
+			roomId: @model.get 'id'
 
 
 class RequestsCollection extends Backbone.Collection

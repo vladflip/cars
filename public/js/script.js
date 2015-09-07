@@ -814,7 +814,6 @@ ResponseView = (function(superClass) {
   extend(ResponseView, superClass);
 
   function ResponseView() {
-    this.doCancel = bind(this.doCancel, this);
     this.doAnswer = bind(this.doAnswer, this);
     return ResponseView.__super__.constructor.apply(this, arguments);
   }
@@ -824,13 +823,11 @@ ResponseView = (function(superClass) {
   ResponseView.prototype.home = $('body').data('home');
 
   ResponseView.prototype.initialize = function() {
-    this.requestId = this.options.requestId;
+    this.roomId = this.options.roomId;
     this.text = this.$el.find('.response_textarea');
     this.answer = this.$el.find('.response_answer');
-    this.cancel = this.$el.find('.response_cancel');
     this.body = this.$el.find('.response_body');
-    this.answer.click(this.doAnswer);
-    return this.cancel.click(this.doCancel);
+    return this.answer.click(this.doAnswer);
   };
 
   ResponseView.prototype.doAnswer = function() {
@@ -839,25 +836,8 @@ ResponseView = (function(superClass) {
     }
     this.text.hide();
     this.answer.hide();
-    this.cancel.hide();
     this.body.html(this.text.val());
     return this.sendResponse();
-  };
-
-  ResponseView.prototype.doCancel = function() {
-    this.text.hide();
-    this.answer.hide();
-    this.cancel.hide();
-    this.body.html('Отклонено.');
-    return $.ajax(this.home + "/api/response/cancel", {
-      headers: {
-        'X-CSRF-TOKEN': $('body').data('csrf')
-      },
-      method: 'POST',
-      data: {
-        id: this.requestId
-      }
-    });
   };
 
   ResponseView.prototype.sendResponse = function() {
@@ -867,7 +847,7 @@ ResponseView = (function(superClass) {
       },
       method: 'POST',
       data: {
-        request: this.requestId,
+        room: this.roomId,
         response: this.text.val()
       }
     }).done((function(_this) {
@@ -906,7 +886,7 @@ RequestView = (function(superClass) {
   RequestView.prototype.initialize = function() {
     return new ResponseView({
       el: this.$el.children('.response'),
-      requestId: this.model.get('id')
+      roomId: this.model.get('id')
     });
   };
 
@@ -3316,8 +3296,7 @@ new ProfileToggler({
 },{"./inc/Avatar":9,"./inc/FieldSet":10}],23:[function(require,module,exports){
 var Request, RequestView, Requests, RequestsCollection,
   extend = function(child, parent) { for (var key in parent) { if (hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; },
-  hasProp = {}.hasOwnProperty,
-  bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };
+  hasProp = {}.hasOwnProperty;
 
 Request = (function(superClass) {
   extend(Request, superClass);
@@ -3334,31 +3313,13 @@ RequestView = (function(superClass) {
   extend(RequestView, superClass);
 
   function RequestView() {
-    this.cancel = bind(this.cancel, this);
     return RequestView.__super__.constructor.apply(this, arguments);
   }
 
   RequestView.prototype.home = $('body').data('home');
 
   RequestView.prototype.initialize = function() {
-    this.cancelButton = this.$el.find('.response_cancel');
-    this.body = this.$el.find('.requests_body');
-    return this.cancelButton.click(this.cancel);
-  };
-
-  RequestView.prototype.cancel = function() {
-    $.ajax(this.home + "/api/request/cancel", {
-      headers: {
-        'X-CSRF-TOKEN': $('body').data('csrf')
-      },
-      method: 'POST',
-      data: {
-        id: this.model.get('id')
-      }
-    });
-    this.body.removeClass('requests_body--yellow');
-    this.body.addClass('requests_body--grey');
-    return this.cancelButton.hide();
+    return this.body = this.$el.find('.requests_body');
   };
 
   return RequestView;

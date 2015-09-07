@@ -17,25 +17,34 @@ class ResponseController extends Controller {
 		if( $input->response == '' )
 			return 'hello lamer';
 
-		$request = \App\Request::find($input->request);
+		$room = \App\Room::whereCompanyId($company->id)
+		->with(['request' => function($q){
+			$q->with('user');
+			$q->with('type');
+			$q->with('model');
+			$q->with('make');
+		}])
+		->find($input->room);
 
-		if( ! $request )
+		if( ! $room )
 			return 'hello lamer';
 
 		$response = new \App\Response;
 
 		$response->text = $input->response;
 		$response->company_id = $company->id;
-		$response->request_id = $input->request;
+		$response->room_id = $input->room;
 
 		$response->save();
 
-		$company->requests()->updateExistingPivot($request->id, [
-			'replied' => true,
-			'updated_at' => new Carbon
-		]);
-
-		$request->touch();
+		\Mail::queue('emails.response', [
+			'request' => $room->request,
+			'room' => $room,
+			'company' => $company
+		], function($msg) use ($room){
+			$msg->to($room->request->user->email)
+			->subject('Новый заказ | Комтранс');
+		});
 
 	}
 

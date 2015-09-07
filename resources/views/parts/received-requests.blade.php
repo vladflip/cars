@@ -1,6 +1,6 @@
 <div class="received-requests" id="company-requests">
 
-	<div class="requests_item" data-id="{{ $request->id }}">
+	<div class="requests_item" data-id="{{ $room->id }}">
 		
 		<div class="requests_request">
 			
@@ -52,7 +52,7 @@
 				</div>
 
 				<div class="response_body requests_body--grey">
-					{{ $request->responses[0]->text }}
+					{{ $room->response->text }}
 				</div>
 
 			</div>
