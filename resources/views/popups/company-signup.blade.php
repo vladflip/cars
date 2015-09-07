@@ -2,7 +2,7 @@
 	
 	<div class="popup_content">
 
-		<h3 class="popup_header popup_header--left">Ваша компания</h3>
+		<h3 class="popup_header popup_header--left">Добавление компании</h3>
 		
 		<div class="popup_content--create-company">
 
@@ -83,7 +83,7 @@
 						<div class="popup_label">Адрес</div>
 					
 						<input id="create-company-address" type="text" class="popup_input" 
-						placeholder="г. Москва Красная пл, д1">
+						placeholder="город, улица, дом...">
 					
 					</div>
 					
@@ -129,6 +129,8 @@
 
 		</div>
 
+		<h3 class="popup_header popup_header--left">Доступ к сайту</h3>
+
 		<div class="popup_field">
 				
 			<label class="popup_label">Введите e-mail</label>
@@ -145,7 +147,7 @@
 		
 		</div>
 
-		<div id="create-company-submit" class="popup_button">Зарегистрировать</div>
+		<div id="create-company-submit" class="popup_button">Добавить</div>
 
 	</div>
 
