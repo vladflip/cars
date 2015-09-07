@@ -39,7 +39,7 @@
 
 					</div>
 
-					@if(Auth::user()->company)
+					@if(Auth::user()->company && Auth::user()->company->status)
 						<div class="header_user-info_ava" 
 						style="background-image:url({{ URL::to('/') . '/' . Auth::user()->company->logo }})">
 						</div>

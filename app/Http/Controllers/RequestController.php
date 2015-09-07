@@ -96,20 +96,5 @@ class RequestController extends Controller {
 		$request->save();
 
 	}
-	
-
-	public function show($hash) {
-
-		if(\Auth::user()->company && \Auth::user()->company->status){
-
-			
-
-		} else {
-
-			
-
-		}
-
-	}
 
 }
