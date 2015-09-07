@@ -23,6 +23,10 @@ get('/git-pull', function(){
 	return redirect()->route('home');
 });
 
+get('check', function(){
+	var_dump(\Config::get('makemodel'));
+});
+
 get('page/{url}', function($url){
 
 	$page = \App\Page::whereUrl($url)->first();
