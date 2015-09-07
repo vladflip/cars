@@ -38,13 +38,8 @@ class Company extends Model {
 
 	}
 
-	public function requests() {
-
-		return $this->belongsToMany(
-				'App\Request', 'company_requests', 
-				'company_id', 'request_id'
-			);
-
+	public function rooms() {
+		return $this->hasMany('App\Room', 'company_id');
 	}
 
 }

@@ -19,6 +19,8 @@ class CreateResponsesTable extends Migration {
 			$t->integer('room_id')->unsigned();
 			$t->integer('company_id')->unsigned();
 
+			$t->unique('room_id');
+
 			$t->text('text');
 
 			$t->foreign('room_id')->references('id')->on('rooms')

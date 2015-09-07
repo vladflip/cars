@@ -6,8 +6,10 @@ class Response extends Model {
 
 	protected $table = 'responses';
 
-	public function request() {
-		return $this->belongsTo('App\Request', 'request_id');
+	protected $fillable = ['text'];
+
+	public function room() {
+		return $this->belongsTo('App\Room', 'room_id');
 	}
 
 	public function company() {

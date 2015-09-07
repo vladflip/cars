@@ -32,8 +32,8 @@ class Request extends Model {
 		return $this->belongsTo('App\User', 'user_id');
 	}
 
-	public function responses() {
-		return $this->hasMany('App\Response', 'request_id');
+	public function rooms() {
+		return $this->hasMany('App\Room', 'request_id');
 	}
 
 }
