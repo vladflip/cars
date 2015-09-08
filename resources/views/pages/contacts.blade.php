@@ -10,16 +10,16 @@
 			
 			<div class="contacts_content">
 				<div class="contacts_header">
-					Для ваших вопросов и предложений работает служба технической поддержки:
+					Для ваших вопросов и предложений работает<br>служба технической поддержки:
 				</div>
 
 				<div>
 					<div class="popup_field">
-						<label class="popup_label">Имя</label>
+						<label class="popup_label">Представтесь</label>
 						<input type="text" class="popup_input">
 					</div>
 					<div class="popup_field">
-						<label class="popup_label">Почта</label>
+						<label class="popup_label">E-mail</label>
 						<input type="text" class="popup_input">
 					</div>
 					<div class="popup_field">
