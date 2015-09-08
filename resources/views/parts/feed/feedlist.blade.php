@@ -3,6 +3,10 @@
 	@foreach($feeds as $feed)
 
 		<div class="feedlist_item">
+
+			<div class="feedlist_img">
+				<img src="{{ $feed->logo }}" alt="">
+			</div>
 		
 			<div class="mention_info">
 				
@@ -41,10 +45,6 @@
 					<span>{{ count($feed->dislikes) }}</span>
 					<img src="{{ URL::to('/') }}/img/dislike.png" alt="">
 				</div>
-			</div>
-
-			<div class="feedlist_img">
-				<img src="{{ $feed->logo }}" alt="">
 			</div>
 
 		</div>

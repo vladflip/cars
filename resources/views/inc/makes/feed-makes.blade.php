@@ -7,6 +7,7 @@
 
 			<li>
 				<span>
+					<span class="makes_icon" style="background-image:url({{ route('home') . '/' . $make->icon }})"></span>
 
 					<a href="{{ route('feedback-make', 
 						['type' => $type->name, 'make' => $make->name]) }}">
