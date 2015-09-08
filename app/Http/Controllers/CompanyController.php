@@ -212,4 +212,39 @@ class CompanyController extends Controller {
 		
 	}
 
+	public function signUp() {
+
+		$input = (object)\Input::all();
+
+		$validator = \Validator::make(
+			['email' => $input->email],
+			['email' => 'required|email|unique:users']
+
+		);
+
+		if($validator->fails()){
+			return 'hello lamer';
+		}
+
+		$code = md5(\Hash::make($input->email));
+
+		$user = \App\User::create([
+			'email' => $input->email,
+			'password' => \Hash::make($input->pass),
+			'confirmation_code' => $code
+		]);
+
+		\Auth::login($user);
+
+		\Mail::queue('emails.verify', ['code' => $code], function($msg) use ($user){
+			$msg->to($user->email)
+			->subject('Подтверждение почты');
+		});
+
+		$this->create();
+
+		return route('profile');
+
+	}
+
 }

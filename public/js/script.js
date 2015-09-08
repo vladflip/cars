@@ -2168,7 +2168,7 @@ dislikes = new Counter($('#mention-dislikes'), $('#mention-dislikes-info'), 'men
 new Votes(likes, dislikes);
 
 },{}],16:[function(require,module,exports){
-var AddLogo, MakesList, SelectType, SelectView, about, address, logo, logolabel, makes, name, phone, specs, submit, types,
+var AddLogo, MakesList, SelectType, SelectView, about, address, companySignUp, logo, logolabel, makes, name, phone, specs, submit, types,
   bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; },
   extend = function(child, parent) { for (var key in parent) { if (hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; },
   hasProp = {}.hasOwnProperty;
@@ -2305,8 +2305,10 @@ makes = new MakesList({
 
 submit = $('#create-company-submit');
 
+companySignUp = $('#company-signup-auth');
+
 submit.click(function() {
-  var result;
+  var email, pass, pattern, result, url;
   result = {};
   if (types.get() != null) {
     result.type = parseInt(types.get());
@@ -2351,8 +2353,31 @@ submit.click(function() {
     logolabel.blink();
     return;
   }
+  url = 'api/company/create';
+  if (companySignUp) {
+    url = 'api/company/create-signup';
+    email = companySignUp.find('.company-signup-email');
+    pass = companySignUp.find('.company-signup-pass');
+    if (email.val() === '') {
+      email.blink();
+      return;
+    } else {
+      result.email = email.val();
+    }
+    if (pass.val() === '') {
+      pass.blink();
+      return;
+    } else {
+      result.pass = pass.val();
+    }
+    pattern = /^([a-z0-9_\.-])+@[a-z0-9-]+\.([a-z]{2,4}\.)?[a-z]{2,4}$/i;
+    if (!pattern.test(email.val())) {
+      email.blink();
+      return;
+    }
+  }
   $(this).preload('start');
-  return $.ajax(($('body').data('home')) + "/api/company/create", {
+  return $.ajax(($('body').data('home')) + "/" + url, {
     headers: {
       'X-CSRF-TOKEN': $('body').data('csrf')
     },
@@ -2361,10 +2386,14 @@ submit.click(function() {
   }).done((function(_this) {
     return function(response) {
       $(_this).preload('stop');
-      return setTimeout(function() {
-        $.magnificPopup.instance.close();
-        return $.alert('Ваша компания добавлена и ожидает проверки.');
-      }, 1000);
+      if (companySignUp) {
+        return location.href = response;
+      } else {
+        return setTimeout(function() {
+          $.magnificPopup.instance.close();
+          return $.alert('Ваша компания добавлена и ожидает проверки.');
+        }, 1000);
+      }
     };
   })(this));
 });

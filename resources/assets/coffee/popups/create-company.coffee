@@ -113,6 +113,8 @@ makes = new MakesList
 
 submit = $ '#create-company-submit'
 
+companySignUp = $ '#company-signup-auth'
+
 submit.click ->
 
 	result = {}
@@ -173,17 +175,51 @@ submit.click ->
 
 	# ===================================
 
+	url = 'api/company/create'
+
+	if companySignUp
+
+		url = 'api/company/create-signup'
+
+		email = companySignUp.find '.company-signup-email'
+		pass = companySignUp.find '.company-signup-pass'
+
+		if email.val() is ''
+			email.blink()
+			return
+		else
+			result.email = email.val()
+
+		if pass.val() is ''
+			pass.blink()
+			return
+		else
+			result.pass = pass.val()
+
+		pattern = /^([a-z0-9_\.-])+@[a-z0-9-]+\.([a-z]{2,4}\.)?[a-z]{2,4}$/i
+
+		if not pattern.test email.val()
+			email.blink()
+			return
+
 	$(@).preload('start')
 
-	$.ajax "#{$('body').data('home')}/api/company/create",
+	$.ajax "#{$('body').data('home')}/#{url}",
 			headers:
 				'X-CSRF-TOKEN' : $('body').data 'csrf'
 			method: 'POST'
 			data: result
 		.done (response) =>
+
 			$(@).preload('stop')
 
-			setTimeout ->
-				$.magnificPopup.instance.close()
-				$.alert 'Ваша компания добавлена и ожидает проверки.'
-			, 1000
+			if companySignUp
+
+				location.href = response
+
+			else
+
+				setTimeout ->
+					$.magnificPopup.instance.close()
+					$.alert 'Ваша компания добавлена и ожидает проверки.'
+				, 1000

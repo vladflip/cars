@@ -156,6 +156,8 @@ Route::group(['prefix' => 'api', 'middleware' => 'api'], function(){
 			'uses' => 'UserController@authenticate'
 		]);
 
+	post('company/create-signup', ['uses' => 'CompanyController@signUp']);
+
 	Route::group(['prefix' => 'user', 'middleware' => 'auth'], function() {
 
 		post('edit', ['uses' => 'UserController@edit']);

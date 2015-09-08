@@ -129,22 +129,26 @@
 
 		</div>
 
-		<h3 class="popup_header popup_header--left">Доступ к сайту</h3>
+		<div id="company-signup-auth">
 
-		<div class="popup_field">
-				
-			<label class="popup_label">Введите e-mail</label>
-		
-			<input name="email" type="email" class="popup_input">
-		
-		</div>
-		
-		<div class="popup_field">
+			<h3 class="popup_header popup_header--left">Доступ к сайту</h3>
 			
-			<label class="popup_label">Придумайте пароль</label>
-		
-			<input name="password" type="text" class="popup_input">
-		
+			<div class="popup_field">
+					
+				<label class="popup_label">Введите e-mail</label>
+			
+				<input name="email" type="email" class="popup_input company-signup-email">
+			
+			</div>
+			
+			<div class="popup_field">
+				
+				<label class="popup_label">Придумайте пароль</label>
+			
+				<input name="password" type="text" class="popup_input company-signup-pass">
+			
+			</div>
+
 		</div>
 
 		<div id="create-company-submit" class="popup_button">Добавить</div>
