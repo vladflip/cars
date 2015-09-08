@@ -2813,7 +2813,7 @@ $('#add-feedback').click(function() {
       $(_this).preload('stop');
       setTimeout(function() {
         $.magnificPopup.instance.close();
-        return $.alert('Ваш отзыв об авто добавлен и будет доступен на сайте после проверки.');
+        return $.alert('Ваш отзыв об авто добавлен и будет доступен на сайте после проверки.', true);
       }, 1000);
       return setTimeout(function() {
         return $(_this).preload('reset');
