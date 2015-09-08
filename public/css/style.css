@@ -447,7 +447,7 @@ ul.create-company-spec-selectBox-dropdown-menu {
   margin: 0;
 }
 .makes ul {
-  margin: 30px 30px 20px 50px;
+  margin: 30px 30px 60px 50px;
   -webkit-columns: 4;
      -moz-columns: 4;
           columns: 4;
@@ -1879,6 +1879,7 @@ ul.create-company-spec-selectBox-dropdown-menu {
   -webkit-align-items: center;
       -ms-flex-align: center;
           align-items: center;
+  border: 1px solid #f3df6d;
 }
 .contacts_textarea {
   width: 400px;
