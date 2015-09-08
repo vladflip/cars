@@ -121,7 +121,7 @@ class AdminController extends Controller {
 
 			$make->icon = $fullname;
 
-			$image->save($fullname);
+			$image->save($fullname, 100);
 
 		}
 
