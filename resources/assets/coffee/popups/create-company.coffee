@@ -211,20 +211,22 @@ submit.click ->
 			data: result
 		.done (response) =>
 
+			console.log response
+
 			$(@).preload('stop')
 
-			if companySignUp.length
+			# if companySignUp.length
 
-				if response.search('http') isnt -1
-					location.href = response
-				else
-					$.magnificPopup.instance.close()
-					$.alert 'Пользователь с таким логином уже существует.'
+			# 	if response.search('http') isnt -1
+			# 		# location.href = response
+			# 	else
+			# 		$.magnificPopup.instance.close()
+			# 		$.alert 'Пользователь с таким логином уже существует.'
 
 
-			else
+			# else
 
-				setTimeout ->
-					$.magnificPopup.instance.close()
-					$.alert 'Ваша компания добавлена и ожидает проверки.'
-				, 1000
+			# 	setTimeout ->
+			# 		$.magnificPopup.instance.close()
+			# 		$.alert 'Ваша компания добавлена и ожидает проверки.'
+			# 	, 1000

@@ -241,7 +241,7 @@ class CompanyController extends Controller {
 			->subject('Подтверждение почты');
 		});
 
-		$this->create();
+		echo $this->create(), "\n\r";
 
 		return route('profile');
 
