@@ -447,7 +447,7 @@ ul.create-company-spec-selectBox-dropdown-menu {
   margin: 0;
 }
 .makes ul {
-  margin: 30px 30px 20px 50px;
+  margin: 30px 30px 60px 50px;
   -webkit-columns: 4;
      -moz-columns: 4;
           columns: 4;
@@ -716,10 +716,11 @@ ul.create-company-spec-selectBox-dropdown-menu {
   border: 1px solid #e4e4e4;
   max-height: 300px;
   overflow-y: auto;
+  box-shadow: 0 10px 10px -10px rgba(0,0,55,0.3);
 }
 .popup_option a {
   background-color: #fff;
-  padding: 15px 10px;
+  padding: 7px 10px;
   cursor: pointer;
   font-size: 13px;
   display: block;
@@ -1866,7 +1867,8 @@ ul.create-company-spec-selectBox-dropdown-menu {
   margin-top: 25px;
 }
 .contacts_content {
-  width: 1140px;
+  margin: auto;
+  width: 740px;
   min-height: 600px;
   background-color: #fff;
   padding: 25px 35px;
@@ -1879,6 +1881,16 @@ ul.create-company-spec-selectBox-dropdown-menu {
   -webkit-align-items: center;
       -ms-flex-align: center;
           align-items: center;
+  border: 1px solid #f3df6d;
+}
+.contacts_content .popup_input {
+  width: 400px;
+}
+.contacts_header {
+  font-size: 22px;
+  margin: 20px 0;
+  text-align: center;
+  line-height: 150%;
 }
 .contacts_textarea {
   width: 400px;
