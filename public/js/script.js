@@ -2387,7 +2387,12 @@ submit.click(function() {
     return function(response) {
       $(_this).preload('stop');
       if (companySignUp) {
-        return location.href = response;
+        if (response.search('http') !== -1) {
+          return location.href = response;
+        } else {
+          $.magnificPopup.instance.close();
+          return $.alert('Пользователь с таким логином или паролем существует.');
+        }
       } else {
         return setTimeout(function() {
           $.magnificPopup.instance.close();
