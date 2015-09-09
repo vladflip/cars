@@ -219,7 +219,7 @@ submit.click ->
 					location.href = response
 				else
 					$.magnificPopup.instance.close()
-					$.alert 'Пользователь с таким логином или паролем существует.'
+					$.alert 'Пользователь с таким логином уже существует.'
 
 
 			else
