@@ -83,7 +83,7 @@
 			<div id="profile-user-info" class="profile_row profile--hidden">
 				<div class="profile_label">Имя:</div>
 				<h3 id="profile-user-name" class="profile-info_name">
-					<span>{{ $user->name ? $user->name : $user->email }}</span>
+					<span>{{ $user->name ? $user->name : 'Аноним' }}</span>
 					<span id="profile-user-pen" href="#edit-user-profile-popup" class="profile-info_pen">
 					</span>
 				</h3>

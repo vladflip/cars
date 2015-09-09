@@ -213,9 +213,14 @@ submit.click ->
 
 			$(@).preload('stop')
 
-			if companySignUp
+			if companySignUp.length
 
-				location.href = response
+				if response.search('http') isnt -1
+					location.href = response
+				else
+					$.magnificPopup.instance.close()
+					$.alert 'Пользователь с таким логином уже существует.'
+
 
 			else
 

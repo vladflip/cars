@@ -158,6 +158,10 @@ Route::group(['prefix' => 'api', 'middleware' => 'api'], function(){
 
 	post('company/create-signup', ['uses' => 'CompanyController@signUp']);
 
+	post('contacts/send', [
+		'uses' => 'APIController@contacts'
+	]);
+
 	Route::group(['prefix' => 'user', 'middleware' => 'auth'], function() {
 
 		post('edit', ['uses' => 'UserController@edit']);
