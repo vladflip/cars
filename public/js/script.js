@@ -615,7 +615,7 @@ specmakes = new SpecMakes({
   types: types
 });
 
-},{"../inc/TypeList":12}],5:[function(require,module,exports){
+},{"../inc/TypeList":13}],5:[function(require,module,exports){
 var Comment, CommentView, Comments, CommentsCollection,
   extend = function(child, parent) { for (var key in parent) { if (hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; },
   hasProp = {}.hasOwnProperty,
@@ -944,6 +944,66 @@ new RequestsList({
 });
 
 },{}],7:[function(require,module,exports){
+var Contacts, Validator,
+  bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };
+
+Validator = require('./inc/Validator');
+
+Contacts = (function() {
+  Contacts.prototype.home = $('body').data('home');
+
+  Contacts.prototype.url = 'api/contacts/send';
+
+  function Contacts(name, email, text) {
+    this.name = name;
+    this.email = email;
+    this.text = text;
+    this.send = bind(this.send, this);
+    this.button = $('#contacts-submit');
+    this.button.click(this.send);
+  }
+
+  Contacts.prototype.send = function() {
+    var data, validator;
+    data = {
+      name: this.name,
+      email: this.email,
+      text: this.text
+    };
+    validator = new Validator(data);
+    if (validator.fails) {
+      return;
+    }
+    this.button.preload('start');
+    return $.ajax(this.home + "/" + this.url, {
+      headers: {
+        'X-CSRF-TOKEN': $('body').data('csrf')
+      },
+      method: 'POST',
+      data: {
+        name: this.name.val(),
+        email: this.email.val(),
+        text: this.text.val()
+      }
+    }).done((function(_this) {
+      return function(response) {
+        _this.button.preload('stop');
+        $.alert('Мы получили Ваше сообщение и ответим на него в порядке очереди');
+        _this.button.preload('reset');
+        _this.name.val('');
+        _this.email.val('');
+        return _this.text.val('');
+      };
+    })(this));
+  };
+
+  return Contacts;
+
+})();
+
+new Contacts($('#contacts-name'), $('#contacts-email'), $('#contacts-text'));
+
+},{"./inc/Validator":14}],8:[function(require,module,exports){
 var MakeModel, Makes, MakesCollection, MakesList, ModelsList,
   extend = function(child, parent) { for (var key in parent) { if (hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; },
   hasProp = {}.hasOwnProperty,
@@ -1191,7 +1251,7 @@ Makes = (function(superClass) {
 
 module.exports = Makes;
 
-},{"./ModelsList":8}],8:[function(require,module,exports){
+},{"./ModelsList":9}],9:[function(require,module,exports){
 var Model, ModelView, ModelsCollection, ModelsList,
   extend = function(child, parent) { for (var key in parent) { if (hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; },
   hasProp = {}.hasOwnProperty,
@@ -1432,7 +1492,7 @@ ModelsList = (function(superClass) {
 
 module.exports = ModelsList;
 
-},{}],9:[function(require,module,exports){
+},{}],10:[function(require,module,exports){
 var Avatar,
   bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };
 
@@ -1589,7 +1649,7 @@ Avatar = (function() {
 
 module.exports = Avatar;
 
-},{}],10:[function(require,module,exports){
+},{}],11:[function(require,module,exports){
 var FieldCollection, FieldModel, FieldSet, FieldView,
   extend = function(child, parent) { for (var key in parent) { if (hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; },
   hasProp = {}.hasOwnProperty,
@@ -1782,7 +1842,7 @@ FieldSet = (function(superClass) {
 
 module.exports = FieldSet;
 
-},{}],11:[function(require,module,exports){
+},{}],12:[function(require,module,exports){
 var SelectView,
   extend = function(child, parent) { for (var key in parent) { if (hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; },
   hasProp = {}.hasOwnProperty;
@@ -1858,7 +1918,7 @@ SelectView = (function(superClass) {
 
 module.exports = SelectView;
 
-},{}],12:[function(require,module,exports){
+},{}],13:[function(require,module,exports){
 var TypeList, TypeModel, TypeView, TypesCollection,
   extend = function(child, parent) { for (var key in parent) { if (hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; },
   hasProp = {}.hasOwnProperty,
@@ -2000,7 +2060,36 @@ TypeList = (function(superClass) {
 
 module.exports = TypeList;
 
-},{}],13:[function(require,module,exports){
+},{}],14:[function(require,module,exports){
+var Validator;
+
+Validator = (function() {
+  function Validator(elements) {
+    this.elements = elements;
+    this.fails = false;
+    this.check();
+  }
+
+  Validator.prototype.check = function() {
+    var element, name, ref;
+    ref = this.elements;
+    for (name in ref) {
+      element = ref[name];
+      if (element.val() === '') {
+        element.blink();
+        this.fails = true;
+        return;
+      }
+    }
+  };
+
+  return Validator;
+
+})();
+
+module.exports = Validator;
+
+},{}],15:[function(require,module,exports){
 require('./base');
 
 require('./popups/index');
@@ -2023,7 +2112,9 @@ require('./user-requests');
 
 require('./comments');
 
-},{"./auth":1,"./base":2,"./catalog/catalog-companies":3,"./catalog/catalog-live":4,"./comments":5,"./company-requests":6,"./logout":14,"./mention":15,"./popups/index":18,"./profile":22,"./user-requests":23}],14:[function(require,module,exports){
+require('./contacts');
+
+},{"./auth":1,"./base":2,"./catalog/catalog-companies":3,"./catalog/catalog-live":4,"./comments":5,"./company-requests":6,"./contacts":7,"./logout":16,"./mention":17,"./popups/index":20,"./profile":24,"./user-requests":25}],16:[function(require,module,exports){
 var button, form;
 
 form = $('#user-logout-form');
@@ -2034,7 +2125,7 @@ button.click(function() {
   return form.submit();
 });
 
-},{}],15:[function(require,module,exports){
+},{}],17:[function(require,module,exports){
 var Counter, Votes, dislikes, likes, mention_photos,
   bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };
 
@@ -2167,7 +2258,7 @@ dislikes = new Counter($('#mention-dislikes'), $('#mention-dislikes-info'), 'men
 
 new Votes(likes, dislikes);
 
-},{}],16:[function(require,module,exports){
+},{}],18:[function(require,module,exports){
 var AddLogo, MakesList, SelectType, SelectView, about, address, companySignUp, logo, logolabel, makes, name, phone, specs, submit, types,
   bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; },
   extend = function(child, parent) { for (var key in parent) { if (hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; },
@@ -2386,12 +2477,12 @@ submit.click(function() {
   }).done((function(_this) {
     return function(response) {
       $(_this).preload('stop');
-      if (companySignUp) {
+      if (companySignUp.length) {
         if (response.search('http') !== -1) {
           return location.href = response;
         } else {
           $.magnificPopup.instance.close();
-          return $.alert('Пользователь с таким логином или паролем существует.');
+          return $.alert('Пользователь с таким логином уже существует.');
         }
       } else {
         return setTimeout(function() {
@@ -2403,7 +2494,7 @@ submit.click(function() {
   })(this));
 });
 
-},{"../create-company/MakesList":7,"../inc/SelectView":11}],17:[function(require,module,exports){
+},{"../create-company/MakesList":8,"../inc/SelectView":12}],19:[function(require,module,exports){
 var AddPhotos, Image, ImageCollection, ImageView, ImagesView, List, ListCollection, ListModel, ListView, SelectView, imageCollection, imagesView, make, minuses, model, pluses, quill, type,
   extend = function(child, parent) { for (var key in parent) { if (hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; },
   hasProp = {}.hasOwnProperty,
@@ -2856,7 +2947,7 @@ $('#add-feedback').click(function() {
   })(this));
 });
 
-},{"../inc/SelectView":11}],18:[function(require,module,exports){
+},{"../inc/SelectView":12}],20:[function(require,module,exports){
 require('./search');
 
 require('./sign-up');
@@ -2867,7 +2958,7 @@ require('./create-company');
 
 require('./settings');
 
-},{"./create-company":16,"./feedback":17,"./search":19,"./settings":20,"./sign-up":21}],19:[function(require,module,exports){
+},{"./create-company":18,"./feedback":19,"./search":21,"./settings":22,"./sign-up":23}],21:[function(require,module,exports){
 var SelectView, button, isNew, isNewLabel, isOld, isOldLabel, make, model, more, type, year;
 
 SelectView = require('../inc/SelectView');
@@ -2977,7 +3068,7 @@ button.click(function() {
   })(this));
 });
 
-},{"../inc/SelectView":11}],20:[function(require,module,exports){
+},{"../inc/SelectView":12}],22:[function(require,module,exports){
 var EmailChanger, PasswordChanger,
   bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };
 
@@ -3114,7 +3205,7 @@ PasswordChanger = (function() {
 
 new PasswordChanger;
 
-},{}],21:[function(require,module,exports){
+},{}],23:[function(require,module,exports){
 var button, email, form, passw, submit;
 
 $('#sign-up').magnificPopup({
@@ -3167,7 +3258,7 @@ if (form) {
   });
 }
 
-},{}],22:[function(require,module,exports){
+},{}],24:[function(require,module,exports){
 var Avatar, FieldSet, ProfileToggler, company, companyAvatar, companyProfileCollection, user, userAvatar, userProfileCollection,
   bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };
 
@@ -3327,7 +3418,7 @@ new ProfileToggler({
   }
 });
 
-},{"./inc/Avatar":9,"./inc/FieldSet":10}],23:[function(require,module,exports){
+},{"./inc/Avatar":10,"./inc/FieldSet":11}],25:[function(require,module,exports){
 var Request, RequestView, Requests, RequestsCollection,
   extend = function(child, parent) { for (var key in parent) { if (hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; },
   hasProp = {}.hasOwnProperty;
@@ -3407,4 +3498,4 @@ new Requests({
   el: '#user-requests'
 });
 
-},{}]},{},[13]);
+},{}]},{},[15]);

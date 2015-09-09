@@ -213,7 +213,7 @@ submit.click ->
 
 			$(@).preload('stop')
 
-			if companySignUp
+			if companySignUp.length
 
 				if response.search('http') isnt -1
 					location.href = response

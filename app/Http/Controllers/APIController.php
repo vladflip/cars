@@ -8,6 +8,21 @@ class APIController extends Controller {
 		return $m;
 	}
 
+	public function contacts() {
+
+		$data = (object)\Input::all();
+
+		\Mail::queue('emails.contacts', [
+				'name' => $data->name,
+				'email' => $data->email,
+				'text' => $data->text
+			], function($msg){
+			$msg->to('vlad.flip.prg@gmail.com')
+			->subject('Новое сообщение с сайта komtrans-club.ru');
+		});
+
+	}
+
 	public function makes_by_type() {
 
 		$id = \Input::get('id');

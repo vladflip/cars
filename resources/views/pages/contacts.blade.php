@@ -16,19 +16,21 @@
 				<div>
 					<div class="popup_field">
 						<label class="popup_label">Представтесь</label>
-						<input type="text" class="popup_input">
+						<input id="contacts-name" type="text" class="popup_input">
 					</div>
 					<div class="popup_field">
 						<label class="popup_label">E-mail</label>
-						<input type="text" class="popup_input">
+						<input id="contacts-email" type="text" class="popup_input">
 					</div>
 					<div class="popup_field">
 						<label class="popup_label">Сообщение</label>
-						<textarea id="" cols="50" rows="10" class="popup_textarea contacts_textarea"></textarea>
+						<textarea id="contacts-text" cols="50" rows="10" class="popup_textarea contacts_textarea"></textarea>
 					</div>
 				</div>
 
-				<div class="popup_button">Отправить</div>
+				<div class="popup_button" id="contacts-submit">
+					Отправить
+				</div>
 			</div>
 
 		</div>
