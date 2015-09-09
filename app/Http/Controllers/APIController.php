@@ -17,7 +17,7 @@ class APIController extends Controller {
 				'email' => $data->email,
 				'text' => $data->text
 			], function($msg){
-			$msg->to('vlad.flip.prg@gmail.com')
+			$msg->to('komtrans-club@mail.ru')
 			->subject('Новое сообщение с сайта komtrans-club.ru');
 		});
 
