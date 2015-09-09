@@ -2354,7 +2354,7 @@ submit.click(function() {
     return;
   }
   url = 'api/company/create';
-  if (companySignUp) {
+  if (companySignUp.length) {
     url = 'api/company/create-signup';
     email = companySignUp.find('.company-signup-email');
     pass = companySignUp.find('.company-signup-pass');

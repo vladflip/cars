@@ -177,7 +177,7 @@ submit.click ->
 
 	url = 'api/company/create'
 
-	if companySignUp
+	if companySignUp.length
 
 		url = 'api/company/create-signup'
 
