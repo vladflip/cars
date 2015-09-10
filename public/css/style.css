@@ -472,10 +472,10 @@ ul.create-company-spec-selectBox-dropdown-menu {
   position: relative;
   font-size: 13px;
   width: 125px;
-  margin-bottom: 10px;
   padding: 0px;
 }
 .makes ul li>span {
+  margin: 9px 0;
   color: #4e61eb;
   display: inline-block;
   cursor: pointer;
@@ -1112,6 +1112,8 @@ ul.create-company-spec-selectBox-dropdown-menu {
   border-top: 1px solid #bbb;
   border-bottom: 1px solid #bbb;
   transition: 0.2s ease-in;
+  width: 260px;
+  box-sizing: border-box;
 }
 .specs:hover {
   border-color: #f4e177;
@@ -1529,6 +1531,8 @@ ul.create-company-spec-selectBox-dropdown-menu {
   -webkit-align-items: center;
       -ms-flex-align: center;
           align-items: center;
+  line-height: 150%;
+  letter-spacing: 0.03em;
 }
 .footer_sign-up-block h5 {
   margin: 0;
