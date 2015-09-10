@@ -62,7 +62,7 @@ class CompanyController extends Controller {
 
 		$image = \Image::make( $logo );
 
-		$result = new stdClass;
+		$result = new \stdClass;
 		$result->messages = array();
 		$result->failed = false;
 
@@ -89,6 +89,8 @@ class CompanyController extends Controller {
 		$image->save($src, 100);
 
 		$result->src = $src;
+
+		return $result;
 
 	}
 
