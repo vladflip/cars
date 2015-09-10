@@ -9,101 +9,86 @@ class CompanyController extends Controller {
 
 	public function create() {
 
+		if( $msg = $this->makeValidation() )
+			return $msg;
+
+		$image = $this->storeImage();
+
+		if($image->failed)
+			return $image->messages;
+
+		$company = new \App\Company(\Input::all());
+
+		$company->logo = $image->src;
+
+		$company->user_id = \Auth::id();
+		$company->type_id = \Input::get('type');
+		$company->spec_id = \Input::get('spec');
+
+		if( $this->attach_makes_models($company, \Input::get('makesmodels')) )
+			return 'hello lamer';
+		
+		return $company;
+		return route('profile');
+
+	}
+
+	public function makeValidation() {
+
 		if( ! \Auth::user()->is_ready() )
-			return 'hello lamer';
+			return 'not ready';
 
-		// if user has company return hello lamer
 		if( \Auth::user()->company )
-			return 'hello lamer';
+			return 'has company';
 
-		$input = (object)\Input::all();
+		$validator = \Validator::make(\Input::all(), [
+			'name' => 'required',
+			'address' => 'required',
+			'phone' => 'required',
+			'about' => 'required',
+			'logo' => 'required',
+			'type' => 'required|exists:types,id',
+			'spec' => 'required|exists:specs,id'
+		]);
 
-		$company = new \App\Company;
+		if($validator->fails())
+			return $validator->failed();
 
-		// =============================
+	}
 
-		if( ! isset($input->name) || ! $input->name )
-			return 'hello lamer';
+	public function storeImage() {
 
-		$company->name = $input->name;
+		$logo = \Input::get('logo');
 
-		// =============================
+		$image = \Image::make( $logo );
 
-		if( ! isset($input->address) || ! $input->address )
-			return 'hello lamer';
-
-		$company->address = $input->address;
-
-		// =============================
-
-		if( ! isset($input->phone) || ! $input->phone )
-			return 'hello lamer';
-
-		$company->phone = $input->phone;
-
-		// =============================
-
-		if( ! isset($input->about) || ! $input->about )
-			return 'hello lamer';
-
-		$company->about = $input->about;
-
-		// =============================
-
-		if( ! isset($input->logo) || ! $input->logo )
-			return 'hello lamer';
-
-		$image = \Image::make( $input->logo );
+		$result = new stdClass;
+		$result->messages = array();
+		$result->failed = false;
 
 		if($image->height() < 115 or $image->height() > 7000) {
-			return 'hello lamer';
+			$result->messages[] = 'height doesnt fits';
+			$result->failed = true;
 		}
 
 		if($image->width() < 115 or $image->width() > 7000) {
-			return 'hello lamer';
+			$result->messages[] = 'width doesnt fits';
+			$result->failed = true;
 		}
 
-		$name = md5(\Hash::make($input->logo . \Auth::id()));
+		$name = md5(\Hash::make($logo . \Auth::id()));
 
 		$dirname = 'img/user' . \Auth::id();
 
-		$fullname = $dirname . '/' . $name . '.jpg';
+		$src = $dirname . '/' . $name . '.jpg';
 
 		if( ! file_exists($dirname) ){
 			mkdir($dirname, 0777, true);
 		}
 
-		if( file_exists($company->logo) ){
-			unlink($company->logo);
-		}
+		$image->save($src, 100);
 
-		$company->logo = $fullname;
-
-		$company->user_id = \Auth::id();
-
-		if( $this->associate_type_and_spec($company, $input) )
-			return 'hello lamer';
-
-		$image->save($fullname);
-		
-		return route('profile');
-
-	}
-
-	public function associate_type_and_spec ($company, $input) {
-
-		// check type and spec
-		if( ! \App\Type::find($input->type) )
-			return 'hello lamer';
-		if( ! \App\Spec::find($input->spec) )
-			return 'hello lamer';
-
-		$company->type_id = $input->type;
-		$company->spec_id = $input->spec;
-
-
-		if( $this->attach_makes_models($company, $input->makesmodels) )
-			return 'hello lamer';
+		$result->src = $src;
 
 	}
 

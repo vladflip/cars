@@ -2477,7 +2477,20 @@ submit.click(function() {
   }).done((function(_this) {
     return function(response) {
       console.log(response);
-      return $(_this).preload('stop');
+      $(_this).preload('stop');
+      if (companySignUp.length) {
+        if (response.search('http') !== -1) {
+
+        } else {
+          $.magnificPopup.instance.close();
+          return $.alert('Пользователь с таким логином уже существует.');
+        }
+      } else {
+        return setTimeout(function() {
+          $.magnificPopup.instance.close();
+          return $.alert('Ваша компания добавлена и ожидает проверки.');
+        }, 1000);
+      }
     };
   })(this));
 });
