@@ -1549,7 +1549,6 @@ ul.create-company-spec-selectBox-dropdown-menu {
   -webkit-align-items: center;
       -ms-flex-align: center;
           align-items: center;
-  line-height: 150%;
   letter-spacing: 0.03em;
 }
 .footer_sign-up-block h5 {
@@ -1558,10 +1557,7 @@ ul.create-company-spec-selectBox-dropdown-menu {
   font-weight: 300;
   text-align: right;
   padding-right: 20px;
-}
-.footer_rights {
-  color: #6a6a6a;
-  font-weight: 300;
+  line-height: 150%;
 }
 .footer_sign-up-button {
   color: #e0e0e0;
@@ -1616,6 +1612,15 @@ ul.create-company-spec-selectBox-dropdown-menu {
 }
 .footer_copyright--text {
   font-style: italic;
+  width: 100%;
+}
+.footer_rights {
+  color: #6a6a6a;
+  font-weight: 300;
+}
+.footer_rights a {
+  text-decoration: underline;
+  display: inline;
 }
 .container {
   height: 100%;
