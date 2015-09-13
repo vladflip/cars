@@ -712,7 +712,7 @@ ul.create-company-spec-selectBox-dropdown-menu {
   display: block;
   outline: none;
   width: 275px;
-  border: 1px solid #e4e4e4;
+  border: 1px solid #c2c2c2;
   background: #fff url("../img/selectbox-arrow.png") no-repeat 95% center;
 }
 .popup_select-selectBox-dropdown-menu {
@@ -742,7 +742,7 @@ ul.create-company-spec-selectBox-dropdown-menu {
 }
 .popup_input {
   background-color: #fff;
-  border: 1px solid #e4e4e4;
+  border: 1px solid #c2c2c2;
   width: 275px;
   color: #2d2d2d;
   padding: 15px 10px;
@@ -757,7 +757,7 @@ ul.create-company-spec-selectBox-dropdown-menu {
 }
 .popup_textarea {
   background-color: #fff;
-  border: 1px solid #e4e4e4;
+  border: 1px solid #c2c2c2;
   width: 275px;
   color: #2d2d2d;
   padding: 15px 10px;
@@ -817,6 +817,7 @@ ul.create-company-spec-selectBox-dropdown-menu {
 }
 .popup_agree {
   float: left;
+  margin-right: 10px;
 }
 .popup_agree + div {
   margin-top: 30px;

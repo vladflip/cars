@@ -25,7 +25,7 @@
 
 			<div>
 			
-				<input name="agree" type="checkbox" class="popup_agree">
+				<input name="agree" type="checkbox" class="popup_agree" checked>
 				<div>Согласен с <a href="">правилами</a> клуба.</div>
 			
 			</div>

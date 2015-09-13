@@ -110,7 +110,7 @@
 					
 						<div class="popup_header-field">
 					
-							<div id="create-company-logo-label" class="popup_label">Логотип</div>
+							<div id="create-company-logo-label" class="popup_label">Логотип <i>(если есть)</i></div>
 							
 							<div id="create-company-logo-btn" class="popup_pick-file">
 								Выбрать файл
