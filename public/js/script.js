@@ -3207,7 +3207,7 @@ PasswordChanger = (function() {
 new PasswordChanger;
 
 },{}],23:[function(require,module,exports){
-var button, email, form, passw, submit;
+var button, check, email, form, passw, submit;
 
 $('#sign-up').magnificPopup({
   type: 'inline',
@@ -3235,9 +3235,16 @@ form = $('#sign-up-form');
 
 button = $('#sign-up-button');
 
+check = $('#sign-up-check');
+
 if (form) {
+  email = form.find('input[name="email"]');
+  passw = form.find('input[name="password"]');
   submit = function() {
     var pattern;
+    if (check.prop('checked') !== true) {
+      return;
+    }
     pattern = /^([a-z0-9_\.-])+@[a-z0-9-]+\.([a-z]{2,4}\.)?[a-z]{2,4}$/i;
     if (pattern.test(email.val())) {
       if (passw.val() !== '') {
@@ -3249,8 +3256,6 @@ if (form) {
       return email.blink();
     }
   };
-  email = form.find('input[name="email"]');
-  passw = form.find('input[name="password"]');
   button.click(submit);
   form.keypress(function(e) {
     if (e.which === 13) {

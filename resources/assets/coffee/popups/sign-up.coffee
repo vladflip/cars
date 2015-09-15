@@ -23,9 +23,18 @@ form = $ '#sign-up-form'
 
 button = $ '#sign-up-button'
 
+check = $ '#sign-up-check'
+
 if form
 
+	email = form.find 'input[name="email"]'
+
+	passw = form.find 'input[name="password"]'
+
 	submit = ->
+		if check.prop('checked') isnt true
+			return
+
 		pattern = /^([a-z0-9_\.-])+@[a-z0-9-]+\.([a-z]{2,4}\.)?[a-z]{2,4}$/i
 
 		if pattern.test email.val()
@@ -35,10 +44,6 @@ if form
 				passw.blink()
 		else
 			email.blink()
-
-	email = form.find 'input[name="email"]'
-
-	passw = form.find 'input[name="password"]'
 
 	button.click submit
 

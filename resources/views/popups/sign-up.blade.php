@@ -23,10 +23,12 @@
 			
 			</div>
 
-			<div>
+			<div style="margin-top:20px">
 			
-				<input name="agree" type="checkbox" class="popup_agree" checked>
-				<div>Согласен с <a href="">правилами</a> клуба.</div>
+				<input id="sign-up-check" name="agree" type="checkbox" class="popup_check popup_agree" checked>
+				<span>
+					Согласен с <a href="">правилами</a> клуба.
+				</span>
 			
 			</div>
 			
