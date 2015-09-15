@@ -155,6 +155,12 @@ h3 {
 .company-preview:hover {
   background-color: #faf7e9;
 }
+.company-preview:hover span {
+  color: #f44;
+}
+.company-preview:hover svg {
+  fill: #f44;
+}
 .company-preview_more {
   color: #4e61eb;
   font-size: 12px;
@@ -484,6 +490,9 @@ ul.create-company-spec-selectBox-dropdown-menu {
 .makes ul li>span a {
   display: inline;
   text-decoration: underline;
+}
+.makes ul li>span a:hover {
+  color: #f44;
 }
 .makes--live ul li {
   padding: 0;
