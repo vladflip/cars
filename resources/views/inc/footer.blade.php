@@ -16,6 +16,9 @@
 					<a href="/feedback">Отзывы</a>
 				</li>
 				<li>
+					<a href="/page/pravila">Правила</a>
+				</li>
+				<li>
 					<a href="/contacts">Контакты</a>
 				</li>
 				
@@ -46,7 +49,7 @@
 			
 			<div class="footer_copyright--text">
 				
-				<h5 class="footer_rights">&copy; 2015г. клуб "Комтранс". Все права защищены. <a href="#">Правила пользования сайтом</a>.</h5>
+				<h5 class="footer_rights">&copy; 2015г. клуб "Комтранс". Все права защищены. <a href="/page/pravila">Правила пользования сайтом</a>.</h5>
 
 			</div>
 			

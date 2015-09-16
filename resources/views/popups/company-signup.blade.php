@@ -149,9 +149,18 @@
 			
 			</div>
 
+			<div class="popup_check--box">
+			
+				<input id="sign-up-check" name="agree" type="checkbox" class="popup_check popup_agree" checked>
+				<span>
+					Согласен с <a href="/page/pravila" target="_blank">правилами</a> клуба.
+				</span>
+			
+			</div>
+
 		</div>
 
-		<div id="create-company-submit" class="popup_button">Добавить</div>
+		<div id="create-company-submit" class="popup_button">Добавить компанию</div>
 
 	</div>
 
