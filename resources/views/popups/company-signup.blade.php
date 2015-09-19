@@ -151,9 +151,9 @@
 
 			<div class="popup_check--box">
 			
-				<input id="sign-up-check" name="agree" type="checkbox" class="popup_check popup_agree" checked>
+				<input id="sign-up-company-check" name="agree" type="checkbox" class="popup_check popup_agree" checked>
 				<span>
-					Согласен с <a href="/page/pravila" target="_blank">правилами</a> клуба.
+					Согласен с <a href="{{ route('home') }}/page/pravila" target="_blank">правилами</a> клуба.
 				</span>
 			
 			</div>

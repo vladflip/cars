@@ -55,7 +55,7 @@ gulp.task('stylus', function(){
 				.pipe(prefix({
 					browsers: ['last 2 versions']
 				}))
-				// .pipe(minify())
+				.pipe(minify())
 				.pipe(rename('style.css'))
 				.pipe(gulp.dest('public/css'));
 });
@@ -70,7 +70,7 @@ gulp.task('coffee', function(){
 				.pipe(coffee())
 				.on('error', showError)
 				.pipe(notify('Compiled : Coffee'))
-				// .pipe(uglify())
+				.pipe(uglify())
 				.pipe(rename('script.js'))
 				.pipe(gulp.dest('public/js'));
 });
