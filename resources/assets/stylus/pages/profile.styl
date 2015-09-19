@@ -10,7 +10,7 @@
 	&_label
 		font-size 14px
 		font-weight 400
-		width 150px
+		margin-right 10px
 	
 	.container
 		position relative
@@ -84,9 +84,19 @@
 		width 115px
 		height 115px
 		cursor pointer
+		position relative
+		
 		img
 			max-height 115px
 			max-width 115px
+
+		&::after
+			content 'изменить'
+			color $yellow
+			position absolute
+			left 10px
+			bottom 0
+			font-size 12px
 		
 	&_name
 		margin 0
