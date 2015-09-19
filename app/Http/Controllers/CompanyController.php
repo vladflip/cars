@@ -27,8 +27,7 @@ class CompanyController extends Controller {
 
 		if( $this->attach_makes_models($company, \Input::get('makesmodels')) )
 			return 'hello lamer';
-		
-		return $company;
+
 		return route('profile');
 
 	}
@@ -228,7 +227,7 @@ class CompanyController extends Controller {
 			->subject('Подтверждение почты');
 		});
 
-		echo $this->create(), "\n\r";
+		$this->create();
 
 		return route('profile');
 

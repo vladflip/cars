@@ -180,7 +180,6 @@ submit.click ->
 	url = 'api/company/create'
 
 	if companySignUp.length
-
 		if signUpCompanyCheck.prop('checked') isnt true
 			return
 
@@ -223,7 +222,7 @@ submit.click ->
 			if companySignUp.length
 
 				if response.search('http') isnt -1
-					# location.href = response
+					location.href = response
 				else
 					$.magnificPopup.instance.close()
 					$.alert 'Пользователь с таким логином уже существует.'

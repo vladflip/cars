@@ -5,6 +5,7 @@ class Validator
 	# may be make it static function
 	# focus on element if its input after blink
 	# в валидатор нужно передавать елементы а из коллектора возвращать value
+	# make it just like laravel validator, just pass val and pass val to check
 
 	constructor: (@elements) ->
 
