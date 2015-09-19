@@ -4,7 +4,9 @@ class CatalogController extends Controller {
 
 	public function index() {
 
-		$makes = \App\Make::has('companies')
+		$makes = \App\Make::whereHas('companies', function($q){
+			$q->whereStatus(1);
+		})
 		->orderBy('soviet', 'DESC')
 		->orderBy('title', 'ASC')
 		->get();
@@ -28,6 +30,7 @@ class CatalogController extends Controller {
 		$makes = \App\Make::whereHas('companies', function($q) use ($spec){
 
 			$q->where('spec_id', $spec->id);
+			$q->whereStatus(1);
 
 		})->get();
 
@@ -89,6 +92,7 @@ class CatalogController extends Controller {
 		$c = \App\Company::whereHas('makes', function($q) use($make){
 			$q->whereId($make->id);
 		})
+		->whereStatus(1)
 		->where('spec_id', $spec->id)
 		->with('models')
 		->take(6)
@@ -117,6 +121,7 @@ class CatalogController extends Controller {
 		$c = \App\Company::whereHas('makes', function($q) use($make){
 			$q->whereId($make->id);
 		})
+		->whereStatus(1)
 		->take(6)
 		->get();
 
@@ -159,6 +164,7 @@ class CatalogController extends Controller {
 		$c = \App\Company::whereHas('models', function($q) use($model){
 			$q->whereId($model->id);
 		})
+		->whereStatus(1)
 		->where('spec_id', $spec->id)
 		->take(6)
 		->get();
@@ -189,6 +195,7 @@ class CatalogController extends Controller {
 		$c = \App\Company::whereHas('models', function($q) use($model){
 			$q->whereId($model->id);
 		})
+		->whereStatus(1)
 		->take(6)
 		->get();
 
