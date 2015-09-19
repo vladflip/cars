@@ -115,6 +115,8 @@ submit = $ '#create-company-submit'
 
 companySignUp = $ '#company-signup-auth'
 
+signUpCompanyCheck = $ '#sign-up-company-check'
+
 submit.click ->
 
 	result = {}
@@ -178,6 +180,9 @@ submit.click ->
 	url = 'api/company/create'
 
 	if companySignUp.length
+
+		if signUpCompanyCheck.prop('checked') isnt true
+			return
 
 		url = 'api/company/create-signup'
 
