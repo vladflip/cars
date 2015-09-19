@@ -4,7 +4,9 @@ class HomeController extends Controller {
 
 	public function index() {
 
-		$makes = \App\Make::has('companies')
+		$makes = \App\Make::whereHas('companies', function($q){
+			$q->whereStatus(1);
+		})
 		->orderBy('soviet', 'DESC')
 		->orderBy('title', 'ASC')
 		->get();
@@ -17,6 +19,7 @@ class HomeController extends Controller {
 			$makesTypes[] = \App\Make::select('id')
 				->whereHas('companies', function($q) use($i){
 					$q->where('type_id', $i);
+					$q->whereStatus(1);
 				})
 				->get();
 		}
