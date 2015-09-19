@@ -15,8 +15,10 @@ class AdminController extends Controller {
 
 		$feedbacks = \App\Feedback::whereStatus(0)->count();
 
+		$companies = \App\Company::whereStatus(0)->count();
+
 		return view('admin.index')
-			->with(compact('requests', 'feedbacks', 'comments'));
+			->with(compact('requests', 'feedbacks', 'comments', 'companies'));
 
 	}
 
