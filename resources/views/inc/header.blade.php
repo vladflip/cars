@@ -3,7 +3,7 @@
 	<div class="container">
 		
 		<div class="header_box">
-			<div class="header_logo"></div>
+			<a href="/" title="На главную страницу Комтранс"><div class="header_logo"></div></a>
 			
 			<div class="header_title">
 				Справочник коммерческих организаций<br>

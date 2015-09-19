@@ -31,9 +31,23 @@ ol {
   padding: 0;
   list-style: none;
 }
+h1,
+h2,
+h3 {
+  color: #2d2d2d;
+}
 h3 {
   font-size: 18px;
   word-spacing: 2px;
+}
+h1 {
+  font-size: 28px;
+}
+h2 {
+  font-size: 22px;
+}
+h3 {
+  font-size: 18px;
 }
 .clear-fix {
   *zoom: 1;
@@ -246,6 +260,7 @@ h3 {
 .company-signup_h3 {
   font-size: 16px;
   margin: 10px 0;
+  text-align: center;
 }
 .company-signup_p {
   margin: 0;
@@ -292,6 +307,7 @@ h3 {
 .company-signup h3 {
   font-size: 16px;
   margin: 10px 0;
+  text-align: center;
 }
 .company-signup p {
   margin: 0;
@@ -942,13 +958,14 @@ ul.create-company-spec-selectBox-dropdown-menu {
   font-size: 16px;
 }
 .requests_logo {
-  width: 45px;
-  height: 45px;
+  width: 85px;
+  height: 85px;
   border-radius: 50%;
   overflow: hidden;
   border: 1px solid #f0f0f0;
   background-size: cover;
-  backgroun-position: center;
+  background-position: center;
+  margin-bottom: 10px;
 }
 .requests_logo img {
   height: 60px;
@@ -956,7 +973,6 @@ ul.create-company-spec-selectBox-dropdown-menu {
 .requests_name {
   font-size: 14px;
   font-weight: 400;
-  margin-left: 10px;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
@@ -987,13 +1003,19 @@ ul.create-company-spec-selectBox-dropdown-menu {
   -webkit-align-items: flex-start;
       -ms-flex-align: start;
           align-items: flex-start;
+  margin-bottom: 60px;
 }
 .requests_logo-name {
   width: 300px;
 }
 .requests_logo-name--company {
-  margin-left: 20px;
   width: auto;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-align-items: flex-start;
+      -ms-flex-align: start;
+          align-items: flex-start;
 }
 .requests_body {
   width: 350px;
@@ -2261,7 +2283,7 @@ ul.create-company-spec-selectBox-dropdown-menu {
 .profile_label {
   font-size: 14px;
   font-weight: 400;
-  width: 150px;
+  margin-right: 10px;
 }
 .profile .container {
   position: relative;
@@ -2354,10 +2376,19 @@ ul.create-company-spec-selectBox-dropdown-menu {
   width: 115px;
   height: 115px;
   cursor: pointer;
+  position: relative;
 }
 .profile-info_logo img {
   max-height: 115px;
   max-width: 115px;
+}
+.profile-info_logo::after {
+  content: 'изменить';
+  color: #f3df6d;
+  position: absolute;
+  left: 10px;
+  bottom: 0;
+  font-size: 12px;
 }
 .profile-info_name {
   margin: 0;
@@ -2437,6 +2468,9 @@ ul.create-company-spec-selectBox-dropdown-menu {
   min-height: 600px;
   background-color: #fff;
   padding: 25px 35px;
+  margin: auto;
+  width: 740px;
+  border: 1px solid #f3df6d;
 }
 .preloader-start {
   width: 40px;

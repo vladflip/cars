@@ -9,6 +9,8 @@
 		<div class="container">
 
 			<div class="catalog_left">
+
+				@include('inc.company-signup')
 				
 				@include('inc.specs')
 
