@@ -10,6 +10,8 @@
 
 			<div class="room_content">
 
+				<h1>Заказ №</h1>
+
 				@if($company)
 
 					@include('parts.received-requests')

@@ -75,14 +75,16 @@ $request_body
 		font-size 16px
 		
 	&_logo
-		width 45px
-		height 45px
+		width 85px
+		height 85px
 		border-radius 50%
 		overflow hidden
 		border 1px solid $grey
 		
 		background-size cover
-		backgroun-position center
+		background-position center
+		
+		margin-bottom 10px
 		
 		img
 			height 60px
@@ -90,7 +92,6 @@ $request_body
 	&_name
 		font-size 14px
 		font-weight 400
-		margin-left 10px
 		center-text()
 		
 	&_body
@@ -106,14 +107,16 @@ $request_body
 		display flex
 		justify-content space-between
 		align-items flex-start
+		margin-bottom 60px
 		
 	&_logo-name
 		@extends $request_logo-name
 		width 300px
 		
 		&--company
-			margin-left 20px
 			width auto
+			flex-direction column
+			align-items flex-start
 
 	&_body
 		@extends $request_body
