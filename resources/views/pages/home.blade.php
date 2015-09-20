@@ -35,7 +35,7 @@
 					@endforeach
 				</div>
 
-				@include('inc.type', ['id' => 'catalog-types'])
+				@include('inc.type')
 
 				@include('inc.makes.makes', ['id' => 'catalog-makes'])
 

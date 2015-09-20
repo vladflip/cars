@@ -129,11 +129,7 @@ class SpecMakes extends MakeList
 
 
 types = new TypeList
-	el: '#catalog-types'
-
-setTimeout ->
-	do types.click
-, 400
+	el: '#types'
 
 makes = new MainMakes
 	el: '#catalog-makes'
@@ -142,3 +138,5 @@ makes = new MainMakes
 specmakes = new SpecMakes
 	el: '#catalog-specmakes'
 	types: types
+
+types.click()
