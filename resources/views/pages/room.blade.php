@@ -10,7 +10,7 @@
 
 			<div class="room_content">
 
-				<h1>Заказ №</h1>
+				<h1>Заказ № {{ $request->id }}</h1>
 
 				@if($company)
 

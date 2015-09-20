@@ -66,6 +66,7 @@
 
 				<div class="response_body requests_body--grey">
 					{{ $room->response->text }}
+					<hr>
 					<p class="requests_additional">
 						Адрес: {{ $room->response->company->address }} <br>
 						Телефон: {{ $room->response->company->phone }}
