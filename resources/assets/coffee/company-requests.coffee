@@ -16,9 +16,13 @@ class ResponseView extends Backbone.View
 
 		@body = @$el.find('.response_body')
 
+		@photos = @$el.find('#feedback-input')
+
 		@answer.click @doAnswer
 
 	doAnswer: =>
+
+		console.log @photos
 
 		if @text.val() is '' then return
 
@@ -28,7 +32,7 @@ class ResponseView extends Backbone.View
 
 		@body.html @text.val()
 
-		do @sendResponse
+		# do @sendResponse
 
 	sendResponse: ->
 		

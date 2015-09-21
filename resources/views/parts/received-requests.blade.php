@@ -87,6 +87,21 @@
 					<div class="response_buttons">
 						<div class="response_answer">Ответить</div>
 					</div>
+					
+					<div class="feedback_add-photos">
+
+						<input id="feedback-input" 
+						type="file" multiple class="feedback_input-file">
+						
+						<div class="popup_label">Фотографии (10 макс)</div>
+
+						<div id="feedback-photos" class="feedback_photos">
+							
+							<div id="feedback-plus" class="feedback_add-photo"></div>
+
+						</div>
+
+					</div>
 				</div>
 
 			</div>
