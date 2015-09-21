@@ -63,6 +63,16 @@
 
 			</div>
 
+			<div id="mention_photos" class="mention_photos" data-layout="{{ $layout }}">
+			
+				@foreach($room->response->photos as $photo)
+
+					<img src="{{ URL::to('/') . '/' . $photo->src }}" alt="">
+
+				@endforeach
+
+			</div>
+
 		@else
 
 			<div class="response">
@@ -110,7 +120,7 @@
 
 	</div>
 
-	
+
 	@include('templates.photos-template')
 
 </div>
