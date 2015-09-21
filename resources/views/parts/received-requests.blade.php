@@ -90,14 +90,14 @@
 					
 					<div class="feedback_add-photos">
 
-						<input id="feedback-input" 
+						<input id="response-photos-input" 
 						type="file" multiple class="feedback_input-file">
 						
 						<div class="popup_label">Фотографии (10 макс)</div>
 
-						<div id="feedback-photos" class="feedback_photos">
+						<div id="response-photos" class="feedback_photos">
 							
-							<div id="feedback-plus" class="feedback_add-photo"></div>
+							<div id="response-plus" class="feedback_add-photo"></div>
 
 						</div>
 
@@ -109,5 +109,8 @@
 		@endif
 
 	</div>
+
+	
+	@include('templates.photos-template')
 
 </div>

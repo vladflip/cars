@@ -1,3 +1,6 @@
+Thumbnails = require './inc/Thumbnails'
+ImageReader = require './inc/ImageReader'
+
 class Response extends Backbone.Model
 
 class ResponseView extends Backbone.View
@@ -16,13 +19,11 @@ class ResponseView extends Backbone.View
 
 		@body = @$el.find('.response_body')
 
-		@photos = @$el.find('#feedback-input')
+		@thumbnails = @options.thumbnails
 
 		@answer.click @doAnswer
 
 	doAnswer: =>
-
-		console.log @photos
 
 		if @text.val() is '' then return
 
@@ -32,7 +33,7 @@ class ResponseView extends Backbone.View
 
 		@body.html @text.val()
 
-		# do @sendResponse
+		do @sendResponse
 
 	sendResponse: ->
 		
@@ -43,6 +44,7 @@ class ResponseView extends Backbone.View
 			data:
 				room: @roomId
 				response: @text.val()
+				photos: @thumbnails.get() 
 
 		.done (response) =>
 			console.log response
@@ -55,10 +57,16 @@ class Request extends Backbone.Model
 class RequestView extends Backbone.View
 
 	initialize: ->
+
+		thumbnails = new Thumbnails 
+			el: $('#response-photos')
+			plus: $('#response-plus')
+			reader: new ImageReader '#response-photos-input'
 		
 		new ResponseView
 			el: @$el.children('.response')
 			roomId: @model.get 'id'
+			thumbnails: thumbnails
 
 
 class RequestsCollection extends Backbone.Collection
