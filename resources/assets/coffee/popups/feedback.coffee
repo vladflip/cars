@@ -164,8 +164,8 @@ $('#add-feedback').click ->
 		return
 
 	# ===================================
-	if imagesView.get().length isnt 0
-		result.images = imagesView.get()
+	if thumbnails.get().length isnt 0
+		result.images = thumbnails.get()
 
 	# ===================================
 
