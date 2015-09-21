@@ -3,5 +3,6 @@
 .env
 public/img/user*
 public/img/makes/*
+public/img/room*
 
 *.sublime-*

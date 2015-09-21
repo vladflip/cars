@@ -16,4 +16,8 @@ class Response extends Model {
 		return $this->belongsTo('App\Company', 'company_id');
 	}
 
+	public function photos() {
+		return $this->hasMany('App\ResponsePhoto', 'response_id');
+	}
+
 }
