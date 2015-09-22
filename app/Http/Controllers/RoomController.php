@@ -35,27 +35,30 @@ class RoomController extends Controller {
 
 		}
 
-		$opts = [
-			['1'],
-			['2'],
-			['21','12'],
-			['22', '13', '31'],
-			['23', '32', '14', '41'],
-			['33', '42', '51', '15', '24'],
-			['25', '34', '52', '43'],
-			['35', '53'],
-			['45', '54'],
-			['55']
-		];
-
 		$option = 0;
 
-		if(count($room->response->photos)>0){
-			$row = count($room->response->photos)-1;
-			$col = count($opts[$row]);
-			$randOption = rand(0, $col-1);
+		if($room->response){
 
-			$option = $opts[$row][$randOption];
+			$opts = [
+				['1'],
+				['2'],
+				['21','12'],
+				['22', '13', '31'],
+				['23', '32', '14', '41'],
+				['33', '42', '51', '15', '24'],
+				['25', '34', '52', '43'],
+				['35', '53'],
+				['45', '54'],
+				['55']
+			];
+
+			if(count($room->response->photos)>0){
+				$row = count($room->response->photos)-1;
+				$col = count($opts[$row]);
+				$randOption = rand(0, $col-1);
+
+				$option = $opts[$row][$randOption];
+			}
 		}
 
 		return view('pages.room')
