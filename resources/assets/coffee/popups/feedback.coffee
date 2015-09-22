@@ -1,4 +1,6 @@
 SelectView = require '../inc/SelectView'
+ImageReader = require '../inc/ImageReader'
+Thumbnails = require '../inc/Thumbnails'
 
 $('#feedback').magnificPopup
 
@@ -19,105 +21,10 @@ type = new SelectView
 	c: make
 
 
-class Image extends Backbone.Model
-	defaults:
-		src: '' 
-
-
-class ImageCollection extends Backbone.Collection
-	model : Image
-
-class ImageView extends Backbone.View
-
-	className : 'feedback_photo'
-
-	template: $.HandlebarsFactory '#photos-template'
-
-	initialize: ->
-		self = @
-		@model.on('clean', @clean)
-
-		do @render
-
-		@$el.find('.popup_redx:first').click ->
-			do self.destroy
-
-	clean: =>
-		do @$el.remove
-
-	destroy: =>
-		do @model.destroy
-		do @clean
-
-	render: ->
-		@$el.html @template src : @model.get('src')
-
-class ImagesView extends Backbone.View
-
-	initialize: ->
-		@collection.on('add', @added)
-
-	added: (m) =>
-		do @clean
-		do @render
-
-	clean: ->
-		@collection.each (image) =>
-			image.trigger('clean')
-
-	render: ->
-		@collection.each (image) =>
-			view = new ImageView model: image
-			@options.plus.before view.el
-
-	get: ->
-		r = []
-		@collection.each (image) ->
-			r.push image.get 'src'
-
-		r
-
-
-imageCollection = new ImageCollection
-
-
-imagesView = new ImagesView 
-	collection : imageCollection
-	el: '#feedback-photos'
+thumbnails = new Thumbnails 
+	el: $('#feedback-photos')
 	plus: $('#feedback-plus')
-
-
-class AddPhotos
-
-	constructor: (input, plus) ->
-		self = @
-
-		@input = $(input)
-		@plus = $(plus)
-
-		@input.change ->
-			self.check @files
-
-		@plus.click ->
-			self.input.click()
-
-	check: (files) ->
-		for file, i in files
-			unless file.type.search('image') is -1
-				@read file
-
-	read: (file) ->
-		src = ''
-		r = new FileReader
-
-		if imageCollection.length < 10
-			r.onloadend = ->
-				imageCollection.add new Image src : r.result
-
-		r.readAsDataURL(file)
-
-
-new AddPhotos '#feedback-input', '#feedback-plus'
+	reader: new ImageReader '#feedback-input'
 
 # -------------------------------------------
 # ------------- Quill.js
@@ -257,8 +164,8 @@ $('#add-feedback').click ->
 		return
 
 	# ===================================
-	if imagesView.get().length isnt 0
-		result.images = imagesView.get()
+	if thumbnails.get().length isnt 0
+		result.images = thumbnails.get()
 
 	# ===================================
 

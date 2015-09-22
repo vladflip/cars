@@ -63,6 +63,16 @@
 
 			</div>
 
+			<div id="mention_photos" class="mention_photos" data-layout="{{ $layout }}">
+			
+				@foreach($room->response->photos as $photo)
+
+					<img src="{{ URL::to('/') . '/' . $photo->src }}" alt="">
+
+				@endforeach
+
+			</div>
+
 		@else
 
 			<div class="response">
@@ -87,6 +97,21 @@
 					<div class="response_buttons">
 						<div class="response_answer">Ответить</div>
 					</div>
+					
+					<div class="feedback_add-photos">
+
+						<input id="response-photos-input" 
+						type="file" multiple class="feedback_input-file">
+						
+						<div class="popup_label">Фотографии (10 макс)</div>
+
+						<div id="response-photos" class="feedback_photos">
+							
+							<div id="response-plus" class="feedback_add-photo"></div>
+
+						</div>
+
+					</div>
 				</div>
 
 			</div>
@@ -94,5 +119,8 @@
 		@endif
 
 	</div>
+
+
+	@include('templates.photos-template')
 
 </div>

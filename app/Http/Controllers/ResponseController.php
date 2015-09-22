@@ -31,11 +31,38 @@ class ResponseController extends Controller {
 
 		$response = new \App\Response;
 
-		$response->text = $input->response;
+		$response->text = htmlentities($input->response);
 		$response->company_id = $company->id;
 		$response->room_id = $input->room;
 
 		$response->save();
+
+		if(isset($input->photos)){
+
+			if( count($input->photos) > 10 )
+				return 'hello lamer';
+
+			foreach ($input->photos as $src) {
+
+				$name = md5(\Hash::make($src . \Auth::id() . $room->id));
+
+				$dirname = 'img/room' . $room->id . '/photos';
+
+				$fullname = $dirname . '/' . $name . '.jpg';
+
+				if( ! file_exists($dirname) ){
+					mkdir($dirname, 0777, true);
+				}
+				
+				\Image::make($src)->save($fullname, 100);
+
+				$photo = new \App\ResponsePhoto(['src' => $fullname]);
+
+				$response->photos()->save($photo);
+
+			}
+
+		}
 
 		\Mail::queue('emails.response', [
 			'request' => $room->request,

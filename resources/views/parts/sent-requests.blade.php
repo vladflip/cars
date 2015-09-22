@@ -74,6 +74,16 @@
 				</div>
 
 			</div>
+
+			<div id="mention_photos" class="mention_photos" data-layout="{{ $layout }}">
+			
+				@foreach($room->response->photos as $photo)
+
+					<img src="{{ URL::to('/') . '/' . $photo->src }}" alt="">
+
+				@endforeach
+
+			</div>
 		@endif
 
 	</div>
