@@ -16,7 +16,9 @@ $toogler--active
 
 $request_logo-name
 	display flex
-	align-items center
+	align-items flex-start
+	flex-direction column
+	
 	
 $request_time
 	color #ccc
@@ -131,6 +133,7 @@ $request_body
 	display flex
 	justify-content space-between
 	margin-top 15px
+	margin-bottom 60px
 	
 	&_time
 		@extends $request_time
