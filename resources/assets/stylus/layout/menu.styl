@@ -8,6 +8,11 @@
 		align-items center
 		justify-content space-between
 		
+	&_btn.active
+		cursor default 
+		a:hover
+			cursor default 
+		
 	&_btn
 		height 100%
 		font-weight 300
@@ -20,8 +25,8 @@
 			margin-left 0
 			
 		&:hover, &.active
-			color #999
-		
+			color $orange
+
 		a
 			// --------------
 			// center text mixin vertical align
